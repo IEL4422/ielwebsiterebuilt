@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import Link from 'next/link';
+import fs from "fs";
+import path from "path";
+import Link from "next/link";
 import { Clock, Search, X } from 'lucide-react';
 
 interface BlogPost {
@@ -46,28 +46,23 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchPosts() {
-      const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-      );
+  async function fetchPosts() {
+    try {
+      const res = await fetch('/blog/posts.json');
+      if (!res.ok) throw new Error(`Failed to load posts.json: ${res.status}`);
+      const data = await res.json();
 
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .order('published_date', { ascending: false });
-
-      if (error) {
-        console.error('Error fetching blog posts:', error);
-      } else {
-        setPosts(data || []);
-        setFilteredPosts(data || []);
-      }
+      setPosts(data || []);
+      setFilteredPosts(data || []);
+    } catch (err) {
+      console.error('Error loading blog posts:', err);
+    } finally {
       setLoading(false);
     }
+  }
 
-    fetchPosts();
-  }, []);
+  fetchPosts();
+}, []);
 
   useEffect(() => {
     let filtered = posts;
