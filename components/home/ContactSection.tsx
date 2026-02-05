@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -61,6 +61,17 @@ export function ContactSection() {
       [e.target.name]: e.target.value
     }));
   };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <section className="py-16 lg:py-24 bg-slate-800">
@@ -147,13 +158,10 @@ export function ContactSection() {
 
           <div>
             <div
-              className="calendly-inline-widget bg-white rounded-lg shadow-lg min-h-[500px] flex items-center justify-center"
-            >
-              <div className="text-center p-8">
-                <p className="text-slate-700">Calendly scheduling widget</p>
-                <p className="text-sm text-slate-500 mt-2">Book your consultation online</p>
-              </div>
-            </div>
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/illinoisestatelaw/initial-consultation-waived-consultation-fee-clone?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=7c9bcc"
+              style={{ minWidth: '320px', height: '700px' }}
+            />
           </div>
         </div>
       </div>
