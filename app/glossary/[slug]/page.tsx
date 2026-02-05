@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Clock, BookOpen, MessageSquare } from 'lucide-react';
+import { ArrowLeft, BookOpen, MessageSquare, Clock } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { notFound } from 'next/navigation';
+import GuideContent from './GuideContent';
 
 interface GuidePageProps {
   params: {
@@ -18,7 +19,6 @@ async function getGuide(slug: string) {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
-    console.error('Supabase environment variables not configured');
     return null;
   }
 
@@ -31,7 +31,6 @@ async function getGuide(slug: string) {
     .maybeSingle();
 
   if (error) {
-    console.error('Error fetching guide:', error);
     return null;
   }
 
@@ -43,7 +42,6 @@ async function getAllGuideSlugs() {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
-    console.error('Supabase environment variables not configured');
     return [];
   }
 
@@ -54,7 +52,6 @@ async function getAllGuideSlugs() {
     .select('slug');
 
   if (error) {
-    console.error('Error fetching guide slugs:', error);
     return [];
   }
 
@@ -67,8 +64,7 @@ export async function generateStaticParams() {
     return guides.map((guide) => ({
       slug: guide.slug,
     }));
-  } catch (error) {
-    console.error('Error generating static params:', error);
+  } catch {
     return [];
   }
 }
@@ -77,9 +73,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
   const guide = await getGuide(params.slug);
 
   if (!guide) {
-    return {
-      title: 'Guide Not Found',
-    };
+    return { title: 'Guide Not Found' };
   }
 
   return {
@@ -93,6 +87,12 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
   };
 }
 
+function estimateReadTime(content: string): number {
+  const textOnly = content.replace(/<[^>]*>/g, '').replace(/[{}",:\[\]]/g, ' ');
+  const wordCount = textOnly.split(/\s+/).filter(Boolean).length;
+  return Math.max(5, Math.ceil(wordCount / 200));
+}
+
 export default async function GuidePage({ params }: GuidePageProps) {
   const guide = await getGuide(params.slug);
 
@@ -100,25 +100,45 @@ export default async function GuidePage({ params }: GuidePageProps) {
     notFound();
   }
 
+  const readTime = guide.content ? estimateReadTime(guide.content) : 5;
+
+  let isStructured = false;
+  let structuredSections = null;
+  try {
+    const parsed = JSON.parse(guide.content);
+    if (Array.isArray(parsed)) {
+      isStructured = true;
+      structuredSections = parsed;
+    }
+  } catch {
+    isStructured = false;
+  }
+
   return (
     <main className="bg-white">
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-14">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link
             href="/glossary"
-            className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Learning Center
           </Link>
           <div className="max-w-3xl">
-            <div className="inline-block bg-white/20 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4">
-              {guide.category}
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-block bg-white/20 text-white text-sm font-semibold px-4 py-1 rounded-full">
+                {guide.category}
+              </span>
+              <span className="flex items-center gap-1.5 text-white/70 text-sm">
+                <Clock className="w-4 h-4" />
+                {readTime} min read
+              </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
               {guide.title}
             </h1>
-            <p className="text-xl text-white/90">
+            <p className="text-xl text-white/90 leading-relaxed">
               {guide.description}
             </p>
           </div>
@@ -127,21 +147,23 @@ export default async function GuidePage({ params }: GuidePageProps) {
 
       <article className="py-16">
         <div className="mx-auto max-w-[800px] px-5 xl:px-0">
-          <div className="prose prose-lg max-w-none">
-            {guide.content ? (
-              <div dangerouslySetInnerHTML={{ __html: guide.content }} />
-            ) : (
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
-                <BookOpen className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <p className="text-lg text-gray-700 mb-4">
-                  This guide is currently being developed. Check back soon for comprehensive information about {guide.title.toLowerCase()}.
-                </p>
-                <p className="text-gray-600">
-                  In the meantime, our experienced estate planning attorneys can answer any questions you have about this topic.
-                </p>
-              </div>
-            )}
-          </div>
+          {guide.content ? (
+            <GuideContent
+              content={guide.content}
+              isStructured={isStructured}
+              structuredSections={structuredSections}
+            />
+          ) : (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
+              <BookOpen className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <p className="text-lg text-gray-700 mb-4">
+                This guide is currently being developed. Check back soon for comprehensive information about {guide.title.toLowerCase()}.
+              </p>
+              <p className="text-gray-600">
+                In the meantime, our experienced estate planning attorneys can answer any questions you have about this topic.
+              </p>
+            </div>
+          )}
         </div>
       </article>
 
