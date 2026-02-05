@@ -6,6 +6,40 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Client-Info, Apikey',
 };
 
+async function verifyWebhookSignature(payload: string, signature: string, secret: string): Promise<boolean> {
+  const encoder = new TextEncoder();
+  const parts = signature.split(',');
+
+  let timestamp = '';
+  let signatureHash = '';
+
+  for (const part of parts) {
+    const [key, value] = part.split('=');
+    if (key === 't') timestamp = value;
+    if (key === 'v1') signatureHash = value;
+  }
+
+  if (!timestamp || !signatureHash) {
+    return false;
+  }
+
+  const signedPayload = `${timestamp}.${payload}`;
+  const key = await crypto.subtle.importKey(
+    'raw',
+    encoder.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+
+  const signatureBuffer = await crypto.subtle.sign('HMAC', key, encoder.encode(signedPayload));
+  const computedSignature = Array.from(new Uint8Array(signatureBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+
+  return computedSignature === signatureHash;
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, {
@@ -20,7 +54,14 @@ Deno.serve(async (req: Request) => {
     const body = await req.text();
 
     if (!stripeWebhookSecret) {
-      console.log('Webhook secret not configured, skipping signature verification');
+      console.warn('SECURITY WARNING: Webhook secret not configured. Signature verification is disabled.');
+    } else if (!signature) {
+      throw new Error('Missing stripe-signature header');
+    } else {
+      const isValid = await verifyWebhookSignature(body, signature, stripeWebhookSecret);
+      if (!isValid) {
+        throw new Error('Invalid webhook signature');
+      }
     }
 
     const event = JSON.parse(body);
