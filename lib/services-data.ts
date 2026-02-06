@@ -135,6 +135,21 @@ export const probatePackages: Service[] = [
       'Unlimited Attorney Consultation'
     ],
     note: 'For estates with less than $100,000 in assets and no real estate'
+  },
+  {
+    id: 'heir-representation',
+    name: 'Heir Representation',
+    category: 'probate',
+    fixedPrice: 2500,
+    description: 'Representation throughout the entire probate matter of non-representative heirs',
+    includes: [
+      'Full legal representation throughout the probate proceeding',
+      'Review of all filings and court documents',
+      'Protection of heir\'s interests and inheritance rights',
+      'Attendance at all court hearings on behalf of heir',
+      'Unlimited Attorney Consultation'
+    ],
+    note: '$2,500 per heir'
   }
 ];
 

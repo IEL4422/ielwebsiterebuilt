@@ -165,6 +165,23 @@ export default function ServicesPage() {
                     </p>
                   </div>
                 </div>
+
+                <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 sm:p-4">
+                  <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4 sm:text-[20px]">
+                    Heir Representation
+                  </h3>
+                  <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-2 sm:text-[18px]">
+                    $2,500 per heir
+                  </p>
+                  <p className="font-['Plus_Jakarta_Sans'] font-normal text-[14px] text-[#f3f3f3] italic mb-4">
+                    Representation throughout the entire probate matter of non-representative heirs.
+                  </p>
+                  <div className="font-['Plus_Jakarta_Sans'] font-normal text-[14px] text-[#f3f3f3]">
+                    <p className="mb-3">
+                      <span className="underline">Includes</span>: Full Legal Representation Throughout the Probate Proceeding, Review of All Filings and Court Documents, Protection of Heir&apos;s Interests and Inheritance Rights, Attendance at All Court Hearings on Behalf of Heir, and Unlimited Attorney Consultation.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
