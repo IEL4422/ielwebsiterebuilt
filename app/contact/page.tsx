@@ -210,8 +210,8 @@ export default function ContactPage() {
             <div className="border border-[#2d3e50] rounded-[14px] p-1.5">
               <div
                 className="calendly-inline-widget rounded-[14px] overflow-hidden"
-                data-url="https://calendly.com/illinoisestatelaw/initial-consultation?hide_gdpr_banner=1&primary_color=0b2b64"
-                style={{ minWidth: '320px', height: '532px' }}
+                data-url="https://calendly.com/illinoisestatelaw/initial-consultation-waived-consultation-fee-clone?hide_gdpr_banner=1&primary_color=5e89be"
+                style={{ minWidth: '320px', height: '700px' }}
               ></div>
             </div>
           </div>
