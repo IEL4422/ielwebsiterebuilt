@@ -34,10 +34,10 @@ const navItems = [
   { label: 'Services', href: '/services-pricing/' },
   {
     label: 'Resources',
-    href: '/glossary/',
+    href: '/learning-center/',
     children: [
       { label: 'Client Portal', href: 'https://portal.illinoisestatelaw.com', external: true },
-      { label: 'Learning Center', href: '/glossary/' },
+      { label: 'Learning Center', href: '/learning-center/' },
       { label: 'Estate Tax Calculator', href: '/illinois-estate-tax-calculator/' },
       { label: 'Downloadable Guide', href: '/illinois-estate-law-guidebook.pdf', external: true },
       { label: 'Blog', href: '/blog/' },

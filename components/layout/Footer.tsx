@@ -7,7 +7,7 @@ import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Youtube } from 'luc
 const footerNavItems = [
   { label: 'ABOUT', href: '/about/' },
   { label: 'SERVICES', href: '/services/' },
-  { label: 'RESOURCES', href: '/glossary/' },
+  { label: 'RESOURCES', href: '/learning-center/' },
   { label: 'CONTACT', href: '/contact/' },
 ];
 

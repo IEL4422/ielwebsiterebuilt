@@ -77,7 +77,7 @@ export default function GuidesSearch({ guides }: GuidesSearchProps) {
         {filteredGuides.map(guide => (
           <Link
             key={guide.id}
-            href={`/glossary/${guide.slug}`}
+            href={`/learning-center/${guide.slug}`}
             className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 hover:border-[#2D3E50]"
           >
             <div className="flex items-start gap-4">

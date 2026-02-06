@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Illinois Estate Law: Navigate estate planning with expert advice on wills, trusts, and probate. Secure your wishes today!',
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
-    url: 'https://www.illinoisestatelaw.com/glossary/',
+    url: 'https://www.illinoisestatelaw.com/learning-center/',
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
     type: 'article',

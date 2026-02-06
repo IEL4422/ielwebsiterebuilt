@@ -54,9 +54,10 @@ const nextConfig = {
       { source: '/estatetaxes/', destination: '/', permanent: true },
       { source: '/executor-administrator-guide/', destination: '/', permanent: true },
       { source: '/digital-asset-inventory-tool/', destination: '/', permanent: true },
-      { source: '/learning-center/', destination: '/', permanent: true },
       { source: '/trust-funding-checklist/', destination: '/', permanent: true },
       { source: '/guidebook-request/', destination: '/', permanent: true },
+      { source: '/glossary/', destination: '/learning-center/', permanent: true },
+      { source: '/glossary/:slug/', destination: '/learning-center/:slug/', permanent: true },
     ];
   },
 };
