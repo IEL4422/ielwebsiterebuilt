@@ -106,6 +106,25 @@ export const probatePackages: Service[] = [
     note: '$7,500 for Uncontested Matters - Varies for Contested Matters'
   },
   {
+    id: 'summary-probate',
+    name: 'Summary Probate',
+    category: 'probate',
+    fixedPrice: 5000,
+    description: 'Simplified probate process for estates meeting specific requirements',
+    includes: [
+      'Preparation and Filing of All Necessary Documents',
+      'Notification of Heirs and Creditors',
+      'Heirship Research',
+      'Asset Search',
+      'Representation at All Court Hearings',
+      'Filing Fees, Creditor Notification Publication Fees',
+      'Preparation of Final Accounting',
+      'Access to Probate Portal',
+      'Unlimited Attorney Consultation'
+    ],
+    note: 'For estates with net value of $100,000 or less, all expenses and debts paid, all heirs consent in writing'
+  },
+  {
     id: 'partial-probate',
     name: 'Partial Probate',
     category: 'probate',

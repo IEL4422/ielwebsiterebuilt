@@ -11,6 +11,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { CheckIcon } from '@/components/icons/CheckIcon';
+import { CategorizedServices } from '@/components/services/CategorizedServices';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -389,48 +390,11 @@ export default function PurchaseServicePage() {
 
       <div className="container mx-auto px-5 max-w-[1240px] py-[60px]">
         {step === 'select-service' && (
-          <>
-            <div className="mb-12">
-              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
-                Estate Planning Packages
-              </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {estatePlanningPackages.map(renderServiceCard)}
-              </div>
-            </div>
-
-            <div className="mb-12">
-              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
-                Probate Packages
-              </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {probatePackages.map(renderServiceCard)}
-              </div>
-            </div>
-
-            <div className="mb-12">
-              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
-                A La Carte Services
-              </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {aLaCarteServices
-                  .filter(service =>
-                    !['special-needs-planning', 'estate-tax-planning', 'transfer-on-death'].includes(service.id)
-                  )
-                  .map(renderServiceCard)
-                }
-              </div>
-            </div>
-
-            <div className="mb-12">
-              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
-                Prenuptial Agreement Services
-              </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {prenuptialServices.map(renderServiceCard)}
-              </div>
-            </div>
-          </>
+          <CategorizedServices
+            onSelectService={handleServiceSelect}
+            expandedDescriptions={expandedDescriptions}
+            toggleDescription={toggleDescription}
+          />
         )}
 
         {step === 'add-ons' && selectedService && (
