@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /staff-portal/
+Sitemap: https://illinoisestatelaw.com/sitemap.xml
