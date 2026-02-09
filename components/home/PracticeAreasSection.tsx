@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, FileText, Shield, Scale, ScrollText, Building, Users, Heart } from 'lucide-react';
+import { ChevronLeft, ChevronRight, FileText, Shield, Scale, ScrollText, Building, Users, Heart, Briefcase } from 'lucide-react';
 import Link from 'next/link';
 
 const practiceAreas = [
@@ -39,6 +39,11 @@ const practiceAreas = [
     title: "Prenuptial Agreements",
     icon: Heart,
     href: "/chicago-prenuptial-agreements-lawyer",
+  },
+  {
+    title: "Small Business",
+    icon: Briefcase,
+    href: "/chicago-small-business-lawyer",
   },
 ];
 
