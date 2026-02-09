@@ -464,6 +464,67 @@ export function CategorizedServices({
           includes: []
         }
       ]
+    },
+    {
+      id: 'small-business',
+      name: 'Small Business',
+      packages: [
+        {
+          id: 'small-business-package',
+          name: 'Small Business Package',
+          category: 'small-business',
+          fixedPrice: 2000,
+          description: 'Comprehensive business formation and brand protection package including LLC registration, trademark protection, and all necessary documentation',
+          includes: [
+            'LLC Registration',
+            'Trademark Registration',
+            'Operating Agreement',
+            'EIN Number',
+            'All Filing Fees Included'
+          ]
+        },
+        {
+          id: 'business-essentials',
+          name: 'Business Essentials',
+          category: 'small-business',
+          fixedPrice: 1000,
+          description: 'Essential business formation package with LLC registration and operating agreement',
+          includes: [
+            'LLC Registration',
+            'EIN Number',
+            'Operating Agreement',
+            'Filing Fees Included'
+          ]
+        }
+      ],
+      aLaCarte: [
+        {
+          id: 'trademark-registration',
+          name: 'Trademark Registration',
+          category: 'small-business',
+          fixedPrice: 1250,
+          description: 'Protect your brand identity with federal trademark registration, including comprehensive searches and application filing',
+          includes: [],
+          note: 'Includes filing fees'
+        },
+        {
+          id: 'office-action-procedural',
+          name: 'Office Action Response (Procedural)',
+          category: 'small-business',
+          fixedPrice: 500,
+          description: 'Expert response to procedural USPTO office actions to overcome trademark application obstacles',
+          includes: []
+        },
+        {
+          id: 'office-action-substantive',
+          name: 'Office Action Response (Substantive)',
+          category: 'small-business',
+          fixedPrice: 1500,
+          description: 'Expert response to substantive USPTO office actions to overcome trademark application obstacles',
+          includes: []
+        }
+      ],
+      addOns: []
     }
   ];
 

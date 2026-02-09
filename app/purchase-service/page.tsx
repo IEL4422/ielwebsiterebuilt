@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, type Service } from '@/lib/services-data';
+import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, type Service } from '@/lib/services-data';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -255,6 +255,8 @@ export default function PurchaseServicePage() {
         const getServiceType = (category: string, serviceName: string) => {
           if (category === 'estate-planning') return 'Estate Planning';
           if (category === 'probate') return 'Probate';
+          if (category === 'prenuptial') return 'Prenuptial Agreement';
+          if (category === 'small-business') return 'Small Business';
           if (category === 'a-la-carte') {
             const deedServices = ['Quit Claim Deed', 'Transfer-on-Death Instrument', 'Life Estate Deed'];
             if (deedServices.some(d => serviceName.includes(d))) return 'Deed';
