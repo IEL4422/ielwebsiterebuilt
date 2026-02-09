@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'when-is-probate-required-in-illinois',
+    title: 'When Is Probate Required in Illinois? Complete 2026 Guide with Interactive Tools',
+    url: '/blog/when-is-probate-required-in-illinois/',
+    date: 'Feb 9, 2026',
+    summary: 'Comprehensive guide explaining when probate is required in Illinois, when it can be avoided, and what alternatives exist. Includes interactive estate value calculator, decision trees, and detailed explanations of the $100,000 threshold.',
+    excerpt: 'Understand when Illinois law requires probate and discover alternatives with our interactive estate calculator and comprehensive guide.',
+  },
+  {
     slug: 'can-a-house-transfer-automatically-at-death-in-illinois-5-ways-it-can-and-3-ways-it-cant',
     title: 'Can a House Transfer Automatically at Death in Illinois? 5 Ways It Can (and 3 Ways It Can\'t)',
     url: '/blog/can-a-house-transfer-automatically-at-death-in-illinois-5-ways-it-can-and-3-ways-it-cant/',
