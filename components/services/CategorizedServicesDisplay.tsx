@@ -98,8 +98,8 @@ export function CategorizedServicesDisplay() {
         },
         {
           name: 'Probate Avoidance Package',
-          individualPrice: 1250,
-          jointPrice: 1750,
+          individualPrice: 1750,
+          jointPrice: 2250,
           includes: [
             'Last Will & Testament',
             'Power of Attorney for Healthcare and Property',
@@ -216,7 +216,7 @@ export function CategorizedServicesDisplay() {
         },
         {
           name: 'Summary Probate',
-          fixedPrice: 5000,
+          fixedPrice: 4000,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -229,7 +229,7 @@ export function CategorizedServicesDisplay() {
             'Access to Client Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates with net value of $100,000 or less, all expenses and debts paid, all heirs consent in writing'
+          note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs'
         },
         {
           name: 'Partial Probate',
@@ -246,17 +246,6 @@ export function CategorizedServicesDisplay() {
           note: 'For probate cases that have already been filed'
         },
         {
-          name: 'Small Estate Probate',
-          fixedPrice: 1000,
-          includes: [
-            'Preparation of Small Estate Affidavit',
-            'Asset Search',
-            'Online Notarization',
-            'Unlimited Attorney Consultation'
-          ],
-          note: 'For estates with less than $100,000 in assets and no real estate'
-        },
-        {
           name: 'Heir Representation',
           fixedPrice: 2500,
           includes: [
@@ -269,13 +258,7 @@ export function CategorizedServicesDisplay() {
           note: '$2,500 per heir - Representation throughout the entire probate matter of non-representative heirs'
         }
       ],
-      aLaCarte: [
-        {
-          name: 'Small Estate Affidavit',
-          fixedPrice: 500,
-          includes: []
-        }
-      ],
+      aLaCarte: [],
       addOns: []
     },
     {
@@ -357,6 +340,52 @@ export function CategorizedServicesDisplay() {
           includes: []
         }
       ]
+    },
+    {
+      id: 'small-business',
+      name: 'Small Business',
+      packages: [
+        {
+          name: 'Small Business Package',
+          fixedPrice: 2000,
+          includes: [
+            'LLC Registration',
+            'Trademark Registration',
+            'Operating Agreement',
+            'EIN Number',
+            'All Filing Fees Included'
+          ]
+        },
+        {
+          name: 'Business Essentials',
+          fixedPrice: 1000,
+          includes: [
+            'LLC Registration',
+            'EIN Number',
+            'Operating Agreement',
+            'Filing Fees Included'
+          ]
+        }
+      ],
+      aLaCarte: [
+        {
+          name: 'Trademark Registration',
+          fixedPrice: 1250,
+          note: 'Includes filing fees',
+          includes: []
+        },
+        {
+          name: 'Office Action Response (Procedural)',
+          fixedPrice: 500,
+          includes: []
+        },
+        {
+          name: 'Office Action Response (Substantive)',
+          fixedPrice: 1500,
+          includes: []
+        }
+      ],
+      addOns: []
     }
   ];
 

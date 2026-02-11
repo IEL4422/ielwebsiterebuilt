@@ -36,8 +36,8 @@ export const estatePlanningPackages: Service[] = [
     id: 'probate-avoidance-package',
     name: 'Probate Avoidance Package',
     category: 'estate-planning',
-    individualPrice: 1250,
-    jointPrice: 1750,
+    individualPrice: 1750,
+    jointPrice: 2250,
     description: 'Essential documents to avoid probate',
     includes: [
       'Last Will & Testament',
@@ -109,7 +109,7 @@ export const probatePackages: Service[] = [
     id: 'summary-probate',
     name: 'Summary Probate',
     category: 'probate',
-    fixedPrice: 5000,
+    fixedPrice: 4000,
     description: 'Simplified probate process for estates meeting specific requirements',
     includes: [
       'Preparation and Filing of All Necessary Documents',
@@ -122,7 +122,7 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates with net value of $100,000 or less, all expenses and debts paid, all heirs consent in writing'
+    note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs'
   },
   {
     id: 'partial-probate',
@@ -140,20 +140,6 @@ export const probatePackages: Service[] = [
       'Unlimited Attorney Consultation'
     ],
     note: 'For probate cases that have already been filed'
-  },
-  {
-    id: 'small-estate-probate',
-    name: 'Small Estate Probate',
-    category: 'probate',
-    fixedPrice: 1000,
-    description: 'Simplified process for smaller estates',
-    includes: [
-      'Preparation of Small Estate Affidavit',
-      'Asset Search',
-      'Online Notarization',
-      'Unlimited Attorney Consultation'
-    ],
-    note: 'For estates with less than $100,000 in assets and no real estate'
   },
   {
     id: 'heir-representation',
@@ -229,14 +215,6 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 500,
     description: 'A Life Estate Deed is a deed that lets you keep the right to live in and control your home for the rest of your life, while naming who will automatically receive the property after you pass away—so it transfers outside of probate.',
-    includes: []
-  },
-  {
-    id: 'small-estate-affidavit',
-    name: 'Small Estate Affidavit',
-    category: 'a-la-carte',
-    fixedPrice: 500,
-    description: 'A Small Estate Affidavit is a sworn form that can let family members collect a person\'s property (like bank accounts or a car) without opening a full probate case, as long as the estate is under Illinois\'s limit and meets the required conditions.',
     includes: []
   },
   {
