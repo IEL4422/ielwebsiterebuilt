@@ -414,7 +414,7 @@ export default function PurchaseServicePage() {
                 Selected Package: {selectedService.name}
               </h3>
               <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe]">
-                Base Price: ${getServicePrice(selectedService, clientType).toLocaleString()}
+                Base Price: {selectedService.pricingLabel || `$${getServicePrice(selectedService, clientType).toLocaleString()}`}
               </p>
             </div>
 
@@ -504,7 +504,7 @@ export default function PurchaseServicePage() {
                 <div className="flex justify-between items-center text-[#fefefe]">
                   <div>
                     <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px]">
-                      Base Price: ${getServicePrice(selectedService, clientType).toLocaleString()}
+                      Base Price: {selectedService.pricingLabel || `$${getServicePrice(selectedService, clientType).toLocaleString()}`}
                     </p>
                     <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px]">
                       Add-Ons: ${getAddOnsTotal().toLocaleString()}
@@ -552,7 +552,9 @@ export default function PurchaseServicePage() {
                 Selected Service: {selectedService.name}
               </h3>
               <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-2">
-                {selectedService.fixedPrice
+                {selectedService.pricingLabel
+                  ? selectedService.pricingLabel
+                  : selectedService.fixedPrice
                   ? `$${selectedService.fixedPrice.toLocaleString()}`
                   : `${clientType === 'individual' ? 'Individual' : 'Joint'}: $${getServicePrice(selectedService, clientType).toLocaleString()}`
                 }
