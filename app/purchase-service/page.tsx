@@ -120,8 +120,9 @@ export default function PurchaseServicePage() {
   }, []);
 
   const getServicePrice = (service: Service, type: 'individual' | 'joint') => {
+    if (service.pricingLabel) return 0;
     if (service.fixedPrice) return service.fixedPrice;
-    return type === 'individual' ? service.individualPrice! : service.jointPrice!;
+    return type === 'individual' ? (service.individualPrice || 0) : (service.jointPrice || 0);
   };
 
   const getAddOnsTotal = () => {
@@ -512,7 +513,7 @@ export default function PurchaseServicePage() {
                   </div>
                   <div>
                     <p className="font-['Plus_Jakarta_Sans'] font-bold text-[28px]">
-                      Total: ${getTotalPrice().toLocaleString()}
+                      Total: {selectedService.pricingLabel || `$${getTotalPrice().toLocaleString()}`}
                     </p>
                   </div>
                 </div>
@@ -582,7 +583,7 @@ export default function PurchaseServicePage() {
               )}
               {(selectedAddOns.length > 0 || (selectedService.individualPrice && selectedService.jointPrice)) && (
                 <p className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#fefefe] mt-3 border-t border-white/30 pt-3">
-                  Total: ${getTotalPrice().toLocaleString()}
+                  Total: {selectedService.pricingLabel || `$${getTotalPrice().toLocaleString()}`}
                 </p>
               )}
             </div>
