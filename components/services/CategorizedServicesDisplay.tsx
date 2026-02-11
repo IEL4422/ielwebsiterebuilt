@@ -9,6 +9,7 @@ interface Service {
   individualPrice?: number;
   jointPrice?: number;
   fixedPrice?: number;
+  pricingLabel?: string;
   includes: string[];
   note?: string;
 }
@@ -48,7 +49,9 @@ export function CategorizedServicesDisplay() {
           {service.name}
         </h3>
         <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-4 sm:text-[18px]">
-          {hasMultiplePrices ? (
+          {service.pricingLabel ? (
+            service.pricingLabel
+          ) : hasMultiplePrices ? (
             <>
               Individual: ${service.individualPrice?.toLocaleString()}<br />
               Joint: ${service.jointPrice?.toLocaleString()}
@@ -233,7 +236,7 @@ export function CategorizedServicesDisplay() {
         },
         {
           name: 'Partial Probate',
-          fixedPrice: 3500,
+          pricingLabel: 'Varies',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -243,7 +246,7 @@ export function CategorizedServicesDisplay() {
             'Preparation of Final Accounting',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For probate cases that have already been filed'
+          note: 'Consultation required - For probate cases that have already been filed'
         },
         {
           name: 'Heir Representation',

@@ -299,7 +299,8 @@ export function CategorizedServices({
           id: 'partial-probate',
           name: 'Partial Probate',
           category: 'probate',
-          fixedPrice: 3500,
+          pricingLabel: 'Varies',
+          requiresConsultation: true,
           description: 'For probate cases already filed',
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -310,7 +311,7 @@ export function CategorizedServices({
             'Preparation of Final Accounting',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For probate cases that have already been filed'
+          note: 'Consultation required - For probate cases that have already been filed'
         },
         {
           id: 'heir-representation',

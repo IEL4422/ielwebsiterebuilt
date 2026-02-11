@@ -144,6 +144,10 @@ export default function PurchaseServicePage() {
   };
 
   const handleServiceSelect = (service: Service) => {
+    if (service.requiresConsultation) {
+      window.location.href = '/book-consultation/';
+      return;
+    }
     setSelectedService(service);
     setProbateAcknowledgment(false);
     if (service.category === 'estate-planning' || service.id === 'revocable-living-trust') {
