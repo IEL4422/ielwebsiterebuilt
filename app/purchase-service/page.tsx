@@ -331,7 +331,9 @@ export default function PurchaseServicePage() {
           {service.name}
         </h3>
         <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-4">
-          {hasMultiplePrices ? (
+          {service.pricingLabel ? (
+            service.pricingLabel
+          ) : hasMultiplePrices ? (
             <>
               Individual: ${service.individualPrice}<br />
               Joint: ${service.jointPrice}
