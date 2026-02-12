@@ -1989,51 +1989,150 @@ export default function RecommendedServicePage() {
               </form>
             </div>
           ) : showAgreement ? (
-            <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-[32px] font-bold text-[#2d3e50] mb-6">
-                Client Services Agreement
+            <div className="max-w-4xl mx-auto">
+              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
+                Client Service Agreement
               </h2>
-              <div className="bg-gray-50 rounded-xl p-6 mb-6 max-h-96 overflow-y-auto">
-                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg mb-4">Terms of Service</h3>
-                <p className="text-sm text-gray-700 mb-4">
-                  This Client Services Agreement is between you and Illinois Estate Law for the provision of legal services.
-                </p>
-                <p className="text-sm text-gray-700 mb-4">
-                  By signing below, you agree to the terms and conditions outlined in this agreement, including the scope of services, fees, and responsibilities of both parties.
-                </p>
-                <p className="text-sm text-gray-700 mb-4">
-                  Services: {recommendation?.name}
-                </p>
-                <p className="text-sm text-gray-700 mb-4">
-                  Total Fee: ${getTotalPrice().toLocaleString()}
-                </p>
+
+              <div className="bg-white border border-gray-300 rounded-lg p-8 mb-6 max-h-[500px] overflow-y-auto text-sm">
+                <div className="prose prose-sm max-w-none">
+                  <p className="font-semibold mb-4">
+                    This Client Service Agreement ("Agreement") is made and entered into by and between Illinois Estate Law ("Firm"), located at 4422 N. Ravenswood Ave, Ste 212 Chicago, Illinois 60640 and Client.
+                  </p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">1. Scope of Representation.</h3>
+
+                  <p className="mb-3"><strong>1.1 Scope.</strong> Our attorney-client relationship is strictly limited to legal services in the Client's estate planning, probate, or guardianship matters, unless otherwise described in the addendum that may accompany this document. The Client understands that the Client is not relying on us for business, investment, accounting, or valuation decisions, or to investigate the character or credit of persons or firms with whom the Client may be dealing (such as insurance companies or investment advisors) unless otherwise specified in the letter. The Firm will advise the Client of developments as necessary to perform our services and will consult with the Client as necessary to ensure the timely and effective completion of our work.</p>
+
+                  <p className="mb-3"><strong>1.2 Services Provided.</strong> Representation is limited to the services purchased. Unless expressly added in writing, the Firm does not: (i) appear in contested hearings or litigation; (ii) prepare or file tax returns; (iii) provide investment or accounting advice; or (iv) handle appeals.</p>
+
+                  <p className="mb-3"><strong>1.3 Illinois Law.</strong> The Firm will provide these services in accordance with the laws of the State of Illinois and the ethical standards governing the legal profession. All services will be conducted virtually via phone, email, or video conferencing.</p>
+
+                  <p className="mb-3"><strong>1.4 No Guarantee.</strong> Client acknowledges the Firm has made no promises regarding the outcome and any opinions are expressions of professional judgment - not guarantees.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">2. Legal Fees & Costs.</h3>
+
+                  <p className="mb-3"><strong>2.1</strong> Legal services and costs will be billed in a flat-fee manner, which is paid prior to any work being commenced on a matter.</p>
+
+                  <p className="mb-3"><strong>2.3 Receipt of Payment.</strong> The Client acknowledges and understands that substantive work cannot begin on their case until said payment is made.</p>
+
+                  <p className="mb-3"><strong>2.5 Flat-Fee Disclosure.</strong> Client understands the fee quoted is a flat fee for the defined scope of services. Unless otherwise stated in writing, the flat fee is an advance payment retainer and will be deposited into the Firm's operating account in exchange for the Firm's commitment to be available and to prioritize the matter. Any unearned portion, if the engagement ends before completion, will be refunded in accordance with work completed on said matter. Fees are considered to be earned by the Firm upon receipt from the Client.</p>
+
+                  <p className="mb-3"><strong>2.6 Payment Method.</strong> All payments can be made via credit card or electronic funds transfer. Detailed payment instructions will be provided on the invoice.</p>
+
+                  <p className="mb-3"><strong>2.7 Payment Plans.</strong> Payment plans are available through Partial.ly. Payment plans require a one-time fee of 5% of the service cost. A 20% down payment is required to start any substantive work on a matter. A payment plan will default after 5 failed payment attempts. In the instance of a defaulted payment plan, all services with the Firm are terminated and the Firm reserves the right to collect fees through a collection agency or legal firm.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">3. Communication.</h3>
+
+                  <p className="mb-3"><strong>3.1 Communication Methods.</strong> The Firm will communicate with the Client regarding the progress of their estate planning matters via phone, email, or video conferencing. The Client may contact the Firm at:</p>
+
+                  <p className="mb-3 ml-4">Phone: 312-373-0731<br />Email: contact@illinoisestatelaw.com</p>
+
+                  <p className="mb-3"><strong>3.2 In-Person Meetings.</strong> In-person meetings are by appointment only. Client shall specify preferred office location prior to requested meeting.</p>
+
+                  <p className="mb-3"><strong>3.3 Client Information.</strong> The Client agrees to provide the Firm with accurate and complete information necessary for the provision of legal services and to promptly notify the Firm of any changes in their contact information or circumstances that may affect their estate planning needs.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">4. Confidentiality.</h3>
+
+                  <p className="mb-3"><strong>4.1</strong> The Professional Ethics rules require the Firm to keep all information that the Client disclose to us confidential and not disclose it to persons outside of the Firm without the Client's permission. The lawyer who is primarily responsible for the Client's estate planning work may need to disclose information about the Client's affairs to other lawyers and paralegals within the Firm to best meet the Client's needs.</p>
+
+                  <p className="mb-3"><strong>4.2</strong> If other professionals not in the Firm are working with the Firm on the Client's estate planning with the Client's permission (such as the Client's accountant, a bank trust office, a financial planner, an insurance agent, or another law firm), the Client agrees that the Firm may disclose information to them as necessary to allow them to fulfill their role in the Client's estate planning. The Firm will use their best judgment in making disclosures to these other professionals; unless the Client instructs the Firm otherwise, the Client agrees that the Firm may disclose information to them as the Firm decides is necessary for the Client's best interests.</p>
+
+                  <p className="mb-3"><strong>4.3 Joint Representation.</strong> If the Firm is employed by spouses, jointly, the Client(s) understand that information may be shared between both spouses. Therefore, if the Firm jointly represents the Client and the Client's spouse, the Client understand and agree that information relevant and material to said representation may be shared with one or both clients. The Firm will not take any action or refrain from taking an action (pertaining to the subject matter of our representation of the Client) that affects one of the Client without the other's knowledge and consent. Anything either Client discusses with the Firm is confidential, and will not be disclosed to third parties, unless the Client authorize us to disclose the information or disclosure is required or permitted by law or the rules governing our professional conduct. If a conflict of interest arises between said spouses in the joint representation, the Firm reserves the right to withdraw from said representation of both clients.</p>
+
+                  <p className="mb-3"><strong>4.4 Presence of Third Parties.</strong> The Client understands that if a third party is present during any conversations or is copied on any correspondence between the Client(s) and the Firm that attorney-client privilege is lost and shall not apply.</p>
+
+                  <p className="mb-3"><strong>4.5</strong> If someone else pays Client's fees, the Firm's duties run solely to Client. No information will be shared with the payor absent Client consent.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">5. Incapacitation.</h3>
+
+                  <p className="mb-3"><strong>5.1</strong> The professional ethics rules authorize the Firm to attempt to continue a normal attorney-client relationship with the Client if the Client become unable to make sound decisions about the matters the Client has retained the Firm to advise the Client about. These rules also authorize the Firm to seek the appointment of a guardian or to take other actions to protect the Client's interests if the Firm reasonably believe this necessary.</p>
+
+                  <p className="mb-3"><strong>5.2</strong> The law permits the Client to appoint an authorized agent to act on the Client's behalf. For example, the Client can appoint an attorney-in-fact under a durable-power-of-attorney document. The authorized agent can continue to act on the Client's behalf even if the Client later becomes unable to make their own decisions. If the authority that the Client gives to the authorized agent is broad enough, the authorized agent can make decisions for the Client concerning the Client's estate planning and any other matters that the Client has retained the Firm to advise the Client about. For example, that authority could include that ability to make gifts of the Client's assets during the Client's lifetime (and perhaps include the ability to make gifts to this authorized agent), and to execute contracts and agreements on the Client's behalf.</p>
+
+                  <p className="mb-3"><strong>5.3</strong> If The Client has designated an authorized agent to act on the Client's behalf under a power-of-attorney document or some other arrangement, and if in the Firm's judgment that authorization is broad enough to include the authority for that person to instruct us on the Client's estate planning or any other matters that the Client's has retained us to advise the Client about, the Client agrees that the Firm can continue to represent the Client in the Client's estate planning or those other matters, and that the Firm may rely upon the communications and instructions from the Client's authorized agent. The Client also agree that the Firm may communicate with the Client's authorized agents and disclose information to them that is relevant and necessary to allow them to make informed decisions on the Client's behalf, including information that has been communicated to the Firm by the Client that is protected by attorney-client confidentiality.</p>
+
+                  <p className="mb-3"><strong>5.3</strong> The Firm reserves the right to refuse to act upon the Client's authorized agent's instructions and instead to take whatever action that the Firm reasonably believes is necessary to protect the Client's interests if the Firm reasonably believe that the Client's authorized agent does not have the authority to act on the Client's behalf in the matter that the Firm represent the Client on, or if the Firm reasonably believe that the Client's agent is not acting in the Client's best interests or in furtherance of the Client's objectives as the Firm understand them.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">6. Termination.</h3>
+
+                  <p className="mb-3"><strong>6.1</strong> Either party may terminate this Agreement at any time by providing written notice to the other party.</p>
+
+                  <p className="mb-3"><strong>6.2</strong> Upon termination, the Client will be responsible for any fees incurred up to the date of termination, including any outstanding extraneous fees. The Firm will provide the Client with a final invoice within thirty (30) days of termination. The Client agrees to pay this invoice within thirty (30) days of receipt.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">7. Entire Agreement.</h3>
+                  <p className="mb-3">This Agreement constitutes the entire agreement between the parties and supersedes all prior agreements and understandings, whether written or oral, relating to the subject matter hereof.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">8. Amendments.</h3>
+                  <p className="mb-3">Any amendments or modifications to this Agreement must be in writing and signed by both parties.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">9. Dispute Resolution.</h3>
+
+                  <p className="mb-3"><strong>9.1</strong> In the event of any dispute arising out of or relating to this Agreement, the parties agree to first attempt to resolve the dispute through good faith negotiation.</p>
+
+                  <p className="mb-3"><strong>9.2</strong> By this document, the Client and the Firm agree that any controversy or claim arising out of or relating to this contract, including but not limited to any dispute relating to services provided, attorney fees or expenses, shall be settled by arbitration administered in accordance with the laws of the State of Illinois and judgment on the arbitration award may be entered in any court that has jurisdiction.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">10. Miscellaneous</h3>
+
+                  <p className="mb-3"><strong>10.01 Notary Services.</strong> Client consents to electronic signatures, remote notarization where permitted, and electronic delivery of documents and notices. Online notary services are included in all services. Mobile notary services (in-person notarization at a location of client's choosing) are included only in estate planning packages and probate packages. Mobile notary services are not included in a la carte services unless specifically added.</p>
+
+                  <p className="mb-3"><strong>10.02 Probate Surety Bond.</strong> For probate services, the cost of the surety bond required by the court is not included in the service price and is due directly to the surety bond company. The Firm will assist in obtaining the bond, but the Client is responsible for payment of the bond premium to the bonding company.</p>
+
+                  <p className="mb-3"><strong>10.03</strong> Client authorizes the Firm to use reputable third-party service providers for document storage, e-signature, scheduling, payments, and communications. The Firm will take reasonable measures to protect Client information but cannot guarantee absolute security of electronic communications.</p>
+
+                  <p className="mb-3"><strong>10.04 Client Responsibilities.</strong> Provide complete and accurate information; respond to requests within 5 business days; meet deadlines; keep contact info current; and promptly review drafts. Delays or inaccuracies may increase cost or limit available options.</p>
+
+                  <p className="mb-3"><strong>10.05 Trust Funding.</strong> Client is responsible for funding all assets into trust, unless otherwise noted in Paragraph 2.1. The Firm is not responsible for Client's failure to fund assets into their respective trust.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">STATEMENT OF CLIENT'S RIGHTS AND RESPONSIBILITIES</h3>
+
+                  <p className="mb-3"><strong>(1) CLIENT SERVICE AGREEMENT.</strong> The client service agreement, prepared by the Firm, shall clearly address the objectives of representation and detail the fee arrangement, including all material terms. The client shall receive a copy of the client service agreement and any additional clarification requested and is advised not to sign any such agreement which the client finds to be unsatisfactory or does not understand.</p>
+
+                  <p className="mb-3"><strong>(2) REPRESENTATION.</strong> Representation will commence upon the signing of the client service agreement. The Firm will provide competent representation, which requires legal knowledge, skill, thoroughness and preparation to handle those matters set forth in the client service agreement. Once employed, the Firm will act with reasonable diligence and promptness, as well as use his best efforts on behalf of the client. During the course of representation and afterwards, the counsel may not use or reveal a client's confidence or secrets, except as required or permitted by law.</p>
+
+                  <p className="mb-3"><strong>(3) COMMUNICATION.</strong> The Firm will keep the client reasonably informed about the status of representation and will promptly respond to reasonable requests for information. The client shall be truthful in all discussions with the counsel and provide all information or documentation required to enable the counsel to provide competent representation.</p>
+
+                  <p className="mb-3"><strong>(4) ETHICAL CONDUCT.</strong> The counsel cannot be required to engage in conduct, which is illegal, unethical, or fraudulent. A counsel who cannot ethically abide by his client's directions shall be allowed to withdraw from representation.</p>
+
+                  <p className="mb-3"><strong>(5) DISPUTES.</strong> The counsel-client relationship is regulated by the Illinois Rules of Professional Conduct (Article VIII of the Illinois Supreme Court Rules), and any dispute shall be reviewed under the terms of such Rules.</p>
+
+                  <h3 className="font-bold text-lg mt-6 mb-3">PRIVACY POLICY NOTICE</h3>
+
+                  <p className="mb-3">Attorneys, like other professionals who advise on personal financial matters, are now required by federal law to inform their clients of their policies regarding privacy of client information. Attorneys have been and continue to be bound by professional standards of confidentiality that are even more stringent than those required by this new law. Therefore, we have always protected our client's right to privacy.</p>
+
+                  <p className="mb-3">In the course of providing our clients with legal advice, we sometimes receive significant personal financial information from our clients. If you are a client of Illinois Estate Plan, you should know that all information that we receive from you is held in confidence, and is not released to people outside the firm, except as agreed to by you, or as required under applicable law. We retain records relating to professional services that we provide so that we are better able to assist you with your professional needs and, in some cases, to comply with professional guidelines. In order to guard your nonpublic personal information, we maintain physical, electronic, and procedural safeguards that comply with our professional standards.</p>
+
+                  <p className="mb-3 font-semibold">IN WITNESS WHEREOF, the parties have executed this Agreement as of the date written below. It is specifically understood that joint or collaborative services may be signed by one party.</p>
+                </div>
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-3">
+                <div className="flex items-start space-x-3">
                   <Checkbox
                     id="agreement"
                     checked={agreementAccepted}
                     onCheckedChange={(checked) => setAgreementAccepted(checked as boolean)}
                   />
-                  <Label htmlFor="agreement" className="text-sm text-gray-700 cursor-pointer">
-                    I have read and agree to the Client Services Agreement and understand the terms of service.
+                  <Label htmlFor="agreement" className="cursor-pointer leading-tight">
+                    I have read and agree to the Client Service Agreement
                   </Label>
                 </div>
 
                 <div>
-                  <Label htmlFor="signature" className="text-[#2d3e50] font-semibold mb-2 block">
-                    Electronic Signature *
+                  <Label htmlFor="signature" className="text-[#2d3e50] font-semibold">
+                    Electronic Signature (Type your full name) *
                   </Label>
                   <Input
                     id="signature"
+                    type="text"
                     value={signature}
                     onChange={(e) => setSignature(e.target.value)}
-                    placeholder="Type your full name"
-                    className="w-full font-['Lobster_Two'] text-2xl"
+                    placeholder="John Doe"
+                    className="mt-2 font-['Brush_Script_MT',cursive] text-2xl"
+                    disabled={!agreementAccepted}
                   />
                   <p className="text-sm text-gray-600 mt-2">
-                    By typing your name above, you agree that this is a legally binding signature.
+                    By typing your name, you are providing an electronic signature that is legally binding.
                   </p>
                 </div>
 
