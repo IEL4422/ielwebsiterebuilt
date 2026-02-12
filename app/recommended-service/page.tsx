@@ -94,6 +94,7 @@ export default function RecommendedServicePage() {
   });
   const [showResult, setShowResult] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+  const [trustFundingQuantity, setTrustFundingQuantity] = useState(1);
   const [clientInfo, setClientInfo] = useState({
     name: '',
     email: '',
@@ -406,8 +407,8 @@ export default function RecommendedServicePage() {
       addOns.push({
         id: 'trust-funding',
         name: 'Trust Funding Assistance',
-        price: isMarried ? 1000 : 500,
-        description: 'Professional assistance with transferring financial assets into your trust'
+        price: 100,
+        description: '$100 per asset - Professional assistance with transferring financial assets into your trust'
       });
 
       addOns.push({
@@ -464,8 +465,8 @@ export default function RecommendedServicePage() {
       addOns.push({
         id: 'trust-funding',
         name: 'Trust Funding Assistance',
-        price: isMarried ? 1000 : 500,
-        description: 'Professional assistance with transferring financial assets into your trust'
+        price: 100,
+        description: '$100 per asset - Professional assistance with transferring financial assets into your trust'
       });
 
       return {
@@ -632,6 +633,7 @@ export default function RecommendedServicePage() {
     setShowAgreement(false);
     setShowPaymentSelection(false);
     setSelectedAddOns([]);
+    setTrustFundingQuantity(1);
     setAgreementAccepted(false);
     setSignature('');
   };
@@ -654,6 +656,9 @@ export default function RecommendedServicePage() {
 
     const addOnsTotal = selectedAddOns.reduce((total, addOnId) => {
       const addOn = recommendation.addOns.find(a => a.id === addOnId);
+      if (addOnId === 'trust-funding') {
+        return total + ((addOn?.price || 0) * trustFundingQuantity);
+      }
       return total + (addOn?.price || 0);
     }, 0);
 
@@ -683,6 +688,9 @@ export default function RecommendedServicePage() {
       const totalPrice = getTotalPrice();
       const addOnsNames = selectedAddOns.map(addOnId => {
         const addOn = recommendation.addOns.find(a => a.id === addOnId);
+        if (addOnId === 'trust-funding') {
+          return `${addOn?.name} (${trustFundingQuantity} asset${trustFundingQuantity > 1 ? 's' : ''})`;
+        }
         return addOn?.name;
       }).filter(Boolean);
 
@@ -1813,10 +1821,12 @@ export default function RecommendedServicePage() {
                       {recommendation.addOns.map((addOn) => (
                         <div
                           key={addOn.id}
-                          className={`bg-white/10 rounded-lg p-4 cursor-pointer hover:bg-white/20 transition-all ${
+                          className={`bg-white/10 rounded-lg p-4 ${
+                            addOn.id === 'trust-funding' ? '' : 'cursor-pointer hover:bg-white/20'
+                          } transition-all ${
                             selectedAddOns.includes(addOn.id) ? 'ring-2 ring-white' : ''
                           }`}
-                          onClick={() => toggleAddOn(addOn.id)}
+                          onClick={addOn.id === 'trust-funding' ? undefined : () => toggleAddOn(addOn.id)}
                         >
                           <div className="flex items-start gap-3">
                             <Checkbox
@@ -1835,12 +1845,44 @@ export default function RecommendedServicePage() {
                                   )}
                                 </h5>
                                 <span className="font-['Plus_Jakarta_Sans'] font-bold text-white">
-                                  ${addOn.price.toLocaleString()}
+                                  {addOn.id === 'trust-funding' && selectedAddOns.includes(addOn.id)
+                                    ? `$${(addOn.price * trustFundingQuantity).toLocaleString()}`
+                                    : `$${addOn.price.toLocaleString()}`}
                                 </span>
                               </div>
                               <p className="font-['Plus_Jakarta_Sans'] text-sm text-white/80">
                                 {addOn.description}
                               </p>
+                              {addOn.id === 'trust-funding' && selectedAddOns.includes(addOn.id) && (
+                                <div className="mt-3 flex items-center gap-3">
+                                  <span className="font-['Plus_Jakarta_Sans'] text-sm text-white/90">
+                                    Number of assets:
+                                  </span>
+                                  <div className="flex items-center gap-2">
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setTrustFundingQuantity(Math.max(1, trustFundingQuantity - 1));
+                                      }}
+                                      className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white font-bold"
+                                    >
+                                      -
+                                    </button>
+                                    <span className="font-['Plus_Jakarta_Sans'] font-bold text-white w-12 text-center">
+                                      {trustFundingQuantity}
+                                    </span>
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setTrustFundingQuantity(trustFundingQuantity + 1);
+                                      }}
+                                      className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white font-bold"
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>
