@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois',
+    title: 'Protecting Your Future: The Essential Guide to Prenuptial Agreements in Illinois',
+    url: '/blog/protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois/',
+    date: 'Feb 12, 2026',
+    summary: 'A comprehensive guide to understanding prenuptial agreements in Illinois—what they protect, common myths, real-world scenarios, and the step-by-step process of creating an enforceable prenup that protects both partners.',
+    excerpt: 'A comprehensive guide to understanding prenuptial agreements in Illinois—what they protect, common myths, real-world scenarios, and the step-by-step process of creating an enforceable prenup that protects both partners.',
+  },
+  {
     slug: 'when-is-probate-required-in-illinois',
     title: 'When Is Probate Required in Illinois? Complete 2026 Guide with Interactive Tools',
     url: '/blog/when-is-probate-required-in-illinois/',
