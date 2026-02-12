@@ -62,10 +62,12 @@ interface ServiceRecommendation {
 const counties = [
   'Cook County',
   'DuPage County',
+  'Will County',
   'Kane County',
   'Lake County',
-  'Will County',
   'McHenry County',
+  'Kendall County',
+  'DeKalb County',
   'Other'
 ];
 
