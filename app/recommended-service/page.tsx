@@ -21,7 +21,7 @@ const getSupabaseClient = () => {
 };
 
 interface QuizAnswers {
-  needType: 'estate-planning' | 'probate' | '';
+  needType: 'estate-planning' | 'probate' | 'prenuptial' | 'small-business' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
   estateValue: 'under-100k' | '100k-3.5m' | 'over-3.5m' | '';
@@ -34,6 +34,12 @@ interface QuizAnswers {
   allDebtsPaid: 'yes' | 'no' | '';
   isRepresentative: 'yes' | 'no' | '';
   needsNewAttorney: 'yes' | 'no' | '';
+  prenupNeed: 'draft-negotiate' | 'review-negotiate' | 'draft' | 'review' | '';
+  hasExistingPrenup: 'yes' | 'no' | '';
+  needsNegotiation: 'yes' | 'no' | '';
+  businessNeed: 'full-package' | 'llc-only' | 'trademark-only' | '';
+  hasExistingBusiness: 'yes' | 'no' | '';
+  needsTrademark: 'yes' | 'no' | '';
 }
 
 interface ServiceRecommendation {
@@ -78,7 +84,13 @@ export default function RecommendedServicePage() {
     issuesAmongHeirs: '',
     allDebtsPaid: '',
     isRepresentative: '',
-    needsNewAttorney: ''
+    needsNewAttorney: '',
+    prenupNeed: '',
+    hasExistingPrenup: '',
+    needsNegotiation: '',
+    businessNeed: '',
+    hasExistingBusiness: '',
+    needsTrademark: ''
   });
   const [showResult, setShowResult] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
@@ -113,8 +125,140 @@ export default function RecommendedServicePage() {
       issuesAmongHeirs,
       allDebtsPaid,
       isRepresentative,
-      needsNewAttorney
+      needsNewAttorney,
+      prenupNeed,
+      hasExistingPrenup,
+      needsNegotiation,
+      businessNeed,
+      hasExistingBusiness,
+      needsTrademark
     } = answers;
+
+    if (needType === 'prenuptial') {
+      if (hasExistingPrenup === 'yes' && needsNegotiation === 'yes') {
+        return {
+          name: 'Prenuptial Agreement Review & Negotiation',
+          price: '$3,000',
+          description: 'Professional review and negotiation of an existing prenuptial agreement to protect your interests.',
+          includes: [
+            'Comprehensive legal review',
+            'Analysis of fairness and enforceability',
+            'Negotiation on your behalf',
+            'Recommendations for modifications',
+            'Protection of your interests'
+          ],
+          addOns: [],
+          serviceId: 'prenuptial-review-negotiation',
+          requiresConsultation: false
+        };
+      }
+
+      if (hasExistingPrenup === 'yes' && needsNegotiation === 'no') {
+        return {
+          name: 'Prenuptial Agreement Review',
+          price: '$2,000',
+          description: 'Professional review of your prenuptial agreement to understand implications and identify any concerns.',
+          includes: [
+            'Detailed legal analysis',
+            'Identification of unfair provisions',
+            'Consultation on implications',
+            'Recommendations for protection'
+          ],
+          addOns: [],
+          serviceId: 'prenuptial-review',
+          requiresConsultation: false
+        };
+      }
+
+      if (hasExistingPrenup === 'no' && needsNegotiation === 'yes') {
+        return {
+          name: 'Prenuptial Agreement Drafting & Negotiation',
+          price: '$5,000',
+          description: 'Comprehensive prenuptial agreement service including custom drafting and negotiation between parties.',
+          includes: [
+            'Initial consultation with both parties',
+            'Full financial disclosure review',
+            'Custom drafting tailored to your situation',
+            'Negotiation between parties',
+            'Finalization and execution'
+          ],
+          addOns: [],
+          serviceId: 'prenuptial-drafting-negotiation',
+          requiresConsultation: false
+        };
+      }
+
+      if (hasExistingPrenup === 'no' && needsNegotiation === 'no') {
+        return {
+          name: 'Prenuptial Agreement Drafting',
+          price: '$3,000',
+          description: 'Custom prenuptial agreement drafting service tailored to your specific needs and situation.',
+          includes: [
+            'Initial consultation',
+            'Custom agreement drafting',
+            'Legal compliance review',
+            'Finalization and execution guidance'
+          ],
+          addOns: [],
+          serviceId: 'prenuptial-drafting',
+          requiresConsultation: false
+        };
+      }
+    }
+
+    if (needType === 'small-business') {
+      if (hasExistingBusiness === 'no' && needsTrademark === 'yes') {
+        return {
+          name: 'Small Business Package',
+          price: '$2,000',
+          description: 'Comprehensive business formation and brand protection package including LLC registration, trademark protection, and all necessary documentation.',
+          includes: [
+            'LLC Registration',
+            'Trademark Registration',
+            'Operating Agreement',
+            'EIN Number',
+            'All Filing Fees Included'
+          ],
+          addOns: [],
+          serviceId: 'small-business-package',
+          requiresConsultation: false
+        };
+      }
+
+      if (hasExistingBusiness === 'no' && needsTrademark === 'no') {
+        return {
+          name: 'Business Essentials',
+          price: '$1,000',
+          description: 'Essential business formation package with LLC registration and operating agreement.',
+          includes: [
+            'LLC Registration',
+            'EIN Number',
+            'Operating Agreement',
+            'Filing Fees Included'
+          ],
+          addOns: [],
+          serviceId: 'business-essentials',
+          requiresConsultation: false
+        };
+      }
+
+      if (hasExistingBusiness === 'yes' || needsTrademark === 'yes') {
+        return {
+          name: 'Trademark Registration',
+          price: '$1,250',
+          description: 'Protect your brand identity with federal trademark registration, including comprehensive searches and application filing.',
+          includes: [
+            'Comprehensive trademark search',
+            'Federal trademark application filing',
+            'Filing fees included',
+            'Expert guidance throughout the process'
+          ],
+          addOns: [],
+          serviceId: 'trademark-registration',
+          requiresConsultation: false
+        };
+      }
+    }
 
     if (needType === 'probate') {
       if (isRepresentative === 'no') {
@@ -383,6 +527,12 @@ export default function RecommendedServicePage() {
   };
 
   const getMaxSteps = () => {
+    if (answers.needType === 'prenuptial') {
+      return 3;
+    }
+    if (answers.needType === 'small-business') {
+      return 3;
+    }
     if (answers.needType === 'probate') {
       if (answers.isRepresentative === 'no') return 2;
       if (answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'yes') return 3;
@@ -425,9 +575,13 @@ export default function RecommendedServicePage() {
       case 1:
         return answers.needType !== '';
       case 2:
+        if (answers.needType === 'prenuptial') return answers.hasExistingPrenup !== '';
+        if (answers.needType === 'small-business') return answers.hasExistingBusiness !== '';
         if (answers.needType === 'probate') return answers.isRepresentative !== '';
         return answers.maritalStatus !== '';
       case 3:
+        if (answers.needType === 'prenuptial') return answers.needsNegotiation !== '';
+        if (answers.needType === 'small-business') return answers.needsTrademark !== '';
         if (answers.needType === 'probate') return answers.needsNewAttorney !== '';
         return answers.ownsRealEstate !== '';
       case 4:
@@ -465,7 +619,13 @@ export default function RecommendedServicePage() {
       issuesAmongHeirs: '',
       allDebtsPaid: '',
       isRepresentative: '',
-      needsNewAttorney: ''
+      needsNewAttorney: '',
+      prenupNeed: '',
+      hasExistingPrenup: '',
+      needsNegotiation: '',
+      businessNeed: '',
+      hasExistingBusiness: '',
+      needsTrademark: ''
     });
     setShowResult(false);
     setShowClientInfo(false);
@@ -638,7 +798,7 @@ export default function RecommendedServicePage() {
         <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
           <div className="flex justify-center lg:justify-start">
             <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
-              Find Your Perfect Service
+              Find the Right Service for You
             </h1>
           </div>
         </div>
@@ -712,6 +872,50 @@ export default function RecommendedServicePage() {
                           </div>
                         </div>
                         {answers.needType === 'probate' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => updateAnswer('needType', 'prenuptial')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.needType === 'prenuptial'
+                          ? 'border-[#4a708b] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            Prenuptial Agreement
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            I need help with a prenuptial agreement before getting married
+                          </div>
+                        </div>
+                        {answers.needType === 'prenuptial' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => updateAnswer('needType', 'small-business')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.needType === 'small-business'
+                          ? 'border-[#4a708b] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            Small Business Services
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            I need to form an LLC or register a trademark for my business
+                          </div>
+                        </div>
+                        {answers.needType === 'small-business' && (
                           <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
                         )}
                       </div>
@@ -974,6 +1178,224 @@ export default function RecommendedServicePage() {
                               No
                             </span>
                             {answers.hasSpecialNeeds === 'no' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
+                            )}
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Prenuptial Path */}
+              {answers.needType === 'prenuptial' && (
+                <>
+                  {step === 2 && (
+                    <div className="space-y-6">
+                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
+                        Do you already have a prenuptial agreement?
+                      </h2>
+                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
+                        This will help us determine whether you need drafting or review services.
+                      </p>
+                      <div className="space-y-4">
+                        <button
+                          onClick={() => updateAnswer('hasExistingPrenup', 'yes')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.hasExistingPrenup === 'yes'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                                Yes, I have an existing agreement
+                              </div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                                I need help reviewing an agreement I've received
+                              </div>
+                            </div>
+                            {answers.hasExistingPrenup === 'yes' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                            )}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() => updateAnswer('hasExistingPrenup', 'no')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.hasExistingPrenup === 'no'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                                No, I need a new agreement
+                              </div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                                I need help creating a prenuptial agreement from scratch
+                              </div>
+                            </div>
+                            {answers.hasExistingPrenup === 'no' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                            )}
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {step === 3 && (
+                    <div className="space-y-6">
+                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
+                        Do you need negotiation assistance?
+                      </h2>
+                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
+                        Negotiation services help ensure fair terms and protect your interests during discussions with your partner or their attorney.
+                      </p>
+                      <div className="space-y-4">
+                        <button
+                          onClick={() => updateAnswer('needsNegotiation', 'yes')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.needsNegotiation === 'yes'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
+                              Yes, I need negotiation help
+                            </span>
+                            {answers.needsNegotiation === 'yes' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
+                            )}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() => updateAnswer('needsNegotiation', 'no')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.needsNegotiation === 'no'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
+                              No, just drafting or review
+                            </span>
+                            {answers.needsNegotiation === 'no' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
+                            )}
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Small Business Path */}
+              {answers.needType === 'small-business' && (
+                <>
+                  {step === 2 && (
+                    <div className="space-y-6">
+                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
+                        Do you already have an LLC?
+                      </h2>
+                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
+                        This will help us determine if you need business formation services or just trademark registration.
+                      </p>
+                      <div className="space-y-4">
+                        <button
+                          onClick={() => updateAnswer('hasExistingBusiness', 'yes')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.hasExistingBusiness === 'yes'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                                Yes, I have an existing LLC
+                              </div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                                I just need trademark or other services
+                              </div>
+                            </div>
+                            {answers.hasExistingBusiness === 'yes' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                            )}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() => updateAnswer('hasExistingBusiness', 'no')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.hasExistingBusiness === 'no'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                                No, I need to form an LLC
+                              </div>
+                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                                I need help creating a new business entity
+                              </div>
+                            </div>
+                            {answers.hasExistingBusiness === 'no' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                            )}
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {step === 3 && (
+                    <div className="space-y-6">
+                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
+                        Do you need trademark registration?
+                      </h2>
+                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
+                        Trademark registration protects your brand name, logo, or slogan from being used by competitors.
+                      </p>
+                      <div className="space-y-4">
+                        <button
+                          onClick={() => updateAnswer('needsTrademark', 'yes')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.needsTrademark === 'yes'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
+                              Yes, I need trademark protection
+                            </span>
+                            {answers.needsTrademark === 'yes' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
+                            )}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() => updateAnswer('needsTrademark', 'no')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.needsTrademark === 'no'
+                              ? 'border-[#4a708b] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
+                              No, just LLC formation
+                            </span>
+                            {answers.needsTrademark === 'no' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>
