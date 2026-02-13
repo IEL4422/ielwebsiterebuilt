@@ -23,6 +23,8 @@ Deno.serve(async (req: Request) => {
       email,
       phoneNumber,
       typeOfService,
+      addOns,
+      clientType,
     } = await req.json();
 
     // Validate required fields
@@ -82,6 +84,36 @@ Deno.serve(async (req: Request) => {
           },
         }
       );
+    }
+
+    // Send Slack notification
+    try {
+      const slackApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-slack-notification`;
+      const slackResponse = await fetch(slackApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          serviceName: packagePurchased,
+          servicePrice: totalPrice,
+          addOns,
+          clientType,
+          paymentType: 'payment-plan',
+        }),
+      });
+
+      if (slackResponse.ok) {
+        console.log('Slack notification sent successfully');
+      } else {
+        console.error('Failed to send Slack notification:', await slackResponse.text());
+      }
+    } catch (slackError) {
+      console.error('Error sending Slack notification:', slackError);
     }
 
     console.log('Payment plan submitted successfully:', {

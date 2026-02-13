@@ -133,6 +133,39 @@ Deno.serve(async (req: Request) => {
         }
 
         try {
+          const nameParts = purchase.client_name.split(' ');
+          const firstName = nameParts[0];
+          const lastName = nameParts.slice(1).join(' ');
+
+          const slackApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-slack-notification`;
+          const slackResponse = await fetch(slackApiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              firstName,
+              lastName,
+              email: purchase.client_email,
+              phoneNumber: purchase.client_phone || '',
+              serviceName: purchase.service_name,
+              servicePrice: purchase.service_price,
+              addOns: purchase.add_ons,
+              clientType: purchase.client_type,
+              paymentType: 'full',
+            }),
+          });
+
+          if (slackResponse.ok) {
+            console.log('Slack notification sent successfully for purchase:', purchaseId);
+          } else {
+            console.error('Failed to send Slack notification:', await slackResponse.text());
+          }
+        } catch (slackError) {
+          console.error('Error sending Slack notification:', slackError);
+        }
+
+        try {
           const receiptApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-purchase-receipt`;
           const receiptResponse = await fetch(receiptApiUrl, {
             method: 'POST',

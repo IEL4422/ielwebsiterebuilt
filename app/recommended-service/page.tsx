@@ -767,6 +767,14 @@ export default function RecommendedServicePage() {
         const setupFee = totalPrice * 0.05;
         const totalWithFee = totalPrice + setupFee;
 
+        const addOnsNames = selectedAddOns.map(addOnId => {
+          const addOn = recommendation.addOns.find(a => a.id === addOnId);
+          if (addOnId === 'trust-funding') {
+            return `${addOn?.name} (${trustFundingQuantity} asset${trustFundingQuantity > 1 ? 's' : ''})`;
+          }
+          return addOn?.name || '';
+        }).filter(name => name !== '');
+
         const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/submit-payment-plan`;
         const response = await fetch(apiUrl, {
           method: 'POST',
@@ -781,7 +789,9 @@ export default function RecommendedServicePage() {
             totalPrice: totalWithFee,
             email: clientInfo.email,
             phoneNumber: clientInfo.phone,
-            typeOfService: recommendation.serviceId.includes('probate') ? 'Probate' : 'Estate Planning'
+            typeOfService: recommendation.serviceId.includes('probate') ? 'Probate' : 'Estate Planning',
+            addOns: addOnsNames,
+            clientType: recommendation.clientType
           })
         });
 
