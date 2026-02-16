@@ -108,7 +108,7 @@ export default function ComparePackagesPage() {
       features: {
         'Revocable Living Trust': true,
         'Last Will & Testament': false,
-        'Pour-Over Will': false,
+        'Pour-Over Will': true,
         'Power of Attorney for Healthcare': false,
         'Power of Attorney for Property': false,
         'Healthcare Directive (Living Will)': false,
