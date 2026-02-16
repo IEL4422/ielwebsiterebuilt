@@ -450,6 +450,23 @@ export default function PurchaseServicePage() {
       <div className="container mx-auto px-5 max-w-[1240px] py-[60px]">
         {step === 'select-service' && (
           <>
+            <div className="mb-6 flex justify-between items-center">
+              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50]">
+                Select Services
+              </h2>
+              <Button
+                onClick={() => cart.length > 0 && setStep('cart-review')}
+                className={`${cart.length > 0 ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-300'} text-white px-6 py-3 flex items-center gap-3`}
+                disabled={cart.length === 0}
+              >
+                <ShoppingCart className="w-5 h-5" />
+                <span>View Cart ({cart.length})</span>
+                {cart.length > 0 && (
+                  <span className="font-bold">${getCartTotal().toLocaleString()}</span>
+                )}
+              </Button>
+            </div>
+
             {cart.length > 0 && (
               <div className="fixed bottom-6 right-6 z-50">
                 <Button
