@@ -22,6 +22,18 @@ export interface Service {
 
 const estatePlanningAddOns = [
   {
+    id: 'special-needs-planning',
+    name: 'Special Needs Planning',
+    price: 2500,
+    description: 'Special needs trust planning and documentation'
+  },
+  {
+    id: 'estate-tax-planning',
+    name: 'Estate Tax Planning',
+    price: 5000,
+    description: 'Comprehensive estate tax planning strategies'
+  },
+  {
     id: 'business-succession',
     name: 'Business Succession Planning',
     price: 2500,
@@ -32,7 +44,7 @@ const estatePlanningAddOns = [
     name: 'Annual Maintenance Membership',
     price: 149,
     isSubscription: true,
-    description: 'Annual review meeting and free amendments'
+    description: 'Annual review meeting and free amendments ($149 per year)'
   }
 ];
 

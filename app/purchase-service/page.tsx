@@ -86,7 +86,7 @@ const allAddOns: AddOn[] = [
     id: 'annual-maintenance',
     name: 'Annual Maintenance Membership',
     price: 149,
-    description: 'Annual review meeting and free amendments ($149/year subscription)'
+    description: 'Annual review meeting and free amendments ($149 per year)'
   }
 ];
 
