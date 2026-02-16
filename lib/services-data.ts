@@ -84,6 +84,22 @@ export const estatePlanningPackages: Service[] = [
       'Comprehensive review and redlining of previously drafted estate planning documents',
       'One (1) hour attorney review session'
     ]
+  },
+  {
+    id: 'irrevocable-trust',
+    name: 'Irrevocable Trust (life insurance, medicaid asset protection trust, special needs)',
+    category: 'estate-planning',
+    fixedPrice: 4000,
+    description: 'An Irrevocable Trust is a permanent legal arrangement where you transfer assets—like life insurance, property, or funds—into a trust that you cannot easily change or undo, often used to protect assets for Medicaid eligibility, reduce estate taxes, or provide for a loved one with special needs without affecting their government benefits.',
+    includes: [
+      'Custom irrevocable trust drafting',
+      'Asset protection planning',
+      'Medicaid planning consultation',
+      'Special needs trust provisions',
+      'Online or Mobile Notarization',
+      'Access to Client Portal',
+      'Unlimited Attorney Consultation'
+    ]
   }
 ];
 

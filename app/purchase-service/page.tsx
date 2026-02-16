@@ -1,17 +1,18 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, type Service, allServices } from '@/lib/services-data';
+import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, type Service } from '@/lib/services-data';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { createClient } from '@supabase/supabase-js';
 import { CheckIcon } from '@/components/icons/CheckIcon';
-import { Search, ShoppingCart, X, Plus, Check } from 'lucide-react';
+import { ShoppingCart, X, Check } from 'lucide-react';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -25,8 +26,6 @@ const getSupabaseClient = () => {
 };
 
 type Step = 'select-service' | 'cart-review' | 'client-info' | 'agreement' | 'payment-selection' | 'payment-plan-confirmation';
-
-type CategoryType = 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'small-business' | null;
 
 interface AddOn {
   id: string;
@@ -105,8 +104,6 @@ interface CartItem {
 
 export default function PurchaseServicePage() {
   const [step, setStep] = useState<Step>('select-service');
-  const [selectedCategory, setSelectedCategory] = useState<CategoryType>(null);
-  const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [expandedDescriptions, setExpandedDescriptions] = useState<Set<string>>(new Set());
 
@@ -128,30 +125,7 @@ export default function PurchaseServicePage() {
     }
   }, []);
 
-  const categoryData = {
-    'estate-planning': { name: 'Estate Planning', services: estatePlanningPackages },
-    'probate': { name: 'Probate', services: probatePackages },
-    'a-la-carte': { name: 'A La Carte Services', services: aLaCarteServices },
-    'prenuptial': { name: 'Prenuptial Agreements', services: prenuptialServices },
-    'small-business': { name: 'Small Business', services: smallBusinessServices }
-  };
-
-  const filteredServices = useMemo(() => {
-    let services = selectedCategory
-      ? categoryData[selectedCategory].services
-      : allServices;
-
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      services = services.filter(service =>
-        service.name.toLowerCase().includes(query) ||
-        service.description.toLowerCase().includes(query) ||
-        service.includes.some(inc => inc.toLowerCase().includes(query))
-      );
-    }
-
-    return services;
-  }, [selectedCategory, searchQuery]);
+  const estatePlanningWithALaCarte = [...estatePlanningPackages, ...aLaCarteServices];
 
   const getServicePrice = (service: Service, type: 'individual' | 'joint') => {
     if (service.pricingLabel) return 0;
@@ -447,48 +421,6 @@ export default function PurchaseServicePage() {
       <div className="container mx-auto px-5 max-w-[1240px] py-[60px]">
         {step === 'select-service' && (
           <>
-            <div className="mb-8">
-              <div className="relative mb-6">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <Input
-                  type="text"
-                  placeholder="Search services..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 py-6 text-lg"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
-                {Object.entries(categoryData).map(([key, value]) => (
-                  <Button
-                    key={key}
-                    onClick={() => {
-                      setSelectedCategory(selectedCategory === key ? null : key as CategoryType);
-                      setSearchQuery('');
-                    }}
-                    className={`py-6 text-base font-semibold ${
-                      selectedCategory === key
-                        ? 'bg-[#2d3e50] text-white hover:bg-[#4a708b]'
-                        : 'bg-white text-[#2d3e50] border-2 border-[#2d3e50] hover:bg-gray-50'
-                    }`}
-                  >
-                    {value.name}
-                  </Button>
-                ))}
-              </div>
-
-              {selectedCategory && (
-                <Button
-                  onClick={() => setSelectedCategory(null)}
-                  variant="outline"
-                  className="mb-6"
-                >
-                  Clear Category Filter
-                </Button>
-              )}
-            </div>
-
             {cart.length > 0 && (
               <div className="fixed bottom-6 right-6 z-50">
                 <Button
@@ -502,17 +434,51 @@ export default function PurchaseServicePage() {
               </div>
             )}
 
-            {filteredServices.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="font-['Plus_Jakarta_Sans'] text-xl text-gray-600">
-                  No services found. Try adjusting your search or category filter.
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredServices.map(service => renderServiceCard(service))}
-              </div>
-            )}
+            <Accordion type="multiple" className="space-y-4">
+              <AccordionItem value="estate-planning" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
+                <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
+                  Estate Planning
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+                    {estatePlanningWithALaCarte.map(service => renderServiceCard(service))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="probate" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
+                <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
+                  Probate
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+                    {probatePackages.map(service => renderServiceCard(service))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="prenuptial" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
+                <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
+                  Prenuptial Agreements
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+                    {prenuptialServices.map(service => renderServiceCard(service))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="small-business" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
+                <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
+                  Small Business
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+                    {smallBusinessServices.map(service => renderServiceCard(service))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </>
         )}
 
