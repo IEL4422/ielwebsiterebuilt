@@ -34,22 +34,23 @@ interface AddOn {
   individualPrice?: number;
   jointPrice?: number;
   description: string;
+  allowQuantity?: boolean;
 }
 
 const allAddOns: AddOn[] = [
   {
     id: 'trust-funding',
-    name: 'Trust Funding Assistance',
-    price: 500,
-    individualPrice: 500,
-    jointPrice: 1000,
-    description: 'Professional assistance with transferring bank accounts, investment accounts, and other financial assets into your trust'
+    name: 'Trust Funding',
+    price: 100,
+    description: '$100 per asset - Professional assistance with transferring assets into your trust',
+    allowQuantity: true
   },
   {
     id: 'additional-deed',
-    name: 'Additional Deed',
+    name: 'Additional Deed to Trust',
     price: 500,
-    description: 'One deed transferring property to trust is included in the package. For those owning multiple properties, purchase additional deeds here.'
+    description: '$500 per deed - Additional property deeds to transfer to your trust',
+    allowQuantity: true
   },
   {
     id: 'transfer-on-death',
@@ -112,7 +113,9 @@ const getAvailableAddOns = (service: Service): AddOn[] => {
     case 'diy-estate-plan-review':
       return allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
     case 'revocable-living-trust':
-      return allAddOns.filter(a => ['trust-funding', 'business-succession', 'annual-maintenance'].includes(a.id));
+      return allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
+    case 'irrevocable-trust':
+      return allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
     default:
       return [];
   }
@@ -122,6 +125,7 @@ interface CartItem {
   service: Service;
   clientType: 'individual' | 'joint';
   addOns: string[];
+  addOnQuantities: { [key: string]: number };
 }
 
 export default function PurchaseServicePage() {
@@ -161,11 +165,8 @@ export default function PurchaseServicePage() {
       const addOn = allAddOns.find(a => a.id === addOnId);
       if (!addOn) return total;
 
-      if (addOn.id === 'trust-funding') {
-        return total + (item.clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!);
-      }
-
-      return total + addOn.price;
+      const quantity = item.addOnQuantities[addOnId] || 1;
+      return total + (addOn.price * quantity);
     }, 0);
 
     return basePrice + addOnsTotal;
@@ -189,17 +190,30 @@ export default function PurchaseServicePage() {
       return;
     }
 
-    setCart(prev => [...prev, { service, clientType, addOns }]);
+    const addOnQuantities: { [key: string]: number } = {};
+    addOns.forEach(addOnId => {
+      addOnQuantities[addOnId] = 1;
+    });
+
+    setCart(prev => [...prev, { service, clientType, addOns, addOnQuantities }]);
   };
 
   const removeFromCart = (serviceId: string) => {
     setCart(prev => prev.filter(item => item.service.id !== serviceId));
   };
 
-  const updateCartItem = (serviceId: string, clientType: 'individual' | 'joint', addOns: string[]) => {
+  const updateCartItem = (serviceId: string, clientType: 'individual' | 'joint', addOns: string[], addOnQuantities?: { [key: string]: number }) => {
     setCart(prev => prev.map(item =>
       item.service.id === serviceId
-        ? { ...item, clientType, addOns }
+        ? { ...item, clientType, addOns, addOnQuantities: addOnQuantities || item.addOnQuantities }
+        : item
+    ));
+  };
+
+  const updateAddOnQuantity = (serviceId: string, addOnId: string, quantity: number) => {
+    setCart(prev => prev.map(item =>
+      item.service.id === serviceId
+        ? { ...item, addOnQuantities: { ...item.addOnQuantities, [addOnId]: Math.max(1, quantity) } }
         : item
     ));
   };
@@ -222,7 +236,13 @@ export default function PurchaseServicePage() {
       const totalPrice = getCartTotal();
       const servicesDescription = cart.map(item => {
         const addOnsText = item.addOns.length > 0
-          ? ` (Add-ons: ${item.addOns.map(id => allAddOns.find(a => a.id === id)?.name).filter(Boolean).join(', ')})`
+          ? ` (Add-ons: ${item.addOns.map(id => {
+              const addOn = allAddOns.find(a => a.id === id);
+              if (!addOn) return null;
+              const quantity = item.addOnQuantities[id] || 1;
+              const quantityText = addOn.allowQuantity && quantity > 1 ? ` x${quantity}` : '';
+              return `${addOn.name}${quantityText}`;
+            }).filter(Boolean).join(', ')})`
           : '';
         return `${item.service.name} (${item.clientType})${addOnsText}`;
       }).join('; ');
@@ -618,29 +638,35 @@ export default function PurchaseServicePage() {
                             </Label>
                             <div className="space-y-2">
                               {availableAddOns.map(addOn => {
-                                const displayPrice = addOn.id === 'trust-funding'
-                                  ? (item.clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!)
-                                  : addOn.price;
+                                const isSelected = item.addOns.includes(addOn.id);
+                                const quantity = item.addOnQuantities[addOn.id] || 1;
+                                const displayPrice = addOn.price * (addOn.allowQuantity ? quantity : 1);
 
                                 return (
                                   <div
                                     key={addOn.id}
-                                    className={`border rounded-lg p-3 cursor-pointer transition-all ${
-                                      item.addOns.includes(addOn.id)
+                                    className={`border rounded-lg p-3 transition-all ${
+                                      isSelected
                                         ? 'border-[#2d3e50] bg-blue-50'
                                         : 'border-gray-300 hover:border-[#4a708b]'
                                     }`}
-                                    onClick={() => {
-                                      const newAddOns = item.addOns.includes(addOn.id)
-                                        ? item.addOns.filter(id => id !== addOn.id)
-                                        : [...item.addOns, addOn.id];
-                                      updateCartItem(item.service.id, item.clientType, newAddOns);
-                                    }}
                                   >
-                                    <div className="flex items-center justify-between">
-                                      <div className="flex items-center gap-3">
-                                        <Checkbox checked={item.addOns.includes(addOn.id)} />
-                                        <div>
+                                    <div className="flex items-start justify-between gap-3">
+                                      <div
+                                        className="flex items-start gap-3 flex-1 cursor-pointer"
+                                        onClick={() => {
+                                          const newAddOns = isSelected
+                                            ? item.addOns.filter(id => id !== addOn.id)
+                                            : [...item.addOns, addOn.id];
+                                          const newQuantities = { ...item.addOnQuantities };
+                                          if (!isSelected && addOn.allowQuantity) {
+                                            newQuantities[addOn.id] = 1;
+                                          }
+                                          updateCartItem(item.service.id, item.clientType, newAddOns, newQuantities);
+                                        }}
+                                      >
+                                        <Checkbox checked={isSelected} className="mt-1" />
+                                        <div className="flex-1">
                                           <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#2d3e50]">
                                             {addOn.name}
                                           </p>
@@ -649,9 +675,43 @@ export default function PurchaseServicePage() {
                                           </p>
                                         </div>
                                       </div>
-                                      <span className="font-['Plus_Jakarta_Sans'] font-bold text-[#2d3e50]">
-                                        +${displayPrice.toLocaleString()}
-                                      </span>
+                                      <div className="flex items-center gap-3">
+                                        {isSelected && addOn.allowQuantity && (
+                                          <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                                            <Button
+                                              type="button"
+                                              variant="outline"
+                                              size="sm"
+                                              className="h-8 w-8 p-0"
+                                              onClick={() => updateAddOnQuantity(item.service.id, addOn.id, quantity - 1)}
+                                            >
+                                              -
+                                            </Button>
+                                            <Input
+                                              type="number"
+                                              min="1"
+                                              value={quantity}
+                                              onChange={(e) => {
+                                                const val = parseInt(e.target.value) || 1;
+                                                updateAddOnQuantity(item.service.id, addOn.id, val);
+                                              }}
+                                              className="w-16 h-8 text-center"
+                                            />
+                                            <Button
+                                              type="button"
+                                              variant="outline"
+                                              size="sm"
+                                              className="h-8 w-8 p-0"
+                                              onClick={() => updateAddOnQuantity(item.service.id, addOn.id, quantity + 1)}
+                                            >
+                                              +
+                                            </Button>
+                                          </div>
+                                        )}
+                                        <span className="font-['Plus_Jakarta_Sans'] font-bold text-[#2d3e50] whitespace-nowrap">
+                                          +${displayPrice.toLocaleString()}
+                                        </span>
+                                      </div>
                                     </div>
                                   </div>
                                 );
@@ -725,12 +785,12 @@ export default function PurchaseServicePage() {
                           const addOn = allAddOns.find(a => a.id === addOnId);
                           if (!addOn) return null;
 
-                          const displayPrice = addOn.id === 'trust-funding'
-                            ? (item.clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!)
-                            : addOn.price;
+                          const quantity = item.addOnQuantities[addOnId] || 1;
+                          const displayPrice = addOn.price * quantity;
+                          const quantityText = addOn.allowQuantity && quantity > 1 ? ` (x${quantity})` : '';
 
                           return (
-                            <li key={addOnId}>• {addOn.name} (+${displayPrice.toLocaleString()})</li>
+                            <li key={addOnId}>• {addOn.name}{quantityText} (+${displayPrice.toLocaleString()})</li>
                           );
                         })}
                       </ul>
