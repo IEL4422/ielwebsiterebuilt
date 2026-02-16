@@ -213,6 +213,7 @@ export default function PurchaseServicePage() {
   });
   const [agreementAccepted, setAgreementAccepted] = useState(false);
   const [probateAcknowledgment, setProbateAcknowledgment] = useState(false);
+  const [probatePricingAcknowledgment, setProbatePricingAcknowledgment] = useState(false);
   const [signature, setSignature] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<'full' | 'plan' | null>(null);
@@ -261,6 +262,10 @@ export default function PurchaseServicePage() {
 
   const isServiceInCart = (serviceId: string) => {
     return cart.some(item => item.service.id === serviceId);
+  };
+
+  const hasProbatePackageInCart = () => {
+    return cart.some(item => item.service.id === 'probate-package' || item.service.id === 'partial-probate');
   };
 
   const addToCart = (service: Service, clientType: 'individual' | 'joint', addOns: string[] = []) => {
@@ -320,6 +325,11 @@ export default function PurchaseServicePage() {
 
   const handleAgreementSign = async () => {
     if (!agreementAccepted || !signature || cart.length === 0) return;
+
+    if (hasProbatePackageInCart() && !probatePricingAcknowledgment) {
+      alert('Please acknowledge the probate pricing terms before continuing.');
+      return;
+    }
 
     setIsProcessing(true);
 
@@ -1070,6 +1080,27 @@ export default function PurchaseServicePage() {
 
                 <p className="mb-3"><strong>2.7 Payment Plans.</strong> Payment plans are available through Partial.ly. Payment plans require a one-time fee of 5% of the service cost. A 20% down payment is required to start any substantive work on a matter. A payment plan will default after 5 failed payment attempts. In the instance of a defaulted payment plan, all services with the Firm are terminated and the Firm reserves the right to collect fees through a collection agency or legal firm.</p>
 
+                {hasProbatePackageInCart() && (
+                  <>
+                    <p className="mb-3"><strong>2.8 Probate Package Base Pricing.</strong> For clients who have purchased the Probate Package (base price $7,500) or Partial Probate (base price $3,500), Client acknowledges and understands that the price paid represents a base package price for standard, uncontested probate administration services. Additional charges will be incurred for services beyond the base package scope, as detailed in Exhibit A below.</p>
+
+                    <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4 my-4">
+                      <h4 className="font-bold text-md mb-3">EXHIBIT A: Additional Probate Services & Fees</h4>
+                      <p className="mb-2 text-sm">The following services are NOT included in the base Probate Package or Partial Probate pricing and will incur additional charges if required during the administration of the estate:</p>
+                      <ul className="list-disc ml-6 space-y-1 text-sm">
+                        <li><strong>Will Contest Hearing</strong> - $5,000</li>
+                        <li><strong>Citation to Recover Assets</strong> - $4,000</li>
+                        <li><strong>Creditor Claim Objection</strong> - $1,500 per claim</li>
+                        <li><strong>Supervised Administration</strong> - $3,000</li>
+                        <li><strong>Real Estate Representation</strong> - $3,000</li>
+                        <li><strong>Emergency Relief/Hearing</strong> - $2,500</li>
+                        <li><strong>Minor Child/Adult Guardianship Proceedings</strong> - $3,500</li>
+                      </ul>
+                      <p className="mt-3 text-sm font-semibold">Client understands that the occurrence of any of the events listed in Exhibit A will result in additional fees beyond the base package price, and that such fees will be billed separately when these services become necessary.</p>
+                    </div>
+                  </>
+                )}
+
                 <h3 className="font-bold text-lg mt-6 mb-3">3. Communication.</h3>
 
                 <p className="mb-3"><strong>3.1 Communication Methods.</strong> The Firm will communicate with the Client regarding the progress of their estate planning matters via phone, email, or video conferencing. The Client may contact the Firm at:</p>
@@ -1166,6 +1197,21 @@ export default function PurchaseServicePage() {
                 </Label>
               </div>
 
+              {hasProbatePackageInCart() && (
+                <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4">
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="probate-pricing-acknowledgment"
+                      checked={probatePricingAcknowledgment}
+                      onCheckedChange={(checked) => setProbatePricingAcknowledgment(checked as boolean)}
+                    />
+                    <Label htmlFor="probate-pricing-acknowledgment" className="cursor-pointer leading-tight text-sm">
+                      <strong>I understand and acknowledge</strong> that the price I am paying for the {cart.find(item => item.service.id === 'probate-package') ? 'Probate Package ($7,500)' : 'Partial Probate ($3,500)'} is the base charge{cart.some(item => item.addOns.length > 0) ? ' (unless add-ons were added at checkout)' : ''} and that additional charges may occur depending on the events of the case, as outlined in Exhibit A above.
+                    </Label>
+                  </div>
+                </div>
+              )}
+
               <div>
                 <Label htmlFor="signature" className="text-[#2d3e50] font-semibold">
                   Electronic Signature (Type your full name) *
@@ -1196,7 +1242,7 @@ export default function PurchaseServicePage() {
                 </Button>
                 <Button
                   onClick={handleAgreementSign}
-                  disabled={!agreementAccepted || !signature || isProcessing}
+                  disabled={!agreementAccepted || !signature || isProcessing || (hasProbatePackageInCart() && !probatePricingAcknowledgment)}
                   className="flex-1 bg-[#2d3e50] hover:bg-[#4a708b]"
                 >
                   {isProcessing ? 'Processing...' : 'Proceed to Payment'}
