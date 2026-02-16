@@ -589,6 +589,16 @@ export default function PurchaseServicePage() {
               </Button>
             </div>
 
+            <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+              <p className="text-[#2d3e50] text-center">
+                Not sure which estate planning package is right for you?{' '}
+                <Link href="/compare-packages" className="font-bold underline hover:text-[#4a708b]">
+                  Compare our packages side-by-side
+                </Link>
+                {' '}to see what's included in each option.
+              </p>
+            </div>
+
             <div className="mb-6 max-w-md">
               <Input
                 type="text"

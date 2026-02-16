@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { CategorizedServicesDisplay } from '@/components/services/CategorizedServicesDisplay'
 
 export const metadata: Metadata = {
@@ -43,6 +44,18 @@ export default function ServicesPage() {
         <div className="container mx-auto px-5 max-w-[1240px] py-6">
           <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px] text-[#2d3e50] text-center sm:text-[16px]">
             We are pleased to offer payment plans for all services.
+          </p>
+        </div>
+      </div>
+
+      <div className="bg-blue-50 border-b-2 border-blue-200">
+        <div className="container mx-auto px-5 max-w-[1240px] py-4">
+          <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-[#2d3e50] text-center sm:text-[14px]">
+            Not sure which estate planning package is right for you?{' '}
+            <Link href="/compare-packages" className="font-bold underline hover:text-[#4a708b]">
+              Compare our packages side-by-side
+            </Link>
+            {' '}to see what's included in each option.
           </p>
         </div>
       </div>
