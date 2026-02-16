@@ -104,7 +104,7 @@ export default function ComparePackagesPage() {
       name: 'À La Carte Trust',
       individualPrice: 2500,
       jointPrice: 3500,
-      description: 'Trust only - no additional documents',
+      description: 'Trust with essential support services',
       features: {
         'Revocable Living Trust': true,
         'Last Will & Testament': false,
@@ -115,11 +115,11 @@ export default function ComparePackagesPage() {
         'Transfer-on-Death Instrument': false,
         'Remembrance & Services Memorandum': false,
         'Personal Property Memorandum': false,
-        'Deed Transfer of Real Estate to Trust': false,
-        'Online or Mobile Notarization': false,
-        'Physical & Digital Portfolio': false,
-        'Access to Client Portal': false,
-        'Unlimited Attorney Consultation': false,
+        'Deed Transfer of Real Estate to Trust': '(1) Included',
+        'Online or Mobile Notarization': true,
+        'Physical & Digital Portfolio': true,
+        'Access to Client Portal': true,
+        'Unlimited Attorney Consultation': true,
       }
     }
   ];
