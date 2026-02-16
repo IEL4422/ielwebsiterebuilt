@@ -87,6 +87,49 @@ const allAddOns: AddOn[] = [
     name: 'Annual Maintenance Membership',
     price: 149,
     description: 'Annual review meeting and free amendments ($149 per year)'
+  },
+  {
+    id: 'will-contest-hearing',
+    name: 'Will Contest Hearing',
+    price: 5000,
+    description: 'Used when someone disputes whether the will is valid, or defends the will against that challenge'
+  },
+  {
+    id: 'citation-to-recover-assets',
+    name: 'Citation to Recover Assets',
+    price: 4000,
+    description: 'Used when estate property appears to be held by someone else and must be returned to the estate'
+  },
+  {
+    id: 'creditor-claim-objection',
+    name: 'Creditor Claim Objection',
+    price: 1500,
+    description: 'Used when a creditor files a claim and the estate wants to contest all or part of that claim ($1,500 per claim)'
+  },
+  {
+    id: 'supervised-administration',
+    name: 'Supervised Administration',
+    price: 3000,
+    description: 'Court-supervised administration of the estate'
+  },
+  {
+    id: 'real-estate-attorney-representation',
+    name: 'Real Estate Attorney Representation',
+    price: 3000,
+    description: 'Legal representation for real estate matters in the estate'
+  },
+  {
+    id: 'emergency-relief',
+    name: 'Emergency Relief',
+    price: 2500,
+    description: 'Emergency motion to open estate, sell property, or avoid foreclosure'
+  },
+  {
+    id: 'asset-coordination',
+    name: 'Asset Coordination',
+    price: 500,
+    description: '$500 per asset - We work with banks directly to transfer assets to estate bank account',
+    allowQuantity: true
   }
 ];
 

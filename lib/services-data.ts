@@ -159,6 +159,51 @@ export const estatePlanningPackages: Service[] = [
   }
 ];
 
+const probateAddOns = [
+  {
+    id: 'will-contest-hearing',
+    name: 'Will Contest Hearing',
+    price: 5000,
+    description: 'Used when someone disputes whether the will is valid, or defends the will against that challenge'
+  },
+  {
+    id: 'citation-to-recover-assets',
+    name: 'Citation to Recover Assets',
+    price: 4000,
+    description: 'Used when estate property appears to be held by someone else and must be returned to the estate'
+  },
+  {
+    id: 'creditor-claim-objection',
+    name: 'Creditor Claim Objection',
+    price: 1500,
+    description: 'Used when a creditor files a claim and the estate wants to contest all or part of that claim ($1,500 per claim)'
+  },
+  {
+    id: 'supervised-administration',
+    name: 'Supervised Administration',
+    price: 3000,
+    description: 'Court-supervised administration of the estate'
+  },
+  {
+    id: 'real-estate-attorney-representation',
+    name: 'Real Estate Attorney Representation',
+    price: 3000,
+    description: 'Legal representation for real estate matters in the estate'
+  },
+  {
+    id: 'emergency-relief',
+    name: 'Emergency Relief',
+    price: 2500,
+    description: 'Emergency motion to open estate, sell property, or avoid foreclosure'
+  },
+  {
+    id: 'asset-coordination',
+    name: 'Asset Coordination',
+    price: 500,
+    description: 'We work with banks directly to transfer assets to estate bank account ($500 per asset)'
+  }
+];
+
 export const probatePackages: Service[] = [
   {
     id: 'probate-package',
@@ -177,7 +222,8 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: '$7,500 for Uncontested Matters - Varies for Contested Matters'
+    note: '$7,500 for Uncontested Matters - Varies for Contested Matters',
+    addOns: probateAddOns
   },
   {
     id: 'summary-probate',
@@ -196,14 +242,14 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs'
+    note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs',
+    addOns: probateAddOns
   },
   {
     id: 'partial-probate',
     name: 'Partial Probate',
     category: 'probate',
-    pricingLabel: 'Varies',
-    requiresConsultation: true,
+    fixedPrice: 3500,
     description: 'For probate cases already filed',
     includes: [
       'Preparation and Filing of All Necessary Documents',
@@ -214,7 +260,8 @@ export const probatePackages: Service[] = [
       'Preparation of Final Accounting',
       'Unlimited Attorney Consultation'
     ],
-    note: 'Consultation required - For probate cases that have already been filed'
+    note: 'For probate cases that have already been filed',
+    addOns: probateAddOns
   },
   {
     id: 'heir-representation',
@@ -229,7 +276,8 @@ export const probatePackages: Service[] = [
       'Attendance at all court hearings on behalf of heir',
       'Unlimited Attorney Consultation'
     ],
-    note: '$2,500 per heir'
+    note: '$2,500 per heir',
+    addOns: probateAddOns
   },
   {
     id: 'document-review',
@@ -237,7 +285,8 @@ export const probatePackages: Service[] = [
     category: 'probate',
     fixedPrice: 250,
     description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
-    includes: []
+    includes: [],
+    addOns: probateAddOns
   }
 ];
 
