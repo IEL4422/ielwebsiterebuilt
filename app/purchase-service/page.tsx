@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, type Service } from '@/lib/services-data';
+import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, type Service, allServices } from '@/lib/services-data';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -11,7 +11,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { CheckIcon } from '@/components/icons/CheckIcon';
-import { CategorizedServices } from '@/components/services/CategorizedServices';
+import { Search, ShoppingCart, X, Plus, Check } from 'lucide-react';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -24,7 +24,9 @@ const getSupabaseClient = () => {
   return createClient(supabaseUrl, supabaseAnonKey);
 };
 
-type Step = 'select-service' | 'add-ons' | 'client-info' | 'agreement' | 'payment-selection' | 'payment-plan-confirmation';
+type Step = 'select-service' | 'cart-review' | 'client-info' | 'agreement' | 'payment-selection' | 'payment-plan-confirmation';
+
+type CategoryType = 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'small-business' | null;
 
 interface AddOn {
   id: string;
@@ -95,11 +97,19 @@ const getAvailableAddOns = (serviceId: string): AddOn[] => {
   }
 };
 
+interface CartItem {
+  service: Service;
+  clientType: 'individual' | 'joint';
+  addOns: string[];
+}
+
 export default function PurchaseServicePage() {
   const [step, setStep] = useState<Step>('select-service');
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
-  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
-  const [clientType, setClientType] = useState<'individual' | 'joint'>('individual');
+  const [selectedCategory, setSelectedCategory] = useState<CategoryType>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [expandedDescriptions, setExpandedDescriptions] = useState<Set<string>>(new Set());
+
   const [clientInfo, setClientInfo] = useState({
     name: '',
     email: '',
@@ -109,7 +119,6 @@ export default function PurchaseServicePage() {
   const [probateAcknowledgment, setProbateAcknowledgment] = useState(false);
   const [signature, setSignature] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [expandedDescriptions, setExpandedDescriptions] = useState<Set<string>>(new Set());
   const [paymentMethod, setPaymentMethod] = useState<'full' | 'plan' | null>(null);
   const [purchaseId, setPurchaseId] = useState<string | null>(null);
 
@@ -119,73 +128,108 @@ export default function PurchaseServicePage() {
     }
   }, []);
 
+  const categoryData = {
+    'estate-planning': { name: 'Estate Planning', services: estatePlanningPackages },
+    'probate': { name: 'Probate', services: probatePackages },
+    'a-la-carte': { name: 'A La Carte Services', services: aLaCarteServices },
+    'prenuptial': { name: 'Prenuptial Agreements', services: prenuptialServices },
+    'small-business': { name: 'Small Business', services: smallBusinessServices }
+  };
+
+  const filteredServices = useMemo(() => {
+    let services = selectedCategory
+      ? categoryData[selectedCategory].services
+      : allServices;
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      services = services.filter(service =>
+        service.name.toLowerCase().includes(query) ||
+        service.description.toLowerCase().includes(query) ||
+        service.includes.some(inc => inc.toLowerCase().includes(query))
+      );
+    }
+
+    return services;
+  }, [selectedCategory, searchQuery]);
+
   const getServicePrice = (service: Service, type: 'individual' | 'joint') => {
     if (service.pricingLabel) return 0;
     if (service.fixedPrice) return service.fixedPrice;
     return type === 'individual' ? (service.individualPrice || 0) : (service.jointPrice || 0);
   };
 
-  const getAddOnsTotal = () => {
-    return selectedAddOns.reduce((total, addOnId) => {
+  const getCartItemPrice = (item: CartItem) => {
+    const basePrice = getServicePrice(item.service, item.clientType);
+    const addOnsTotal = item.addOns.reduce((total, addOnId) => {
       const addOn = allAddOns.find(a => a.id === addOnId);
       if (!addOn) return total;
 
       if (addOn.id === 'trust-funding') {
-        return total + (clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!);
+        return total + (item.clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!);
       }
 
       return total + addOn.price;
     }, 0);
+
+    return basePrice + addOnsTotal;
   };
 
-  const getTotalPrice = () => {
-    if (!selectedService) return 0;
-    const basePrice = getServicePrice(selectedService, clientType);
-    return basePrice + getAddOnsTotal();
+  const getCartTotal = () => {
+    return cart.reduce((total, item) => total + getCartItemPrice(item), 0);
   };
 
-  const handleServiceSelect = (service: Service) => {
+  const isServiceInCart = (serviceId: string) => {
+    return cart.some(item => item.service.id === serviceId);
+  };
+
+  const addToCart = (service: Service, clientType: 'individual' | 'joint', addOns: string[] = []) => {
     if (service.requiresConsultation) {
       window.location.href = '/book-consultation/';
       return;
     }
-    setSelectedService(service);
-    setProbateAcknowledgment(false);
-    if (service.category === 'estate-planning' || service.id === 'revocable-living-trust') {
-      setStep('add-ons');
-    } else {
-      setStep('client-info');
+
+    if (isServiceInCart(service.id)) {
+      return;
     }
+
+    setCart(prev => [...prev, { service, clientType, addOns }]);
   };
 
-  const toggleAddOn = (addOnId: string) => {
-    setSelectedAddOns(prev =>
-      prev.includes(addOnId)
-        ? prev.filter(id => id !== addOnId)
-        : [...prev, addOnId]
-    );
+  const removeFromCart = (serviceId: string) => {
+    setCart(prev => prev.filter(item => item.service.id !== serviceId));
   };
 
-  const handleAddOnsComplete = () => {
-    setStep('client-info');
+  const updateCartItem = (serviceId: string, clientType: 'individual' | 'joint', addOns: string[]) => {
+    setCart(prev => prev.map(item =>
+      item.service.id === serviceId
+        ? { ...item, clientType, addOns }
+        : item
+    ));
   };
 
   const handleClientInfoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (cart.some(item => item.service.category === 'probate') && !probateAcknowledgment) {
+      alert('Please acknowledge the probate terms before continuing.');
+      return;
+    }
     setStep('agreement');
   };
 
   const handleAgreementSign = async () => {
-    if (!agreementAccepted || !signature || !selectedService) return;
+    if (!agreementAccepted || !signature || cart.length === 0) return;
 
     setIsProcessing(true);
 
     try {
-      const totalPrice = getTotalPrice();
-      const addOnsNames = selectedAddOns.map(addOnId => {
-        const addOn = allAddOns.find(a => a.id === addOnId);
-        return addOn?.name;
-      }).filter(Boolean);
+      const totalPrice = getCartTotal();
+      const servicesDescription = cart.map(item => {
+        const addOnsText = item.addOns.length > 0
+          ? ` (Add-ons: ${item.addOns.map(id => allAddOns.find(a => a.id === id)?.name).filter(Boolean).join(', ')})`
+          : '';
+        return `${item.service.name} (${item.clientType})${addOnsText}`;
+      }).join('; ');
 
       const supabase = getSupabaseClient();
       const { data, error } = await supabase
@@ -194,15 +238,15 @@ export default function PurchaseServicePage() {
           client_name: clientInfo.name,
           client_email: clientInfo.email,
           client_phone: clientInfo.phone,
-          service_type: selectedService.category,
-          service_name: selectedService.name,
+          service_type: 'multiple',
+          service_name: servicesDescription,
           service_price: totalPrice,
-          client_type: clientType,
+          client_type: 'multiple',
           agreement_signed: true,
           agreement_signature: signature,
           agreement_signed_at: new Date().toISOString(),
           stripe_payment_status: 'pending',
-          add_ons: addOnsNames.length > 0 ? addOnsNames.join(', ') : null
+          add_ons: null
         })
         .select()
         .maybeSingle();
@@ -225,7 +269,8 @@ export default function PurchaseServicePage() {
     if (method === 'full') {
       setIsProcessing(true);
       try {
-        const totalPrice = getTotalPrice();
+        const totalPrice = getCartTotal();
+        const servicesDescription = cart.map(item => item.service.name).join(', ');
         const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/create-checkout-session`;
         const response = await fetch(apiUrl, {
           method: 'POST',
@@ -235,7 +280,7 @@ export default function PurchaseServicePage() {
           },
           body: JSON.stringify({
             purchaseId: purchaseId,
-            serviceName: selectedService?.name,
+            serviceName: servicesDescription,
             price: totalPrice,
             clientEmail: clientInfo.email
           })
@@ -253,23 +298,10 @@ export default function PurchaseServicePage() {
     } else if (method === 'plan') {
       setIsProcessing(true);
       try {
-        const totalPrice = getTotalPrice();
+        const totalPrice = getCartTotal();
         const setupFee = totalPrice * 0.05;
         const totalWithFee = totalPrice + setupFee;
-
-        const getServiceType = (category: string, serviceName: string) => {
-          if (category === 'estate-planning') return 'Estate Planning';
-          if (category === 'probate') return 'Probate';
-          if (category === 'prenuptial') return 'Prenuptial Agreement';
-          if (category === 'small-business') return 'Small Business';
-          if (category === 'a-la-carte') {
-            const deedServices = ['Quit Claim Deed', 'Transfer-on-Death Instrument', 'Life Estate Deed'];
-            if (deedServices.some(d => serviceName.includes(d))) return 'Deed';
-            if (serviceName.includes('Document Review')) return 'Document Review';
-            return 'Estate Planning';
-          }
-          return 'Estate Planning';
-        };
+        const servicesDescription = cart.map(item => item.service.name).join(', ');
 
         const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/submit-payment-plan`;
         const response = await fetch(apiUrl, {
@@ -281,11 +313,11 @@ export default function PurchaseServicePage() {
           body: JSON.stringify({
             firstName: clientInfo.name.split(' ')[0],
             lastName: clientInfo.name.split(' ').slice(1).join(' '),
-            packagePurchased: selectedService?.name,
+            packagePurchased: servicesDescription,
             totalPrice: totalWithFee,
             email: clientInfo.email,
             phoneNumber: clientInfo.phone,
-            typeOfService: getServiceType(selectedService?.category || '', selectedService?.name || '')
+            typeOfService: 'Multiple Services'
           })
         });
 
@@ -321,12 +353,19 @@ export default function PurchaseServicePage() {
   const renderServiceCard = (service: Service) => {
     const hasMultiplePrices = service.individualPrice && service.jointPrice;
     const isExpanded = expandedDescriptions.has(service.id);
+    const inCart = isServiceInCart(service.id);
 
     return (
       <div
         key={service.id}
-        className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 hover:shadow-lg transition-shadow"
+        className={`bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 hover:shadow-lg transition-all ${inCart ? 'ring-4 ring-green-400' : ''}`}
       >
+        {inCart && (
+          <div className="flex items-center gap-2 mb-4 text-green-300">
+            <Check className="w-5 h-5" />
+            <span className="font-['Plus_Jakarta_Sans'] font-semibold">In Cart</span>
+          </div>
+        )}
         <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4">
           {service.name}
         </h3>
@@ -335,11 +374,11 @@ export default function PurchaseServicePage() {
             service.pricingLabel
           ) : hasMultiplePrices ? (
             <>
-              Individual: ${service.individualPrice}<br />
-              Joint: ${service.jointPrice}
+              Individual: ${service.individualPrice?.toLocaleString()}<br />
+              Joint: ${service.jointPrice?.toLocaleString()}
             </>
           ) : (
-            `$${service.fixedPrice}`
+            `$${service.fixedPrice?.toLocaleString()}`
           )}
         </p>
         {service.note && (
@@ -370,10 +409,18 @@ export default function PurchaseServicePage() {
           </div>
         )}
         <Button
-          className="w-full mt-4 bg-white text-[#2d3e50] hover:bg-gray-100"
-          onClick={() => handleServiceSelect(service)}
+          className={`w-full mt-4 ${inCart ? 'bg-red-500 hover:bg-red-600' : 'bg-white hover:bg-gray-100'} text-[#2d3e50]`}
+          onClick={() => {
+            if (inCart) {
+              removeFromCart(service.id);
+            } else {
+              const defaultClientType = hasMultiplePrices ? 'individual' : 'individual';
+              addToCart(service, defaultClientType);
+            }
+          }}
+          disabled={service.requiresConsultation}
         >
-          Select This Service
+          {service.requiresConsultation ? 'Consultation Required' : inCart ? 'Remove from Cart' : 'Add to Cart'}
         </Button>
       </div>
     );
@@ -399,219 +446,292 @@ export default function PurchaseServicePage() {
 
       <div className="container mx-auto px-5 max-w-[1240px] py-[60px]">
         {step === 'select-service' && (
-          <CategorizedServices
-            onSelectService={handleServiceSelect}
-            expandedDescriptions={expandedDescriptions}
-            toggleDescription={toggleDescription}
-          />
-        )}
+          <>
+            <div className="mb-8">
+              <div className="relative mb-6">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Input
+                  type="text"
+                  placeholder="Search services..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 py-6 text-lg"
+                />
+              </div>
 
-        {step === 'add-ons' && selectedService && (
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
-              {selectedService.id === 'probate-avoidance-package' ? 'Select Plan Type' : 'Enhance Your Estate Plan'}
-            </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+                {Object.entries(categoryData).map(([key, value]) => (
+                  <Button
+                    key={key}
+                    onClick={() => {
+                      setSelectedCategory(selectedCategory === key ? null : key as CategoryType);
+                      setSearchQuery('');
+                    }}
+                    className={`py-6 text-base font-semibold ${
+                      selectedCategory === key
+                        ? 'bg-[#2d3e50] text-white hover:bg-[#4a708b]'
+                        : 'bg-white text-[#2d3e50] border-2 border-[#2d3e50] hover:bg-gray-50'
+                    }`}
+                  >
+                    {value.name}
+                  </Button>
+                ))}
+              </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 mb-8">
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-2">
-                Selected Package: {selectedService.name}
-              </h3>
-              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe]">
-                Base Price: {selectedService.pricingLabel || `$${getServicePrice(selectedService, clientType).toLocaleString()}`}
-              </p>
+              {selectedCategory && (
+                <Button
+                  onClick={() => setSelectedCategory(null)}
+                  variant="outline"
+                  className="mb-6"
+                >
+                  Clear Category Filter
+                </Button>
+              )}
             </div>
 
-            {(selectedService.individualPrice && selectedService.jointPrice) && (
-              <div className="mb-8">
-                <Label className="text-[#2d3e50] font-semibold text-[18px] mb-4 block">
-                  Plan Type
-                </Label>
-                <RadioGroup value={clientType} onValueChange={(value: any) => setClientType(value)}>
-                  <div className="border-2 rounded-[10px] p-4 mb-3 hover:border-[#4a708b] transition-colors">
-                    <div className="flex items-center space-x-3">
-                      <RadioGroupItem value="individual" id="individual-addon" />
-                      <Label htmlFor="individual-addon" className="cursor-pointer flex-1">
-                        <div className="flex justify-between items-center">
-                          <span className="font-semibold text-[18px]">Individual</span>
-                          <span className="font-bold text-[20px] text-[#2d3e50]">${selectedService.individualPrice?.toLocaleString()}</span>
-                        </div>
-                      </Label>
-                    </div>
-                  </div>
-                  <div className="border-2 rounded-[10px] p-4 hover:border-[#4a708b] transition-colors">
-                    <div className="flex items-center space-x-3">
-                      <RadioGroupItem value="joint" id="joint-addon" />
-                      <Label htmlFor="joint-addon" className="cursor-pointer flex-1">
-                        <div className="flex justify-between items-center">
-                          <span className="font-semibold text-[18px]">Joint (Spouses/Partners)</span>
-                          <span className="font-bold text-[20px] text-[#2d3e50]">${selectedService.jointPrice?.toLocaleString()}</span>
-                        </div>
-                      </Label>
-                    </div>
-                  </div>
-                </RadioGroup>
+            {cart.length > 0 && (
+              <div className="fixed bottom-6 right-6 z-50">
+                <Button
+                  onClick={() => setStep('cart-review')}
+                  className="bg-green-600 hover:bg-green-700 text-white px-6 py-6 rounded-full shadow-lg flex items-center gap-3 text-lg"
+                >
+                  <ShoppingCart className="w-6 h-6" />
+                  <span>Cart ({cart.length})</span>
+                  <span className="font-bold">${getCartTotal().toLocaleString()}</span>
+                </Button>
               </div>
             )}
 
-            {getAvailableAddOns(selectedService.id).length > 0 && (
-              <>
-                <p className="font-['Plus_Jakarta_Sans'] text-[18px] text-[#2d3e50] mb-6">
-                  Select any additional services you'd like to add to your estate plan:
+            {filteredServices.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="font-['Plus_Jakarta_Sans'] text-xl text-gray-600">
+                  No services found. Try adjusting your search or category filter.
                 </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredServices.map(service => renderServiceCard(service))}
+              </div>
+            )}
+          </>
+        )}
 
-                <div className="space-y-4 mb-8">
-                  {getAvailableAddOns(selectedService.id).map(addOn => {
-                    const displayPrice = addOn.id === 'trust-funding'
-                      ? (clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!)
-                      : addOn.price;
+        {step === 'cart-review' && (
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
+              Review Your Cart
+            </h2>
+
+            {cart.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="font-['Plus_Jakarta_Sans'] text-xl text-gray-600 mb-6">
+                  Your cart is empty. Add services to continue.
+                </p>
+                <Button
+                  onClick={() => setStep('select-service')}
+                  className="bg-[#2d3e50] hover:bg-[#4a708b]"
+                >
+                  Browse Services
+                </Button>
+              </div>
+            ) : (
+              <>
+                <div className="space-y-6 mb-8">
+                  {cart.map((item, index) => {
+                    const hasMultiplePrices = item.service.individualPrice && item.service.jointPrice;
+                    const availableAddOns = getAvailableAddOns(item.service.id);
 
                     return (
-                      <div
-                        key={addOn.id}
-                        className={`border-2 rounded-[10px] p-6 cursor-pointer transition-all ${
-                          selectedAddOns.includes(addOn.id)
-                            ? 'border-[#2d3e50] bg-blue-50'
-                            : 'border-gray-300 hover:border-[#4a708b]'
-                        }`}
-                        onClick={() => toggleAddOn(addOn.id)}
-                      >
-                        <div className="flex items-start justify-between">
-                          <div className="flex items-start gap-4 flex-1">
-                            <Checkbox
-                              checked={selectedAddOns.includes(addOn.id)}
-                              onCheckedChange={() => toggleAddOn(addOn.id)}
-                              className="mt-1"
-                            />
-                            <div className="flex-1">
-                              <h4 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2">
-                                {addOn.name}
-                              </h4>
-                              <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-gray-700">
-                                {addOn.description}
-                              </p>
+                      <div key={item.service.id} className="bg-white border-2 border-gray-200 rounded-[10px] p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <div className="flex-1">
+                            <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#2d3e50] mb-2">
+                              {item.service.name}
+                            </h3>
+                            <p className="font-['Plus_Jakarta_Sans'] text-[18px] text-gray-600">
+                              ${getCartItemPrice(item).toLocaleString()}
+                            </p>
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => removeFromCart(item.service.id)}
+                            className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                          >
+                            <X className="w-5 h-5" />
+                          </Button>
+                        </div>
+
+                        {hasMultiplePrices && (
+                          <div className="mb-4">
+                            <Label className="text-[#2d3e50] font-semibold text-[16px] mb-3 block">
+                              Plan Type
+                            </Label>
+                            <RadioGroup
+                              value={item.clientType}
+                              onValueChange={(value: any) => updateCartItem(item.service.id, value, item.addOns)}
+                            >
+                              <div className="flex gap-3">
+                                <div className="flex-1 border-2 rounded-lg p-3 hover:border-[#4a708b] transition-colors">
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="individual" id={`individual-${index}`} />
+                                    <Label htmlFor={`individual-${index}`} className="cursor-pointer flex-1">
+                                      <div className="flex justify-between items-center">
+                                        <span className="font-semibold">Individual</span>
+                                        <span className="font-bold text-[#2d3e50]">${item.service.individualPrice?.toLocaleString()}</span>
+                                      </div>
+                                    </Label>
+                                  </div>
+                                </div>
+                                <div className="flex-1 border-2 rounded-lg p-3 hover:border-[#4a708b] transition-colors">
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="joint" id={`joint-${index}`} />
+                                    <Label htmlFor={`joint-${index}`} className="cursor-pointer flex-1">
+                                      <div className="flex justify-between items-center">
+                                        <span className="font-semibold">Joint</span>
+                                        <span className="font-bold text-[#2d3e50]">${item.service.jointPrice?.toLocaleString()}</span>
+                                      </div>
+                                    </Label>
+                                  </div>
+                                </div>
+                              </div>
+                            </RadioGroup>
+                          </div>
+                        )}
+
+                        {availableAddOns.length > 0 && (
+                          <div>
+                            <Label className="text-[#2d3e50] font-semibold text-[16px] mb-3 block">
+                              Available Add-Ons
+                            </Label>
+                            <div className="space-y-2">
+                              {availableAddOns.map(addOn => {
+                                const displayPrice = addOn.id === 'trust-funding'
+                                  ? (item.clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!)
+                                  : addOn.price;
+
+                                return (
+                                  <div
+                                    key={addOn.id}
+                                    className={`border rounded-lg p-3 cursor-pointer transition-all ${
+                                      item.addOns.includes(addOn.id)
+                                        ? 'border-[#2d3e50] bg-blue-50'
+                                        : 'border-gray-300 hover:border-[#4a708b]'
+                                    }`}
+                                    onClick={() => {
+                                      const newAddOns = item.addOns.includes(addOn.id)
+                                        ? item.addOns.filter(id => id !== addOn.id)
+                                        : [...item.addOns, addOn.id];
+                                      updateCartItem(item.service.id, item.clientType, newAddOns);
+                                    }}
+                                  >
+                                    <div className="flex items-center justify-between">
+                                      <div className="flex items-center gap-3">
+                                        <Checkbox checked={item.addOns.includes(addOn.id)} />
+                                        <div>
+                                          <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#2d3e50]">
+                                            {addOn.name}
+                                          </p>
+                                          <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                                            {addOn.description}
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <span className="font-['Plus_Jakarta_Sans'] font-bold text-[#2d3e50]">
+                                        +${displayPrice.toLocaleString()}
+                                      </span>
+                                    </div>
+                                  </div>
+                                );
+                              })}
                             </div>
                           </div>
-                          <div className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#2d3e50] ml-4">
-                            ${displayPrice.toLocaleString()}
-                          </div>
-                        </div>
+                        )}
                       </div>
                     );
                   })}
                 </div>
-              </>
-            )}
 
-            {selectedAddOns.length > 0 && (
-              <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 mb-6">
-                <div className="flex justify-between items-center text-[#fefefe]">
-                  <div>
-                    <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px]">
-                      Base Price: {selectedService.pricingLabel || `$${getServicePrice(selectedService, clientType).toLocaleString()}`}
-                    </p>
-                    <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px]">
-                      Add-Ons: ${getAddOnsTotal().toLocaleString()}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-['Plus_Jakarta_Sans'] font-bold text-[28px]">
-                      Total: {selectedService.pricingLabel || `$${getTotalPrice().toLocaleString()}`}
-                    </p>
+                <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 mb-6">
+                  <div className="flex justify-between items-center text-[#fefefe]">
+                    <div>
+                      <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px]">
+                        {cart.length} {cart.length === 1 ? 'Service' : 'Services'} in Cart
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-['Plus_Jakarta_Sans'] font-bold text-[32px]">
+                        ${getCartTotal().toLocaleString()}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
 
-            <div className="flex gap-4">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => {
-                  setStep('select-service');
-                  setSelectedAddOns([]);
-                }}
-                className="flex-1"
-              >
-                Back to Services
-              </Button>
-              <Button
-                onClick={handleAddOnsComplete}
-                className="flex-1 bg-[#2d3e50] hover:bg-[#4a708b]"
-              >
-                Continue
-              </Button>
-            </div>
+                <div className="flex gap-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setStep('select-service')}
+                    className="flex-1"
+                  >
+                    Continue Shopping
+                  </Button>
+                  <Button
+                    onClick={() => setStep('client-info')}
+                    className="flex-1 bg-[#2d3e50] hover:bg-[#4a708b]"
+                  >
+                    Proceed to Checkout
+                  </Button>
+                </div>
+              </>
+            )}
           </div>
         )}
 
-        {step === 'client-info' && selectedService && (
+        {step === 'client-info' && cart.length > 0 && (
           <div className="max-w-2xl mx-auto">
             <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
               Client Information
             </h2>
 
             <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 mb-6">
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-2">
-                Selected Service: {selectedService.name}
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4">
+                Order Summary
               </h3>
-              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-2">
-                {selectedService.pricingLabel
-                  ? selectedService.pricingLabel
-                  : selectedService.fixedPrice
-                  ? `$${selectedService.fixedPrice.toLocaleString()}`
-                  : `${clientType === 'individual' ? 'Individual' : 'Joint'}: $${getServicePrice(selectedService, clientType).toLocaleString()}`
-                }
+              <div className="space-y-3">
+                {cart.map(item => (
+                  <div key={item.service.id} className="border-t border-white/30 pt-3 first:border-t-0 first:pt-0">
+                    <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px] text-[#fefefe]">
+                      {item.service.name} ({item.clientType})
+                    </p>
+                    <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-[#f3f3f3]">
+                      ${getCartItemPrice(item).toLocaleString()}
+                    </p>
+                    {item.addOns.length > 0 && (
+                      <ul className="font-['Plus_Jakarta_Sans'] text-[14px] text-[#f3f3f3] mt-1 ml-4">
+                        {item.addOns.map(addOnId => {
+                          const addOn = allAddOns.find(a => a.id === addOnId);
+                          if (!addOn) return null;
+
+                          const displayPrice = addOn.id === 'trust-funding'
+                            ? (item.clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!)
+                            : addOn.price;
+
+                          return (
+                            <li key={addOnId}>• {addOn.name} (+${displayPrice.toLocaleString()})</li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mt-4 border-t border-white/30 pt-4">
+                Total: ${getCartTotal().toLocaleString()}
               </p>
-              {selectedAddOns.length > 0 && (
-                <>
-                  <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px] text-[#fefefe] mt-3">
-                    Add-Ons Selected:
-                  </p>
-                  <ul className="font-['Plus_Jakarta_Sans'] text-[16px] text-[#fefefe] mt-1">
-                    {selectedAddOns.map(addOnId => {
-                      const addOn = allAddOns.find(a => a.id === addOnId);
-                      if (!addOn) return null;
-
-                      const displayPrice = addOn.id === 'trust-funding'
-                        ? (clientType === 'individual' ? addOn.individualPrice! : addOn.jointPrice!)
-                        : addOn.price;
-
-                      return (
-                        <li key={addOnId}>• {addOn.name} (+${displayPrice.toLocaleString()})</li>
-                      );
-                    })}
-                  </ul>
-                </>
-              )}
-              {(selectedAddOns.length > 0 || (selectedService.individualPrice && selectedService.jointPrice)) && (
-                <p className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#fefefe] mt-3 border-t border-white/30 pt-3">
-                  Total: {selectedService.pricingLabel || `$${getTotalPrice().toLocaleString()}`}
-                </p>
-              )}
             </div>
 
             <form onSubmit={handleClientInfoSubmit} className="space-y-6">
-              {(selectedService.individualPrice && selectedService.jointPrice && selectedService.category !== 'estate-planning') && (
-                <div>
-                  <Label className="text-[#2d3e50] font-semibold mb-3 block">
-                    Service Type
-                  </Label>
-                  <RadioGroup value={clientType} onValueChange={(value: any) => setClientType(value)}>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="individual" id="individual" />
-                      <Label htmlFor="individual" className="cursor-pointer">
-                        Individual (${selectedService.individualPrice})
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="joint" id="joint" />
-                      <Label htmlFor="joint" className="cursor-pointer">
-                        Joint (${selectedService.jointPrice})
-                      </Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-              )}
 
               <div>
                 <Label htmlFor="name" className="text-[#2d3e50] font-semibold">
@@ -654,7 +774,7 @@ export default function PurchaseServicePage() {
                 />
               </div>
 
-              {selectedService.category === 'probate' && (
+              {cart.some(item => item.service.category === 'probate') && (
                 <div className="bg-amber-50 border-2 border-amber-200 rounded-[10px] p-6">
                   <div className="flex items-start space-x-3">
                     <input
@@ -666,7 +786,7 @@ export default function PurchaseServicePage() {
                       required
                     />
                     <Label htmlFor="probate-acknowledgment" className="cursor-pointer text-[#2d3e50] font-semibold leading-relaxed">
-                      I understand that this package is for uncontested (no disputes) probate. If it becomes contested, I understand that my attorney may charge additional fees or may withdraw from the matter.
+                      I understand that probate packages are for uncontested (no disputes) matters. If it becomes contested, I understand that my attorney may charge additional fees or may withdraw from the matter.
                     </Label>
                   </div>
                   <p className="mt-4 text-sm text-[#2d3e50] ml-8">
@@ -684,16 +804,11 @@ export default function PurchaseServicePage() {
                   variant="outline"
                   onClick={() => {
                     setProbateAcknowledgment(false);
-                    if (selectedService?.category === 'estate-planning') {
-                      setStep('add-ons');
-                    } else {
-                      setStep('select-service');
-                      setSelectedService(null);
-                    }
+                    setStep('cart-review');
                   }}
                   className="flex-1"
                 >
-                  Back
+                  Back to Cart
                 </Button>
                 <Button type="submit" className="flex-1 bg-[#2d3e50] hover:bg-[#4a708b]">
                   Continue to Agreement
@@ -703,7 +818,7 @@ export default function PurchaseServicePage() {
           </div>
         )}
 
-        {step === 'agreement' && selectedService && (
+        {step === 'agreement' && cart.length > 0 && (
           <div className="max-w-4xl mx-auto">
             <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6">
               Client Service Agreement
@@ -873,23 +988,28 @@ export default function PurchaseServicePage() {
           </div>
         )}
 
-        {step === 'payment-selection' && selectedService && (
+        {step === 'payment-selection' && cart.length > 0 && (
           <div className="max-w-3xl mx-auto">
             <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6 text-center">
               Select Payment Method
             </h2>
 
             <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 mb-8">
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-2">
-                Selected Service: {selectedService.name}
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4">
+                Order Summary
               </h3>
-              <p className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#fefefe]">
-                Total: ${getTotalPrice().toLocaleString()}
+              {cart.map(item => (
+                <p key={item.service.id} className="font-['Plus_Jakarta_Sans'] text-[16px] text-[#f3f3f3] mb-1">
+                  • {item.service.name}
+                </p>
+              ))}
+              <p className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#fefefe] mt-4 border-t border-white/30 pt-4">
+                Total: ${getCartTotal().toLocaleString()}
               </p>
             </div>
 
             <p className="font-['Plus_Jakarta_Sans'] text-[18px] text-[#2d3e50] mb-6 text-center">
-              Choose how you would like to pay for your service:
+              Choose how you would like to pay for your services:
             </p>
 
             <div className="space-y-4 mb-8">
@@ -909,7 +1029,7 @@ export default function PurchaseServicePage() {
                   </div>
                   <div className="ml-4">
                     <p className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50]">
-                      ${getTotalPrice().toLocaleString()}
+                      ${getCartTotal().toLocaleString()}
                     </p>
                     <p className="font-['Plus_Jakarta_Sans'] text-[14px] text-gray-600 text-right">
                       No additional fees
@@ -937,7 +1057,7 @@ export default function PurchaseServicePage() {
                   </div>
                   <div className="ml-4">
                     <p className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50]">
-                      ${(getTotalPrice() * 1.05).toLocaleString()}
+                      ${(getCartTotal() * 1.05).toLocaleString()}
                     </p>
                     <p className="font-['Plus_Jakarta_Sans'] text-[14px] text-gray-600 text-right">
                       Total with 5% fee
@@ -969,7 +1089,7 @@ export default function PurchaseServicePage() {
           </div>
         )}
 
-        {step === 'payment-plan-confirmation' && selectedService && (
+        {step === 'payment-plan-confirmation' && cart.length > 0 && (
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 mb-6">
               <CheckIcon className="w-10 h-10 text-green-600" />
@@ -1017,7 +1137,7 @@ export default function PurchaseServicePage() {
                     4
                   </div>
                   <div className="text-[#f3f3f3]">
-                    <strong>Service Details:</strong> Service: {selectedService.name} | Total with 5% setup fee: ${(getTotalPrice() * 1.05).toLocaleString()}
+                    <strong>Services:</strong> {cart.map(item => item.service.name).join(', ')} | Total with 5% setup fee: ${(getCartTotal() * 1.05).toLocaleString()}
                   </div>
                 </div>
               </div>
