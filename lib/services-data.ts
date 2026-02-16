@@ -200,7 +200,8 @@ const probateAddOns = [
     id: 'asset-coordination',
     name: 'Asset Coordination',
     price: 500,
-    description: 'We work with banks directly to transfer assets to estate bank account ($500 per asset)'
+    description: 'We work with banks directly to transfer assets to estate bank account ($500 per asset)',
+    allowQuantity: true
   }
 ];
 
@@ -209,7 +210,7 @@ export const probatePackages: Service[] = [
     id: 'probate-package',
     name: 'Probate Package',
     category: 'probate',
-    fixedPrice: 7500,
+    pricingLabel: 'Starting at $7,500',
     description: 'Full probate administration services',
     includes: [
       'Preparation and Filing of All Necessary Documents',
@@ -222,7 +223,6 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: '$7,500 for Uncontested Matters - Varies for Contested Matters',
     addOns: probateAddOns
   },
   {
@@ -242,14 +242,13 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs',
-    addOns: probateAddOns
+    note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs'
   },
   {
     id: 'partial-probate',
     name: 'Partial Probate',
     category: 'probate',
-    fixedPrice: 3500,
+    pricingLabel: 'Starting at $3,500',
     description: 'For probate cases already filed',
     includes: [
       'Preparation and Filing of All Necessary Documents',
@@ -260,7 +259,6 @@ export const probatePackages: Service[] = [
       'Preparation of Final Accounting',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For probate cases that have already been filed',
     addOns: probateAddOns
   },
   {
