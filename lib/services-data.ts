@@ -130,6 +130,20 @@ export const estatePlanningPackages: Service[] = [
       'Unlimited Attorney Consultation'
     ],
     addOns: estatePlanningAddOns
+  },
+  {
+    id: 'annual-review-membership',
+    name: 'Annual Review Membership',
+    category: 'estate-planning',
+    fixedPrice: 149,
+    description: 'Annual review meeting to ensure your estate plan stays current with your life changes and the law, plus free amendments to your documents throughout the year.',
+    includes: [
+      'Annual review meeting with attorney',
+      'Free amendments to estate planning documents',
+      'Priority scheduling',
+      'Phone and email support',
+      'Document storage and access'
+    ]
   }
 ];
 
@@ -204,6 +218,14 @@ export const probatePackages: Service[] = [
       'Unlimited Attorney Consultation'
     ],
     note: '$2,500 per heir'
+  },
+  {
+    id: 'document-review',
+    name: 'Document Review',
+    category: 'probate',
+    fixedPrice: 250,
+    description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
+    includes: []
   }
 ];
 
@@ -304,15 +326,6 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 500,
     description: 'Amendment to existing will',
-    includes: [],
-    addOns: estatePlanningAddOns
-  },
-  {
-    id: 'document-review',
-    name: 'Document Review',
-    category: 'a-la-carte',
-    fixedPrice: 250,
-    description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
     includes: [],
     addOns: estatePlanningAddOns
   }

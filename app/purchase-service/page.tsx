@@ -90,35 +90,58 @@ const allAddOns: AddOn[] = [
   }
 ];
 
-const getAvailableAddOns = (service: Service): AddOn[] => {
+const getAvailableAddOns = (service: Service, cart: CartItem[]): AddOn[] => {
+  let availableAddOns: AddOn[] = [];
+
   if (service.addOns) {
-    return service.addOns.map(addOn => ({
+    availableAddOns = service.addOns.map(addOn => ({
       ...addOn,
       individualPrice: addOn.price,
       jointPrice: addOn.price
     }));
+  } else {
+    switch (service.id) {
+      case 'trust-package':
+        availableAddOns = allAddOns.filter(a =>
+          ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'charitable-planning', 'business-succession', 'annual-maintenance'].includes(a.id)
+        );
+        break;
+      case 'probate-avoidance-package':
+        availableAddOns = allAddOns.filter(a =>
+          ['business-succession', 'annual-maintenance'].includes(a.id)
+        );
+        break;
+      case 'will-package':
+        availableAddOns = allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
+        break;
+      case 'diy-estate-plan-review':
+        availableAddOns = allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
+        break;
+      case 'revocable-living-trust':
+        availableAddOns = allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
+        break;
+      case 'irrevocable-trust':
+        availableAddOns = allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
+        break;
+      default:
+        return [];
+    }
   }
 
-  switch (service.id) {
-    case 'trust-package':
-      return allAddOns.filter(a =>
-        ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'charitable-planning', 'business-succession', 'annual-maintenance'].includes(a.id)
-      );
-    case 'probate-avoidance-package':
-      return allAddOns.filter(a =>
-        ['business-succession', 'annual-maintenance'].includes(a.id)
-      );
-    case 'will-package':
-      return allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
-    case 'diy-estate-plan-review':
-      return allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
-    case 'revocable-living-trust':
-      return allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
-    case 'irrevocable-trust':
-      return allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
-    default:
-      return [];
-  }
+  const servicesInCart = cart.map(item => item.service.id);
+
+  return availableAddOns.filter(addOn => {
+    if (addOn.id === 'special-needs-planning' && servicesInCart.includes('special-needs-planning')) {
+      return false;
+    }
+    if (addOn.id === 'estate-tax-planning' && servicesInCart.includes('estate-tax-planning')) {
+      return false;
+    }
+    if (addOn.id === 'annual-maintenance' && servicesInCart.includes('annual-review-membership')) {
+      return false;
+    }
+    return true;
+  });
 };
 
 interface CartItem {
@@ -571,7 +594,7 @@ export default function PurchaseServicePage() {
                 <div className="space-y-6 mb-8">
                   {cart.map((item, index) => {
                     const hasMultiplePrices = item.service.individualPrice && item.service.jointPrice;
-                    const availableAddOns = getAvailableAddOns(item.service);
+                    const availableAddOns = getAvailableAddOns(item.service, cart);
 
                     return (
                       <div key={item.service.id} className="bg-white border-2 border-gray-200 rounded-[10px] p-6">
