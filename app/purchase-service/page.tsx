@@ -197,6 +197,7 @@ interface CartItem {
   clientType: 'individual' | 'joint';
   addOns: string[];
   addOnQuantities: { [key: string]: number };
+  quantity: number;
 }
 
 export default function PurchaseServicePage() {
@@ -242,7 +243,7 @@ export default function PurchaseServicePage() {
   };
 
   const getCartItemPrice = (item: CartItem) => {
-    const basePrice = getServicePrice(item.service, item.clientType);
+    const basePrice = getServicePrice(item.service, item.clientType) * item.quantity;
     const addOnsTotal = item.addOns.reduce((total, addOnId) => {
       const addOn = allAddOns.find(a => a.id === addOnId);
       if (!addOn) return total;
@@ -277,7 +278,7 @@ export default function PurchaseServicePage() {
       addOnQuantities[addOnId] = 1;
     });
 
-    setCart(prev => [...prev, { service, clientType, addOns, addOnQuantities }]);
+    setCart(prev => [...prev, { service, clientType, addOns, addOnQuantities, quantity: 1 }]);
   };
 
   const removeFromCart = (serviceId: string) => {
@@ -300,6 +301,14 @@ export default function PurchaseServicePage() {
     ));
   };
 
+  const updateServiceQuantity = (serviceId: string, quantity: number) => {
+    setCart(prev => prev.map(item =>
+      item.service.id === serviceId
+        ? { ...item, quantity: Math.max(1, quantity) }
+        : item
+    ));
+  };
+
   const handleClientInfoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (cart.some(item => item.service.category === 'probate') && !probateAcknowledgment) {
@@ -317,6 +326,7 @@ export default function PurchaseServicePage() {
     try {
       const totalPrice = getCartTotal();
       const servicesDescription = cart.map(item => {
+        const quantityText = item.quantity > 1 ? ` x${item.quantity}` : '';
         const addOnsText = item.addOns.length > 0
           ? ` (Add-ons: ${item.addOns.map(id => {
               const addOn = allAddOns.find(a => a.id === id);
@@ -326,7 +336,7 @@ export default function PurchaseServicePage() {
               return `${addOn.name}${quantityText}`;
             }).filter(Boolean).join(', ')})`
           : '';
-        return `${item.service.name} (${item.clientType})${addOnsText}`;
+        return `${item.service.name}${quantityText} (${item.clientType})${addOnsText}`;
       }).join('; ');
 
       const supabase = getSupabaseClient();
@@ -694,6 +704,42 @@ export default function PurchaseServicePage() {
                           </Button>
                         </div>
 
+                        <div className="mb-4">
+                          <Label className="text-[#2d3e50] font-semibold text-[16px] mb-3 block">
+                            Quantity
+                          </Label>
+                          <div className="flex items-center gap-3">
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="h-10 w-10 p-0"
+                              onClick={() => updateServiceQuantity(item.service.id, item.quantity - 1)}
+                            >
+                              -
+                            </Button>
+                            <Input
+                              type="number"
+                              min="1"
+                              value={item.quantity}
+                              onChange={(e) => {
+                                const val = parseInt(e.target.value) || 1;
+                                updateServiceQuantity(item.service.id, val);
+                              }}
+                              className="w-20 h-10 text-center"
+                            />
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="h-10 w-10 p-0"
+                              onClick={() => updateServiceQuantity(item.service.id, item.quantity + 1)}
+                            >
+                              +
+                            </Button>
+                          </div>
+                        </div>
+
                         {hasMultiplePrices && (
                           <div className="mb-4">
                             <Label className="text-[#2d3e50] font-semibold text-[16px] mb-3 block">
@@ -874,7 +920,7 @@ export default function PurchaseServicePage() {
                 {cart.map(item => (
                   <div key={item.service.id} className="border-t border-white/30 pt-3 first:border-t-0 first:pt-0">
                     <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px] text-[#fefefe]">
-                      {item.service.name} ({item.clientType})
+                      {item.service.name}{item.quantity > 1 ? ` (x${item.quantity})` : ''} ({item.clientType})
                     </p>
                     <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-[#f3f3f3]">
                       ${getCartItemPrice(item).toLocaleString()}
