@@ -283,7 +283,7 @@ export const probatePackages: Service[] = [
     id: 'document-review',
     name: 'Document Review',
     category: 'probate',
-    fixedPrice: 250,
+    fixedPrice: 500,
     description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
     includes: [],
     addOns: probateAddOns
@@ -445,6 +445,19 @@ export const prenuptialServices: Service[] = [
       'Identification of unfair provisions',
       'Consultation on implications',
       'Recommendations for protection'
+    ]
+  },
+  {
+    id: 'prenuptial-qa-session',
+    name: 'Prenuptial Q&A Session',
+    category: 'prenuptial',
+    fixedPrice: 500,
+    description: '1 hour attorney meeting and review of existing prenuptial agreement',
+    includes: [
+      '1 hour attorney consultation',
+      'Review of existing prenuptial agreement',
+      'Q&A about terms and implications',
+      'General guidance and recommendations'
     ]
   }
 ];
