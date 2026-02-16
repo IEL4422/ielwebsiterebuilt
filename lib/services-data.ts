@@ -1,6 +1,7 @@
 export interface Service {
   id: string;
   name: string;
+  subtitle?: string;
   category: 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'small-business';
   individualPrice?: number;
   jointPrice?: number;
@@ -10,7 +11,30 @@ export interface Service {
   description: string;
   includes: string[];
   note?: string;
+  addOns?: Array<{
+    id: string;
+    name: string;
+    price: number;
+    isSubscription?: boolean;
+    description: string;
+  }>;
 }
+
+const estatePlanningAddOns = [
+  {
+    id: 'business-succession',
+    name: 'Business Succession Planning',
+    price: 2500,
+    description: 'Comprehensive planning for business continuity and succession'
+  },
+  {
+    id: 'annual-maintenance',
+    name: 'Annual Maintenance Membership',
+    price: 149,
+    isSubscription: true,
+    description: 'Annual review meeting and free amendments'
+  }
+];
 
 export const estatePlanningPackages: Service[] = [
   {
@@ -32,7 +56,8 @@ export const estatePlanningPackages: Service[] = [
       'Physical & Digital Portfolio',
       'Access to Client Portal',
       'Unlimited Attorney Consultation'
-    ]
+    ],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'probate-avoidance-package',
@@ -52,7 +77,8 @@ export const estatePlanningPackages: Service[] = [
       'Physical & Digital Portfolio',
       'Access to Client Portal',
       'Unlimited Attorney Consultation'
-    ]
+    ],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'will-package',
@@ -71,7 +97,8 @@ export const estatePlanningPackages: Service[] = [
       'Physical & Digital Portfolio',
       'Access to Client Portal',
       'Unlimited Attorney Consultation'
-    ]
+    ],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'diy-estate-plan-review',
@@ -83,11 +110,13 @@ export const estatePlanningPackages: Service[] = [
     includes: [
       'Comprehensive review and redlining of previously drafted estate planning documents',
       'One (1) hour attorney review session'
-    ]
+    ],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'irrevocable-trust',
-    name: 'Irrevocable Trust (life insurance, medicaid asset protection trust, special needs)',
+    name: 'Irrevocable Trust',
+    subtitle: 'life insurance, medicaid asset protection trust, special needs',
     category: 'estate-planning',
     fixedPrice: 4000,
     description: 'An Irrevocable Trust is a permanent legal arrangement where you transfer assets—like life insurance, property, or funds—into a trust that you cannot easily change or undo, often used to protect assets for Medicaid eligibility, reduce estate taxes, or provide for a loved one with special needs without affecting their government benefits.',
@@ -99,7 +128,8 @@ export const estatePlanningPackages: Service[] = [
       'Online or Mobile Notarization',
       'Access to Client Portal',
       'Unlimited Attorney Consultation'
-    ]
+    ],
+    addOns: estatePlanningAddOns
   }
 ];
 
@@ -185,7 +215,8 @@ export const aLaCarteServices: Service[] = [
     individualPrice: 2500,
     jointPrice: 3500,
     description: 'A Revocable Living Trust is a legal plan where you put your home, bank accounts, and other property into a trust you control—so you can manage everything like normal while you\'re alive, and when you pass away, the person you picked (your "successor trustee") can transfer or manage those assets for your loved ones without going through probate court.',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'last-will-testament',
@@ -194,7 +225,8 @@ export const aLaCarteServices: Service[] = [
     individualPrice: 750,
     jointPrice: 1250,
     description: 'A Will is a legal document that says who should inherit your property after you die and who should be in charge of handling your affairs, but it usually still has to go through probate court to carry out those instructions.',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'power-of-attorney',
@@ -218,7 +250,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 500,
     description: 'A Quit Claim Deed is a simple legal document that transfers whatever ownership interest you have in a property to someone else—commonly used to add or remove a spouse or move a home into a trust—without making promises about the title.',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'transfer-on-death',
@@ -226,7 +259,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 500,
     description: 'Transfer on death designation',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'life-estate-deed',
@@ -234,7 +268,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 500,
     description: 'A Life Estate Deed is a deed that lets you keep the right to live in and control your home for the rest of your life, while naming who will automatically receive the property after you pass away—so it transfers outside of probate.',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'special-needs-planning',
@@ -242,7 +277,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 2500,
     description: 'Special needs trust planning',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'estate-tax-planning',
@@ -250,7 +286,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 5000,
     description: 'Comprehensive tax planning',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'trust-restatement',
@@ -258,7 +295,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 2000,
     description: 'A Trust Restatement is a way to update and rewrite the terms of your existing trust—like changing who inherits, who\'s in charge, or how distributions work—while keeping the same trust name and date, so you don\'t have to start a brand-new trust from scratch.',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'will-amendment',
@@ -266,7 +304,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 500,
     description: 'Amendment to existing will',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   },
   {
     id: 'document-review',
@@ -274,7 +313,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     fixedPrice: 250,
     description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
-    includes: []
+    includes: [],
+    addOns: estatePlanningAddOns
   }
 ];
 

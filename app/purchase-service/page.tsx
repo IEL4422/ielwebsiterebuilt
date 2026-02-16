@@ -74,23 +74,45 @@ const allAddOns: AddOn[] = [
     name: 'Charitable Planning',
     price: 2500,
     description: 'Charitable giving and trust planning'
+  },
+  {
+    id: 'business-succession',
+    name: 'Business Succession Planning',
+    price: 2500,
+    description: 'Comprehensive planning for business continuity and succession'
+  },
+  {
+    id: 'annual-maintenance',
+    name: 'Annual Maintenance Membership',
+    price: 149,
+    description: 'Annual review meeting and free amendments ($149/year subscription)'
   }
 ];
 
-const getAvailableAddOns = (serviceId: string): AddOn[] => {
-  switch (serviceId) {
+const getAvailableAddOns = (service: Service): AddOn[] => {
+  if (service.addOns) {
+    return service.addOns.map(addOn => ({
+      ...addOn,
+      individualPrice: addOn.price,
+      jointPrice: addOn.price
+    }));
+  }
+
+  switch (service.id) {
     case 'trust-package':
       return allAddOns.filter(a =>
-        ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'charitable-planning'].includes(a.id)
+        ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'charitable-planning', 'business-succession', 'annual-maintenance'].includes(a.id)
       );
     case 'probate-avoidance-package':
-      return [];
+      return allAddOns.filter(a =>
+        ['business-succession', 'annual-maintenance'].includes(a.id)
+      );
     case 'will-package':
-      return allAddOns.filter(a => a.id === 'transfer-on-death');
+      return allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
     case 'diy-estate-plan-review':
-      return allAddOns.filter(a => a.id === 'transfer-on-death');
+      return allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
     case 'revocable-living-trust':
-      return allAddOns.filter(a => a.id === 'trust-funding');
+      return allAddOns.filter(a => ['trust-funding', 'business-succession', 'annual-maintenance'].includes(a.id));
     default:
       return [];
   }
@@ -340,9 +362,16 @@ export default function PurchaseServicePage() {
             <span className="font-['Plus_Jakarta_Sans'] font-semibold">In Cart</span>
           </div>
         )}
-        <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4">
-          {service.name}
-        </h3>
+        <div className="mb-4">
+          <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe]">
+            {service.name}
+          </h3>
+          {service.subtitle && (
+            <p className="font-['Plus_Jakarta_Sans'] font-normal text-[14px] text-[#f3f3f3] mt-1">
+              {service.subtitle}
+            </p>
+          )}
+        </div>
         <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-4">
           {service.pricingLabel ? (
             service.pricingLabel
@@ -505,7 +534,7 @@ export default function PurchaseServicePage() {
                 <div className="space-y-6 mb-8">
                   {cart.map((item, index) => {
                     const hasMultiplePrices = item.service.individualPrice && item.service.jointPrice;
-                    const availableAddOns = getAvailableAddOns(item.service.id);
+                    const availableAddOns = getAvailableAddOns(item.service);
 
                     return (
                       <div key={item.service.id} className="bg-white border-2 border-gray-200 rounded-[10px] p-6">
