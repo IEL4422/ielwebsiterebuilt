@@ -9,7 +9,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { createClient } from '@supabase/supabase-js';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import { ShoppingCart, X, Check } from 'lucide-react';
@@ -205,6 +204,7 @@ export default function PurchaseServicePage() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [expandedDescriptions, setExpandedDescriptions] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
+  const [serviceFilter, setServiceFilter] = useState<'all' | 'estate-planning' | 'probate' | 'prenuptial' | 'small-business'>('all');
 
   const [clientInfo, setClientInfo] = useState({
     name: '',
@@ -622,59 +622,89 @@ export default function PurchaseServicePage() {
               </div>
             )}
 
-            <Accordion type="multiple" defaultValue={searchQuery ? ["estate-planning", "probate", "prenuptial", "small-business"] : []} className="space-y-4">
-              {filterServices(estatePlanningWithALaCarte).length > 0 && (
-                <AccordionItem value="estate-planning" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
-                  <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
-                    Estate Planning ({filterServices(estatePlanningWithALaCarte).length})
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
-                      {filterServices(estatePlanningWithALaCarte).map(service => renderServiceCard(service))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+            <div className="mb-8 flex flex-wrap gap-3">
+              <Button
+                onClick={() => setServiceFilter('all')}
+                variant={serviceFilter === 'all' ? 'default' : 'outline'}
+                className={serviceFilter === 'all' ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'border-[#2d3e50] text-[#2d3e50] hover:bg-gray-100'}
+              >
+                All Services
+              </Button>
+              <Button
+                onClick={() => setServiceFilter('estate-planning')}
+                variant={serviceFilter === 'estate-planning' ? 'default' : 'outline'}
+                className={serviceFilter === 'estate-planning' ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'border-[#2d3e50] text-[#2d3e50] hover:bg-gray-100'}
+              >
+                Estate Planning
+              </Button>
+              <Button
+                onClick={() => setServiceFilter('probate')}
+                variant={serviceFilter === 'probate' ? 'default' : 'outline'}
+                className={serviceFilter === 'probate' ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'border-[#2d3e50] text-[#2d3e50] hover:bg-gray-100'}
+              >
+                Probate
+              </Button>
+              <Button
+                onClick={() => setServiceFilter('prenuptial')}
+                variant={serviceFilter === 'prenuptial' ? 'default' : 'outline'}
+                className={serviceFilter === 'prenuptial' ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'border-[#2d3e50] text-[#2d3e50] hover:bg-gray-100'}
+              >
+                Prenuptial Agreements
+              </Button>
+              <Button
+                onClick={() => setServiceFilter('small-business')}
+                variant={serviceFilter === 'small-business' ? 'default' : 'outline'}
+                className={serviceFilter === 'small-business' ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'border-[#2d3e50] text-[#2d3e50] hover:bg-gray-100'}
+              >
+                Small Business
+              </Button>
+            </div>
+
+            <div className="space-y-12">
+              {(serviceFilter === 'all' || serviceFilter === 'estate-planning') && filterServices(estatePlanningWithALaCarte).length > 0 && (
+                <div>
+                  <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50] mb-6 pb-3 border-b-2 border-[#2d3e50]">
+                    Estate Planning
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filterServices(estatePlanningWithALaCarte).map(service => renderServiceCard(service))}
+                  </div>
+                </div>
               )}
 
-              {filterServices(probatePackages).length > 0 && (
-                <AccordionItem value="probate" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
-                  <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
-                    Probate ({filterServices(probatePackages).length})
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
-                      {filterServices(probatePackages).map(service => renderServiceCard(service))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+              {(serviceFilter === 'all' || serviceFilter === 'probate') && filterServices(probatePackages).length > 0 && (
+                <div>
+                  <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50] mb-6 pb-3 border-b-2 border-[#2d3e50]">
+                    Probate
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filterServices(probatePackages).map(service => renderServiceCard(service))}
+                  </div>
+                </div>
               )}
 
-              {filterServices(prenuptialServices).length > 0 && (
-                <AccordionItem value="prenuptial" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
-                  <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
-                    Prenuptial Agreements ({filterServices(prenuptialServices).length})
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
-                      {filterServices(prenuptialServices).map(service => renderServiceCard(service))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+              {(serviceFilter === 'all' || serviceFilter === 'prenuptial') && filterServices(prenuptialServices).length > 0 && (
+                <div>
+                  <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50] mb-6 pb-3 border-b-2 border-[#2d3e50]">
+                    Prenuptial Agreements
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filterServices(prenuptialServices).map(service => renderServiceCard(service))}
+                  </div>
+                </div>
               )}
 
-              {filterServices(smallBusinessServices).length > 0 && (
-                <AccordionItem value="small-business" className="border-2 border-[#2d3e50] rounded-[10px] px-6">
-                  <AccordionTrigger className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#2d3e50] hover:no-underline py-6">
-                    Small Business ({filterServices(smallBusinessServices).length})
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
-                      {filterServices(smallBusinessServices).map(service => renderServiceCard(service))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+              {(serviceFilter === 'all' || serviceFilter === 'small-business') && filterServices(smallBusinessServices).length > 0 && (
+                <div>
+                  <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50] mb-6 pb-3 border-b-2 border-[#2d3e50]">
+                    Small Business
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filterServices(smallBusinessServices).map(service => renderServiceCard(service))}
+                  </div>
+                </div>
               )}
-            </Accordion>
+            </div>
           </>
         )}
 
