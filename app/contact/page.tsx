@@ -13,54 +13,58 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitMessage('');
 
+    let formSubmitted = false;
+
     const submitForm = async () => {
+      if (formSubmitted) return;
+      formSubmitted = true;
+
       try {
-      const nameParts = data.name.split(' ');
-      const firstName = nameParts[0];
-      const lastName = nameParts.slice(1).join(' ');
+        const nameParts = data.name.split(' ');
+        const firstName = nameParts[0];
+        const lastName = nameParts.slice(1).join(' ');
 
-      // Send to edge function which proxies to Zapier
-      const edgeFunctionUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-contact-form`;
-      const webhookResponse = await fetch(edgeFunctionUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          phone_number: data.phone,
-          email: data.email,
-          message: data.message
-        })
-      });
+        // Send to edge function which proxies to Zapier
+        const edgeFunctionUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-contact-form`;
+        const webhookResponse = await fetch(edgeFunctionUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            phone_number: data.phone,
+            email: data.email,
+            message: data.message
+          })
+        });
 
-      if (!webhookResponse.ok) {
-        const responseText = await webhookResponse.text();
-        console.error('Edge function failed:', webhookResponse.status, responseText);
-        throw new Error(`Form submission failed: ${webhookResponse.status}`);
-      }
+        if (!webhookResponse.ok) {
+          const responseText = await webhookResponse.text();
+          console.error('Edge function failed:', webhookResponse.status, responseText);
+          throw new Error(`Form submission failed: ${webhookResponse.status}`);
+        }
 
-      // Send confirmation email
-      const emailApiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-inquiry-confirmation`;
-      const emailResponse = await fetch(emailApiUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: data.email,
-          name: data.name
-        })
-      });
+        // Send confirmation email
+        const emailApiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-inquiry-confirmation`;
+        const emailResponse = await fetch(emailApiUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: data.email,
+            name: data.name
+          })
+        });
 
-      if (!emailResponse.ok) {
-        const emailError = await emailResponse.text();
-        console.error('Email confirmation failed:', emailError);
-        throw new Error('Failed to send confirmation email');
-      }
+        if (!emailResponse.ok) {
+          const emailError = await emailResponse.text();
+          console.error('Email confirmation failed:', emailError);
+        }
 
         setSubmitMessage('Thank you for your message. We will get back to you soon!');
         reset();
@@ -77,6 +81,7 @@ export default function ContactPage() {
         'event_callback': submitForm,
         'event_timeout': 2000,
       });
+      setTimeout(submitForm, 2000);
     } else {
       await submitForm();
     }
