@@ -135,6 +135,11 @@ const allAddOns: AddOn[] = [
 const getAvailableAddOns = (service: Service, cart: CartItem[]): AddOn[] => {
   let availableAddOns: AddOn[] = [];
 
+  // Probate services don't have add-ons - extraordinary services are detailed in agreement
+  if (service.category === 'probate') {
+    return [];
+  }
+
   if (service.addOns) {
     availableAddOns = service.addOns.map(addOn => ({
       ...addOn,
@@ -265,7 +270,7 @@ export default function PurchaseServicePage() {
   };
 
   const hasProbatePackageInCart = () => {
-    return cart.some(item => item.service.id === 'probate-package' || item.service.id === 'partial-probate');
+    return cart.some(item => item.service.category === 'probate');
   };
 
   const addToCart = (service: Service, clientType: 'individual' | 'joint', addOns: string[] = []) => {
@@ -1122,21 +1127,22 @@ export default function PurchaseServicePage() {
 
                 {hasProbatePackageInCart() && (
                   <>
-                    <p className="mb-3"><strong>2.8 Probate Package Base Pricing.</strong> For clients who have purchased the Probate Package (base price $7,500) or Partial Probate (base price $3,500), Client acknowledges and understands that the price paid represents a base package price for standard, uncontested probate administration services. Additional charges will be incurred for services beyond the base package scope, as detailed in Exhibit A below.</p>
+                    <p className="mb-3"><strong>2.8 Probate Services Base Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands that the price paid represents a base price for standard, uncontested probate administration services. If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
 
                     <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4 my-4">
-                      <h4 className="font-bold text-md mb-3">EXHIBIT A: Additional Probate Services & Fees</h4>
-                      <p className="mb-2 text-sm">The following services are NOT included in the base Probate Package or Partial Probate pricing and will incur additional charges if required during the administration of the estate:</p>
+                      <h4 className="font-bold text-md mb-3">EXHIBIT A: Extraordinary Probate Services & Additional Fees</h4>
+                      <p className="mb-2 text-sm">The following extraordinary services are NOT included in the base probate service pricing and will incur additional charges if required during the administration of the estate:</p>
                       <ul className="list-disc ml-6 space-y-1 text-sm">
-                        <li><strong>Will Contest Hearing</strong> - $5,000</li>
-                        <li><strong>Citation to Recover Assets</strong> - $4,000</li>
-                        <li><strong>Creditor Claim Objection</strong> - $1,500 per claim</li>
-                        <li><strong>Supervised Administration</strong> - $3,000</li>
-                        <li><strong>Real Estate Representation</strong> - $3,000</li>
-                        <li><strong>Emergency Relief/Hearing</strong> - $2,500</li>
-                        <li><strong>Minor Child/Adult Guardianship Proceedings</strong> - $3,500</li>
+                        <li><strong>Will Contest Hearing</strong> - $5,000 (when someone disputes whether the will is valid, or defends the will against that challenge)</li>
+                        <li><strong>Citation to Recover Assets</strong> - $4,000 (when estate property appears to be held by someone else and must be returned to the estate)</li>
+                        <li><strong>Creditor Claim Objection</strong> - $1,500 per claim (when a creditor files a claim and the estate contests all or part of that claim)</li>
+                        <li><strong>Supervised Administration</strong> - $3,000 (court-supervised administration of the estate)</li>
+                        <li><strong>Real Estate Attorney Representation</strong> - $3,000 (legal representation for real estate matters in the estate)</li>
+                        <li><strong>Emergency Relief/Hearing</strong> - $2,500 (emergency motion to open estate, sell property, or avoid foreclosure)</li>
+                        <li><strong>Minor Child/Adult Guardianship Proceedings</strong> - $3,500 (establishment of guardianship for minors or adults)</li>
+                        <li><strong>Asset Coordination</strong> - $500 per asset (direct work with banks to transfer assets to estate bank account)</li>
                       </ul>
-                      <p className="mt-3 text-sm font-semibold">Client understands that the occurrence of any of the events listed in Exhibit A will result in additional fees beyond the base package price, and that such fees will be billed separately when these services become necessary.</p>
+                      <p className="mt-3 text-sm font-semibold">Client understands that if any extraordinary circumstances listed in Exhibit A arise during the probate process, additional fees will be incurred beyond the base service price. These fees will be discussed with the Client before services are rendered and billed separately when these services become necessary.</p>
                     </div>
                   </>
                 )}
@@ -1246,7 +1252,7 @@ export default function PurchaseServicePage() {
                       onCheckedChange={(checked) => setProbatePricingAcknowledgment(checked as boolean)}
                     />
                     <Label htmlFor="probate-pricing-acknowledgment" className="cursor-pointer leading-tight text-sm">
-                      <strong>I understand and acknowledge</strong> that the price I am paying for the {cart.find(item => item.service.id === 'probate-package') ? 'Probate Package ($7,500)' : 'Partial Probate ($3,500)'} is the base charge{cart.some(item => item.addOns.length > 0) ? ' (unless add-ons were added at checkout)' : ''} and that additional charges may occur depending on the events of the case, as outlined in Exhibit A above.
+                      <strong>I understand and acknowledge</strong> that if extraordinary services (i.e., contested issues arise) as detailed in Exhibit A of the Client Service Agreement are required, I will incur additional fees beyond the base service price.
                     </Label>
                   </div>
                 </div>

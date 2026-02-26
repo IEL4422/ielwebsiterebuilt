@@ -223,7 +223,7 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    addOns: probateAddOns
+    addOns: []
   },
   {
     id: 'summary-probate',
@@ -259,7 +259,7 @@ export const probatePackages: Service[] = [
       'Preparation of Final Accounting',
       'Unlimited Attorney Consultation'
     ],
-    addOns: probateAddOns
+    addOns: []
   },
   {
     id: 'heir-representation',
@@ -275,7 +275,7 @@ export const probatePackages: Service[] = [
       'Unlimited Attorney Consultation'
     ],
     note: '$2,500 per heir',
-    addOns: probateAddOns
+    addOns: []
   },
   {
     id: 'document-review',
@@ -284,7 +284,7 @@ export const probatePackages: Service[] = [
     fixedPrice: 500,
     description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
     includes: [],
-    addOns: probateAddOns
+    addOns: []
   }
 ];
 

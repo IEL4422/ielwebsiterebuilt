@@ -105,6 +105,7 @@ export default function RecommendedServicePage() {
   const [showClientInfo, setShowClientInfo] = useState(false);
   const [showAgreement, setShowAgreement] = useState(false);
   const [agreementAccepted, setAgreementAccepted] = useState(false);
+  const [probateAcknowledgment, setProbateAcknowledgment] = useState(false);
   const [signature, setSignature] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [purchaseId, setPurchaseId] = useState<string | null>(null);
@@ -680,6 +681,11 @@ export default function RecommendedServicePage() {
 
   const handleAgreementSign = async () => {
     if (!agreementAccepted || !signature || !recommendation) return;
+
+    if (answers.needType === 'probate' && !probateAcknowledgment) {
+      alert('Please acknowledge the probate extraordinary services terms before continuing.');
+      return;
+    }
 
     setIsProcessing(true);
 
@@ -1991,6 +1997,28 @@ export default function RecommendedServicePage() {
 
                   <p className="mb-3"><strong>2.7 Payment Plans.</strong> Payment plans are available through Partial.ly. Payment plans require a one-time fee of 5% of the service cost. A 20% down payment is required to start any substantive work on a matter. A payment plan will default after 5 failed payment attempts. In the instance of a defaulted payment plan, all services with the Firm are terminated and the Firm reserves the right to collect fees through a collection agency or legal firm.</p>
 
+                  {answers.needType === 'probate' && (
+                    <>
+                      <p className="mb-3"><strong>2.8 Probate Services Base Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands that the price paid represents a base price for standard, uncontested probate administration services. If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
+
+                      <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4 my-4">
+                        <h4 className="font-bold text-md mb-3">EXHIBIT A: Extraordinary Probate Services & Additional Fees</h4>
+                        <p className="mb-2 text-sm">The following extraordinary services are NOT included in the base probate service pricing and will incur additional charges if required during the administration of the estate:</p>
+                        <ul className="list-disc ml-6 space-y-1 text-sm">
+                          <li><strong>Will Contest Hearing</strong> - $5,000 (when someone disputes whether the will is valid, or defends the will against that challenge)</li>
+                          <li><strong>Citation to Recover Assets</strong> - $4,000 (when estate property appears to be held by someone else and must be returned to the estate)</li>
+                          <li><strong>Creditor Claim Objection</strong> - $1,500 per claim (when a creditor files a claim and the estate contests all or part of that claim)</li>
+                          <li><strong>Supervised Administration</strong> - $3,000 (court-supervised administration of the estate)</li>
+                          <li><strong>Real Estate Attorney Representation</strong> - $3,000 (legal representation for real estate matters in the estate)</li>
+                          <li><strong>Emergency Relief/Hearing</strong> - $2,500 (emergency motion to open estate, sell property, or avoid foreclosure)</li>
+                          <li><strong>Minor Child/Adult Guardianship Proceedings</strong> - $3,500 (establishment of guardianship for minors or adults)</li>
+                          <li><strong>Asset Coordination</strong> - $500 per asset (direct work with banks to transfer assets to estate bank account)</li>
+                        </ul>
+                        <p className="mt-3 text-sm font-semibold">Client understands that if any extraordinary circumstances listed in Exhibit A arise during the probate process, additional fees will be incurred beyond the base service price. These fees will be discussed with the Client before services are rendered and billed separately when these services become necessary.</p>
+                      </div>
+                    </>
+                  )}
+
                   <h3 className="font-bold text-lg mt-6 mb-3">3. Communication.</h3>
 
                   <p className="mb-3"><strong>3.1 Communication Methods.</strong> The Firm will communicate with the Client regarding the progress of their estate planning matters via phone, email, or video conferencing. The Client may contact the Firm at:</p>
@@ -2087,6 +2115,21 @@ export default function RecommendedServicePage() {
                   </Label>
                 </div>
 
+                {answers.needType === 'probate' && (
+                  <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4">
+                    <div className="flex items-start space-x-3">
+                      <Checkbox
+                        id="probate-extraordinary-acknowledgment"
+                        checked={probateAcknowledgment}
+                        onCheckedChange={(checked) => setProbateAcknowledgment(checked as boolean)}
+                      />
+                      <Label htmlFor="probate-extraordinary-acknowledgment" className="cursor-pointer leading-tight text-sm">
+                        <strong>I understand and acknowledge</strong> that if extraordinary services (i.e., contested issues arise) as detailed in Exhibit A of the Client Service Agreement are required, I will incur additional fees beyond the base service price.
+                      </Label>
+                    </div>
+                  </div>
+                )}
+
                 <div>
                   <Label htmlFor="signature" className="text-[#2d3e50] font-semibold">
                     Electronic Signature (Type your full name) *
@@ -2116,7 +2159,7 @@ export default function RecommendedServicePage() {
                   </Button>
                   <Button
                     onClick={handleAgreementSign}
-                    disabled={!agreementAccepted || !signature || isProcessing}
+                    disabled={!agreementAccepted || !signature || isProcessing || (answers.needType === 'probate' && !probateAcknowledgment)}
                     className="flex-1 bg-[#4a708b] hover:bg-[#2d3e50]"
                   >
                     {isProcessing ? 'Processing...' : 'Sign & Continue'}
