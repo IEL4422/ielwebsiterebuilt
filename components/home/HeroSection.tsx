@@ -33,7 +33,7 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-[1140px] px-5 lg:px-0">
         <div className="flex flex-col lg:flex-row items-start lg:items-stretch min-h-[400px] lg:min-h-[642px]">
           <div className="flex flex-col justify-center items-start gap-6 lg:gap-9 py-12 lg:py-0 lg:w-[65%]">
-            <div className="bg-black/70 lg:bg-transparent rounded-2xl px-6 py-4 lg:p-0">
+            <div className="bg-black/70 rounded-2xl px-6 py-4">
               <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[100px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[100px] text-left">
                 <span className="lg:block">Top-Rated</span> Estate Law F<span className="relative inline-block"><span className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-[#fefefe] rounded-full" style={{ top: '0.1em' }}></span><span className="relative">ı</span></span>rm
               </h1>
@@ -41,7 +41,7 @@ export function HeroSection() {
 
             <div className="w-32 h-0.5 bg-[#fefefe]" />
 
-            <div className="bg-black/70 lg:bg-transparent rounded-2xl px-6 py-4 lg:p-0">
+            <div className="bg-black/70 rounded-2xl px-6 py-4">
               <ul className="flex flex-col gap-3">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-center gap-2">
