@@ -32,9 +32,9 @@ export function Footer() {
 
   return (
     <footer>
-      <div className="bg-[#2D3E50] px-5 xl:px-0 py-[60px] pb-[50px] md:pb-[50px]">
+      <div className="bg-[#2D3E50] px-4 sm:px-5 xl:px-0 py-10 sm:py-[60px] pb-[40px] sm:pb-[50px] md:pb-[50px]">
         <div className="mx-auto max-w-[1140px]">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-0">
             <div className="lg:w-[25%] flex justify-center lg:justify-start">
               <Link href="/">
                 <Image
@@ -42,13 +42,13 @@ export function Footer() {
                   alt="Illinois Estate Law"
                   width={160}
                   height={48}
-                  className="w-[170px] md:w-[179px] lg:w-[160px] h-auto"
+                  className="w-[150px] sm:w-[170px] md:w-[179px] lg:w-[160px] h-auto"
                 />
               </Link>
             </div>
 
-            <div className="lg:w-[19%] mt-5 lg:mt-0">
-              <span className="block text-[22px] lg:text-2xl font-bold text-[#FAFAFA] mb-4">
+            <div className="lg:w-[19%] mt-0 lg:mt-0">
+              <span className="block text-xl sm:text-[22px] lg:text-2xl font-bold text-[#FAFAFA] mb-3 sm:mb-4">
                 NAVIGATION
               </span>
               <nav className="flex flex-col gap-2">
@@ -56,7 +56,7 @@ export function Footer() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="text-[#FEFEFE] hover:text-[#CCCCCC] font-medium uppercase transition-colors"
+                    className="text-[#FEFEFE] hover:text-[#CCCCCC] font-medium uppercase transition-colors text-sm sm:text-base"
                   >
                     {item.label}
                   </Link>
@@ -64,48 +64,48 @@ export function Footer() {
               </nav>
             </div>
 
-            <div className="lg:w-[31%] mt-5 lg:mt-0">
-              <span className="block text-[22px] lg:text-2xl font-bold text-[#FAFAFA] mb-4">
+            <div className="lg:w-[31%] mt-0 lg:mt-0">
+              <span className="block text-xl sm:text-[22px] lg:text-2xl font-bold text-[#FAFAFA] mb-3 sm:mb-4">
                 CONTACT INFO
               </span>
-              <p className="text-[#FEFEFE] font-normal mb-2">ILLINOIS ESTATE LAW</p>
-              <div className="flex flex-col gap-3.5">
+              <p className="text-[#FEFEFE] font-normal mb-2 text-sm sm:text-base">ILLINOIS ESTATE LAW</p>
+              <div className="flex flex-col gap-3 sm:gap-3.5">
                 <Link
                   href="https://maps.app.goo.gl/EvyUmQa3QaEx4dzm9"
                   target="_blank"
-                  className="flex items-start gap-3 text-[#FEFEFE] hover:text-[#CCCCCC] font-medium transition-colors"
+                  className="flex items-start gap-2 sm:gap-3 text-[#FEFEFE] hover:text-[#CCCCCC] font-medium transition-colors text-sm sm:text-base"
                 >
-                  <MapPin className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
                   <span>4422 N. Ravenswood Ave, Ste 212 Chicago, Illinois 60640</span>
                 </Link>
                 <Link
                   href="tel:3123730731"
                   rel="nofollow"
-                  className="flex items-center gap-3 text-[#FEFEFE] hover:text-[#CCCCCC] font-medium transition-colors"
+                  className="flex items-center gap-2 sm:gap-3 text-[#FEFEFE] hover:text-[#CCCCCC] font-medium transition-colors text-sm sm:text-base"
                 >
-                  <Phone className="w-6 h-6 flex-shrink-0" />
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
                   <span>(312) 373 - 0731</span>
                 </Link>
                 <Link
                   href="mailto:contact@illinoisestatelaw.com"
                   rel="nofollow"
-                  className="flex items-center gap-3 text-[#FEFEFE] hover:text-[#CCCCCC] font-medium transition-colors"
+                  className="flex items-center gap-2 sm:gap-3 text-[#FEFEFE] hover:text-[#CCCCCC] font-medium transition-colors text-sm sm:text-base"
                 >
-                  <Mail className="w-6 h-6 flex-shrink-0" />
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
                   <span>contact@illinoisestatelaw.com</span>
                 </Link>
               </div>
             </div>
 
-            <div className="lg:w-[25%] mt-5 lg:mt-0">
-              <p className="text-[#FEFEFE] font-normal mb-4">
+            <div className="lg:w-[25%] mt-0 lg:mt-0">
+              <p className="text-[#FEFEFE] font-normal mb-3 sm:mb-4 text-sm sm:text-base">
                 We offer free initial consultations and fully virtual services. Our firm has physical offices throughout Illinois.{' '}
                 <Link href="/locations/" rel="nofollow" className="underline hover:text-[#CCCCCC] transition-colors">
                   Click&nbsp;here
                 </Link>
                 &nbsp;to see our locations. In-person meetings are by request only.
               </p>
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2 sm:gap-2.5">
                 {socialLinks.map((social) => (
                   <Link
                     key={social.label}
@@ -113,12 +113,12 @@ export function Footer() {
                     target="_blank"
                     rel="nofollow noopener"
                     aria-label={social.label}
-                    className="w-9 h-9 rounded-full bg-[#FEFEFE] flex items-center justify-center text-[#2D3E50] hover:bg-[#4A708B] hover:text-[#FEFEFE] transition-colors"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FEFEFE] flex items-center justify-center text-[#2D3E50] hover:bg-[#4A708B] hover:text-[#FEFEFE] transition-colors"
                   >
                     {social.icon === 'x' ? (
-                      <XIcon className="w-[18px] h-[18px]" />
+                      <XIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                     ) : (
-                      <social.icon className="w-[18px] h-[18px]" />
+                      <social.icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                     )}
                   </Link>
                 ))}
@@ -126,7 +126,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-6 sm:mt-5">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d379578.8484450864!2d-88.31008434516006!3d41.9904076929541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3027f65a6d7%3A0x7e35457ee841537b!2sIllinois%20Estate%20Law!5e0!3m2!1sen!2s!4v1756821317537!5m2!1sen!2s"
               width="100%"
@@ -139,8 +139,8 @@ export function Footer() {
             />
           </div>
 
-          <div className="mt-5 pt-5 border-t border-[#FAFAFA99]">
-            <p className="text-[#BDBDBD] text-sm md:text-base font-normal uppercase leading-relaxed">
+          <div className="mt-6 sm:mt-5 pt-4 sm:pt-5 border-t border-[#FAFAFA99]">
+            <p className="text-[#BDBDBD] text-xs sm:text-sm md:text-base font-normal uppercase leading-relaxed">
               <strong>Disclaimer:</strong> Illinois Estate Law is not associated with any governmental organizations in the State of Illinois or any legal aid organizations therein. THE INFORMATION CONTAINED IN THIS WEBSITE IS PROVIDED FOR INFORMATIONAL AND ENTERTAINMENT PURPOSES ONLY, AND SHOULD NOT BE CONSTRUED AS OFFERING LEGAL ADVICE, OR CREATING AN ATTORNEY-CLIENT RELATIONSHIP BETWEEN THE READER AND THE ATTORNEY. YOU SHOULD NOT ACT OR REFRAIN FROM ACTING ON THE BASIS OF ANY CONTENT INCLUDED IN THIS WEBSITE WITHOUT SEEKING APPROPRIATE LEGAL ADVICE ABOUT YOUR INDIVIDUAL FACTS AND CIRCUMSTANCES FROM AN ATTORNEY LICENSED IN YOUR STATE.​ By contacting us you consent to receiving SMS messages. Messages and Data rates may apply. Message frequency will vary. Reply to text &quot;Help&quot; to get more assistance. Reply &quot;Stop&quot; to Opt-out of messaging.
               <br />
               <Link href="/privacy-policy/" rel="nofollow" className="text-[#A0A0A0] hover:text-[#FEFEFE] transition-colors">
@@ -155,13 +155,13 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="bg-[#F3F3F3] px-5 xl:px-0 py-2.5">
+      <div className="bg-[#F3F3F3] px-4 sm:px-5 xl:px-0 py-2.5">
         <div className="mx-auto max-w-[1140px]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0 min-h-[22px]">
-            <p className="text-[#2D3E50] text-sm font-normal text-center md:text-left">
+            <p className="text-[#2D3E50] text-xs sm:text-sm font-normal text-center md:text-left">
               Copyright © {currentYear} Illinois Estate Law Firm. All rights reserved.
             </p>
-            <div className="flex items-center justify-center gap-2 text-sm">
+            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm">
               <Link href="/privacy-policy/" className="text-[#2D3E50] hover:text-[#4A708B] transition-colors">
                 Privacy Policy
               </Link>

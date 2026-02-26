@@ -56,15 +56,15 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="pt-6 pb-3 lg:py-[50px] px-5 lg:px-0">
+    <section ref={sectionRef} className="pt-6 pb-3 lg:py-[50px] px-4 sm:px-5 lg:px-0">
       <div className="mx-auto max-w-[1140px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 lg:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-2.5 lg:gap-5">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div
                 key={index}
-                className={`min-h-[140px] lg:min-h-[180px] p-3 lg:p-8 rounded-[10px] border-2 border-[#4a708b] flex flex-col justify-start items-start relative overflow-hidden group cursor-pointer transition-all duration-500 ${
+                className={`min-h-[160px] sm:min-h-[140px] lg:min-h-[180px] p-4 sm:p-3 lg:p-8 rounded-[10px] border-2 border-[#4a708b] flex flex-col justify-start items-start relative overflow-hidden group cursor-pointer transition-all duration-500 ${
                   visibleCards[index]
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-8'
@@ -81,19 +81,19 @@ export function StatsSection() {
                 />
 
                 <div className="absolute top-2 right-2 lg:top-4 lg:right-4 opacity-10 group-hover:opacity-30 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
-                  <Icon className="w-16 h-16 lg:w-20 lg:h-20 text-white" strokeWidth={1.5} />
+                  <Icon className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white" strokeWidth={1.5} />
                 </div>
 
-                <div className="relative z-10 flex items-center gap-2 lg:gap-3 mb-3">
+                <div className="relative z-10 flex items-center gap-2 lg:gap-3 mb-2 sm:mb-3">
                   <div className="p-1.5 lg:p-2 rounded-lg bg-white/10 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
                     <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" strokeWidth={2} />
                   </div>
-                  <p className="text-[#fefefe] text-[26px] lg:text-[32px] font-semibold leading-[24px] lg:leading-[33.6px] group-hover:text-[#5984c5] transition-colors duration-300">
+                  <p className="text-[#fefefe] text-[22px] sm:text-[26px] lg:text-[32px] font-semibold leading-[22px] sm:leading-[24px] lg:leading-[33.6px] group-hover:text-[#5984c5] transition-colors duration-300">
                     {stat.value}
                   </p>
                 </div>
 
-                <p className="text-[#fefefe] font-medium relative z-10 group-hover:text-gray-100 transition-colors duration-300">
+                <p className="text-[#fefefe] text-sm sm:text-base font-medium relative z-10 group-hover:text-gray-100 transition-colors duration-300">
                   {stat.label}
                 </p>
 

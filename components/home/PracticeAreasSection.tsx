@@ -83,9 +83,9 @@ export function PracticeAreasSection() {
   }, [next]);
 
   return (
-    <section className="pt-16 lg:pt-24 pb-8 lg:pb-12 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 text-center mb-12">
+    <section className="pt-12 sm:pt-16 lg:pt-24 pb-8 lg:pb-12 bg-white">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-4 max-w-[1140px]">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 text-center mb-8 sm:mb-12">
           Practice Areas
         </h2>
 
@@ -100,11 +100,11 @@ export function PracticeAreasSection() {
               {practiceAreas.map((area, index) => {
                 const Icon = area.icon;
                 const content = (
-                  <div className="bg-slate-50 rounded-lg p-8 h-full hover:shadow-lg transition-shadow border border-slate-100 flex flex-col items-center justify-center text-center min-h-[180px]">
-                    <div className="w-14 h-14 bg-[#77B1D4] rounded-lg flex items-center justify-center mb-6">
-                      <Icon className="w-7 h-7 text-white" />
+                  <div className="bg-slate-50 rounded-lg p-6 sm:p-8 h-full hover:shadow-lg transition-shadow border border-slate-100 flex flex-col items-center justify-center text-center min-h-[160px] sm:min-h-[180px]">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#77B1D4] rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-slate-800">
+                    <h3 className="text-lg sm:text-xl font-semibold text-slate-800">
                       {area.title}
                     </h3>
                   </div>
@@ -112,7 +112,7 @@ export function PracticeAreasSection() {
                 return (
                   <div
                     key={index}
-                    className="flex-shrink-0 px-4"
+                    className="flex-shrink-0 px-2 sm:px-4"
                     style={{ width: `${100 / slidesToShow}%` }}
                   >
                     <Link href={area.href} className="block h-full">
@@ -126,27 +126,27 @@ export function PracticeAreasSection() {
 
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 sm:-translate-x-2 lg:-translate-x-4 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
             aria-label="Previous practice area"
           >
-            <ChevronLeft className="w-5 h-5 text-slate-700" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
           </button>
 
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 sm:translate-x-2 lg:translate-x-4 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
             aria-label="Next practice area"
           >
-            <ChevronRight className="w-5 h-5 text-slate-700" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
           </button>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-6 sm:mt-8">
           {Array.from({ length: maxIndex + 1 }).map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-colors ${
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors ${
                 i === currentIndex ? 'bg-[#77B1D4]' : 'bg-slate-300 hover:bg-slate-400'
               }`}
               aria-label={`Go to slide ${i + 1}`}
@@ -154,10 +154,10 @@ export function PracticeAreasSection() {
           ))}
         </div>
 
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-8 sm:mt-12">
           <Link
             href="/get-started"
-            className="bg-[#77B1D4] text-white font-bold text-lg px-8 py-3 rounded-full hover:bg-[#5A8FB3] transition-colors shadow-md"
+            className="bg-[#77B1D4] text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-[#5A8FB3] transition-colors shadow-md"
           >
             Get Started
           </Link>

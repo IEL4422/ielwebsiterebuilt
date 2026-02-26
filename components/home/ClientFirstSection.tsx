@@ -6,14 +6,14 @@ import Image from 'next/image';
 
 export function ClientFirstSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="lg:sticky lg:top-52 bg-slate-50 rounded-2xl p-8 lg:p-10">
-            <p className="text-2xl lg:text-3xl font-semibold text-slate-800 leading-tight mb-4">
+    <section className="py-12 sm:py-16 lg:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-5 lg:px-4 max-w-[1140px]">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
+          <div className="lg:sticky lg:top-52 bg-slate-50 rounded-2xl p-6 sm:p-8 lg:p-10">
+            <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 leading-tight mb-3 sm:mb-4">
               No Paperwork, No Office Visits, Modern Estate Planning Made Simple
             </p>
-            <p className="text-slate-600 mb-6">
+            <p className="text-slate-600 mb-4 sm:mb-6">
               Online convenience meets traditional legal expertise
             </p>
             <Button asChild size="lg" className="w-full bg-[#77B1D4] hover:bg-[#5A9BC4] text-white font-semibold">

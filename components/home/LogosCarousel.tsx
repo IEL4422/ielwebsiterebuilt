@@ -35,8 +35,8 @@ const logos = [
 
 export function LogosCarousel() {
   return (
-    <section className="py-[30px] overflow-hidden">
-      <div className="flex animate-scroll gap-5">
+    <section className="py-6 sm:py-[30px] overflow-hidden">
+      <div className="flex animate-scroll gap-4 sm:gap-5 px-4">
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={index}
@@ -47,7 +47,7 @@ export function LogosCarousel() {
               alt={logo.alt}
               width={150}
               height={60}
-              className="h-[60px] w-[150px] object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+              className="h-[50px] sm:h-[60px] w-[120px] sm:w-[150px] object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
             />
           </div>
         ))}
