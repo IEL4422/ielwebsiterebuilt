@@ -40,9 +40,9 @@ const allAddOns: AddOn[] = [
   {
     id: 'trust-funding',
     name: 'Trust Funding',
-    price: 100,
-    description: '$100 per asset - Professional assistance with transferring assets into your trust',
-    allowQuantity: true
+    price: 1000,
+    description: '$1,000 for all assets - Professional assistance with transferring assets into your trust',
+    allowQuantity: false
   },
   {
     id: 'additional-deed',
