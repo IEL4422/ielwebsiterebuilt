@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function ClientFirstSection() {
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-white">
+    <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-24 bg-white">
       <div className="container mx-auto px-4 sm:px-5 lg:px-4 max-w-[1140px]">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
           <div className="lg:sticky lg:top-52 bg-slate-50 rounded-2xl p-6 sm:p-8 lg:p-10">
