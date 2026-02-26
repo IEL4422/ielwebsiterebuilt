@@ -13,7 +13,7 @@ const features = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[400px] lg:min-h-[642px]">
+    <section className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[642px]">
       <div className="absolute inset-0">
         <Image
           src="https://i.imgur.com/UpbuKrM.png"
@@ -30,23 +30,23 @@ export function HeroSection() {
           priority
         />
       </div>
-      <div className="relative mx-auto max-w-[1140px] px-5 lg:px-0">
-        <div className="flex flex-col items-center justify-center min-h-[400px] lg:min-h-[642px]">
-          <div className="flex flex-col justify-center items-center gap-6 lg:gap-9 py-12 lg:py-0 w-full max-w-3xl">
-            <div className="bg-black/70 rounded-2xl px-6 py-4">
-              <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[100px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
+      <div className="relative mx-auto max-w-[1140px] px-4 sm:px-5 lg:px-0">
+        <div className="flex flex-col items-center justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[642px]">
+          <div className="flex flex-col justify-center items-center gap-5 sm:gap-6 lg:gap-9 py-8 sm:py-12 lg:py-0 w-full max-w-3xl">
+            <div className="bg-black/70 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 w-full">
+              <h1 className="font-['Lobster_Two'] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] font-normal text-[#fefefe] leading-[40px] sm:leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
                 <span className="lg:block">Top-Rated</span> Estate Law F<span className="relative inline-block"><span className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-[#fefefe] rounded-full" style={{ top: '0.1em' }}></span><span className="relative">ı</span></span>rm
               </h1>
             </div>
 
-            <div className="w-32 h-0.5 bg-[#fefefe]" />
+            <div className="w-24 sm:w-32 h-0.5 bg-[#fefefe]" />
 
-            <div className="bg-black/70 rounded-2xl px-6 py-4">
-              <ul className="flex flex-col gap-3">
+            <div className="bg-black/70 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 w-full">
+              <ul className="flex flex-col gap-2 sm:gap-3">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <CheckIcon className="flex-shrink-0" />
-                    <span className="text-[#f3f3f3] text-base md:text-xl font-normal">
+                    <CheckIcon className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6" />
+                    <span className="text-[#f3f3f3] text-sm sm:text-base md:text-xl font-normal">
                       {feature}
                     </span>
                   </li>
@@ -57,7 +57,7 @@ export function HeroSection() {
             <Link
               href="/book-consultation/"
               rel="nofollow"
-              className="bg-[#fefefe] text-[#2d3e50] font-bold text-base md:text-lg lg:text-xl uppercase px-8 py-3.5 rounded-[32px] hover:opacity-90 transition-opacity md:w-auto text-center"
+              className="bg-[#fefefe] text-[#2d3e50] font-bold text-sm sm:text-base md:text-lg lg:text-xl uppercase px-6 sm:px-8 py-3 sm:py-3.5 rounded-[32px] hover:opacity-90 transition-opacity w-full sm:w-auto text-center"
             >
               BOOK A CONSULTATION
             </Link>
