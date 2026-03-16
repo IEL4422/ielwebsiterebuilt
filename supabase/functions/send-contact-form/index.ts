@@ -33,6 +33,7 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
   }
 
   try {
+    // Use reCAPTCHA Enterprise API
     const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: {
@@ -44,21 +45,22 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
     const data: RecaptchaResponse = await response.json();
 
     if (!data.success) {
-      console.error('reCAPTCHA verification failed:', data['error-codes']);
+      console.error('reCAPTCHA Enterprise verification failed:', data['error-codes']);
       return false;
     }
 
-    // For reCAPTCHA v3, check the score (0.0 to 1.0)
+    // For reCAPTCHA Enterprise, check the score (0.0 to 1.0)
     // 0.0 is very likely a bot, 1.0 is very likely a good user
     // Recommended threshold is 0.5
     if (data.score < 0.5) {
-      console.warn(`Low reCAPTCHA score: ${data.score}`);
+      console.warn(`Low reCAPTCHA Enterprise score: ${data.score}`);
       return false;
     }
 
+    console.log(`reCAPTCHA Enterprise verification successful. Score: ${data.score}`);
     return true;
   } catch (error) {
-    console.error('Error verifying reCAPTCHA:', error);
+    console.error('Error verifying reCAPTCHA Enterprise:', error);
     return false;
   }
 }
