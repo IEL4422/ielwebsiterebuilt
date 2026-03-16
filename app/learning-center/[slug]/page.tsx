@@ -19,22 +19,29 @@ async function getGuide(slug: string) {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase environment variables not configured');
     return null;
   }
 
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-  const { data, error } = await supabase
-    .from('guides')
-    .select('*')
-    .eq('slug', slug)
-    .maybeSingle();
+    const { data, error } = await supabase
+      .from('guides')
+      .select('*')
+      .eq('slug', slug)
+      .maybeSingle();
 
-  if (error) {
+    if (error) {
+      console.error('Error fetching guide:', error);
+      return null;
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch guide:', error);
     return null;
   }
-
-  return data;
 }
 
 async function getAllGuideSlugs() {
@@ -42,29 +49,40 @@ async function getAllGuideSlugs() {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase environment variables not configured for static generation');
     return [];
   }
 
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-  const { data, error } = await supabase
-    .from('guides')
-    .select('slug');
+    const { data, error } = await supabase
+      .from('guides')
+      .select('slug');
 
-  if (error) {
+    if (error) {
+      console.error('Error fetching guide slugs:', error);
+      return [];
+    }
+
+    return data || [];
+  } catch (error) {
+    console.error('Failed to fetch guide slugs:', error);
     return [];
   }
-
-  return data || [];
 }
 
 export async function generateStaticParams() {
   try {
     const guides = await getAllGuideSlugs();
+    if (guides.length === 0) {
+      console.warn('No guides found during static generation - pages will be generated on-demand');
+    }
     return guides.map((guide) => ({
       slug: guide.slug,
     }));
-  } catch {
+  } catch (error) {
+    console.error('Error in generateStaticParams:', error);
     return [];
   }
 }
