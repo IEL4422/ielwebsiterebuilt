@@ -15,49 +15,86 @@ interface ContactFormData {
   recaptcha_token: string;
 }
 
-interface RecaptchaResponse {
-  success: boolean;
-  score: number;
-  action: string;
-  challenge_ts: string;
-  hostname: string;
-  'error-codes'?: string[];
+interface RecaptchaEnterpriseResponse {
+  tokenProperties: {
+    valid: boolean;
+    invalidReason?: string;
+    hostname: string;
+    action: string;
+    createTime: string;
+  };
+  riskAnalysis: {
+    score: number;
+    reasons?: string[];
+  };
+  event?: {
+    token: string;
+    siteKey: string;
+    expectedAction?: string;
+  };
+  name?: string;
 }
 
-async function verifyRecaptcha(token: string): Promise<boolean> {
-  const secretKey = Deno.env.get('RECAPTCHA_SECRET_KEY');
+async function verifyRecaptcha(token: string, expectedAction: string = 'CONTACT_FORM'): Promise<boolean> {
+  const projectId = Deno.env.get('RECAPTCHA_PROJECT_ID');
+  const apiKey = Deno.env.get('RECAPTCHA_API_KEY');
 
-  if (!secretKey) {
-    console.error('RECAPTCHA_SECRET_KEY not configured');
+  if (!projectId || !apiKey) {
+    console.error('RECAPTCHA_PROJECT_ID or RECAPTCHA_API_KEY not configured');
     return false;
   }
 
   try {
     // Use reCAPTCHA Enterprise API
-    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    const url = `https://recaptchaenterprise.googleapis.com/v1/projects/${projectId}/assessments?key=${apiKey}`;
+
+    const requestBody = {
+      event: {
+        token: token,
+        expectedAction: expectedAction,
+        siteKey: "6Ld3zYwsAAAAAKb78sOfHp5o-BErEFA3Ajz3sL9l",
+      }
+    };
+
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: `secret=${secretKey}&response=${token}`,
+      body: JSON.stringify(requestBody),
     });
 
-    const data: RecaptchaResponse = await response.json();
-
-    if (!data.success) {
-      console.error('reCAPTCHA Enterprise verification failed:', data['error-codes']);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('reCAPTCHA Enterprise API error:', response.status, errorText);
       return false;
     }
 
-    // For reCAPTCHA Enterprise, check the score (0.0 to 1.0)
+    const data: RecaptchaEnterpriseResponse = await response.json();
+
+    // Check if token is valid
+    if (!data.tokenProperties?.valid) {
+      console.error('reCAPTCHA Enterprise token invalid:', data.tokenProperties?.invalidReason);
+      return false;
+    }
+
+    // Verify the action matches
+    if (data.tokenProperties.action !== expectedAction) {
+      console.error(`Action mismatch: expected ${expectedAction}, got ${data.tokenProperties.action}`);
+      return false;
+    }
+
+    // Check the risk score (0.0 to 1.0)
     // 0.0 is very likely a bot, 1.0 is very likely a good user
     // Recommended threshold is 0.5
-    if (data.score < 0.5) {
-      console.warn(`Low reCAPTCHA Enterprise score: ${data.score}`);
+    const score = data.riskAnalysis?.score ?? 0;
+
+    if (score < 0.5) {
+      console.warn(`Low reCAPTCHA Enterprise score: ${score}`, data.riskAnalysis?.reasons);
       return false;
     }
 
-    console.log(`reCAPTCHA Enterprise verification successful. Score: ${data.score}`);
+    console.log(`reCAPTCHA Enterprise verification successful. Score: ${score}, Action: ${data.tokenProperties.action}`);
     return true;
   } catch (error) {
     console.error('Error verifying reCAPTCHA Enterprise:', error);
