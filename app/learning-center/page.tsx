@@ -34,19 +34,24 @@ async function getGuides() {
     return [];
   }
 
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-  const { data, error } = await supabase
-    .from('guides')
-    .select('id, title, description, category, slug')
-    .order('title');
+    const { data, error } = await supabase
+      .from('guides')
+      .select('id, title, description, category, slug')
+      .order('title');
 
-  if (error) {
-    console.error('Error fetching guides:', error);
+    if (error) {
+      console.error('Error fetching guides:', error);
+      return [];
+    }
+
+    return data || [];
+  } catch (error) {
+    console.error('Failed to fetch guides:', error);
     return [];
   }
-
-  return data || [];
 }
 
 export default async function LearningCenter() {

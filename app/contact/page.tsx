@@ -3,17 +3,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-declare global {
-  interface Window {
-    grecaptcha: {
-      enterprise: {
-        ready: (callback: () => void) => void;
-        execute: (siteKey: string, options: { action: string }) => Promise<string>;
-      };
-    };
-  }
-}
-
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
@@ -31,30 +20,6 @@ export default function ContactPage() {
       formSubmitted = true;
 
       try {
-        // Execute reCAPTCHA Enterprise
-        let recaptchaToken = '';
-
-        if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.enterprise) {
-          await new Promise<void>((resolve) => {
-            window.grecaptcha.enterprise.ready(async () => {
-              try {
-                recaptchaToken = await window.grecaptcha.enterprise.execute(
-                  '6Ld3zYwsAAAAAKb78sOfHp5o-BErEFA3Ajz3sL9l',
-                  { action: 'CONTACT_FORM' }
-                );
-                resolve();
-              } catch (error) {
-                console.error('reCAPTCHA execution error:', error);
-                resolve();
-              }
-            });
-          });
-        }
-
-        if (!recaptchaToken) {
-          console.warn('reCAPTCHA token not generated, proceeding without verification');
-        }
-
         const nameParts = data.name.split(' ');
         const firstName = nameParts[0];
         const lastName = nameParts.slice(1).join(' ');
@@ -72,8 +37,7 @@ export default function ContactPage() {
             last_name: lastName,
             phone_number: data.phone,
             email: data.email,
-            message: data.message,
-            recaptcha_token: recaptchaToken
+            message: data.message
           })
         });
 

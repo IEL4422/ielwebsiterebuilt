@@ -30,7 +30,6 @@ export default function RootLayout({
       <head>
         <link rel="profile" href="https://gmpg.org/xfn/11" />
         <link rel="canonical" href="https://www.illinoisestatelaw.com/" />
-        <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld3zYwsAAAAAKb78sOfHp5o-BErEFA3Ajz3sL9l" async defer></script>
       </head>
       <body className="font-['Plus_Jakarta_Sans'] antialiased">
         <Script
