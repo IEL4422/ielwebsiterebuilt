@@ -2,10 +2,13 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import ReCaptchaProvider from '@/components/providers/ReCaptchaProvider';
 
-export default function ContactPage() {
+function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -20,6 +23,13 @@ export default function ContactPage() {
       formSubmitted = true;
 
       try {
+        // Execute reCAPTCHA
+        if (!executeRecaptcha) {
+          throw new Error('reCAPTCHA not available');
+        }
+
+        const recaptchaToken = await executeRecaptcha('contact_form');
+
         const nameParts = data.name.split(' ');
         const firstName = nameParts[0];
         const lastName = nameParts.slice(1).join(' ');
@@ -37,7 +47,8 @@ export default function ContactPage() {
             last_name: lastName,
             phone_number: data.phone,
             email: data.email,
-            message: data.message
+            message: data.message,
+            recaptcha_token: recaptchaToken
           })
         });
 
@@ -320,5 +331,13 @@ export default function ContactPage() {
         async
       ></script>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <ReCaptchaProvider>
+      <ContactForm />
+    </ReCaptchaProvider>
   );
 }
