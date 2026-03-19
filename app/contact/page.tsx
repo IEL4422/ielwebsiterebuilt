@@ -211,13 +211,14 @@ export default function ContactPage() {
               </form>
             </div>
 
-            {/* Calendly Widget */}
+            {/* Lunacal Widget */}
             <div className="border border-[#2d3e50] rounded-[14px] p-1.5">
-              <div
-                className="calendly-inline-widget rounded-[14px] overflow-hidden"
-                data-url="https://calendly.com/illinoisestatelaw/initial-consultation-waived-consultation-fee-clone?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=6283bd"
-                style={{ minWidth: '320px', height: '700px' }}
-              ></div>
+              <iframe
+                src="https://lunacal.com/book/illinoisestatelaw"
+                className="rounded-[14px] overflow-hidden w-full"
+                style={{ minWidth: '320px', height: '700px', border: 'none' }}
+                title="Schedule Consultation"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -313,12 +314,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Calendly Script */}
-      <script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      ></script>
     </div>
   );
 }
