@@ -339,7 +339,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes, in-person meetings are available by request. We have physical offices throughout Illinois. Please visit our office locations page to find the nearest office and schedule your appointment.</p>
+              <p>In-person meetings are available for current clients at our physical offices throughout Illinois. Please visit our office locations page to find the nearest office.</p>
             </div>
           </details>
         </div>

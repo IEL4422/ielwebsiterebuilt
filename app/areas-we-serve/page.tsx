@@ -260,7 +260,7 @@ export default function AreasWeServePage() {
                 Ready to Get Started?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                Our firm offers fully virtual services with physical offices throughout Illinois. In-person meetings are available by request.
+                Our firm offers fully virtual services with physical offices throughout Illinois. In-person meetings are available for current clients.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

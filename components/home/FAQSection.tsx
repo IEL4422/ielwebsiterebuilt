@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: 'How does Illinois Estate Law make estate planning more convenient?',
-    answer: 'Illinois Estate Law offers a modern, virtual process that eliminates the need for office visits or piles of paperwork. Clients can complete their estate planning securely online, from the comfort of home, and still have the option for in-person meetings if desired. This approach provides flexibility while maintaining confidentiality and professional guidance throughout the process.',
+    answer: 'Illinois Estate Law offers a modern, virtual process that eliminates the need for office visits or piles of paperwork. Clients can complete their estate planning securely online, from the comfort of home. This approach provides flexibility while maintaining confidentiality and professional guidance throughout the process. Current clients also have access to in-person meetings at our locations throughout Illinois.',
   },
   {
     question: "What makes Illinois Estate Law's pricing structure different?",
@@ -46,7 +46,11 @@ const faqs = [
   },
   {
     question: 'How can someone contact Illinois Estate Law to get started?',
-    answer: 'You can contact Illinois Estate Law by calling (312) 373-0731 or booking a consultation online through the firm\'s website. We offer flexible virtual and in-person meetings to fit your schedule. Whether you\'re beginning your first estate plan or updating existing documents, our team is ready to help you take the next step with confidence and peace of mind.',
+    answer: 'You can contact Illinois Estate Law by calling (312) 373-0731 or booking a consultation online through the firm\'s website. We offer flexible virtual meetings to fit your schedule. Whether you\'re beginning your first estate plan or updating existing documents, our team is ready to help you take the next step with confidence and peace of mind.',
+  },
+  {
+    question: 'Do you offer in-person consultations?',
+    answer: 'We do not offer in-person consultations for new clients. However, in-person meetings are included and available for all current clients at any of our convenient locations throughout Illinois.',
   },
 ];
 

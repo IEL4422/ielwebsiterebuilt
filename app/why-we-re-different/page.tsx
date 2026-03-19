@@ -62,12 +62,12 @@ export default function WhyWereDifferentPage() {
           <p className="mb-4">&nbsp;</p>
 
           <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#011627] mb-4">3. Convenient Virtual Services</h3>
-          <p className="mb-4">Life is busy, and we know it&rsquo;s not always easy to take time out for an in-person meeting. That&rsquo;s why we offer a fully virtual experience—from initial consultations to final document reviews and signing. You can complete your estate planning from the comfort of your home, on your schedule, using the latest secure technology to ensure your privacy.</p>
+          <p className="mb-4">Life is busy, and we know it&rsquo;s not always easy to take time out for traditional meetings. That&rsquo;s why we offer a fully virtual experience—from initial consultations to final document reviews and signing. You can complete your estate planning from the comfort of your home, on your schedule, using the latest secure technology to ensure your privacy.</p>
 
           <p className="mb-4">&nbsp;</p>
 
-          <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#011627] mb-4">4. In-Person Meetings Available</h3>
-          <p className="mb-4">For those who prefer a more personal touch, we offer the option to meet in person. With multiple office locations across Illinois, you have the flexibility to choose how you want to connect with us. Whether it&rsquo;s virtual or face-to-face, we&rsquo;re here to accommodate your preference and make the process as comfortable as possible.</p>
+          <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#011627] mb-4">4. In-Person Meetings for Current Clients</h3>
+          <p className="mb-4">For our current clients, we offer in-person meetings at multiple office locations across Illinois. This provides our clients with the flexibility and personal touch they need throughout their estate planning journey. Current clients can choose how they want to connect with us to ensure the process is as comfortable as possible.</p>
 
           <p className="mb-4">&nbsp;</p>
 

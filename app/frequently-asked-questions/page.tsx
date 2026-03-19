@@ -113,6 +113,10 @@ const faqs = [
     question: 'How often should I review my estate plan?',
     answer: 'Review your estate plan every 3-5 years or after significant life changes (e.g., marriage, divorce, birth of a child, major asset purchase).',
   },
+  {
+    question: 'Do you offer in-person consultations?',
+    answer: 'We do not offer in-person consultations for new clients. However, in-person meetings are included and available for all current clients at any of our convenient locations throughout Illinois.',
+  },
 ];
 
 export default function FrequentlyAskedQuestionsPage() {

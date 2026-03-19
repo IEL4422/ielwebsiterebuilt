@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Illinois Estate Law: Trusted Estate Planning Services',
@@ -33,11 +32,6 @@ export const metadata: Metadata = {
 export default function LocationsPage() {
   return (
     <>
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
-      />
-
       <main>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
@@ -55,7 +49,7 @@ export default function LocationsPage() {
               {/* Introduction Text */}
               <div className="text-base font-normal font-['Plus_Jakarta_Sans'] text-[#2D3E50]">
                 <p className="mb-[0.9rem]">
-                  In-person consultations are by appointment only. The fee for in-person consultations is $249 for an hour meeting. Said fee is applied as a credit to any purchased services/packages if you sign up with us. If you would prefer to book a virtual consultation, <a href="/contact/" className="text-[#011627] font-semibold underline hover:text-[#4A708B]">click here</a>. When requesting an in-person meeting, please specify the preferred location. In-person meetings are free for all active clients.
+                  Illinois Estate Law serves clients throughout Illinois with meeting locations available across the Chicago area and surrounding counties. Our practice operates virtually to provide maximum convenience, and current clients have access to in-person meetings at any of our locations. To schedule a consultation, please <a href="/contact/" className="text-[#011627] font-semibold underline hover:text-[#4A708B]">contact us</a>.
                 </p>
               </div>
 
@@ -221,20 +215,6 @@ export default function LocationsPage() {
                     4320 Winfield Road, Ste 200, Warrenville, Illinois 60555
                   </p>
                 </div>
-              </div>
-
-              {/* Booking Section */}
-              <div className="flex flex-col mt-12">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2D3E50] mb-6">
-                  Book In-Person Consultation
-                </h2>
-
-                {/* Calendly Widget */}
-                <div
-                  className="calendly-inline-widget"
-                  data-url="https://calendly.com/illinoisestatelaw/in-person-meeting-consultation?hide_gdpr_banner=1&primary_color=6a9cd6"
-                  style={{ minWidth: '320px', height: '700px' }}
-                />
               </div>
             </div>
           </div>

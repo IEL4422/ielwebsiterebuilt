@@ -103,7 +103,7 @@ export function Footer() {
                 <Link href="/locations/" rel="nofollow" className="underline hover:text-[#CCCCCC] transition-colors">
                   Click&nbsp;here
                 </Link>
-                &nbsp;to see our locations. In-person meetings are by request only.
+                &nbsp;to see our locations. In-person meetings are available for current clients.
               </p>
               <div className="flex items-center gap-2 sm:gap-2.5">
                 {socialLinks.map((social) => (
