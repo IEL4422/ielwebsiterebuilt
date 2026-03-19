@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FileText, CircleCheck as CheckCircle2, CircleAlert as AlertCircle, ChevronDown, ChevronUp, DollarSign, Scale, Clock, Users, Shield, Chrome as Home, Circle as XCircle } from 'lucide-react';
+import { FileText, CircleCheck as CheckCircle2, CircleAlert as AlertCircle, ChevronDown, ChevronUp, DollarSign, Clock, Scale, Users, Building2 } from 'lucide-react';
 import TableOfContents from '@/components/blog/TableOfContents';
 import BlogNavigation from '@/components/blog/BlogNavigation';
 import RelatedArticles from '@/components/blog/RelatedArticles';
@@ -15,79 +15,115 @@ export default function Page() {
   const { previous, next } = getAdjacentPosts(currentSlug);
   const relatedPosts = getRelatedPosts(currentSlug, 3);
 
+  const [activeTab, setActiveTab] = useState('summary');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [showComparison, setShowComparison] = useState(false);
 
   const tocItems = [
-    { id: 'article-summary', title: 'Article Summary', level: 2, numeration: '1' },
-    { id: 'what-is-probate', title: 'What Is Probate and Why Does It Take So Long?', level: 2, numeration: '2' },
-    { id: 'summary-administration', title: 'What Is Summary Administration?', level: 2, numeration: '3' },
-    { id: 'when-allowed', title: 'When Is Summary Administration Allowed?', level: 2, numeration: '4' },
-    { id: 'real-estate-limitation', title: 'Critical Limitation: Real Estate Cannot Be Transferred', level: 2, numeration: '5' },
-    { id: 'cook-county-considerations', title: 'Cook County Practical Considerations', level: 2, numeration: '6' },
-    { id: 'comparison', title: 'Comparing Summary Administration to Other Options', level: 2, numeration: '7' },
-    { id: 'next-steps', title: 'What to Do If Your Estate Qualifies', level: 2, numeration: '8' },
-    { id: 'frequently-asked-questions', title: 'Frequently Asked Questions', level: 2, numeration: '9' }
-  ];
-
-  const faqs = [
     {
-      question: 'What is the difference between summary administration and a small estate affidavit?',
-      answer: 'A small estate affidavit requires no court involvement at all and can be used for personal property estates valued at $100,000 or less. Summary administration, by contrast, involves filing a petition with the court and obtaining a formal court order. Summary administration provides court oversight and legal finality that a small estate affidavit does not, but it cannot transfer real estate.'
+      id: 'article-summary',
+      title: 'Article Summary',
+      level: 2,
+      numeration: '1',
     },
     {
-      question: 'Can summary administration be used to transfer real estate?',
-      answer: 'No. One of the most significant limitations of summary administration in Illinois is that the court cannot direct the transfer of title to real estate in this type of proceeding. If the estate includes real property, you will need to use formal probate or another alternative such as a bond in lieu of probate.'
+      id: 'what-is-summary-probate',
+      title: 'What Is Summary Probate in Cook County?',
+      level: 2,
+      numeration: '2',
     },
     {
-      question: 'What is the $100,000 threshold for summary administration?',
-      answer: "The gross value of the decedent's real and personal estate subject to administration in Illinois cannot exceed $100,000. This applies only to probate assets. Non-probate assets such as joint tenancy property, retirement accounts with beneficiaries, payable-on-death accounts, and life insurance proceeds are not counted toward this limit."
+      id: 'when-can-you-use',
+      title: 'When Can You Use Summary Administration?',
+      level: 2,
+      numeration: '3',
     },
     {
-      question: 'Do all heirs need to consent to summary administration?',
-      answer: 'Yes. All legatees and heirs must consent in writing to the summary administration proceeding. If even one heir or legatee objects or cannot be located, summary administration may not be available.'
+      id: 'key-requirements',
+      title: 'Key Requirements and Limitations',
+      level: 2,
+      numeration: '4',
     },
     {
-      question: 'Is there a creditor claims period in summary administration?',
-      answer: "Summary administration does not provide the same six-month creditor bar that formal probate offers. Creditors may potentially assert claims against the estate for up to two years after the decedent's death, which means distributees who have already received their shares could face exposure if a claim surfaces later."
+      id: 'process-overview',
+      title: 'The Summary Probate Process',
+      level: 2,
+      numeration: '5',
     },
     {
-      question: 'What bond is required for summary administration?',
-      answer: 'Each person who will receive a distribution from the estate under summary administration must execute a bond equal to the value of the property they receive. This bond serves as protection for creditors and others who might later have a valid claim against the estate.'
+      id: 'comparison',
+      title: 'Comparing Your Options',
+      level: 2,
+      numeration: '6',
     },
     {
-      question: 'How long does summary administration take in Cook County?',
-      answer: "Summary administration is faster than formal probate, which typically takes 9-15 months. However, the exact timeline depends on how quickly you can gather all required documents, obtain written consents from all heirs, and satisfy the court's requirements. It can often be completed in a matter of weeks or months rather than over a year."
+      id: 'costs-timeline',
+      title: 'Costs and Timeline',
+      level: 2,
+      numeration: '7',
     },
     {
-      question: 'Do I need an attorney for summary administration?',
-      answer: 'While not legally required, consulting with an experienced Illinois probate attorney is strongly advisable. The detailed statutory requirements, bond obligations, and potential creditor exposure mean that errors can jeopardize the entire proceeding and expose distributees to personal liability.'
-    }
+      id: 'frequently-asked-questions',
+      title: 'Frequently Asked Questions',
+      level: 2,
+      numeration: '8',
+    },
+    {
+      id: 'next-steps',
+      title: 'Next Steps',
+      level: 2,
+      numeration: '9',
+    },
   ];
 
   const jsonLdSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    'headline': 'What Is Summary Probate in Cook County, Illinois — and When Can You Use It?',
-    'description': 'Comprehensive guide to summary administration in Cook County. Learn the $100,000 threshold, required conditions, limitations, and how this streamlined probate process compares to formal probate and small estate affidavits.',
-    'author': {
-      '@type': 'Organization',
-      'name': 'Illinois Estate Law'
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is Summary Probate in Cook County, Illinois — and When Can You Use It?",
+    "description": "Discover when summary probate (summary administration) is available in Cook County, Illinois, and whether it's the right choice for your estate.",
+    "author": {
+      "@type": "Person",
+      "name": "Mary Liberty",
+      "jobTitle": "Estate Planning Attorney"
     },
-    'publisher': {
-      '@type': 'Organization',
-      'name': 'Illinois Estate Law',
-      'logo': {
-        '@type': 'ImageObject',
-        'url': 'https://www.illinoisestatelaw.com/logo.png'
+    "publisher": {
+      "@type": "Organization",
+      "name": "Illinois Estate Law",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.illinoisestatelaw.com/logo.png"
       }
     },
-    'datePublished': '2026-03-19',
-    'dateModified': '2026-03-19'
+    "datePublished": "2026-03-19",
+    "dateModified": "2026-03-19"
   };
 
-  if (!currentPost) {
-    return <div>Post not found</div>;
-  }
+  const faqs = [
+    {
+      question: "Does summary administration completely avoid probate?",
+      answer: "No. Summary administration is still a court-supervised probate process. You must file a petition in the Circuit Court of Cook County and obtain a court order. What it eliminates is the appointment of a personal representative, the formal inventory process, and the extended creditor claims period. If you want to avoid court entirely, you may qualify for a small estate affidavit (for estates under $100,000) or can use non-probate transfer methods like trusts or transfer-on-death designations."
+    },
+    {
+      question: "Can I use summary administration if the estate has debts?",
+      answer: "Yes, but with caution. Summary administration allows for payment of debts, but creditors have a shorter window to file claims (generally 6 months from the date of death rather than the extended period in regular probate). If the estate has significant unpaid debts or potential creditor disputes, regular probate may provide better protection through its more formal creditor claims process."
+    },
+    {
+      question: "How long does summary administration take in Cook County?",
+      answer: "Typically 3-6 months from filing the petition to distribution of assets. This is significantly faster than regular probate, which often takes 9-18 months or longer. The exact timeline depends on court scheduling, whether all heirs consent, asset complexity, and how quickly required notices are completed."
+    },
+    {
+      question: "What happens if the estate is valued slightly over $100,000?",
+      answer: "If the estate exceeds $100,000 (excluding the homestead exemption and statutory allowances), you cannot use summary administration. However, you may be able to use certain strategies to reduce the probate estate value, such as accounting for exempt property, funeral expenses, or non-probate assets. Consult with an attorney to explore your options."
+    },
+    {
+      question: "Do all heirs need to agree for summary administration?",
+      answer: "While not strictly required by statute, obtaining consent from all interested parties (heirs and beneficiaries) makes the process much smoother. If any heir objects to summary administration or the proposed distribution, the court may require regular probate proceedings instead. Disagreements among heirs are a common reason summary administration petitions are denied."
+    },
+    {
+      question: "Can I handle summary administration without a lawyer?",
+      answer: "Legally, yes, but it's generally not recommended. While simpler than full probate, summary administration still requires proper legal filings, court appearances, compliance with notice requirements, and understanding of probate law. Most people benefit from at least consulting with an attorney to ensure the petition is properly prepared and filed. The cost of legal help is typically much less than in regular probate."
+    }
+  ];
 
   return (
     <>
@@ -96,566 +132,835 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
-      <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 lg:py-20">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <div className="text-center mb-8">
-              <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6">
-                Probate Administration
+      <div className="min-h-screen bg-white">
+        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+          <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"
+            >
+              <span className="text-lg">←</span>
+              Back to Blog
+            </Link>
+            <div className="max-w-4xl">
+              <div className="mb-6">
+                <time className="text-white/90 text-sm font-['Plus_Jakarta_Sans']">Mar 19, 2026</time>
               </div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-white font-['Plus_Jakarta_Sans']">
                 What Is Summary Probate in Cook County, Illinois — and When Can You Use It?
               </h1>
-              <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-                Understanding summary administration: the faster, streamlined alternative to formal probate for qualifying estates under $100,000
-              </p>
-              <div className="mt-8 flex items-center justify-center gap-6 text-white/80 text-sm">
-                <span>📅 March 19, 2026</span>
-                <span>⏱️ 12 min read</span>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Main Content */}
-        <div className="container mx-auto px-4 py-12 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Table of Contents - Sticky Sidebar */}
-            <aside className="lg:col-span-3">
-              <div className="lg:sticky lg:top-24">
-                <TableOfContents items={tocItems} />
+        <div className="max-w-[1240px] mx-auto px-5 py-12">
+          <article className="prose prose-lg max-w-none">
+            <TableOfContents items={tocItems} />
+
+            <h2 id="article-summary" className="text-2xl font-bold mt-8 mb-4">
+              Article Summary
+            </h2>
+
+            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+              <div className="flex items-start gap-3">
+                <FileText className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
+                <div>
+                  <p className="mb-4 font-semibold text-lg">
+                    Summary probate (also called summary administration) is a streamlined probate process available in Cook County for estates valued at $100,000 or less, offering a middle ground between full probate and small estate affidavits.
+                  </p>
+                  <p className="mb-4">
+                    Unlike a small estate affidavit which avoids court entirely, summary administration still requires court filing but eliminates many time-consuming requirements of regular probate. There's no need to appoint a personal representative, no formal inventory process, and a shortened creditor claims period.
+                  </p>
+                  <p className="mb-0">
+                    This guide explains exactly when you can use summary administration in Cook County, what requirements must be met, how the process works, and how it compares to your other options. Whether you're planning ahead or handling a loved one's estate, understanding summary probate can save significant time and money while ensuring proper legal compliance.
+                  </p>
+                </div>
               </div>
-            </aside>
+            </div>
 
-            {/* Article Content */}
-            <article className="lg:col-span-9">
-              {/* Article Summary */}
-              <section id="article-summary" className="mb-12 scroll-mt-24">
-                <div className="bg-gradient-to-br from-blue-50 to-slate-50 border-l-4 border-[#77B1D4] rounded-r-xl p-8 shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-[#77B1D4] rounded-xl flex items-center justify-center">
-                        <FileText className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                    <div>
-                      <h2 className="text-2xl font-bold text-slate-800 mb-4">Article Summary</h2>
-                      <div className="prose prose-slate max-w-none">
-                        <p className="text-slate-700 leading-relaxed mb-4">
-                          <strong>Summary administration</strong> (often called "summary probate") is a streamlined court process available in Illinois for estates valued at $100,000 or less. It allows families to settle an estate faster than traditional formal probate, which typically takes 9-15 months.
-                        </p>
-                        <p className="text-slate-700 leading-relaxed mb-4">
-                          <strong>Key points:</strong>
-                        </p>
-                        <ul className="space-y-2 text-slate-700">
-                          <li>Available for estates under $100,000 in probate assets</li>
-                          <li>Requires court filing and approval (unlike small estate affidavits)</li>
-                          <li>All heirs must consent in writing</li>
-                          <li>Cannot transfer real estate titles</li>
-                          <li>Each distributee must post a bond</li>
-                          <li>Does not provide the same creditor protection as formal probate</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+            <h2 id="what-is-summary-probate" className="text-2xl font-bold mt-8 mb-4">
+              What Is Summary Probate in Cook County?
+            </h2>
+
+            <p className="mb-6">
+              Summary probate, formally known as summary administration under Illinois law (755 ILCS 5/25-1), is a simplified probate procedure available for smaller estates. It sits between full probate proceedings and the small estate affidavit process in terms of complexity and requirements.
+            </p>
+
+            <p className="mb-6">
+              The key distinction is that summary administration <strong>does require court involvement</strong> — you must file a petition with the Circuit Court of Cook County and obtain a court order. However, it eliminates several burdensome aspects of regular probate that make traditional proceedings so time-consuming and expensive.
+            </p>
+
+            <div className="bg-amber-50 border-l-4 border-amber-600 p-6 my-8 rounded-r-lg">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold text-slate-800 mb-2">Important Distinction</h3>
+                  <p className="text-slate-700 leading-relaxed mb-0">
+                    Summary administration is <strong>not the same as avoiding probate entirely</strong>. Unlike a <Link href="/learning-center/small-estate-affidavit/" className=\"text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">small estate affidavit</Link> which requires no court filing at all, summary administration does involve filing a petition in the Circuit Court of Cook County and obtaining a court order. What it eliminates is the appointment of a personal representative, the formal inventory process, and the extended creditor claims period of full probate.
+                  </p>
                 </div>
-              </section>
+              </div>
+            </div>
 
-              {/* Introduction */}
-              <div className="prose prose-slate prose-lg max-w-none mb-12">
-                <p className="text-lg text-slate-700 leading-relaxed">
-                  Losing a loved one is never easy, and the legal process that follows can feel overwhelming. For many families in Cook County, the word "probate" conjures images of lengthy court proceedings, mounting attorney's fees, and months — sometimes over a year — of waiting before an estate can finally be closed. What many families do not realize is that Illinois law offers a faster, simplified path for qualifying estates called <strong>summary administration</strong>, sometimes referred to informally as "summary probate."
-                </p>
-                <p className="text-lg text-slate-700 leading-relaxed">
-                  Understanding what it is, when it applies, and what its limitations are can help executors, administrators, and heirs make informed decisions at a difficult time.
-                </p>
+            <div className="my-8 grid md:grid-cols-3 gap-6">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+                <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                  <CheckCircle2 className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-slate-800">What's Eliminated</h3>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold">•</span>
+                    <span>No personal representative appointment</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold">•</span>
+                    <span>No formal inventory required</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold">•</span>
+                    <span>Shorter creditor claims period</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold">•</span>
+                    <span>Reduced court supervision</span>
+                  </li>
+                </ul>
               </div>
 
-              {/* What Is Probate Section */}
-              <section id="what-is-probate" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#77B1D4] text-white font-bold text-lg">2</span>
-                  What Is Probate, and Why Does It Take So Long?
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none">
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    Before diving into summary administration, it helps to understand what traditional <Link href="/chicago-probate-lawyer/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">probate</Link> involves. When a person dies leaving assets titled solely in their name — such as a bank account, vehicle, or real estate held as a tenant in common — those assets cannot simply be transferred to heirs or beneficiaries without court involvement.
-                  </p>
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    Probate is the court-supervised process by which a personal representative (called an executor if there is a will, or an administrator if there is not) is appointed to collect the decedent's assets, pay valid debts and claims, and distribute the remainder to the people legally entitled to receive it.
-                  </p>
-
-                  <div className="bg-white border-2 border-slate-200 rounded-xl p-6 my-8">
-                    <div className="flex items-start gap-4">
-                      <Clock className="w-8 h-8 text-[#77B1D4] flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">Typical Formal Probate Timeline</h3>
-                        <p className="text-slate-700 leading-relaxed mb-4">
-                          In Cook County, formal probate proceedings are filed in the <Link href="/probate/cook-county/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">Probate Division of the Circuit Court of Cook County</Link>, most commonly at the Richard J. Daley Center in Chicago. A typical formal probate in Illinois takes anywhere from <strong>nine to fifteen months</strong>, largely because the law requires the estate to remain open for at least six months after publication of notice to creditors.
-                        </p>
-                        <p className="text-slate-700 leading-relaxed">
-                          That six-month window exists to give creditors a fair opportunity to file claims against the estate — and any claim not filed within that period is barred forever. While that creditor bar is a powerful protection, it means that even straightforward, uncontested estates cannot be rushed through the formal process.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-slate-700 leading-relaxed">
-                    For smaller estates, however, the legislature recognized that subjecting families to this full timeline can be disproportionately burdensome. That recognition gave rise to summary administration under Section 9-8 of the Illinois Probate Act of 1975, 755 ILCS 5/9-8.
-                  </p>
+              <div className="bg-gradient-to-br from-blue-50 to-sky-50 p-6 rounded-lg border border-blue-200">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-white" />
                 </div>
-              </section>
-
-              {/* Summary Administration Definition */}
-              <section id="summary-administration" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#77B1D4] text-white font-bold text-lg">3</span>
-                  What Is Summary Administration Under 755 ILCS 5/9-8?
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none">
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    Summary administration is a modified, abbreviated probate court process that permits the payment of claims and the direct distribution of a decedent's personal estate without the appointment of a full personal representative and without the lengthy timelines of formal probate.
-                  </p>
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    Rather than opening a full estate and waiting through the six-month creditor claims period, an interested person — such as an heir or legatee — files a petition asking the court to direct distribution of the estate's assets in a single, streamlined proceeding.
-                  </p>
-
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 my-8">
-                    <div className="flex items-start gap-4">
-                      <Scale className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">How Summary Administration Works</h3>
-                        <p className="text-slate-700 leading-relaxed mb-4">
-                          Upon the filing of a proper petition, and after the court has ascertained heirship and admitted the <Link href="/chicago-wills-lawyer/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">will</Link> (if any) to probate, the court examines whether all the statutory conditions are met. If they are, the court enters an order directing how the estate's assets are to be distributed.
-                        </p>
-                        <p className="text-slate-700 leading-relaxed">
-                          The process cuts out most of the administrative back-and-forth of a conventional probate while still providing court oversight and finality.
-                        </p>
-                      </div>
-                    </div>
+                <h3 className="text-lg font-bold mb-3 text-slate-800">Time Savings</h3>
+                <div className="space-y-3 text-sm text-slate-700">
+                  <div>
+                    <div className="font-semibold mb-1">Regular Probate:</div>
+                    <div className="text-slate-600">9-18+ months typically</div>
                   </div>
-
-                  <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-6 my-8">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-slate-800 mb-2">Important Distinction</h4>
-                        <p className="text-slate-700 leading-relaxed">
-                          It is important to note that summary administration is <strong>not the same as avoiding probate entirely</strong>. Unlike a <Link href="/learning-center/small-estate-affidavit/" className=\"text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">small estate affidavit</Link> under 755 ILCS 5/25-1 — which requires no court filing at all — summary administration does involve filing a petition in the Circuit Court of Cook County and obtaining a court order. What it eliminates is the appointment of a personal representative, the formal inventory process, and the extended creditor claims period of a full estate.
-                        </p>
-                      </div>
-                    </div>
+                  <div>
+                    <div className="font-semibold mb-1">Summary Probate:</div>
+                    <div className="text-slate-600">3-6 months typically</div>
+                  </div>
+                  <div className="bg-white p-2 rounded mt-3">
+                    <strong className="text-blue-600">Save 6-12+ months</strong>
                   </div>
                 </div>
-              </section>
+              </div>
 
-              {/* When Is Summary Administration Allowed */}
-              <section id="when-allowed" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#77B1D4] text-white font-bold text-lg">4</span>
-                  When Is Summary Administration Allowed?
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none">
-                  <p className="text-slate-700 leading-relaxed mb-6">
-                    Under 755 ILCS 5/9-8, the court may grant summary administration only when all of the following conditions are satisfied:
-                  </p>
+              <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-6 rounded-lg border border-purple-200">
+                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <DollarSign className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-slate-800">Cost Savings</h3>
+                <div className="space-y-3 text-sm text-slate-700">
+                  <div>
+                    <div className="font-semibold mb-1">Regular Probate:</div>
+                    <div className="text-slate-600">$3,000-$7,000+ typically</div>
+                  </div>
+                  <div>
+                    <div className="font-semibold mb-1">Summary Probate:</div>
+                    <div className="text-slate-600">$1,500-$3,500 typically</div>
+                  </div>
+                  <div className="bg-white p-2 rounded mt-3">
+                    <strong className="text-purple-600">Save 40-60% in costs</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                  {/* Condition 1 */}
-                  <div className="bg-white border-2 border-slate-200 rounded-xl p-6 mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-[#77B1D4] flex items-center justify-center text-white font-bold">
-                          1
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">The gross value of the estate does not exceed $100,000</h3>
-                        <p className="text-slate-700 leading-relaxed mb-3">
-                          This is the threshold requirement. The gross value of the decedent's real and personal estate subject to administration in Illinois — as itemized in the petition — cannot exceed $100,000.
-                        </p>
-                        <div className="bg-slate-50 rounded-lg p-4 mt-4">
-                          <p className="text-slate-700 leading-relaxed mb-2">
-                            <strong>Important:</strong> Only probate assets are counted toward this limit. Non-probate assets are not included:
+            <h2 id="when-can-you-use" className="text-2xl font-bold mt-12 mb-4">
+              When Can You Use Summary Administration?
+            </h2>
+
+            <p className="mb-6">
+              To qualify for summary administration in Cook County, the estate must meet specific statutory requirements under 755 ILCS 5/25-1. These are strict requirements — if any one is not met, you must use regular probate instead.
+            </p>
+
+            <div className="my-8 border border-gray-200 rounded-lg overflow-hidden">
+              <div className="flex border-b border-gray-200 bg-gray-50 overflow-x-auto">
+                <button
+                  onClick={() => setActiveTab('summary')}
+                  className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap ${
+                    activeTab === 'summary'
+                      ? 'bg-[#4a708b] text-white'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span>Summary Administration</span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => setActiveTab('small-estate')}
+                  className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap ${
+                    activeTab === 'small-estate'
+                      ? 'bg-[#4a708b] text-white'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <FileText className="w-5 h-5" />
+                    <span>Small Estate Affidavit</span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => setActiveTab('regular')}
+                  className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap ${
+                    activeTab === 'regular'
+                      ? 'bg-[#4a708b] text-white'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <Building2 className="w-5 h-5" />
+                    <span>Regular Probate</span>
+                  </div>
+                </button>
+              </div>
+
+              <div className="p-6 bg-white">
+                {activeTab === 'summary' && (
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">Summary Administration Requirements</h3>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
+                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Estate Value Must Be $100,000 or Less</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            The gross value of the estate (excluding certain exemptions like homestead allowance, family and child support allowances, and exempt property) must not exceed $100,000. This is calculated as of the date of death.
                           </p>
-                          <ul className="space-y-1 text-slate-700 ml-4">
-                            <li>• Real estate held in joint tenancy</li>
-                            <li>• IRAs and 401(k) plans with named beneficiaries</li>
-                            <li>• Payable-on-death (POD) financial accounts</li>
-                            <li>• Life insurance proceeds payable to a named beneficiary</li>
-                            <li>• Assets held in a <Link href="/chicago-revocable-trusts-lawyer/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">revocable living trust</Link></li>
-                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
+                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Court Petition Required</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            You must file a formal petition with the Circuit Court of Cook County Probate Division. The court will review the petition and, if approved, issue an order directing distribution of the estate assets.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
+                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">All Heirs Must Be Identified</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            The petition must identify all heirs at law and legatees (beneficiaries under a will, if one exists). All interested parties must receive proper notice of the proceeding.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
+                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">No Personal Representative Appointed</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            Unlike regular probate, no executor or administrator is formally appointed. The court order itself authorizes the transfer of assets directly to the entitled parties.
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
+                )}
 
-                  {/* Condition 2 */}
-                  <div className="bg-white border-2 border-slate-200 rounded-xl p-6 mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-[#77B1D4] flex items-center justify-center text-white font-bold">
-                          2
+                {activeTab === 'small-estate' && (
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">Small Estate Affidavit Requirements</h3>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
+                        <FileText className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Estate Value Must Be $100,000 or Less</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            Same threshold as summary administration, but calculated after deducting funeral expenses, reasonable expenses of last illness, and certain statutory allowances.
+                          </p>
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">All known claims against the estate are addressed</h3>
-                        <p className="text-slate-700 leading-relaxed">
-                          There must be no unpaid claim against the estate, or alternatively, the petitioner must list all claimants known to them, together with the amounts known to be owed to each. The court will then direct payment of those listed claims as part of its order. The petitioner must be diligent about identifying known creditors, because the consequences of overlooking a creditor can be significant.
-                        </p>
+
+                      <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
+                        <FileText className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">No Court Filing Required</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            The major advantage: you don't file anything with the court. You simply present the affidavit and death certificate to asset holders (banks, etc.) who then release the assets to you.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
+                        <FileText className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Must Wait 6 Months</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            You cannot use a small estate affidavit until at least 6 months after the decedent's death. This waiting period allows time for creditors to come forward.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
+                        <FileText className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Personal Liability for Debts</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            The person signing the affidavit becomes personally liable for the decedent's debts up to the value of the estate assets received. This is a significant risk factor to consider.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
+                )}
 
-                  {/* Condition 3 */}
-                  <div className="bg-white border-2 border-slate-200 rounded-xl p-6 mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-[#77B1D4] flex items-center justify-center text-white font-bold">
-                          3
+                {activeTab === 'regular' && (
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">Regular Probate Overview</h3>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg">
+                        <Building2 className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Required for Estates Over $100,000</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            If the estate exceeds $100,000 in probate assets, you must use regular probate (also called independent administration or supervised administration).
+                          </p>
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">No federal or Illinois estate taxes are owed</h3>
-                        <p className="text-slate-700 leading-relaxed">
-                          Summary administration is only available if no estate or death taxes will be due to the United States or to Illinois, or if any such taxes have already been paid, provided for, or are the obligation of another fiduciary. For most modest estates falling under the $100,000 threshold, this condition is easily satisfied, as Illinois's estate tax applies only to estates above $4 million and the federal estate tax exemption is considerably higher.
-                        </p>
+
+                      <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg">
+                        <Building2 className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Executor or Administrator Appointed</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            The court appoints a personal representative (executor if named in a will, administrator if not) who is responsible for managing the estate throughout the probate process.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg">
+                        <Building2 className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Formal Inventory and Accounting</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            The personal representative must file a detailed inventory of all estate assets with the court, and typically must file periodic accountings showing all receipts and disbursements.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg">
+                        <Building2 className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-slate-800 mb-1">Extended Creditor Claims Period</div>
+                          <p className="text-sm text-slate-700 mb-0">
+                            Creditors have up to 6 months from when notice is published to file claims against the estate. The personal representative must review and either pay or object to each claim, which adds time and complexity.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
+                )}
+              </div>
+            </div>
 
-                  {/* Condition 4 */}
-                  <div className="bg-white border-2 border-slate-200 rounded-xl p-6 mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-[#77B1D4] flex items-center justify-center text-white font-bold">
-                          4
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">Surviving spouse's and child's awards are addressed</h3>
-                        <p className="text-slate-700 leading-relaxed">
-                          If a surviving spouse or dependent child is entitled to an award under the Illinois Probate Act (755 ILCS 5/15-1 and 5/15-2), the petition must identify those individuals and the applicable award amounts. This condition ensures that a decedent's surviving family members are not left without provision simply because the estate is being handled on an expedited basis.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+            <h2 id="key-requirements" className="text-2xl font-bold mt-12 mb-4">
+              Key Requirements and Limitations
+            </h2>
 
-                  {/* Condition 5 */}
-                  <div className="bg-white border-2 border-slate-200 rounded-xl p-6 mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-[#77B1D4] flex items-center justify-center text-white font-bold">
-                          5
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">All legatees and heirs consent in writing</h3>
-                        <p className="text-slate-700 leading-relaxed">
-                          One of the most important practical requirements for summary administration is that <strong>all legatees and heirs must consent in writing</strong> to the proceeding. This requirement reflects the fact that the process moves quickly and without the full procedural protections of formal probate. If even one heir or legatee objects or cannot be located, summary administration may not be available.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+            <p className="mb-6">
+              Understanding the specific requirements and limitations of summary administration is crucial before deciding to use this process. While it offers significant advantages over regular probate, it's not available in all situations.
+            </p>
 
-                  {/* Condition 6 */}
-                  <div className="bg-white border-2 border-slate-200 rounded-xl p-6 mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-[#77B1D4] flex items-center justify-center text-white font-bold">
-                          6
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">All distributees must post a bond</h3>
-                        <p className="text-slate-700 leading-relaxed">
-                          Each person who will receive a distribution from the estate under summary administration must execute a bond equal to the value of the property they receive. This bond serves as protection for creditors and others who might later have a valid claim against the estate, since summary administration does not benefit from the same creditor bar cutoff that formal probate provides.
-                        </p>
-                      </div>
-                    </div>
+            <div className="grid md:grid-cols-2 gap-6 my-8">
+              <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600" />
+                  When Summary Administration Works Well
+                </h3>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold flex-shrink-0">✓</span>
+                    <span>Estate value is clearly under $100,000</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold flex-shrink-0">✓</span>
+                    <span>All heirs are in agreement</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold flex-shrink-0">✓</span>
+                    <span>Debts are minimal or manageable</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold flex-shrink-0">✓</span>
+                    <span>Assets are straightforward (bank accounts, simple real estate)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold flex-shrink-0">✓</span>
+                    <span>You want court oversight but simplified process</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold flex-shrink-0">✓</span>
+                    <span>No disputes or litigation expected</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 text-red-600" />
+                  When You Cannot Use Summary Administration
+                </h3>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold flex-shrink-0">✗</span>
+                    <span>Estate exceeds $100,000 threshold</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold flex-shrink-0">✗</span>
+                    <span>Significant heir disputes or will contests</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold flex-shrink-0">✗</span>
+                    <span>Complex estate with business interests</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold flex-shrink-0">✗</span>
+                    <span>Multiple parcels of real estate or out-of-state property</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold flex-shrink-0">✗</span>
+                    <span>Substantial creditor claims or debt disputes expected</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold flex-shrink-0">✗</span>
+                    <span>Need ongoing estate administration over extended period</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 id="process-overview" className="text-2xl font-bold mt-12 mb-4">
+              The Summary Probate Process
+            </h2>
+
+            <p className="mb-6">
+              While simpler than regular probate, summary administration still follows a structured legal process. Here's what to expect at each stage:
+            </p>
+
+            <div className="space-y-6 my-8">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#4a708b] text-white rounded-full flex items-center justify-center font-bold">
+                  1
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Gather Required Information</h3>
+                  <p className="text-slate-700 mb-3">
+                    Collect the death certificate, identify all assets and their values, compile a list of heirs and beneficiaries, and gather any will or trust documents. Calculate the total estate value to confirm you're under the $100,000 threshold.
+                  </p>
+                  <div className="bg-blue-50 p-4 rounded-lg text-sm">
+                    <strong className="text-slate-800">Documents needed:</strong> Death certificate, asset statements, property deeds, will (if any), list of heirs with addresses
                   </div>
                 </div>
-              </section>
+              </div>
 
-              {/* Real Estate Limitation */}
-              <section id="real-estate-limitation" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-red-500 text-white font-bold text-lg">5</span>
-                  A Critical Limitation: Summary Administration Cannot Transfer Real Estate
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none">
-                  <div className="bg-red-50 border-2 border-red-200 rounded-xl p-8 mb-6">
-                    <div className="flex items-start gap-4">
-                      <XCircle className="w-10 h-10 text-red-600 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-800 mb-3">Cannot Transfer Real Property</h3>
-                        <p className="text-slate-700 leading-relaxed mb-4">
-                          One of the most significant constraints of summary administration in Illinois is that <strong className="text-red-700">the court cannot direct the transfer of title to real estate</strong> in this type of proceeding.
-                        </p>
-                        <p className="text-slate-700 leading-relaxed">
-                          If the decedent's probate estate includes real property — a home, a condo, a vacant lot — summary administration will not resolve that issue. Real estate transfers in a decedent's estate generally require either formal probate with the appointment of a representative, or an alternative mechanism such as a bond in lieu of probate.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-slate-700 leading-relaxed">
-                    Practitioners and families should be aware of this limitation early in their planning, as it may render summary administration unavailable or insufficient even when all other conditions are met. If you need to transfer real estate from a deceased person's name, you may want to review <Link href="/blog/can-a-house-transfer-automatically-at-death-in-illinois-5-ways-it-can-and-3-ways-it-cant/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">methods for transferring a house at death in Illinois</Link>.
-                  </p>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#4a708b] text-white rounded-full flex items-center justify-center font-bold">
+                  2
                 </div>
-              </section>
-
-              {/* Cook County Considerations */}
-              <section id="cook-county-considerations" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#77B1D4] text-white font-bold text-lg">6</span>
-                  The Cook County Wrinkle: Practical Considerations
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none">
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    While summary administration is available under state law throughout Illinois, practitioners in Cook County have noted that compliance with the bond and notice requirements — which must be satisfied in the Circuit Court of Cook County's Probate Division — can add cost and complexity that partially offsets the process's efficiency benefits.
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Prepare and File Petition</h3>
+                  <p className="text-slate-700 mb-3">
+                    Draft a petition for summary administration that includes all required information about the decedent, heirs, assets, and proposed distribution. File the petition with the Circuit Court of Cook County Probate Division along with the filing fee.
                   </p>
-                  <p className="text-slate-700 leading-relaxed mb-6">
-                    The bond required of each distributee must be properly documented and filed with the court, which introduces a step that requires careful coordination among all heirs.
-                  </p>
-
-                  <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-6 mb-6">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-slate-800 mb-2">Creditor Claims Exposure</h4>
-                        <p className="text-slate-700 leading-relaxed mb-3">
-                          One of the most significant practical disadvantages of summary administration — as compared to formal probate — is the creditor claims window.
-                        </p>
-                        <p className="text-slate-700 leading-relaxed mb-3">
-                          In <Link href="/chicago-probate-lawyer/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">formal probate</Link>, creditors who fail to file claims within six months after the date of first publication are barred from pursuing those claims. Under summary administration, however, that shortened six-month bar does not apply in the same way.
-                        </p>
-                        <p className="text-slate-700 leading-relaxed">
-                          Creditors may potentially assert claims against the estate for up to <strong>two years after the decedent's death</strong>, which means distributees who have already received their shares could face exposure if a claim surfaces later. The bond requirement is, in large part, designed to address this risk — but it is a risk that families and their attorneys should weigh carefully.
-                        </p>
-                      </div>
-                    </div>
+                  <div className="bg-blue-50 p-4 rounded-lg text-sm">
+                    <strong className="text-slate-800">Filing location:</strong> Richard J. Daley Center, 50 W. Washington Street, Chicago, IL 60602 (Probate Division, Room 1202)
                   </div>
                 </div>
-              </section>
+              </div>
 
-              {/* Comparison Section */}
-              <section id="comparison" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#77B1D4] text-white font-bold text-lg">7</span>
-                  Summary Administration vs. Other Alternatives
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none">
-                  <p className="text-slate-700 leading-relaxed mb-6">
-                    Summary administration occupies a middle ground in the range of options available for small estates in Illinois.
-                  </p>
-
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    {/* Small Estate Affidavit */}
-                    <div className="bg-white border-2 border-slate-200 rounded-xl p-6">
-                      <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                        <FileText className="w-6 h-6 text-green-600" />
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-800 mb-3">Small Estate Affidavit</h3>
-                      <ul className="space-y-2 text-sm text-slate-700 mb-4">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>No court involvement</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>Personal property only</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>Under $100,000</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <XCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span>Cannot transfer real estate</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <XCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span>Personal liability for affiant</span>
-                        </li>
-                      </ul>
-                      <Link href="/learning-center/small-estate-affidavit/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold text-sm">
-                        Learn more →
-                      </Link>
-                    </div>
-
-                    {/* Summary Administration */}
-                    <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-[#77B1D4] rounded-xl p-6">
-                      <div className="w-12 h-12 bg-[#77B1D4] rounded-lg flex items-center justify-center mb-4">
-                        <Scale className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-800 mb-3">Summary Administration</h3>
-                      <ul className="space-y-2 text-sm text-slate-700 mb-4">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>Court oversight</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>Faster than formal probate</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>Under $100,000</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <XCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span>Cannot transfer real estate</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <XCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span>Requires all heirs to consent</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    {/* Formal Probate */}
-                    <div className="bg-white border-2 border-slate-200 rounded-xl p-6">
-                      <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
-                        <Shield className="w-6 h-6 text-slate-600" />
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-800 mb-3">Formal Probate</h3>
-                      <ul className="space-y-2 text-sm text-slate-700 mb-4">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>Can transfer real estate</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>6-month creditor bar</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span>Full court supervision</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <XCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span>9-15 month timeline</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <XCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span>Higher costs</span>
-                        </li>
-                      </ul>
-                      <Link href="/chicago-probate-lawyer/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold text-sm">
-                        Learn more →
-                      </Link>
-                    </div>
-                  </div>
-
-                  <p className="text-slate-700 leading-relaxed">
-                    Formal probate, while more time-consuming and expensive, provides the strongest protections: the six-month creditor bar, court supervision of the representative's conduct, and the ability to address real estate. For estates approaching or exceeding $100,000, or where creditor exposure is uncertain, formal probate remains the most protective choice.
-                  </p>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#4a708b] text-white rounded-full flex items-center justify-center font-bold">
+                  3
                 </div>
-              </section>
-
-              {/* Next Steps */}
-              <section id="next-steps" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#77B1D4] text-white font-bold text-lg">8</span>
-                  What to Do If You Think Your Estate Qualifies
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none">
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    If you are an executor, administrator, or heir dealing with a Cook County estate that may qualify for summary administration, the process begins with the filing of a petition in the <Link href="/probate/cook-county/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold">Probate Division of the Circuit Court of Cook County</Link>.
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Provide Notice to Interested Parties</h3>
+                  <p className="text-slate-700 mb-3">
+                    After filing, you must provide proper legal notice to all heirs, legatees, and known creditors. This typically involves certified mail to interested parties and may require publication in a local newspaper.
                   </p>
-
-                  <div className="bg-slate-50 border-2 border-slate-200 rounded-xl p-6 mb-6">
-                    <h3 className="text-lg font-bold text-slate-800 mb-3">Required Elements of the Petition</h3>
-                    <ul className="space-y-2 text-slate-700">
-                      <li>• Carefully itemize all probate assets</li>
-                      <li>• Identify all heirs and legatees</li>
-                      <li>• List all known creditors and amounts owed</li>
-                      <li>• Address any applicable spouse's or child's awards</li>
-                      <li>• Include written consents from all heirs and legatees</li>
-                    </ul>
+                  <div className="bg-blue-50 p-4 rounded-lg text-sm">
+                    <strong className="text-slate-800">Timeline:</strong> Notice must be provided at least 14 days before the court hearing
                   </div>
-
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    The petition for distribution on summary administration may be combined with — or filed separately from — a petition for probate of a will or for letters of administration, providing flexibility in how the overall proceeding is structured.
-                  </p>
-
-                  <div className="bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-6 mb-6">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-slate-800 mb-2">Legal Counsel Recommended</h4>
-                        <p className="text-slate-700 leading-relaxed">
-                          Given the detailed statutory requirements, the bond obligations, and the potential creditor exposure, <strong>consulting with an experienced Illinois probate attorney before proceeding is strongly advisable</strong>. A misstep in identifying creditors, obtaining consents, or calculating the value of the probate estate can jeopardize the entire summary administration and expose distributees to personal liability.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-slate-700 leading-relaxed">
-                    The process is faster than formal probate — but "simpler" is only true when it is executed correctly.
-                  </p>
                 </div>
-              </section>
+              </div>
 
-              {/* FAQ Section */}
-              <section id="frequently-asked-questions" className="mb-16 scroll-mt-24">
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#77B1D4] text-white font-bold text-lg">9</span>
-                  Frequently Asked Questions
-                </h2>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#4a708b] text-white rounded-full flex items-center justify-center font-bold">
+                  4
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Attend Court Hearing</h3>
+                  <p className="text-slate-700 mb-3">
+                    Appear at the scheduled court hearing where the judge will review the petition, confirm that all requirements are met, and hear any objections from interested parties. If everything is in order, the judge will approve the petition.
+                  </p>
+                  <div className="bg-blue-50 p-4 rounded-lg text-sm">
+                    <strong className="text-slate-800">What to bring:</strong> Photo ID, copies of all filed documents, proof of notice to all parties
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#4a708b] text-white rounded-full flex items-center justify-center font-bold">
+                  5
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Obtain Court Order</h3>
+                  <p className="text-slate-700 mb-3">
+                    Once approved, the court will issue an order for summary administration. This order directs asset holders (banks, title companies, etc.) to transfer assets according to the distribution plan approved by the court.
+                  </p>
+                  <div className="bg-blue-50 p-4 rounded-lg text-sm">
+                    <strong className="text-slate-800">Important:</strong> Get certified copies of the court order — you'll need these to actually transfer assets
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#4a708b] text-white rounded-full flex items-center justify-center font-bold">
+                  6
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">Transfer Assets</h3>
+                  <p className="text-slate-700 mb-3">
+                    Present certified copies of the court order along with the death certificate to banks, investment firms, and other asset holders. They will transfer the assets according to the court's order. For real estate, record the order with the county recorder's office.
+                  </p>
+                  <div className="bg-blue-50 p-4 rounded-lg text-sm">
+                    <strong className="text-slate-800">Timeline:</strong> Most asset transfers can be completed within 2-4 weeks of receiving the court order
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2 id="comparison" className="text-2xl font-bold mt-12 mb-4">
+              Comparing Your Options: Which Process Is Right?
+            </h2>
+
+            <p className="mb-6">
+              Choosing between summary administration, small estate affidavit, and regular probate depends on your specific situation. Here's a detailed comparison to help you decide:
+            </p>
+
+            <button
+              onClick={() => setShowComparison(!showComparison)}
+              className="w-full bg-gradient-to-r from-[#4a708b] to-[#5d8aa8] text-white px-6 py-4 rounded-lg font-semibold text-lg flex items-center justify-between hover:from-[#3d5e73] hover:to-[#4a708b] transition-all mb-6"
+            >
+              <span>View Detailed Comparison Table</span>
+              {showComparison ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
+            </button>
+
+            {showComparison && (
+              <div className="overflow-x-auto my-8 border border-gray-200 rounded-lg">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-gray-50">
+                      <th className="p-4 text-left font-bold text-slate-800 border-b border-gray-200">Feature</th>
+                      <th className="p-4 text-left font-bold text-slate-800 border-b border-gray-200">Small Estate Affidavit</th>
+                      <th className="p-4 text-left font-bold text-slate-800 border-b border-gray-200 bg-blue-50">Summary Administration</th>
+                      <th className="p-4 text-left font-bold text-slate-800 border-b border-gray-200">Regular Probate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Estate Value Limit</td>
+                      <td className="p-4 border-b border-gray-200">$100,000 or less</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">$100,000 or less</td>
+                      <td className="p-4 border-b border-gray-200">Any amount (required if over $100k)</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Court Filing Required?</td>
+                      <td className="p-4 border-b border-gray-200">No</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">Yes</td>
+                      <td className="p-4 border-b border-gray-200">Yes</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Waiting Period</td>
+                      <td className="p-4 border-b border-gray-200">6 months after death</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">No waiting period</td>
+                      <td className="p-4 border-b border-gray-200">No waiting period</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Personal Representative</td>
+                      <td className="p-4 border-b border-gray-200">Not appointed</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">Not appointed</td>
+                      <td className="p-4 border-b border-gray-200">Required appointment</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Typical Timeline</td>
+                      <td className="p-4 border-b border-gray-200">2-4 weeks (after waiting period)</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">3-6 months</td>
+                      <td className="p-4 border-b border-gray-200">9-18+ months</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Typical Cost</td>
+                      <td className="p-4 border-b border-gray-200">$50-$500</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">$1,500-$3,500</td>
+                      <td className="p-4 border-b border-gray-200">$3,000-$7,000+</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Court Supervision</td>
+                      <td className="p-4 border-b border-gray-200">None</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">Limited (court order required)</td>
+                      <td className="p-4 border-b border-gray-200">Full supervision</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Formal Inventory</td>
+                      <td className="p-4 border-b border-gray-200">Not required</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">Not required</td>
+                      <td className="p-4 border-b border-gray-200">Required</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 border-b border-gray-200 font-semibold">Attorney Recommended?</td>
+                      <td className="p-4 border-b border-gray-200">Optional (simple cases)</td>
+                      <td className="p-4 border-b border-gray-200 bg-blue-50">Yes (court filing involved)</td>
+                      <td className="p-4 border-b border-gray-200">Highly recommended</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-semibold">Personal Liability</td>
+                      <td className="p-4">High (personally liable for debts)</td>
+                      <td className="p-4 bg-blue-50">Lower (court oversight)</td>
+                      <td className="p-4">Lowest (court supervised throughout)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            )}
+
+            <h2 id="costs-timeline" className="text-2xl font-bold mt-12 mb-4">
+              Costs and Timeline for Summary Administration
+            </h2>
+
+            <p className="mb-6">
+              Understanding the expected costs and timeline can help you plan accordingly and set realistic expectations for the summary administration process.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 my-8">
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                  <DollarSign className="w-6 h-6 text-[#4a708b]" />
+                  Expected Costs
+                </h3>
+
                 <div className="space-y-4">
-                  {faqs.map((faq, index) => (
-                    <div
-                      key={index}
-                      className="bg-white border-2 border-slate-200 rounded-xl overflow-hidden hover:border-[#77B1D4] transition-colors"
-                    >
-                      <button
-                        onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
-                      >
-                        <span className="font-semibold text-slate-800 pr-4">{faq.question}</span>
-                        {expandedFaq === index ? (
-                          <ChevronUp className="w-5 h-5 text-[#77B1D4] flex-shrink-0" />
-                        ) : (
-                          <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                        )}
-                      </button>
-                      {expandedFaq === index && (
-                        <div className="px-6 pb-4">
-                          <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
-                        </div>
-                      )}
+                  <div className="flex justify-between items-start p-4 bg-slate-50 rounded-lg">
+                    <div>
+                      <div className="font-semibold text-slate-800">Court Filing Fees</div>
+                      <div className="text-sm text-slate-600">Petition filing and certified copies</div>
                     </div>
-                  ))}
-                </div>
-              </section>
+                    <div className="font-bold text-slate-800">$300-$500</div>
+                  </div>
 
-              {/* Legal Disclaimer */}
-              <div className="bg-slate-100 border-l-4 border-slate-400 rounded-r-xl p-6 mb-12">
-                <p className="text-sm text-slate-600 leading-relaxed italic">
-                  <strong>Disclaimer:</strong> This blog post is intended for general informational purposes only and does not constitute legal advice. Every estate is unique, and the facts of your specific situation may affect which procedures are available to you. If you have questions about the administration of an estate in Cook County or elsewhere in Illinois, please contact a licensed Illinois probate attorney.
-                </p>
+                  <div className="flex justify-between items-start p-4 bg-slate-50 rounded-lg">
+                    <div>
+                      <div className="font-semibold text-slate-800">Legal Notice Publication</div>
+                      <div className="text-sm text-slate-600">Required newspaper publication</div>
+                    </div>
+                    <div className="font-bold text-slate-800">$100-$200</div>
+                  </div>
+
+                  <div className="flex justify-between items-start p-4 bg-slate-50 rounded-lg">
+                    <div>
+                      <div className="font-semibold text-slate-800">Attorney Fees</div>
+                      <div className="text-sm text-slate-600">Legal assistance (recommended)</div>
+                    </div>
+                    <div className="font-bold text-slate-800">$1,000-$2,500</div>
+                  </div>
+
+                  <div className="flex justify-between items-start p-4 bg-slate-50 rounded-lg">
+                    <div>
+                      <div className="font-semibold text-slate-800">Certified Death Certificates</div>
+                      <div className="text-sm text-slate-600">Multiple copies needed</div>
+                    </div>
+                    <div className="font-bold text-slate-800">$50-$100</div>
+                  </div>
+
+                  <div className="flex justify-between items-start p-4 bg-slate-50 rounded-lg">
+                    <div>
+                      <div className="font-semibold text-slate-800">Miscellaneous Fees</div>
+                      <div className="text-sm text-slate-600">Postage, copies, recording fees</div>
+                    </div>
+                    <div className="font-bold text-slate-800">$50-$200</div>
+                  </div>
+
+                  <div className="flex justify-between items-center p-4 bg-[#4a708b] text-white rounded-lg font-bold">
+                    <div>Total Estimated Cost</div>
+                    <div className="text-xl">$1,500-$3,500</div>
+                  </div>
+                </div>
               </div>
 
-              {/* Navigation */}
-              <BlogNavigation previousPost={previous} nextPost={next} />
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                  <Clock className="w-6 h-6 text-[#4a708b]" />
+                  Expected Timeline
+                </h3>
 
-              {/* Related Articles */}
-              {relatedPosts.length > 0 && (
-                <div className="mt-16">
-                  <RelatedArticles articles={relatedPosts} />
+                <div className="space-y-4">
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="font-semibold text-slate-800">Preparation</div>
+                      <div className="font-bold text-slate-800">1-2 weeks</div>
+                    </div>
+                    <div className="text-sm text-slate-600">Gathering documents, valuing assets, preparing petition</div>
+                  </div>
+
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="font-semibold text-slate-800">Filing to Hearing</div>
+                      <div className="font-bold text-slate-800">4-8 weeks</div>
+                    </div>
+                    <div className="text-sm text-slate-600">Court scheduling, notice period, waiting for hearing date</div>
+                  </div>
+
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="font-semibold text-slate-800">Order to Asset Transfer</div>
+                      <div className="font-bold text-slate-800">2-4 weeks</div>
+                    </div>
+                    <div className="text-sm text-slate-600">Obtaining certified copies, presenting to asset holders</div>
+                  </div>
+
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="font-semibold text-slate-800">Final Distribution</div>
+                      <div className="font-bold text-slate-800">1-2 weeks</div>
+                    </div>
+                    <div className="text-sm text-slate-600">Completing transfers, distributing to heirs</div>
+                  </div>
+
+                  <div className="p-4 bg-[#4a708b] text-white rounded-lg font-bold">
+                    <div className="flex justify-between items-center">
+                      <div>Total Timeline</div>
+                      <div className="text-xl">3-6 months</div>
+                    </div>
+                  </div>
                 </div>
-              )}
 
-              {/* Contact Form */}
-              <div className="mt-16">
-                <BlogContactForm />
+                <div className="mt-6 p-4 bg-blue-50 border-l-4 border-blue-600 rounded-r-lg">
+                  <p className="text-sm text-slate-700 mb-0">
+                    <strong>Note:</strong> Timeline can vary based on court scheduling, complexity of assets, and whether any issues arise during the process. Cook County probate courts can have significant backlogs, which may extend timelines.
+                  </p>
+                </div>
               </div>
-            </article>
-          </div>
+            </div>
+
+            <h2 id="frequently-asked-questions" className="text-2xl font-bold mt-12 mb-4">
+              Frequently Asked Questions
+            </h2>
+
+            <div className="space-y-4 my-8">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                    className="w-full p-5 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center gap-4"
+                  >
+                    <span className="font-semibold text-slate-800 pr-4">{faq.question}</span>
+                    {expandedFaq === index ? (
+                      <ChevronUp className="w-5 h-5 text-[#4a708b] flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-[#4a708b] flex-shrink-0" />
+                    )}
+                  </button>
+                  {expandedFaq === index && (
+                    <div className="p-5 pt-0 bg-white border-t border-gray-200">
+                      <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <h2 id="next-steps" className="text-2xl font-bold mt-12 mb-4">
+              Next Steps: Getting Started with Summary Administration
+            </h2>
+
+            <p className="mb-6">
+              If you've determined that summary administration is appropriate for your situation, here are the recommended next steps:
+            </p>
+
+            <div className="bg-gradient-to-br from-[#4a708b] to-[#5d8aa8] text-white p-8 rounded-xl my-8">
+              <h3 className="text-2xl font-bold mb-6">Ready to Get Started?</h3>
+
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold mb-1">Schedule a Consultation</div>
+                    <div className="text-white/90 text-sm">Discuss your specific situation with an experienced probate attorney to confirm eligibility and strategy</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold mb-1">Gather Essential Documents</div>
+                    <div className="text-white/90 text-sm">Death certificate, asset documentation, will (if any), and heir contact information</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold mb-1">Calculate Estate Value</div>
+                    <div className="text-white/90 text-sm">Confirm the estate is under $100,000 threshold with proper valuations</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold mb-1">File Petition</div>
+                    <div className="text-white/90 text-sm">Work with your attorney to prepare and file the summary administration petition</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <Link
+                  href="/book-consultation"
+                  className="bg-white text-[#4a708b] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+                >
+                  Schedule Consultation
+                </Link>
+                <Link
+                  href="/contact"
+                  className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors inline-block"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 border-l-4 border-amber-600 p-6 my-8 rounded-r-lg">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold text-slate-800 mb-2">Important Legal Notice</h3>
+                  <p className="text-slate-700 leading-relaxed mb-0">
+                    This article provides general information about summary administration in Cook County, Illinois. It is not legal advice and should not be relied upon as a substitute for consultation with a qualified attorney. Probate law can be complex, and every estate situation is unique. Always consult with a licensed Illinois probate attorney before making decisions about estate administration.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+          <BlogNavigation previousPost={previous} nextPost={next} />
+          <RelatedArticles articles={relatedPosts} />
+          <BlogContactForm />
         </div>
-      </main>
+      </div>
     </>
   );
 }
