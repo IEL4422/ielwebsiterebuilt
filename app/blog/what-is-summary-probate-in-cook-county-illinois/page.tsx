@@ -40,7 +40,7 @@ export default function Page() {
     },
     {
       question: 'What is the $100,000 threshold for summary administration?',
-      answer: 'The gross value of the decedent\'s real and personal estate subject to administration in Illinois cannot exceed $100,000. This applies only to probate assets. Non-probate assets such as joint tenancy property, retirement accounts with beneficiaries, payable-on-death accounts, and life insurance proceeds are not counted toward this limit.'
+      answer: "The gross value of the decedent's real and personal estate subject to administration in Illinois cannot exceed $100,000. This applies only to probate assets. Non-probate assets such as joint tenancy property, retirement accounts with beneficiaries, payable-on-death accounts, and life insurance proceeds are not counted toward this limit."
     },
     {
       question: 'Do all heirs need to consent to summary administration?',
@@ -48,7 +48,7 @@ export default function Page() {
     },
     {
       question: 'Is there a creditor claims period in summary administration?',
-      answer: 'Summary administration does not provide the same six-month creditor bar that formal probate offers. Creditors may potentially assert claims against the estate for up to two years after the decedent\'s death, which means distributees who have already received their shares could face exposure if a claim surfaces later.'
+      answer: "Summary administration does not provide the same six-month creditor bar that formal probate offers. Creditors may potentially assert claims against the estate for up to two years after the decedent's death, which means distributees who have already received their shares could face exposure if a claim surfaces later."
     },
     {
       question: 'What bond is required for summary administration?',
@@ -56,7 +56,7 @@ export default function Page() {
     },
     {
       question: 'How long does summary administration take in Cook County?',
-      answer: 'Summary administration is faster than formal probate, which typically takes 9-15 months. However, the exact timeline depends on how quickly you can gather all required documents, obtain written consents from all heirs, and satisfy the court\'s requirements. It can often be completed in a matter of weeks or months rather than over a year.'
+      answer: "Summary administration is faster than formal probate, which typically takes 9-15 months. However, the exact timeline depends on how quickly you can gather all required documents, obtain written consents from all heirs, and satisfy the court's requirements. It can often be completed in a matter of weeks or months rather than over a year."
     },
     {
       question: 'Do I need an attorney for summary administration?',
@@ -65,24 +65,24 @@ export default function Page() {
   ];
 
   const jsonLdSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "What Is Summary Probate in Cook County, Illinois — and When Can You Use It?",
-    "description": "Comprehensive guide to summary administration in Cook County. Learn the $100,000 threshold, required conditions, limitations, and how this streamlined probate process compares to formal probate and small estate affidavits.",
-    "author": {
-      "@type": "Organization",
-      "name": "Illinois Estate Law"
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    'headline': 'What Is Summary Probate in Cook County, Illinois — and When Can You Use It?',
+    'description': 'Comprehensive guide to summary administration in Cook County. Learn the $100,000 threshold, required conditions, limitations, and how this streamlined probate process compares to formal probate and small estate affidavits.',
+    'author': {
+      '@type': 'Organization',
+      'name': 'Illinois Estate Law'
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Illinois Estate Law",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.illinoisestatelaw.com/logo.png"
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Illinois Estate Law',
+      'logo': {
+        '@type': 'ImageObject',
+        'url': 'https://www.illinoisestatelaw.com/logo.png'
       }
     },
-    "datePublished": "2026-03-19",
-    "dateModified": "2026-03-19"
+    'datePublished': '2026-03-19',
+    'dateModified': '2026-03-19'
   };
 
   if (!currentPost) {
