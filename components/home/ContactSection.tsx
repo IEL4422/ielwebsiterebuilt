@@ -64,12 +64,14 @@ export function ContactSection() {
 
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.src = 'https://embed.lunacal.com/embed.js';
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
@@ -158,9 +160,9 @@ export function ContactSection() {
 
           <div>
             <div
-              className="calendly-inline-widget"
-              data-url="https://calendly.com/illinoisestatelaw/initial-consultation-waived-consultation-fee-clone?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=7c9bcc"
-              style={{ minWidth: '320px', height: '700px' }}
+              className="lunacal-embed"
+              data-embed-id="clzqy0wsh0010z0wnvh0qmihg"
+              style={{ minWidth: '320px', height: '700px', width: '100%' }}
             />
           </div>
         </div>
