@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'what-is-summary-probate-in-cook-county-illinois',
+    title: 'What Is Summary Probate in Cook County, Illinois — and When Can You Use It?',
+    url: '/blog/what-is-summary-probate-in-cook-county-illinois/',
+    date: 'Mar 19, 2026',
+    summary: 'Comprehensive guide to summary administration in Cook County. Learn the $100,000 threshold, required conditions, limitations, and how this streamlined probate process compares to formal probate and small estate affidavits.',
+    excerpt: 'Discover when summary probate (summary administration) is available in Cook County, Illinois, and whether it\'s the right choice for your estate.',
+  },
+  {
     slug: 'protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois',
     title: 'Protecting Your Future: The Essential Guide to Prenuptial Agreements in Illinois',
     url: '/blog/protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois/',
