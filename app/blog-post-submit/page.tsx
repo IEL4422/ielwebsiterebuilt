@@ -60,6 +60,17 @@ export default function BlogPostSubmit() {
     try {
       const slug = generateSlug(title);
 
+      // Check if slug already exists
+      const { data: existingPost } = await supabase
+        .from("blog_posts")
+        .select("id, title")
+        .eq("slug", slug)
+        .maybeSingle();
+
+      if (existingPost) {
+        throw new Error(`A blog post with a similar title already exists: "${existingPost.title}". Please use a different title.`);
+      }
+
       console.log("Submitting blog post with data:", {
         title,
         slug,
@@ -84,6 +95,16 @@ export default function BlogPostSubmit() {
 
       if (insertError) {
         console.error("Insert error details:", insertError);
+
+        // Check for specific error types
+        if (insertError.code === '23505') {
+          throw new Error(`A blog post with this title already exists. Please use a different title or modify the existing post.`);
+        }
+
+        if (insertError.message.includes('policy')) {
+          throw new Error(`Permission denied: Unable to insert blog post. Please check your permissions.`);
+        }
+
         throw insertError;
       }
 
@@ -91,8 +112,8 @@ export default function BlogPostSubmit() {
     } catch (err) {
       console.error("Submit error:", err);
       const errorMessage = err instanceof Error
-        ? `${err.message}${(err as any).details ? ` - ${(err as any).details}` : ''}${(err as any).hint ? ` (Hint: ${(err as any).hint})` : ''}`
-        : "Failed to publish blog post";
+        ? err.message
+        : "Failed to publish blog post. Please try again or contact support.";
       setError(errorMessage);
       setIsSubmitting(false);
     }
