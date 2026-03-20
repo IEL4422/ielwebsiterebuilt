@@ -13,11 +13,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar as CalendarIcon, Plus, X } from "lucide-react";
 import { format } from "date-fns";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-
 export default function BlogPostSubmit() {
   const router = useRouter();
   const [title, setTitle] = useState("");
@@ -30,6 +25,12 @@ export default function BlogPostSubmit() {
   const [error, setError] = useState("");
   const [topic, setTopic] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
+
+  // Initialize Supabase client
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || "",
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
+  );
 
   const addInternalLink = () => {
     if (newLinkText && newLinkUrl) {
@@ -58,7 +59,17 @@ export default function BlogPostSubmit() {
     try {
       const slug = generateSlug(title);
 
-      const { error: insertError } = await supabase.from("blog_posts").insert({
+      console.log("Submitting blog post with data:", {
+        title,
+        slug,
+        content: htmlContent.substring(0, 100) + "...",
+        meta_description: metaDescription || title.substring(0, 160),
+        published_date: date.toISOString().split("T")[0],
+        topic: topic || "Estate Planning",
+        internal_links: internalLinks.length > 0 ? internalLinks : null,
+      });
+
+      const { data, error: insertError } = await supabase.from("blog_posts").insert({
         title,
         slug,
         content: htmlContent,
@@ -66,15 +77,22 @@ export default function BlogPostSubmit() {
         published_date: date.toISOString().split("T")[0],
         topic: topic || "Estate Planning",
         internal_links: internalLinks.length > 0 ? internalLinks : null,
-      });
+      }).select();
+
+      console.log("Insert response:", { data, error: insertError });
 
       if (insertError) {
+        console.error("Insert error details:", insertError);
         throw insertError;
       }
 
       router.push(`/blog/${slug}`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to publish blog post");
+      console.error("Submit error:", err);
+      const errorMessage = err instanceof Error
+        ? `${err.message}${(err as any).details ? ` - ${(err as any).details}` : ''}${(err as any).hint ? ` (Hint: ${(err as any).hint})` : ''}`
+        : "Failed to publish blog post";
+      setError(errorMessage);
       setIsSubmitting(false);
     }
   };
