@@ -87,10 +87,13 @@ export default function BlogPostSubmit() {
         internal_links: internalLinks.length > 0 ? internalLinks : null,
       });
 
+      const excerpt = metaDescription || title.substring(0, 160);
+
       const { data, error: insertError } = await supabase.from("blog_posts").insert({
         title,
         slug,
         content: htmlContent,
+        excerpt: excerpt,
         meta_description: metaDescription || title.substring(0, 160),
         published_date: date.toISOString().split("T")[0],
         topic: topic || "Estate Planning",
@@ -121,7 +124,9 @@ export default function BlogPostSubmit() {
         return;
       }
 
-      router.push(`/blog/${slug}`);
+      // Success - redirect to blog directory to see the new post
+      setIsSubmitting(false);
+      router.push('/blog');
     } catch (err) {
       console.error("Submit error:", err);
       const errorMessage = err instanceof Error
