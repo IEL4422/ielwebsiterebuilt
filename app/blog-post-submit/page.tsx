@@ -61,14 +61,20 @@ export default function BlogPostSubmit() {
       const slug = generateSlug(title);
 
       // Check if slug already exists
-      const { data: existingPost } = await supabase
+      const { data: existingPost, error: checkError } = await supabase
         .from("blog_posts")
         .select("id, title")
         .eq("slug", slug)
         .maybeSingle();
 
+      if (checkError) {
+        console.error("Error checking for existing post:", checkError);
+      }
+
       if (existingPost) {
-        throw new Error(`A blog post with a similar title already exists: "${existingPost.title}". Please use a different title.`);
+        setError(`A blog post with a similar title already exists: "${existingPost.title}". Please use a different title.`);
+        setIsSubmitting(false);
+        return;
       }
 
       console.log("Submitting blog post with data:", {
@@ -97,15 +103,22 @@ export default function BlogPostSubmit() {
         console.error("Insert error details:", insertError);
 
         // Check for specific error types
-        if (insertError.code === '23505') {
-          throw new Error(`A blog post with this title already exists. Please use a different title or modify the existing post.`);
+        if (insertError.code === '23505' || insertError.message?.includes('duplicate') || insertError.message?.includes('unique')) {
+          setError(`A blog post with this title already exists. Please use a different title or modify the existing post.`);
+          setIsSubmitting(false);
+          return;
         }
 
-        if (insertError.message.includes('policy')) {
-          throw new Error(`Permission denied: Unable to insert blog post. Please check your permissions.`);
+        if (insertError.message?.includes('policy') || insertError.message?.includes('permission')) {
+          setError(`Permission denied: Unable to insert blog post. Please check your permissions.`);
+          setIsSubmitting(false);
+          return;
         }
 
-        throw insertError;
+        // Generic error
+        setError(insertError.message || "Failed to publish blog post. Please try again.");
+        setIsSubmitting(false);
+        return;
       }
 
       router.push(`/blog/${slug}`);
