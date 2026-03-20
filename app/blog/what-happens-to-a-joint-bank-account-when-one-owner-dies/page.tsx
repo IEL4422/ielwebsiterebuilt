@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import BlogNavigation from '@/components/blog/BlogNavigation';
 import BlogContactForm from '@/components/blog/BlogContactForm';
@@ -61,587 +60,392 @@ export default function JointBankAccountDeathBlogPost() {
             What Happens to a Joint Bank Account When One Owner Dies?
           </h1>
 
-          <div className="flex items-center gap-4 text-sm text-slate-600">
-            <time dateTime="2026-03-20">March 20, 2026</time>
+          <div className="flex items-center gap-6 text-sm text-slate-600 mb-6">
+            <span>By Illinois Estate Law</span>
+            <span>•</span>
+            <time>March 20, 2026</time>
             <span>•</span>
             <span>10 min read</span>
-            <span>•</span>
-            <span className="text-[#77B1D4]">Estate Planning</span>
           </div>
+
+          <p className="text-xl text-slate-700 leading-relaxed">
+            When someone passes away, their joint bank account typically transfers automatically to the surviving owner through right of survivorship—but there are important exceptions, tax implications, and potential problems you need to understand.
+          </p>
         </header>
 
-        <TableOfContents items={tocItems} />
+        <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
+          <div className="prose prose-lg max-w-none">
 
-        <div className="prose prose-lg max-w-none">
-          <div className="bg-blue-50 border-l-4 border-[#77B1D4] p-6 rounded-r-lg mb-8">
-            <p className="text-lg font-semibold text-slate-900 mb-2">
-              Quick Answer
-            </p>
-            <p className="text-slate-700 mb-0">
-              When one owner of a joint bank account with right of survivorship dies in Illinois, the surviving account holder typically gains immediate, full access to the funds without probate. However, the specifics depend on how the account is titled and structured.
-            </p>
-          </div>
-
-          <section id="understanding-joint-accounts" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Understanding Joint Bank Accounts</h2>
-
-            <p className="mb-4">
-              Joint bank accounts are one of the most common financial arrangements in the United States, particularly among married couples, elderly parents and adult children, and business partners. While they offer convenience during life, understanding what happens to these accounts after death is crucial for proper <Link href="/chicago-wills-lawyer" className="text-[#77B1D4] hover:underline">estate planning</Link>.
-            </p>
-
-            <p className="mb-4">
-              A joint bank account is simply a bank account held in the names of two or more people. Each account holder typically has equal access to the funds and can make deposits, withdrawals, and conduct other transactions without the consent of the other owner. This arrangement provides convenience and flexibility during the lifetime of both owners.
-            </p>
-
-            <p className="mb-6">
-              However, what many people don't realize is that the way a joint account is structured can have significant implications for what happens after one owner passes away, affecting everything from probate to taxes to family relationships.
-            </p>
-          </section>
-
-          <section id="right-of-survivorship" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Right of Survivorship Explained</h2>
-
-            <p className="mb-4">
-              The most critical feature of most joint bank accounts is the "right of survivorship." This legal concept means that when one account owner dies, their share of the account automatically transfers to the surviving owner(s), regardless of what the deceased person's will or trust says.
-            </p>
-
-            <div className="bg-slate-50 p-6 rounded-lg my-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">How Right of Survivorship Works:</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-[#77B1D4] mr-3 mt-1">•</span>
-                  <span><strong>Automatic Transfer:</strong> Ownership transfers by operation of law, not through a will or trust</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#77B1D4] mr-3 mt-1">•</span>
-                  <span><strong>Immediate Effect:</strong> The surviving owner gains full control upon the other owner's death</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#77B1D4] mr-3 mt-1">•</span>
-                  <span><strong>Bypasses Will:</strong> Joint account assets typically don't pass through the probate process</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#77B1D4] mr-3 mt-1">•</span>
-                  <span><strong>Clean Title:</strong> The surviving owner becomes the sole owner of all funds</span>
-                </li>
-              </ul>
-            </div>
-
-            <p className="mb-6">
-              In Illinois, joint accounts at banks and credit unions typically include right of survivorship unless explicitly stated otherwise. This feature makes joint accounts an effective probate-avoidance tool, similar to <Link href="/how-transfer-on-death-instruments-work-in-illinois" className="text-[#77B1D4] hover:underline">Transfer on Death Instruments</Link> for real estate.
-            </p>
-          </section>
-
-          <section id="immediate-access" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Immediate Access After Death</h2>
-
-            <p className="mb-4">
-              One of the primary advantages of joint accounts is that the surviving owner typically maintains immediate access to the funds after the co-owner's death. Unlike assets that must go through <Link href="/chicago-probate-lawyer" className="text-[#77B1D4] hover:underline">probate</Link>, joint account funds remain available for immediate use.
-            </p>
-
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">What the Surviving Owner Needs to Do:</h3>
-
-            <ol className="space-y-4 mb-6">
-              <li className="flex items-start">
-                <span className="font-bold text-[#77B1D4] mr-3">1.</span>
-                <div>
-                  <strong>Notify the Bank:</strong> Contact the financial institution to inform them of the co-owner's death. Most banks require notification even though the account remains accessible.
-                </div>
-              </li>
-              <li className="flex items-start">
-                <span className="font-bold text-[#77B1D4] mr-3">2.</span>
-                <div>
-                  <strong>Provide Death Certificate:</strong> Submit a certified copy of the death certificate to the bank. The bank will use this to update their records and remove the deceased owner's name.
-                </div>
-              </li>
-              <li className="flex items-start">
-                <span className="font-bold text-[#77B1D4] mr-3">3.</span>
-                <div>
-                  <strong>Update Account Titling:</strong> The bank will retitle the account in the surviving owner's name alone. This process is usually quick and straightforward.
-                </div>
-              </li>
-              <li className="flex items-start">
-                <span className="font-bold text-[#77B1D4] mr-3">4.</span>
-                <div>
-                  <strong>Continue Using the Account:</strong> The surviving owner can continue accessing funds, making deposits, and conducting transactions without interruption.
-                </div>
-              </li>
-            </ol>
-
-            <p className="mb-6">
-              This immediate access can be particularly valuable for surviving spouses who need funds to pay for funeral expenses, ongoing household bills, and other immediate financial needs while the estate is being settled.
-            </p>
-          </section>
-
-          <section id="types-of-ownership" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Types of Joint Ownership in Illinois</h2>
-
-            <p className="mb-4">
-              Not all joint accounts are created equal. Illinois law recognizes different types of joint ownership, and the type matters significantly when one owner dies.
-            </p>
-
-            <div className="space-y-6 mb-6">
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Joint Tenancy with Right of Survivorship (JTWROS)</h3>
-                <p className="mb-2">
-                  This is the most common type of joint account. All owners have equal rights to the account, and when one owner dies, the surviving owner(s) automatically inherit the deceased owner's share.
-                </p>
-                <p className="text-sm text-slate-600">
-                  <strong>Example:</strong> A married couple opens a checking account together. When one spouse dies, the surviving spouse automatically becomes the sole owner.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-slate-400 pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Tenancy by the Entirety</h3>
-                <p className="mb-2">
-                  Available only to married couples in Illinois, this ownership type provides right of survivorship plus additional creditor protection. Neither spouse can unilaterally transfer their interest without the other's consent.
-                </p>
-                <p className="text-sm text-slate-600">
-                  <strong>Benefit:</strong> Creditors of only one spouse generally cannot attach the account.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-amber-500 pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Tenancy in Common</h3>
-                <p className="mb-2">
-                  Less common for bank accounts, this ownership type does <em>not</em> include right of survivorship. When one owner dies, their share of the account passes according to their will or intestate succession laws, not automatically to the co-owner.
-                </p>
-                <p className="text-sm text-slate-600">
-                  <strong>Important:</strong> This type requires probate for the deceased owner's share.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg my-6">
-              <p className="font-semibold text-amber-900 mb-2">⚠️ Critical Point:</p>
-              <p className="text-amber-900 mb-0">
-                Always check how your joint account is titled. The default for most bank accounts in Illinois is JTWROS, but assumptions can be costly. Request written confirmation from your bank about the account's ownership structure.
+            <section id="understanding-joint-accounts" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">1. Understanding Joint Bank Accounts</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                A joint bank account is a bank account owned by two or more people. Each owner typically has equal rights to deposit, withdraw, and manage the funds in the account. In Illinois, the most common type of joint account includes "right of survivorship," which means when one owner dies, the account automatically passes to the surviving owner(s).
               </p>
-            </div>
-          </section>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Joint accounts are popular among spouses, parents and adult children, and business partners. They offer convenience for managing shared expenses and can simplify estate planning by avoiding probate.
+              </p>
+            </section>
 
-          <section id="probate-avoidance" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Avoiding Probate with Joint Accounts</h2>
+            <section id="right-of-survivorship" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">2. Right of Survivorship Explained</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                "Right of survivorship" is the legal principle that governs what happens to jointly owned property when one owner dies. With this right, the deceased owner's share automatically transfers to the surviving owner(s) without going through probate court.
+              </p>
+              <div className="bg-blue-50 border-l-4 border-[#77B1D4] p-6 my-6">
+                <h3 className="font-bold text-slate-900 mb-2">Key Point</h3>
+                <p className="text-slate-700">
+                  In Illinois, most joint bank accounts are presumed to have right of survivorship unless the account agreement specifically states otherwise.
+                </p>
+              </div>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                This means the moment one owner dies, the surviving owner becomes the sole owner of the entire account balance. The deceased's estate, heirs, or <Link href="/chicago-wills-lawyer" className="text-[#77B1D4] hover:underline">will</Link> provisions have no claim to the funds.
+              </p>
+            </section>
 
-            <p className="mb-4">
-              One of the primary reasons people use joint accounts is to avoid <Link href="/when-is-probate-required-in-illinois" className="text-[#77B1D4] hover:underline">probate</Link>. Probate is the court-supervised process of administering a deceased person's estate, and it can be time-consuming and expensive.
-            </p>
-
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Benefits of Probate Avoidance:</h3>
-
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-start">
-                <span className="text-[#77B1D4] mr-3 mt-1">✓</span>
-                <span><strong>Speed:</strong> Funds are immediately available rather than tied up during probate proceedings</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#77B1D4] mr-3 mt-1">✓</span>
-                <span><strong>Cost Savings:</strong> No court fees, attorney fees, or executor commissions for these assets</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#77B1D4] mr-3 mt-1">✓</span>
-                <span><strong>Privacy:</strong> Joint accounts transfer privately, while probate is a public process</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#77B1D4] mr-3 mt-1">✓</span>
-                <span><strong>Simplicity:</strong> No court involvement means less paperwork and complexity</span>
-              </li>
-            </ul>
-
-            <p className="mb-6">
-              However, while joint accounts can be an effective probate avoidance tool, they shouldn't be your only estate planning strategy. For comprehensive protection, consider working with an <Link href="/chicago-wills-lawyer" className="text-[#77B1D4] hover:underline">Illinois estate planning attorney</Link> to create a complete plan that may include wills, trusts, and other tools.
-            </p>
-          </section>
-
-          <section id="tax-implications" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Tax Implications in Illinois</h2>
-
-            <p className="mb-4">
-              While joint accounts avoid probate, they don't necessarily avoid taxes. Understanding the tax implications is essential for proper planning.
-            </p>
-
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Illinois Estate Tax Considerations:</h3>
-
-            <p className="mb-4">
-              Illinois has an estate tax that applies to estates exceeding $4 million (as of 2023). Joint accounts with right of survivorship are included in the deceased owner's taxable estate based on their contribution to the account.
-            </p>
-
-            <div className="bg-slate-50 p-6 rounded-lg my-6">
-              <h4 className="text-lg font-bold text-slate-900 mb-3">How Joint Accounts Are Valued for Estate Tax:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <span className="text-[#77B1D4] mr-3">•</span>
-                  <span><strong>Between Spouses:</strong> Generally, only 50% of the account is included in the deceased spouse's estate</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#77B1D4] mr-3">•</span>
-                  <span><strong>Between Non-Spouses:</strong> The full account value is included unless the survivor can prove their contributions</span>
-                </li>
+            <section id="immediate-access" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">3. Immediate Access After Death</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                One of the main advantages of joint accounts is that the surviving owner maintains immediate access to the funds. Unlike assets that must go through probate, joint account funds remain available for:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>Paying funeral expenses</li>
+                <li>Covering ongoing bills and living expenses</li>
+                <li>Managing immediate family needs</li>
+                <li>Handling estate settlement costs</li>
               </ul>
-            </div>
-
-            <p className="mb-4">
-              Learn more about <Link href="/blog/how-estate-taxes-work-in-illinois" className="text-[#77B1D4] hover:underline">how estate taxes work in Illinois</Link> and whether your estate might be subject to taxation.
-            </p>
-
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Income Tax Considerations:</h3>
-
-            <p className="mb-6">
-              The transfer of joint account funds to the surviving owner at death is generally not a taxable event for income tax purposes. However, any interest earned on the account after the transfer must be reported as income by the surviving owner.
-            </p>
-          </section>
-
-          <section id="potential-problems" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Potential Problems to Consider</h2>
-
-            <p className="mb-4">
-              While joint accounts offer convenience and probate avoidance, they're not without potential drawbacks and risks.
-            </p>
-
-            <div className="space-y-6 mb-6">
-              <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-                <h3 className="text-xl font-bold text-red-900 mb-3">1. Unintended Disinheritance</h3>
-                <p className="text-red-900 mb-0">
-                  Joint accounts bypass your will entirely. If you intend to leave equal shares to three children but add only one to your bank account, that one child receives all the funds, regardless of your will's provisions. This can lead to family conflicts and <Link href="/blog/estate-planning-for-blended-families-in-illinois-8-mistakes-that-break-hearts-and-budgets" className="text-red-700 hover:underline">unintended consequences</Link>.
-                </p>
-              </div>
-
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
-                <h3 className="text-xl font-bold text-amber-900 mb-3">2. Elder Financial Abuse</h3>
-                <p className="text-amber-900 mb-0">
-                  Adding an adult child to an elderly parent's account for "convenience" can backfire. The child has complete legal access to withdraw funds during the parent's lifetime, creating opportunities for financial exploitation or misunderstanding.
-                </p>
-              </div>
-
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-                <h3 className="text-xl font-bold text-blue-900 mb-3">3. Creditor Exposure</h3>
-                <p className="text-blue-900 mb-0">
-                  When you add someone to your account as a joint owner, the account becomes subject to that person's creditors. If your joint owner is sued, goes through bankruptcy, or faces other financial difficulties, your account could be at risk.
-                </p>
-              </div>
-
-              <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
-                <h3 className="text-xl font-bold text-purple-900 mb-3">4. Gift Tax Issues</h3>
-                <p className="text-purple-900 mb-0">
-                  Adding someone to an existing account with substantial funds may constitute a taxable gift. While most people won't owe gift tax due to the lifetime exemption, it still requires reporting if the amount exceeds annual exclusion limits.
-                </p>
-              </div>
-
-              <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
-                <h3 className="text-xl font-bold text-green-900 mb-3">5. Medicaid Complications</h3>
-                <p className="text-green-900 mb-0">
-                  If you're planning for potential long-term care and Medicaid eligibility, joint accounts can complicate matters. Medicaid's five-year look-back period scrutinizes transfers, including adding joint owners to accounts.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section id="creditor-claims" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Creditor Claims and Protection</h2>
-
-            <p className="mb-4">
-              An important question that often arises is whether the deceased owner's creditors can make claims against joint account funds after death.
-            </p>
-
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Illinois Law on Creditor Rights:</h3>
-
-            <p className="mb-4">
-              In Illinois, the general rule is that joint accounts with right of survivorship pass outside of probate, which means they're typically not available to satisfy the deceased owner's debts. However, there are important exceptions:
-            </p>
-
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-start">
-                <span className="text-[#77B1D4] mr-3 mt-1">•</span>
-                <span><strong>Fraudulent Transfers:</strong> If the account was set up to defraud creditors, they may be able to challenge the transfer</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#77B1D4] mr-3 mt-1">•</span>
-                <span><strong>Insolvent Estates:</strong> If the estate has insufficient assets to pay debts, creditors may attempt to reach joint accounts</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#77B1D4] mr-3 mt-1">•</span>
-                <span><strong>Medical Assistance Recovery:</strong> Illinois can recover Medicaid expenses from certain joint accounts under specific circumstances</span>
-              </li>
-            </ul>
-
-            <p className="mb-6">
-              The interplay between creditor rights and joint accounts is complex. If you have concerns about creditor claims, consult with an experienced <Link href="/chicago-probate-lawyer" className="text-[#77B1D4] hover:underline">Illinois probate attorney</Link>.
-            </p>
-          </section>
-
-          <section id="estate-planning" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Estate Planning Considerations</h2>
-
-            <p className="mb-4">
-              Joint accounts should be viewed as one tool in your estate planning toolbox, not a complete solution. Here's how they fit into a comprehensive estate plan:
-            </p>
-
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Coordinating with Your Overall Plan:</h3>
-
-            <div className="bg-slate-50 p-6 rounded-lg my-6">
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <span className="font-bold text-[#77B1D4] mr-3">1.</span>
-                  <div>
-                    <strong>Review All Asset Titling:</strong> Ensure your joint accounts align with your overall estate plan and <Link href="/chicago-wills-lawyer" className=\"text-[#77B1D4] hover:underline">will provisions</Link>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-[#77B1D4] mr-3">2.</span>
-                  <div>
-                    <strong>Consider Trusts:</strong> For larger estates or complex family situations, <Link href="/chicago-revocable-trusts-lawyer" className=\"text-[#77B1D4] hover:underline">revocable trusts</Link> may offer better control than joint accounts
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-[#77B1D4] mr-3">3.</span>
-                  <div>
-                    <strong>Use POA for Access:</strong> Instead of joint ownership, consider giving trusted individuals <Link href="/chicago-powers-of-attorney-lawyer" className=\"text-[#77B1D4] hover:underline">power of attorney</Link> to manage accounts during incapacity
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-[#77B1D4] mr-3">4.</span>
-                  <div>
-                    <strong>Document Your Intent:</strong> Keep written records of why accounts are structured as they are to prevent later disputes
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="font-bold text-[#77B1D4] mr-3">5.</span>
-                  <div>
-                    <strong>Regular Reviews:</strong> Life changes require plan updates. Review your joint accounts and overall estate plan every few years or after major life events
-                  </div>
-                </li>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                However, banks may require documentation before allowing access. Typically, you'll need to provide:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>A certified copy of the death certificate</li>
+                <li>Your identification</li>
+                <li>Proof of your relationship to the deceased (if requested)</li>
               </ul>
-            </div>
-          </section>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Once the bank processes this documentation, they'll typically remove the deceased owner's name from the account and the surviving owner continues with full access.
+              </p>
+            </section>
 
-          <section id="alternatives" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Alternatives to Joint Accounts</h2>
+            <section id="types-of-ownership" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">4. Types of Joint Ownership</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Not all joint accounts work the same way. Illinois recognizes different types of joint ownership:
+              </p>
 
-            <p className="mb-4">
-              If the potential problems with joint accounts concern you, several alternatives can achieve similar goals with fewer risks:
-            </p>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Joint Tenancy with Right of Survivorship (JTWROS)</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                This is the most common form for joint bank accounts. When one owner dies, their share automatically passes to the surviving owner(s). The account bypasses probate entirely.
+              </p>
 
-            <div className="space-y-6 mb-6">
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Payable on Death (POD) Accounts</h3>
-                <p className="mb-2">
-                  Also called "Totten Trusts," POD designations allow you to name beneficiaries who receive account funds upon your death. You maintain sole control during life, and funds transfer directly to beneficiaries without probate.
-                </p>
-                <p className="text-sm font-semibold text-slate-700">
-                  Advantage: You retain complete control, and funds aren't exposed to beneficiaries' creditors during your life.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Tenancy in Common</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                In this arrangement, each owner owns a specific percentage of the account. When one owner dies, their share passes according to their will or through intestate succession—NOT to the other owner(s). This type is less common for bank accounts but more common for real estate.
+              </p>
 
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Revocable Living Trusts</h3>
-                <p className="mb-2">
-                  A <Link href="/chicago-revocable-trusts-lawyer" className="text-[#77B1D4] hover:underline">revocable living trust</Link> allows you to maintain complete control over assets during life while providing detailed instructions for distribution after death. Trusts offer more flexibility and control than joint accounts.
-                </p>
-                <p className="text-sm font-semibold text-slate-700">
-                  Advantage: Maximum control, privacy, and ability to include detailed conditions on distributions.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Tenancy by the Entirety</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                This special form of ownership is only available to married couples in Illinois. It includes right of survivorship and provides additional creditor protection. When one spouse dies, the account automatically passes to the surviving spouse.
+              </p>
 
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Durable Power of Attorney</h3>
-                <p className="mb-2">
-                  Rather than adding someone to your account, grant them <Link href="/chicago-powers-of-attorney-lawyer" className="text-[#77B1D4] hover:underline">power of attorney</Link> to manage it on your behalf if you become incapacitated. This gives them access without making them an owner.
-                </p>
-                <p className="text-sm font-semibold text-slate-700">
-                  Advantage: Provides management assistance without giving away ownership rights.
+              <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-6">
+                <h3 className="font-bold text-slate-900 mb-2">Important</h3>
+                <p className="text-slate-700">
+                  Always check your account agreement to confirm what type of ownership applies to your joint account. The default in Illinois is typically JTWROS, but your specific bank may have different policies.
                 </p>
               </div>
+            </section>
 
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Convenience Accounts</h3>
-                <p className="mb-2">
-                  Some banks offer "convenience signer" arrangements that allow someone to access and manage your account without becoming an owner. They can pay bills and make deposits but have no ownership rights.
-                </p>
-                <p className="text-sm font-semibold text-slate-700">
-                  Advantage: Provides practical assistance without transfer of ownership.
-                </p>
+            <section id="probate-avoidance" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">5. Avoiding Probate with Joint Accounts</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                One of the main reasons people use joint accounts is to avoid <Link href="/chicago-probate-lawyer" className="text-[#77B1D4] hover:underline">probate</Link>. Probate is the court-supervised process of distributing a deceased person's assets. It can be:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>Time-consuming (often 6-12 months or longer)</li>
+                <li>Expensive (court fees, attorney fees, executor fees)</li>
+                <li>Public (probate records are accessible to anyone)</li>
+              </ul>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Joint accounts with right of survivorship bypass probate entirely because the ownership automatically transfers at death. This can save time, money, and maintain privacy for the family.
+              </p>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                However, joint accounts are just one probate avoidance tool. Other options include:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li><Link href="/chicago-revocable-trusts-lawyer" className="text-[#77B1D4] hover:underline">Revocable living trusts</Link></li>
+                <li>Transfer-on-death designations</li>
+                <li>Payable-on-death (POD) accounts</li>
+                <li>Beneficiary designations on retirement accounts and life insurance</li>
+              </ul>
+            </section>
+
+            <section id="tax-implications" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">6. Tax Implications</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                While joint accounts avoid probate, they don't necessarily avoid taxes. Here are the key tax considerations in Illinois:
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Illinois Estate Tax</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Illinois has an estate tax with a relatively low exemption of $4 million (as of 2024). Even though a joint account passes directly to the surviving owner outside of probate, the deceased's share may still be included in their taxable estate.
+              </p>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                For married couples with accounts held as tenancy by the entirety, typically 50% of the account value is included in the deceased spouse's estate. For other joint accounts, the percentage included depends on who contributed what to the account.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Federal Estate Tax</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                The federal estate tax exemption is much higher ($13.61 million for 2024), so most Illinois families won't face federal estate tax. However, if the combined estate exceeds this threshold, joint accounts will be considered in the calculation.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Income Tax</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                There's no income tax on inheriting a joint bank account. The funds transfer tax-free to the surviving owner. However, any interest or investment income the account earns after the transfer will be taxable to the new owner.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Gift Tax Considerations</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                When you add someone as a joint owner to your bank account, it may be considered a gift for tax purposes, especially if the new joint owner contributed no funds. However, gifts under the annual exclusion amount ($18,000 per person for 2024) don't require reporting.
+              </p>
+            </section>
+
+            <section id="potential-problems" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">7. Potential Problems to Consider</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                While joint accounts can be convenient, they come with significant risks:
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Unintended Disinheritance</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Joint accounts override your will. If your will says your estate should be divided equally among three children, but you've made only one child joint owner of your bank accounts, that child gets everything in those accounts—regardless of what your will says.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Lack of Control</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                All joint owners have equal rights to the account. Your joint owner can:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>Withdraw all the funds at any time</li>
+                <li>Close the account</li>
+                <li>Change beneficiary designations</li>
+              </ul>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                This can be problematic if the relationship deteriorates or if the joint owner has financial problems.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Creditor Claims</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                If your joint owner is sued or declares bankruptcy, creditors may be able to seize the entire account balance—even funds you contributed. This is a significant risk when adding adult children or others as joint owners.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Medicaid Eligibility Issues</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Adding a joint owner to your account may affect your eligibility for Medicaid benefits. Medicaid may count the entire account balance as your available resource, even if the joint owner contributed funds.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Family Conflict</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                When one sibling receives everything in a joint account while others receive nothing, it can create lasting family disputes. Other family members may challenge whether the joint ownership was truly intended to be a gift.
+              </p>
+            </section>
+
+            <section id="creditor-claims" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">8. Creditor Claims and Protection</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                One important question is whether creditors of the deceased person can reach joint account funds after death.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">General Rule in Illinois</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                In Illinois, creditors of the deceased generally cannot reach joint bank account funds that pass to a surviving owner through right of survivorship. The funds transfer outside the probate estate, so they're typically protected from estate creditor claims.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Exceptions</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                There are important exceptions:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li><strong>Fraudulent Transfers:</strong> If the deceased added a joint owner to the account specifically to avoid paying creditors, courts may reverse the transfer</li>
+                <li><strong>Medical Assistance Recovery:</strong> Illinois can seek reimbursement from joint accounts for Medicaid benefits paid on behalf of the deceased</li>
+                <li><strong>Tax Liens:</strong> Federal or state tax liens may attach to joint account funds</li>
+              </ul>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Protecting Your Accounts</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                If creditor protection is a concern, consider alternative strategies:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>Use payable-on-death (POD) designations instead of joint ownership</li>
+                <li>Transfer assets to a revocable living trust</li>
+                <li>Maintain separate accounts with beneficiary designations</li>
+              </ul>
+            </section>
+
+            <section id="estate-planning" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">9. Estate Planning Considerations</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Joint accounts should be part of a comprehensive estate plan, not a substitute for one. Here's what to consider:
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Coordinate with Your Will</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Make sure your joint account arrangements align with your overall estate plan. If your will divides your estate equally among your children, but 80% of your assets are in a joint account with one child, the other children may receive far less than you intended.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Consider a Revocable Living Trust</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                For many families, a <Link href="/chicago-revocable-trusts-lawyer" className="text-[#77B1D4] hover:underline">revocable living trust</Link> provides more control and flexibility than joint accounts. With a trust, you:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>Retain full control during your lifetime</li>
+                <li>Can specify exactly how assets should be distributed</li>
+                <li>Avoid probate just like a joint account</li>
+                <li>Protect assets from creditors and poor financial decisions</li>
+                <li>Provide for contingencies (like beneficiaries predeceasing you)</li>
+              </ul>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Plan for Incapacity</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Joint accounts can help manage your finances if you become incapacitated, but they're not a complete solution. You should also have:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>A <Link href="/chicago-powers-of-attorney-lawyer" className="text-[#77B1D4] hover:underline">financial power of attorney</Link></li>
+                <li>A <Link href="/chicago-healthcare-directives-lawyer" className="text-[#77B1D4] hover:underline">healthcare power of attorney</Link></li>
+                <li>A living will</li>
+              </ul>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Review Regularly</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Review your joint account arrangements regularly, especially after major life events like marriage, divorce, birth of children, or death of family members. What made sense years ago may no longer align with your current wishes.
+              </p>
+            </section>
+
+            <section id="alternatives" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">10. Alternatives to Joint Accounts</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                If you're considering a joint account primarily to avoid probate or provide access for someone to help manage your finances, consider these alternatives:
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Payable-on-Death (POD) Accounts</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                POD designations allow you to name beneficiaries who will receive your account funds after your death—but they have no access during your lifetime. This gives you full control while avoiding probate.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Financial Power of Attorney</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Instead of making someone a joint owner, grant them power of attorney. This allows them to manage your account during your lifetime if needed, but they don't inherit the funds at your death. The account will pass according to your will or trust.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Revocable Living Trust</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Transfer your accounts to a revocable living trust. You maintain full control as trustee, can specify exactly how assets should be distributed, avoid probate, and protect assets from creditors and poor decisions by beneficiaries.
+              </p>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 mt-6">Authorized User or Signer</h3>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Some banks allow you to add an authorized user or convenience signer who can access the account during your lifetime but has no ownership rights. This can be helpful for bill-paying while you retain full control.
+              </p>
+            </section>
+
+            <section id="best-practices" className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">11. Best Practices</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                If you're considering joint bank accounts as part of your estate plan, follow these best practices:
+              </p>
+
+              <div className="bg-slate-50 p-6 rounded-lg my-6">
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">1.</span>
+                    <div>
+                      <strong>Review All Asset Titling:</strong> Ensure your joint accounts align with your overall estate plan and <Link href="/chicago-wills-lawyer" className=\"text-[#77B1D4] hover:underline">will provisions</Link>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">2.</span>
+                    <div>
+                      <strong>Consider Trusts:</strong> For larger estates or complex family situations, <Link href="/chicago-revocable-trusts-lawyer" className=\"text-[#77B1D4] hover:underline">revocable trusts</Link> may offer better control than joint accounts
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">3.</span>
+                    <div>
+                      <strong>Use POA for Access:</strong> Instead of joint ownership, consider giving trusted individuals <Link href="/chicago-powers-of-attorney-lawyer" className=\"text-[#77B1D4] hover:underline">power of attorney</Link> to manage accounts during incapacity
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">4.</span>
+                    <div>
+                      <strong>Document Your Intent:</strong> Keep written records of why accounts are structured as they are to prevent later disputes
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">5.</span>
+                    <div>
+                      <strong>Understand Tax Implications:</strong> Consult with an estate planning attorney about Illinois estate tax and federal estate tax implications
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">6.</span>
+                    <div>
+                      <strong>Communicate with Family:</strong> Discuss your plans with all family members to avoid surprises and conflicts after your death
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">7.</span>
+                    <div>
+                      <strong>Review Regularly:</strong> Update your arrangements after major life changes like marriage, divorce, births, or deaths
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-[#77B1D4] mr-3">8.</span>
+                    <div>
+                      <strong>Get Professional Advice:</strong> Work with an experienced Illinois estate planning attorney to ensure your plan works as intended
+                    </div>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section id="best-practices" className="scroll-mt-8 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Best Practices for Joint Accounts</h2>
-
-            <p className="mb-4">
-              If you decide to use joint accounts as part of your estate plan, follow these best practices to minimize risks:
-            </p>
-
-            <div className="bg-[#77B1D4] bg-opacity-10 p-8 rounded-lg my-6">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Essential Guidelines:</h3>
-
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center text-white font-bold mr-4">
-                    1
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Get Written Confirmation</h4>
-                    <p className="text-slate-700">Request written documentation from your bank confirming the type of joint ownership and presence of survivorship rights.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center text-white font-bold mr-4">
-                    2
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Keep Clear Records</h4>
-                    <p className="text-slate-700">Document who contributed what funds to the account. This information becomes important for tax purposes and potential disputes.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center text-white font-bold mr-4">
-                    3
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Communicate with Family</h4>
-                    <p className="text-slate-700">Discuss your account structure with all family members to prevent surprises and conflicts after your death.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center text-white font-bold mr-4">
-                    4
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Review Regularly</h4>
-                    <p className="text-slate-700">Revisit your joint account arrangements after divorces, deaths, births, or other major life changes.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center text-white font-bold mr-4">
-                    5
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Limit Joint Ownership</h4>
-                    <p className="text-slate-700">Consider keeping only necessary operating funds in joint accounts and holding larger balances in accounts with POD designations or trusts.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center text-white font-bold mr-4">
-                    6
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Consult Professionals</h4>
-                    <p className="text-slate-700">Work with an experienced <Link href="/chicago-wills-lawyer" className="text-[#77B1D4] hover:underline">Illinois estate planning attorney</Link> to ensure your joint accounts complement your overall estate plan.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center text-white font-bold mr-4">
-                    7
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Consider Tax Implications</h4>
-                    <p className="text-slate-700">Understand how joint accounts affect estate taxes, especially if your estate approaches Illinois's $4 million threshold.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="bg-gradient-to-r from-[#2D3E50] to-[#4a708b] text-white p-8 rounded-lg my-12">
-            <h2 className="text-3xl font-bold mb-4">Get Professional Guidance</h2>
-            <p className="text-lg mb-6">
-              Joint bank accounts can be an effective estate planning tool when used correctly, but they're not right for everyone. The decision to use joint accounts should be made as part of a comprehensive estate plan that considers your unique family situation, assets, and goals.
-            </p>
-            <p className="text-lg mb-6">
-              At Illinois Estate Law, we help clients understand their options and create estate plans that protect their assets and provide for their loved ones. Whether you need a simple will, a comprehensive trust, or guidance on account titling, we're here to help.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <section className="bg-[#77B1D4] bg-opacity-10 border-l-4 border-[#77B1D4] p-6 rounded-lg my-8">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Need Help with Joint Account Planning?</h2>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Joint bank accounts can be a useful estate planning tool, but they're not right for every situation. At Illinois Estate Law, we help families create comprehensive estate plans that:
+              </p>
+              <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700">
+                <li>Avoid unintended consequences of joint ownership</li>
+                <li>Minimize estate taxes and probate costs</li>
+                <li>Protect assets from creditors and poor decisions</li>
+                <li>Ensure your wishes are carried out exactly as intended</li>
+              </ul>
+              <p className="text-slate-700 leading-relaxed mb-6">
+                Whether you need a simple will, a comprehensive trust, or advice on the best way to structure your accounts, we're here to help.
+              </p>
               <Link
                 href="/book-consultation"
-                className="inline-block bg-white text-[#2D3E50] font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors text-center"
+                className="inline-block bg-[#77B1D4] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#5B8AAA] transition-colors"
               >
                 Schedule a Consultation
               </Link>
-              <Link
-                href="/services-pricing"
-                className="inline-block bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-[#2D3E50] transition-colors text-center"
-              >
-                View Our Services
-              </Link>
-            </div>
-          </section>
+            </section>
 
-          <section className="my-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
-
-            <div className="space-y-6">
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  Can a will override a joint bank account?
-                </h3>
-                <p className="text-slate-700">
-                  No. Joint accounts with right of survivorship transfer by operation of law, not through your will. The surviving joint owner receives the funds regardless of what your will says. This is why coordinating your estate plan with account titling is essential.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  Do I need to pay taxes when I inherit a joint bank account?
-                </h3>
-                <p className="text-slate-700">
-                  Generally, the transfer of joint account funds to a surviving owner is not a taxable event for income tax purposes. However, the account may be included in the deceased owner's estate for estate tax calculations if the estate exceeds Illinois's $4 million threshold.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  What's the difference between a joint account and a POD account?
-                </h3>
-                <p className="text-slate-700">
-                  A joint account gives both owners full access during life, while a POD (Payable on Death) account gives the account owner sole control during life, with funds transferring to named beneficiaries only upon death. POD accounts offer more protection and control.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  Can I remove someone from a joint bank account?
-                </h3>
-                <p className="text-slate-700">
-                  Generally, you cannot unilaterally remove a joint account holder without their consent. However, you can close the account and open a new one in your name only (assuming you're legally permitted to access and withdraw the funds). The specifics depend on your bank's policies and the account structure.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-[#77B1D4] pl-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  How long does it take to access joint account funds after death?
-                </h3>
-                <p className="text-slate-700">
-                  The surviving owner typically retains immediate access. However, you should notify the bank and provide a death certificate promptly. Most banks can update the account titling within a few days to a couple of weeks, but you can usually continue using the account during this time.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <div className="border-t border-slate-200 pt-8 mt-12">
-            <p className="text-sm text-slate-600 italic">
-              This article is for informational purposes only and does not constitute legal advice. Every situation is unique, and laws change frequently. For advice specific to your circumstances, please consult with a licensed Illinois attorney.
-            </p>
           </div>
-        </div>
-      </article>
 
-      <div className="bg-slate-50 py-12">
-        <div className="max-w-4xl mx-auto px-4">
+          <aside className="hidden lg:block">
+            <div className="sticky top-8">
+              <TableOfContents items={tocItems} />
+            </div>
+          </aside>
+        </div>
+
+        <div className="mt-16 pt-12 border-t border-slate-200">
           <RelatedArticles articles={relatedArticles} />
         </div>
-      </div>
 
-      <div className="bg-white py-12">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="mt-16 pt-12 border-t border-slate-200">
           <BlogContactForm />
         </div>
-      </div>
+      </article>
     </div>
   );
 }
