@@ -1,20 +1,25 @@
 'use client';
 
-import { useEffect, useMemo, useState } from "react";
-import fs from "fs";
-import path from "path";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Clock, Search, X } from 'lucide-react';
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 interface BlogPost {
   id: string;
   title: string;
   slug: string;
   excerpt: string;
-  featured_image: string;
-  author: string;
+  featured_image?: string;
+  author?: string;
   published_date: string;
   topic: string;
+  meta_description?: string;
 }
 
 function formatDate(dateString: string): string {
@@ -50,12 +55,36 @@ export default function BlogPage() {
   useEffect(() => {
   async function fetchPosts() {
     try {
-      const res = await fetch('/blog/posts.json');
-      if (!res.ok) throw new Error(`Failed to load posts.json: ${res.status}`);
-      const data = await res.json();
+      const [jsonRes, dbRes] = await Promise.all([
+        fetch('/blog/posts.json').catch(() => null),
+        supabase.from("blog_posts").select("id, title, slug, meta_description, published_date, topic").order("published_date", { ascending: false })
+      ]);
 
-      setPosts(data || []);
-      setFilteredPosts(data || []);
+      let allPosts: BlogPost[] = [];
+
+      if (jsonRes && jsonRes.ok) {
+        const jsonData = await jsonRes.json();
+        allPosts = [...jsonData];
+      }
+
+      if (dbRes.data) {
+        const dbPosts = dbRes.data.map((post: any) => ({
+          id: post.id,
+          title: post.title,
+          slug: post.slug,
+          excerpt: post.meta_description || post.title.substring(0, 150),
+          published_date: post.published_date,
+          topic: post.topic || 'Estate Planning',
+          featured_image: '',
+          author: 'Estate Planning Team'
+        }));
+        allPosts = [...allPosts, ...dbPosts];
+      }
+
+      allPosts.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
+
+      setPosts(allPosts);
+      setFilteredPosts(allPosts);
     } catch (err) {
       console.error('Error loading blog posts:', err);
     } finally {
