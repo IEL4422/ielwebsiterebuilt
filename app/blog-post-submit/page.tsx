@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { supabase } from "@/lib/supabase-client";
+import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -25,6 +25,13 @@ export default function BlogPostSubmit() {
   const [error, setError] = useState("");
   const [topic, setTopic] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
+
+  // Create Supabase client with useMemo to ensure it's only created once
+  const supabase = useMemo(() => {
+    const url = "https://ipfposyjkgealvpnjtyy.supabase.co";
+    const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlwZnBvc3lqa2dlYWx2cG5qdHl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxMzgzOTMsImV4cCI6MjA4NTcxNDM5M30.SRAz2KlNeyaO8fdYULXgaBz3Pqz2SThWCx4KVbrefKM";
+    return createClient(url, key);
+  }, []);
 
   const addInternalLink = () => {
     if (newLinkText && newLinkUrl) {
