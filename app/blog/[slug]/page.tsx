@@ -4,10 +4,9 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+// Force dynamic rendering for this page
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 interface BlogPost {
   id: string;
@@ -21,6 +20,11 @@ interface BlogPost {
 }
 
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
+  const supabase = createClient(
+    "https://ipfposyjkgealvpnjtyy.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlwZnBvc3lqa2dlYWx2cG5qdHl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxMzgzOTMsImV4cCI6MjA4NTcxNDM5M30.SRAz2KlNeyaO8fdYULXgaBz3Pqz2SThWCx4KVbrefKM"
+  );
+
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
