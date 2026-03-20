@@ -68,16 +68,18 @@ export default function BlogPage() {
       }
 
       if (dbRes.data) {
-        const dbPosts = dbRes.data.map((post: any) => ({
-          id: post.id,
-          title: post.title,
-          slug: post.slug,
-          excerpt: post.meta_description || post.title.substring(0, 150),
-          published_date: post.published_date,
-          topic: post.topic || 'Estate Planning',
-          featured_image: '',
-          author: 'Estate Planning Team'
-        }));
+        const dbPosts = dbRes.data
+          .filter((post: any) => post.slug !== 'joint-accounts-and-estate-planning-in-illinois')
+          .map((post: any) => ({
+            id: post.id,
+            title: post.title,
+            slug: post.slug,
+            excerpt: post.meta_description || post.title.substring(0, 150),
+            published_date: post.published_date,
+            topic: post.topic || 'Estate Planning',
+            featured_image: '',
+            author: 'Estate Planning Team'
+          }));
         allPosts = [...allPosts, ...dbPosts];
       }
 
