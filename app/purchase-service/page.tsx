@@ -344,9 +344,12 @@ export default function PurchaseServicePage() {
         return `${item.service.name}${quantityText} (${item.clientType})${addOnsText}`;
       }).join('; ');
 
-      const { data, error } = await supabase
+      const newId = crypto.randomUUID();
+
+      const { error } = await supabase
         .from('service_purchases')
         .insert({
+          id: newId,
           client_name: clientInfo.name,
           client_email: clientInfo.email,
           client_phone: clientInfo.phone,
@@ -359,13 +362,11 @@ export default function PurchaseServicePage() {
           agreement_signed_at: new Date().toISOString(),
           stripe_payment_status: 'pending',
           add_ons: null
-        })
-        .select()
-        .maybeSingle();
+        });
 
       if (error) throw error;
 
-      setPurchaseId(data?.id || null);
+      setPurchaseId(newId);
       setStep('payment-selection');
     } catch (error) {
       console.error('Error:', error);
