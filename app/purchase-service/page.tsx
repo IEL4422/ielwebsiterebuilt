@@ -9,20 +9,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '@/lib/supabase-client';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import { ShoppingCart, X, Check } from 'lucide-react';
 
-const getSupabaseClient = () => {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Supabase environment variables are not configured');
-  }
-
-  return createClient(supabaseUrl, supabaseAnonKey);
-};
 
 type Step = 'select-service' | 'cart-review' | 'client-info' | 'agreement' | 'payment-selection' | 'payment-plan-confirmation';
 
@@ -354,7 +344,6 @@ export default function PurchaseServicePage() {
         return `${item.service.name}${quantityText} (${item.clientType})${addOnsText}`;
       }).join('; ');
 
-      const supabase = getSupabaseClient();
       const { data, error } = await supabase
         .from('service_purchases')
         .insert({
