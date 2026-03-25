@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'what-happens-to-a-joint-bank-account-when-one-owner-dies',
+    title: 'What Happens to a Joint Bank Account When One Owner Dies?',
+    url: '/blog/what-happens-to-a-joint-bank-account-when-one-owner-dies/',
+    date: 'Mar 20, 2026',
+    summary: 'Comprehensive guide explaining what happens to joint bank accounts in Illinois after one owner dies. Covers right of survivorship, account types, probate avoidance, tax implications, potential pitfalls, and estate planning alternatives.',
+    excerpt: 'Discover what happens to joint bank accounts when one owner passes away in Illinois. Learn about right of survivorship, probate avoidance, tax implications, and important considerations for your estate planning.',
+  },
+  {
     slug: 'what-is-summary-probate-in-cook-county-illinois',
     title: 'What Is Summary Probate in Cook County, Illinois — and When Can You Use It?',
     url: '/blog/what-is-summary-probate-in-cook-county-illinois/',
