@@ -86,6 +86,34 @@ Deno.serve(async (req: Request) => {
       );
     }
 
+    // Send portal webhook
+    try {
+      const portalWebhookUrl = 'https://portal.illinoisestatelaw.com/api/webhooks/website-purchase';
+      const portalResponse = await fetch(portalWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          typeOfCase: typeOfService,
+          packagePurchased: packagePurchased,
+          amountPaid: totalPrice,
+          paymentType: 'payment-plan',
+          email: email,
+          name: `${firstName} ${lastName}`.trim(),
+          phoneNumber: phoneNumber || '',
+        }),
+      });
+
+      if (portalResponse.ok) {
+        console.log('Portal webhook sent successfully');
+      } else {
+        console.error('Failed to send portal webhook:', await portalResponse.text());
+      }
+    } catch (portalError) {
+      console.error('Error sending portal webhook:', portalError);
+    }
+
     // Send Slack notification
     try {
       const slackApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-slack-notification`;

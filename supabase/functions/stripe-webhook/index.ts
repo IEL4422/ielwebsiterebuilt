@@ -137,6 +137,49 @@ Deno.serve(async (req: Request) => {
           const firstName = nameParts[0];
           const lastName = nameParts.slice(1).join(' ');
 
+          const getTypeOfCase = (serviceType: string, serviceName: string) => {
+            if (serviceType === 'probate') return 'Probate';
+            if (serviceType === 'prenuptial') return 'Prenuptial Agreement';
+            if (serviceType === 'small-business') return 'Small Business';
+            if (serviceType === 'a-la-carte') {
+              const deedServices = ['Quit Claim Deed', 'Transfer-on-Death Instrument', 'Life Estate Deed'];
+              if (deedServices.some(d => serviceName.includes(d))) return 'Estate Planning';
+              return 'Estate Planning';
+            }
+            return 'Estate Planning';
+          };
+
+          const portalWebhookUrl = 'https://portal.illinoisestatelaw.com/api/webhooks/website-purchase';
+          const portalResponse = await fetch(portalWebhookUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              typeOfCase: getTypeOfCase(purchase.service_type, purchase.service_name),
+              packagePurchased: purchase.service_name,
+              amountPaid: purchase.service_price,
+              paymentType: 'pay-in-full',
+              email: purchase.client_email,
+              name: purchase.client_name,
+              phoneNumber: purchase.client_phone || '',
+            }),
+          });
+
+          if (portalResponse.ok) {
+            console.log('Portal webhook sent successfully for purchase:', purchaseId);
+          } else {
+            console.error('Failed to send portal webhook:', await portalResponse.text());
+          }
+        } catch (portalError) {
+          console.error('Error sending portal webhook:', portalError);
+        }
+
+        try {
+          const nameParts = purchase.client_name.split(' ');
+          const firstName = nameParts[0];
+          const lastName = nameParts.slice(1).join(' ');
+
           const slackApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-slack-notification`;
           const slackResponse = await fetch(slackApiUrl, {
             method: 'POST',
