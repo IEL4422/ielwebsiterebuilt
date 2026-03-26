@@ -355,15 +355,17 @@ export default function JointBankAccountPage() {
               It is worth noting that Illinois does not have a mandatory waiting period before a surviving joint owner can access the account. Unlike some states that impose a brief freeze to allow for tax audits, Illinois law allows immediate access once the bank processes the ownership change.
             </p>
 
-            <div className="my-8">
+            <div className="my-8 flex justify-center">
+              <div className="w-full max-w-md">
               <Image
-                src="https://images.pexels.com/photos/7681097/pexels-photo-7681097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="https://images.pexels.com/photos/7681097/pexels-photo-7681097.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
                 alt="Person reviewing financial documents and bank account paperwork after the death of a loved one"
-                width={1260}
-                height={750}
+                width={600}
+                height={400}
                 className="rounded-lg w-full object-cover"
               />
               <p className="text-sm text-gray-500 mt-2 text-center">Transitioning a joint account to sole ownership requires a certified death certificate and a visit to your bank — no court involvement needed.</p>
+              </div>
             </div>
 
             <h2 id="does-a-joint-account-go-through-probate" className="text-2xl font-bold mt-10 mb-4">
