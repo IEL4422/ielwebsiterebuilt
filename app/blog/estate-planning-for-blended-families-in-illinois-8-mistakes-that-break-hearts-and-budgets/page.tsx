@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, Users, Shield, AlertTriangle, ChevronDown, ChevronUp, CheckCircle2, XCircle, FileText, Scale } from 'lucide-react';
+import { Heart, Users, Shield, TriangleAlert as AlertTriangle, ChevronDown, ChevronUp, CircleCheck as CheckCircle2, Circle as XCircle, FileText, Scale } from 'lucide-react';
 import TableOfContents from '@/components/blog/TableOfContents';
 import BlogSummary from '@/components/blog/BlogSummary';
 import BlogNavigation from '@/components/blog/BlogNavigation';
@@ -358,7 +358,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Complete our <a target="_blank" href="https://www.illinoisestatelaw.com/trust-funding-checklist" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><u>Trust Funding Checklist</u></a> to shift major assets out of probate and into a living trust that honors your blended distribution formula.
+              <strong>Fix:</strong> Complete our <a target="_blank" href="https://www.illinoisestatelaw.com/trust-funding-checklist" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Trust Funding Checklist</u></a> to shift major assets out of probate and into a living trust that honors your blended distribution formula.
             </p>
 
             <h3 id="joint-tenancy-gone-wrong" className="text-xl font-bold mt-8 mb-4">
@@ -382,7 +382,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Use our downloadable <a target="_blank" href="https://www.illinoisestatelaw.com/digital-asset-inventory-tool" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><u>Digital Asset Inventory Tool</u></a> to list every policy and account, then update designations to your new estate-plan structure.
+              <strong>Fix:</strong> Use our downloadable <a target="_blank" href="https://www.illinoisestatelaw.com/digital-asset-inventory-tool" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Digital Asset Inventory Tool</u></a> to list every policy and account, then update designations to your new estate-plan structure.
             </p>
 
             <h3 id="unequal-gifts-that-trigger-illinois-estate-tax" className="text-xl font-bold mt-8 mb-4">
@@ -394,7 +394,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Run your numbers through our <a target="_blank" href="https://www.illinoisestatelaw.com/illinois-estate-tax-calculator" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><u>Illinois Estate-Tax Calculator</u></a>. If you&apos;re over the limit, consider a <strong>credit-shelter sub-trust</strong> or lifetime gifts to children to stay under the threshold.
+              <strong>Fix:</strong> Run your numbers through our <a target="_blank" href="https://www.illinoisestatelaw.com/illinois-estate-tax-calculator" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Illinois Estate-Tax Calculator</u></a>. If you&apos;re over the limit, consider a <strong>credit-shelter sub-trust</strong> or lifetime gifts to children to stay under the threshold.
             </p>
 
             <h3 id="skipping-a-stand-alone-special-needs-trust" className="text-xl font-bold mt-8 mb-4">
@@ -430,7 +430,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Compare the cost of supervised vs. independent probate in our <a target="_blank" href="https://www.illinoisestatelaw.com/executor-administrator-guide" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><u>Executor Guide</u></a> and make sure your documents waive bond and grant full powers.
+              <strong>Fix:</strong> Compare the cost of supervised vs. independent probate in our <a target="_blank" href="https://www.illinoisestatelaw.com/executor-administrator-guide" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Executor Guide</u></a> and make sure your documents waive bond and grant full powers.
             </p>
 
             <h2 id="frequently-asked-questions" className="text-2xl font-bold mt-12 mb-4">
@@ -453,7 +453,7 @@ export default function Page() {
                 },
                 {
                   question: 'What if my current spouse and children from my first marriage don\'t get along?',
-                  answer: 'Strained relationships make comprehensive planning even more critical. Without careful structuring, conflict turns into litigation after your death. First, use separate, independent trustees rather than naming your spouse as trustee for trusts benefiting your children. This removes conflicts of interest and reduces opportunities for disputes. Second, build in clear distribution formulas rather than leaving discretion to trustees. Specify percentages, amounts, or objective criteria rather than subjective terms like \"reasonable\" or \"as needed.\" Third, include a no-contest clause that disinherits anyone who challenges your plan in court. Fourth, consider including mediation requirements before litigation is allowed. Finally, communicate your plan to all parties while you\'re alive. Surprises after death fuel conflict; advance knowledge, even if unpleasant, reduces litigation. Your attorney can structure the plan to minimize contact between feuding parties while still accomplishing your goals.'
+                  answer: 'Strained relationships make comprehensive planning even more critical. Without careful structuring, conflict turns into litigation after your death. First, use separate, independent trustees rather than naming your spouse as trustee for trusts benefiting your children. This removes conflicts of interest and reduces opportunities for disputes. Second, build in clear distribution formulas rather than leaving discretion to trustees. Specify percentages, amounts, or objective criteria rather than subjective terms like "reasonable" or "as needed." Third, include a no-contest clause that disinherits anyone who challenges your plan in court. Fourth, consider including mediation requirements before litigation is allowed. Finally, communicate your plan to all parties while you\'re alive. Surprises after death fuel conflict; advance knowledge, even if unpleasant, reduces litigation. Your attorney can structure the plan to minimize contact between feuding parties while still accomplishing your goals.'
                 },
                 {
                   question: 'Do I need to treat all children equally in my estate plan?',
@@ -524,7 +524,7 @@ export default function Page() {
             <ul className="mb-6 list-disc pl-6 space-y-2">
               <li><a href="https://www.illinoisestatelaw.com/book-consultation" target="_blank" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><strong><u>Book a consultation</u></strong></a></li>
               <li><a href="https://www.illinoisestatelaw.com/pricing" target="_blank" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><strong><u>View transparent pricing</u></strong></a></li>
-              <li><strong>Ready to begin? </strong><a href="/get-started/" className="text-[#4a708b] hover:underline"><strong><u>Get Started</u></strong></a></li>
+              <li><strong>Ready to begin? </strong><a href="/get-started/" className=\"text-[#4a708b] hover:underline"><strong><u>Get Started</u></strong></a></li>
             </ul>
 
             <p className="mb-6">

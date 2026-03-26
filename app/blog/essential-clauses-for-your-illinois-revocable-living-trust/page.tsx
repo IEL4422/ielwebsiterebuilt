@@ -203,7 +203,7 @@ export default function Page() {
                 "answerCount": "1",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The Declaration of Revocability confirms that the grantor has the right to amend, update, or cancel the trust at any time during their lifetime. This clause gives the trust its \"living\" nature by allowing flexibility as life circumstances change. It ensures that the grantor keeps control over their assets and can adapt the trust to reflect new family or financial developments. Without it, the trust would become irrevocable and far less flexible."
+                  "text": "The Declaration of Revocability confirms that the grantor has the right to amend, update, or cancel the trust at any time during their lifetime. This clause gives the trust its living nature by allowing flexibility as life circumstances change. It ensures that the grantor keeps control over their assets and can adapt the trust to reflect new family or financial developments. Without it, the trust would become irrevocable and far less flexible."
                 }
               },
               {
