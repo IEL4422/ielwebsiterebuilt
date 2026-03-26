@@ -92,6 +92,7 @@ Deno.serve(async (req: Request) => {
       const slackResponse = await fetch(slackApiUrl, {
         method: 'POST',
         headers: {
+          'Authorization': `Bearer ${Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
