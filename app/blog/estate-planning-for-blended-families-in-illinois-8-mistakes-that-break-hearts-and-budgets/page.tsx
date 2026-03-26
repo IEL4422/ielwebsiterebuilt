@@ -530,7 +530,7 @@ export default function Page() {
             <p className="mb-6">
               Protect every branch of your family tree—without leaving anyone out on a limb.
             </p>
-          
+
             <BlogNavigation
               previousPost={previous ? { title: previous.title, url: previous.url } : undefined}
               nextPost={next ? { title: next.title, url: next.url } : undefined}
