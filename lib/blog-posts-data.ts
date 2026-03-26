@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'illinois-estate-planning-laws-changing-2026-cook-county-families',
+    title: 'Illinois Estate Planning Laws Changing in 2026: What Cook County Families Need to Know',
+    url: '/blog/illinois-estate-planning-laws-changing-2026-cook-county-families/',
+    date: 'Mar 26, 2026',
+    summary: 'A comprehensive guide to the Illinois estate planning law changes taking effect in 2026. Covers updates to the estate tax exemption, probate thresholds, power of attorney statutes, and what Cook County families should do now to protect their estates.',
+    excerpt: 'Major changes to Illinois estate planning laws are taking effect in 2026. Discover what Cook County families need to know about estate tax updates, new probate thresholds, and how to protect your estate.',
+  },
+  {
     slug: 'what-happens-to-a-joint-bank-account-when-one-owner-dies',
     title: 'What Happens to a Joint Bank Account When One Owner Dies?',
     url: '/blog/what-happens-to-a-joint-bank-account-when-one-owner-dies/',
