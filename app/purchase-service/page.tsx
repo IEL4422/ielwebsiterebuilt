@@ -9,7 +9,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
-import { supabase } from '@/lib/supabase-client';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import { ShoppingCart, X, Check } from 'lucide-react';
 
@@ -346,9 +345,14 @@ export default function PurchaseServicePage() {
 
       const newId = crypto.randomUUID();
 
-      const { error } = await supabase
-        .from('service_purchases')
-        .insert({
+      const savePurchaseUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/save-purchase`;
+      const saveResponse = await fetch(savePurchaseUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           id: newId,
           client_name: clientInfo.name,
           client_email: clientInfo.email,
@@ -361,10 +365,14 @@ export default function PurchaseServicePage() {
           agreement_signature: signature,
           agreement_signed_at: new Date().toISOString(),
           stripe_payment_status: 'pending',
-          add_ons: null
-        });
+          add_ons: null,
+        }),
+      });
 
-      if (error) throw error;
+      if (!saveResponse.ok) {
+        const errData = await saveResponse.json();
+        throw new Error(errData.error || 'Failed to save purchase');
+      }
 
       setPurchaseId(newId);
       setStep('payment-selection');
