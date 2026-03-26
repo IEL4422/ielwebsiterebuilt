@@ -181,6 +181,8 @@ export default function IllinoisEstatePlanningLaws2026Page() {
     },
   ];
 
+  const cookCountyProbateLink = '/blog/cook-county-probate-paperwork-every-form-one-bookmark-illinois-estate-law/';
+
   return (
     <div className="min-h-screen bg-white">
       <script
@@ -319,14 +321,17 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                 <div className="bg-blue-50 border-l-4 border-[#4a708b] p-4 rounded-r-xl mb-4">
                   <p className="font-semibold text-[#2D3E50] mb-1">What is portability?</p>
                   <p className="text-gray-700 text-sm">
-                    At the federal level, a surviving spouse can "inherit" their deceased spouse's unused estate tax exemption. Illinois does not have this feature. Each Illinois resident gets their own exemption — and if you do not plan correctly, the first spouse's exemption may be partially or entirely wasted.
+                    At the federal level, a surviving spouse can inherit their deceased spouse&apos;s unused estate tax exemption. Illinois does not have this feature. Each Illinois resident gets their own exemption — and if you do not plan correctly, the first spouse&apos;s exemption may be partially or entirely wasted.
                   </p>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  For married couples with combined estates over $4 million, the lack of portability in Illinois means that careful planning is still essential. A simple "everything to my spouse" plan may preserve the estate intact for the survivor but leave the first spouse's $4 million exemption unused at death — resulting in a larger taxable estate later.
+                  For married couples with combined estates over $4 million, the lack of portability in Illinois means that careful planning is still essential. A simple everything-to-my-spouse plan may preserve the estate intact for the survivor but leave the first spouse&apos;s $4 million exemption unused at death — resulting in a larger taxable estate later.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Traditional solutions include a bypass trust (also called a credit shelter trust), a qualified disclaimer strategy, or other planning techniques. The higher exemption changes the math — but it does not eliminate the need to plan. A couple with a $6 million combined estate still needs to think carefully about how the exemptions are used. Learn more about these strategies in our guide on <Link href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/" className="text-[#4a708b] hover:underline font-medium">revocable living trusts in Illinois</Link>.
+                  Traditional solutions include a bypass trust (also called a credit shelter trust), a qualified disclaimer strategy, or other planning techniques. The higher exemption changes the math — but it does not eliminate the need to plan. A couple with a $6 million combined estate still needs to think carefully about how the exemptions are used. Learn more about these strategies in our guide on{' '}
+                  <Link href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/" className="text-[#4a708b] hover:underline font-medium">
+                    revocable living trusts in Illinois
+                  </Link>.
                 </p>
               </div>
 
@@ -365,7 +370,11 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                             <CheckCircle className="w-5 h-5 text-green-600" />
                             <p className="font-bold text-green-700">Exempt Under 2026 Law</p>
                           </div>
-                          <p className="text-green-700 text-sm">Your estimated estate of <strong>{formatCurrency(parseFloat(estateValue.replace(/[^0-9.]/g, '')))}</strong> falls below the new $4 million exemption. Under 2026 law, this estate would owe <strong>$0 in Illinois estate tax</strong>.</p>
+                          <p className="text-green-700 text-sm">
+                            Your estimated estate of{' '}
+                            <strong>{formatCurrency(parseFloat(estateValue.replace(/[^0-9.]/g, '')))}</strong>{' '}
+                            falls below the new $4 million exemption. Under 2026 law, this estate would owe <strong>$0 in Illinois estate tax</strong>.
+                          </p>
                           {parseFloat(estateValue.replace(/[^0-9.]/g, '')) > 2000000 && (
                             <p className="text-green-600 text-xs mt-2 font-medium">Under the prior $2M exemption, this estate would have owed an estimated Illinois estate tax. The 2026 change eliminates that obligation.</p>
                           )}
@@ -376,8 +385,13 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                             <AlertTriangle className="w-5 h-5 text-red-600" />
                             <p className="font-bold text-red-700">Estate Tax May Apply</p>
                           </div>
-                          <p className="text-red-700 text-sm mb-2">Your estimated estate of <strong>{formatCurrency(parseFloat(estateValue.replace(/[^0-9.]/g, '')))}</strong> exceeds the $4 million exemption. Estimated Illinois estate tax: <strong>{formatCurrency(calculatorResult.estimatedTax)}</strong>.</p>
-                          <p className="text-red-600 text-xs">This is an approximation using Illinois's graduated rate structure. Actual liability depends on deductions, business valuations, and other factors. Contact an attorney for a precise analysis.</p>
+                          <p className="text-red-700 text-sm mb-2">
+                            Your estimated estate of{' '}
+                            <strong>{formatCurrency(parseFloat(estateValue.replace(/[^0-9.]/g, '')))}</strong>{' '}
+                            exceeds the $4 million exemption. Estimated Illinois estate tax:{' '}
+                            <strong>{formatCurrency(calculatorResult.estimatedTax)}</strong>.
+                          </p>
+                          <p className="text-red-600 text-xs">This is an approximation using Illinois&apos;s graduated rate structure. Actual liability depends on deductions, business valuations, and other factors. Contact an attorney for a precise analysis.</p>
                         </div>
                       )}
                     </div>
@@ -434,13 +448,16 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               <div id="poa-updates" className="mt-10">
                 <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Power of Attorney Updates in Depth</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Illinois updated its Power of Attorney Act in part to address a persistent problem: agents misusing their authority, particularly around gifts. Under the updated statutory form, an agent's authority to make gifts — to themselves or others — is more tightly defined and requires explicit authorization.
+                  Illinois updated its Power of Attorney Act in part to address a persistent problem: agents misusing their authority, particularly around gifts. Under the updated statutory form, an agent&apos;s authority to make gifts — to themselves or others — is more tightly defined and requires explicit authorization.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  If you are concerned about an agent's authority over your finances, the updated form allows you to specify dollar limits, require co-agent approval, and restrict certain transactions. These are protections the old form did not offer as clearly.
+                  If you are concerned about an agent&apos;s authority over your finances, the updated form allows you to specify dollar limits, require co-agent approval, and restrict certain transactions. These are protections the old form did not offer as clearly.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  For more on why powers of attorney matter and what they should include, see our guide: <Link href="/blog/do-you-really-need-a-power-of-attorney-in-illinois/" className="text-[#4a708b] hover:underline font-medium">Do You Really Need a Power of Attorney in Illinois?</Link>
+                  For more on why powers of attorney matter and what they should include, see our guide:{' '}
+                  <Link href="/blog/do-you-really-need-a-power-of-attorney-in-illinois/" className="text-[#4a708b] hover:underline font-medium">
+                    Do You Really Need a Power of Attorney in Illinois?
+                  </Link>
                 </p>
               </div>
 
@@ -468,13 +485,20 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               <div id="cook-county-probate" className="mt-8">
                 <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Cook County Probate: What Has Changed Procedurally</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Cook County's Probate Division has updated filing procedures, fee schedules, and form requirements. While the $100,000 small estate affidavit threshold remains in place under Illinois statute, the administrative process — including required attachments, court filing fees, and processing timelines — has changed.
+                  Cook County&apos;s Probate Division has updated filing procedures, fee schedules, and form requirements. While the $100,000 small estate affidavit threshold remains in place under Illinois statute, the administrative process — including required attachments, court filing fees, and processing timelines — has changed.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   For estates above the threshold, the formal probate process in Cook County now involves updated inventory forms and a revised approach to notice requirements for certain creditors. These are procedural updates, not substantive law changes, but they matter if you are currently administering an estate or preparing documents in advance.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  For a comprehensive overview of when probate is required and how Cook County handles the process, see: <Link href="/blog/when-is-probate-required-in-illinois/" className="text-[#4a708b] hover:underline font-medium">When Is Probate Required in Illinois?</Link> and <Link href="/blog/cook-county-probate-paperwork-every-form-one-bookmark-illinois-estate-law/" className=\"text-[#4a708b] hover:underline font-medium">Cook County Probate Paperwork: Every Form, One Bookmark</Link>.
+                  For a comprehensive overview of when probate is required and how Cook County handles the process, see:{' '}
+                  <Link href="/blog/when-is-probate-required-in-illinois/" className="text-[#4a708b] hover:underline font-medium">
+                    When Is Probate Required in Illinois?
+                  </Link>{' '}
+                  and{' '}
+                  <Link href={cookCountyProbateLink} className="text-[#4a708b] hover:underline font-medium">
+                    Cook County Probate Paperwork: Every Form, One Bookmark
+                  </Link>.
                 </p>
               </div>
             </section>
@@ -523,7 +547,10 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                 ))}
               </div>
               <p className="text-gray-700 leading-relaxed">
-                If your estate plan does not currently include a will, a revocable trust, durable power of attorney, and healthcare directive, those gaps are more urgent than any 2026 update. A comprehensive estate plan covering all four documents remains the gold standard. Learn what a complete plan looks like: <Link href="/blog/what-is-a-simple-estate-plan-in-chicago-illinois/" className="text-[#4a708b] hover:underline font-medium">What Is a Simple Estate Plan in Chicago, Illinois?</Link>
+                If your estate plan does not currently include a will, a revocable trust, durable power of attorney, and healthcare directive, those gaps are more urgent than any 2026 update. A comprehensive estate plan covering all four documents remains the gold standard. Learn what a complete plan looks like:{' '}
+                <Link href="/blog/what-is-a-simple-estate-plan-in-chicago-illinois/" className="text-[#4a708b] hover:underline font-medium">
+                  What Is a Simple Estate Plan in Chicago, Illinois?
+                </Link>
               </p>
             </section>
 
