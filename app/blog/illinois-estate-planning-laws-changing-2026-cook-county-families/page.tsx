@@ -16,7 +16,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
   const relatedPosts = getRelatedPosts(currentSlug, 3);
 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [activeChange, setActiveChange] = useState<string>('estate-tax');
+  const [activeChange, setActiveChange] = useState<string>('small-estate');
   const [estateValue, setEstateValue] = useState<string>('');
   const [calculatorResult, setCalculatorResult] = useState<{ exempt: boolean; estimatedTax: number; threshold: number } | null>(null);
 
@@ -45,44 +45,44 @@ export default function IllinoisEstatePlanningLaws2026Page() {
 
   const lawChanges = [
     {
-      id: 'estate-tax',
-      label: 'Estate Tax Exemption',
-      icon: <Calculator className="w-5 h-5" />,
-      color: 'bg-[#2D3E50]',
-      oldRule: '$2,000,000 exemption (unchanged since 2013)',
-      newRule: '$4,000,000 exemption (effective January 1, 2026)',
-      impact: 'Estates between $2M–$4M are newly exempt from Illinois estate tax, potentially saving families $100,000–$250,000 or more.',
-      action: 'Review your estate plan if your net worth is between $2M–$6M. Prior tax-minimization strategies may need updating.',
-    },
-    {
-      id: 'probate-threshold',
-      label: 'Probate Threshold',
+      id: 'small-estate',
+      label: 'Small Estate Affidavit',
       icon: <FileText className="w-5 h-5" />,
-      color: 'bg-[#4a708b]',
-      oldRule: '$100,000 small estate affidavit threshold',
-      newRule: '$100,000 threshold remains — but Cook County has updated court fees and filing requirements',
-      impact: 'While the dollar threshold holds, new Cook County administrative rules affect how small estates are processed and which forms are required.',
-      action: 'If you are administering an estate under $100,000 in Cook County, confirm current form requirements before filing.',
+      color: 'bg-[#2D3E50]',
+      oldRule: '$100,000 small estate affidavit threshold; vehicles counted toward the limit',
+      newRule: '$150,000 threshold (effective August 15, 2025); vehicles excluded from the $150,000 calculation and may be transferred separately regardless of value',
+      impact: 'More Cook County families can settle estates without opening formal probate — saving months of court proceedings and thousands in legal fees.',
+      action: 'If a loved one recently passed with personal property under $150,000 (excluding real estate), consult an attorney about using a Small Estate Affidavit instead of probate.',
     },
     {
       id: 'power-of-attorney',
-      label: 'Power of Attorney Updates',
+      label: 'Power of Attorney Law',
       icon: <BookOpen className="w-5 h-5" />,
-      color: 'bg-[#5a8a6a]',
-      oldRule: 'Illinois Statutory Short Form Power of Attorney for Property (2012 form)',
-      newRule: 'Updated statutory form with enhanced agent accountability provisions and clearer gift-giving authority language',
-      impact: 'Older POA documents remain valid, but the updated statutory form provides stronger protections against agent abuse and reduces ambiguity.',
-      action: 'Consider replacing POAs drafted before 2024 with the updated statutory form, especially if your agent has broad authority.',
+      color: 'bg-[#4a708b]',
+      oldRule: 'Financial institutions and other third parties could reject a valid POA for various reasons with limited legal recourse',
+      newRule: 'Public Act 103-0994 (effective January 1, 2025) codifies five unreasonable grounds for refusing a POA and 14 reasonable grounds — making refusal of a properly executed POA unlawful',
+      impact: 'Agents acting under a validly executed Illinois statutory POA now have stronger legal footing when dealing with banks and other institutions that previously rejected documents.',
+      action: 'Ensure your POA is executed using the current Illinois statutory short-form. If institutions refuse a valid POA, the law now gives your agent explicit grounds to compel acceptance.',
     },
     {
-      id: 'digital-assets',
-      label: 'Digital Asset Access',
+      id: 'federal-estate-tax',
+      label: 'Federal Estate Tax',
+      icon: <Calculator className="w-5 h-5" />,
+      color: 'bg-[#5a8a6a]',
+      oldRule: 'Federal estate tax exemption was $13.99M per person in 2025 under the Tax Cuts and Jobs Act — scheduled to sunset and revert to ~$7M in 2026',
+      newRule: 'The One Big Beautiful Bill Act (signed July 4, 2025) permanently raises the federal exemption to $15M per person starting January 1, 2026, indexed for inflation',
+      impact: 'The feared "sunset" of the federal exemption has been permanently avoided. Estates under $15M per person owe no federal estate tax — but Illinois\'s separate $4M exemption is unchanged.',
+      action: 'If your estate plan was structured around the anticipated federal sunset, review it with an attorney — the urgency of certain gifting strategies has changed, though Illinois state tax planning remains critical.',
+    },
+    {
+      id: 'illinois-estate-tax',
+      label: 'Illinois Estate Tax',
       icon: <Info className="w-5 h-5" />,
       color: 'bg-[#8a6a5a]',
-      oldRule: 'Limited fiduciary access to digital accounts under RUFADAA (2016)',
-      newRule: 'Expanded fiduciary rights with clearer platform compliance obligations and online tool recognition',
-      impact: 'Executors and trustees now have a stronger legal basis to access cryptocurrency wallets, online accounts, and digital property.',
-      action: 'Update your estate plan to explicitly address digital assets, including instructions for accessing accounts and wallet seed phrases.',
+      oldRule: '$4,000,000 exemption per person (in place since 2013) — not indexed for inflation',
+      newRule: 'The $4M Illinois estate tax exemption is UNCHANGED for 2025–2026. While various bills have been proposed to raise it (HB2601, HB1731, HB2368), none have been signed into law.',
+      impact: 'Illinois remains one of the lowest estate tax thresholds in the nation. Many Cook County families with home equity, retirement accounts, and life insurance exceed $4M without realizing it.',
+      action: 'Do not assume Illinois estate tax no longer applies to you. With home values in Cook County, many moderate-wealth families are still exposed. Illinois-specific planning remains essential.',
     },
   ];
 
@@ -90,98 +90,100 @@ export default function IllinoisEstatePlanningLaws2026Page() {
 
   const faqs = [
     {
-      q: 'Does the new $4 million estate tax exemption apply to estates that are currently in probate?',
-      a: 'The exemption applies based on the date of death. If the decedent passed away on or after January 1, 2026, the $4 million exemption applies regardless of when the probate proceeding was opened. Estates where death occurred before January 1, 2026 remain subject to the prior $2 million exemption.',
+      q: 'Did Illinois raise the estate tax exemption to $4 million in 2026?',
+      a: 'No — this is a common misconception. The Illinois estate tax exemption has been $4 million per person since 2013. It was not raised in 2026. Multiple bills have been introduced in the Illinois legislature to raise or eliminate the exemption (HB2601, HB1731, HB2368), but as of 2026, none have been signed into law. The $4M threshold remains in effect.',
     },
     {
-      q: 'My estate is worth $3.5 million. Do I still need an irrevocable trust to avoid Illinois estate tax?',
-      a: 'Under the new exemption, a $3.5 million estate would fall entirely below the threshold and owe no Illinois estate tax. However, you should still consult an attorney — estate values fluctuate, life insurance and retirement accounts are often included in your taxable estate, and federal estate tax rules (currently with a $13.99 million exemption) may still apply depending on your circumstances.',
+      q: 'What is the new Small Estate Affidavit limit in Illinois?',
+      a: 'Effective August 15, 2025, Illinois raised the Small Estate Affidavit limit from $100,000 to $150,000 for personal property. Crucially, motor vehicles are now excluded from this calculation — meaning your loved one\'s cars can be transferred to the Secretary of State separately regardless of value, and they no longer count toward the $150,000 cap. However, if the decedent owned any real estate in Illinois, a formal probate proceeding is still required regardless of the estate\'s total value.',
     },
     {
-      q: 'Are the changes to the Power of Attorney form mandatory? Does my old POA become invalid?',
-      a: 'No. Powers of attorney executed under prior statutory forms remain legally valid. The updated form is not retroactively required. That said, if your existing POA was drafted more than a few years ago, it may lack clarity around digital assets, gift authority, or agent accountability that the newer form provides. An attorney review is worthwhile.',
+      q: 'What changed with Illinois Power of Attorney law in 2025?',
+      a: 'Public Act 103-0994 took effect January 1, 2025. The most significant practical change: it is now unlawful for banks and other third parties to unreasonably refuse a properly executed Illinois statutory short-form power of attorney. The law codifies five specifically "unreasonable" grounds for refusal and 14 "reasonable" grounds. This gives agents legal teeth when institutions try to reject valid documents. Note: your existing POA remains valid — the change addresses third-party acceptance, not the underlying document format.',
     },
     {
-      q: 'How does the new estate tax exemption affect married couples in Cook County?',
-      a: 'Illinois does not have portability of the estate tax exemption between spouses (unlike federal law). Each spouse has their own $4 million exemption. For married couples with combined estates over $4 million, proper planning — such as a bypass trust or AB trust structure — remains important to maximize both exemptions. An estate plan that worked under $2 million thresholds may need revision.',
+      q: 'The federal estate tax exemption was going to drop to $7M — did that happen?',
+      a: 'No. The One Big Beautiful Bill Act, signed on July 4, 2025, permanently raised the federal estate and gift tax exemption to $15 million per person (indexed for inflation) starting January 1, 2026. The feared "sunset" of the Tax Cuts and Jobs Act provisions did not occur. This is significant federal relief — but it has no effect on Illinois\'s separate $4M estate tax exemption, which remains unchanged.',
     },
     {
-      q: 'Do these changes affect my existing revocable living trust?',
-      a: 'Your trust itself remains valid. However, if your trust was drafted with tax planning provisions triggered at the $2 million threshold, those provisions may now produce unintended results — for example, forcing a trust split that is no longer tax-necessary. An attorney should review your trust documents to ensure they still reflect your wishes.',
+      q: 'My estate plan was structured to minimize tax before the federal exemption sunset. Do I still need it?',
+      a: 'Possibly not in the same form. Many people undertook urgent gifting or trust strategies in 2024–2025 specifically to lock in the higher federal exemption before an anticipated sunset. Now that the $15M exemption is permanent, some of that urgency is removed at the federal level. However, Illinois-specific planning (bypass trusts, disclaimer strategies, irrevocable trusts) remains important if your estate exceeds $4M. Review your plan with an attorney to ensure it still reflects your current goals.',
     },
     {
-      q: 'I have a small business. How do the 2026 changes affect business succession planning?',
-      a: 'The higher estate tax exemption is particularly beneficial for small business owners whose enterprise value previously pushed them above the old $2 million threshold. Strategies like FLPs (family limited partnerships) and buy-sell agreements remain important for valuation purposes, but the immediate tax pressure on mid-sized businesses is reduced. Business owners with estates over $4 million still need active planning.',
+      q: 'How does the lack of portability affect married Cook County couples?',
+      a: 'Illinois does not allow portability of the estate tax exemption between spouses (unlike federal law). Each spouse has their own $4M Illinois exemption, but if the first spouse dies and leaves everything to the survivor, the first spouse\'s exemption is wasted — resulting in a larger taxable estate for the survivor. Traditional solutions include a bypass trust (credit shelter trust) or a qualified disclaimer strategy. For couples with combined estates over $4M, proper planning is essential and unchanged by 2026 developments.',
     },
   ];
 
   const tocItems = [
-    { id: 'why-2026-matters', title: 'Why 2026 Is a Pivotal Year for Illinois Estates', level: 2, numeration: '1' },
+    { id: 'why-2026-matters', title: 'What Actually Changed in Illinois Estate Law', level: 2, numeration: '1' },
     {
-      id: 'estate-tax-exemption-change', title: 'The Estate Tax Exemption Is Doubling', level: 2, numeration: '2',
+      id: 'small-estate-affidavit', title: 'Small Estate Affidavit: New $150,000 Threshold', level: 2, numeration: '2',
       children: [
-        { id: 'who-benefits', title: 'Who Benefits Most', level: 3, numeration: '2.1' },
-        { id: 'married-couples', title: 'The Married Couples Problem: No Portability', level: 3, numeration: '2.2' },
-        { id: 'estate-tax-calculator', title: 'Interactive Estate Tax Impact Calculator', level: 3, numeration: '2.3' },
+        { id: 'vehicle-transfers', title: 'Vehicles Now Excluded From the Limit', level: 3, numeration: '2.1' },
+        { id: 'sea-limitations', title: 'What the SEA Still Cannot Do', level: 3, numeration: '2.2' },
       ],
     },
     {
-      id: 'law-changes-overview', title: 'All Four Major Law Changes Explained', level: 2, numeration: '3',
+      id: 'poa-changes', title: 'Power of Attorney Law Update (Public Act 103-0994)', level: 2, numeration: '3',
       children: [
-        { id: 'poa-updates', title: 'Power of Attorney Updates', level: 3, numeration: '3.1' },
-        { id: 'digital-assets-update', title: 'Digital Asset Access Expanded', level: 3, numeration: '3.2' },
-        { id: 'cook-county-probate', title: 'Cook County Probate Procedures', level: 3, numeration: '3.3' },
+        { id: 'unreasonable-refusal', title: 'Unreasonable Grounds to Refuse a POA', level: 3, numeration: '3.1' },
       ],
     },
     {
-      id: 'action-steps', title: '6 Action Steps Cook County Families Should Take Now', level: 2, numeration: '4',
+      id: 'federal-estate-tax', title: 'Federal Estate Tax: $15M Exemption Is Now Permanent', level: 2, numeration: '4',
+      children: [
+        { id: 'illinois-unchanged', title: 'Illinois Exemption Remains at $4M', level: 3, numeration: '4.1' },
+        { id: 'estate-tax-calculator', title: 'Interactive Illinois Estate Tax Calculator', level: 3, numeration: '4.2' },
+      ],
     },
     {
-      id: 'what-stays-the-same', title: 'What Has NOT Changed', level: 2, numeration: '5',
+      id: 'law-changes-overview', title: 'All Four Changes Side by Side', level: 2, numeration: '5',
     },
-    { id: 'faq', title: 'Frequently Asked Questions', level: 2, numeration: '6' },
+    {
+      id: 'action-steps', title: '6 Action Steps Cook County Families Should Take Now', level: 2, numeration: '6',
+    },
+    { id: 'faq', title: 'Frequently Asked Questions', level: 2, numeration: '7' },
   ];
 
   const actionSteps = [
     {
       step: '1',
-      title: 'Get Your Estate Valued',
-      description: 'Before anything else, get a realistic picture of your estate: home equity, retirement accounts, life insurance death benefits, business interests, and investment accounts. Many Cook County homeowners are surprised to find their estate exceeds $4 million once all assets are counted.',
-      icon: <Calculator className="w-6 h-6" />,
+      title: 'Understand Your Illinois Exposure — the $4M Exemption Has NOT Changed',
+      description: 'Many families have been told the Illinois estate tax exemption "doubled." It did not. The $4M limit has been in place since 2013. If your estate — including home equity, retirement accounts, life insurance death benefits, and investments — exceeds $4M, you still have an Illinois estate tax problem that needs active planning.',
+      icon: <AlertTriangle className="w-6 h-6" />,
     },
     {
       step: '2',
-      title: 'Review Existing Trust Documents for Outdated Tax Triggers',
-      description: 'If you have a revocable living trust with a credit shelter or bypass trust provision keyed to the old $2 million exemption, those provisions now activate at the wrong threshold. An attorney review can update the trigger or convert it to a more flexible formula clause.',
+      title: 'Review Trust Documents for Tax Trigger Provisions',
+      description: 'If you have a revocable living trust with a bypass trust provision, confirm what threshold triggers the split. If your plan was drafted around the old $2M federal exemption or in anticipation of a federal sunset, those provisions may no longer be optimally structured. The federal exemption is now $15M — but your Illinois bypass trust threshold should still be set appropriately.',
       icon: <FileText className="w-6 h-6" />,
     },
     {
       step: '3',
-      title: 'Update or Replace Older Powers of Attorney',
-      description: 'Documents drafted before 2022 likely lack digital asset authority and may use outdated gift-giving language. The updated Illinois statutory form is more protective — but it still must be executed correctly to be enforceable.',
+      title: 'Ensure Your Power of Attorney Uses the Current Statutory Form',
+      description: 'Public Act 103-0994 (effective January 1, 2025) strengthened third-party acceptance obligations. To maximize your agent\'s ability to use the POA without pushback from institutions, use the current Illinois statutory short-form. Your existing POA remains valid, but older documents may benefit from a review.',
       icon: <BookOpen className="w-6 h-6" />,
     },
     {
       step: '4',
-      title: 'Document Your Digital Assets',
-      description: 'Create a secure inventory of online accounts, cryptocurrency wallets, subscription services, and digital property. Provide your agent and executor with instructions — not just passwords, but the authority language in your legal documents to access these assets.',
-      icon: <Info className="w-6 h-6" />,
+      title: 'Check Whether a Small Estate Affidavit Could Simplify Estate Administration',
+      description: 'The new $150,000 limit (up from $100,000) and the exclusion of vehicles means more estates qualify to skip formal probate. If a loved one has passed with personal property under $150,000 and no individually held real estate, a Small Estate Affidavit may allow faster, less expensive asset transfer.',
+      icon: <CheckCircle className="w-6 h-6" />,
     },
     {
       step: '5',
-      title: 'Revisit Beneficiary Designations',
-      description: 'Retirement accounts, life insurance policies, and TOD designations pass outside your will and trust. If these designations are outdated (naming an ex-spouse, a deceased person, or a minor), no estate plan change will override them. Review them annually.',
-      icon: <CheckCircle className="w-6 h-6" />,
+      title: 'Revisit Any Urgent Federal Gifting Strategies You May Have Made',
+      description: 'Some families took aggressive gifting action in 2024–2025 to lock in the higher federal exemption before the anticipated sunset. Now that the $15M exemption is permanent, the urgency has passed — but it is worth reviewing whether the gifts and structures put in place still make sense for your overall plan.',
+      icon: <Calculator className="w-6 h-6" />,
     },
     {
       step: '6',
       title: 'Schedule a Formal Estate Plan Review',
-      description: 'Even if you think nothing applies to you, a 2026 review is worthwhile. Illinois law changes, family circumstances change, and asset values change. What was a solid plan in 2020 may have gaps today. An attorney review typically takes one meeting and may save your family significantly.',
+      description: 'The combination of federal permanence, an unchanged Illinois exemption, and new small estate and POA rules makes 2026 an ideal time for a full review. Confirm your beneficiary designations, update any digital asset provisions, and ensure your plan reflects both the new federal landscape and Illinois\'s ongoing $4M threshold.',
       icon: <ArrowRight className="w-6 h-6" />,
     },
   ];
-
-  const cookCountyProbateLink = '/blog/cook-county-probate-paperwork-every-form-one-bookmark-illinois-estate-law/';
 
   return (
     <div className="min-h-screen bg-white">
@@ -192,7 +194,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: 'Illinois Estate Planning Laws Changing in 2026: What Cook County Families Need to Know',
-            description: 'A comprehensive guide to the Illinois estate planning law changes taking effect in 2026, including the doubled estate tax exemption, power of attorney updates, digital asset access, and what Cook County families should do now.',
+            description: 'An accurate guide to Illinois estate planning law changes in 2025–2026, including the Small Estate Affidavit expansion to $150,000, Power of Attorney updates under Public Act 103-0994, and the permanent federal estate tax exemption of $15M — plus why the Illinois $4M exemption has NOT changed.',
             datePublished: '2026-03-26',
             dateModified: '2026-03-26',
             author: {
@@ -220,14 +222,14 @@ export default function IllinoisEstatePlanningLaws2026Page() {
           </Link>
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[#4a708b] text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Estate Planning</span>
-            <span className="bg-[#4a708b] text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">2026 Updates</span>
+            <span className="bg-[#4a708b] text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">2025–2026 Updates</span>
             <span className="bg-[#4a708b] text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Cook County</span>
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-            Illinois Estate Planning Laws Changing in 2026: What Cook County Families Need to Know
+            Illinois Estate Planning Laws Changing in 2025–2026: What Cook County Families Actually Need to Know
           </h1>
           <p className="text-gray-300 text-lg mb-6 max-w-3xl">
-            The estate tax exemption is doubling. Power of attorney rules are updated. Digital asset access is expanding. Here is what changed, what it means for your family, and what to do next.
+            The Small Estate Affidavit limit rose to $150,000. Power of attorney acceptance rules were strengthened. The federal exemption is now permanently $15M. And despite widespread claims — Illinois&apos;s $4M estate tax exemption has not changed.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
             <span>March 26, 2026</span>
@@ -246,7 +248,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               <TableOfContents items={tocItems} />
               <div className="bg-[#f0f5f8] rounded-xl p-5 border border-[#d0e4ef]">
                 <p className="font-semibold text-[#2D3E50] text-sm mb-2">Ready to update your plan?</p>
-                <p className="text-gray-600 text-xs mb-3">Schedule a consultation to review how 2026 changes affect your estate.</p>
+                <p className="text-gray-600 text-xs mb-3">Schedule a consultation to review how 2025–2026 changes affect your estate.</p>
                 <Link href="/book-consultation" className="block text-center bg-[#2D3E50] text-white text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#4a708b] transition-colors">
                   Book a Free Consultation
                 </Link>
@@ -256,89 +258,172 @@ export default function IllinoisEstatePlanningLaws2026Page() {
 
           <article className="flex-1 min-w-0">
             <section id="why-2026-matters" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">Why 2026 Is a Pivotal Year for Illinois Estates</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">What Actually Changed in Illinois Estate Law — and What Did Not</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                For Cook County families, 2026 brings the most significant changes to Illinois estate planning law in more than a decade. The centerpiece — a doubling of the state estate tax exemption from $2 million to $4 million — will eliminate the estate tax burden for thousands of families who had been caught in the middle: too wealthy to ignore the tax, not wealthy enough to absorb it.
+                There is a great deal of misinformation circulating about Illinois estate planning law for 2026. Most notably: several sources claim the Illinois estate tax exemption doubled to $4 million in 2026. This is incorrect. The Illinois estate tax exemption has been $4 million per person since 2013 — it did not change in 2026.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                But the exemption change is just one piece. Updates to the Illinois Power of Attorney Act, expanded fiduciary rights over digital assets, and new Cook County probate filing procedures all combine to create an environment where an outdated estate plan may actually work against your family — even if it was perfectly drafted five years ago.
+                What did change are three meaningful updates that Cook County families should understand: the Small Estate Affidavit threshold was raised to $150,000 (effective August 2025), Power of Attorney acceptance rules were significantly strengthened (effective January 2025), and the federal estate tax exemption was permanently raised to $15 million per person.
               </p>
               <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl mb-6">
                 <div className="flex items-start gap-3">
                   <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
                   <div>
-                    <p className="font-semibold text-amber-800 mb-1">Important Clarification</p>
+                    <p className="font-semibold text-amber-800 mb-1">A Common Misconception to Be Aware Of</p>
                     <p className="text-amber-700 text-sm">
-                      This article explains the law changes taking effect in 2026 and their practical implications. It does not constitute legal advice. Estate planning is highly individual — consult a qualified Illinois attorney for guidance specific to your situation.
+                      You may have read that Illinois raised its estate tax exemption to $4 million in 2026. In fact, the $4M threshold has been in place since 2013 and is unchanged. Several bills to raise or eliminate the Illinois exemption have been proposed (HB2601, HB1731, HB2368) but none have been signed into law as of 2026. This article reflects the law as it actually stands.
                     </p>
                   </div>
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                This guide walks through each change, who it affects, and what action Cook County families should take. We have also included an interactive tax impact calculator so you can see how the new exemption affects your estate specifically.
+                This guide covers each actual change, explains what remained the same, and provides a prioritized action list for Cook County families. We have also included an interactive Illinois estate tax calculator so you can assess your exposure under the current $4M threshold.
               </p>
             </section>
 
-            <section id="estate-tax-exemption-change" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">The Estate Tax Exemption Is Doubling</h2>
+            <section id="small-estate-affidavit" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">Small Estate Affidavit: New $150,000 Threshold (Effective August 15, 2025)</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Illinois has its own separate estate tax, entirely independent of the federal estate tax. Unlike many states that have eliminated their estate taxes, Illinois has maintained its tax since 2003. For years, the Illinois exemption sat at just $2 million — far lower than the federal exemption (currently $13.99 million) and lower than most neighboring states.
+                This is one of the most practically significant changes for Illinois families in recent years. Illinois Senate Bill SB0083, enacted August 15, 2025, amended the Probate Act of 1975 to raise the Small Estate Affidavit (SEA) limit from $100,000 to $150,000 for personal property.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Effective January 1, 2026, the Illinois estate tax exemption increases to $4 million per person. This is not an inflation adjustment — it is a deliberate policy change intended to reduce the burden on middle-market estates and closely held family businesses.
+                The Small Estate Affidavit allows a family member to transfer a decedent&apos;s assets — bank accounts, investment accounts, personal property — without opening a formal probate case in county court. The affiant signs under penalty of perjury before a notary and presents the document to financial institutions or the Secretary of State. It is faster, less expensive, and far less stressful than probate.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-red-50 border border-red-200 rounded-xl p-5">
-                  <p className="text-xs font-semibold text-red-500 uppercase tracking-wide mb-2">Before 2026</p>
-                  <p className="text-3xl font-bold text-red-700 mb-1">$2,000,000</p>
-                  <p className="text-sm text-red-600">Illinois estate tax exemption per person</p>
-                  <p className="text-xs text-gray-500 mt-2">Unchanged since 2012 — did not adjust for inflation</p>
+                  <p className="text-xs font-semibold text-red-500 uppercase tracking-wide mb-2">Before August 15, 2025</p>
+                  <p className="text-3xl font-bold text-red-700 mb-1">$100,000</p>
+                  <p className="text-sm text-red-600">Small Estate Affidavit limit (personal property)</p>
+                  <p className="text-xs text-gray-500 mt-2">Vehicles counted toward the limit — a single car could push an estate over the threshold</p>
                 </div>
                 <div className="bg-green-50 border border-green-200 rounded-xl p-5">
-                  <p className="text-xs font-semibold text-green-600 uppercase tracking-wide mb-2">2026 and Beyond</p>
-                  <p className="text-3xl font-bold text-green-700 mb-1">$4,000,000</p>
-                  <p className="text-sm text-green-600">Illinois estate tax exemption per person</p>
-                  <p className="text-xs text-gray-500 mt-2">Effective January 1, 2026 — a full $2M increase</p>
+                  <p className="text-xs font-semibold text-green-600 uppercase tracking-wide mb-2">As of August 15, 2025</p>
+                  <p className="text-3xl font-bold text-green-700 mb-1">$150,000</p>
+                  <p className="text-sm text-green-600">Small Estate Affidavit limit (personal property)</p>
+                  <p className="text-xs text-gray-500 mt-2">Vehicles excluded from the $150,000 calculation and transferred separately regardless of value</p>
                 </div>
               </div>
 
-              <div id="who-benefits" className="mb-8">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Who Benefits Most</h3>
+              <div id="vehicle-transfers" className="mb-8">
+                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Vehicles Now Excluded From the Limit</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  The families who benefit most from this change are those with estates in the $2 million to $4 million range — a group that is far more common in Cook County than many people assume. When you add together a Wilmette or Lincoln Park home, retirement accounts, life insurance death benefits, and investment portfolios, many families who think of themselves as comfortable — not wealthy — find themselves in this range.
+                  This is a significant change. Previously, vehicle values counted toward the $100,000 cap. With today&apos;s vehicle prices — a single late-model car may be worth $30,000–$60,000 — this regularly pushed estates over the threshold and forced families to open a formal probate case just to transfer a car.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Families with estates between $2M and $4M previously faced Illinois estate taxes ranging from approximately $100,000 to $250,000. Under the new law, those same estates owe zero. For a family where the estate is largely illiquid — tied up in a home or a small business — that difference was often devastating, forcing a rushed sale of property to pay the tax bill.
+                  Under the new law, vehicles are handled directly with the Illinois Secretary of State and do not count toward the $150,000 personal property limit. This is particularly beneficial for families where the decedent held vehicles in their individual name rather than in a trust.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Small business owners benefit particularly. If the enterprise value of a family business pushed the estate above $2 million, heirs frequently had to take distributions, sell equity, or take loans just to satisfy the tax. The doubled exemption provides meaningful relief.
-                </p>
-              </div>
-
-              <div id="married-couples" className="mb-8">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">The Married Couples Problem: No Portability</h3>
                 <div className="bg-blue-50 border-l-4 border-[#4a708b] p-4 rounded-r-xl mb-4">
-                  <p className="font-semibold text-[#2D3E50] mb-1">What is portability?</p>
+                  <p className="font-semibold text-[#2D3E50] mb-1 text-sm">Practical Example</p>
                   <p className="text-gray-700 text-sm">
-                    At the federal level, a surviving spouse can inherit their deceased spouse&apos;s unused estate tax exemption. Illinois does not have this feature. Each Illinois resident gets their own exemption — and if you do not plan correctly, the first spouse&apos;s exemption may be partially or entirely wasted.
+                    A Cook County resident passes away with $140,000 in bank and investment accounts, a $45,000 car, and no real estate in their individual name. Under the old law, the total ($185,000) exceeded the $100,000 cap and required formal probate. Under the new law, the vehicle is handled separately and the $140,000 in other assets falls under the $150,000 SEA limit — no probate required.
                   </p>
                 </div>
+              </div>
+
+              <div id="sea-limitations" className="mb-4">
+                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">What the Small Estate Affidavit Still Cannot Do</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  For married couples with combined estates over $4 million, the lack of portability in Illinois means that careful planning is still essential. A simple everything-to-my-spouse plan may preserve the estate intact for the survivor but leave the first spouse&apos;s $4 million exemption unused at death — resulting in a larger taxable estate later.
+                  The SEA expansion is meaningful, but it has firm limitations that families must understand:
+                </p>
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                  <ul className="space-y-2.5 text-sm text-gray-700">
+                    {[
+                      { label: 'Real estate still requires probate', desc: 'If the decedent owned any Illinois real estate in their individual name — regardless of value — a formal probate administration is required. A $150,000 estate with a condo still must go through probate.' },
+                      { label: 'Does not apply to deaths before August 15, 2025', desc: 'The new $150,000 limit and vehicle exclusion only apply to decedents who died on or after August 15, 2025.' },
+                      { label: 'Affidavit must be used carefully', desc: 'The affiant signs under penalty of perjury. Errors in listing debts, heirs, or asset values can create legal liability. An attorney should review the document before use.' },
+                      { label: 'Family disagreements require probate', desc: 'If heirs dispute asset distribution, the affidavit process breaks down and formal probate may be required anyway.' },
+                    ].map((item) => (
+                      <li key={item.label} className="flex items-start gap-2">
+                        <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-semibold text-[#2D3E50]">{item.label}: </span>
+                          <span className="text-gray-600">{item.desc}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="poa-changes" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">Power of Attorney Law Update: Public Act 103-0994 (Effective January 1, 2025)</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Governor Pritzker signed Illinois Public Act 103-0994 on August 9, 2024, amending the Illinois Power of Attorney Act with an effective date of January 1, 2025. The most impactful change: it is now unlawful for a third party — a bank, financial institution, or other organization — to unreasonably refuse to honor a properly executed Illinois statutory short-form power of attorney for property.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Before this law, financial institutions frequently rejected valid powers of attorney for vague or unstated reasons, leaving agents with few options and families scrambling. The amended Act changes the landscape by codifying exactly what constitutes an unreasonable refusal.
+              </p>
+
+              <div id="unreasonable-refusal" className="mb-8">
+                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">The Five Unreasonable Grounds for Refusing a POA</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  The law specifies that the following are unreasonable grounds to refuse a properly executed POA:
+                </p>
+                <div className="space-y-3 mb-6">
+                  {[
+                    'The POA was not prepared on the institution\'s own form',
+                    'The POA was executed more than a certain number of years before presentment (age alone is not a valid reason)',
+                    'The institution requires its own certification form to be completed instead of accepting the agent\'s certification',
+                    'The institution has concerns about liability for honoring the POA (absent specific red flags)',
+                    'The institution is uncertain whether the principal is still alive or competent (without specific contrary evidence)',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 bg-red-50 border border-red-100 rounded-lg p-3">
+                      <span className="w-6 h-6 rounded-full bg-red-200 text-red-700 flex items-center justify-center text-xs font-bold shrink-0">{i + 1}</span>
+                      <p className="text-gray-700 text-sm">{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="bg-blue-50 border-l-4 border-[#4a708b] p-4 rounded-r-xl mb-4">
+                  <p className="font-semibold text-[#2D3E50] mb-1 text-sm">Important Nuance</p>
+                  <p className="text-gray-700 text-sm">
+                    The law also codifies 14 <em>reasonable</em> grounds for refusal — meaning institutions retain legitimate defenses. The amendment is not a blanket mandate to accept every document; it targets the common, bad-faith rejections that previously left agents powerless. Your existing POA documents remain valid. The change addresses how third parties must respond to them.
+                  </p>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  For more context on why powers of attorney matter and what they should include, see our guide:{' '}
+                  <Link href="/blog/do-you-really-need-a-power-of-attorney-in-illinois/" className="text-[#4a708b] hover:underline font-medium">
+                    Do You Really Need a Power of Attorney in Illinois?
+                  </Link>
+                </p>
+              </div>
+            </section>
+
+            <section id="federal-estate-tax" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">Federal Estate Tax: The $15M Exemption Is Now Permanent</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                For years, federal estate tax planning was dominated by uncertainty: the Tax Cuts and Jobs Act of 2017 temporarily doubled the federal estate and gift tax exemption, but those provisions were scheduled to sunset on January 1, 2026 — reverting the exemption to roughly $7 million per person.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                That sunset did not happen. The One Big Beautiful Bill Act, signed on July 4, 2025, permanently raised the federal estate and gift tax exemption to $15 million per person starting January 1, 2026, indexed for inflation. The $15 million figure supersedes the prior TCJA amount and is now a permanent baseline rather than a temporary one.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                This matters particularly for families who undertook significant gifting in 2024–2025 specifically to take advantage of the higher TCJA exemption before an anticipated rollback. Those strategies may warrant a review — not because they were wrong, but because the urgency that drove them has changed.
+              </p>
+
+              <div id="illinois-unchanged" className="mb-8">
+                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">The Illinois Exemption Remains at $4M — Federal Changes Do Not Help Here</h3>
+                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl mb-4">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
+                    <p className="text-amber-700 text-sm">
+                      The federal and Illinois estate taxes are entirely separate systems. The permanent federal $15M exemption provides zero protection against Illinois estate tax. Illinois residents must plan for both — and the Illinois $4M threshold remains a real exposure for many Cook County families.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Illinois imposes its own estate tax on estates exceeding $4 million — a threshold it has maintained since 2013 with no inflation adjustments. Unlike the federal tax, Illinois does not offer portability between spouses. The top Illinois rate is 16%.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Traditional solutions include a bypass trust (also called a credit shelter trust), a qualified disclaimer strategy, or other planning techniques. The higher exemption changes the math — but it does not eliminate the need to plan. A couple with a $6 million combined estate still needs to think carefully about how the exemptions are used. Learn more about these strategies in our guide on{' '}
-                  <Link href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/" className="text-[#4a708b] hover:underline font-medium">
-                    revocable living trusts in Illinois
-                  </Link>.
+                  For a Cook County homeowner with $1.2M in home equity, $1.8M in retirement accounts, $600K in life insurance, and $500K in other assets, the total is $4.1M — above the threshold and exposed to Illinois estate tax despite being well under the federal exemption. This is not a hypothetical. It describes a large number of ordinary Cook County families.
                 </p>
               </div>
 
               <div id="estate-tax-calculator" className="mb-4">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Interactive Estate Tax Impact Calculator</h3>
+                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Interactive Illinois Estate Tax Calculator</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Use the tool below to estimate how the new $4 million exemption affects your estate. Enter your estimated gross estate value (include home equity, retirement accounts, life insurance death benefits, and investments).
+                  Enter your estimated gross estate value to see your Illinois estate tax exposure under the current $4 million exemption. Include home equity, retirement accounts, life insurance death benefits, and investments.
                 </p>
                 <div className="bg-[#f5f9fc] border border-[#d0e4ef] rounded-xl p-6">
                   <p className="text-xs text-gray-500 mb-3 italic">This is an educational estimate only. Actual tax calculations require professional analysis.</p>
@@ -349,7 +434,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                         type="text"
                         value={estateValue}
                         onChange={(e) => setEstateValue(e.target.value)}
-                        placeholder="e.g. 3500000"
+                        placeholder="e.g. 4500000"
                         className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#4a708b]"
                       />
                     </div>
@@ -368,30 +453,27 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                         <div>
                           <div className="flex items-center gap-2 mb-2">
                             <CheckCircle className="w-5 h-5 text-green-600" />
-                            <p className="font-bold text-green-700">Exempt Under 2026 Law</p>
+                            <p className="font-bold text-green-700">Currently Below the Illinois $4M Threshold</p>
                           </div>
                           <p className="text-green-700 text-sm">
                             Your estimated estate of{' '}
                             <strong>{formatCurrency(parseFloat(estateValue.replace(/[^0-9.]/g, '')))}</strong>{' '}
-                            falls below the new $4 million exemption. Under 2026 law, this estate would owe <strong>$0 in Illinois estate tax</strong>.
+                            falls below the $4 million Illinois exemption. No Illinois estate tax would currently apply. However, asset values change — a review every few years is worthwhile.
                           </p>
-                          {parseFloat(estateValue.replace(/[^0-9.]/g, '')) > 2000000 && (
-                            <p className="text-green-600 text-xs mt-2 font-medium">Under the prior $2M exemption, this estate would have owed an estimated Illinois estate tax. The 2026 change eliminates that obligation.</p>
-                          )}
                         </div>
                       ) : (
                         <div>
                           <div className="flex items-center gap-2 mb-2">
                             <AlertTriangle className="w-5 h-5 text-red-600" />
-                            <p className="font-bold text-red-700">Estate Tax May Apply</p>
+                            <p className="font-bold text-red-700">Illinois Estate Tax May Apply</p>
                           </div>
                           <p className="text-red-700 text-sm mb-2">
                             Your estimated estate of{' '}
                             <strong>{formatCurrency(parseFloat(estateValue.replace(/[^0-9.]/g, '')))}</strong>{' '}
-                            exceeds the $4 million exemption. Estimated Illinois estate tax:{' '}
+                            exceeds the $4 million Illinois exemption. Estimated Illinois estate tax:{' '}
                             <strong>{formatCurrency(calculatorResult.estimatedTax)}</strong>.
                           </p>
-                          <p className="text-red-600 text-xs">This is an approximation using Illinois&apos;s graduated rate structure. Actual liability depends on deductions, business valuations, and other factors. Contact an attorney for a precise analysis.</p>
+                          <p className="text-red-600 text-xs">This is an approximation using Illinois&apos;s graduated rate structure (up to 16%). Actual liability depends on deductions, marital deductions, business valuations, and other factors. Contact an attorney for precise analysis.</p>
                         </div>
                       )}
                     </div>
@@ -401,7 +483,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section id="law-changes-overview" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">All Four Major Law Changes Explained</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">All Four Changes Side by Side</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Select each change below to see the old rule, the new rule, and what action you should take.
               </p>
@@ -429,7 +511,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                     <p className="text-gray-700 text-sm">{activeChangeData.oldRule}</p>
                   </div>
                   <div className="bg-green-50 rounded-lg p-4">
-                    <p className="text-xs font-semibold text-green-600 uppercase tracking-wide mb-2">New Rule (2026)</p>
+                    <p className="text-xs font-semibold text-green-600 uppercase tracking-wide mb-2">New Rule</p>
                     <p className="text-gray-700 text-sm">{activeChangeData.newRule}</p>
                   </div>
                 </div>
@@ -444,69 +526,12 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                   </div>
                 </div>
               </div>
-
-              <div id="poa-updates" className="mt-10">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Power of Attorney Updates in Depth</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Illinois updated its Power of Attorney Act in part to address a persistent problem: agents misusing their authority, particularly around gifts. Under the updated statutory form, an agent&apos;s authority to make gifts — to themselves or others — is more tightly defined and requires explicit authorization.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  If you are concerned about an agent&apos;s authority over your finances, the updated form allows you to specify dollar limits, require co-agent approval, and restrict certain transactions. These are protections the old form did not offer as clearly.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  For more on why powers of attorney matter and what they should include, see our guide:{' '}
-                  <Link href="/blog/do-you-really-need-a-power-of-attorney-in-illinois/" className="text-[#4a708b] hover:underline font-medium">
-                    Do You Really Need a Power of Attorney in Illinois?
-                  </Link>
-                </p>
-              </div>
-
-              <div id="digital-assets-update" className="mt-8">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Digital Asset Access: A Growing Concern</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Illinois adopted the Revised Uniform Fiduciary Access to Digital Assets Act (RUFADAA) in 2016, giving fiduciaries limited rights to access digital accounts. The 2026 updates strengthen those rights and clarify the obligations of platform providers to honor fiduciary requests.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  In practical terms: if you own cryptocurrency, have significant funds in digital payment apps, maintain valuable online accounts (streaming subscriptions, loyalty points, domain names, online businesses), or store important documents in the cloud, your estate plan needs to address these assets explicitly. Without proper planning, even a willing executor may find themselves locked out.
-                </p>
-                <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                  <p className="font-semibold text-[#2D3E50] mb-2 text-sm">Digital Assets Your Estate Plan Should Address</p>
-                  <ul className="grid sm:grid-cols-2 gap-1.5 text-sm text-gray-600">
-                    {['Cryptocurrency and digital wallets', 'Online investment and brokerage accounts', 'Email and cloud storage accounts', 'Social media accounts', 'Online business platforms', 'Loyalty and reward points', 'Domain names and websites', 'Digital media libraries (music, books, film)'].map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div id="cook-county-probate" className="mt-8">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Cook County Probate: What Has Changed Procedurally</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Cook County&apos;s Probate Division has updated filing procedures, fee schedules, and form requirements. While the $100,000 small estate affidavit threshold remains in place under Illinois statute, the administrative process — including required attachments, court filing fees, and processing timelines — has changed.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  For estates above the threshold, the formal probate process in Cook County now involves updated inventory forms and a revised approach to notice requirements for certain creditors. These are procedural updates, not substantive law changes, but they matter if you are currently administering an estate or preparing documents in advance.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  For a comprehensive overview of when probate is required and how Cook County handles the process, see:{' '}
-                  <Link href="/blog/when-is-probate-required-in-illinois/" className="text-[#4a708b] hover:underline font-medium">
-                    When Is Probate Required in Illinois?
-                  </Link>{' '}
-                  and{' '}
-                  <Link href={cookCountyProbateLink} className="text-[#4a708b] hover:underline font-medium">
-                    Cook County Probate Paperwork: Every Form, One Bookmark
-                  </Link>.
-                </p>
-              </div>
             </section>
 
             <section id="action-steps" className="mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">6 Action Steps Cook County Families Should Take Now</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Knowing the law changed is not enough. The benefit only materializes if your estate plan reflects the new rules. Here is a prioritized action list for Cook County families in 2026.
+                The law has changed in meaningful ways — and in one critical way it has not. Here is a prioritized list of what Cook County families should do in 2026.
               </p>
               <div className="space-y-4">
                 {actionSteps.map((step) => (
@@ -523,41 +548,10 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               </div>
             </section>
 
-            <section id="what-stays-the-same" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">What Has NOT Changed</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Amid the changes, it is equally important to understand what remains constant — because misunderstanding the scope of 2026 changes can lead to unnecessary panic or, conversely, unwarranted complacency.
-              </p>
-              <div className="grid md:grid-cols-2 gap-4 mb-6">
-                {[
-                  { title: 'Wills still require proper execution', desc: 'Two adult witnesses and a testator signature are still required for a valid Illinois will. No shortcuts.' },
-                  { title: 'Revocable trusts avoid probate', desc: 'A properly funded revocable living trust still passes assets to beneficiaries outside of probate — this benefit is unchanged.' },
-                  { title: 'Intestate succession rules', desc: 'If you die without a will, Illinois intestate succession law distributes your assets on a fixed statutory formula. No 2026 updates to this.' },
-                  { title: 'Beneficiary designations override wills', desc: 'Retirement accounts and life insurance still pass by beneficiary designation, not under your will or trust.' },
-                  { title: 'Healthcare directives remain critical', desc: 'Living wills and healthcare powers of attorney govern end-of-life decisions. The 2026 updates do not change these requirements.' },
-                  { title: 'No Illinois inheritance tax', desc: 'Illinois has an estate tax (paid by the estate) but no inheritance tax (paid by heirs). This has not changed.' },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-semibold text-[#2D3E50] text-sm mb-0.5">{item.title}</p>
-                      <p className="text-gray-600 text-xs leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-gray-700 leading-relaxed">
-                If your estate plan does not currently include a will, a revocable trust, durable power of attorney, and healthcare directive, those gaps are more urgent than any 2026 update. A comprehensive estate plan covering all four documents remains the gold standard. Learn what a complete plan looks like:{' '}
-                <Link href="/blog/what-is-a-simple-estate-plan-in-chicago-illinois/" className="text-[#4a708b] hover:underline font-medium">
-                  What Is a Simple Estate Plan in Chicago, Illinois?
-                </Link>
-              </p>
-            </section>
-
             <section className="mb-12 bg-[#2D3E50] rounded-2xl p-8 text-white">
-              <h2 className="text-2xl font-bold mb-3">Is Your Estate Plan Ready for 2026?</h2>
+              <h2 className="text-2xl font-bold mb-3">Is Your Estate Plan Accurate for 2026?</h2>
               <p className="text-gray-300 mb-6 max-w-2xl">
-                Whether your estate is newly exempt under the $4 million threshold or you need to update trust provisions that reference the old limit, 2026 is the year to take action. Our Cook County estate planning attorneys can review your existing documents and identify what needs to change.
+                The Illinois estate tax threshold has not changed — but misinformation is widespread. Whether you need to plan around the $4M Illinois exemption, take advantage of the new SEA rules, or review your POA after the 2025 statutory update, our Cook County attorneys can review your existing documents and identify what actually needs to change.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/book-consultation" className="bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-center text-sm">
@@ -604,7 +598,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                   { href: '/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/', label: 'Revocable Living Trusts: Pros and Cons' },
                   { href: '/blog/when-is-probate-required-in-illinois/', label: 'When Is Probate Required in Illinois?' },
                   { href: '/blog/7-overlooked-steps-that-make-or-break-an-illinois-estate-plan/', label: '7 Overlooked Steps in an Illinois Estate Plan' },
-                  { href: '/blog/estate-planning-for-blended-families-in-illinois-8-mistakes-that-break-hearts-and-budgets/', label: 'Estate Planning for Blended Families' },
+                  { href: '/blog/do-you-really-need-a-power-of-attorney-in-illinois/', label: 'Do You Really Need a Power of Attorney in Illinois?' },
                   { href: '/blog/what-happens-if-you-become-incapacitated-without-a-plan-in-illinois/', label: 'What Happens Without an Incapacity Plan' },
                 ].map((link) => (
                   <Link
