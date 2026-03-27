@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'what-is-a-surety-bond-in-illinois-probate',
+    title: 'What Is a Surety Bond in Illinois Probate? When It\'s Required & What It Costs',
+    url: '/blog/what-is-a-surety-bond-in-illinois-probate/',
+    date: 'Mar 27, 2026',
+    summary: 'Complete guide to surety bonds in Illinois probate. Learn what a surety bond is, when Illinois courts require one, how much it costs, and how executors can avoid the requirement. Includes interactive bond cost calculator and real-world scenarios.',
+    excerpt: 'Understand surety bonds in Illinois probate: when they\'re required, what they cost, and how a bond waiver clause in your will can save your estate thousands.',
+  },
+  {
     slug: 'how-much-does-probate-cost-in-illinois',
     title: 'How Much Does Probate Cost in Illinois? (Cook County, DuPage & Kane)',
     url: '/blog/how-much-does-probate-cost-in-illinois/',
