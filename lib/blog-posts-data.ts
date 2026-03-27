@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-much-does-probate-cost-in-illinois',
+    title: 'How Much Does Probate Cost in Illinois? (Cook County, DuPage & Kane)',
+    url: '/blog/how-much-does-probate-cost-in-illinois/',
+    date: 'Mar 27, 2026',
+    summary: 'Detailed breakdown of probate costs in Illinois for Cook County, DuPage County, and Kane County. Covers court filing fees, attorney fees (hourly vs. flat fee), executor compensation, hidden costs, and includes an interactive cost calculator to estimate your total.',
+    excerpt: 'Discover what probate really costs in Illinois with our county-by-county breakdown, interactive calculator, and comparison of hourly vs. flat-fee attorney billing.',
+  },
+  {
     slug: 'illinois-estate-planning-laws-changing-2026-cook-county-families',
     title: 'Illinois Estate Planning Laws Changing in 2026: What Cook County Families Need to Know',
     url: '/blog/illinois-estate-planning-laws-changing-2026-cook-county-families/',
