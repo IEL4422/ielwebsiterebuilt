@@ -2,10 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Heart, Users, Shield, TriangleAlert as AlertTriangle, ChevronDown, ChevronUp, CircleCheck as CheckCircle2, Circle as XCircle, FileText, Scale } from 'lucide-react';
 import TableOfContents from '@/components/blog/TableOfContents';
-import BlogSummary from '@/components/blog/BlogSummary';
 import BlogNavigation from '@/components/blog/BlogNavigation';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import BlogContactForm from '@/components/blog/BlogContactForm';
@@ -21,92 +19,52 @@ export default function Page() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   const tocItems = [
-    {
-      id: 'article-summary',
-      title: 'Article Summary',
-      level: 2,
-      numeration: '1',
-    },
-    {
-      id: 'understanding-blended-family-challenges',
-      title: 'Understanding Blended Family Challenges',
-      level: 2,
-      numeration: '2',
-    },
-    {
-      id: 'relying-on-the-i-love-you-will',
-      title: '3. Relying on the "I Love You" Will',
-      level: 2,
-      numeration: '3',
-    },
-    {
-      id: 'ignoring-the-illinois-elective-share-law',
-      title: '4. Ignoring the Illinois Elective-Share Law',
-      level: 2,
-      numeration: '4',
-    },
-    {
-      id: 'joint-tenancy-gone-wrong',
-      title: '5. Joint Tenancy Gone Wrong',
-      level: 2,
-      numeration: '5',
-    },
-    {
-      id: 'forgetting-ex-spouse-beneficiary-designations',
-      title: '6. Forgetting Ex-Spouse Beneficiary Designations',
-      level: 2,
-      numeration: '6',
-    },
-    {
-      id: 'unequal-gifts-that-trigger-illinois-estate-tax',
-      title: '7. Unequal Gifts That Trigger Illinois Estate Tax',
-      level: 2,
-      numeration: '7',
-    },
-    {
-      id: 'skipping-a-stand-alone-special-needs-trust',
-      title: '8. Skipping a Stand-Alone Special-Needs Trust',
-      level: 2,
-      numeration: '8',
-    },
-    {
-      id: 'no-clear-guardianship-plan-for-minor-step-children',
-      title: '9. No Clear Guardianship Plan for Minor Step-Children',
-      level: 2,
-      numeration: '9',
-    },
-    {
-      id: 'diy-documents-that-ignore-independent-administration',
-      title: '10. DIY Documents That Ignore Independent Administration',
-      level: 2,
-      numeration: '10',
-    },
-    {
-      id: 'frequently-asked-questions',
-      title: 'Frequently Asked Questions for Blended Families',
-      level: 2,
-      numeration: '11',
-    },
+    { id: 'article-summary', title: 'Article Summary', level: 2, numeration: '1' },
+    { id: 'understanding-blended-family-challenges', title: 'Understanding Blended Family Challenges', level: 2, numeration: '2' },
+    { id: 'relying-on-the-i-love-you-will', title: '3. Relying on the "I Love You" Will', level: 2, numeration: '3' },
+    { id: 'ignoring-the-illinois-elective-share-law', title: '4. Ignoring the Illinois Elective-Share Law', level: 2, numeration: '4' },
+    { id: 'joint-tenancy-gone-wrong', title: '5. Joint Tenancy Gone Wrong', level: 2, numeration: '5' },
+    { id: 'forgetting-ex-spouse-beneficiary-designations', title: '6. Forgetting Ex-Spouse Beneficiary Designations', level: 2, numeration: '6' },
+    { id: 'unequal-gifts-that-trigger-illinois-estate-tax', title: '7. Unequal Gifts That Trigger Illinois Estate Tax', level: 2, numeration: '7' },
+    { id: 'skipping-a-stand-alone-special-needs-trust', title: '8. Skipping a Stand-Alone Special-Needs Trust', level: 2, numeration: '8' },
+    { id: 'no-clear-guardianship-plan-for-minor-step-children', title: '9. No Clear Guardianship Plan for Minor Step-Children', level: 2, numeration: '9' },
+    { id: 'diy-documents-that-ignore-independent-administration', title: '10. DIY Documents That Ignore Independent Administration', level: 2, numeration: '10' },
+    { id: 'frequently-asked-questions', title: 'Frequently Asked Questions for Blended Families', level: 2, numeration: '11' },
     {
       id: 'putting-it-all-together',
       title: 'Putting It All Together',
       level: 2,
       numeration: '12',
-      children: [
-        {
-          id: 'next-steps',
-          title: 'Next Steps',
-          level: 3,
-          numeration: '12.1',
-        },
-      ],
+      children: [{ id: 'next-steps', title: 'Next Steps', level: 3, numeration: '12.1' }],
+    },
+  ];
+
+  const faqs = [
+    {
+      question: "Should I leave everything to my new spouse or divide assets between spouse and children?",
+      answer: "This is the central dilemma of blended family planning. Leaving everything to your spouse provides maximum flexibility and support for their lifetime, but offers no guarantee your children from a prior marriage will receive anything. Your spouse could remarry, change their will, or face creditor claims that deplete the inheritance. Instead, consider a QTIP (Qualified Terminable Interest Property) trust structure. This gives your spouse lifetime income and use of assets while preserving the principal for your children. The trust balance goes to your children after your spouse passes, protecting both generations. The specific allocation depends on your spouse's financial needs, your children's ages and circumstances, and the total estate value. Many Illinois blended families split assets 50-50 between marital and family shares, but your attorney can help you determine the right balance for your situation.",
+    },
+    {
+      question: "How can I ensure my children receive their inheritance if I die first?",
+      answer: "Without specific protections, you cannot guarantee your children will inherit if you die first and leave everything to your spouse. Your spouse owns those assets outright and can do whatever they want with them—including disinheriting your children intentionally or accidentally. The most effective protection is placing assets in an irrevocable trust or QTIP trust that specifies your children as remainder beneficiaries. Your spouse receives lifetime benefits, but cannot change the ultimate distribution. For retirement accounts and life insurance, name your children as beneficiaries directly rather than naming your spouse. For real estate, consider a marital residence trust that gives your spouse lifetime occupancy while preserving ownership for your children. Document your wishes clearly in writing and choose a trustee who will follow your instructions after you're gone, not your spouse.",
+    },
+    {
+      question: "What if my current spouse and children from my first marriage don't get along?",
+      answer: "Strained relationships make comprehensive planning even more critical. Without careful structuring, conflict turns into litigation after your death. First, use separate, independent trustees rather than naming your spouse as trustee for trusts benefiting your children. This removes conflicts of interest and reduces opportunities for disputes. Second, build in clear distribution formulas rather than leaving discretion to trustees. Specify percentages, amounts, or objective criteria rather than subjective terms like \"reasonable\" or \"as needed.\" Third, include a no-contest clause that disinherits anyone who challenges your plan in court. Fourth, consider including mediation requirements before litigation is allowed. Finally, communicate your plan to all parties while you're alive. Surprises after death fuel conflict; advance knowledge, even if unpleasant, reduces litigation.",
+    },
+    {
+      question: "Do I need to treat all children equally in my estate plan?",
+      answer: "Illinois law does not require equal treatment of all children in your estate plan. You can leave different amounts to different children based on their needs, your relationship, or any other factors you choose. However, unequal distributions in blended families require especially careful documentation. If you leave more to biological children than step-children, or vice versa, clearly state your reasons in your estate planning documents. This helps prevent will contests based on claims of undue influence or lack of capacity. Consider factors like age differences, financial needs, disabilities, education already provided, and gifts received during life. Many blended families equalize distributions by using life insurance—perhaps leaving the home to your spouse, investment accounts to biological children, and insurance proceeds to step-children.",
+    },
+    {
+      question: "How often should I update my estate plan in a blended family?",
+      answer: "Blended families need more frequent updates than traditional families. Review your plan annually and update immediately after major life events: remarriage, birth or adoption of children, divorce, death of a beneficiary, significant change in assets or liabilities, change in relationship with children or spouse, or change in Illinois estate tax law. At minimum, schedule a full review every three years with your estate planning attorney. Between reviews, check beneficiary designations on life insurance, retirement accounts, and payable-on-death accounts annually—these often override your will and trust. Pay special attention after any family conflict or estrangement, as these situations may require immediate plan revisions.",
     },
   ];
 
   return (
     <>
       <div className="min-h-screen bg-white">
-        {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
@@ -121,13 +79,12 @@ export default function Page() {
                 <time className="text-white/90 text-sm font-['Plus_Jakarta_Sans']">Jul 1, 2025</time>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white font-['Plus_Jakarta_Sans']">
-                Estate Planning for Blended Families in Illinois: 8 Mistakes That Break Hearts—And Budgets
+                Estate Planning for Blended Families in Illinois: 8 Mistakes That Break Hearts and Budgets
               </h1>
             </div>
           </div>
         </section>
 
-        {/* Content Container */}
         <div className="max-w-[1240px] mx-auto px-5 py-12">
           <article className="prose prose-lg max-w-none">
             <TableOfContents items={tocItems} />
@@ -170,9 +127,7 @@ export default function Page() {
                 <button
                   onClick={() => setActiveTab('traditional')}
                   className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap ${
-                    activeTab === 'traditional'
-                      ? 'bg-[#4a708b] text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
+                    activeTab === 'traditional' ? 'bg-[#4a708b] text-white' : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -183,9 +138,7 @@ export default function Page() {
                 <button
                   onClick={() => setActiveTab('blended')}
                   className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap ${
-                    activeTab === 'blended'
-                      ? 'bg-[#4a708b] text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
+                    activeTab === 'blended' ? 'bg-[#4a708b] text-white' : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -196,9 +149,7 @@ export default function Page() {
                 <button
                   onClick={() => setActiveTab('comparison')}
                   className={`flex-1 px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap ${
-                    activeTab === 'comparison'
-                      ? 'bg-[#4a708b] text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
+                    activeTab === 'comparison' ? 'bg-[#4a708b] text-white' : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -228,7 +179,7 @@ export default function Page() {
                           Unified Goals
                         </h4>
                         <p className="text-gray-700 text-sm">
-                          Estate planning focuses on minimizing taxes and avoiding probate. No competing interests between spouse and children. Simple distribution: everything to spouse, then equally to all children. No concerns about biological vs. step relationships.
+                          Estate planning focuses on minimizing taxes and avoiding probate. No competing interests between spouse and children. Simple distribution: everything to spouse, then equally to all children.
                         </p>
                       </div>
                       <div className="bg-green-50 p-4 rounded-lg">
@@ -254,7 +205,7 @@ export default function Page() {
                           Complex Relationships
                         </h4>
                         <p className="text-gray-700 text-sm">
-                          Multiple sets of children from different marriages. Biological children may have different interests than step-children. Current spouse vs. children from prior marriage creates inherent tension. Ex-spouses may still have claims or influence through children.
+                          Multiple sets of children from different marriages. Biological children may have different interests than step-children. Current spouse vs. children from prior marriage creates inherent tension.
                         </p>
                       </div>
                       <div className="bg-amber-50 p-4 rounded-lg">
@@ -263,7 +214,7 @@ export default function Page() {
                           Competing Interests
                         </h4>
                         <p className="text-gray-700 text-sm">
-                          Need to provide for current spouse while protecting inheritance for children from prior marriage. Children may fear being disinherited if surviving spouse remarries or changes plans. Step-children may have no legal claim but moral entitlement. Unequal relationships require careful balancing of fairness and legality.
+                          Need to provide for current spouse while protecting inheritance for children from prior marriage. Children may fear being disinherited if surviving spouse remarries or changes plans.
                         </p>
                       </div>
                       <div className="bg-amber-50 p-4 rounded-lg">
@@ -272,7 +223,7 @@ export default function Page() {
                           Specialized Solutions
                         </h4>
                         <p className="text-gray-700 text-sm">
-                          QTIP trusts to balance spouse support with children&apos;s inheritance. Separate family and marital shares in trust structure. Specific beneficiary coordination for insurance and retirement accounts. Clear guardianship provisions for minor children. Independent administration language to prevent court battles. Regular updates as family dynamics change.
+                          QTIP trusts to balance spouse support with children&apos;s inheritance. Separate family and marital shares in trust structure. Specific beneficiary coordination for insurance and retirement accounts.
                         </p>
                       </div>
                     </div>
@@ -331,7 +282,7 @@ export default function Page() {
                 <div>
                   <p className="font-semibold mb-2">Critical Warning for Blended Families</p>
                   <p className="mb-0 text-gray-700">
-                    Using traditional estate planning documents designed for nuclear families is one of the most dangerous mistakes blended families make. These documents create the illusion of protection while actually setting up your family for conflict, disinheritance, and expensive litigation. Every blended family needs specialized planning tailored to their unique relationships and goals.
+                    Using traditional estate planning documents designed for nuclear families is one of the most dangerous mistakes blended families make. These documents create the illusion of protection while actually setting up your family for conflict, disinheritance, and expensive litigation.
                   </p>
                 </div>
               </div>
@@ -366,7 +317,7 @@ export default function Page() {
             </h3>
 
             <p className="mb-6">
-              Many couples add a new spouse to the home&apos;s deed as <strong>joint tenants with right of survivorship</strong>—a default &quot;all to you&quot; plan. Great for simplicity, terrible for children who grew up in that house. Once the surviving spouse owns 100 %, they can sell, refinance, or leave it solely to their own heirs.
+              Many couples add a new spouse to the home&apos;s deed as <strong>joint tenants with right of survivorship</strong>—a default &quot;all to you&quot; plan. Great for simplicity, terrible for children who grew up in that house. Once the surviving spouse owns 100%, they can sell, refinance, or leave it solely to their own heirs.
             </p>
 
             <p className="mb-6">
@@ -390,7 +341,7 @@ export default function Page() {
             </h3>
 
             <p className="mb-6">
-              Blended families often equalize inheritances with insurance—e.g., policy to new spouse, investments to kids. But when total assets exceed <strong>$4 million</strong>, Illinois estate tax kicks in quickly. Every dollar over the exemption is taxed on a sliding scale up to 16 %.
+              Blended families often equalize inheritances with insurance—e.g., policy to new spouse, investments to kids. But when total assets exceed <strong>$4 million</strong>, Illinois estate tax kicks in quickly. Every dollar over the exemption is taxed on a sliding scale up to 16%.
             </p>
 
             <p className="mb-6">
@@ -442,28 +393,7 @@ export default function Page() {
             </p>
 
             <div className="space-y-4 my-8">
-              {[
-                {
-                  question: "Should I leave everything to my new spouse or divide assets between spouse and children?",
-                  answer: "This is the central dilemma of blended family planning. Leaving everything to your spouse provides maximum flexibility and support for their lifetime, but offers no guarantee your children from a prior marriage will receive anything. Your spouse could remarry, change their will, or face creditor claims that deplete the inheritance. Instead, consider a QTIP (Qualified Terminable Interest Property) trust structure. This gives your spouse lifetime income and use of assets while preserving the principal for your children. The trust balance goes to your children after your spouse passes, protecting both generations. The specific allocation depends on your spouse's financial needs, your children's ages and circumstances, and the total estate value. Many Illinois blended families split assets 50-50 between marital and family shares, but your attorney can help you determine the right balance for your situation."
-                },
-                {
-                  question: "How can I ensure my children receive their inheritance if I die first?",
-                  answer: "Without specific protections, you cannot guarantee your children will inherit if you die first and leave everything to your spouse. Your spouse owns those assets outright and can do whatever they want with them—including disinheriting your children intentionally or accidentally. The most effective protection is placing assets in an irrevocable trust or QTIP trust that specifies your children as remainder beneficiaries. Your spouse receives lifetime benefits, but cannot change the ultimate distribution. For retirement accounts and life insurance, name your children as beneficiaries directly rather than naming your spouse. For real estate, consider a marital residence trust that gives your spouse lifetime occupancy while preserving ownership for your children. Document your wishes clearly in writing and choose a trustee who will follow your instructions after you're gone, not your spouse."
-                },
-                {
-                  question: "What if my current spouse and children from my first marriage don't get along?",
-                  answer: "Strained relationships make comprehensive planning even more critical. Without careful structuring, conflict turns into litigation after your death. First, use separate, independent trustees rather than naming your spouse as trustee for trusts benefiting your children. This removes conflicts of interest and reduces opportunities for disputes. Second, build in clear distribution formulas rather than leaving discretion to trustees. Specify percentages, amounts, or objective criteria rather than subjective terms like \"reasonable\" or \"as needed.\" Third, include a no-contest clause that disinherits anyone who challenges your plan in court. Fourth, consider including mediation requirements before litigation is allowed. Finally, communicate your plan to all parties while you're alive. Surprises after death fuel conflict; advance knowledge, even if unpleasant, reduces litigation. Your attorney can structure the plan to minimize contact between feuding parties while still accomplishing your goals."
-                },
-                {
-                  question: "Do I need to treat all children equally in my estate plan?",
-                  answer: "Illinois law does not require equal treatment of all children in your estate plan. You can leave different amounts to different children based on their needs, your relationship, or any other factors you choose. However, unequal distributions in blended families require especially careful documentation. If you leave more to biological children than step-children, or vice versa, clearly state your reasons in your estate planning documents. This helps prevent will contests based on claims of undue influence or lack of capacity. Consider factors like age differences, financial needs, disabilities, education already provided, and gifts received during life. Many blended families equalize distributions by using life insurance—perhaps leaving the home to your spouse, investment accounts to biological children, and insurance proceeds to step-children. The key is intentional planning that reflects your values while minimizing the appearance of favoritism or neglect that could fuel litigation."
-                },
-                {
-                  question: "How often should I update my estate plan in a blended family?",
-                  answer: "Blended families need more frequent updates than traditional families. Review your plan annually and update immediately after major life events: remarriage, birth or adoption of children, divorce, death of a beneficiary, significant change in assets or liabilities, change in relationship with children or spouse, or change in Illinois estate tax law. At minimum, schedule a full review every three years with your estate planning attorney. Between reviews, check beneficiary designations on life insurance, retirement accounts, and payable-on-death accounts annually—these often override your will and trust. Pay special attention after any family conflict or estrangement, as these situations may require immediate plan revisions. The cost of keeping your plan current is minimal compared to the expense of litigation caused by outdated documents that don't reflect your current wishes and family structure. Consider a plan maintenance agreement with your attorney that includes regular review reminders."
-                }
-              ].map((faq, index) => (
+              {faqs.map((faq, index) => (
                 <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
@@ -524,7 +454,7 @@ export default function Page() {
             <ul className="mb-6 list-disc pl-6 space-y-2">
               <li><a href="https://www.illinoisestatelaw.com/book-consultation" target="_blank" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><strong><u>Book a consultation</u></strong></a></li>
               <li><a href="https://www.illinoisestatelaw.com/pricing" target="_blank" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><strong><u>View transparent pricing</u></strong></a></li>
-              <li><strong>Ready to begin? </strong><a href="/get-started/" className=\"text-[#4a708b] hover:underline"><strong><u>Get Started</u></strong></a></li>
+              <li><strong>Ready to begin?</strong> <a href="/get-started/" className=\"text-[#4a708b] hover:underline"><strong><u>Get Started</u></strong></a></li>
             </ul>
 
             <p className="mb-6">
@@ -546,7 +476,6 @@ export default function Page() {
             />
           </article>
 
-          {/* CTA Box */}
           <div className="bg-gray-50 rounded-lg p-8 my-12">
             <p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[var(--e-global-color-text)] mb-2">
               Secure Your Family&apos;s Future from Home
@@ -570,7 +499,6 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Share Post Section */}
           <div className="border-t border-gray-300 pt-8 mb-8">
             <div className="flex items-center gap-4 flex-wrap">
               <span className="font-['Plus_Jakarta_Sans'] font-bold text-sm text-[var(--e-global-color-text)]">
@@ -585,38 +513,36 @@ export default function Page() {
                   aria-label="Share on Facebook"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                   </svg>
                 </a>
                 <a
-                  href={`https://twitter.com/intent/tweet?url=${encodeURIComponent('https://www.illinoisestatelaw.com/estate-planning-for-blended-families-in-illinois-8-mistakes-that-break-hearts-and-budgets/')}&text=${encodeURIComponent('Estate Planning for Blended Families in Illinois: 8 Mistakes That Break Hearts—And Budgets')}`}
+                  href={`https://twitter.com/intent/tweet?url=${encodeURIComponent('https://www.illinoisestatelaw.com/estate-planning-for-blended-families-in-illinois-8-mistakes-that-break-hearts-and-budgets/')}&text=${encodeURIComponent('Estate Planning for Blended Families in Illinois: 8 Mistakes That Break Hearts and Budgets')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-[#4a708b] flex items-center justify-center text-white hover:opacity-80 transition"
                   aria-label="Share on Twitter"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
                 <a
-                  href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent('https://www.illinoisestatelaw.com/estate-planning-for-blended-families-in-illinois-8-mistakes-that-break-hearts-and-budgets/')}&title=${encodeURIComponent('Estate Planning for Blended Families in Illinois: 8 Mistakes That Break Hearts—And Budgets')}`}
+                  href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent('https://www.illinoisestatelaw.com/estate-planning-for-blended-families-in-illinois-8-mistakes-that-break-hearts-and-budgets/')}&title=${encodeURIComponent('Estate Planning for Blended Families in Illinois: 8 Mistakes That Break Hearts and Budgets')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-[#4a708b] flex items-center justify-center text-white hover:opacity-80 transition"
                   aria-label="Share on LinkedIn"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Contact Form Section */}
           <BlogContactForm />
-
         </div>
       </div>
     </>
