@@ -309,7 +309,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Complete our <a target="_blank" href="https://www.illinoisestatelaw.com/trust-funding-checklist" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Trust Funding Checklist</u></a> to shift major assets out of probate and into a living trust that honors your blended distribution formula.
+              <strong>Fix:</strong> Complete our Trust Funding Checklist to shift major assets out of probate and into a living trust that honors your blended distribution formula.
             </p>
 
             <h3 id="joint-tenancy-gone-wrong" className="text-xl font-bold mt-8 mb-4">
@@ -333,7 +333,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Use our downloadable <a target="_blank" href="https://www.illinoisestatelaw.com/digital-asset-inventory-tool" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Digital Asset Inventory Tool</u></a> to list every policy and account, then update designations to your new estate-plan structure.
+              <strong>Fix:</strong> Use our downloadable Digital Asset Inventory Tool to list every policy and account, then update designations to your new estate-plan structure.
             </p>
 
             <h3 id="unequal-gifts-that-trigger-illinois-estate-tax" className="text-xl font-bold mt-8 mb-4">
