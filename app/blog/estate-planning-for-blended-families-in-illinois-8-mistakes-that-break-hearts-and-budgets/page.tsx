@@ -345,7 +345,16 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Run your numbers through our <a target="_blank" href="https://www.illinoisestatelaw.com/illinois-estate-tax-calculator" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Illinois Estate-Tax Calculator</u></a>. If you&apos;re over the limit, consider a <strong>credit-shelter sub-trust</strong> or lifetime gifts to children to stay under the threshold.
+              <strong>Fix:</strong> Run your numbers through our{' '}
+              <a
+                target="_blank"
+                href="https://www.illinoisestatelaw.com/illinois-estate-tax-calculator"
+                rel="noreferrer noopener"
+                className="text-[#4a708b] hover:underline"
+              >
+                <u>Illinois Estate-Tax Calculator</u>
+              </a>
+              . If you&apos;re over the limit, consider a <strong>credit-shelter sub-trust</strong> or lifetime gifts to children to stay under the threshold.
             </p>
 
             <h3 id="skipping-a-stand-alone-special-needs-trust" className="text-xl font-bold mt-8 mb-4">
@@ -381,7 +390,16 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              <strong>Fix:</strong> Compare the cost of supervised vs. independent probate in our <a target="_blank" href="https://www.illinoisestatelaw.com/executor-administrator-guide" rel=\"noreferrer noopener" className=\"text-[#4a708b] hover:underline"><u>Executor Guide</u></a> and make sure your documents waive bond and grant full powers.
+              <strong>Fix:</strong> Compare the cost of supervised vs. independent probate in our{' '}
+              <a
+                target="_blank"
+                href="https://www.illinoisestatelaw.com/executor-administrator-guide"
+                rel="noreferrer noopener"
+                className="text-[#4a708b] hover:underline"
+              >
+                <u>Executor Guide</u>
+              </a>
+              {' '}and make sure your documents waive bond and grant full powers.
             </p>
 
             <h2 id="frequently-asked-questions" className="text-2xl font-bold mt-12 mb-4">
@@ -454,7 +472,15 @@ export default function Page() {
             <ul className="mb-6 list-disc pl-6 space-y-2">
               <li><a href="https://www.illinoisestatelaw.com/book-consultation" target="_blank" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><strong><u>Book a consultation</u></strong></a></li>
               <li><a href="https://www.illinoisestatelaw.com/pricing" target="_blank" rel="noreferrer noopener" className="text-[#4a708b] hover:underline"><strong><u>View transparent pricing</u></strong></a></li>
-              <li><strong>Ready to begin?</strong> <a href="/get-started/" className=\"text-[#4a708b] hover:underline"><strong><u>Get Started</u></strong></a></li>
+              <li>
+                <strong>Ready to begin?</strong>{' '}
+                <a
+                  href="/get-started/"
+                  className="text-[#4a708b] hover:underline"
+                >
+                  <strong><u>Get Started</u></strong>
+                </a>
+              </li>
             </ul>
 
             <p className="mb-6">
