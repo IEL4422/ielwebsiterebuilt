@@ -46,7 +46,7 @@ export default function Page() {
     },
     {
       question: "How can I ensure my children receive their inheritance if I die first?",
-      answer: "Without specific protections, you cannot guarantee your children will inherit if you die first and leave everything to your spouse. Your spouse owns those assets outright and can do whatever they want with them—including disinheriting your children intentionally or accidentally. The most effective protection is placing assets in an irrevocable trust or QTIP trust that specifies your children as remainder beneficiaries. Your spouse receives lifetime benefits, but cannot change the ultimate distribution. For retirement accounts and life insurance, name your children as beneficiaries directly rather than naming your spouse. For real estate, consider a marital residence trust that gives your spouse lifetime occupancy while preserving ownership for your children. Document your wishes clearly in writing and choose a trustee who will follow your instructions after you're gone, not your spouse.",
+      answer: "Without specific protections, you cannot guarantee your children will inherit if you die first and leave everything to your spouse. Your spouse owns those assets outright and can do whatever they want with them\u2014including disinheriting your children intentionally or accidentally. The most effective protection is placing assets in an irrevocable trust or QTIP trust that specifies your children as remainder beneficiaries. Your spouse receives lifetime benefits, but cannot change the ultimate distribution. For retirement accounts and life insurance, name your children as beneficiaries directly rather than naming your spouse. For real estate, consider a marital residence trust that gives your spouse lifetime occupancy while preserving ownership for your children. Document your wishes clearly in writing and choose a trustee who will follow your instructions after you're gone, not your spouse.",
     },
     {
       question: "What if my current spouse and children from my first marriage don't get along?",
@@ -54,11 +54,11 @@ export default function Page() {
     },
     {
       question: "Do I need to treat all children equally in my estate plan?",
-      answer: "Illinois law does not require equal treatment of all children in your estate plan. You can leave different amounts to different children based on their needs, your relationship, or any other factors you choose. However, unequal distributions in blended families require especially careful documentation. If you leave more to biological children than step-children, or vice versa, clearly state your reasons in your estate planning documents. This helps prevent will contests based on claims of undue influence or lack of capacity. Consider factors like age differences, financial needs, disabilities, education already provided, and gifts received during life. Many blended families equalize distributions by using life insurance—perhaps leaving the home to your spouse, investment accounts to biological children, and insurance proceeds to step-children.",
+      answer: "Illinois law does not require equal treatment of all children in your estate plan. You can leave different amounts to different children based on their needs, your relationship, or any other factors you choose. However, unequal distributions in blended families require especially careful documentation. If you leave more to biological children than step-children, or vice versa, clearly state your reasons in your estate planning documents. This helps prevent will contests based on claims of undue influence or lack of capacity. Consider factors like age differences, financial needs, disabilities, education already provided, and gifts received during life. Many blended families equalize distributions by using life insurance\u2014perhaps leaving the home to your spouse, investment accounts to biological children, and insurance proceeds to step-children.",
     },
     {
       question: "How often should I update my estate plan in a blended family?",
-      answer: "Blended families need more frequent updates than traditional families. Review your plan annually and update immediately after major life events: remarriage, birth or adoption of children, divorce, death of a beneficiary, significant change in assets or liabilities, change in relationship with children or spouse, or change in Illinois estate tax law. At minimum, schedule a full review every three years with your estate planning attorney. Between reviews, check beneficiary designations on life insurance, retirement accounts, and payable-on-death accounts annually—these often override your will and trust. Pay special attention after any family conflict or estrangement, as these situations may require immediate plan revisions.",
+      answer: "Blended families need more frequent updates than traditional families. Review your plan annually and update immediately after major life events: remarriage, birth or adoption of children, divorce, death of a beneficiary, significant change in assets or liabilities, change in relationship with children or spouse, or change in Illinois estate tax law. At minimum, schedule a full review every three years with your estate planning attorney. Between reviews, check beneficiary designations on life insurance, retirement accounts, and payable-on-death accounts annually\u2014these often override your will and trust. Pay special attention after any family conflict or estrangement, as these situations may require immediate plan revisions.",
     },
   ];
 
@@ -71,7 +71,7 @@ export default function Page() {
               href="/blog"
               className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"
             >
-              <span className="text-lg">←</span>
+              <span className="text-lg">&larr;</span>
               Back to Blog
             </Link>
             <div className="max-w-4xl">
