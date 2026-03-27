@@ -319,7 +319,8 @@ export default function Page() {
                 <div>
                   <p className="font-semibold mb-2">Key point for executors:</p>
                   <p className="text-gray-700">
-                    The surety company underwrites <em>the executor</em>, not the estate. If you have poor credit or significant personal debt, you may have difficulty qualifying for a bond &mdash; even if the estate is worth millions. This can delay the entire probate process. Choosing an executor with strong credit is an important consideration during <Link href="/blog/understanding-the-basics-of-estate-planning/" className=\"text-[#4a708b] hover:underline font-semibold">estate planning</Link>.
+                    The surety company underwrites <em>the executor</em>, not the estate. If you have poor credit or significant personal debt, you may have difficulty qualifying for a bond &mdash; even if the estate is worth millions. This can delay the entire probate process. Choosing an executor with strong credit is an important consideration during{' '}
+                    <Link href="/blog/understanding-the-basics-of-estate-planning/" className="text-[#4a708b] hover:underline font-semibold">estate planning</Link>.
                   </p>
                 </div>
               </div>
@@ -734,7 +735,8 @@ export default function Page() {
             </div>
 
             <p className="mb-6">
-              Bond premiums are a legitimate estate expense under <strong>755 ILCS 5/27-2</strong> and are paid from estate funds. The executor does not pay out of pocket unless the estate has no liquid assets. For a comprehensive understanding of all probate costs including bond premiums, see our guide on <Link href="/blog/how-much-does-probate-cost-in-illinois/" className=\"text-[#4a708b] hover:underline font-semibold">how much probate costs in Illinois</Link>.
+              Bond premiums are a legitimate estate expense under <strong>755 ILCS 5/27-2</strong> and are paid from estate funds. The executor does not pay out of pocket unless the estate has no liquid assets. For a comprehensive understanding of all probate costs including bond premiums, see our guide on{' '}
+              <Link href="/blog/how-much-does-probate-cost-in-illinois/" className="text-[#4a708b] hover:underline font-semibold">how much probate costs in Illinois</Link>.
             </p>
 
             <h2 id="frequently-asked-questions" className="text-2xl font-bold mt-12 mb-4">
@@ -777,7 +779,10 @@ export default function Page() {
                 Protect Your Estate from Unnecessary Bond Costs
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed">
-                At Illinois Estate Law, we draft every will with a bond waiver clause to eliminate this avoidable expense. If you are already in probate and facing a bond requirement, we can guide you through the process efficiently. Whether it is <Link href="/chicago-probate-lawyer/" className="text-white underline hover:text-white/80">probate administration</Link>, <Link href="/blog/when-is-probate-required-in-illinois/" className=\"text-white underline hover:text-white/80">determining if probate is required</Link>, or creating an estate plan that avoids probate entirely through a <Link href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/" className=\"text-white underline hover:text-white/80">revocable living trust</Link>, we are here to help.
+                At Illinois Estate Law, we draft every will with a bond waiver clause to eliminate this avoidable expense. If you are already in probate and facing a bond requirement, we can guide you through the process efficiently. Whether it is{' '}
+                <Link href="/chicago-probate-lawyer/" className="text-white underline hover:text-white/80">probate administration</Link>,{' '}
+                <Link href="/blog/when-is-probate-required-in-illinois/" className="text-white underline hover:text-white/80">determining if probate is required</Link>, or creating an estate plan that avoids probate entirely through a{' '}
+                <Link href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/" className="text-white underline hover:text-white/80">revocable living trust</Link>, we are here to help.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
