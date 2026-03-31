@@ -117,8 +117,34 @@ export default async function GuidePage({ params }: GuidePageProps) {
     isStructured = false;
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": guide.title,
+    "description": guide.description,
+    "url": `https://www.illinoisestatelaw.com/learning-center/${params.slug}/`,
+    "author": {
+      "@type": "Person",
+      "name": "Mary Liberty",
+      "url": "https://www.illinoisestatelaw.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Illinois Estate Law",
+      "url": "https://www.illinoisestatelaw.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.illinoisestatelaw.com/learning-center/${params.slug}/`
+    }
+  };
+
   return (
     <main className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-14">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link

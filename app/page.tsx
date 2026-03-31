@@ -115,11 +115,71 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": "LegalService",
             "name": "Illinois Estate Law",
-            "url": "https://www.illinoisestatelaw.com",
             "alternateName": "Illinois Estate Law",
-            "description": "Illinois Estate Law"
+            "url": "https://www.illinoisestatelaw.com",
+            "telephone": "+1-312-373-0731",
+            "email": "mary@illinoisestatelaw.com",
+            "description": "Top-rated Chicago estate planning and probate law firm offering flat-fee wills, trusts, powers of attorney, healthcare directives, and probate administration across Illinois.",
+            "priceRange": "$$",
+            "image": "https://www.illinoisestatelaw.com/herobackgoundimage.png",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4422 N. Ravenswood Ave",
+              "addressLocality": "Chicago",
+              "addressRegion": "IL",
+              "postalCode": "60640",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 41.9621,
+              "longitude": -87.6743
+            },
+            "areaServed": [
+              {
+                "@type": "State",
+                "name": "Illinois"
+              },
+              {
+                "@type": "City",
+                "name": "Chicago"
+              }
+            ],
+            "serviceType": [
+              "Estate Planning",
+              "Probate Administration",
+              "Wills and Trusts",
+              "Powers of Attorney",
+              "Healthcare Directives",
+              "Prenuptial Agreements",
+              "Deed Transfers"
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "17:00"
+              }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/illinoisestatelaw",
+              "https://www.linkedin.com/company/illinois-estate-law"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Mary Liberty",
+              "jobTitle": "Attorney",
+              "url": "https://www.illinoisestatelaw.com/about/"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "50",
+              "bestRating": "5"
+            }
           })
         }}
       />

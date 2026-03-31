@@ -77,8 +77,36 @@ export default async function BlogPostPage({
     day: "numeric",
   });
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.meta_description,
+    "datePublished": post.published_date,
+    "dateModified": post.published_date,
+    "url": `https://www.illinoisestatelaw.com/blog/${post.slug}/`,
+    "author": {
+      "@type": "Person",
+      "name": "Mary Liberty",
+      "url": "https://www.illinoisestatelaw.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Illinois Estate Law",
+      "url": "https://www.illinoisestatelaw.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.illinoisestatelaw.com/blog/${post.slug}/`
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <Link
           href="/blog"

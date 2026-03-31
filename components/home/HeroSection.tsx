@@ -35,7 +35,7 @@ export function HeroSection() {
           <div className="flex flex-col justify-center items-center gap-5 sm:gap-6 lg:gap-9 py-8 sm:py-12 lg:py-0 w-full max-w-3xl">
             <div className="bg-black/70 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 w-full">
               <h1 className="font-['Lobster_Two'] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] font-normal text-[#fefefe] leading-[40px] sm:leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
-                <span className="lg:block">Top-Rated</span> Estate Law F<span className="relative inline-block"><span className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 lg:w-3 lg:h-3 bg-[#fefefe] rounded-full" style={{ top: '0.1em' }}></span><span className="relative">ı</span></span>rm
+                <span className="lg:block">Top-Rated</span> Estate Law Firm
               </h1>
             </div>
 

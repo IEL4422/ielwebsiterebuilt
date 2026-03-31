@@ -40,10 +40,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-6 lg:p-8 mb-12 shadow-sm">
-              <h1 className="text-3xl lg:text-4xl font-bold text-slate-800">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-800">
                 <span id="About-Us-Illinois-Estate-Law-Your-Experienced-Estate-Planning-Professionals"></span>
                 About Us - Illinois Estate Law: Your Experienced Estate Planning Professionals
-              </h1>
+              </h2>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
