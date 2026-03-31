@@ -3,6 +3,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Illinois Estate Law: Trusted Estate Planning Services',
   description: 'Illinois Estate Law provides estate planning services across Illinois. Call (312) 373-0731 today to protect your legacy.',
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/locations/',
+  },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
     url: 'https://www.illinoisestatelaw.com/locations/',

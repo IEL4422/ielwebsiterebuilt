@@ -1,12 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
-import { Clock, CheckCircle2, FileText, Scale, Home } from 'lucide-react';
+import { Clock, CircleCheck as CheckCircle2, FileText, Scale, Chrome as Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 export const metadata = {
   title: 'Our Process | Illinois Estate Law',
   description: 'Understand our streamlined process for estate planning, probate administration, and deed transfers in Illinois. Clear steps and timelines for each service.',
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/process/',
+  },
 };
 
 export default function ProcessPage() {

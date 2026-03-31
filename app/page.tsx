@@ -55,6 +55,9 @@ export const metadata: Metadata = {
     'chicago power of attorney',
     'chicago trusted attorneys'
   ],
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/',
+  },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
     url: 'https://www.illinoisestatelaw.com/',

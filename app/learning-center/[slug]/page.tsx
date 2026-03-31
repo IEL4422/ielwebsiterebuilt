@@ -79,6 +79,9 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
   return {
     title: `${guide.title} | Illinois Estate Law`,
     description: guide.description,
+    alternates: {
+      canonical: `https://www.illinoisestatelaw.com/learning-center/${params.slug}/`,
+    },
     openGraph: {
       title: guide.title,
       description: guide.description,

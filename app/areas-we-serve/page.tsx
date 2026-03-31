@@ -4,6 +4,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Top Rated Estate Planning Services in Illinois',
   description: 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/areas-we-serve/',
+  },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
     url: 'https://www.illinoisestatelaw.com/areas-we-serve/',

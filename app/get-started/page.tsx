@@ -1,9 +1,12 @@
 import { Metadata } from 'next';
-import { ShoppingCart, HelpCircle, Calendar, MessageSquare } from 'lucide-react';
+import { ShoppingCart, CircleHelp as HelpCircle, Calendar, MessageSquare } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Get Started | Illinois Estate Law',
   description: 'Get started with Illinois Estate Law. Choose your service, sign the agreement, and get started today.',
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/get-started/',
+  },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
     url: 'https://www.illinoisestatelaw.com/get-started/',

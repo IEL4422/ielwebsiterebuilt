@@ -4,6 +4,9 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   title: 'Submit Referral | Illinois Estate Law',
   description: 'Refer a client to Illinois Estate Law. Submit your referral information and we will take great care of your clients.',
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/submit-referral/',
+  },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
     url: 'https://www.illinoisestatelaw.com/submit-referral/',

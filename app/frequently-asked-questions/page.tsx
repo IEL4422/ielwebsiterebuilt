@@ -9,6 +9,9 @@ import {
 export const metadata: Metadata = {
   title: 'Illinois Estate Law FAQ: Key Estate Planning Answers',
   description: 'Illinois Estate Law: Get clarity on estate planning with FAQs answered by experienced attorneys. Discover your rights and plan your future today!',
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/frequently-asked-questions/',
+  },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
     url: 'https://www.illinoisestatelaw.com/frequently-asked-questions/',

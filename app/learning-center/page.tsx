@@ -7,6 +7,9 @@ import GuidesSearch from '@/components/learning-center/GuidesSearch';
 export const metadata: Metadata = {
   title: 'Key Illinois Estate Law Terms for Effective Estate Planning',
   description: 'Illinois Estate Law: Navigate estate planning with expert advice on wills, trusts, and probate. Secure your wishes today!',
+  alternates: {
+    canonical: 'https://www.illinoisestatelaw.com/learning-center/',
+  },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
     url: 'https://www.illinoisestatelaw.com/learning-center/',

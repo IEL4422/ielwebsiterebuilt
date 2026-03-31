@@ -54,6 +54,9 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.meta_description,
+    alternates: {
+      canonical: `https://www.illinoisestatelaw.com/blog/${params.slug}/`,
+    },
   };
 }
 

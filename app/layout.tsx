@@ -29,7 +29,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="profile" href="https://gmpg.org/xfn/11" />
-        <link rel="canonical" href="https://www.illinoisestatelaw.com/" />
       </head>
       <body className="font-['Plus_Jakarta_Sans'] antialiased">
         <Script
