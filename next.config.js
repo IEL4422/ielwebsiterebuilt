@@ -50,7 +50,7 @@ const nextConfig = {
       { source: '/pricing/', destination: '/', permanent: true },
       { source: '/pricing-packages/', destination: '/', permanent: true },
       { source: '/asset-protection/', destination: '/', permanent: true },
-      { source: '/elder-law/', destination: '/', permanent: true },
+      { source: '/elder-law/', destination: '/blog/legal-considerations-for-aging-adults/', permanent: true },
       { source: '/estatetaxes/', destination: '/', permanent: true },
       { source: '/executor-administrator-guide/', destination: '/', permanent: true },
       { source: '/digital-asset-inventory-tool/', destination: '/', permanent: true },
