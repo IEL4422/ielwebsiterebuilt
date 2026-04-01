@@ -544,7 +544,7 @@ Example: [{"text":"Article Title","url":"/blog/slug/"}]`;
     }
 
     // ---------- STEP 8: Send Slack notification ----------
-    const slackWebhookUrl = Deno.env.get("SLACK_BLOG_WEBHOOK_URL");
+    const slackWebhookUrl = Deno.env.get("SLACK_WEBHOOK_URL");
     if (slackWebhookUrl) {
       try {
         const postUrl = `https://www.illinoisestatelaw.com/blog/${slug}/`;
