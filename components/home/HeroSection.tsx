@@ -37,7 +37,7 @@ export function HeroSection() {
               <h1 className="font-['Lobster_Two'] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] font-normal text-[#fefefe] leading-[40px] sm:leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
                 <span className="lg:block">Top-Rated</span> Estate Law Firm
               </h1>
-              <p className="text-[#f3f3f3] text-sm sm:text-base md:text-lg tracking-[0.15em] sm:tracking-[0.2em] text-center mt-2 sm:mt-3 font-light whitespace-nowrap">
+              <p className="text-[#f3f3f3] text-xs sm:text-base md:text-lg tracking-[0.15em] sm:tracking-[0.2em] text-center mt-2 sm:mt-3 font-light whitespace-nowrap">
                 Estate Planning &bull; Probate &bull; Small Business
               </p>
             </div>
