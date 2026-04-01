@@ -93,6 +93,7 @@ export function CategorizedServicesDisplay() {
             'Remembrance & Services Memorandum',
             'Personal Property Memorandum',
             '(1) Deed Transfer of Real Estate to Trust',
+            'Full Trust Funding',
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
             'Access to Client Portal',
@@ -147,7 +148,7 @@ export function CategorizedServicesDisplay() {
           name: 'Revocable Living Trust',
           individualPrice: 2500,
           jointPrice: 3500,
-          includes: []
+          includes: ['Full Trust Funding']
         },
         {
           name: 'Last Will and Testament',
@@ -175,15 +176,14 @@ export function CategorizedServicesDisplay() {
           name: 'Will Amendment',
           fixedPrice: 500,
           includes: []
+        },
+        {
+          name: 'Trust Funding',
+          fixedPrice: 1500,
+          includes: []
         }
       ],
       addOns: [
-        {
-          name: 'Trust Funding',
-          fixedPrice: 100,
-          note: '$100 per asset',
-          includes: []
-        },
         {
           name: 'Special Needs Planning',
           fixedPrice: 2500,

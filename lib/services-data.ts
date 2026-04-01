@@ -64,6 +64,7 @@ export const estatePlanningPackages: Service[] = [
       'Remembrance & Services Memorandum',
       'Personal Property Memorandum',
       '(1) Deed Transfer of Real Estate to Trust',
+      'Full Trust Funding',
       'Online or Mobile Notarization',
       'Physical & Digital Portfolio',
       'Access to Client Portal',
@@ -296,7 +297,7 @@ export const aLaCarteServices: Service[] = [
     individualPrice: 2500,
     jointPrice: 3500,
     description: 'A Revocable Living Trust is a legal plan where you put your home, bank accounts, and other property into a trust you control—so you can manage everything like normal while you\'re alive, and when you pass away, the person you picked (your "successor trustee") can transfer or manage those assets for your loved ones without going through probate court.',
-    includes: [],
+    includes: ['Full Trust Funding'],
     addOns: estatePlanningAddOns
   },
   {
@@ -387,6 +388,14 @@ export const aLaCarteServices: Service[] = [
     description: 'Amendment to existing will',
     includes: [],
     addOns: estatePlanningAddOns
+  },
+  {
+    id: 'trust-funding-service',
+    name: 'Trust Funding',
+    category: 'a-la-carte',
+    fixedPrice: 1500,
+    description: 'Professional assistance with transferring all of your assets into your trust, including coordination with banks, financial institutions, and titling of accounts and property.',
+    includes: []
   }
 ];
 

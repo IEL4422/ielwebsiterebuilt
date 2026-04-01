@@ -27,13 +27,6 @@ interface AddOn {
 
 const allAddOns: AddOn[] = [
   {
-    id: 'trust-funding',
-    name: 'Trust Funding',
-    price: 1000,
-    description: '$1,000 for all assets - Professional assistance with transferring assets into your trust',
-    allowQuantity: false
-  },
-  {
     id: 'additional-deed',
     name: 'Additional Deed to Trust',
     price: 500,
@@ -139,7 +132,7 @@ const getAvailableAddOns = (service: Service, cart: CartItem[]): AddOn[] => {
     switch (service.id) {
       case 'trust-package':
         availableAddOns = allAddOns.filter(a =>
-          ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'charitable-planning', 'business-succession', 'annual-maintenance'].includes(a.id)
+          ['additional-deed', 'special-needs-planning', 'estate-tax-planning', 'charitable-planning', 'business-succession', 'annual-maintenance'].includes(a.id)
         );
         break;
       case 'probate-avoidance-package':
@@ -154,10 +147,10 @@ const getAvailableAddOns = (service: Service, cart: CartItem[]): AddOn[] => {
         availableAddOns = allAddOns.filter(a => ['transfer-on-death', 'business-succession', 'annual-maintenance'].includes(a.id));
         break;
       case 'revocable-living-trust':
-        availableAddOns = allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
+        availableAddOns = allAddOns.filter(a => ['additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
         break;
       case 'irrevocable-trust':
-        availableAddOns = allAddOns.filter(a => ['trust-funding', 'additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
+        availableAddOns = allAddOns.filter(a => ['additional-deed', 'special-needs-planning', 'estate-tax-planning', 'business-succession', 'annual-maintenance'].includes(a.id));
         break;
       default:
         return [];

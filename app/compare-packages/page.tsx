@@ -10,7 +10,7 @@ type FeatureKey = 'Revocable Living Trust' | 'Last Will & Testament' | 'Pour-Ove
   'Power of Attorney for Healthcare' | 'Power of Attorney for Property' |
   'Healthcare Directive (Living Will)' | 'Transfer-on-Death Instrument' |
   'Remembrance & Services Memorandum' | 'Personal Property Memorandum' |
-  'Deed Transfer of Real Estate to Trust' | 'Online or Mobile Notarization' |
+  'Deed Transfer of Real Estate to Trust' | 'Full Trust Funding' | 'Online or Mobile Notarization' |
   'Physical & Digital Portfolio' | 'Access to Client Portal' | 'Unlimited Attorney Consultation';
 
 type Features = {
@@ -47,6 +47,7 @@ export default function ComparePackagesPage() {
         'Remembrance & Services Memorandum': true,
         'Personal Property Memorandum': true,
         'Deed Transfer of Real Estate to Trust': '(1) Included',
+        'Full Trust Funding': true,
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
@@ -70,6 +71,7 @@ export default function ComparePackagesPage() {
         'Remembrance & Services Memorandum': true,
         'Personal Property Memorandum': true,
         'Deed Transfer of Real Estate to Trust': false,
+        'Full Trust Funding': false,
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
@@ -93,6 +95,7 @@ export default function ComparePackagesPage() {
         'Remembrance & Services Memorandum': true,
         'Personal Property Memorandum': true,
         'Deed Transfer of Real Estate to Trust': false,
+        'Full Trust Funding': false,
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
@@ -116,6 +119,7 @@ export default function ComparePackagesPage() {
         'Remembrance & Services Memorandum': false,
         'Personal Property Memorandum': false,
         'Deed Transfer of Real Estate to Trust': '(1) Included',
+        'Full Trust Funding': true,
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
@@ -135,6 +139,7 @@ export default function ComparePackagesPage() {
     'Remembrance & Services Memorandum',
     'Personal Property Memorandum',
     'Deed Transfer of Real Estate to Trust',
+    'Full Trust Funding',
     'Online or Mobile Notarization',
     'Physical & Digital Portfolio',
     'Access to Client Portal',
