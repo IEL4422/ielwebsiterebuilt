@@ -198,19 +198,16 @@ export default function PrivacyPolicyPage() {
               </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">10. SMS and Text Messaging</h2>
+            <section className="bg-gray-50 border-2 border-[#4a708b] rounded-lg p-6">
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">10. SMS Communications and Mobile Data</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                By providing your phone number and consenting to receive text messages from Illinois Estate Law, you agree to receive SMS messages regarding:
+                Illinois Estate Law collects mobile phone numbers via signed retainer agreements and intake forms for the purpose of sending clients SMS messages regarding their legal matters.
               </p>
-              <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-                <li>Appointment reminders and confirmations</li>
-                <li>Updates about your legal matter</li>
-                <li>Important notifications and alerts</li>
-                <li>Marketing and promotional messages (if you opt in)</li>
-              </ul>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Message and data rates may apply. Message frequency will vary. You can opt out at any time by replying &quot;STOP&quot; to any text message. For help, reply &quot;HELP&quot; or contact us at (312) 373-0731.
+                Mobile opt-in data and mobile phone numbers will never be shared with, sold to, or disclosed to third parties or affiliates for any purpose.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Clients may opt out at any time by replying STOP to any message.
               </p>
             </section>
 

@@ -148,10 +148,23 @@ export default function TermsOfServicePage() {
               </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">9. Disclaimers</h2>
+            <section className="bg-gray-50 border-2 border-[#4a708b] rounded-lg p-6">
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">9. SMS Text Message Communications</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                By providing your mobile number to Illinois Estate Law, you consent to receive recurring SMS messages regarding your legal matter including appointment reminders, case updates, document requests, and court date notifications.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Message frequency varies. Msg &amp; Data rates may apply. Reply STOP to opt out. Reply HELP for help or contact Illinois Estate Law at (312) 373-0731 or contact@illinoisestatelaw.com.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Your mobile number and SMS opt-in data will never be shared with or sold to third parties or affiliates.
+              </p>
+            </section>
 
-              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">9.1 No Warranty</h3>
+            <section>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">10. Disclaimers</h2>
+
+              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">10.1 No Warranty</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 THE SITE AND ALL CONTENT ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
               </p>
@@ -165,14 +178,14 @@ export default function TermsOfServicePage() {
                 <li>The Site or servers are free of viruses or other harmful components</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">9.2 No Guarantee of Results</h3>
+              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">10.2 No Guarantee of Results</h3>
               <p className="text-gray-700 leading-relaxed">
                 While we strive to provide high-quality legal services, we make no guarantees about the outcome of any legal matter. Legal outcomes depend on many factors beyond our control, including the specific facts of your case, applicable law, and court decisions.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">10. Limitation of Liability</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">11. Limitation of Liability</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 TO THE MAXIMUM EXTENT PERMITTED BY LAW, ILLINOIS ESTATE LAW, ITS ATTORNEYS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:
               </p>
@@ -190,7 +203,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">11. Indemnification</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">12. Indemnification</h2>
               <p className="text-gray-700 leading-relaxed">
                 You agree to indemnify, defend, and hold harmless Illinois Estate Law, its attorneys, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys&apos; fees, arising out of or in any way connected with:
               </p>
@@ -203,54 +216,54 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">12. Dispute Resolution</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">13. Dispute Resolution</h2>
 
-              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">12.1 Governing Law</h3>
+              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">13.1 Governing Law</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 These Terms shall be governed by and construed in accordance with the laws of the State of Illinois, without regard to its conflict of law provisions.
               </p>
 
-              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">12.2 Arbitration</h3>
+              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">13.2 Arbitration</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Any dispute, controversy, or claim arising out of or relating to these Terms or your use of the Site (excluding disputes covered by a Client Service Agreement) shall be settled by binding arbitration in accordance with the laws of the State of Illinois. The arbitration shall take place in Cook County, Illinois.
               </p>
 
-              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">12.3 Class Action Waiver</h3>
+              <h3 className="text-xl font-semibold text-[#2d3e50] mb-3">13.3 Class Action Waiver</h3>
               <p className="text-gray-700 leading-relaxed">
                 You agree that any arbitration or proceeding shall be limited to the dispute between you and Illinois Estate Law individually. To the full extent permitted by law, no arbitration or proceeding shall be joined with any other, no dispute shall be arbitrated on a class-action basis, and you waive any right to participate in a class-action lawsuit or class-wide arbitration.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">13. Changes to Terms</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">14. Changes to Terms</h2>
               <p className="text-gray-700 leading-relaxed">
                 We reserve the right to modify these Terms at any time. We will notify you of material changes by posting the updated Terms on this page with a new &quot;Last Updated&quot; date. Your continued use of the Site after any changes constitutes your acceptance of the new Terms.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">14. Termination</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">15. Termination</h2>
               <p className="text-gray-700 leading-relaxed">
                 We may terminate or suspend your access to the Site at any time, without prior notice or liability, for any reason, including if you breach these Terms. Upon termination, your right to use the Site will immediately cease.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">15. Severability</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">16. Severability</h2>
               <p className="text-gray-700 leading-relaxed">
                 If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">16. Entire Agreement</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">17. Entire Agreement</h2>
               <p className="text-gray-700 leading-relaxed">
                 These Terms, together with our Privacy Policy and any Client Service Agreement you may enter into with us, constitute the entire agreement between you and Illinois Estate Law regarding your use of the Site and Services.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">17. Contact Information</h2>
+              <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">18. Contact Information</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 If you have any questions about these Terms of Service, please contact us at:
               </p>
