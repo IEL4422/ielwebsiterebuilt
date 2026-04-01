@@ -543,6 +543,69 @@ Example: [{"text":"Article Title","url":"/blog/slug/"}]`;
       throw new Error(`Database insert failed: ${insertError.message}`);
     }
 
+    // ---------- STEP 8: Send Slack notification ----------
+    const slackWebhookUrl = Deno.env.get("SLACK_BLOG_WEBHOOK_URL");
+    if (slackWebhookUrl) {
+      try {
+        const postUrl = `https://www.illinoisestatelaw.com/blog/${slug}/`;
+        const slackMessage = {
+          channel: "#status-updates",
+          text: `New blog post published: ${generatedTitle}`,
+          blocks: [
+            {
+              type: "header",
+              text: {
+                type: "plain_text",
+                text: "New Blog Post Published",
+                emoji: true,
+              },
+            },
+            {
+              type: "section",
+              fields: [
+                { type: "mrkdwn", text: `*Title:*\n${generatedTitle}` },
+                { type: "mrkdwn", text: `*Topic:*\n${topic}` },
+              ],
+            },
+            {
+              type: "section",
+              text: {
+                type: "mrkdwn",
+                text: `*Description:*\n${metaDescription || "No description"}`,
+              },
+            },
+            {
+              type: "section",
+              text: {
+                type: "mrkdwn",
+                text: `*Schema Markup:* Article, BreadcrumbList${faqItems.length > 0 ? ", FAQPage" : ""} | *FAQ Items:* ${faqItems.length}`,
+              },
+            },
+            {
+              type: "actions",
+              elements: [
+                {
+                  type: "button",
+                  text: { type: "plain_text", text: "View Post", emoji: true },
+                  url: postUrl,
+                  style: "primary",
+                },
+              ],
+            },
+            { type: "divider" },
+          ],
+        };
+
+        await fetch(slackWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(slackMessage),
+        });
+      } catch (slackErr) {
+        console.error("Slack notification failed (non-blocking):", slackErr);
+      }
+    }
+
     return new Response(
       JSON.stringify({
         success: true,
@@ -550,6 +613,7 @@ Example: [{"text":"Article Title","url":"/blog/slug/"}]`;
         schemaTypes: schemas.map((s) => s["@type"]),
         faqCount: faqItems.length,
         hasInteractiveElements: true,
+        slackNotified: !!slackWebhookUrl,
         message: `Blog post "${generatedTitle}" published successfully with schema markup, FAQ section, and interactive elements.`,
       }),
       {
