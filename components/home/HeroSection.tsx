@@ -32,12 +32,12 @@ export function HeroSection() {
       </div>
       <div className="relative mx-auto max-w-[1140px] px-4 sm:px-5 lg:px-0">
         <div className="flex flex-col items-center justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[642px]">
-          <div className="flex flex-col justify-center items-center gap-5 sm:gap-6 lg:gap-9 py-8 sm:py-12 lg:py-0 w-full max-w-3xl">
+          <div className="flex flex-col justify-center items-center gap-5 sm:gap-6 lg:gap-9 py-8 sm:py-12 lg:py-0 pt-24 sm:pt-28 lg:pt-16 w-full max-w-3xl">
             <div className="bg-black/70 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 w-full">
               <h1 className="font-['Lobster_Two'] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] font-normal text-[#fefefe] leading-[40px] sm:leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
                 <span className="lg:block">Top-Rated</span> Estate Law Firm
               </h1>
-              <p className="text-[#f3f3f3] text-sm sm:text-base md:text-lg tracking-[0.15em] sm:tracking-[0.2em] text-center mt-2 sm:mt-3 font-light">
+              <p className="text-[#f3f3f3] text-sm sm:text-base md:text-lg tracking-[0.15em] sm:tracking-[0.2em] text-center mt-2 sm:mt-3 font-light whitespace-nowrap">
                 Estate Planning &bull; Probate &bull; Small Business &bull; Prenuptial Agreements
               </p>
             </div>
