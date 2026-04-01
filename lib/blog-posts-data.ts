@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-open-an-estate-bank-account-for-probate-in-illinois',
+    title: 'How to Open an Estate Bank Account for Probate in Illinois',
+    url: '/blog/how-to-open-an-estate-bank-account-for-probate-in-illinois/',
+    date: 'Apr 1, 2026',
+    summary: 'Complete guide to opening and managing an estate bank account during Illinois probate. Covers required documents, step-by-step process, common mistakes, fiduciary responsibilities, and how to close the account once the estate is settled.',
+    excerpt: 'Learn how to open an estate bank account in Illinois, what documents you need, common mistakes to avoid, and how to manage estate finances during probate.',
+  },
+  {
     slug: 'what-is-a-surety-bond-in-illinois-probate',
     title: 'What Is a Surety Bond in Illinois Probate? When It\'s Required & What It Costs',
     url: '/blog/what-is-a-surety-bond-in-illinois-probate/',
