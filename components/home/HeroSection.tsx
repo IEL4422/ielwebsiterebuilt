@@ -38,7 +38,7 @@ export function HeroSection() {
                 <span className="lg:block">Top-Rated</span> Estate Law Firm
               </h1>
               <p className="text-[#f3f3f3] text-sm sm:text-base md:text-lg tracking-[0.15em] sm:tracking-[0.2em] text-center mt-2 sm:mt-3 font-light whitespace-nowrap">
-                Estate Planning &bull; Probate &bull; Small Business &bull; Prenuptial Agreements
+                Estate Planning &bull; Probate &bull; Small Business
               </p>
             </div>
 
