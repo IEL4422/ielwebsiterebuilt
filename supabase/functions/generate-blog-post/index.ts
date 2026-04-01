@@ -38,6 +38,25 @@ const TOPIC_PROMPTS: Record<string, string> = {
     "Illinois adult guardianship, guardianship of minors, standby guardianship, guardianship alternatives, guardian ad litem, or guardianship court procedures.",
 };
 
+const ILLINOIS_STATUTES: Record<string, string> = {
+  "Estate Planning":
+    "755 ILCS 5 (Probate Act), 760 ILCS 3 (Trust Code), 755 ILCS 6 (Powers of Attorney Act). Illinois Compiled Statutes are the primary source. Reference specific sections when discussing particular rules.",
+  Trusts:
+    "760 ILCS 3 (Illinois Trust Code, effective Jan 1 2020), 760 ILCS 5 (older Trusts and Trustees Act for trusts created before 2020). Key sections: 760 ILCS 3/1005 (trustee duties), 760 ILCS 3/816 (trustee powers).",
+  Probate:
+    "755 ILCS 5 (Illinois Probate Act of 1975). Key sections: Art. VI (letters of office), Art. XII (claims against estate), Art. XXIV (small estate affidavit under 755 ILCS 5/25-1). Cook County probate forms at cookcountyclerkofcourt.org.",
+  "Powers of Attorney":
+    "755 ILCS 45 (Illinois Power of Attorney Act). Key sections: 755 ILCS 45/2-1 (statutory short form), 755 ILCS 45/4-1 through 4-12 (healthcare power of attorney). Note: Illinois uses a specific statutory short form.",
+  "Prenuptial Agreements":
+    "750 ILCS 10 (Illinois Uniform Premarital Agreement Act). Key requirements: must be in writing, signed by both parties, voluntary, with fair disclosure of assets. 750 ILCS 5/503 (marital property division) is also relevant.",
+  "Asset Protection":
+    "805 ILCS 180 (Illinois Limited Liability Company Act), 735 ILCS 5/12-901 (homestead exemption of $15,000), 735 ILCS 5/12-1001 (personal property exemptions). Illinois is NOT a community property state.",
+  "Estate Tax":
+    "35 ILCS 405 (Illinois Estate and Generation-Skipping Transfer Tax Act). Illinois exemption is $4 million (as of 2024). Federal exemption is $13.61 million (2024). Illinois has no gift tax. Portability does NOT apply to the Illinois estate tax.",
+  Guardianship:
+    "755 ILCS 5/11a (Illinois Probate Act, Article XIa - guardianship of adults), 755 ILCS 5/11 (guardianship of minors). Key: Illinois prefers least restrictive alternative. 755 ILCS 5/11a-3 (petition requirements).",
+};
+
 interface AnthropicMessage {
   role: string;
   content: string;
@@ -91,6 +110,84 @@ function generateSlug(title: string): string {
     .substring(0, 80);
 }
 
+function buildSchemaMarkup(
+  title: string,
+  slug: string,
+  metaDescription: string,
+  topic: string,
+  publishedDate: string,
+  faqItems: Array<{ question: string; answer: string }>
+): Record<string, unknown>[] {
+  const schemas: Record<string, unknown>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description: metaDescription,
+      author: {
+        "@type": "Person",
+        name: "Mary Liberty",
+        url: "https://www.illinoisestatelaw.com/about/",
+        jobTitle: "Estate Planning Attorney",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Illinois Estate Law",
+        url: "https://www.illinoisestatelaw.com",
+      },
+      datePublished: publishedDate,
+      dateModified: publishedDate,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `https://www.illinoisestatelaw.com/blog/${slug}/`,
+      },
+      articleSection: topic,
+      inLanguage: "en-US",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.illinoisestatelaw.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: "https://www.illinoisestatelaw.com/blog/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title,
+          item: `https://www.illinoisestatelaw.com/blog/${slug}/`,
+        },
+      ],
+    },
+  ];
+
+  if (faqItems.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  return schemas;
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 200, headers: corsHeaders });
@@ -111,13 +208,13 @@ Deno.serve(async (req: Request) => {
         requestedTopic = body.topic || null;
         requestedTitle = body.title || null;
       } catch {
-        // no body is fine, we'll pick randomly
+        // empty body is fine
       }
     }
 
     const { data: existingPosts } = await supabase
       .from("blog_posts")
-      .select("slug, title, topic")
+      .select("slug, title, topic, meta_description")
       .order("published_date", { ascending: false });
 
     const existingSlugs = (existingPosts || []).map(
@@ -139,44 +236,59 @@ Deno.serve(async (req: Request) => {
         (topicCounts[t] || 0) < (topicCounts[least] || 0) ? t : least
       );
 
-    const topicContext = TOPIC_PROMPTS[topic] || TOPIC_PROMPTS["Estate Planning"];
+    const topicContext =
+      TOPIC_PROMPTS[topic] || TOPIC_PROMPTS["Estate Planning"];
+    const statuteContext =
+      ILLINOIS_STATUTES[topic] || ILLINOIS_STATUTES["Estate Planning"];
 
     const existingList = existingTitles
       .map((t: string) => `- ${t}`)
       .join("\n");
 
-    const titleSystemPrompt = `You are a content strategist for Illinois Estate Law, a Chicago-based estate planning law firm. You create blog post titles that are:
+    const existingWithDescriptions = (existingPosts || [])
+      .map(
+        (p: { title: string; meta_description: string }) =>
+          `- "${p.title}" -- ${p.meta_description || "no description"}`
+      )
+      .join("\n");
+
+    // ---------- STEP 1: Generate unique title ----------
+    const titleSystemPrompt = `You are a content strategist for Illinois Estate Law, a Chicago-based estate planning law firm led by attorney Mary Liberty. You create blog post titles that are:
 - SEO-optimized for Illinois-specific estate planning searches
 - Helpful and informative for Illinois residents
 - Written in a professional but accessible tone
 - Focused on practical, actionable topics people actually search for
 - Long-tail keyword focused for better search ranking
 
-The firm serves Cook County, DuPage County, Kane County, and the greater Chicago area. The attorney is Mary Liberty.`;
+The firm serves Cook County, DuPage County, Kane County, and the greater Chicago area.`;
 
     const titlePrompt = `Generate exactly ONE new blog post title for the topic "${topic}".
 
 Topic area covers: ${topicContext}
 
-EXISTING posts (DO NOT duplicate these topics or titles):
-${existingList}
+EXISTING posts -- you MUST NOT duplicate or substantially overlap with ANY of these topics:
+${existingWithDescriptions}
 
 Requirements:
-- Must be unique and not overlap significantly with existing posts
-- Must be Illinois-specific (mention Illinois, Chicago, Cook County, or related)
-- Should target a specific long-tail keyword phrase people search for
+- Must cover a GENUINELY DIFFERENT angle or subtopic than ALL existing posts above
+- Must be Illinois-specific (mention Illinois, Chicago, Cook County, or a related locality)
+- Should target a specific long-tail keyword phrase people actually search for
 - Between 8-16 words
-- Should answer a specific question or address a specific concern
+- Should answer a specific question or address a specific concern that none of the existing posts cover
+
+Think carefully: read every existing title and description above. Your title must address something NOT already covered.
 
 Respond with ONLY the title, nothing else.`;
 
     const generatedTitle =
       requestedTitle ||
-      (await callAnthropic(
-        [{ role: "user", content: titlePrompt }],
-        titleSystemPrompt,
-        200
-      )).trim();
+      (
+        await callAnthropic(
+          [{ role: "user", content: titlePrompt }],
+          titleSystemPrompt,
+          200
+        )
+      ).trim();
 
     const slug = generateSlug(generatedTitle);
 
@@ -194,13 +306,20 @@ Respond with ONLY the title, nothing else.`;
       );
     }
 
-    const contentSystemPrompt = `You are a legal content writer for Illinois Estate Law, a Chicago-based estate planning law firm led by attorney Mary Liberty. You write comprehensive, well-researched blog posts about Illinois estate planning law.
+    // ---------- STEP 2: Generate content ----------
+    const contentSystemPrompt = `You are a legal content writer for Illinois Estate Law, a Chicago-based estate planning law firm led by attorney Mary Liberty. You write comprehensive, legally accurate blog posts about Illinois estate planning law.
+
+LEGAL ACCURACY REQUIREMENTS -- THIS IS CRITICAL:
+- You MUST cite specific Illinois statutes when discussing legal rules (e.g., "Under 755 ILCS 5/4-1..." or "Per the Illinois Trust Code at 760 ILCS 3/...")
+- You MUST accurately state the current law. Do NOT guess at dollar amounts, thresholds, deadlines, or procedures you are unsure about. If referencing a threshold or amount, include "as of [year]" to indicate currency.
+- Relevant statutes for this topic: ${statuteContext}
+- Always note that laws change and readers should consult an attorney for their specific situation
+- Use precise legal terminology where appropriate, but explain terms for a lay audience
 
 Your writing style:
-- Professional but warm and accessible, avoiding unnecessary legal jargon
-- Uses real Illinois statutes and legal references when relevant (e.g., 755 ILCS for trusts, 760 ILCS for powers of attorney)
+- Professional but warm and accessible
 - Provides practical, actionable advice for Illinois residents
-- Addresses common fears and misconceptions
+- Addresses common fears and misconceptions with accurate information
 - Uses concrete examples and scenarios relevant to Chicago-area families
 - Naturally incorporates internal links to related content on the site
 
@@ -217,7 +336,10 @@ The firm's website is illinoisestatelaw.com. Services include:
     const relatedPosts = (existingPosts || [])
       .filter((p: { topic: string }) => p.topic === topic)
       .slice(0, 5)
-      .map((p: { title: string; slug: string }) => `- "${p.title}" (/blog/${p.slug}/)`)
+      .map(
+        (p: { title: string; slug: string }) =>
+          `- "${p.title}" (/blog/${p.slug}/)`
+      )
       .join("\n");
 
     const contentPrompt = `Write a comprehensive blog post titled: "${generatedTitle}"
@@ -227,36 +349,80 @@ Topic category: ${topic}
 Related posts on the site to link to where naturally relevant:
 ${relatedPosts || "None yet in this category."}
 
-CRITICAL FORMAT REQUIREMENTS:
-Output ONLY the HTML content that goes inside an article body. This will be rendered inside an existing page layout using dangerouslySetInnerHTML.
+Other posts on the site you can link to:
+${(existingPosts || [])
+  .filter((p: { topic: string }) => p.topic !== topic)
+  .slice(0, 10)
+  .map(
+    (p: { title: string; slug: string }) =>
+      `- "${p.title}" (/blog/${p.slug}/)`
+  )
+  .join("\n")}
 
-Structure your HTML like this:
-1. Start with a brief intro paragraph
-2. Use <h2> for major sections (5-8 sections)
-3. Use <h3> for subsections where needed
-4. Use <p> tags for paragraphs
-5. Use <ul>/<ol> with <li> for lists
-6. Use <blockquote> for important callouts or key takeaways
-7. Use <strong> for emphasis on key terms
-8. Include a table of contents near the top using an ordered list with anchor links
-9. Include a final CTA section encouraging readers to schedule a consultation
-10. Include 2-4 internal links to related blog posts or service pages naturally within the text
+=== CONTENT REQUIREMENTS ===
 
-DO NOT include:
-- <html>, <head>, <body>, or <DOCTYPE> tags
-- Any <style> tags or inline CSS
-- Any <script> tags
-- The post title (h1) -- this is rendered separately
-- Any images or media
+1. LENGTH: The post MUST be at least 1,500 words. Aim for 2,000-2,500 words. Be thorough and substantive.
 
-The post should be 1,500-2,500 words, thorough and authoritative. Use anchor IDs on h2 elements (e.g., <h2 id="section-name">) for the table of contents links.
+2. LEGAL ACCURACY: Cite specific Illinois statutes (ILCS sections). State rules accurately. Include "as of [year]" for any dollar thresholds or deadlines that may change. Add a disclaimer that laws change and this is not legal advice.
 
-Output ONLY the raw HTML content, no markdown, no code fences, no explanation.`;
+3. INTERNAL LINKING: Include 4-6 natural internal links throughout the article body:
+   - 2-3 links to related blog posts using <a href="/blog/slug/">anchor text</a>
+   - 1-2 links to service pages using <a href="/chicago-wills-lawyer/">anchor text</a>
+   - 1 link to consultation booking using <a href="/book-consultation/">anchor text</a>
+
+4. SEO: Use the primary keyword naturally in the first paragraph, in at least 2 h2 headings, and throughout the body. Use related long-tail keywords in h3 subheadings.
+
+5. INTERACTIVE ELEMENTS -- You MUST include ALL of the following (using only HTML, CSS via <style> tags, and vanilla JavaScript via <script> tags since this renders in dangerouslySetInnerHTML):
+
+   a) EXPANDABLE FAQ SECTION: At least 5 frequently asked questions with click-to-expand answers. Use this exact pattern:
+      <div class="faq-section">
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Question text here?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>Answer text here.</p></div>
+        </div>
+      </div>
+
+   b) KEY TAKEAWAYS BOX: A styled summary box near the top with 4-6 bullet points.
+
+   c) INTERACTIVE CHECKLIST or SELF-ASSESSMENT: A checklist readers can click through, OR a simple yes/no self-assessment quiz with 4-6 questions. Use checkboxes with labels or radio buttons. Include a simple script that counts checked items and displays a summary.
+
+   d) STEP-BY-STEP PROCESS: If the topic involves a process, include numbered steps with expandable details (click to reveal more info on each step).
+
+6. SCHEMA MARKUP FAQ DATA: After the closing </div> of the FAQ section, include a hidden div with id="faq-data" containing the FAQ Q&A pairs as a JSON array so the page can extract them for schema markup:
+   <div id="faq-data" style="display:none">
+   [{"question":"Q1?","answer":"A1"},{"question":"Q2?","answer":"A2"}]
+   </div>
+
+=== HTML FORMAT REQUIREMENTS ===
+
+Output the complete HTML content that goes inside an article body. This renders inside an existing Next.js page layout via dangerouslySetInnerHTML.
+
+Structure:
+- Start with a <style> block containing all CSS for interactive elements
+- Key takeaways box near the top
+- Table of contents using an ordered list with anchor links to h2 sections
+- 5-8 major sections with <h2 id="section-id"> headings
+- Subsections with <h3> where needed
+- Interactive checklist or self-assessment in a relevant section
+- FAQ section with expandable items (minimum 5 questions)
+- Hidden #faq-data div with JSON
+- CTA section at the end encouraging consultation
+- A <script> block at the very end with all JavaScript for interactivity
+
+DO NOT include <html>, <head>, <body>, or <DOCTYPE> tags.
+DO NOT include the post title as h1 (rendered separately by the page).
+DO NOT include any images or external resources.
+
+Output ONLY the raw HTML. No markdown. No code fences. No explanation.`;
 
     const htmlContent = await callAnthropic(
       [{ role: "user", content: contentPrompt }],
       contentSystemPrompt,
-      8000
+      16000
     );
 
     const cleanedContent = htmlContent
@@ -264,25 +430,47 @@ Output ONLY the raw HTML content, no markdown, no code fences, no explanation.`;
       .replace(/\s*```\s*$/i, "")
       .trim();
 
+    // ---------- STEP 3: Extract FAQ data for schema markup ----------
+    let faqItems: Array<{ question: string; answer: string }> = [];
+    const faqDataMatch = cleanedContent.match(
+      /<div id="faq-data"[^>]*>([\s\S]*?)<\/div>/
+    );
+    if (faqDataMatch) {
+      try {
+        faqItems = JSON.parse(faqDataMatch[1].trim());
+      } catch {
+        faqItems = [];
+      }
+    }
+
+    // ---------- STEP 4: Generate meta description and excerpt ----------
     const metaSystemPrompt =
-      "You write concise, SEO-optimized meta descriptions for legal blog posts. Each should be 150-160 characters, include the primary keyword, and encourage clicks.";
+      "You write concise, SEO-optimized meta descriptions and excerpts for legal blog posts. Follow the exact format requested.";
 
-    const metaPrompt = `Write a meta description for a blog post titled: "${generatedTitle}"
-
+    const metaPrompt = `For a blog post titled: "${generatedTitle}"
 Topic: ${topic}
-The blog is for Illinois Estate Law, a Chicago estate planning firm.
+For Illinois Estate Law, a Chicago estate planning firm.
 
-Respond with ONLY the meta description text, nothing else. Keep it between 150-160 characters.`;
+Provide TWO things, separated by |||:
+1. A meta description (150-160 characters, includes primary keyword, encourages clicks)
+2. An excerpt (200-250 characters, summarizes the post value for readers browsing a blog listing)
 
-    const metaDescription = (
+Format: meta description text|||excerpt text
+
+Respond with ONLY that format, nothing else.`;
+
+    const metaResponse = (
       await callAnthropic(
         [{ role: "user", content: metaPrompt }],
         metaSystemPrompt,
-        100
+        200
       )
     ).trim();
 
-    const internalLinksPrompt = `Based on the blog post titled "${generatedTitle}" in the topic "${topic}", suggest 3-4 related articles from this list that readers would find helpful:
+    const [metaDescription, excerpt] = metaResponse.split("|||").map((s) => s.trim());
+
+    // ---------- STEP 5: Generate internal links for sidebar ----------
+    const internalLinksPrompt = `For the blog post titled "${generatedTitle}" in topic "${topic}", select 3-4 related articles from this list:
 
 ${existingTitles.map((t: string, i: number) => `- "${t}" (/blog/${existingSlugs[i]}/)`).join("\n")}
 
@@ -295,8 +483,8 @@ Also include 1-2 service pages:
 - Prenuptial Agreements (/chicago-prenuptial-agreements-lawyer/)
 - Deeds (/chicago-deeds-lawyer/)
 
-Respond with ONLY a JSON array of objects with "text" and "url" keys. Example:
-[{"text": "Article Title", "url": "/blog/slug/"}]`;
+Respond with ONLY a JSON array of objects with "text" and "url" keys.
+Example: [{"text":"Article Title","url":"/blog/slug/"}]`;
 
     const linksResponse = await callAnthropic(
       [{ role: "user", content: internalLinksPrompt }],
@@ -314,15 +502,37 @@ Respond with ONLY a JSON array of objects with "text" and "url" keys. Example:
       internalLinks = null;
     }
 
+    // ---------- STEP 6: Build schema markup ----------
+    const publishedDate = new Date().toISOString();
+    const schemas = buildSchemaMarkup(
+      generatedTitle,
+      slug,
+      metaDescription || generatedTitle,
+      topic,
+      publishedDate,
+      faqItems
+    );
+
+    const schemaScriptTags = schemas
+      .map(
+        (s) =>
+          `<script type="application/ld+json">${JSON.stringify(s)}</script>`
+      )
+      .join("\n");
+
+    const finalContent = schemaScriptTags + "\n" + cleanedContent;
+
+    // ---------- STEP 7: Insert into database ----------
     const { data: insertedPost, error: insertError } = await supabase
       .from("blog_posts")
       .insert({
         title: generatedTitle,
         slug,
-        content: cleanedContent,
-        meta_description: metaDescription,
+        content: finalContent,
+        excerpt: excerpt || metaDescription || generatedTitle.substring(0, 200),
+        meta_description: metaDescription || generatedTitle,
         topic,
-        published_date: new Date().toISOString(),
+        published_date: publishedDate,
         author: "Illinois Estate Law",
         internal_links: internalLinks,
       })
@@ -337,7 +547,10 @@ Respond with ONLY a JSON array of objects with "text" and "url" keys. Example:
       JSON.stringify({
         success: true,
         post: insertedPost,
-        message: `Blog post "${generatedTitle}" published successfully.`,
+        schemaTypes: schemas.map((s) => s["@type"]),
+        faqCount: faqItems.length,
+        hasInteractiveElements: true,
+        message: `Blog post "${generatedTitle}" published successfully with schema markup, FAQ section, and interactive elements.`,
       }),
       {
         status: 201,
