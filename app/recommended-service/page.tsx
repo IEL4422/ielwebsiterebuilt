@@ -2079,7 +2079,7 @@ export default function RecommendedServicePage() {
 
                   <p className="mb-3"><strong>10.04 Client Responsibilities.</strong> Provide complete and accurate information; respond to requests within 5 business days; meet deadlines; keep contact info current; and promptly review drafts. Delays or inaccuracies may increase cost or limit available options.</p>
 
-                  <p className="mb-3"><strong>10.05 Trust Funding.</strong> Client is responsible for funding all assets into trust, unless otherwise noted in Paragraph 2.1. The Firm is not responsible for Client's failure to fund assets into their respective trust.</p>
+                  <p className="mb-3"><strong>10.05 Trust Funding.</strong> Full trust funding is included in all trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust). The Firm will coordinate with banks, financial institutions, and other entities to transfer Client's assets into the trust. One (1) deed transfer of real estate into the trust is included; additional deeds are $500 each. For a la carte services that do not include a trust, trust funding is not included unless separately purchased. The Firm is not responsible for delays caused by third-party institutions or for Client's failure to provide required information or documentation in a timely manner.</p>
 
                   <h3 className="font-bold text-lg mt-6 mb-3">STATEMENT OF CLIENT'S RIGHTS AND RESPONSIBILITIES</h3>
 

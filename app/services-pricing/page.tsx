@@ -137,7 +137,7 @@ export default function ServicesPage() {
             </summary>
             <div className="pb-4 text-[#2d3e50]">
               <p className="mb-4">Our packages include most extraneous expenses, court fees, etc. For probate matters, this includes the creditor publication charge and the filing fee. The surety bond or the insurance policy for the estate would be directly paid by the client to the insurance provider.</p>
-              <p>For our estate planning packages, all fees, including full trust funding, notarization, and recording costs are included. Please note that our a la carte products are not all-inclusive, and additional extraneous fees may be charged.</p>
+              <p>For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- full trust funding, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged.</p>
             </div>
           </details>
 
@@ -161,7 +161,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes–our packages are all inclusive. We draft the 1 deed for you and also record it with the Recorder of Deeds. All additional deeds are $250 for completion and recording.</p>
+              <p>Yes -- full trust funding is included in all of our trust packages and trust services. We draft one (1) deed for you and record it with the Recorder of Deeds as part of the service. Additional deeds beyond the first are $500 each for completion and recording.</p>
             </div>
           </details>
 
@@ -173,7 +173,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes, we provide comprehensive assistance with trust funding. We draft and record any necessary deeds and offer detailed instructions on how to transfer other assets into the trust. Our goal is to ensure all your assets are properly transferred to the trust or have designated pay-on-death beneficiaries.</p>
+              <p>Yes -- full trust funding is included in all trust packages and trust services at no additional cost. Our team will coordinate directly with your banks, financial institutions, and other entities to transfer your assets into the trust. We also draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Our goal is to ensure all your assets are properly transferred to the trust or have designated pay-on-death beneficiaries. Trust funding is also available as a standalone a la carte service for $1,500 for clients who have an existing trust.</p>
             </div>
           </details>
 
