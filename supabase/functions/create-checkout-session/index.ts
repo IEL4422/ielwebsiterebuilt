@@ -16,7 +16,7 @@ Deno.serve(async (req: Request) => {
 
   try {
     const stripeSecretKey = Deno.env.get('STRIPE_SECRET_KEY');
-    
+
     if (!stripeSecretKey) {
       return new Response(
         JSON.stringify({ error: 'Stripe is not configured. Please contact support.' }),
@@ -30,7 +30,9 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const { purchaseId, serviceName, price, clientEmail } = await req.json();
+    const { purchaseId, serviceName, price, clientEmail, siteUrl } = await req.json();
+
+    const origin = siteUrl || req.headers.get('origin') || req.headers.get('referer')?.replace(/\/[^/]*$/, '') || 'https://www.illinoisestatelaw.com';
 
     const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
       method: 'POST',
@@ -40,8 +42,8 @@ Deno.serve(async (req: Request) => {
       },
       body: new URLSearchParams({
         'mode': 'payment',
-        'success_url': `${req.headers.get('origin')}/purchase-service/success?session_id={CHECKOUT_SESSION_ID}`,
-        'cancel_url': `${req.headers.get('origin')}/purchase-service`,
+        'success_url': `${origin}/purchase-service/success?session_id={CHECKOUT_SESSION_ID}`,
+        'cancel_url': `${origin}/purchase-service`,
         'customer_email': clientEmail,
         'line_items[0][price_data][currency]': 'usd',
         'line_items[0][price_data][product_data][name]': serviceName,

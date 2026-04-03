@@ -398,7 +398,8 @@ export default function PurchaseServicePage() {
             purchaseId: purchaseId,
             serviceName: servicesDescription,
             price: totalPrice,
-            clientEmail: clientInfo.email
+            clientEmail: clientInfo.email,
+            siteUrl: window.location.origin
           })
         });
 

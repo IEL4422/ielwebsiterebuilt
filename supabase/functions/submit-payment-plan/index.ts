@@ -41,49 +41,38 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // Send to Zapier webhook
-    const webhookUrl = 'https://hooks.zapier.com/hooks/catch/19553629/uqk8gko/';
+    // Send to Zapier webhook (non-blocking)
+    try {
+      const webhookUrl = 'https://hooks.zapier.com/hooks/catch/19553629/uqk8gko/';
 
-    const webhookResponse = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        first_name: firstName,
-        last_name: lastName,
-        packagePurchased: packagePurchased,
-        totalPrice: totalPrice,
-        email: email,
-        phone_number: phoneNumber,
-        typeOfService: typeOfService,
-      }),
-    });
-
-    const responseText = await webhookResponse.text();
-
-    // Zapier webhooks typically return 200 with specific response
-    // Check if the response indicates success
-    if (!webhookResponse.ok) {
-      console.error('Zapier webhook error:', {
-        status: webhookResponse.status,
-        statusText: webhookResponse.statusText,
-        body: responseText,
+      const webhookResponse = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          packagePurchased: packagePurchased,
+          totalPrice: totalPrice,
+          email: email,
+          phone_number: phoneNumber,
+          typeOfService: typeOfService,
+        }),
       });
 
-      return new Response(
-        JSON.stringify({
-          error: "Failed to submit payment plan request",
-          details: responseText,
-        }),
-        {
-          status: 500,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      if (webhookResponse.ok) {
+        console.log('Zapier webhook sent successfully');
+      } else {
+        const responseText = await webhookResponse.text();
+        console.error('Zapier webhook error:', {
+          status: webhookResponse.status,
+          statusText: webhookResponse.statusText,
+          body: responseText,
+        });
+      }
+    } catch (zapierError) {
+      console.error('Error sending Zapier webhook:', zapierError);
     }
 
     // Send portal webhook
