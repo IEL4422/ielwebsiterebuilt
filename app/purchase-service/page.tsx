@@ -212,8 +212,6 @@ export default function PurchaseServicePage() {
     }
   }, []);
 
-  const estatePlanningWithALaCarte = [...estatePlanningPackages, ...aLaCarteServices];
-
   const filterServices = (services: Service[]) => {
     if (!searchQuery.trim()) return services;
 
@@ -662,14 +660,31 @@ export default function PurchaseServicePage() {
             </div>
 
             <div className="space-y-12">
-              {(serviceFilter === 'all' || serviceFilter === 'estate-planning') && filterServices(estatePlanningWithALaCarte).length > 0 && (
+              {(serviceFilter === 'all' || serviceFilter === 'estate-planning') && (filterServices(estatePlanningPackages).length > 0 || filterServices(aLaCarteServices).length > 0) && (
                 <div>
                   <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50] mb-6 pb-3 border-b-2 border-[#2d3e50]">
                     Estate Planning
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filterServices(estatePlanningWithALaCarte).map(service => renderServiceCard(service))}
-                  </div>
+                  {filterServices(estatePlanningPackages).length > 0 && (
+                    <div className="mb-10">
+                      <h3 className="font-['Plus_Jakarta_Sans'] font-semibold text-[22px] text-[#4a708b] mb-4">
+                        Packages
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filterServices(estatePlanningPackages).map(service => renderServiceCard(service))}
+                      </div>
+                    </div>
+                  )}
+                  {filterServices(aLaCarteServices).length > 0 && (
+                    <div>
+                      <h3 className="font-['Plus_Jakarta_Sans'] font-semibold text-[22px] text-[#4a708b] mb-4">
+                        A La Carte Services
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filterServices(aLaCarteServices).map(service => renderServiceCard(service))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
