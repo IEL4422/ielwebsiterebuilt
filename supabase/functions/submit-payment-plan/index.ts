@@ -27,7 +27,6 @@ Deno.serve(async (req: Request) => {
       clientType,
     } = await req.json();
 
-    // Validate required fields
     if (!firstName || !email || !packagePurchased || !totalPrice) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
@@ -41,104 +40,98 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // Send to Zapier webhook (non-blocking)
-    try {
-      const webhookUrl = 'https://hooks.zapier.com/hooks/catch/19553629/uqk8gko/';
-
-      const webhookResponse = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          packagePurchased: packagePurchased,
-          totalPrice: totalPrice,
-          email: email,
-          phone_number: phoneNumber,
-          typeOfService: typeOfService,
-        }),
-      });
-
-      if (webhookResponse.ok) {
-        console.log('Zapier webhook sent successfully');
-      } else {
-        const responseText = await webhookResponse.text();
-        console.error('Zapier webhook error:', {
-          status: webhookResponse.status,
-          statusText: webhookResponse.statusText,
-          body: responseText,
+    const sendZapierWebhook = async () => {
+      try {
+        const webhookUrl = 'https://hooks.zapier.com/hooks/catch/19553629/uqk8gko/';
+        const webhookResponse = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            packagePurchased,
+            totalPrice,
+            email,
+            phone_number: phoneNumber,
+            typeOfService,
+          }),
         });
+        if (webhookResponse.ok) {
+          console.log('Zapier webhook sent successfully');
+        } else {
+          console.error('Zapier webhook error:', webhookResponse.status, await webhookResponse.text());
+        }
+      } catch (err) {
+        console.error('Error sending Zapier webhook:', err);
       }
-    } catch (zapierError) {
-      console.error('Error sending Zapier webhook:', zapierError);
-    }
+    };
 
-    // Send portal webhook
-    try {
-      const portalWebhookUrl = 'https://portal.illinoisestatelaw.com/api/webhooks/website-purchase';
-      const portalResponse = await fetch(portalWebhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          typeOfCase: typeOfService,
-          packagePurchased: packagePurchased,
-          amountPaid: totalPrice,
-          paymentType: 'payment-plan',
-          email: email,
-          name: `${firstName} ${lastName}`.trim(),
-          phoneNumber: phoneNumber || '',
-        }),
-      });
-
-      if (portalResponse.ok) {
-        console.log('Portal webhook sent successfully');
-      } else {
-        console.error('Failed to send portal webhook:', await portalResponse.text());
+    const sendPortalWebhook = async () => {
+      try {
+        const portalWebhookUrl = 'https://portal.illinoisestatelaw.com/api/webhooks/website-purchase';
+        const portalResponse = await fetch(portalWebhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            typeOfCase: typeOfService,
+            packagePurchased,
+            amountPaid: totalPrice,
+            paymentType: 'payment-plan',
+            email,
+            name: `${firstName} ${lastName}`.trim(),
+            phoneNumber: phoneNumber || '',
+          }),
+        });
+        if (portalResponse.ok) {
+          console.log('Portal webhook sent successfully');
+        } else {
+          console.error('Failed to send portal webhook:', await portalResponse.text());
+        }
+      } catch (err) {
+        console.error('Error sending portal webhook:', err);
       }
-    } catch (portalError) {
-      console.error('Error sending portal webhook:', portalError);
-    }
+    };
 
-    // Send Slack notification
-    try {
-      const slackApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-slack-notification`;
-      const slackResponse = await fetch(slackApiUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          phoneNumber,
-          serviceName: packagePurchased,
-          servicePrice: totalPrice,
-          addOns,
-          clientType,
-          paymentType: 'payment-plan',
-        }),
-      });
-
-      if (slackResponse.ok) {
-        console.log('Slack notification sent successfully');
-      } else {
-        console.error('Failed to send Slack notification:', await slackResponse.text());
+    const sendSlackNotification = async () => {
+      try {
+        const slackApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-slack-notification`;
+        const slackResponse = await fetch(slackApiUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            serviceName: packagePurchased,
+            servicePrice: totalPrice,
+            addOns,
+            clientType,
+            paymentType: 'payment-plan',
+          }),
+        });
+        if (slackResponse.ok) {
+          console.log('Slack notification sent successfully');
+        } else {
+          console.error('Failed to send Slack notification:', await slackResponse.text());
+        }
+      } catch (err) {
+        console.error('Error sending Slack notification:', err);
       }
-    } catch (slackError) {
-      console.error('Error sending Slack notification:', slackError);
-    }
+    };
 
-    console.log('Payment plan submitted successfully:', {
-      email,
-      packagePurchased,
-      totalPrice,
-    });
+    EdgeRuntime.waitUntil(
+      Promise.allSettled([
+        sendZapierWebhook(),
+        sendPortalWebhook(),
+        sendSlackNotification(),
+      ])
+    );
+
+    console.log('Payment plan submitted successfully:', { email, packagePurchased, totalPrice });
 
     return new Response(
       JSON.stringify({
