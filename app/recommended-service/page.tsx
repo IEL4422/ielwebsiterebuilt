@@ -57,6 +57,8 @@ interface ServiceRecommendation {
   serviceId: string;
   clientType?: 'individual' | 'joint';
   requiresConsultation?: boolean;
+  standardizedCaseType: string;
+  standardizedServiceName: string;
 }
 
 const counties = [
@@ -153,7 +155,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'prenuptial-review-negotiation',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Prenuptial Agreement',
+          standardizedServiceName: 'Prenuptial Agreement - Review and Negotiation'
         };
       }
 
@@ -170,7 +174,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'prenuptial-review',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Prenuptial Agreement',
+          standardizedServiceName: 'Prenuptial Agreement - Review'
         };
       }
 
@@ -188,7 +194,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'prenuptial-drafting-negotiation',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Prenuptial Agreement',
+          standardizedServiceName: 'Prenuptial Agreement - Drafting and Negotiation'
         };
       }
 
@@ -205,7 +213,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'prenuptial-drafting',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Prenuptial Agreement',
+          standardizedServiceName: 'Prenuptial Agreement - Drafting'
         };
       }
     }
@@ -225,7 +235,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'small-business-package',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Small Business',
+          standardizedServiceName: 'Small Business Package'
         };
       }
 
@@ -242,7 +254,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'business-essentials',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Small Business',
+          standardizedServiceName: 'Business Essentials Package'
         };
       }
 
@@ -259,7 +273,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'trademark-registration',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Small Business',
+          standardizedServiceName: 'Trademark Registration'
         };
       }
     }
@@ -279,7 +295,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'heir-representation',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Probate',
+          standardizedServiceName: 'Heir Representation'
         };
       }
 
@@ -299,7 +317,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'partial-probate',
-          requiresConsultation: true
+          requiresConsultation: true,
+          standardizedCaseType: 'Probate',
+          standardizedServiceName: 'Partial Probate'
         };
       }
 
@@ -326,7 +346,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'probate-package-contested',
-          requiresConsultation: true
+          requiresConsultation: true,
+          standardizedCaseType: 'Probate',
+          standardizedServiceName: 'Probate Package'
         };
       }
 
@@ -349,7 +371,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'summary-probate',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Probate',
+          standardizedServiceName: 'Summary Probate'
         };
       }
 
@@ -373,7 +397,9 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'probate-package',
-          requiresConsultation: false
+          requiresConsultation: false,
+          standardizedCaseType: 'Probate',
+          standardizedServiceName: 'Probate Package'
         };
       }
 
@@ -440,7 +466,9 @@ export default function RecommendedServicePage() {
         ],
         addOns,
         serviceId: 'trust-package',
-        clientType: isMarried ? 'joint' : 'individual'
+        clientType: isMarried ? 'joint' : 'individual',
+        standardizedCaseType: 'Estate Planning',
+        standardizedServiceName: isMarried ? 'Joint Trust Package' : 'Individual Trust Package'
       };
     }
 
@@ -482,7 +510,9 @@ export default function RecommendedServicePage() {
         ],
         addOns,
         serviceId: 'revocable-living-trust',
-        clientType: isMarried ? 'joint' : 'individual'
+        clientType: isMarried ? 'joint' : 'individual',
+        standardizedCaseType: 'Estate Planning',
+        standardizedServiceName: isMarried ? 'Joint Trust - A La Carte' : 'Individual Trust - A La Carte'
       };
     }
 
@@ -505,7 +535,9 @@ export default function RecommendedServicePage() {
         ],
         addOns: [],
         serviceId: 'probate-avoidance-package',
-        clientType: isMarried ? 'joint' : 'individual'
+        clientType: isMarried ? 'joint' : 'individual',
+        standardizedCaseType: 'Estate Planning',
+        standardizedServiceName: isMarried ? 'Joint Probate Avoidance Package' : 'Individual Probate Avoidance Package'
       };
     }
 
@@ -526,7 +558,9 @@ export default function RecommendedServicePage() {
       ],
       addOns: [],
       serviceId: 'will-package',
-      clientType: isMarried ? 'joint' : 'individual'
+      clientType: isMarried ? 'joint' : 'individual',
+      standardizedCaseType: 'Estate Planning',
+      standardizedServiceName: isMarried ? 'Joint Will Package' : 'Individual Will Package'
     };
   };
 
@@ -703,8 +737,8 @@ export default function RecommendedServicePage() {
           client_name: clientInfo.name,
           client_email: clientInfo.email,
           client_phone: clientInfo.phone,
-          service_type: recommendation.serviceId.includes('probate') ? 'probate' : 'estate-planning',
-          service_name: recommendation.name,
+          service_type: recommendation.standardizedCaseType,
+          service_name: recommendation.standardizedServiceName,
           service_price: totalPrice,
           client_type: recommendation.clientType || 'individual',
           agreement_signed: true,
@@ -746,7 +780,7 @@ export default function RecommendedServicePage() {
           },
           body: JSON.stringify({
             purchaseId: purchaseId,
-            serviceName: recommendation.name,
+            serviceName: recommendation.standardizedServiceName,
             price: totalPrice,
             clientEmail: clientInfo.email
           })
@@ -782,11 +816,11 @@ export default function RecommendedServicePage() {
           body: JSON.stringify({
             firstName: clientInfo.name.split(' ')[0],
             lastName: clientInfo.name.split(' ').slice(1).join(' '),
-            packagePurchased: recommendation.name,
+            packagePurchased: recommendation.standardizedServiceName,
             totalPrice: totalWithFee,
             email: clientInfo.email,
             phoneNumber: clientInfo.phone,
-            typeOfService: recommendation.serviceId.includes('probate') ? 'Probate' : 'Estate Planning',
+            typeOfService: recommendation.standardizedCaseType,
             addOns: addOnsNames,
             clientType: recommendation.clientType
           })

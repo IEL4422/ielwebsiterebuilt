@@ -89,23 +89,12 @@ Deno.serve(async (req: Request) => {
           })
           .eq('id', purchaseId);
 
+        const nameParts = purchase.client_name.split(' ');
+        const firstName = nameParts[0];
+        const lastName = nameParts.slice(1).join(' ');
+
         try {
           const zapierWebhookUrl = 'https://hooks.zapier.com/hooks/catch/19553629/uqkzru2/';
-          const nameParts = purchase.client_name.split(' ');
-          const firstName = nameParts[0];
-          const lastName = nameParts.slice(1).join(' ');
-
-          const getServiceType = (serviceType: string, serviceName: string) => {
-            if (serviceType === 'estate-planning') return 'Estate Planning';
-            if (serviceType === 'probate') return 'Probate';
-            if (serviceType === 'a-la-carte') {
-              const deedServices = ['Quit Claim Deed', 'Transfer-on-Death Instrument', 'Life Estate Deed'];
-              if (deedServices.some(d => serviceName.includes(d))) return 'Deed';
-              if (serviceName.includes('Document Review')) return 'Document Review';
-              return 'Estate Planning';
-            }
-            return 'Estate Planning';
-          };
 
           const webhookResponse = await fetch(zapierWebhookUrl, {
             method: 'POST',
@@ -119,7 +108,7 @@ Deno.serve(async (req: Request) => {
               lastName: lastName,
               packagePurchased: purchase.service_name,
               phoneNumber: purchase.client_phone || '',
-              typeOfService: getServiceType(purchase.service_type, purchase.service_name)
+              typeOfService: purchase.service_type
             })
           });
 
@@ -133,22 +122,6 @@ Deno.serve(async (req: Request) => {
         }
 
         try {
-          const nameParts = purchase.client_name.split(' ');
-          const firstName = nameParts[0];
-          const lastName = nameParts.slice(1).join(' ');
-
-          const getTypeOfCase = (serviceType: string, serviceName: string) => {
-            if (serviceType === 'probate') return 'Probate';
-            if (serviceType === 'prenuptial') return 'Prenuptial Agreement';
-            if (serviceType === 'small-business') return 'Small Business';
-            if (serviceType === 'a-la-carte') {
-              const deedServices = ['Quit Claim Deed', 'Transfer-on-Death Instrument', 'Life Estate Deed'];
-              if (deedServices.some(d => serviceName.includes(d))) return 'Estate Planning';
-              return 'Estate Planning';
-            }
-            return 'Estate Planning';
-          };
-
           const portalWebhookUrl = 'https://portal.illinoisestatelaw.com/api/webhooks/website-purchase';
           const portalResponse = await fetch(portalWebhookUrl, {
             method: 'POST',
@@ -156,7 +129,7 @@ Deno.serve(async (req: Request) => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              typeOfCase: getTypeOfCase(purchase.service_type, purchase.service_name),
+              typeOfCase: purchase.service_type,
               packagePurchased: purchase.service_name,
               amountPaid: purchase.service_price,
               paymentType: 'pay-in-full',
@@ -176,10 +149,6 @@ Deno.serve(async (req: Request) => {
         }
 
         try {
-          const nameParts = purchase.client_name.split(' ');
-          const firstName = nameParts[0];
-          const lastName = nameParts.slice(1).join(' ');
-
           const slackApiUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/send-slack-notification`;
           const slackResponse = await fetch(slackApiUrl, {
             method: 'POST',

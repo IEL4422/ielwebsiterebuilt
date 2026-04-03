@@ -2,10 +2,22 @@
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { Service } from '@/lib/services-data';
+interface DisplayService {
+  id: string;
+  name: string;
+  category: string;
+  individualPrice?: number;
+  jointPrice?: number;
+  fixedPrice?: number;
+  pricingLabel?: string;
+  requiresConsultation?: boolean;
+  description: string;
+  includes: string[];
+  note?: string;
+}
 
 interface CategorizedServicesProps {
-  onSelectService: (service: Service) => void;
+  onSelectService: (service: DisplayService) => void;
   expandedDescriptions: Set<string>;
   toggleDescription: (serviceId: string, e: React.MouseEvent) => void;
 }
@@ -13,9 +25,9 @@ interface CategorizedServicesProps {
 interface ServiceCategory {
   id: string;
   name: string;
-  packages: Service[];
-  aLaCarte: Service[];
-  addOns: Service[];
+  packages: DisplayService[];
+  aLaCarte: DisplayService[];
+  addOns: DisplayService[];
 }
 
 export function CategorizedServices({
@@ -37,7 +49,7 @@ export function CategorizedServices({
     });
   };
 
-  const renderServiceCard = (service: Service) => {
+  const renderServiceCard = (service: DisplayService) => {
     const hasMultiplePrices = service.individualPrice && service.jointPrice;
     const isExpanded = expandedDescriptions.has(service.id);
 

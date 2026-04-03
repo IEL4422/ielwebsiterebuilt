@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, type Service } from '@/lib/services-data';
+import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, getStandardizedServiceName, type Service } from '@/lib/services-data';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -322,19 +322,23 @@ export default function PurchaseServicePage() {
 
     try {
       const totalPrice = getCartTotal();
-      const servicesDescription = cart.map(item => {
+      const standardizedServiceNames = cart.map(item => {
+        const stdName = getStandardizedServiceName(item.service, item.clientType);
         const quantityText = item.quantity > 1 ? ` x${item.quantity}` : '';
         const addOnsText = item.addOns.length > 0
           ? ` (Add-ons: ${item.addOns.map(id => {
               const addOn = allAddOns.find(a => a.id === id);
               if (!addOn) return null;
               const quantity = item.addOnQuantities[id] || 1;
-              const quantityText = addOn.allowQuantity && quantity > 1 ? ` x${quantity}` : '';
-              return `${addOn.name}${quantityText}`;
+              const qtyText = addOn.allowQuantity && quantity > 1 ? ` x${quantity}` : '';
+              return `${addOn.name}${qtyText}`;
             }).filter(Boolean).join(', ')})`
           : '';
-        return `${item.service.name}${quantityText} (${item.clientType})${addOnsText}`;
+        return `${stdName}${quantityText}${addOnsText}`;
       }).join('; ');
+
+      const caseTypes = Array.from(new Set(cart.map(item => item.service.standardizedCaseType)));
+      const standardizedCaseType = caseTypes.join('; ');
 
       const newId = crypto.randomUUID();
 
@@ -350,10 +354,10 @@ export default function PurchaseServicePage() {
           client_name: clientInfo.name,
           client_email: clientInfo.email,
           client_phone: clientInfo.phone,
-          service_type: 'multiple',
-          service_name: servicesDescription,
+          service_type: standardizedCaseType,
+          service_name: standardizedServiceNames,
           service_price: totalPrice,
-          client_type: 'multiple',
+          client_type: cart.length === 1 ? cart[0].clientType : 'multiple',
           agreement_signed: true,
           agreement_signature: signature,
           agreement_signed_at: new Date().toISOString(),
@@ -384,7 +388,7 @@ export default function PurchaseServicePage() {
       setIsProcessing(true);
       try {
         const totalPrice = getCartTotal();
-        const servicesDescription = cart.map(item => item.service.name).join(', ');
+        const servicesDescription = cart.map(item => getStandardizedServiceName(item.service, item.clientType)).join('; ');
         const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/create-checkout-session`;
         const response = await fetch(apiUrl, {
           method: 'POST',
@@ -415,7 +419,8 @@ export default function PurchaseServicePage() {
         const totalPrice = getCartTotal();
         const setupFee = totalPrice * 0.05;
         const totalWithFee = totalPrice + setupFee;
-        const servicesDescription = cart.map(item => item.service.name).join(', ');
+        const stdServiceNames = cart.map(item => getStandardizedServiceName(item.service, item.clientType)).join('; ');
+        const stdCaseTypes = Array.from(new Set(cart.map(item => item.service.standardizedCaseType))).join('; ');
 
         const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/submit-payment-plan`;
         const response = await fetch(apiUrl, {
@@ -427,11 +432,11 @@ export default function PurchaseServicePage() {
           body: JSON.stringify({
             firstName: clientInfo.name.split(' ')[0],
             lastName: clientInfo.name.split(' ').slice(1).join(' '),
-            packagePurchased: servicesDescription,
+            packagePurchased: stdServiceNames,
             totalPrice: totalWithFee,
             email: clientInfo.email,
             phoneNumber: clientInfo.phone,
-            typeOfService: 'Multiple Services'
+            typeOfService: stdCaseTypes
           })
         });
 
