@@ -123,15 +123,19 @@ Deno.serve(async (req: Request) => {
       }
     };
 
-    EdgeRuntime.waitUntil(
-      Promise.allSettled([
-        sendZapierWebhook(),
-        sendPortalWebhook(),
-        sendSlackNotification(),
-      ])
-    );
-
     console.log('Payment plan submitted successfully:', { email, packagePurchased, totalPrice });
+
+    const backgroundWork = Promise.allSettled([
+      sendZapierWebhook(),
+      sendPortalWebhook(),
+      sendSlackNotification(),
+    ]);
+
+    if (typeof EdgeRuntime !== 'undefined' && EdgeRuntime.waitUntil) {
+      EdgeRuntime.waitUntil(backgroundWork);
+    } else {
+      await backgroundWork;
+    }
 
     return new Response(
       JSON.stringify({
