@@ -138,7 +138,6 @@ Deno.serve(async (req: Request) => {
       email,
       packagePurchased,
       totalPrice,
-      response: responseText,
     });
 
     return new Response(
