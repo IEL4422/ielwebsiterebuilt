@@ -13,7 +13,7 @@ interface SlackNotificationData {
   phoneNumber?: string;
   serviceName: string;
   servicePrice: number;
-  addOns?: string[];
+  addOns?: string | string[];
   clientType?: string;
   paymentType: 'full' | 'payment-plan';
 }
@@ -66,7 +66,8 @@ Deno.serve(async (req: Request) => {
 
     let addOnsText = '';
     if (addOns && addOns.length > 0) {
-      addOnsText = `\n*Add-Ons:* ${addOns.join(', ')}`;
+      const addOnsDisplay = Array.isArray(addOns) ? addOns.join(', ') : addOns;
+      addOnsText = `\n*Add-Ons:* ${addOnsDisplay}`;
     }
 
     const clientTypeText = clientType ? `\n*Client Type:* ${clientType === 'individual' ? 'Individual' : 'Joint/Couple'}` : '';
