@@ -338,6 +338,17 @@ export default function PurchaseServicePage() {
       const caseTypes = Array.from(new Set(cart.map(item => item.service.standardizedCaseType)));
       const standardizedCaseType = caseTypes.join('; ');
 
+      const addOnsList = cart.flatMap(item =>
+        item.addOns.map(id => {
+          const addOn = allAddOns.find(a => a.id === id);
+          if (!addOn) return null;
+          const quantity = item.addOnQuantities[id] || 1;
+          const qtyText = addOn.allowQuantity && quantity > 1 ? ` x${quantity}` : '';
+          return `${addOn.name}${qtyText}`;
+        }).filter(Boolean)
+      );
+      const addOnsString = addOnsList.length > 0 ? addOnsList.join(', ') : null;
+
       const newId = crypto.randomUUID();
 
       const savePurchaseUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/save-purchase`;
@@ -360,7 +371,7 @@ export default function PurchaseServicePage() {
           agreement_signature: signature,
           agreement_signed_at: new Date().toISOString(),
           stripe_payment_status: 'pending',
-          add_ons: null,
+          add_ons: addOnsString,
         }),
       });
 
@@ -421,6 +432,17 @@ export default function PurchaseServicePage() {
         const stdServiceNames = cart.map(item => getStandardizedServiceName(item.service, item.clientType)).join('; ');
         const stdCaseTypes = Array.from(new Set(cart.map(item => item.service.standardizedCaseType))).join('; ');
 
+        const planAddOnsList = cart.flatMap(item =>
+          item.addOns.map(id => {
+            const addOn = allAddOns.find(a => a.id === id);
+            if (!addOn) return null;
+            const quantity = item.addOnQuantities[id] || 1;
+            const qtyText = addOn.allowQuantity && quantity > 1 ? ` x${quantity}` : '';
+            return `${addOn.name}${qtyText}`;
+          }).filter(Boolean)
+        );
+        const planAddOnsString = planAddOnsList.length > 0 ? planAddOnsList.join(', ') : null;
+
         const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/submit-payment-plan`;
         const response = await fetch(apiUrl, {
           method: 'POST',
@@ -435,7 +457,9 @@ export default function PurchaseServicePage() {
             totalPrice: totalWithFee,
             email: clientInfo.email,
             phoneNumber: clientInfo.phone,
-            typeOfService: stdCaseTypes
+            typeOfService: stdCaseTypes,
+            addOns: planAddOnsString,
+            clientType: cart.length === 1 ? cart[0].clientType : 'multiple',
           })
         });
 
