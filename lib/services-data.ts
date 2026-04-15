@@ -289,7 +289,7 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For uncontested estates with no real estate (with or without a will)',
+    note: 'For uncontested estates with no real estate (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
@@ -312,7 +312,7 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For uncontested estates with real estate (with or without a will)',
+    note: 'For uncontested estates with real estate (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
@@ -336,7 +336,7 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates valued at $1,000,000 or above',
+    note: 'For estates valued at $1,000,000 or above. The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
