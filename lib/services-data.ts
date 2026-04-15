@@ -255,12 +255,6 @@ const probateAddOns = [
     description: 'Court-supervised administration of the estate'
   },
   {
-    id: 'real-estate-attorney-representation',
-    name: 'Real Estate Attorney Representation',
-    price: 3000,
-    description: 'Legal representation for real estate matters in the estate'
-  },
-  {
     id: 'emergency-relief',
     name: 'Emergency Relief',
     price: 2500,
@@ -277,13 +271,13 @@ const probateAddOns = [
 
 export const probatePackages: Service[] = [
   {
-    id: 'probate-package',
-    name: 'Probate Package',
+    id: 'probate-no-real-estate',
+    name: 'Uncontested Probate (No Real Estate)',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate Package',
-    pricingLabel: 'Starting at $7,500',
-    description: 'Full probate administration services',
+    fixedPrice: 5000,
+    description: 'Flat-fee probate administration for uncontested estates without real estate, whether with or without a will',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -295,16 +289,17 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
+    note: 'For uncontested estates with no real estate (with or without a will)',
     addOns: []
   },
   {
-    id: 'summary-probate',
-    name: 'Summary Probate',
+    id: 'probate-with-real-estate',
+    name: 'Probate With Real Estate',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Summary Probate',
-    fixedPrice: 4000,
-    description: 'Simplified probate process for estates meeting specific requirements',
+    standardizedServiceName: 'Probate Package',
+    fixedPrice: 7500,
+    description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the sale of real estate',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -313,28 +308,35 @@ export const probatePackages: Service[] = [
       'Representation at All Court Hearings',
       'Filing Fees, Creditor Notification Publication Fees',
       'Preparation of Final Accounting',
+      'Real Estate Attorney Representation for Sale',
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs'
+    note: 'For uncontested estates with real estate (with or without a will)',
+    addOns: []
   },
   {
-    id: 'partial-probate',
-    name: 'Partial Probate',
+    id: 'probate-high-value',
+    name: 'High-Value Estate Probate',
+    subtitle: 'Estates valued at $1,000,000 or above',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Partial Probate',
-    pricingLabel: 'Starting at $3,500',
-    description: 'For probate cases already filed',
+    standardizedServiceName: 'Probate Package',
+    pricingLabel: '$7,500 + 1% of Estate Value',
+    description: 'Probate administration for estates valued at $1,000,000 or above, including real estate attorney representation for the sale of real estate',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
       'Heirship Research',
       'Asset Search',
       'Representation at All Court Hearings',
+      'Filing Fees, Creditor Notification Publication Fees',
       'Preparation of Final Accounting',
+      'Real Estate Attorney Representation for Sale',
+      'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
+    note: 'For estates valued at $1,000,000 or above',
     addOns: []
   },
   {

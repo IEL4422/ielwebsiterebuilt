@@ -272,11 +272,30 @@ export function CategorizedServices({
       name: 'Probate',
       packages: [
         {
-          id: 'probate-package',
-          name: 'Probate Package',
+          id: 'probate-no-real-estate',
+          name: 'Uncontested Probate (No Real Estate)',
+          category: 'probate',
+          fixedPrice: 5000,
+          description: 'Flat-fee probate administration for uncontested estates without real estate, whether with or without a will',
+          includes: [
+            'Preparation and Filing of All Necessary Documents',
+            'Notification of Heirs and Creditors',
+            'Heirship Research',
+            'Asset Search',
+            'Representation at All Court Hearings',
+            'Filing Fees, Creditor Notification Publication Fees',
+            'Preparation of Final Accounting',
+            'Access to Probate Portal',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For uncontested estates with no real estate (with or without a will)'
+        },
+        {
+          id: 'probate-with-real-estate',
+          name: 'Probate With Real Estate',
           category: 'probate',
           fixedPrice: 7500,
-          description: 'Full probate administration services',
+          description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the sale of real estate',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -285,17 +304,18 @@ export function CategorizedServices({
             'Representation at All Court Hearings',
             'Filing Fees, Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
+            'Real Estate Attorney Representation for Sale',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: '$7,500 for Uncontested Matters - Varies for Contested Matters'
+          note: 'For uncontested estates with real estate (with or without a will)'
         },
         {
-          id: 'summary-probate',
-          name: 'Summary Probate',
+          id: 'probate-high-value',
+          name: 'High-Value Estate Probate',
           category: 'probate',
-          fixedPrice: 4000,
-          description: 'Simplified probate process for estates meeting specific requirements',
+          pricingLabel: '$7,500 + 1% of Estate Value',
+          description: 'Probate administration for estates valued at $1,000,000 or above, including real estate attorney representation for the sale of real estate',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -304,28 +324,11 @@ export function CategorizedServices({
             'Representation at All Court Hearings',
             'Filing Fees, Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
+            'Real Estate Attorney Representation for Sale',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs'
-        },
-        {
-          id: 'partial-probate',
-          name: 'Partial Probate',
-          category: 'probate',
-          pricingLabel: 'Varies',
-          requiresConsultation: true,
-          description: 'For probate cases already filed',
-          includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Preparation of Final Accounting',
-            'Unlimited Attorney Consultation'
-          ],
-          note: 'Consultation required - For probate cases that have already been filed'
+          note: 'For estates valued at $1,000,000 or above'
         },
         {
           id: 'heir-representation',
@@ -348,7 +351,7 @@ export function CategorizedServices({
           id: 'document-review',
           name: 'Document Review',
           category: 'a-la-carte',
-          fixedPrice: 250,
+          fixedPrice: 500,
           description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
           includes: []
         }

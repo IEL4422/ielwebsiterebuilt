@@ -94,12 +94,6 @@ const allAddOns: AddOn[] = [
     description: 'Court-supervised administration of the estate'
   },
   {
-    id: 'real-estate-attorney-representation',
-    name: 'Real Estate Attorney Representation',
-    price: 3000,
-    description: 'Legal representation for real estate matters in the estate'
-  },
-  {
     id: 'emergency-relief',
     name: 'Emergency Relief',
     price: 2500,
@@ -1163,7 +1157,13 @@ export default function PurchaseServicePage() {
 
                 {hasProbatePackageInCart() && (
                   <>
-                    <p className="mb-3"><strong>2.8 Probate Services Base Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands that the price paid represents a base price for standard, uncontested probate administration services. If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
+                    <p className="mb-3"><strong>2.8 Probate Services Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands the following flat-fee pricing structure for standard, uncontested probate administration:</p>
+                    <ul className="list-disc ml-6 space-y-1 mb-3">
+                      <li><strong>Uncontested Probate (No Real Estate)</strong> &ndash; $5,000 flat fee (with or without a will)</li>
+                      <li><strong>Probate With Real Estate</strong> &ndash; $7,500 flat fee, includes real estate attorney representation for the sale of real estate (with or without a will)</li>
+                      <li><strong>High-Value Estate Probate (estates valued at $1,000,000 or above)</strong> &ndash; $7,500 plus 1% of the total estate value, includes real estate attorney representation for the sale of real estate</li>
+                    </ul>
+                    <p className="mb-3">If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
 
                     <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4 my-4">
                       <h4 className="font-bold text-md mb-3">EXHIBIT A: Extraordinary Probate Services & Additional Fees</h4>
@@ -1173,7 +1173,6 @@ export default function PurchaseServicePage() {
                         <li><strong>Citation to Recover Assets</strong> - $4,000 (when estate property appears to be held by someone else and must be returned to the estate)</li>
                         <li><strong>Creditor Claim Objection</strong> - $1,500 per claim (when a creditor files a claim and the estate contests all or part of that claim)</li>
                         <li><strong>Supervised Administration</strong> - $3,000 (court-supervised administration of the estate)</li>
-                        <li><strong>Real Estate Attorney Representation</strong> - $3,000 (legal representation for real estate matters in the estate)</li>
                         <li><strong>Emergency Relief/Hearing</strong> - $2,500 (emergency motion to open estate, sell property, or avoid foreclosure)</li>
                         <li><strong>Minor Child/Adult Guardianship Proceedings</strong> - $3,500 (establishment of guardianship for minors or adults)</li>
                         <li><strong>Asset Coordination</strong> - $500 per asset (direct work with banks to transfer assets to estate bank account)</li>

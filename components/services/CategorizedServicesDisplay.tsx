@@ -201,7 +201,24 @@ export function CategorizedServicesDisplay() {
       name: 'Probate',
       packages: [
         {
-          name: 'Probate Package',
+          name: 'Uncontested Probate (No Real Estate)',
+          fixedPrice: 5000,
+          includes: [
+            'Preparation and Filing of All Necessary Documents',
+            'Notification of Heirs and Creditors',
+            'Heirship Research',
+            'Asset Search',
+            'Representation at All Court Hearings',
+            'Filing Fees',
+            'Creditor Notification Publication Fees',
+            'Preparation of Final Accounting',
+            'Access to Probate Portal',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For uncontested estates with no real estate (with or without a will)'
+        },
+        {
+          name: 'Probate With Real Estate',
           fixedPrice: 7500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -212,14 +229,15 @@ export function CategorizedServicesDisplay() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Access to Client Portal',
+            'Real Estate Attorney Representation for Sale',
+            'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: '$7,500 for Uncontested Matters - Varies for Contested Matters'
+          note: 'For uncontested estates with real estate (with or without a will)'
         },
         {
-          name: 'Summary Probate',
-          fixedPrice: 4000,
+          name: 'High-Value Estate Probate',
+          pricingLabel: '$7,500 + 1% of Estate Value',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -229,24 +247,11 @@ export function CategorizedServicesDisplay() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Access to Client Portal',
+            'Real Estate Attorney Representation for Sale',
+            'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued at $100,000 or less, no real estate, and no issues among heirs'
-        },
-        {
-          name: 'Partial Probate',
-          pricingLabel: 'Varies',
-          includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Preparation of Final Accounting',
-            'Unlimited Attorney Consultation'
-          ],
-          note: 'Consultation required - For probate cases that have already been filed'
+          note: 'For estates valued at $1,000,000 or above'
         },
         {
           name: 'Heir Representation',
