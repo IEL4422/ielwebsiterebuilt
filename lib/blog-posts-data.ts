@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'revocable-vs-irrevocable-trust-which-is-right-for-you-in-illinois',
+    title: 'Revocable vs. Irrevocable Trust: Which Is Right for You in Illinois?',
+    url: '/blog/revocable-vs-irrevocable-trust-which-is-right-for-you-in-illinois/',
+    date: 'Apr 15, 2026',
+    summary: 'Comprehensive guide comparing revocable and irrevocable trusts in Illinois. Covers the key differences in control, taxes, asset protection, cost, and flexibility, with Illinois-specific tax thresholds, real-world scenarios, and an interactive quiz to help you decide.',
+    excerpt: 'Understand the key differences between revocable and irrevocable trusts in Illinois and discover which type fits your estate planning goals with our interactive comparison tool.',
+  },
+  {
     slug: 'how-to-open-an-estate-bank-account-for-probate-in-illinois',
     title: 'How to Open an Estate Bank Account for Probate in Illinois',
     url: '/blog/how-to-open-an-estate-bank-account-for-probate-in-illinois/',
