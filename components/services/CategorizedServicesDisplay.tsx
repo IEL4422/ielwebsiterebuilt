@@ -435,6 +435,21 @@ export function CategorizedServicesDisplay() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
                       {category.packages.map(renderServiceCard)}
                     </div>
+                    {category.id === 'probate' && (
+                      <div className="mt-6 bg-[#2D3E50]/5 border border-[#2D3E50]/20 rounded-lg p-5">
+                        <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#2D3E50]">
+                          <strong>Wrongful Death Cases:</strong> Ask us about our special wrongful death attorney referral pricing.{' '}
+                          <Link href="/book-consultation/" className="text-[#4A708B] underline hover:text-[#2D3E50] transition-colors">
+                            Schedule a consultation
+                          </Link>{' '}
+                          or call{' '}
+                          <a href="tel:3123730731" className="text-[#4A708B] underline hover:text-[#2D3E50] transition-colors">
+                            (312) 373-0731
+                          </a>{' '}
+                          for details.
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
 
