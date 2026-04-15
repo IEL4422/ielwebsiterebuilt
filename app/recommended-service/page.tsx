@@ -379,10 +379,13 @@ export default function RecommendedServicePage() {
 
       const needsFullProbate = decedentEstateValue === 'over-100k' || decedentHasRealEstate === 'yes';
       if (needsFullProbate && issuesAmongHeirs === 'no') {
+        const hasRealEstate = decedentHasRealEstate === 'yes';
         return {
-          name: 'Probate Package',
-          price: '$7,500',
-          description: 'Full probate administration for estates valued at $100,000 or more, or with real estate.',
+          name: hasRealEstate ? 'Probate With Real Estate' : 'Uncontested Probate (No Real Estate)',
+          price: hasRealEstate ? '$7,500' : '$5,000',
+          description: hasRealEstate
+            ? 'Full probate administration for uncontested estates that include real estate, with attorney representation for the sale of real estate.'
+            : 'Full probate administration for uncontested estates without real estate.',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -392,14 +395,15 @@ export default function RecommendedServicePage() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
+            ...(hasRealEstate ? ['Real Estate Attorney Representation for Sale'] : []),
             'Access to Client Portal',
             'Unlimited Attorney Consultation'
           ],
           addOns: [],
-          serviceId: 'probate-package',
+          serviceId: hasRealEstate ? 'probate-with-real-estate' : 'probate-no-real-estate',
           requiresConsultation: false,
           standardizedCaseType: 'Probate',
-          standardizedServiceName: 'Probate Package'
+          standardizedServiceName: hasRealEstate ? 'Probate (Real Estate)' : 'Probate (No Real Estate)'
         };
       }
 

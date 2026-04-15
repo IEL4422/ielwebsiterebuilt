@@ -34,7 +34,9 @@ export type StandardizedServiceName =
   | 'Trademark Registration'
   | 'Office Action Response (Procedural)'
   | 'Office Action Response (Substantive)'
-  | 'Probate Package'
+  | 'Probate (No Real Estate)'
+  | 'Probate (Real Estate)'
+  | 'Probate (High Value)'
   | 'Summary Probate'
   | 'Partial Probate'
   | 'Heir Representation'
@@ -275,7 +277,7 @@ export const probatePackages: Service[] = [
     name: 'Uncontested Probate (No Real Estate)',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate Package',
+    standardizedServiceName: 'Probate (No Real Estate)',
     fixedPrice: 5000,
     description: 'Flat-fee probate administration for uncontested estates without real estate, whether with or without a will',
     includes: [
@@ -297,7 +299,7 @@ export const probatePackages: Service[] = [
     name: 'Probate With Real Estate',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate Package',
+    standardizedServiceName: 'Probate (Real Estate)',
     fixedPrice: 7500,
     description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the sale of real estate',
     includes: [
@@ -321,7 +323,7 @@ export const probatePackages: Service[] = [
     subtitle: 'Estates valued at $1,000,000 or above',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate Package',
+    standardizedServiceName: 'Probate (High Value)',
     pricingLabel: '$7,500 + 1% of Estate Value',
     description: 'Probate administration for estates valued at $1,000,000 or above, including real estate attorney representation for the sale of real estate',
     includes: [
