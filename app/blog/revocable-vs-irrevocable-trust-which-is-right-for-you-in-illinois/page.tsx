@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Clock, ChevronDown, ChevronUp, ArrowRight, Shield, Clock as Unlock, Lock, Scale, FileText, DollarSign, Users, Chrome as Home, CircleAlert as AlertCircle, CircleCheck as CheckCircle2, CircleHelp as HelpCircle } from 'lucide-react';
+import { Clock, ChevronDown, ChevronUp, ArrowRight, Shield, KeyRound, Lock, Scale, FileText, DollarSign, Users, Building, CircleAlert as AlertCircle, CircleCheck as CheckCircle2, CircleHelp as HelpCircle } from 'lucide-react';
 import TableOfContents from '@/components/blog/TableOfContents';
 import BlogNavigation from '@/components/blog/BlogNavigation';
 import RelatedArticles from '@/components/blog/RelatedArticles';
@@ -107,7 +107,7 @@ export default function Page() {
   };
 
   const comparisonTabs = [
-    { key: 'control', label: 'Control', icon: Unlock },
+    { key: 'control', label: 'Control', icon: KeyRound },
     { key: 'taxes', label: 'Tax Benefits', icon: DollarSign },
     { key: 'protection', label: 'Asset Protection', icon: Shield },
     { key: 'cost', label: 'Cost', icon: FileText },
@@ -304,14 +304,14 @@ export default function Page() {
 
             <div className="grid md:grid-cols-3 gap-6 my-8">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
-                <Unlock className="w-10 h-10 text-[#4a708b] mb-3" />
+                <KeyRound className="w-10 h-10 text-[#4a708b] mb-3" />
                 <h3 className="text-lg font-bold mb-2">Full Control</h3>
                 <p className="text-sm text-gray-700">
                   You remain the trustee and can modify or revoke the trust at any time during your lifetime.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
-                <Home className="w-10 h-10 text-green-600 mb-3" />
+                <Building className="w-10 h-10 text-green-600 mb-3" />
                 <h3 className="text-lg font-bold mb-2">Probate Avoidance</h3>
                 <p className="text-sm text-gray-700">
                   Assets in the trust pass directly to beneficiaries without court involvement when you die.
@@ -406,7 +406,7 @@ export default function Page() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="p-5 bg-blue-50 rounded-lg border border-blue-200">
                     <div className="flex items-center gap-2 mb-3">
-                      <Unlock className="w-5 h-5 text-[#4a708b]" />
+                      <KeyRound className="w-5 h-5 text-[#4a708b]" />
                       <h3 className="text-lg font-bold text-[#4a708b]">Revocable Trust</h3>
                     </div>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -802,7 +802,7 @@ export default function Page() {
                   {getQuizResult() === 'revocable' && (
                     <div className="p-6 bg-blue-50 rounded-lg border border-blue-200">
                       <div className="flex items-center gap-2 mb-3">
-                        <Unlock className="w-6 h-6 text-[#4a708b]" />
+                        <KeyRound className="w-6 h-6 text-[#4a708b]" />
                         <h4 className="text-xl font-bold text-[#4a708b]">A Revocable Trust May Be Your Best Fit</h4>
                       </div>
                       <p className="text-gray-700 mb-4">
