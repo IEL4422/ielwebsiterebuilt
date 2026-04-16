@@ -23,7 +23,7 @@ export function HeroSection() {
           priority
         />
         <Image
-          src="/herobackgoundimage.png"
+          src="/hero_blue_4400x1200.jpg"
           alt="Chicago Estate Planning"
           fill
           className="hidden lg:block object-cover object-center"
