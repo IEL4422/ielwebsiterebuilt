@@ -23,7 +23,7 @@ export function HeroSection() {
           priority
         />
         <Image
-          src="/hero_option_1.png"
+          src="/hero_option_1_hq.png"
           alt="Chicago Estate Planning"
           fill
           className="hidden lg:block object-cover object-center"
@@ -38,7 +38,7 @@ export function HeroSection() {
                 <span className="lg:block">Top-Rated</span> Estate Law Firm
               </h1>
               <p className="text-[#f3f3f3] text-xs sm:text-base md:text-lg tracking-[0.15em] sm:tracking-[0.2em] text-center mt-2 sm:mt-3 font-light whitespace-nowrap">
-                Estate Planning &bull; Probate &bull; Small Business
+                Estate Planning &bull; Probate &bull; Real Estate
               </p>
             </div>
 
