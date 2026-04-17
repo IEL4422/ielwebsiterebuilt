@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CategorizedServicesDisplay } from '@/components/services/CategorizedServicesDisplay'
+import { LunacalBookingEmbed } from '@/components/services/LunacalBookingEmbed'
 
 export const metadata: Metadata = {
   title: 'Services & Pricing | Illinois Estate Law',
@@ -350,13 +351,7 @@ export default function ServicesPage() {
           Book Consultation
         </h2>
 
-        <div className="w-full">
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/illinoisestatelaw/smith-ai-scheduling?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=5984c5"
-            style={{ minWidth: '320px', height: '700px' }}
-          />
-        </div>
+        <LunacalBookingEmbed />
       </div>
     </>
   )
