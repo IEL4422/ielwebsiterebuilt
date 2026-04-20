@@ -1,4 +1,4 @@
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Prenuptial Agreement' | 'Small Business';
+export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Prenuptial Agreement' | 'Small Business' | 'Real Estate';
 
 export type StandardizedServiceName =
   | 'Individual Trust Package'
@@ -44,13 +44,14 @@ export type StandardizedServiceName =
   | 'Document Review'
   | 'Annual Review Membership'
   | 'Prenuptial Agreement - Q&A Session'
-  | 'Trust Funding - A La Carte';
+  | 'Trust Funding - A La Carte'
+  | 'Residential Closing';
 
 export interface Service {
   id: string;
   name: string;
   subtitle?: string;
-  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'small-business';
+  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'small-business' | 'real-estate';
   standardizedCaseType: StandardizedCaseType;
   standardizedServiceName: {
     individual: StandardizedServiceName;
@@ -692,10 +693,31 @@ export const smallBusinessServices: Service[] = [
   }
 ];
 
+export const realEstateServices: Service[] = [
+  {
+    id: 'residential-closing',
+    name: 'Residential Closing (Full Service Representation)',
+    category: 'real-estate',
+    standardizedCaseType: 'Real Estate',
+    standardizedServiceName: 'Residential Closing',
+    fixedPrice: 2000,
+    description: 'Full-service attorney representation for residential real estate closings in Illinois, including contract review, title review, document preparation, and closing attendance.',
+    includes: [
+      'Contract Review & Negotiation',
+      'Title Review & Clearance',
+      'Attorney Representation at Closing',
+      'Document Preparation & Review',
+      'Settlement Statement Review',
+      'Unlimited Attorney Consultation'
+    ]
+  }
+];
+
 export const allServices = [
   ...estatePlanningPackages,
   ...probatePackages,
   ...aLaCarteServices,
   ...prenuptialServices,
-  ...smallBusinessServices
+  ...smallBusinessServices,
+  ...realEstateServices
 ];

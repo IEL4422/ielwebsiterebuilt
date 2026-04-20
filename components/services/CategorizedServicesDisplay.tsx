@@ -376,6 +376,26 @@ export function CategorizedServicesDisplay() {
       ]
     },
     {
+      id: 'real-estate',
+      name: 'Real Estate',
+      packages: [
+        {
+          name: 'Residential Closing (Full Service Representation)',
+          fixedPrice: 2000,
+          includes: [
+            'Contract Review & Negotiation',
+            'Title Review & Clearance',
+            'Attorney Representation at Closing',
+            'Document Preparation & Review',
+            'Settlement Statement Review',
+            'Unlimited Attorney Consultation'
+          ]
+        }
+      ],
+      aLaCarte: [],
+      addOns: []
+    },
+    {
       id: 'small-business',
       name: 'Small Business',
       packages: [
