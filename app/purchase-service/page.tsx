@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, getStandardizedServiceName, type Service } from '@/lib/services-data';
+import { estatePlanningPackages, probatePackages, aLaCarteServices, prenuptialServices, smallBusinessServices, realEstateServices, getStandardizedServiceName, type Service } from '@/lib/services-data';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -185,7 +185,7 @@ export default function PurchaseServicePage() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [expandedDescriptions, setExpandedDescriptions] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
-  const [serviceFilter, setServiceFilter] = useState<'all' | 'estate-planning' | 'probate' | 'prenuptial' | 'small-business'>('all');
+  const [serviceFilter, setServiceFilter] = useState<'all' | 'estate-planning' | 'probate' | 'prenuptial' | 'small-business' | 'real-estate'>('all');
 
   const [clientInfo, setClientInfo] = useState({
     name: '',
@@ -676,6 +676,13 @@ export default function PurchaseServicePage() {
               >
                 Small Business
               </Button>
+              <Button
+                onClick={() => setServiceFilter('real-estate')}
+                variant={serviceFilter === 'real-estate' ? 'default' : 'outline'}
+                className={serviceFilter === 'real-estate' ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'border-[#2d3e50] text-[#2d3e50] hover:bg-gray-100'}
+              >
+                Real Estate
+              </Button>
             </div>
 
             <div className="space-y-12">
@@ -736,6 +743,17 @@ export default function PurchaseServicePage() {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filterServices(smallBusinessServices).map(service => renderServiceCard(service))}
+                  </div>
+                </div>
+              )}
+
+              {(serviceFilter === 'all' || serviceFilter === 'real-estate') && filterServices(realEstateServices).length > 0 && (
+                <div>
+                  <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50] mb-6 pb-3 border-b-2 border-[#2d3e50]">
+                    Real Estate
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filterServices(realEstateServices).map(service => renderServiceCard(service))}
                   </div>
                 </div>
               )}
