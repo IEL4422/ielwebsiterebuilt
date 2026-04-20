@@ -202,7 +202,7 @@ export function CategorizedServicesDisplay() {
       packages: [
         {
           name: 'Uncontested Probate (No Real Estate)',
-          fixedPrice: 5000,
+          fixedPrice: 6500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -218,8 +218,8 @@ export function CategorizedServicesDisplay() {
           note: 'For uncontested estates with no real estate (with or without a will)'
         },
         {
-          name: 'Probate With Real Estate',
-          fixedPrice: 7500,
+          name: 'Uncontested Probate with Real Estate & Closing Representation',
+          fixedPrice: 8500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -229,7 +229,7 @@ export function CategorizedServicesDisplay() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Real Estate Attorney Representation for Sale',
+            'Real Estate Closing Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
@@ -237,7 +237,7 @@ export function CategorizedServicesDisplay() {
         },
         {
           name: 'High-Value Estate Probate',
-          pricingLabel: '$7,500 + 1% of Estate Value',
+          pricingLabel: '$10,000 + 1.5% of Estate Value Over $500K',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -247,11 +247,11 @@ export function CategorizedServicesDisplay() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Real Estate Attorney Representation for Sale',
+            'Real Estate Closing Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued at $1,000,000 or above'
+          note: 'For estates valued at $500,000 or above'
         },
         {
           name: 'Heir Representation',

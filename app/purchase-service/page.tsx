@@ -1159,9 +1159,9 @@ export default function PurchaseServicePage() {
                   <>
                     <p className="mb-3"><strong>2.8 Probate Services Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands the following flat-fee pricing structure for standard, uncontested probate administration:</p>
                     <ul className="list-disc ml-6 space-y-1 mb-3">
-                      <li><strong>Uncontested Probate (No Real Estate)</strong> &ndash; $5,000 flat fee (with or without a will)</li>
-                      <li><strong>Probate With Real Estate</strong> &ndash; $7,500 flat fee, includes real estate attorney representation for the sale of real estate (with or without a will)</li>
-                      <li><strong>High-Value Estate Probate (estates valued at $1,000,000 or above)</strong> &ndash; $7,500 plus 1% of the total estate value, includes real estate attorney representation for the sale of real estate</li>
+                      <li><strong>Uncontested Probate (No Real Estate)</strong> &ndash; $6,500 flat fee (with or without a will)</li>
+                      <li><strong>Uncontested Probate with Real Estate &amp; Closing Representation</strong> &ndash; $8,500 flat fee, includes real estate closing representation (with or without a will)</li>
+                      <li><strong>High-Value Estate Probate (estates valued at $500,000 or above)</strong> &ndash; $10,000 base plus 1.5% of estate value over $500,000, includes real estate closing representation</li>
                     </ul>
                     <p className="mb-3">If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
 

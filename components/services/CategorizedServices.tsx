@@ -275,7 +275,7 @@ export function CategorizedServices({
           id: 'probate-no-real-estate',
           name: 'Uncontested Probate (No Real Estate)',
           category: 'probate',
-          fixedPrice: 5000,
+          fixedPrice: 6500,
           description: 'Flat-fee probate administration for uncontested estates without real estate, whether with or without a will',
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -292,10 +292,10 @@ export function CategorizedServices({
         },
         {
           id: 'probate-with-real-estate',
-          name: 'Probate With Real Estate',
+          name: 'Uncontested Probate with Real Estate & Closing Representation',
           category: 'probate',
-          fixedPrice: 7500,
-          description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the sale of real estate',
+          fixedPrice: 8500,
+          description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the closing of real estate',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -304,7 +304,7 @@ export function CategorizedServices({
             'Representation at All Court Hearings',
             'Filing Fees, Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Real Estate Attorney Representation for Sale',
+            'Real Estate Closing Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
@@ -314,8 +314,8 @@ export function CategorizedServices({
           id: 'probate-high-value',
           name: 'High-Value Estate Probate',
           category: 'probate',
-          pricingLabel: '$7,500 + 1% of Estate Value',
-          description: 'Probate administration for estates valued at $1,000,000 or above, including real estate attorney representation for the sale of real estate',
+          pricingLabel: '$10,000 + 1.5% of Estate Value Over $500K',
+          description: 'Probate administration for high-value estates valued at $500,000 or above, including real estate closing representation',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -324,11 +324,11 @@ export function CategorizedServices({
             'Representation at All Court Hearings',
             'Filing Fees, Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Real Estate Attorney Representation for Sale',
+            'Real Estate Closing Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued at $1,000,000 or above'
+          note: 'For estates valued at $500,000 or above'
         },
         {
           id: 'heir-representation',

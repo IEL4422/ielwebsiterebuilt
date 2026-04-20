@@ -278,7 +278,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (No Real Estate)',
-    fixedPrice: 5000,
+    fixedPrice: 6500,
     description: 'Flat-fee probate administration for uncontested estates without real estate, whether with or without a will',
     includes: [
       'Preparation and Filing of All Necessary Documents',
@@ -296,12 +296,12 @@ export const probatePackages: Service[] = [
   },
   {
     id: 'probate-with-real-estate',
-    name: 'Probate With Real Estate',
+    name: 'Uncontested Probate with Real Estate & Closing Representation',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (Real Estate)',
-    fixedPrice: 7500,
-    description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the sale of real estate',
+    fixedPrice: 8500,
+    description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the closing of real estate',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -310,7 +310,7 @@ export const probatePackages: Service[] = [
       'Representation at All Court Hearings',
       'Filing Fees, Creditor Notification Publication Fees',
       'Preparation of Final Accounting',
-      'Real Estate Attorney Representation for Sale',
+      'Real Estate Closing Representation',
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
@@ -320,12 +320,12 @@ export const probatePackages: Service[] = [
   {
     id: 'probate-high-value',
     name: 'High-Value Estate Probate',
-    subtitle: 'Estates valued at $1,000,000 or above',
+    subtitle: 'Estates valued at $500,000 or above',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (High Value)',
-    pricingLabel: '$7,500 + 1% of Estate Value',
-    description: 'Probate administration for estates valued at $1,000,000 or above, including real estate attorney representation for the sale of real estate',
+    pricingLabel: '$10,000 + 1.5% of Estate Value Over $500K',
+    description: 'Probate administration for high-value estates valued at $500,000 or above, including real estate closing representation',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -334,11 +334,11 @@ export const probatePackages: Service[] = [
       'Representation at All Court Hearings',
       'Filing Fees, Creditor Notification Publication Fees',
       'Preparation of Final Accounting',
-      'Real Estate Attorney Representation for Sale',
+      'Real Estate Closing Representation',
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates valued at $1,000,000 or above. The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
+    note: 'For estates valued at $500,000 or above. The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
