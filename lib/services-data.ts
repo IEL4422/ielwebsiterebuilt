@@ -40,6 +40,7 @@ export type StandardizedServiceName =
   | 'Summary Probate'
   | 'Partial Probate'
   | 'Heir Representation'
+  | 'Spousal Representation'
   | 'Document Review'
   | 'Annual Review Membership'
   | 'Prenuptial Agreement - Q&A Session'
@@ -357,6 +358,44 @@ export const probatePackages: Service[] = [
       'Unlimited Attorney Consultation'
     ],
     note: '$2,500 per heir',
+    addOns: []
+  },
+  {
+    id: 'partial-probate',
+    name: 'Partial Probate',
+    category: 'probate',
+    standardizedCaseType: 'Probate',
+    standardizedServiceName: 'Partial Probate',
+    fixedPrice: 3500,
+    description: 'For probate cases already filed that need new legal representation. We take over from your current attorney and complete the process.',
+    includes: [
+      'Preparation and Filing of All Necessary Documents',
+      'Notification of Heirs and Creditors',
+      'Heirship Research',
+      'Asset Search',
+      'Representation at All Court Hearings',
+      'Preparation of Final Accounting',
+      'Access to Probate Portal',
+      'Unlimited Attorney Consultation'
+    ],
+    note: 'For cases already in probate that need new legal representation',
+    addOns: []
+  },
+  {
+    id: 'spousal-representation',
+    name: 'Spousal Representation',
+    category: 'probate',
+    standardizedCaseType: 'Probate',
+    standardizedServiceName: 'Spousal Representation',
+    fixedPrice: 3500,
+    description: 'Legal representation for a surviving spouse throughout the probate proceeding to protect spousal rights and interests.',
+    includes: [
+      'Full Legal Representation Throughout the Probate Proceeding',
+      'Protection of Spousal Rights and Interests',
+      'Review of All Filings and Court Documents',
+      'Attendance at All Court Hearings on Behalf of Spouse',
+      'Unlimited Attorney Consultation'
+    ],
     addOns: []
   },
   {

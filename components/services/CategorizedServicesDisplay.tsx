@@ -264,6 +264,32 @@ export function CategorizedServicesDisplay() {
             'Unlimited Attorney Consultation'
           ],
           note: '$2,500 per heir - Representation throughout the entire probate matter of non-representative heirs'
+        },
+        {
+          name: 'Partial Probate',
+          fixedPrice: 3500,
+          includes: [
+            'Preparation and Filing of All Necessary Documents',
+            'Notification of Heirs and Creditors',
+            'Heirship Research',
+            'Asset Search',
+            'Representation at All Court Hearings',
+            'Preparation of Final Accounting',
+            'Access to Probate Portal',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For cases already in probate that need new legal representation'
+        },
+        {
+          name: 'Spousal Representation',
+          fixedPrice: 3500,
+          includes: [
+            'Full Legal Representation Throughout the Probate Proceeding',
+            'Protection of Spousal Rights and Interests',
+            'Review of All Filings and Court Documents',
+            'Attendance at All Court Hearings on Behalf of Spouse',
+            'Unlimited Attorney Consultation'
+          ]
         }
       ],
       aLaCarte: [],
