@@ -275,13 +275,14 @@ const probateAddOns = [
 
 export const probatePackages: Service[] = [
   {
-    id: 'probate-no-real-estate',
-    name: 'Uncontested Probate (No Real Estate)',
+    id: 'probate-tier-1',
+    name: 'Tier 1 Probate Package',
+    subtitle: 'No Real Estate, estate value under $1,000,000',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (No Real Estate)',
     fixedPrice: 6500,
-    description: 'Flat-fee probate administration for uncontested estates without real estate, whether with or without a will',
+    description: 'Flat-fee probate administration for estates without real estate, valued under $1,000,000, whether with or without a will',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -293,17 +294,18 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For uncontested estates with no real estate (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
+    note: 'For estates with no real estate, valued under $1,000,000 (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
-    id: 'probate-with-real-estate',
-    name: 'Uncontested Probate with Real Estate & Closing Representation',
+    id: 'probate-tier-2',
+    name: 'Tier 2 Probate Package',
+    subtitle: 'Real estate closing included, estate value under $1,000,000',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (Real Estate)',
     fixedPrice: 8500,
-    description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the closing of real estate',
+    description: 'Flat-fee probate administration for estates valued under $1,000,000 that include real estate, with attorney representation for the closing of real estate',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -316,18 +318,18 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For uncontested estates with real estate (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
+    note: 'For estates with real estate, valued under $1,000,000 (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
-    id: 'probate-high-value',
-    name: 'High-Value Estate Probate',
-    subtitle: 'Estates valued at $500,000 or above',
+    id: 'probate-tier-3',
+    name: 'Tier 3 Probate Package',
+    subtitle: 'Real estate closing included, estates over $1,000,000',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (High Value)',
-    pricingLabel: '$10,000 + 1.5% of Estate Value Over $500K',
-    description: 'Probate administration for high-value estates valued at $500,000 or above, including real estate closing representation',
+    pricingLabel: '$8,500 + 1.5% of Estate Value',
+    description: 'Probate administration for estates valued over $1,000,000, including real estate closing representation',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -340,7 +342,7 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates valued at $500,000 or above. The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
+    note: 'For estates valued over $1,000,000 (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {

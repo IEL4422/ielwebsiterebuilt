@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 interface Service {
   name: string;
+  subtitle?: string;
   individualPrice?: number;
   jointPrice?: number;
   fixedPrice?: number;
@@ -45,10 +46,15 @@ export function CategorizedServicesDisplay() {
         key={index}
         className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 sm:p-4"
       >
-        <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4 sm:text-[20px]">
+        <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] sm:text-[20px]">
           {service.name}
         </h3>
-        <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-4 sm:text-[18px]">
+        {service.subtitle && (
+          <p className="font-['Plus_Jakarta_Sans'] font-normal text-[14px] text-[#f3f3f3] mt-1">
+            {service.subtitle}
+          </p>
+        )}
+        <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-4 mt-4 sm:text-[18px]">
           {service.pricingLabel ? (
             service.pricingLabel
           ) : hasMultiplePrices ? (
@@ -201,7 +207,8 @@ export function CategorizedServicesDisplay() {
       name: 'Probate',
       packages: [
         {
-          name: 'Uncontested Probate (No Real Estate)',
+          name: 'Tier 1 Probate Package',
+          subtitle: 'No Real Estate, estate value under $1,000,000',
           fixedPrice: 6500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -215,10 +222,11 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For uncontested estates with no real estate (with or without a will)'
+          note: 'For estates with no real estate, valued under $1,000,000 (with or without a will)'
         },
         {
-          name: 'Uncontested Probate with Real Estate & Closing Representation',
+          name: 'Tier 2 Probate Package',
+          subtitle: 'Real estate closing included, under $1,000,000',
           fixedPrice: 8500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -233,11 +241,12 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For uncontested estates with real estate (with or without a will)'
+          note: 'For estates with real estate, valued under $1,000,000 (with or without a will)'
         },
         {
-          name: 'High-Value Estate Probate',
-          pricingLabel: '$10,000 + 1.5% of Estate Value Over $500K',
+          name: 'Tier 3 Probate Package',
+          subtitle: 'Real estate closing included, estates over $1,000,000',
+          pricingLabel: '$8,500 + 1.5% of Estate Value',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -251,7 +260,7 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued at $500,000 or above'
+          note: 'For estates valued over $1,000,000 (with or without a will)'
         },
         {
           name: 'Heir Representation',

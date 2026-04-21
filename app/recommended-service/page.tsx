@@ -381,11 +381,11 @@ export default function RecommendedServicePage() {
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         const hasRealEstate = decedentHasRealEstate === 'yes';
         return {
-          name: hasRealEstate ? 'Probate With Real Estate' : 'Uncontested Probate (No Real Estate)',
-          price: hasRealEstate ? '$7,500' : '$5,000',
+          name: hasRealEstate ? 'Tier 2 Probate Package' : 'Tier 1 Probate Package',
+          price: hasRealEstate ? '$8,500' : '$6,500',
           description: hasRealEstate
-            ? 'Full probate administration for uncontested estates that include real estate, with attorney representation for the sale of real estate.'
-            : 'Full probate administration for uncontested estates without real estate.',
+            ? 'Flat-fee probate administration for estates valued under $1,000,000 that include real estate, with attorney representation for the closing of real estate.'
+            : 'Flat-fee probate administration for estates without real estate, valued under $1,000,000.',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -395,12 +395,12 @@ export default function RecommendedServicePage() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            ...(hasRealEstate ? ['Real Estate Attorney Representation for Sale'] : []),
-            'Access to Client Portal',
+            ...(hasRealEstate ? ['Real Estate Closing Representation'] : []),
+            'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
           addOns: [],
-          serviceId: hasRealEstate ? 'probate-with-real-estate' : 'probate-no-real-estate',
+          serviceId: hasRealEstate ? 'probate-tier-2' : 'probate-tier-1',
           requiresConsultation: false,
           standardizedCaseType: 'Probate',
           standardizedServiceName: hasRealEstate ? 'Probate (Real Estate)' : 'Probate (No Real Estate)'

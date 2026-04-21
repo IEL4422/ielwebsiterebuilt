@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react';
 interface DisplayService {
   id: string;
   name: string;
+  subtitle?: string;
   category: string;
   individualPrice?: number;
   jointPrice?: number;
@@ -58,10 +59,15 @@ export function CategorizedServices({
         key={service.id}
         className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 hover:shadow-lg transition-shadow"
       >
-        <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4">
+        <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe]">
           {service.name}
         </h3>
-        <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-4">
+        {service.subtitle && (
+          <p className="font-['Plus_Jakarta_Sans'] font-normal text-[14px] text-[#f3f3f3] mt-1">
+            {service.subtitle}
+          </p>
+        )}
+        <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[20px] text-[#fefefe] mb-4 mt-4">
           {service.pricingLabel ? (
             service.pricingLabel
           ) : hasMultiplePrices ? (
@@ -272,11 +278,12 @@ export function CategorizedServices({
       name: 'Probate',
       packages: [
         {
-          id: 'probate-no-real-estate',
-          name: 'Uncontested Probate (No Real Estate)',
+          id: 'probate-tier-1',
+          name: 'Tier 1 Probate Package',
+          subtitle: 'No Real Estate, estate value under $1,000,000',
           category: 'probate',
           fixedPrice: 6500,
-          description: 'Flat-fee probate administration for uncontested estates without real estate, whether with or without a will',
+          description: 'Flat-fee probate administration for estates without real estate, valued under $1,000,000, whether with or without a will',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -288,14 +295,15 @@ export function CategorizedServices({
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For uncontested estates with no real estate (with or without a will)'
+          note: 'For estates with no real estate, valued under $1,000,000 (with or without a will)'
         },
         {
-          id: 'probate-with-real-estate',
-          name: 'Uncontested Probate with Real Estate & Closing Representation',
+          id: 'probate-tier-2',
+          name: 'Tier 2 Probate Package',
+          subtitle: 'Real estate closing included, under $1,000,000',
           category: 'probate',
           fixedPrice: 8500,
-          description: 'Flat-fee probate administration for uncontested estates that include real estate, with attorney representation for the closing of real estate',
+          description: 'Flat-fee probate administration for estates valued under $1,000,000 that include real estate, with attorney representation for the closing of real estate',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -308,14 +316,15 @@ export function CategorizedServices({
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For uncontested estates with real estate (with or without a will)'
+          note: 'For estates with real estate, valued under $1,000,000 (with or without a will)'
         },
         {
-          id: 'probate-high-value',
-          name: 'High-Value Estate Probate',
+          id: 'probate-tier-3',
+          name: 'Tier 3 Probate Package',
+          subtitle: 'Real estate closing included, estates over $1,000,000',
           category: 'probate',
-          pricingLabel: '$10,000 + 1.5% of Estate Value Over $500K',
-          description: 'Probate administration for high-value estates valued at $500,000 or above, including real estate closing representation',
+          pricingLabel: '$8,500 + 1.5% of Estate Value',
+          description: 'Probate administration for estates valued over $1,000,000, including real estate closing representation',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -328,7 +337,7 @@ export function CategorizedServices({
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued at $500,000 or above'
+          note: 'For estates valued over $1,000,000 (with or without a will)'
         },
         {
           id: 'heir-representation',
