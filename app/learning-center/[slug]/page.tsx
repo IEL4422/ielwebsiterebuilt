@@ -11,8 +11,7 @@ interface GuidePageProps {
   };
 }
 
-export const revalidate = 3600;
-export const dynamicParams = true;
+export const dynamic = 'force-dynamic';
 
 async function getGuide(slug: string) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -22,7 +21,11 @@ async function getGuide(slug: string) {
     return null;
   }
 
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabase = createClient(supabaseUrl, supabaseKey, {
+    global: {
+      fetch: (url, options = {}) => fetch(url, { ...options, cache: 'no-store' }),
+    },
+  });
 
   const { data, error } = await supabase
     .from('guides')
@@ -35,38 +38,6 @@ async function getGuide(slug: string) {
   }
 
   return data;
-}
-
-async function getAllGuideSlugs() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!supabaseUrl || !supabaseKey) {
-    return [];
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseKey);
-
-  const { data, error } = await supabase
-    .from('guides')
-    .select('slug');
-
-  if (error) {
-    return [];
-  }
-
-  return data || [];
-}
-
-export async function generateStaticParams() {
-  try {
-    const guides = await getAllGuideSlugs();
-    return guides.map((guide) => ({
-      slug: guide.slug,
-    }));
-  } catch {
-    return [];
-  }
 }
 
 export async function generateMetadata({ params }: GuidePageProps): Promise<Metadata> {
