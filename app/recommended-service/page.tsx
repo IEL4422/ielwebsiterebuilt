@@ -379,13 +379,10 @@ export default function RecommendedServicePage() {
 
       const needsFullProbate = decedentEstateValue === 'over-100k' || decedentHasRealEstate === 'yes';
       if (needsFullProbate && issuesAmongHeirs === 'no') {
-        const hasRealEstate = decedentHasRealEstate === 'yes';
         return {
-          name: hasRealEstate ? 'Tier 2 Probate Package' : 'Tier 1 Probate Package',
-          price: hasRealEstate ? '$8,500' : '$6,500',
-          description: hasRealEstate
-            ? 'Flat-fee probate administration for estates valued under $1,000,000 that include real estate, with attorney representation for the closing of real estate.'
-            : 'Flat-fee probate administration for estates without real estate, valued under $1,000,000.',
+          name: 'Tier 2 Probate Package',
+          price: '$6,500',
+          description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed. Contact us if your estate requires real estate sale representation or is valued over $1,000,000.',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -395,15 +392,14 @@ export default function RecommendedServicePage() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            ...(hasRealEstate ? ['Real Estate Closing Representation'] : []),
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
           addOns: [],
-          serviceId: hasRealEstate ? 'probate-tier-2' : 'probate-tier-1',
+          serviceId: 'probate-tier-2',
           requiresConsultation: false,
           standardizedCaseType: 'Probate',
-          standardizedServiceName: hasRealEstate ? 'Probate (Real Estate)' : 'Probate (No Real Estate)'
+          standardizedServiceName: 'Probate (Tier 2)'
         };
       }
 

@@ -208,7 +208,25 @@ export function CategorizedServicesDisplay() {
       packages: [
         {
           name: 'Tier 1 Probate Package',
-          subtitle: 'No Real Estate, estate value under $1,000,000',
+          subtitle: 'Estates under $150,000 with no real estate',
+          fixedPrice: 4500,
+          includes: [
+            'Preparation and Filing of All Necessary Documents',
+            'Notification of Heirs and Creditors',
+            'Heirship Research',
+            'Asset Search',
+            'Representation at All Court Hearings',
+            'Filing Fees',
+            'Creditor Notification Publication Fees',
+            'Preparation of Final Accounting',
+            'Access to Probate Portal',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For estates valued under $150,000 with no real estate (with or without a will)'
+        },
+        {
+          name: 'Tier 2 Probate Package',
+          subtitle: 'Estates above $150,000, no real estate sale needed',
           fixedPrice: 6500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -222,11 +240,11 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates with no real estate, valued under $1,000,000 (with or without a will)'
+          note: 'For estates above $150,000 with or without real estate, no sale of real estate needed (with or without a will)'
         },
         {
-          name: 'Tier 2 Probate Package',
-          subtitle: 'Real estate closing included, under $1,000,000',
+          name: 'Tier 3 Probate Package',
+          subtitle: 'Estates above $150,000, real estate sale representation included',
           fixedPrice: 8500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -237,15 +255,15 @@ export function CategorizedServicesDisplay() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Real Estate Closing Representation',
+            'Real Estate Sale Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates with real estate, valued under $1,000,000 (with or without a will)'
+          note: 'For estates above $150,000 that require real estate sale representation (with or without a will)'
         },
         {
-          name: 'Tier 3 Probate Package',
-          subtitle: 'Real estate closing included, estates over $1,000,000',
+          name: 'Tier 4 Probate Package',
+          subtitle: 'Estates over $1,000,000',
           pricingLabel: '$8,500 + 1.5% of Estate Value',
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -256,7 +274,7 @@ export function CategorizedServicesDisplay() {
             'Filing Fees',
             'Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
-            'Real Estate Closing Representation',
+            'Real Estate Sale Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],

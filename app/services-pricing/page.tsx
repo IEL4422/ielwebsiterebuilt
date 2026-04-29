@@ -4,7 +4,7 @@ import { CategorizedServicesDisplay } from '@/components/services/CategorizedSer
 import { LunacalBookingEmbed } from '@/components/services/LunacalBookingEmbed'
 
 export const metadata: Metadata = {
-  title: 'Services & Pricing | Illinois Estate Law',
+  title: 'Services & Pricing',
   description: 'Get Clear Answers About Illinois Estate Planning. Learn More About Our Services and How Our Attorneys Can Help. Call Illinois Estate Law Today at (312) 373–0731.',
   openGraph: {
     title: 'Services & Pricing | Illinois Estate Law',

@@ -103,7 +103,7 @@ export default function Home() {
             "@type": "WebSite",
             "name": "Illinois Estate Law",
             "alternateName": "Illinois Estate Law",
-            "description": "",
+            "description": "Top-rated Chicago estate planning and probate law firm offering flat-fee wills, trusts, powers of attorney, and probate administration across Illinois.",
             "url": "https://www.illinoisestatelaw.com"
           })
         }}

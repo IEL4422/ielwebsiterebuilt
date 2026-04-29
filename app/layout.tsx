@@ -29,6 +29,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="profile" href="https://gmpg.org/xfn/11" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-['Plus_Jakarta_Sans'] antialiased">
         <Script

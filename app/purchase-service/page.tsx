@@ -1177,9 +1177,10 @@ export default function PurchaseServicePage() {
                   <>
                     <p className="mb-3"><strong>2.8 Probate Services Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands the following flat-fee pricing structure for standard, uncontested probate administration:</p>
                     <ul className="list-disc ml-6 space-y-1 mb-3">
-                      <li><strong>Tier 1 Probate Package (No Real Estate, estate value under $1,000,000)</strong> &ndash; $6,500 flat fee (with or without a will)</li>
-                      <li><strong>Tier 2 Probate Package (Real Estate Closing Representation Included, estate value under $1,000,000)</strong> &ndash; $8,500 flat fee, includes real estate closing representation (with or without a will)</li>
-                      <li><strong>Tier 3 Probate Package (Real Estate Closing Representation Included, estates over $1,000,000)</strong> &ndash; $8,500 plus 1.5% of estate value, includes real estate closing representation (with or without a will)</li>
+                      <li><strong>Tier 1 Probate Package (estates under $150,000 with no real estate)</strong> &ndash; $4,500 flat fee (with or without a will)</li>
+                      <li><strong>Tier 2 Probate Package (estates above $150,000, no real estate sale needed)</strong> &ndash; $6,500 flat fee (with or without a will)</li>
+                      <li><strong>Tier 3 Probate Package (estates above $150,000, real estate sale representation included)</strong> &ndash; $8,500 flat fee, includes real estate sale representation (with or without a will)</li>
+                      <li><strong>Tier 4 Probate Package (estates over $1,000,000)</strong> &ndash; $8,500 plus 1.5% of estate value (with or without a will)</li>
                     </ul>
                     <p className="mb-3">If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
 

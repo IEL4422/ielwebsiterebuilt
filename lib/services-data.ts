@@ -34,9 +34,10 @@ export type StandardizedServiceName =
   | 'Trademark Registration'
   | 'Office Action Response (Procedural)'
   | 'Office Action Response (Substantive)'
-  | 'Probate (No Real Estate)'
-  | 'Probate (Real Estate)'
-  | 'Probate (High Value)'
+  | 'Probate (Tier 1)'
+  | 'Probate (Tier 2)'
+  | 'Probate (Tier 3)'
+  | 'Probate (Tier 4)'
   | 'Summary Probate'
   | 'Partial Probate'
   | 'Heir Representation'
@@ -277,12 +278,12 @@ export const probatePackages: Service[] = [
   {
     id: 'probate-tier-1',
     name: 'Tier 1 Probate Package',
-    subtitle: 'No Real Estate, estate value under $1,000,000',
+    subtitle: 'Estates under $150,000 with no real estate',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate (No Real Estate)',
-    fixedPrice: 6500,
-    description: 'Flat-fee probate administration for estates without real estate, valued under $1,000,000, whether with or without a will',
+    standardizedServiceName: 'Probate (Tier 1)',
+    fixedPrice: 4500,
+    description: 'Flat-fee probate administration for estates valued under $150,000 with no real estate, whether with or without a will',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -294,18 +295,18 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates with no real estate, valued under $1,000,000 (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
+    note: 'For estates valued under $150,000 with no real estate (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
     id: 'probate-tier-2',
     name: 'Tier 2 Probate Package',
-    subtitle: 'Real estate closing included, estate value under $1,000,000',
+    subtitle: 'Estates above $150,000, no real estate sale needed',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate (Real Estate)',
-    fixedPrice: 8500,
-    description: 'Flat-fee probate administration for estates valued under $1,000,000 that include real estate, with attorney representation for the closing of real estate',
+    standardizedServiceName: 'Probate (Tier 2)',
+    fixedPrice: 6500,
+    description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -314,22 +315,21 @@ export const probatePackages: Service[] = [
       'Representation at All Court Hearings',
       'Filing Fees, Creditor Notification Publication Fees',
       'Preparation of Final Accounting',
-      'Real Estate Closing Representation',
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'For estates with real estate, valued under $1,000,000 (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
+    note: 'For estates valued above $150,000 with or without real estate, where no sale of real estate is needed (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
     addOns: []
   },
   {
     id: 'probate-tier-3',
     name: 'Tier 3 Probate Package',
-    subtitle: 'Real estate closing included, estates over $1,000,000',
+    subtitle: 'Estates above $150,000, real estate sale representation included',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate (High Value)',
-    pricingLabel: '$8,500 + 1.5% of Estate Value',
-    description: 'Probate administration for estates valued over $1,000,000, including real estate closing representation',
+    standardizedServiceName: 'Probate (Tier 3)',
+    fixedPrice: 8500,
+    description: 'Flat-fee probate administration for estates valued above $150,000 that require real estate sale representation',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -338,7 +338,31 @@ export const probatePackages: Service[] = [
       'Representation at All Court Hearings',
       'Filing Fees, Creditor Notification Publication Fees',
       'Preparation of Final Accounting',
-      'Real Estate Closing Representation',
+      'Real Estate Sale Representation',
+      'Access to Probate Portal',
+      'Unlimited Attorney Consultation'
+    ],
+    note: 'For estates valued above $150,000 with or without real estate that will sell real estate and require real estate sale representation (with or without a will). The only fee not included is the surety bond fee, required in cases without a will, which is paid directly to the bond provider.',
+    addOns: []
+  },
+  {
+    id: 'probate-tier-4',
+    name: 'Tier 4 Probate Package',
+    subtitle: 'Estates over $1,000,000',
+    category: 'probate',
+    standardizedCaseType: 'Probate',
+    standardizedServiceName: 'Probate (Tier 4)',
+    pricingLabel: '$8,500 + 1.5% of Estate Value',
+    description: 'Probate administration for estates valued over $1,000,000',
+    includes: [
+      'Preparation and Filing of All Necessary Documents',
+      'Notification of Heirs and Creditors',
+      'Heirship Research',
+      'Asset Search',
+      'Representation at All Court Hearings',
+      'Filing Fees, Creditor Notification Publication Fees',
+      'Preparation of Final Accounting',
+      'Real Estate Sale Representation',
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],

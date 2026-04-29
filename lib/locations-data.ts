@@ -1,0 +1,51 @@
+export interface CityLocation {
+  city: string;
+  slug: string;
+  county: string;
+  population: string;
+  meetingAddress: string | null;
+  nearbyCity: string;
+  distanceFromChicago: string;
+  localNote: string;
+  countyCourtName: string;
+}
+
+export interface CountyProbateLocation {
+  county: string;
+  slug: string;
+  seat: string;
+  population: string;
+  courthouseAddress: string;
+  courthousePhone: string;
+  filingSystems: string;
+  localNote: string;
+}
+
+export const cityLocations: CityLocation[] = [
+  { city: "Naperville", slug: "naperville", county: "DuPage County", population: "~150,000", meetingAddress: "10334 Route 59, Naperville, IL 60564", nearbyCity: "Chicago", distanceFromChicago: "28 miles southwest of Chicago", localNote: "Naperville is consistently ranked one of the best places to live in the U.S. and is home to many affluent families with complex estate planning needs.", countyCourtName: "DuPage County Circuit Court" },
+  { city: "Schaumburg", slug: "schaumburg", county: "Cook County", population: "~75,000", meetingAddress: "10 N. Martingale Rd., Schaumburg, IL 60173", nearbyCity: "Chicago", distanceFromChicago: "30 miles northwest of Chicago", localNote: "Schaumburg is a major commercial hub in the northwest suburbs with a large professional population.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Orland Park", slug: "orland-park", county: "Cook County", population: "~60,000", meetingAddress: "15255 S. 94th Ave, Orland Park, IL 60462", nearbyCity: "Chicago", distanceFromChicago: "25 miles southwest of Chicago", localNote: "Orland Park is one of the most sought-after communities in the southwest suburbs, with a growing population of retirees and young families.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Elgin", slug: "elgin", county: "Kane County", population: "~115,000", meetingAddress: "2250 Point Blvd, Elgin, IL 60123", nearbyCity: "Chicago", distanceFromChicago: "35 miles northwest of Chicago", localNote: "Elgin is Kane County's largest city and serves as a regional hub for the Fox Valley area.", countyCourtName: "Kane County Circuit Court" },
+  { city: "Downers Grove", slug: "downers-grove", county: "DuPage County", population: "~50,000", meetingAddress: "5222 Main Street, Downers Grove, IL 60515", nearbyCity: "Chicago", distanceFromChicago: "21 miles west of Chicago", localNote: "Downers Grove is a well-established DuPage County suburb known for its high quality of life and active professional community.", countyCourtName: "DuPage County Circuit Court" },
+  { city: "Hoffman Estates", slug: "hoffman-estates", county: "Cook County", population: "~52,000", meetingAddress: "5400 Prairie Stone Pkwy, Hoffman Estates, IL 60192", nearbyCity: "Chicago", distanceFromChicago: "32 miles northwest of Chicago", localNote: "Hoffman Estates is a thriving northwest suburb with a strong corporate presence and growing residential base.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Arlington Heights", slug: "arlington-heights", county: "Cook County", population: "~76,000", meetingAddress: null, nearbyCity: "Chicago", distanceFromChicago: "25 miles northwest of Chicago", localNote: "Arlington Heights is one of the largest and most established suburbs in the Chicago metro area, with a highly educated and affluent population.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Palatine", slug: "palatine", county: "Cook County", population: "~68,000", meetingAddress: null, nearbyCity: "Chicago", distanceFromChicago: "28 miles northwest of Chicago", localNote: "Palatine is a large northwest Cook County suburb with a diverse and growing population of homeowners and families.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Evanston", slug: "evanston", county: "Cook County", population: "~74,000", meetingAddress: null, nearbyCity: "Chicago", distanceFromChicago: "12 miles north of Chicago", localNote: "Evanston is home to Northwestern University and one of the most affluent and educated communities in the Chicago area.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Joliet", slug: "joliet", county: "Will County", population: "~150,000", meetingAddress: null, nearbyCity: "Chicago", distanceFromChicago: "30 miles southwest of Chicago", localNote: "Joliet is the Will County seat and the third-largest city in Illinois, with a rapidly growing population and increasing demand for estate planning services.", countyCourtName: "Will County Circuit Court" },
+  { city: "Oak Lawn", slug: "oak-lawn", county: "Cook County", population: "~57,000", meetingAddress: null, nearbyCity: "Chicago", distanceFromChicago: "12 miles southwest of Chicago", localNote: "Oak Lawn is a dense south suburban Cook County community with a large long-established residential base.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Park Ridge", slug: "park-ridge", county: "Cook County", population: "~37,000", meetingAddress: "222 S. Prospect Ave, Park Ridge, IL 60068", nearbyCity: "Chicago", distanceFromChicago: "14 miles northwest of Chicago", localNote: "Park Ridge is an affluent northwest Cook County suburb bordering Chicago, known for its strong community ties and active professional population.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Lisle", slug: "lisle", county: "DuPage County", population: "~23,000", meetingAddress: "3333 Warrenville Rd, Lisle, IL 60532", nearbyCity: "Chicago", distanceFromChicago: "25 miles west of Chicago", localNote: "Lisle is a quiet DuPage County suburb with a well-established residential community and strong connection to the Naperville-Downers Grove corridor.", countyCourtName: "DuPage County Circuit Court" },
+  { city: "Lombard", slug: "lombard", county: "DuPage County", population: "~44,000", meetingAddress: "100 W 22nd Street, Lombard, IL 60148", nearbyCity: "Chicago", distanceFromChicago: "22 miles west of Chicago", localNote: "Lombard is centrally located in DuPage County and serves as a gateway community for the western suburbs.", countyCourtName: "DuPage County Circuit Court" },
+  { city: "St. Charles", slug: "st-charles", county: "Kane County", population: "~34,000", meetingAddress: "300 Cardinal Dr., St. Charles, IL 60175", nearbyCity: "Chicago", distanceFromChicago: "38 miles west of Chicago", localNote: "St. Charles is a charming Fox River community in Kane County with a high quality of life and active estate planning market.", countyCourtName: "Kane County Circuit Court" },
+  { city: "Rosemont", slug: "rosemont", county: "Cook County", population: "~4,000", meetingAddress: "5600 N River Road, Rosemont, IL 60018", nearbyCity: "Chicago", distanceFromChicago: "12 miles northwest of Chicago", localNote: "Rosemont is a commercial hub near O'Hare Airport, serving the broader northwest Cook County area.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Rolling Meadows", slug: "rolling-meadows", county: "Cook County", population: "~24,000", meetingAddress: "1600 Gold Rd, Suite 1200, Rolling Meadows, IL 60008", nearbyCity: "Chicago", distanceFromChicago: "26 miles northwest of Chicago", localNote: "Rolling Meadows is a northwest Cook County suburb conveniently located near I-90 and the Route 53 corridor.", countyCourtName: "Cook County Circuit Court" },
+  { city: "Burr Ridge", slug: "burr-ridge", county: "DuPage County", population: "~11,000", meetingAddress: "1333 Burr Ridge Pkwy, Burr Ridge, IL 60527", nearbyCity: "Chicago", distanceFromChicago: "18 miles southwest of Chicago", localNote: "Burr Ridge is one of the most exclusive and affluent suburbs in the Chicago metro, with a high concentration of high-net-worth residents.", countyCourtName: "DuPage County Circuit Court" },
+  { city: "Warrenville", slug: "warrenville", county: "DuPage County", population: "~13,000", meetingAddress: "4320 Winfield Road, Ste 200, Warrenville, IL 60555", nearbyCity: "Chicago", distanceFromChicago: "30 miles west of Chicago", localNote: "Warrenville is a growing DuPage County community nestled along the Fox River near Naperville and Wheaton.", countyCourtName: "DuPage County Circuit Court" },
+];
+
+export const countyProbateLocations: CountyProbateLocation[] = [
+  { county: "Lake County", slug: "lake", seat: "Waukegan", population: "~710,000", courthouseAddress: "18 N. County St., Waukegan, IL 60085", courthousePhone: "(847) 377-3600", filingSystems: "Lake County uses the Odyssey case management system. Probate cases are heard in the Civil/Probate Division.", localNote: "Lake County is one of the wealthiest counties in Illinois, stretching along Lake Michigan from Evanston to the Wisconsin border. High demand for trust and estate planning services." },
+  { county: "Will County", slug: "will", seat: "Joliet", population: "~700,000", courthouseAddress: "14 W. Jefferson St., Joliet, IL 60432", courthousePhone: "(815) 727-8592", filingSystems: "Will County Circuit Court handles probate in its Civil Division. Growing caseload due to rapid suburban expansion.", localNote: "Will County is one of the fastest-growing counties in the U.S., with large new residential communities in Joliet, Bolingbrook, Plainfield, and Lockport driving significant estate planning demand." },
+  { county: "Kane County", slug: "kane", seat: "Geneva", population: "~530,000", courthouseAddress: "100 S. Third St., Geneva, IL 60134", courthousePhone: "(630) 232-3413", filingSystems: "Kane County Circuit Court Probate Division is based in Geneva. The Fox Valley corridor from Elgin to Aurora makes up the bulk of the population.", localNote: "Kane County spans the Fox River Valley and includes major cities like Elgin, Aurora, and St. Charles. Estate planning is in high demand among the large professional suburban population." },
+  { county: "McHenry County", slug: "mchenry", seat: "Woodstock", population: "~310,000", courthouseAddress: "2200 N. Seminary Ave., Woodstock, IL 60098", courthousePhone: "(815) 334-4190", filingSystems: "McHenry County Circuit Court handles probate in its Law Division. Cases are filed in Woodstock.", localNote: "McHenry County is a scenic exurban county north of Chicago featuring growing communities like Crystal Lake, Algonquin, and Cary. Strong demand for estate planning from both retirees and young families." },
+];

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { FileText, Shield, Heart, Scale, ScrollText } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Estate Planning Services | Illinois Estate Law',
+  title: 'Estate Planning Services',
   description: 'Comprehensive estate planning services in Illinois including wills, trusts, powers of attorney, healthcare directives, and more. Protect your family and assets with Illinois Estate Law.',
   openGraph: {
     title: 'Estate Planning Services | Illinois Estate Law',
@@ -58,7 +58,7 @@ export default function EstatePlanningPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-[1140px] mx-auto text-center">
             <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-              Estate Planning
+              Estate Planning Services in Illinois
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
               Comprehensive, customized estate planning to protect your family, your assets, and your legacy under Illinois law.

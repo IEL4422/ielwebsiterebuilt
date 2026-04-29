@@ -40,7 +40,7 @@ export default function LocationsPage() {
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
           <div className="container mx-auto max-w-[1140px] px-5 xl:px-0">
             <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal capitalize text-white text-center">
-              Locations
+              Illinois Estate Planning &amp; Probate Services Across the State
             </h1>
           </div>
         </section>
