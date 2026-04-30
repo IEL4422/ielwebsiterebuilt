@@ -49,7 +49,7 @@ export default function ChicagoWillsLawyerPage() {
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Chicago Wills Lawyer
+                    Wills & Testaments
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Protect your family's future with a comprehensive will tailored to Illinois law

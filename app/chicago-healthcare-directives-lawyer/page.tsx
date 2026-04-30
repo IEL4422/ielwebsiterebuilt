@@ -49,7 +49,7 @@ export default function HealthcareDirectivesPage() {
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Chicago Healthcare Directives Lawyer
+                    Healthcare Directives
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Ensure your medical wishes are honored with comprehensive healthcare directives tailored to Illinois law

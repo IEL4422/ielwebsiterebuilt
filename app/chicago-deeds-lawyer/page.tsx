@@ -48,7 +48,7 @@ export default function ChicagoDeedsLawyerPage() {
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Chicago Deeds Lawyer
+                    Real Estate Deeds
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Expert guidance on Transfer on Death Instruments, Quit Claim Deeds, and Life Estate Deeds in Illinois

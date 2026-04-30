@@ -49,7 +49,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Chicago Revocable Trusts Lawyer
+                    Revocable Living Trusts
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Avoid probate, protect privacy, and secure your family's future with a comprehensive revocable living trust

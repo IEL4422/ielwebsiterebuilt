@@ -42,7 +42,7 @@ export default function RealEstateClosingsPage() {
               "name": "Illinois"
             },
             "priceRange": "$$",
-            "serviceType": "Residential Real Estate Closings"
+            "serviceType": "Real Estate Closings"
           })
         }}
       />
@@ -54,7 +54,7 @@ export default function RealEstateClosingsPage() {
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Residential Real Estate Closings
+                    Real Estate Closings
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Full-service attorney representation for your home purchase or sale closing in Illinois &mdash; flat fee of $2,000.

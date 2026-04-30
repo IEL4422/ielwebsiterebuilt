@@ -48,7 +48,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Chicago Prenuptial Agreements Lawyer
+                    Prenuptial Agreements
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Protect your assets and clarify expectations with a comprehensive prenuptial agreement
