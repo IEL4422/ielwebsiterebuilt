@@ -3,7 +3,3 @@ builder = "nixpacks"
 
 [deploy]
 startCommand = "next start -H 0.0.0.0 -p $PORT"
-healthcheckPath = "/"
-healthcheckTimeout = 100
-restartPolicyType = "on_failure"
-restartPolicyMaxRetries = 3
