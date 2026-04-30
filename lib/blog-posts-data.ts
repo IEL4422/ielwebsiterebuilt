@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'what-makes-a-will-valid-in-illinois',
+    title: 'What Makes a Will Valid in Illinois? Witnesses, Notarization, and Common Mistakes',
+    url: '/blog/what-makes-a-will-valid-in-illinois/',
+    date: 'Apr 30, 2026',
+    summary: 'Complete guide to Illinois will requirements. Learn what makes a will legally valid in Illinois — including the five statutory requirements, witness rules, notarization, self-proved wills, holographic wills, and the eight most common execution mistakes that void a will.',
+    excerpt: 'Understand the five legal requirements for a valid Illinois will, why notarization is optional, why holographic wills are not recognized, and the eight common mistakes that can void your will entirely.',
+  },
+  {
     slug: 'revocable-vs-irrevocable-trust-which-is-right-for-you-in-illinois',
     title: 'Revocable vs. Irrevocable Trust: Which Is Right for You in Illinois?',
     url: '/blog/revocable-vs-irrevocable-trust-which-is-right-for-you-in-illinois/',
