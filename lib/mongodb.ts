@@ -2,33 +2,24 @@ import { MongoClient, Db } from 'mongodb';
 
 const dbName = process.env.MONGODB_DB || 'illinoisestatelaw';
 
+// Single shared client — reused across requests in both dev and prod
 declare global {
   // eslint-disable-next-line no-var
-  var _mongoClient: MongoClient | undefined;
-  // eslint-disable-next-line no-var
-  var _mongoConnected: boolean | undefined;
+  var _mongo: { client: MongoClient; connected: boolean } | undefined;
 }
 
 export async function getDb(): Promise<Db> {
   const uri = process.env.MONGODB_URI;
   if (!uri) throw new Error('MONGODB_URI is not set');
 
-  let client: MongoClient;
-
-  if (process.env.NODE_ENV === 'development') {
-    if (!global._mongoClient) {
-      global._mongoClient = new MongoClient(uri);
-      global._mongoConnected = false;
-    }
-    client = global._mongoClient;
-    if (!global._mongoConnected) {
-      await client.connect();
-      global._mongoConnected = true;
-    }
-  } else {
-    client = new MongoClient(uri);
-    await client.connect();
+  if (!global._mongo) {
+    global._mongo = { client: new MongoClient(uri), connected: false };
   }
 
-  return client.db(dbName);
+  if (!global._mongo.connected) {
+    await global._mongo.client.connect();
+    global._mongo.connected = true;
+  }
+
+  return global._mongo.client.db(dbName);
 }
