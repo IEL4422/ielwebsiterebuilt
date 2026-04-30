@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Clock, Search, X } from 'lucide-react';
-import { createClient } from "@supabase/supabase-js";
 
 
 interface BlogPost {
@@ -51,19 +50,9 @@ export default function BlogPage() {
   useEffect(() => {
   async function fetchPosts() {
     try {
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-      const supabasePromise = supabaseUrl && supabaseKey
-        ? createClient(supabaseUrl, supabaseKey)
-            .from("blog_posts")
-            .select("id, title, slug, meta_description, published_date, topic")
-            .order("published_date", { ascending: false })
-        : Promise.resolve({ data: null });
-
-      const [jsonRes, dbRes] = await Promise.all([
+      const [jsonRes, apiRes] = await Promise.all([
         fetch('/blog/posts.json').catch(() => null),
-        supabasePromise
+        fetch('/api/blog-posts').catch(() => null),
       ]);
 
       let allPosts: BlogPost[] = [];
@@ -73,20 +62,12 @@ export default function BlogPage() {
         allPosts = [...jsonData];
       }
 
-      if (dbRes.data) {
-        const dbPosts = dbRes.data
-          .filter((post: any) => post.slug !== 'joint-accounts-and-estate-planning-in-illinois')
-          .map((post: any) => ({
-            id: post.id,
-            title: post.title,
-            slug: post.slug,
-            excerpt: post.meta_description || post.title.substring(0, 150),
-            published_date: post.published_date,
-            topic: post.topic || 'Estate Planning',
-            featured_image: '',
-            author: 'Estate Planning Team'
-          }));
-        allPosts = [...allPosts, ...dbPosts];
+      if (apiRes && apiRes.ok) {
+        const dbPosts: BlogPost[] = await apiRes.json();
+        // Deduplicate by slug (JSON file takes precedence for hardcoded posts)
+        const existingSlugs = new Set(allPosts.map(p => p.slug));
+        const newPosts = dbPosts.filter(p => !existingSlugs.has(p.slug));
+        allPosts = [...allPosts, ...newPosts];
       }
 
       allPosts.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
