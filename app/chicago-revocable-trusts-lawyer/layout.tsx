@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Chicago Trusts Lawyer | Illinois Revocable Living Trust Attorney',
+  title: { absolute: 'Revocable Living Trusts | Illinois Estate Law' },
   description: 'Experienced Chicago trusts lawyer helping Illinois families avoid probate with revocable living trusts. Protect privacy and plan for incapacity. Call (312) 373-0731.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/chicago-revocable-trusts-lawyer/',
   },
   openGraph: {
-    title: 'Chicago Trusts Lawyer | Illinois Revocable Living Trust Attorney',
+    title: 'Revocable Living Trusts | Illinois Estate Law',
     description: 'Experienced Chicago trusts lawyer helping Illinois families avoid probate with revocable living trusts. Protect privacy and plan for incapacity. Call (312) 373-0731.',
     url: 'https://www.illinoisestatelaw.com/chicago-revocable-trusts-lawyer/',
     siteName: 'Illinois Estate Law',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Chicago Trusts Lawyer | Illinois Revocable Living Trust Attorney',
+    title: 'Revocable Living Trusts | Illinois Estate Law',
     description: 'Experienced Chicago trusts lawyer helping Illinois families avoid probate with revocable living trusts. Protect privacy and plan for incapacity. Call (312) 373-0731.',
   },
 };

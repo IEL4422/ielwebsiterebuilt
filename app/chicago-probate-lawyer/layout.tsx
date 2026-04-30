@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Chicago Probate Lawyer | Experienced Illinois Probate Attorney',
+  title: { absolute: 'Probate Administration | Illinois Estate Law' },
   description: 'Experienced Chicago probate lawyer guiding executors and beneficiaries through Illinois probate. Flat-fee probate administration in Cook County. Call (312) 373-0731.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/chicago-probate-lawyer/',
   },
   openGraph: {
-    title: 'Chicago Probate Lawyer | Experienced Illinois Probate Attorney',
+    title: 'Probate Administration | Illinois Estate Law',
     description: 'Experienced Chicago probate lawyer guiding executors and beneficiaries through Illinois probate. Flat-fee probate administration in Cook County. Call (312) 373-0731.',
     url: 'https://www.illinoisestatelaw.com/chicago-probate-lawyer/',
     siteName: 'Illinois Estate Law',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Chicago Probate Lawyer | Experienced Illinois Probate Attorney',
+    title: 'Probate Administration | Illinois Estate Law',
     description: 'Experienced Chicago probate lawyer guiding executors and beneficiaries through Illinois probate. Flat-fee probate administration in Cook County. Call (312) 373-0731.',
   },
 };

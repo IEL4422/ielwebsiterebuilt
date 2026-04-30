@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { Phone, CircleCheck as CheckCircle, Chrome as Home, Shield, FileText, DollarSign } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Residential Real Estate Closings | Illinois Estate Law',
+  title: 'Real Estate Closings | Illinois Estate Law',
   description: 'Full-service residential real estate closing representation in Illinois for $2,000. Our attorneys handle every detail of your home purchase or sale closing.',
   openGraph: {
-    title: 'Residential Real Estate Closings | Illinois Estate Law',
+    title: 'Real Estate Closings | Illinois Estate Law',
     description: 'Full-service residential real estate closing representation in Illinois for $2,000.',
     url: 'https://www.illinoisestatelaw.com/chicago-real-estate-closings-lawyer/',
     siteName: 'Illinois Estate Law',

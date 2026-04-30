@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Chicago Deeds Lawyer | Illinois Real Estate Transfer Attorney',
+  title: { absolute: 'Real Estate Deeds | Illinois Estate Law' },
   description: 'Experienced Chicago deeds lawyer handling property transfers, quitclaim deeds, and title transfers in Illinois. Protect your real estate interests. Call (312) 373-0731.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/chicago-deeds-lawyer/',
   },
   openGraph: {
-    title: 'Chicago Deeds Lawyer | Illinois Real Estate Transfer Attorney',
+    title: 'Real Estate Deeds | Illinois Estate Law',
     description: 'Experienced Chicago deeds lawyer handling property transfers, quitclaim deeds, and title transfers in Illinois. Protect your real estate interests. Call (312) 373-0731.',
     url: 'https://www.illinoisestatelaw.com/chicago-deeds-lawyer/',
     siteName: 'Illinois Estate Law',

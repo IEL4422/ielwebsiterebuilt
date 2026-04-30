@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Chicago Healthcare Directives Lawyer | Illinois Living Will Attorney',
+  title: { absolute: 'Healthcare Directives | Illinois Estate Law' },
   description: 'Experienced Chicago healthcare directives lawyer helping you create living wills and HIPAA authorizations that protect your medical wishes. Call (312) 373-0731.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/chicago-healthcare-directives-lawyer/',
   },
   openGraph: {
-    title: 'Chicago Healthcare Directives Lawyer | Illinois Living Will Attorney',
+    title: 'Healthcare Directives | Illinois Estate Law',
     description: 'Experienced Chicago healthcare directives lawyer helping you create living wills and HIPAA authorizations that protect your medical wishes. Call (312) 373-0731.',
     url: 'https://www.illinoisestatelaw.com/chicago-healthcare-directives-lawyer/',
     siteName: 'Illinois Estate Law',
