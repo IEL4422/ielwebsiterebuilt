@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Clock, Search, X } from 'lucide-react';
-
+import { blogPosts as staticPosts } from '@/lib/blog-posts-data';
 
 interface BlogPost {
   id: string;
@@ -30,14 +30,38 @@ function getReadTime(index: number): number {
   return index % 2 === 0 ? 5 : 10;
 }
 
+function inferTopic(slug: string): string {
+  if (/real-estate|deed|title-search|title-insurance|closing|quitclaim|warranty-deed|transfer-tax|home-seller|attorney-review-period|sell-a-house-during-probate|hold-title|put-your-house-in-a-trust/.test(slug)) return 'Real Estate';
+  if (/trust|trustee/.test(slug)) return 'Trusts';
+  if (/probate|executor|estate-bank|small-estate|surety-bond/.test(slug)) return 'Probate';
+  if (/power-of-attorney/.test(slug)) return 'Powers of Attorney';
+  if (/prenuptial/.test(slug)) return 'Prenuptial Agreements';
+  if (/guardian/.test(slug)) return 'Guardianship';
+  if (/will|wills|valid/.test(slug)) return 'Wills';
+  return 'Estate Planning';
+}
+
+const staticBlogPosts: BlogPost[] = staticPosts.map((p) => ({
+  id: p.slug,
+  title: p.title,
+  slug: p.slug,
+  excerpt: p.excerpt || p.summary,
+  published_date: new Date(p.date).toISOString(),
+  topic: inferTopic(p.slug),
+  featured_image: '',
+  author: 'Mary Liberty',
+}));
+
 const topics = [
   'All Topics',
   'Estate Planning',
-  'Powers of Attorney',
+  'Real Estate',
+  'Wills',
   'Trusts',
   'Probate',
+  'Powers of Attorney',
   'Guardianship',
-  'Prenuptial Agreements'
+  'Prenuptial Agreements',
 ];
 
 export default function BlogPage() {
@@ -48,41 +72,33 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  async function fetchPosts() {
-    try {
-      const [jsonRes, apiRes] = await Promise.all([
-        fetch('/blog/posts.json').catch(() => null),
-        fetch('/api/blog-posts').catch(() => null),
-      ]);
+    async function fetchPosts() {
+      try {
+        // Start with all static hardcoded posts
+        const staticSlugs = new Set(staticBlogPosts.map(p => p.slug));
+        let allPosts: BlogPost[] = [...staticBlogPosts];
 
-      let allPosts: BlogPost[] = [];
+        // Also fetch from MongoDB for any posts stored there not already in static list
+        const apiRes = await fetch('/api/blog-posts').catch(() => null);
+        if (apiRes && apiRes.ok) {
+          const dbPosts: BlogPost[] = await apiRes.json();
+          const newPosts = dbPosts.filter(p => !staticSlugs.has(p.slug));
+          allPosts = [...allPosts, ...newPosts];
+        }
 
-      if (jsonRes && jsonRes.ok) {
-        const jsonData = await jsonRes.json();
-        allPosts = [...jsonData];
+        allPosts.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
+
+        setPosts(allPosts);
+        setFilteredPosts(allPosts);
+      } catch (err) {
+        console.error('Error loading blog posts:', err);
+      } finally {
+        setLoading(false);
       }
-
-      if (apiRes && apiRes.ok) {
-        const dbPosts: BlogPost[] = await apiRes.json();
-        // Deduplicate by slug (JSON file takes precedence for hardcoded posts)
-        const existingSlugs = new Set(allPosts.map(p => p.slug));
-        const newPosts = dbPosts.filter(p => !existingSlugs.has(p.slug));
-        allPosts = [...allPosts, ...newPosts];
-      }
-
-      allPosts.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
-
-      setPosts(allPosts);
-      setFilteredPosts(allPosts);
-    } catch (err) {
-      console.error('Error loading blog posts:', err);
-    } finally {
-      setLoading(false);
     }
-  }
 
-  fetchPosts();
-}, []);
+    fetchPosts();
+  }, []);
 
   useEffect(() => {
     let filtered = posts;
@@ -103,10 +119,6 @@ export default function BlogPage() {
     setFilteredPosts(filtered);
   }, [searchQuery, selectedTopic, posts]);
 
-  const clearSearch = () => {
-    setSearchQuery('');
-  };
-
   return (
     <main>
       {/* Hero Section */}
@@ -123,7 +135,6 @@ export default function BlogPage() {
       {/* Search and Filter Section */}
       <section className="py-6 sm:py-8 px-4 sm:px-5 bg-gray-50">
         <div className="max-w-[1140px] w-full mx-auto">
-          {/* Search Bar */}
           <div className="relative mb-5 sm:mb-6">
             <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -135,7 +146,7 @@ export default function BlogPage() {
             />
             {searchQuery && (
               <button
-                onClick={clearSearch}
+                onClick={() => setSearchQuery('')}
                 className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
               >
                 <X className="w-5 h-5" />
@@ -143,7 +154,6 @@ export default function BlogPage() {
             )}
           </div>
 
-          {/* Topic Filters */}
           <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0 pb-2">
             <div className="flex gap-2 sm:gap-3 min-w-min sm:flex-wrap">
               {topics.map((topic) => (
@@ -162,7 +172,6 @@ export default function BlogPage() {
             </div>
           </div>
 
-          {/* Results Count */}
           <div className="mt-4 text-gray-600 font-['Plus_Jakarta_Sans'] text-sm sm:text-base">
             Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
             {selectedTopic !== 'All Topics' && ` in ${selectedTopic}`}
@@ -171,7 +180,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Blog Grid Section */}
+      {/* Blog Grid */}
       <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-5">
         <div className="max-w-[1140px] w-full mx-auto">
           {loading ? (
@@ -186,61 +195,44 @@ export default function BlogPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
-              {filteredPosts.map((post, index) => {
-                const readTime = getReadTime(index);
-                return (
-                  <Link
-                    key={post.id}
-                    href={`/blog/${post.slug}/`}
-                    className="group"
-                  >
-                    <article className="relative rounded-[16px] sm:rounded-[20px] p-6 sm:p-8 h-full flex flex-col justify-between bg-gradient-to-br from-[#4A708B] via-[#5B8AAA] to-[#6BA3C9] hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
-                      <div>
-                        <div className="flex items-center justify-between mb-3 sm:mb-4">
-                          <time className="text-white/80 text-xs sm:text-sm font-['Plus_Jakarta_Sans']">
-                            {formatDate(post.published_date)}
-                          </time>
-                          <div className="flex items-center gap-1 text-white/80 text-xs sm:text-sm font-['Plus_Jakarta_Sans']">
-                            <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
-                            <span>{readTime} min read</span>
-                          </div>
+              {filteredPosts.map((post, index) => (
+                <Link key={post.id} href={`/blog/${post.slug}/`} className="group">
+                  <article className="relative rounded-[16px] sm:rounded-[20px] p-6 sm:p-8 h-full flex flex-col justify-between bg-gradient-to-br from-[#4A708B] via-[#5B8AAA] to-[#6BA3C9] hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
+                    <div>
+                      <div className="flex items-center justify-between mb-3 sm:mb-4">
+                        <time className="text-white/80 text-xs sm:text-sm font-['Plus_Jakarta_Sans']">
+                          {formatDate(post.published_date)}
+                        </time>
+                        <div className="flex items-center gap-1 text-white/80 text-xs sm:text-sm font-['Plus_Jakarta_Sans']">
+                          <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span>{getReadTime(index)} min read</span>
                         </div>
-
-                        <div className="mb-3">
-                          <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-['Plus_Jakarta_Sans'] font-semibold bg-white/20 text-white rounded-full">
-                            {post.topic}
-                          </span>
-                        </div>
-
-                        <h2 className="font-['Plus_Jakarta_Sans'] text-[18px] sm:text-[20px] lg:text-[22px] leading-[24px] sm:leading-[26px] lg:leading-[28px] font-bold text-white mb-3 sm:mb-4 group-hover:text-white/90 transition-colors">
-                          {post.title}
-                        </h2>
-
-                        <p className="font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-white/90 leading-relaxed line-clamp-3">
-                          {post.excerpt}
-                        </p>
                       </div>
 
-                      <div className="mt-5 sm:mt-6 flex items-center text-white font-['Plus_Jakarta_Sans'] font-semibold text-sm sm:text-base group-hover:gap-3 gap-2 transition-all">
-                        <span>Read More</span>
-                        <svg
-                          className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
+                      <div className="mb-3">
+                        <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-['Plus_Jakarta_Sans'] font-semibold bg-white/20 text-white rounded-full">
+                          {post.topic}
+                        </span>
                       </div>
-                    </article>
-                  </Link>
-                );
-              })}
+
+                      <h2 className="font-['Plus_Jakarta_Sans'] text-[18px] sm:text-[20px] lg:text-[22px] leading-[24px] sm:leading-[26px] lg:leading-[28px] font-bold text-white mb-3 sm:mb-4 group-hover:text-white/90 transition-colors">
+                        {post.title}
+                      </h2>
+
+                      <p className="font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-white/90 leading-relaxed line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                    </div>
+
+                    <div className="mt-5 sm:mt-6 flex items-center text-white font-['Plus_Jakarta_Sans'] font-semibold text-sm sm:text-base group-hover:gap-3 gap-2 transition-all">
+                      <span>Read More</span>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </article>
+                </Link>
+              ))}
             </div>
           )}
         </div>

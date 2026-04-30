@@ -170,10 +170,10 @@ export function ContactSection() {
             )}
           </div>
 
-          <div>
+          <div className="w-full overflow-hidden rounded-lg">
             <div
               id="my-lunacal-inline-initial-consultation"
-              style={{ width: '100%', height: '700px', overflow: 'scroll' }}
+              style={{ width: '100%', height: '660px', overflow: 'hidden' }}
             />
           </div>
         </div>
