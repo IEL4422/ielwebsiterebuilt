@@ -5,10 +5,6 @@ import Link from "next/link";
 import { Clock, Search, X } from 'lucide-react';
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
 
 interface BlogPost {
   id: string;
@@ -55,9 +51,19 @@ export default function BlogPage() {
   useEffect(() => {
   async function fetchPosts() {
     try {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+      const supabasePromise = supabaseUrl && supabaseKey
+        ? createClient(supabaseUrl, supabaseKey)
+            .from("blog_posts")
+            .select("id, title, slug, meta_description, published_date, topic")
+            .order("published_date", { ascending: false })
+        : Promise.resolve({ data: null });
+
       const [jsonRes, dbRes] = await Promise.all([
         fetch('/blog/posts.json').catch(() => null),
-        supabase.from("blog_posts").select("id, title, slug, meta_description, published_date, topic").order("published_date", { ascending: false })
+        supabasePromise
       ]);
 
       let allPosts: BlogPost[] = [];
