@@ -127,7 +127,7 @@ export default function BlogPage() {
         <div className="mx-auto max-w-[1140px] px-4 sm:px-5 xl:px-0">
           <div className="text-center">
             <h1 className="font-['Lobster_Two'] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[75px] leading-[44px] sm:leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal text-white">
-              Illinois Estate Planning &amp; Probate Guides
+              Blog
             </h1>
           </div>
         </div>
