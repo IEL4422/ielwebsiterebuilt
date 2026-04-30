@@ -160,8 +160,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Legal Considerations for Aging Adults in Illinois',
+    description: 'Prepare for aging with the right legal protections and planning documents in Illinois, including powers of attorney, healthcare directives, and guardianship.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-07-30', dateModified: '2025-07-30',
+    url: 'https://www.illinoisestatelaw.com/blog/legal-considerations-for-aging-adults/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

@@ -199,8 +199,20 @@ export default function SimpleEstatePlanPage() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'What Is a Simple Estate Plan in Chicago, Illinois?',
+    description: "Discover what makes up a simple estate plan in Chicago and why additional legal tools may be worth considering to protect your family's future.",
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-11-19', dateModified: '2025-11-19',
+    url: 'https://www.illinoisestatelaw.com/blog/what-is-a-simple-estate-plan-in-chicago-illinois/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">

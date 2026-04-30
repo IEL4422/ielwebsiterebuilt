@@ -21,10 +21,24 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.illinoisestatelaw.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Chicago Probate Lawyer', item: 'https://www.illinoisestatelaw.com/chicago-probate-lawyer/' },
+  ],
+};
+
 export default function ChicagoProbateLawyerLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

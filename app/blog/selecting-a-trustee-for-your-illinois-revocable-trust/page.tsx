@@ -187,8 +187,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Selecting a Trustee for Your Illinois Revocable Trust',
+    description: 'Learn how to choose a trustee who will manage your Illinois revocable trust responsibly and honor your wishes for your beneficiaries.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-10-15', dateModified: '2025-10-15',
+    url: 'https://www.illinoisestatelaw.com/blog/selecting-a-trustee-for-your-illinois-revocable-trust/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">

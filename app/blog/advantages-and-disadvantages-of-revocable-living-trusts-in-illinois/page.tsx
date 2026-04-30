@@ -158,8 +158,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Advantages and Disadvantages of Revocable Living Trusts in Illinois',
+    description: 'Explore the pros and cons of revocable living trusts in Illinois to determine whether a trust is the right choice for your estate plan.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-10-22', dateModified: '2025-10-22',
+    url: 'https://www.illinoisestatelaw.com/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

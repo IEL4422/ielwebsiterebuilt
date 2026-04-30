@@ -134,8 +134,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Ways to Protect Your Assets for the Future',
+    description: 'Learn effective strategies to protect your assets and preserve wealth for future generations through trusts, estate planning, and proper legal structures in Illinois.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-07-23', dateModified: '2025-07-23',
+    url: 'https://www.illinoisestatelaw.com/blog/ways-to-protect-your-assets-for-the-future/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link

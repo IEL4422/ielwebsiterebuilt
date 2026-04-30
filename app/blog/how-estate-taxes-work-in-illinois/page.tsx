@@ -57,8 +57,20 @@ export default function Page() {
   const { previous, next } = getAdjacentPosts(currentSlug);
   const relatedPosts = getRelatedPosts(currentSlug, 3);
 
-    return (
+  
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'How Estate Taxes Work in Illinois',
+    description: "Learn how Illinois estate tax impacts your estate and discover planning strategies to reduce your tax burden and protect your family's inheritance.",
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-09-03', dateModified: '2025-09-03',
+    url: 'https://www.illinoisestatelaw.com/blog/how-estate-taxes-work-in-illinois/',
+  };
+  return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section with Date and Title */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

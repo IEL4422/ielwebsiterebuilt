@@ -114,8 +114,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: '7 Overlooked Steps That Make or Break an Illinois Estate Plan',
+    description: 'Discover the often-missed details that determine whether your estate plan succeeds or leaves your family vulnerable. Learn the 7 steps Illinois residents overlook.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-08-06', dateModified: '2025-08-06',
+    url: 'https://www.illinoisestatelaw.com/blog/7-overlooked-steps-that-make-or-break-an-illinois-estate-plan/',
+  };
   return (
-    <main className="min-h-screen">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <main className="min-h-screen">
       {/* Header Section */}
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
@@ -565,5 +577,6 @@ export default function Page() {
     </div>
   </div>
     </main>
+    </>
   );
 }

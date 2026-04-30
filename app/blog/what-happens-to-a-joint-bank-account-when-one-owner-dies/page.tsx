@@ -179,8 +179,20 @@ export default function JointBankAccountPage() {
 
   const linkClass = 'text-[#4a708b] hover:underline';
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'What Happens to a Joint Bank Account When One Owner Dies?',
+    description: 'Learn what happens to joint bank accounts after one owner dies in Illinois, including survivorship rights, probate implications, and estate planning considerations.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2026-03-20', dateModified: '2026-03-20',
+    url: 'https://www.illinoisestatelaw.com/blog/what-happens-to-a-joint-bank-account-when-one-owner-dies/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">

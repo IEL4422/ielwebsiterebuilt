@@ -112,8 +112,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'What Are the Key Benefits of Setting Up a Trust in Illinois?',
+    description: 'Understand the powerful benefits trusts offer for Illinois estate planning, including probate avoidance, privacy, and control over asset distribution.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-09-30', dateModified: '2025-09-30',
+    url: 'https://www.illinoisestatelaw.com/blog/what-are-the-key-benefits-of-setting-up-a-trust-in-illinois/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

@@ -91,8 +91,20 @@ export default function EstatePlanningBasicsPage() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Understanding the Basics of Estate Planning',
+    description: 'Learn the essential components of estate planning and how to protect your assets, provide for your family, and avoid costly probate in Illinois.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-11-05', dateModified: '2025-11-05',
+    url: 'https://www.illinoisestatelaw.com/blog/understanding-the-basics-of-estate-planning/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

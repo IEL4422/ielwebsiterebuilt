@@ -48,8 +48,20 @@ export default function Page() {
   const { previous, next } = getAdjacentPosts(currentSlug);
   const relatedPosts = getRelatedPosts(currentSlug, 3);
 
-    return (
+  
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Trust Funding Checklist: How to Properly Fund Your Illinois Trust',
+    description: 'Follow this comprehensive checklist to properly fund your Illinois trust and avoid the common mistake of leaving assets outside the trust.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-09-24', dateModified: '2025-09-24',
+    url: 'https://www.illinoisestatelaw.com/blog/trust-funding-check-list/',
+  };
+  return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link

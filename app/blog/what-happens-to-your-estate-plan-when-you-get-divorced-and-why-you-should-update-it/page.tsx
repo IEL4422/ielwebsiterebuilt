@@ -104,8 +104,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'What Happens to Your Estate Plan When You Get Divorced?',
+    description: 'Understand how divorce affects your estate plan in Illinois and why immediate updates to your will, trusts, and beneficiary designations are critical.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-08-13', dateModified: '2025-08-13',
+    url: 'https://www.illinoisestatelaw.com/blog/what-happens-to-your-estate-plan-when-you-get-divorced-and-why-you-should-update-it/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link

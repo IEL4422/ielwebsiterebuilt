@@ -135,8 +135,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Cook County Probate Paperwork: Every Form, One Bookmark',
+    description: 'Access all Cook County probate forms and requirements in one comprehensive guide for Illinois estate administration.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-07-09', dateModified: '2025-07-09',
+    url: 'https://www.illinoisestatelaw.com/blog/cook-county-probate-paperwork-every-form-one-bookmark-illinois-estate-law/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

@@ -104,8 +104,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Understanding the Responsibilities of an Estate Executor in Illinois',
+    description: 'Learn what it takes to serve as an executor and fulfill your fiduciary duties in Illinois probate, from gathering assets to distributing the estate.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-11-08', dateModified: '2025-11-08',
+    url: 'https://www.illinoisestatelaw.com/blog/understanding-the-responsibilities-of-an-estate-executor-in-illinois/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

@@ -108,8 +108,20 @@ export default function ImportanceOfWillPage() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'The Financial Impact of Dying Without a Will in Illinois',
+    description: "Understand the financial and legal consequences of dying intestate in Illinois and how estate planning protects your family's future.",
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-11-12', dateModified: '2025-11-12',
+    url: 'https://www.illinoisestatelaw.com/blog/the-financial-impact-of-dying-without-a-will-in-illinois-and-the-value-of-estate-planning/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link

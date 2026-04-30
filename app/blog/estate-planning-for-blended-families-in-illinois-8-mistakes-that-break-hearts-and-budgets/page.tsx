@@ -62,8 +62,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Estate Planning for Blended Families: 8 Mistakes to Avoid',
+    description: 'Estate planning for blended families in Illinois requires careful consideration. Learn the 8 most common mistakes that can break hearts and budgets.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-08-20', dateModified: '2025-08-20',
+    url: 'https://www.illinoisestatelaw.com/blog/estate-planning-for-blended-families-in-illinois-8-mistakes-that-break-hearts-and-budgets/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">

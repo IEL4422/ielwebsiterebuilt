@@ -154,8 +154,20 @@ export default function Page() {
     },
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'How Transfer-on-Death Instruments Work in Illinois',
+    description: 'Explore how Transfer-on-Death Instruments (TODIs) can help Illinois homeowners avoid probate and pass real estate directly to beneficiaries.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2025-08-27', dateModified: '2025-08-27',
+    url: 'https://www.illinoisestatelaw.com/blog/how-transfer-on-death-instruments-work-in-illinois/',
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">

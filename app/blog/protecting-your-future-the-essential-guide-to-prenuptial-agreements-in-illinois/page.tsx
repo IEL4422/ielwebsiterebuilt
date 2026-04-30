@@ -254,8 +254,20 @@ export default function Page() {
     return <div>Loading...</div>;
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'Protecting Your Future: The Essential Guide to Prenuptial Agreements in Illinois',
+    description: 'A comprehensive guide to prenuptial agreements in Illinois, covering what they cover, how they work, and how to ensure yours is legally enforceable.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2026-02-12', dateModified: '2026-02-12',
+    url: 'https://www.illinoisestatelaw.com/blog/protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois/',
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] text-white py-20">
         <div className="max-w-6xl mx-auto px-4">
@@ -854,5 +866,6 @@ export default function Page() {
         </div>
       </div>
     </div>
+    </>
   );
 }

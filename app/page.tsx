@@ -21,7 +21,7 @@ import { AdultGuardianshipSection } from '@/components/home/AdultGuardianshipSec
 import { FAQSection } from '@/components/home/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Top-Rated Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
+  title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
   description: 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
   keywords: [
     'estate planning firm',
@@ -64,12 +64,12 @@ export const metadata: Metadata = {
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
     type: 'website',
-    title: 'Top-Rated Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
+    title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
     description: 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
   },
   twitter: {
     card: 'summary',
-    title: 'Top-Rated Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
+    title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
     description: 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
   },
   other: {

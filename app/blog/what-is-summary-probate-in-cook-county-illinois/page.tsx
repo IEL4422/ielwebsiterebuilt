@@ -68,8 +68,20 @@ export default function SummaryProbatePage() {
     }
   ];
 
+
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: 'What Is Summary Probate in Cook County, Illinois — and When Can You Use It?',
+    description: 'Discover when summary probate (summary administration) is available in Cook County, Illinois and how it can simplify the estate administration process.',
+    author: { '@type': 'Person', name: 'Mary Liberty' },
+    publisher: { '@type': 'Organization', name: 'Illinois Estate Law' },
+    datePublished: '2026-03-19', dateModified: '2026-03-19',
+    url: 'https://www.illinoisestatelaw.com/blog/what-is-summary-probate-in-cook-county-illinois/',
+  };
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 py-4">
           <Link
@@ -847,5 +859,6 @@ export default function SummaryProbatePage() {
         </section>
       </article>
     </main>
+    </>
   );
 }
