@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   },
   generator: 'WordPress 6.9',
   icons: {
-    icon: 'https://i.imgur.com/pKy65wF.png',
-    apple: 'https://i.imgur.com/pKy65wF.png',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
   other: {
-    'msapplication-TileImage': 'https://i.imgur.com/pKy65wF.png',
+    'msapplication-TileImage': '/favicon.png',
   }
 };
 
