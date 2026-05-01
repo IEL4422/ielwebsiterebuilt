@@ -55,7 +55,7 @@ export default async function LearningCenter() {
   const dbSlugs = new Set(dbGuides.map(g => g.slug));
   const merged = staticGuides
     .filter(g => !dbSlugs.has(g.slug))
-    .map(({ id: _id, content: _content, ...rest }) => rest)
+    .map(({ content: _content, ...rest }) => rest)
     .concat(dbGuides);
   const guides = merged.sort((a, b) => a.title.localeCompare(b.title));
 
