@@ -71,7 +71,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
   let isStructured = false;
   let structuredSections = null;
   try {
-    const parsed = JSON.parse(guide.content);
+    const parsed = JSON.parse(guide.content ?? '');
     if (Array.isArray(parsed)) {
       isStructured = true;
       structuredSections = parsed;
