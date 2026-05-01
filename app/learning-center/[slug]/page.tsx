@@ -4,6 +4,7 @@ import { ArrowLeft, BookOpen, MessageSquare, Clock } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { notFound } from 'next/navigation';
 import GuideContent from './GuideContent';
+import { getStaticGuide } from '@/lib/guides-data';
 
 interface GuidePageProps {
   params: {
@@ -41,7 +42,7 @@ async function getGuide(slug: string) {
 }
 
 export async function generateMetadata({ params }: GuidePageProps): Promise<Metadata> {
-  const guide = await getGuide(params.slug);
+  const guide = await getGuide(params.slug) ?? getStaticGuide(params.slug);
 
   if (!guide) {
     return { title: 'Guide Not Found' };
@@ -68,7 +69,7 @@ function estimateReadTime(content: string): number {
 }
 
 export default async function GuidePage({ params }: GuidePageProps) {
-  const guide = await getGuide(params.slug);
+  const guide = await getGuide(params.slug) ?? getStaticGuide(params.slug);
 
   if (!guide) {
     notFound();

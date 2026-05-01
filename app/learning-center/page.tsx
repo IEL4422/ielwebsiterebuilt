@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { MessageSquare } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import GuidesSearch from '@/components/learning-center/GuidesSearch';
+import { staticGuides } from '@/lib/guides-data';
 
 export const metadata: Metadata = {
   title: 'Key Illinois Estate Law Terms for Effective Estate Planning',
@@ -57,7 +58,13 @@ async function getGuides() {
 }
 
 export default async function LearningCenter() {
-  const guides = await getGuides();
+  const supabaseGuides = await getGuides();
+  const supabaseSlugs = new Set(supabaseGuides.map((g: { slug: string }) => g.slug));
+  const merged = staticGuides
+    .filter(g => !supabaseSlugs.has(g.slug))
+    .map(({ id: _id, content: _content, ...rest }) => rest)
+    .concat(supabaseGuides);
+  const guides = merged.sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <main className="bg-white">
