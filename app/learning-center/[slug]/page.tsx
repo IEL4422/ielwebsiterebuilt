@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, BookOpen, MessageSquare, Clock } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
+import { getDb } from '@/lib/mongodb';
 import { notFound } from 'next/navigation';
 import GuideContent from './GuideContent';
 import { getStaticGuide } from '@/lib/guides-data';
@@ -15,30 +15,21 @@ interface GuidePageProps {
 export const dynamic = 'force-dynamic';
 
 async function getGuide(slug: string) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!supabaseUrl || !supabaseKey) {
+  try {
+    const db = await getDb();
+    const doc = await db.collection('guides').findOne({ slug });
+    if (!doc) return null;
+    return {
+      id: String(doc._id),
+      title: String(doc.title),
+      description: String(doc.description || ''),
+      category: String(doc.category || ''),
+      slug: String(doc.slug),
+      content: doc.content ? String(doc.content) : null,
+    };
+  } catch {
     return null;
   }
-
-  const supabase = createClient(supabaseUrl, supabaseKey, {
-    global: {
-      fetch: (url, options = {}) => fetch(url, { ...options, cache: 'no-store' }),
-    },
-  });
-
-  const { data, error } = await supabase
-    .from('guides')
-    .select('*')
-    .eq('slug', slug)
-    .maybeSingle();
-
-  if (error) {
-    return null;
-  }
-
-  return data;
 }
 
 export async function generateMetadata({ params }: GuidePageProps): Promise<Metadata> {

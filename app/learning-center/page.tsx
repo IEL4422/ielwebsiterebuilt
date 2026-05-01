@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { MessageSquare } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
+import { getDb } from '@/lib/mongodb';
 import GuidesSearch from '@/components/learning-center/GuidesSearch';
 import { staticGuides } from '@/lib/guides-data';
 
@@ -30,40 +30,33 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 
 async function getGuides() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!supabaseUrl || !supabaseKey) {
-    console.error('Supabase environment variables not configured');
+  try {
+    const db = await getDb();
+    const docs = await db
+      .collection('guides')
+      .find({}, { projection: { _id: 1, title: 1, description: 1, category: 1, slug: 1 } })
+      .sort({ title: 1 })
+      .toArray();
+    return docs.map(d => ({
+      id: String(d._id),
+      title: String(d.title),
+      description: String(d.description || ''),
+      category: String(d.category || ''),
+      slug: String(d.slug),
+    }));
+  } catch (err) {
+    console.error('Error fetching guides from MongoDB:', err);
     return [];
   }
-
-  const supabase = createClient(supabaseUrl, supabaseKey, {
-    global: {
-      fetch: (url, options = {}) => fetch(url, { ...options, cache: 'no-store' }),
-    },
-  });
-
-  const { data, error } = await supabase
-    .from('guides')
-    .select('id, title, description, category, slug')
-    .order('title');
-
-  if (error) {
-    console.error('Error fetching guides:', error);
-    return [];
-  }
-
-  return data || [];
 }
 
 export default async function LearningCenter() {
-  const supabaseGuides = await getGuides();
-  const supabaseSlugs = new Set(supabaseGuides.map((g: { slug: string }) => g.slug));
+  const dbGuides = await getGuides();
+  const dbSlugs = new Set(dbGuides.map(g => g.slug));
   const merged = staticGuides
-    .filter(g => !supabaseSlugs.has(g.slug))
+    .filter(g => !dbSlugs.has(g.slug))
     .map(({ id: _id, content: _content, ...rest }) => rest)
-    .concat(supabaseGuides);
+    .concat(dbGuides);
   const guides = merged.sort((a, b) => a.title.localeCompare(b.title));
 
   return (
