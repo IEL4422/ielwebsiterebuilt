@@ -280,7 +280,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes, once your estate planning documents are finalized, we offer a $99 per year maintenance subscription, which includes additional funding of new assets and/or amendments and modifications.</p>
+              <p>Yes, once your estate planning documents are finalized, we offer a $199 per year maintenance subscription, which includes additional funding of new assets and/or amendments and modifications.</p>
             </div>
           </details>
 

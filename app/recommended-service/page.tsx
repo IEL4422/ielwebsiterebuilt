@@ -164,7 +164,7 @@ export default function RecommendedServicePage() {
       if (hasExistingPrenup === 'yes' && needsNegotiation === 'no') {
         return {
           name: 'Prenuptial Agreement Review',
-          price: '$2,000',
+          price: '$1,500',
           description: 'Professional review of your prenuptial agreement to understand implications and identify any concerns.',
           includes: [
             'Detailed legal analysis',
@@ -329,20 +329,12 @@ export default function RecommendedServicePage() {
 
       if (issuesAmongHeirs === 'yes') {
         return {
-          name: 'Probate Package - Contested Matter',
-          price: 'Varies - Consultation Required',
-          description: 'For probate matters with disputes among heirs. Pricing varies based on complexity.',
+          name: 'Contested Probate — Referral Consultation',
+          price: 'Consultation Required',
+          description: 'Illinois Estate Law handles uncontested probate matters only. If there are disputes among heirs or other contested issues, we are happy to speak with you and refer you to experienced litigation counsel.',
           includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Filing Fees',
-            'Creditor Notification Publication Fees',
-            'Preparation of Final Accounting',
-            'Access to Client Portal',
-            'Unlimited Attorney Consultation'
+            'Review of your situation',
+            'Referral to experienced contested probate counsel'
           ],
           addOns: [],
           serviceId: 'probate-package-contested',
@@ -355,7 +347,7 @@ export default function RecommendedServicePage() {
       if (decedentEstateValue === 'under-100k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
           name: 'Summary Probate',
-          price: '$4,000',
+          price: '$2,500',
           description: 'For estates valued at $100,000 or less with no real estate and all debts paid.',
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -381,7 +373,7 @@ export default function RecommendedServicePage() {
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Tier 2 Probate Package',
-          price: '$6,500',
+          price: '$6,000',
           description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed. Contact us if your estate requires real estate sale representation or is valued over $1,000,000.',
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -427,7 +419,7 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
-          price: 2500,
+          price: 3000,
           description: 'Special needs trust planning and documentation',
           suggested: true
         });
@@ -487,7 +479,7 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
-          price: 2500,
+          price: 3000,
           description: 'Special needs trust planning and documentation',
           suggested: true
         });

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Illinois Estate Law — Fee Schedule</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 36px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 3px solid #2D3E50;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .header-left h1 {
+      font-size: 22pt;
+      color: #2D3E50;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .header-left p {
+      color: #4A708B;
+      font-size: 10pt;
+      margin-top: 3px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 9.5pt;
+      color: #555;
+      line-height: 1.6;
+    }
+    .header-right strong { color: #2D3E50; }
+
+    /* ── Notice ── */
+    .notice {
+      background: #f0f4f7;
+      border-left: 4px solid #4A708B;
+      padding: 10px 14px;
+      margin-bottom: 24px;
+      font-size: 9.5pt;
+      color: #2D3E50;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 28px;
+      page-break-inside: avoid;
+    }
+    .section-title {
+      background: #2D3E50;
+      color: #fff;
+      font-size: 11pt;
+      font-weight: 700;
+      padding: 7px 12px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+    }
+    th {
+      background: #f5f7f9;
+      color: #2D3E50;
+      font-weight: 600;
+      text-align: left;
+      padding: 7px 10px;
+      border-bottom: 1px solid #d0d8e0;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #e8ecef;
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafbfc; }
+
+    .service-name { font-weight: 600; color: #1a1a1a; }
+    .service-sub  { font-size: 8.5pt; color: #666; margin-top: 2px; font-weight: 400; }
+    .price        { font-weight: 700; color: #2D3E50; white-space: nowrap; text-align: right; }
+    .price-note   { font-size: 8pt; color: #888; font-weight: 400; display: block; }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 32px;
+      border-top: 2px solid #2D3E50;
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 8.5pt;
+      color: #555;
+    }
+    .footer-note { max-width: 520px; line-height: 1.5; }
+    .footer-contact { text-align: right; line-height: 1.7; }
+    .footer-contact strong { color: #2D3E50; font-size: 10pt; }
+
+    @media print {
+      body { padding: 20px 28px; }
+      .section { page-break-inside: avoid; }
+      .no-print { display: none; }
+    }
+
+    .print-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      background: #2D3E50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 10pt;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .print-btn:hover { background: #4A708B; }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">⬇ Save as PDF (File → Print → Save as PDF)</button>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Illinois Estate Law</h1>
+      <p>Attorney Fee Schedule — All Services</p>
+    </div>
+    <div class="header-right">
+      <strong>Mary Liberty, Esq.</strong><br>
+      illinoisestatelaw.com<br>
+      (312) 373-0731<br>
+      contact@illinoisestatelaw.com
+    </div>
+  </div>
+
+  <div class="notice">
+    All fees are flat-rate. No hourly billing. Payment plans available for all services. Illinois Estate Law handles <strong>uncontested matters only</strong> — for contested probate or trust disputes, we are happy to provide a referral.
+  </div>
+
+  <!-- ═══════════════════════════════════════ ESTATE PLANNING PACKAGES -->
+  <div class="section">
+    <div class="section-title">Estate Planning Packages</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:22%;text-align:right">Individual</th>
+          <th style="width:23%;text-align:right">Joint (Couple)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Trust Package</div>
+            <div class="service-sub">Revocable Living Trust, Pour-Over Will, POA, Healthcare Directive, Memoranda, Deed Transfer, Full Trust Funding, Notarization, Portfolio, Portal, Unlimited Consultation</div>
+          </td>
+          <td class="price">$3,500</td>
+          <td class="price">$5,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Probate Avoidance Package</div>
+            <div class="service-sub">Will, POA, Transfer-on-Death Instrument, Healthcare Directive, Memoranda, Notarization, Portfolio, Portal, Unlimited Consultation</div>
+          </td>
+          <td class="price">$1,750</td>
+          <td class="price">$2,250</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Will Package</div>
+            <div class="service-sub">Will, POA, Healthcare Directive, Memoranda, Notarization, Portfolio, Portal, Unlimited Consultation</div>
+          </td>
+          <td class="price">$1,250</td>
+          <td class="price">$1,750</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">DIY Estate Plan Review</div>
+            <div class="service-sub">Comprehensive review and redlining of existing documents + 1-hour attorney session</div>
+          </td>
+          <td class="price">$500</td>
+          <td class="price">$750</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Irrevocable Trust</div>
+            <div class="service-sub">ILIT, Medicaid Asset Protection Trust, Special Needs Trust — custom drafting, asset protection planning, unlimited consultation</div>
+          </td>
+          <td class="price" colspan="2" style="text-align:center">$4,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Annual Review Membership</div>
+            <div class="service-sub">Annual attorney review meeting + free amendments throughout the year + priority scheduling + document storage</div>
+          </td>
+          <td class="price" colspan="2" style="text-align:center">$199 / year</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ PROBATE -->
+  <div class="section">
+    <div class="section-title">Probate — Uncontested Matters Only</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Summary Probate</div>
+            <div class="service-sub">Simplified administration for qualifying small estates — petition, one hearing, distribution order. Filing fees included.</div>
+          </td>
+          <td class="price">$2,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Standard Probate — No Real Estate Sale</div>
+            <div class="service-sub">Full administration for larger estates with or without real estate, where no real estate sale is needed. All filing and publication fees included.</div>
+          </td>
+          <td class="price">$6,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Standard Probate — with Real Estate Sale</div>
+            <div class="service-sub">Full administration including real estate sale representation, title coordination, and closing attendance. All filing and publication fees included.</div>
+          </td>
+          <td class="price">$9,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Large Estate Probate (over $1,000,000)</div>
+            <div class="service-sub">Full administration including real estate sale representation. All filing and publication fees included.</div>
+          </td>
+          <td class="price">$8,500 + 1.5%<span class="price-note">of total estate value</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Partial Probate</div>
+            <div class="service-sub">Taking over representation in a probate matter already in progress</div>
+          </td>
+          <td class="price">$3,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Heir Representation</div>
+            <div class="service-sub">Full representation of a non-executor heir throughout the probate proceeding</div>
+          </td>
+          <td class="price">$2,500 / heir</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Spousal Representation</div>
+            <div class="service-sub">Protecting a surviving spouse's rights and interests throughout probate</div>
+          </td>
+          <td class="price">$3,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Document Review</div>
+            <div class="service-sub">Professional review of probate or legal documents</div>
+          </td>
+          <td class="price">$500</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ TRUST ADMINISTRATION -->
+  <div class="section">
+    <div class="section-title">Trust Administration — Uncontested Matters Only</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Trust Administration — Simple</div>
+            <div class="service-sub">Trust assets under $150,000. Asset inventory, beneficiary notification, accounting, distribution.</div>
+          </td>
+          <td class="price">$2,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Trust Administration — Standard</div>
+            <div class="service-sub">Trust assets over $150,000, no real estate sale. Full successor trustee guidance through administration and distribution.</div>
+          </td>
+          <td class="price">$5,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Trust Administration — with Real Estate Sale</div>
+            <div class="service-sub">Trust assets over $150,000, real estate sale representation included. Title coordination and closing attendance.</div>
+          </td>
+          <td class="price">$7,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Trust Administration — Large Trust (over $1,000,000)</div>
+            <div class="service-sub">Full administration including real estate sale and coordination with financial advisors.</div>
+          </td>
+          <td class="price">$7,500 + 1%<span class="price-note">of total trust value</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ A LA CARTE -->
+  <div class="section">
+    <div class="section-title">À La Carte Documents</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:22%;text-align:right">Individual</th>
+          <th style="width:23%;text-align:right">Joint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Revocable Living Trust</div>
+            <div class="service-sub">Includes full trust funding coordination</div>
+          </td>
+          <td class="price">$2,500</td>
+          <td class="price">$3,500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Last Will &amp; Testament</div></td>
+          <td class="price">$750</td>
+          <td class="price">$1,250</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Power of Attorney (Financial &amp; Medical)</div></td>
+          <td class="price">$350</td>
+          <td class="price">$350</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Healthcare Directive (Living Will)</div></td>
+          <td class="price">$300</td>
+          <td class="price">$300</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Quit Claim Deed</div></td>
+          <td class="price" colspan="2" style="text-align:center">$500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Transfer-on-Death Instrument (TODI)</div></td>
+          <td class="price" colspan="2" style="text-align:center">$500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Life Estate Deed</div></td>
+          <td class="price" colspan="2" style="text-align:center">$500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Trust Restatement</div></td>
+          <td class="price" colspan="2" style="text-align:center">$2,000</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Will Amendment (Codicil)</div></td>
+          <td class="price" colspan="2" style="text-align:center">$500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Trust Funding</div></td>
+          <td class="price" colspan="2" style="text-align:center">$1,500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Special Needs Planning (SNT)</div></td>
+          <td class="price" colspan="2" style="text-align:center">$3,000</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Estate Tax Planning</div></td>
+          <td class="price" colspan="2" style="text-align:center">$5,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Irrevocable Trust</div>
+            <div class="service-sub">ILIT, MAPT, or Special Needs Trust</div>
+          </td>
+          <td class="price" colspan="2" style="text-align:center">$4,500</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ PRENUPTIAL -->
+  <div class="section">
+    <div class="section-title">Prenuptial Agreements</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Prenuptial Agreement — Drafting &amp; Negotiation</div>
+            <div class="service-sub">Custom drafting, financial disclosure review, negotiation between parties, finalization</div>
+          </td>
+          <td class="price">$5,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Prenuptial Agreement — Drafting Only</div>
+            <div class="service-sub">Custom drafting, legal compliance review, execution guidance</div>
+          </td>
+          <td class="price">$3,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Prenuptial Agreement — Review &amp; Negotiation</div>
+            <div class="service-sub">Review of existing agreement, negotiation on your behalf, recommendations</div>
+          </td>
+          <td class="price">$3,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Prenuptial Agreement — Review Only</div>
+            <div class="service-sub">Legal analysis, identification of concerns, consultation on implications</div>
+          </td>
+          <td class="price">$1,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Prenuptial Q&amp;A Session</div>
+            <div class="service-sub">1-hour attorney consultation and review of existing agreement</div>
+          </td>
+          <td class="price">$500</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ SMALL BUSINESS -->
+  <div class="section">
+    <div class="section-title">Small Business</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Small Business Package</div>
+            <div class="service-sub">LLC registration, trademark registration, operating agreement, EIN — all filing fees included</div>
+          </td>
+          <td class="price">$2,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Business Essentials</div>
+            <div class="service-sub">LLC registration, EIN, operating agreement — all filing fees included</div>
+          </td>
+          <td class="price">$1,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Trademark Registration</div>
+            <div class="service-sub">Federal trademark application, comprehensive search — USPTO filing fees included</div>
+          </td>
+          <td class="price">$1,250</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">USPTO Office Action Response — Procedural</div>
+            <div class="service-sub">Response to procedural USPTO office actions</div>
+          </td>
+          <td class="price">$500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">USPTO Office Action Response — Substantive</div>
+            <div class="service-sub">Response to likelihood of confusion, descriptiveness, or other substantive refusals</div>
+          </td>
+          <td class="price">$1,500</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ REAL ESTATE -->
+  <div class="section">
+    <div class="section-title">Real Estate</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Residential Closing — Full Service Representation</div>
+            <div class="service-sub">Contract review &amp; negotiation, title review &amp; clearance, closing attendance, document preparation, settlement statement review, unlimited consultation</div>
+          </td>
+          <td class="price">$1,750</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">
+      <strong>Notes:</strong> All fees are flat-rate and due before work begins. Payment plans available for all services (5% setup fee). Surety bond premiums in probate (when required) are paid directly to the bond provider and are not included above. Additional deed transfers beyond the first are $500 each. Illinois Estate Law handles uncontested matters only.
+    </div>
+    <div class="footer-contact">
+      <strong>Illinois Estate Law</strong><br>
+      illinoisestatelaw.com<br>
+      (312) 373-0731<br>
+      contact@illinoisestatelaw.com
+    </div>
+  </div>
+
+</body>
+</html>

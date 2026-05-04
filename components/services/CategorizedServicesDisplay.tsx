@@ -141,8 +141,8 @@ export function CategorizedServicesDisplay() {
         },
         {
           name: 'DIY Estate Plan Review',
-          individualPrice: 750,
-          jointPrice: 1000,
+          individualPrice: 500,
+          jointPrice: 750,
           includes: [
             'Comprehensive review and redlining of previously drafted estate planning documents',
             'One (1) hour attorney review session'
@@ -165,12 +165,12 @@ export function CategorizedServicesDisplay() {
         {
           name: 'Power of Attorney',
           note: 'Financial & Medical',
-          fixedPrice: 500,
+          fixedPrice: 350,
           includes: []
         },
         {
           name: 'Healthcare Directive/Living Will',
-          fixedPrice: 500,
+          fixedPrice: 300,
           includes: []
         },
         {
@@ -192,7 +192,7 @@ export function CategorizedServicesDisplay() {
       addOns: [
         {
           name: 'Special Needs Planning',
-          fixedPrice: 2500,
+          fixedPrice: 3000,
           includes: []
         },
         {
@@ -207,9 +207,9 @@ export function CategorizedServicesDisplay() {
       name: 'Probate',
       packages: [
         {
-          name: 'Tier 1 Probate Package',
-          subtitle: 'Estates under $150,000 with no real estate',
-          fixedPrice: 4500,
+          name: 'Summary Probate',
+          subtitle: 'Estates under $100,000 with no real estate',
+          fixedPrice: 2500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -222,12 +222,12 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued under $150,000 with no real estate (with or without a will)'
+          note: 'For small estates qualifying for summary administration (uncontested matters only)'
         },
         {
           name: 'Tier 2 Probate Package',
           subtitle: 'Estates above $150,000, no real estate sale needed',
-          fixedPrice: 6500,
+          fixedPrice: 6000,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -240,12 +240,12 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates above $150,000 with or without real estate, no sale of real estate needed (with or without a will)'
+          note: 'For estates above $150,000 with or without real estate, no sale of real estate needed (uncontested matters only)'
         },
         {
           name: 'Tier 3 Probate Package',
           subtitle: 'Estates above $150,000, real estate sale representation included',
-          fixedPrice: 8500,
+          fixedPrice: 9500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -259,12 +259,12 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates above $150,000 that require real estate sale representation (with or without a will)'
+          note: 'For estates above $150,000 that require real estate sale representation (uncontested matters only)'
         },
         {
           name: 'Tier 4 Probate Package',
           subtitle: 'Estates over $1,000,000',
-          pricingLabel: '$8,500 + 1.5% of Estate Value',
+          pricingLabel: '$9,500 + 1.5% of Estate Value',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -278,7 +278,7 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued over $1,000,000 (with or without a will)'
+          note: 'For estates valued over $1,000,000 (uncontested matters only)'
         },
         {
           name: 'Heir Representation',
@@ -323,6 +323,73 @@ export function CategorizedServicesDisplay() {
       addOns: []
     },
     {
+      id: 'trust-administration',
+      name: 'Trust Administration',
+      packages: [
+        {
+          name: 'Simple Trust Administration',
+          subtitle: 'Liquid assets only, no real estate, estate under $500K',
+          fixedPrice: 2500,
+          includes: [
+            'Review of Trust Document & Asset Inventory',
+            'Beneficiary Notifications',
+            'Asset Collection & Distribution',
+            'Final Accounting to Beneficiaries',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For straightforward trust estates with liquid assets only (uncontested matters only)'
+        },
+        {
+          name: 'Standard Trust Administration',
+          subtitle: 'Mixed assets, estate $500K–$1M, or real estate hold/transfer',
+          fixedPrice: 5000,
+          includes: [
+            'Review of Trust Document & Asset Inventory',
+            'Beneficiary Notifications',
+            'Asset Collection & Distribution',
+            'Real Estate Transfer or Hold Management',
+            'Tax Coordination (Form 1041 referral as needed)',
+            'Final Accounting to Beneficiaries',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For trust estates with mixed assets including real estate (uncontested matters only)'
+        },
+        {
+          name: 'Trust Administration with Real Estate Sale',
+          subtitle: 'Includes sale of real estate from the trust',
+          fixedPrice: 7500,
+          includes: [
+            'Review of Trust Document & Asset Inventory',
+            'Beneficiary Notifications',
+            'Asset Collection & Distribution',
+            'Real Estate Sale Representation',
+            'Tax Coordination (Form 1041 referral as needed)',
+            'Final Accounting to Beneficiaries',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For trust estates requiring sale of real property (uncontested matters only)'
+        },
+        {
+          name: 'Large or Complex Trust Administration',
+          subtitle: 'Estates over $1M or with business interests',
+          pricingLabel: '$7,500 + 1% of Trust Estate Value',
+          includes: [
+            'Review of Trust Document & Asset Inventory',
+            'Beneficiary Notifications',
+            'Asset Collection & Distribution',
+            'Business Interest Management',
+            'Real Estate Sale Representation',
+            'Tax Coordination (Form 1041 referral as needed)',
+            'Final Accounting to Beneficiaries',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'For large or complex trust estates over $1M or involving business interests (uncontested matters only)'
+        }
+      ],
+      aLaCarte: [],
+      addOns: []
+    },
+    {
       id: 'prenuptial-agreements',
       name: 'Prenuptial Agreements',
       packages: [
@@ -360,7 +427,7 @@ export function CategorizedServicesDisplay() {
         },
         {
           name: 'Prenuptial Agreement Review',
-          fixedPrice: 2000,
+          fixedPrice: 1500,
           includes: [
             'Detailed legal analysis',
             'Identification of unfair provisions',
@@ -408,7 +475,7 @@ export function CategorizedServicesDisplay() {
       packages: [
         {
           name: 'Residential Closing (Full Service Representation)',
-          fixedPrice: 2000,
+          fixedPrice: 1750,
           includes: [
             'Contract Review & Negotiation',
             'Title Review & Clearance',
