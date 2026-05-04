@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-contest-a-will-in-illinois',
+    title: 'How to Contest a Will in Illinois: Grounds, Deadlines, and the Legal Process',
+    url: '/blog/how-to-contest-a-will-in-illinois/',
+    date: 'May 4, 2026',
+    summary: 'Complete guide to contesting a will in Illinois — who has legal standing, the six recognized grounds (lack of testamentary capacity, undue influence, fraud, improper execution, prior revocation, insane delusion), the strict 6-month deadline under 755 ILCS 5/8-1, and the step-by-step court process.',
+    excerpt: 'Learn who can contest a will in Illinois, the six valid legal grounds, the 6-month deadline you cannot miss, and what happens to the estate if the challenge succeeds or fails.',
+  },
+  {
     slug: 'illinois-home-sellers-attorney-review-process',
     title: 'What Illinois Home Sellers Need to Know About the Attorney Review Process',
     url: '/blog/illinois-home-sellers-attorney-review-process/',
