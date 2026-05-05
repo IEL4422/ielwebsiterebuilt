@@ -20,6 +20,58 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "When should we create a prenuptial agreement?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The ideal time to create a prenuptial agreement is several months before your wedding. This allows adequate time for financial disclosure, negotiation, attorney review, and thoughtful consideration. Creating a prenup too close to the wedding date can raise questions about whether both parties entered into it voluntarily. We recommend starting the process at least 3-6 months before your wedding to avoid any appearance of coercion."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will a prenup ruin the romance of our marriage?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A prenuptial agreement actually strengthens marriages by promoting honest financial communication and reducing future conflict. Couples who discuss finances openly before marriage tend to have stronger relationships. A prenup is simply a practical tool that protects both parties and provides clarity about expectations. Think of it like insurance—you hope you never need it, but you're glad to have it if circumstances change."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can a prenup address child custody or child support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Illinois law does not allow prenuptial agreements to address child custody, visitation, or child support. These matters must be determined at the time of divorce based on the child's best interests at that time. Courts will not enforce prenuptial provisions that attempt to predetermine child-related issues, as these decisions must always prioritize the welfare of the children involved."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do we each need our own attorney?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "While not legally required in Illinois, it is strongly recommended that each party have independent legal counsel. Having separate attorneys ensures that both parties understand their rights, the agreement is fair to both sides, and the prenup is more likely to be enforceable if challenged. If one party drafted the agreement without the other having an attorney review it, a court may find the agreement was signed involuntarily or without adequate understanding."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can we modify our prenup after we're married?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. After marriage, you can create a postnuptial agreement to modify or replace your prenuptial agreement. Both parties must agree to the changes, and the postnuptial agreement must meet the same legal requirements as a prenup. Many couples update their agreements after major life events like the birth of children, significant changes in assets, or changes in career status."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "LegalService",
             "name": "Illinois Estate Law - Prenuptial Agreements Attorney",
             "description": "Experienced Chicago prenuptial agreements lawyer helping couples protect their assets and clarify financial expectations before marriage.",

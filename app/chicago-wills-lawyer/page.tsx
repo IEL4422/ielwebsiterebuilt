@@ -20,6 +20,58 @@ export default function ChicagoWillsLawyerPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do I need a lawyer to write my will in Illinois?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "While Illinois law doesn't require you to use an attorney, working with an experienced wills lawyer ensures your document is legally valid, comprehensive, and tailored to your specific situation. DIY wills often contain errors that can make them invalid or create ambiguities that lead to disputes. An attorney can also help you consider tax implications and coordinate your will with other estate planning documents."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does it cost to make a will in Chicago?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The cost of a will varies depending on the complexity of your estate and family situation. At Illinois Estate Law, we offer transparent, flat-fee pricing for will preparation. A simple will for an individual or couple typically costs between $500-$1,500, while more complex wills with trusts or tax planning may cost more. We provide clear pricing upfront with no hidden fees, and the cost is a small investment compared to the problems and expenses your family could face without a proper will."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I disinherit a family member in Illinois?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "In Illinois, you generally have the right to leave your property to whomever you choose. However, there are important exceptions. Your surviving spouse has certain statutory rights, including the right to elect against the will and take a statutory share of your estate (typically one-third or one-half depending on circumstances). You cannot completely disinherit your spouse. You can disinherit children, but you must be explicit about your intention to do so in your will to avoid claims that you accidentally omitted them."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where should I keep my will?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Store your original will in a safe, accessible location such as a fireproof home safe or with your attorney. Do NOT keep it in a bank safe deposit box, as these can be difficult to access after death. Inform your executor where to find your will. Provide copies (not originals) to your executor and close family members, but keep control of the original since destruction of the original can revoke the will. Many attorneys offer secure document storage as part of their estate planning services."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does my will from another state work in Illinois?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Illinois generally recognizes wills that were validly executed in other states under that state's laws at the time of execution. However, if you've moved to Illinois, it's wise to have an Illinois attorney review your out-of-state will. Different states have different laws regarding property rights, estate administration, and taxes. Your will may need updates to address Illinois-specific issues or to reflect changes in your life since moving. Creating a new Illinois will often provides greater certainty and simplifies the probate process."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "LegalService",
             "name": "Illinois Estate Law - Wills Attorney",
             "description": "Experienced Chicago wills lawyer helping Illinois residents create comprehensive last will and testament documents that protect their families and assets.",

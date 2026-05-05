@@ -28,9 +28,180 @@ export const metadata: Metadata = {
   },
 }
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How Can I Choose the Right Estate Planning Package for My Needs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To help you choose the right estate planning package, you can take our estate planning quiz available on our website. Additionally, you can book a consultation with one of our experienced attorneys who will guide you in selecting the best package for your specific needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do All Packages Really Include Unlimited Attorney Consultations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We can talk as many times as you would like to ensure you are happy with the service. The unlimited consultation period ends once you receive the finished product(s)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What Are the Costs Associated With Your Services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our firm offers flat-fee, customizable packages for all our services. Once we can better understand your specific needs, we will provide you with a quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Your Flat-Fee Include Costs for Court Filings or Third-Party Expenses, Beyond the Recording of the First Deed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our packages include most extraneous expenses, court fees, etc. For probate matters, this includes the creditor publication charge and the filing fee. The surety bond or the insurance policy for the estate would be directly paid by the client to the insurance provider. For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- full trust funding, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why Do You Do Flat-Fee Packages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our attorneys have worked at firms that bill clients hourly and we can confidently say, we won't go back. We believe estate plans are essential and therefore, you should not have to pay an arm and a leg to get your affairs in order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Package Include Transfer of Property Into the Trust?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes -- full trust funding is included in all of our trust packages and trust services. We draft one (1) deed for you and record it with the Recorder of Deeds as part of the service. Additional deeds beyond the first are $500 each for completion and recording."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do You Provide Assistance With Funding My Trust?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes -- full trust funding is included in all trust packages and trust services at no additional cost. Our team will coordinate directly with your banks, financial institutions, and other entities to transfer your assets into the trust. We also draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Our goal is to ensure all your assets are properly transferred to the trust or have designated pay-on-death beneficiaries. Trust funding is also available as a standalone a la carte service for $1,500 for clients who have an existing trust."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I Change My Package If I Decide I Need a Different Product?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely, we offer flexibility in our services. If you decide you need a different product than the package you initially chose, we can customize and adjust your package to better suit your needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When Should I Consider Updating My Estate Planning Documents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend reviewing and possibly updating your estate planning documents whenever significant life changes occur. These events include, but are not limited to: Marital Status Changes (if you get married, divorced, or remarry), Birth or Adoption of a Child, Significant Financial Changes (an increase or decrease in your assets or a change in the type of assets you hold), Relocation (moving to a different state or country), Changes in Health (a significant change in your health or a diagnosis of a serious illness), Changes in Relationships (if your relationships with beneficiaries, executors, or trustees change), and Tax Law Changes. Regularly reviewing your estate planning documents ensures they accurately reflect your current life situation and wishes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is There Attorney-Client Privilege?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Once you choose your package, you will sign a Client Services Agreement that outlines the terms of the attorney-client relationship, which includes attorney-client privilege."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What Are Your Qualifications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All of our attorneys are licensed by the Supreme Court of Illinois and have significant estate planning and probate experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How Do You Handle the Collection of My Personal and Financial Information Needed to Draft the Documents? Is There a Secure Online Portal or a Questionnaire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes – we use a secure online questionnaire to gather your personal information, which complies with PCI Level 1 and HIPAA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How Are the Documents Signed and Notarized?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer two options: (1) Online Notarization through an online notary platform or (2) Mobile Notarization in which a notary travels to your home. Online notarizations are included for both A la Carte services and all packages. Mobile notarization is included only for packages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I Have a Dedicated Attorney or Case Manager, or Will My Case Be Handled by Multiple Staff Members Throughout the Process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You will work with a dedicated attorney who will handle your matter from start to finish. We may have a paralegal assist with administrative and scheduling functions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do You Have an Ongoing Maintenance Program or Subscription Service for Clients Who Want Regular Document Reviews and Legal Updates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, once your estate planning documents are finalized, we offer a $199 per year maintenance subscription, which includes additional funding of new assets and/or amendments and modifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What Is the Estimated Timeline From Package Purchase to the Final Signing of My Documents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The estate planning process usually takes between 1-3 months from start to finish, but is largely dependent on your schedule and availability. The probate process typically takes around 14 months due to deadlines and court dates set by the court."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If I Have an Existing Will or Trust Drafted by Another Attorney, What Is Your Process for Reviewing, Incorporating, or Completely Replacing Those Documents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer a service to review and modify DIY and previously drafted estate plans. Our review service includes a comprehensive review of your plan and a 1-hour review session with our attorney. Any amendments and modifications to your existing plan will be tracked for transparency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do You Offer Estate Planning Services for Blended Families, Business Owners, or Clients With Special Needs Beneficiaries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Our staff is experienced in estate planning for blended families and business owners, and we provide special add-on services for special needs planning and estate tax planning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I Schedule a Consultation Before Purchasing a Package?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is entirely up to you! We offer a consultation prior to purchase and unlimited meetings and consultations once the package is purchased."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I Schedule an In-Person Meeting at One of Your Offices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In-person meetings are available for current clients at our physical offices throughout Illinois. Please visit our office locations page to find the nearest office."
+      }
+    }
+  ]
+}
+
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
         <div className="container mx-auto px-5 max-w-[1240px]">
           <div className="flex flex-col items-center justify-center py-0 px-0">

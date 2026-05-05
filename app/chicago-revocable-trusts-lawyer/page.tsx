@@ -20,6 +20,58 @@ export default function ChicagoRevocableTrustsLawyerPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How much does it cost to create a revocable trust in Chicago?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The cost of creating a revocable trust typically ranges from $2,000 to $5,000 depending on the complexity of your situation. This usually includes the trust document, pour-over will, powers of attorney, healthcare directives, and initial funding assistance. While this is more expensive than a simple will, the savings in probate costs and the benefits to your family far exceed the initial investment. At Illinois Estate Law, we provide transparent flat-fee pricing with no hidden costs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I lose control of my assets if I put them in a trust?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. With a revocable living trust, you maintain complete control over all trust assets during your lifetime. As trustee, you can buy, sell, transfer, or use trust assets exactly as you did before. You can modify the trust terms, change beneficiaries, or even revoke the trust entirely at any time. The only difference is that assets are titled in the trust name instead of your individual name, but you retain all beneficial ownership and control."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does a revocable trust save estate taxes?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A basic revocable living trust does not reduce estate taxes. Because you maintain control over the assets, they are still part of your taxable estate. However, trusts can be designed with specific provisions to reduce estate taxes for larger estates. This might include credit shelter trusts (also called bypass trusts) or generation-skipping provisions. The primary benefits of revocable trusts are avoiding probate and providing incapacity planning, not tax savings. If estate tax planning is a concern, we can discuss more advanced trust strategies."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens if I forget to put an asset in my trust?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Any assets not in your trust when you die will need to go through probate. This is why we prepare a \"pour-over will\" as part of your trust-based plan. This will transfers any probate assets into your trust, where they are then distributed according to your trust terms. However, this still requires probate (though usually simplified), which is why proper funding is so important. We recommend periodic reviews to ensure all assets are properly titled in your trust name, especially after acquiring new property."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I have a trust for each spouse or do we need a joint trust?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Married couples in Illinois can choose either separate trusts for each spouse or a joint revocable trust. Joint trusts are simpler and less expensive to create and maintain, which works well for most couples with straightforward estates. Separate trusts may be better for blended families, significant separate property, second marriages, or situations where spouses have very different estate planning goals. We'll help you evaluate which approach best suits your specific circumstances and family dynamics."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "LegalService",
             "name": "Illinois Estate Law - Revocable Trusts",
             "description": "Experienced Chicago revocable trusts lawyer helping Illinois residents avoid probate, protect privacy, and create comprehensive trust-based estate plans.",

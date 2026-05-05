@@ -20,6 +20,50 @@ export default function PowersOfAttorneyPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Does a power of attorney expire in Illinois?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A durable power of attorney in Illinois does not expire unless you include a specific expiration date or the document is revoked. It remains valid until your death, revocation, or in some cases when you become incapacitated (if it's not a durable power). However, some financial institutions may require updated documents after several years."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I have more than one power of attorney?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, you can create separate powers of attorney for different purposes or different agents. For example, you might have one for financial matters and another for healthcare decisions. You can also name multiple agents to act together (co-agents) or separately, or designate successor agents who serve if your first choice cannot."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens to my power of attorney when I die?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A power of attorney automatically terminates upon your death. After death, your executor or personal representative named in your will takes over management of your estate. This is why having both a power of attorney (for lifetime incapacity) and a will (for after death) is essential for comprehensive planning."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can my agent use my power of attorney to change my will or beneficiaries?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No, your agent cannot change your will under any circumstances. They also cannot change beneficiaries on life insurance or retirement accounts unless you explicitly grant that specific power in your power of attorney document. Illinois law requires express authorization for certain sensitive powers to prevent abuse."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "LegalService",
             "name": "Illinois Estate Law - Powers of Attorney",
             "description": "Experienced Chicago powers of attorney lawyer helping Illinois residents create comprehensive financial and property powers of attorney for incapacity planning.",

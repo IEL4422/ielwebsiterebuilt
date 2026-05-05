@@ -20,6 +20,50 @@ export default function HealthcareDirectivesPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Can I change my healthcare directives after I create them?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, you can change or revoke your healthcare directives at any time, as long as you have mental capacity. You can create new documents that supersede the old ones, or you can formally revoke your existing directives. It's important to inform your healthcare agent, family members, and healthcare providers of any changes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a lawyer to create healthcare directives?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "While Illinois law allows you to create healthcare directives without an attorney, working with an experienced lawyer ensures your documents are properly drafted, legally valid, and comprehensive. An attorney can help you understand all your options, address complex situations, and ensure your directives coordinate with your overall estate plan."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens if I don't have healthcare directives?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Without healthcare directives, Illinois law determines who can make medical decisions for you through a surrogate decision-making hierarchy. This may not reflect your wishes or preferred decision-maker. Courts may need to appoint a guardian, which is costly, time-consuming, and may result in decisions you wouldn't want. Having healthcare directives avoids these complications."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where should I keep my healthcare directives?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Keep your original healthcare directives in a safe, accessible location. Provide copies to your healthcare agent, alternate agents, primary care physician, and close family members. Many people also keep a copy in their medical records at their hospital or healthcare system. Make sure your loved ones know where to find your documents in an emergency."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "LegalService",
             "name": "Illinois Estate Law - Healthcare Directives",
             "description": "Experienced Chicago healthcare directive attorney helping Illinois residents create comprehensive advance directives, living wills, and medical powers of attorney.",
