@@ -33,11 +33,15 @@ function getReadTime(index: number): number {
 function inferTopic(slug: string): string {
   if (/real-estate|deed|title-search|title-insurance|closing|quitclaim|warranty-deed|transfer-tax|home-seller|attorney-review-period|sell-a-house-during-probate|hold-title|put-your-house-in-a-trust/.test(slug)) return 'Real Estate';
   if (/trust|trustee/.test(slug)) return 'Trusts';
+  // contest-a-will is a probate proceeding — check before general probate/will patterns
+  if (/contest-a-will|will-contest/.test(slug)) return 'Probate';
   if (/probate|executor|estate-bank|small-estate|surety-bond/.test(slug)) return 'Probate';
   if (/power-of-attorney/.test(slug)) return 'Powers of Attorney';
   if (/prenuptial/.test(slug)) return 'Prenuptial Agreements';
   if (/guardian/.test(slug)) return 'Guardianship';
-  if (/will|wills|valid/.test(slug)) return 'Wills';
+  // "dying-without-a-will" is an estate planning topic, not a wills how-to
+  if (/dying-without-a-will|financial-impact-of-dying/.test(slug)) return 'Estate Planning';
+  if (/what-makes-a-will-valid|will-package|\bwills?\b/.test(slug)) return 'Wills';
   return 'Estate Planning';
 }
 
@@ -52,16 +56,16 @@ const staticBlogPosts: BlogPost[] = staticPosts.map((p) => ({
   author: 'Mary Liberty',
 }));
 
-const topics = [
+const TOPIC_ORDER = [
   'All Topics',
   'Estate Planning',
+  'Probate',
+  'Trusts',
   'Real Estate',
   'Wills',
-  'Trusts',
-  'Probate',
+  'Prenuptial Agreements',
   'Powers of Attorney',
   'Guardianship',
-  'Prenuptial Agreements',
 ];
 
 export default function BlogPage() {
@@ -70,6 +74,12 @@ export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTopic, setSelectedTopic] = useState('All Topics');
   const [loading, setLoading] = useState(true);
+
+  // Compute visible topics with counts (hide topics with 0 posts)
+  const topicsWithCounts = TOPIC_ORDER.map((topic) => ({
+    label: topic,
+    count: topic === 'All Topics' ? posts.length : posts.filter((p) => p.topic === topic).length,
+  })).filter((t) => t.label === 'All Topics' || t.count > 0);
 
   useEffect(() => {
     async function fetchPosts() {
@@ -156,19 +166,29 @@ export default function BlogPage() {
 
           <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0 pb-2">
             <div className="flex gap-2 sm:gap-3 min-w-min sm:flex-wrap">
-              {topics.map((topic) => (
-                <button
-                  key={topic}
-                  onClick={() => setSelectedTopic(topic)}
-                  className={`px-4 sm:px-6 py-2 sm:py-3 rounded-[32px] font-['Plus_Jakarta_Sans'] font-semibold text-sm sm:text-base whitespace-nowrap transition-all ${
-                    selectedTopic === topic
-                      ? 'bg-[#4A708B] text-white shadow-lg'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border-2 border-gray-200'
-                  }`}
-                >
-                  {topic}
-                </button>
-              ))}
+              {topicsWithCounts.map(({ label, count }) => {
+                const active = selectedTopic === label;
+                return (
+                  <button
+                    key={label}
+                    onClick={() => setSelectedTopic(label)}
+                    className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[32px] font-['Plus_Jakarta_Sans'] font-semibold text-sm whitespace-nowrap transition-all ${
+                      active
+                        ? 'bg-[#4A708B] text-white shadow-lg'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border-2 border-gray-200'
+                    }`}
+                  >
+                    {label}
+                    {label !== 'All Topics' && (
+                      <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full leading-none ${
+                        active ? 'bg-white/25 text-white' : 'bg-gray-100 text-gray-500'
+                      }`}>
+                        {count}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
