@@ -225,13 +225,13 @@ export default function AboutPage() {
                   className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col"
                 >
                   {/* Photo */}
-                  <div className="w-full aspect-[3/2] overflow-hidden bg-slate-100">
+                  <div className="w-full aspect-[4/3] overflow-hidden bg-slate-100">
                     <Image
                       src={member.photo}
                       alt={member.name}
                       width={600}
-                      height={400}
-                      className="w-full h-full object-cover object-top"
+                      height={450}
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
 

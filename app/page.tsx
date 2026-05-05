@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
+import { QuickFactsBar } from '@/components/home/QuickFactsBar';
 import { LogosCarousel } from '@/components/home/LogosCarousel';
 import { StatsSection } from '@/components/home/StatsSection';
 import { ClientFirstSection } from '@/components/home/ClientFirstSection';
@@ -223,6 +224,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <main>
         <HeroSection />
+        <QuickFactsBar />
         <LogosCarousel />
         <StatsSection />
         <ClientFirstSection />
