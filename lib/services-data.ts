@@ -242,13 +242,13 @@ export const estatePlanningPackages: Service[] = [
 export const probatePackages: Service[] = [
   {
     id: 'probate-tier-1',
-    name: 'Summary Probate',
-    subtitle: 'Simplified administration for qualifying small estates',
+    name: 'Tier 1 Probate Package (Summary Probate)',
+    subtitle: 'Estates valued under $150,000 with no real estate',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (Tier 1)',
     fixedPrice: 2500,
-    description: 'Streamlined probate administration for estates that qualify for summary administration under Illinois law — a faster, simpler process than standard probate.',
+    description: 'Streamlined summary probate administration for estates valued under $150,000 with no real estate — a faster, simpler process than standard probate under Illinois law.',
     includes: [
       'Preparation and Filing of Summary Administration Petition',
       'Notification of Heirs and Creditors',
@@ -268,7 +268,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (Tier 2)',
-    fixedPrice: 6000,
+    fixedPrice: 5000,
     description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed',
     includes: [
       'Preparation and Filing of All Necessary Documents',
@@ -291,7 +291,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (Tier 3)',
-    fixedPrice: 9500,
+    fixedPrice: 7500,
     description: 'Flat-fee probate administration for estates valued above $150,000 that require real estate sale representation',
     includes: [
       'Preparation and Filing of All Necessary Documents',
@@ -315,7 +315,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (Tier 4)',
-    pricingLabel: '$8,500 + 1.5% of Estate Value',
+    pricingLabel: '$7,500 + 1.5% of Estate Value',
     description: 'Probate administration for estates valued over $1,000,000',
     includes: [
       'Preparation and Filing of All Necessary Documents',

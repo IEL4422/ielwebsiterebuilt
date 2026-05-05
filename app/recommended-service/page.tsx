@@ -346,9 +346,9 @@ export default function RecommendedServicePage() {
 
       if (decedentEstateValue === 'under-100k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
-          name: 'Summary Probate',
+          name: 'Tier 1 Probate Package (Summary Probate)',
           price: '$2,500',
-          description: 'For estates valued at $100,000 or less with no real estate and all debts paid.',
+          description: 'For estates valued under $150,000 with no real estate — streamlined summary administration under Illinois law.',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -373,7 +373,7 @@ export default function RecommendedServicePage() {
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Tier 2 Probate Package',
-          price: '$6,000',
+          price: '$5,000',
           description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed. Contact us if your estate requires real estate sale representation or is valued over $1,000,000.',
           includes: [
             'Preparation and Filing of All Necessary Documents',

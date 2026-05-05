@@ -207,27 +207,24 @@ export function CategorizedServicesDisplay() {
       name: 'Probate',
       packages: [
         {
-          name: 'Summary Probate',
-          subtitle: 'Estates under $100,000 with no real estate',
+          name: 'Tier 1 Probate Package (Summary Probate)',
+          subtitle: 'Estates valued under $150,000 with no real estate',
           fixedPrice: 2500,
           includes: [
-            'Preparation and Filing of All Necessary Documents',
+            'Preparation and Filing of Summary Administration Petition',
             'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
+            'Representation at Court Hearing',
             'Filing Fees',
-            'Creditor Notification Publication Fees',
-            'Preparation of Final Accounting',
+            'Preparation of Distribution Order',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For small estates qualifying for summary administration (uncontested matters only)'
+          note: 'For estates valued under $150,000 with no real estate — streamlined summary administration (uncontested matters only)'
         },
         {
           name: 'Tier 2 Probate Package',
           subtitle: 'Estates above $150,000, no real estate sale needed',
-          fixedPrice: 6000,
+          fixedPrice: 5000,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -245,7 +242,7 @@ export function CategorizedServicesDisplay() {
         {
           name: 'Tier 3 Probate Package',
           subtitle: 'Estates above $150,000, real estate sale representation included',
-          fixedPrice: 9500,
+          fixedPrice: 7500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
@@ -264,7 +261,7 @@ export function CategorizedServicesDisplay() {
         {
           name: 'Tier 4 Probate Package',
           subtitle: 'Estates over $1,000,000',
-          pricingLabel: '$9,500 + 1.5% of Estate Value',
+          pricingLabel: '$7,500 + 1.5% of Estate Value',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
