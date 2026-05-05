@@ -410,19 +410,30 @@ export function getAdjacentPosts(slug: string): {
   };
 }
 
+function inferTopicFromSlug(slug: string): string {
+  if (/real-estate|deed|title-search|title-insurance|closing|quitclaim|warranty-deed|transfer-tax|home-seller|attorney-review-period|sell-a-house-during-probate|hold-title|put-your-house-in-a-trust/.test(slug)) return 'Real Estate';
+  if (/trust|trustee/.test(slug)) return 'Trusts';
+  if (/contest-a-will|will-contest/.test(slug)) return 'Probate';
+  if (/probate|executor|estate-bank|small-estate|surety-bond/.test(slug)) return 'Probate';
+  if (/power-of-attorney/.test(slug)) return 'Powers of Attorney';
+  if (/prenuptial/.test(slug)) return 'Prenuptial Agreements';
+  if (/guardian/.test(slug)) return 'Guardianship';
+  if (/dying-without-a-will|financial-impact-of-dying/.test(slug)) return 'Estate Planning';
+  if (/what-makes-a-will-valid|will-package|\bwills?\b/.test(slug)) return 'Wills';
+  return 'Estate Planning';
+}
+
 export function getRelatedPosts(slug: string, count: number = 3): BlogPost[] {
-  const currentIndex = blogPosts.findIndex(post => post.slug === slug);
-  const related: BlogPost[] = [];
+  const currentTopic = inferTopicFromSlug(slug);
 
-  const possibleIndices = blogPosts
-    .map((_, idx) => idx)
-    .filter(idx => idx !== currentIndex);
+  // Same-topic posts first (excluding current), then fill with recent posts
+  const sameTopic = blogPosts.filter(
+    p => p.slug !== slug && inferTopicFromSlug(p.slug) === currentTopic
+  );
+  const otherPosts = blogPosts.filter(
+    p => p.slug !== slug && inferTopicFromSlug(p.slug) !== currentTopic
+  );
 
-  for (let i = 0; i < Math.min(count, possibleIndices.length); i++) {
-    const randomIndex = possibleIndices[Math.floor(Math.random() * possibleIndices.length)];
-    related.push(blogPosts[randomIndex]);
-    possibleIndices.splice(possibleIndices.indexOf(randomIndex), 1);
-  }
-
-  return related;
+  const pool = [...sameTopic, ...otherPosts];
+  return pool.slice(0, count);
 }
