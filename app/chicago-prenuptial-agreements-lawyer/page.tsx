@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Users, AlertCircle, CheckCircle, Heart, Shield } from 'lucide-react';
+import RelatedServices from '@/components/services/RelatedServices';
 
 export default function ChicagoPrenuptialAgreementsLawyerPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -473,6 +474,12 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="py-10 px-4 sm:px-5 bg-gray-50">
+          <div className="max-w-[1140px] mx-auto">
+            <RelatedServices currentPage="prenup" />
           </div>
         </section>
 

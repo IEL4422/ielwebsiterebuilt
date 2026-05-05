@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, CircleCheck as CheckCircle, Chrome as Home, Shield, FileText, DollarSign } from 'lucide-react'
+import RelatedServices from '@/components/services/RelatedServices'
 
 export const metadata: Metadata = {
   title: 'Real Estate Closings | Illinois Estate Law',
@@ -257,6 +258,12 @@ export default function RealEstateClosingsPage() {
                 </div>
               </details>
             </div>
+          </div>
+        </section>
+
+        <section className="py-10 px-4 sm:px-5 bg-gray-50">
+          <div className="max-w-[1140px] mx-auto">
+            <RelatedServices currentPage="closing" />
           </div>
         </section>
 
