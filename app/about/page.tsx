@@ -55,6 +55,7 @@ const staffMembers = [
   {
     name: 'Brittany Hardy',
     title: 'Lead Paralegal',
+    email: 'brittany@illinoisestatelaw.com',
     photo: 'https://i.imgur.com/X9nucbX.jpeg',
     photoPosition: '50% 30%',
     bio: [
@@ -66,6 +67,7 @@ const staffMembers = [
   {
     name: 'Jessica Sallows',
     title: 'Paralegal',
+    email: 'jessica@illinoisestatelaw.com',
     photo: 'https://i.imgur.com/frsdrvF.jpeg',
     photoPosition: '50% 20%',
     bio: [
@@ -77,6 +79,7 @@ const staffMembers = [
   {
     name: 'Maggie Patterson',
     title: 'Intake Specialist',
+    email: 'maggie@illinoisestatelaw.com',
     photo: 'https://i.imgur.com/e8WsqQd.jpeg',
     photoPosition: '50% 8%',
     bio: [
@@ -141,7 +144,11 @@ export default function AboutPage() {
                 </div>
 
                 <h2 className="text-2xl lg:text-3xl font-bold mb-2 text-slate-800">Mary Liberty</h2>
-                <p className="text-[#4A708B] font-semibold font-['Plus_Jakarta_Sans'] mb-6">Estate Planning &amp; Probate Attorney</p>
+                <p className="text-[#4A708B] font-semibold font-['Plus_Jakarta_Sans'] mb-1">Estate Planning &amp; Probate Attorney</p>
+                <a href="mailto:mary@illinoisestatelaw.com" className="inline-flex items-center gap-1.5 text-slate-500 hover:text-[#4A708B] text-sm font-['Plus_Jakarta_Sans'] transition-colors mb-6">
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  mary@illinoisestatelaw.com
+                </a>
                 <div className="w-16 h-1 bg-[#77B1D4] mb-8" />
 
                 <div className="space-y-4 text-slate-600 leading-relaxed mb-12">
@@ -243,7 +250,16 @@ export default function AboutPage() {
                   <div className="p-6 lg:p-8 flex flex-col flex-1">
                     <div className="mb-5">
                       <h2 className="text-xl font-bold text-slate-800 mb-1">{member.name}</h2>
-                      <p className="text-[#4A708B] font-semibold text-sm font-['Plus_Jakarta_Sans']">{member.title}</p>
+                      <p className="text-[#4A708B] font-semibold text-sm font-['Plus_Jakarta_Sans'] mb-1">{member.title}</p>
+                      {member.email && (
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="inline-flex items-center gap-1.5 text-slate-500 hover:text-[#4A708B] text-xs font-['Plus_Jakarta_Sans'] transition-colors"
+                        >
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                          {member.email}
+                        </a>
+                      )}
                     </div>
                     <div className="w-12 h-0.5 bg-[#77B1D4] mb-5" />
                     <div className="space-y-4 text-slate-600 leading-relaxed text-sm lg:text-base">
