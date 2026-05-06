@@ -90,7 +90,7 @@ const estatePlanningAddOns = [
   {
     id: 'special-needs-planning',
     name: 'Special Needs Planning',
-    price: 3000,
+    price: 2500,
     description: 'Special needs trust planning and documentation'
   },
   {
@@ -129,7 +129,7 @@ export const estatePlanningPackages: Service[] = [
       'Pour-Over Will',
       'Power of Attorney for Healthcare and Property',
       'Healthcare Directive (Living Will)',
-      'Remembrance & Services Memorandum',
+      'End of Life Planner',
       'Personal Property Memorandum',
       '(1) Deed Transfer of Real Estate to Trust',
       'Full Trust Funding',
@@ -154,7 +154,7 @@ export const estatePlanningPackages: Service[] = [
       'Power of Attorney for Healthcare and Property',
       'Transfer-on-Death Instrument',
       'Healthcare Directive (Living Will)',
-      'Remembrance & Services Memorandum',
+      'End of Life Planner',
       'Personal Property Memorandum',
       'Online or Mobile Notarization',
       'Physical & Digital Portfolio',
@@ -176,7 +176,7 @@ export const estatePlanningPackages: Service[] = [
       'Last Will & Testament',
       'Power of Attorney for Healthcare and Property',
       'Healthcare Directive (Living Will)',
-      'Remembrance & Services Memorandum',
+      'End of Life Planner',
       'Personal Property Memorandum',
       'Online or Mobile Notarization',
       'Physical & Digital Portfolio',
@@ -411,7 +411,7 @@ export const aLaCarteServices: Service[] = [
     individualPrice: 2500,
     jointPrice: 3500,
     description: 'A Revocable Living Trust is a legal plan where you put your home, bank accounts, and other property into a trust you control—so you can manage everything like normal while you\'re alive, and when you pass away, the person you picked (your "successor trustee") can transfer or manage those assets for your loved ones without going through probate court.',
-    includes: ['Full Trust Funding'],
+    includes: [],
     addOns: estatePlanningAddOns
   },
   {
@@ -487,7 +487,7 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Special Needs Planning - Add-On',
-    fixedPrice: 3000,
+    fixedPrice: 2500,
     description: 'Special needs trust planning',
     includes: [],
     addOns: estatePlanningAddOns

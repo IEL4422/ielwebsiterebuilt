@@ -96,7 +96,7 @@ export function CategorizedServicesDisplay() {
             'Pour-Over Will',
             'Power of Attorney for Healthcare and Property',
             'Healthcare Directive (Living Will)',
-            'Remembrance & Services Memorandum',
+            'End of Life Planner',
             'Personal Property Memorandum',
             '(1) Deed Transfer of Real Estate to Trust',
             'Full Trust Funding',
@@ -115,7 +115,7 @@ export function CategorizedServicesDisplay() {
             'Power of Attorney for Healthcare and Property',
             'Transfer-on-Death Instrument',
             'Healthcare Directive (Living Will)',
-            'Remembrance & Services Memorandum',
+            'End of Life Planner',
             'Personal Property Memorandum',
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
@@ -131,7 +131,7 @@ export function CategorizedServicesDisplay() {
             'Last Will & Testament',
             'Power of Attorney for Healthcare and Property',
             'Healthcare Directive (Living Will)',
-            'Remembrance & Services Memorandum',
+            'End of Life Planner',
             'Personal Property Memorandum',
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
@@ -154,7 +154,7 @@ export function CategorizedServicesDisplay() {
           name: 'Revocable Living Trust',
           individualPrice: 2500,
           jointPrice: 3500,
-          includes: ['Full Trust Funding']
+          includes: []
         },
         {
           name: 'Last Will and Testament',
@@ -192,7 +192,7 @@ export function CategorizedServicesDisplay() {
       addOns: [
         {
           name: 'Special Needs Planning',
-          fixedPrice: 3000,
+          fixedPrice: 2500,
           includes: []
         },
         {

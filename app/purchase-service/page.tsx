@@ -1151,6 +1151,48 @@ export default function PurchaseServicePage() {
                   This Client Service Agreement ("Agreement") is made and entered into by and between Illinois Estate Law ("Firm"), located at 4422 N. Ravenswood Ave, Ste 212 Chicago, Illinois 60640 and Client.
                 </p>
 
+                {/* Services Purchased — dynamically generated from cart */}
+                <div className="my-6 p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                  <h3 className="font-bold text-base mb-3">SERVICES PURCHASED</h3>
+                  <p className="mb-3 text-xs text-slate-600">The following services and included features are the subject of this Agreement:</p>
+                  {cart.map((item) => {
+                    const serviceName = typeof item.service.standardizedServiceName === 'string'
+                      ? item.service.standardizedServiceName
+                      : item.service.standardizedServiceName[item.clientType];
+                    const displayPrice = item.service.pricingLabel
+                      ? item.service.pricingLabel
+                      : `$${(getServicePrice(item.service, item.clientType) * item.quantity).toLocaleString()}`;
+                    return (
+                      <div key={item.service.id} className="mb-4 last:mb-0">
+                        <p className="font-semibold">{serviceName}{item.quantity > 1 ? ` (x${item.quantity})` : ''} — {displayPrice}</p>
+                        {item.service.includes.length > 0 && (
+                          <ul className="mt-1 ml-4 space-y-0.5">
+                            {item.service.includes.map((inc, i) => (
+                              <li key={i} className="text-xs text-slate-700">• {inc}</li>
+                            ))}
+                          </ul>
+                        )}
+                        {item.addOns.length > 0 && (
+                          <div className="mt-1 ml-4">
+                            <p className="text-xs font-semibold text-slate-700">Add-ons:</p>
+                            {item.addOns.map((addOnId) => {
+                              const addOn = allAddOns.find(a => a.id === addOnId);
+                              if (!addOn) return null;
+                              const qty = item.addOnQuantities[addOnId] || 1;
+                              return (
+                                <p key={addOnId} className="text-xs text-slate-700 ml-2">• {addOn.name}{qty > 1 ? ` (x${qty})` : ''} — $${(addOn.price * qty).toLocaleString()}</p>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                  <p className="mt-3 font-semibold border-t border-slate-300 pt-3">
+                    Total: {cart.some(i => i.service.pricingLabel) ? 'See pricing above' : `$${getCartTotal().toLocaleString()}`}
+                  </p>
+                </div>
+
                 <h3 className="font-bold text-lg mt-6 mb-3">1. Scope of Representation.</h3>
 
                 <p className="mb-3"><strong>1.1 Scope.</strong> Our attorney-client relationship is strictly limited to legal services in the Client's estate planning, probate, or guardianship matters, unless otherwise described in the addendum that may accompany this document. The Client understands that the Client is not relying on us for business, investment, accounting, or valuation decisions, or to investigate the character or credit of persons or firms with whom the Client may be dealing (such as insurance companies or investment advisors) unless otherwise specified in the letter. The Firm will advise the Client of developments as necessary to perform our services and will consult with the Client as necessary to ensure the timely and effective completion of our work.</p>
@@ -1177,10 +1219,10 @@ export default function PurchaseServicePage() {
                   <>
                     <p className="mb-3"><strong>2.8 Probate Services Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands the following flat-fee pricing structure for standard, uncontested probate administration:</p>
                     <ul className="list-disc ml-6 space-y-1 mb-3">
-                      <li><strong>Tier 1 Probate Package (estates under $150,000 with no real estate)</strong> &ndash; $4,500 flat fee (with or without a will)</li>
-                      <li><strong>Tier 2 Probate Package (estates above $150,000, no real estate sale needed)</strong> &ndash; $6,500 flat fee (with or without a will)</li>
-                      <li><strong>Tier 3 Probate Package (estates above $150,000, real estate sale representation included)</strong> &ndash; $8,500 flat fee, includes real estate sale representation (with or without a will)</li>
-                      <li><strong>Tier 4 Probate Package (estates over $1,000,000)</strong> &ndash; $8,500 plus 1.5% of estate value (with or without a will)</li>
+                      <li><strong>Tier 1 Probate Package (estates under $150,000 with no real estate)</strong> &ndash; $2,500 flat fee (with or without a will)</li>
+                      <li><strong>Tier 2 Probate Package (estates above $150,000, no real estate sale needed)</strong> &ndash; $5,000 flat fee (with or without a will)</li>
+                      <li><strong>Tier 3 Probate Package (estates above $150,000, real estate sale representation included)</strong> &ndash; $7,500 flat fee, includes real estate sale representation (with or without a will)</li>
+                      <li><strong>Tier 4 Probate Package (estates over $1,000,000)</strong> &ndash; $7,500 plus 1.5% of estate value (with or without a will)</li>
                     </ul>
                     <p className="mb-3">If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
 
@@ -1261,7 +1303,7 @@ export default function PurchaseServicePage() {
 
                 <p className="mb-3"><strong>10.04 Client Responsibilities.</strong> Provide complete and accurate information; respond to requests within 5 business days; meet deadlines; keep contact info current; and promptly review drafts. Delays or inaccuracies may increase cost or limit available options.</p>
 
-                <p className="mb-3"><strong>10.05 Trust Funding.</strong> Full trust funding is included in all trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust). The Firm will coordinate with banks, financial institutions, and other entities to transfer Client's assets into the trust. One (1) deed transfer of real estate into the trust is included; additional deeds are $500 each. For a la carte services that do not include a trust, trust funding is not included unless separately purchased. The Firm is not responsible for delays caused by third-party institutions or for Client's failure to provide required information or documentation in a timely manner.</p>
+                <p className="mb-3"><strong>10.05 Trust Funding.</strong> Full trust funding is included exclusively in the Individual Trust Package and Joint Trust Package. The Firm will coordinate with banks, financial institutions, and other entities to transfer Client's assets into the trust. One (1) deed transfer of real estate into the trust is included; additional deeds are $500 each. For all other services, including a la carte trust services, trust funding is not included unless separately purchased as the Trust Funding a la carte service ($1,500). The Firm is not responsible for delays caused by third-party institutions or for Client's failure to provide required information or documentation in a timely manner.</p>
 
                 <h3 className="font-bold text-lg mt-6 mb-3">STATEMENT OF CLIENT'S RIGHTS AND RESPONSIBILITIES</h3>
 
