@@ -69,7 +69,7 @@ const staffMembers = [
     title: 'Paralegal',
     email: 'jessica@illinoisestatelaw.com',
     photo: 'https://i.imgur.com/frsdrvF.jpeg',
-    photoPosition: '50% 20%',
+    photoPosition: '50% 10%',
     bio: [
       "Having worked her way up within the firm, Jessica brings a well-rounded understanding of what it takes to deliver a supportive and efficient experience from start to finish. She works across all areas of Illinois Estate Law with a commitment to keeping matters running smoothly and ensuring every client feels informed and in capable hands throughout the process.",
       "She takes pride in the meaningful nature of her work — supporting people through some of life's most challenging times and helping them reach the best possible outcome is something she finds genuinely rewarding.",
