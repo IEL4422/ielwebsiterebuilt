@@ -56,6 +56,7 @@ const staffMembers = [
     name: 'Brittany Hardy',
     title: 'Lead Paralegal',
     photo: 'https://i.imgur.com/X9nucbX.jpeg',
+    photoPosition: '50% 30%',
     bio: [
       "Brittany Hardy is a paralegal at Illinois Estate Law, where she supports clients through the estate planning and probate process with care, precision, and a commitment to getting the details right. With more than seven years of legal experience spanning estate law, guardianship, family law, and real estate, Brittany brings both depth of knowledge and a steady hand to every matter she touches.",
       "Prior to joining Illinois Estate Law, Brittany built her career supporting attorneys across a range of practice areas, where she managed complex caseloads, developed internal systems, and trained incoming staff. She holds a paralegal certificate and is passionate about the operational side of legal practice — building workflows and processes that allow the firm to serve clients more efficiently and effectively.",
@@ -66,6 +67,7 @@ const staffMembers = [
     name: 'Jessica Sallows',
     title: 'Paralegal',
     photo: 'https://i.imgur.com/frsdrvF.jpeg',
+    photoPosition: '50% 20%',
     bio: [
       "Having worked her way up within the firm, Jessica brings a well-rounded understanding of what it takes to deliver a supportive and efficient experience from start to finish. She works across all areas of Illinois Estate Law with a commitment to keeping matters running smoothly and ensuring every client feels informed and in capable hands throughout the process.",
       "She takes pride in the meaningful nature of her work — supporting people through some of life's most challenging times and helping them reach the best possible outcome is something she finds genuinely rewarding.",
@@ -74,8 +76,9 @@ const staffMembers = [
   },
   {
     name: 'Maggie Patterson',
-    title: 'Customer Service Specialist',
+    title: 'Intake Specialist',
     photo: 'https://i.imgur.com/e8WsqQd.jpeg',
+    photoPosition: '50% 8%',
     bio: [
       "Hi! I'm Maggie Patterson, Customer Service Specialist at Illinois Estate Law. I graduated from the University of Wisconsin–River Falls in 2016 with a degree in Communication Studies. Originally from the Chanhassen/Minnetonka area in Minnesota (and a proud Packers fan), I spent the last seven years in the health and wellness industry before transitioning into estate law.",
       "I recently moved to Northern Michigan with my partner, Kyle, and our black lab, Sam. We love fishing, spending time with friends and family, traveling, and enjoying the outdoors. I'm excited to bring my passion for helping people and building meaningful relationships to the Illinois Estate Law team and to start this new chapter in the Upper Peninsula.",
@@ -231,7 +234,8 @@ export default function AboutPage() {
                       alt={member.name}
                       width={600}
                       height={450}
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: member.photoPosition ?? '50% 30%' }}
                     />
                   </div>
 
