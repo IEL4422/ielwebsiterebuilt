@@ -215,8 +215,111 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Staff Members ── */}
+      {/* ── Yassmin Koudmani — Attorney ── */}
       <section className="py-16 lg:py-24 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-[1140px] mx-auto">
+
+            {/* Section label */}
+            <div className="flex items-center gap-4 mb-12">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[#4A708B]/10 text-[#4A708B] text-sm font-semibold font-['Plus_Jakarta_Sans'] whitespace-nowrap">
+                Attorney
+              </span>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+              {/* Left Column — Sticky photo (desktop) */}
+              <div className="lg:col-span-1 hidden lg:block">
+                <div className="sticky top-24">
+                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="https://i.imgur.com/awwM5UZ.jpeg"
+                      alt="Yassmin Koudmani — Attorney"
+                      width={400}
+                      height={600}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column — Content */}
+              <div className="lg:col-span-2">
+                {/* Mobile photo */}
+                <div className="lg:hidden mb-8">
+                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="https://i.imgur.com/awwM5UZ.jpeg"
+                      alt="Yassmin Koudmani — Attorney"
+                      width={400}
+                      height={600}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </div>
+
+                <h2 className="text-2xl lg:text-3xl font-bold mb-2 text-slate-800">Yassmin Koudmani</h2>
+                <p className="text-[#4A708B] font-semibold font-['Plus_Jakarta_Sans'] mb-1">Estate Planning &amp; Real Estate Attorney</p>
+                <div className="flex items-center gap-3 mb-6">
+                  <a href="mailto:yassmin@illinoisestatelaw.com" className="inline-flex items-center gap-1.5 text-slate-500 hover:text-[#4A708B] text-sm font-['Plus_Jakarta_Sans'] transition-colors">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    yassmin@illinoisestatelaw.com
+                  </a>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#4A708B]/10 text-[#4A708B] text-xs font-semibold font-['Plus_Jakarta_Sans']">
+                    🌐 Fluent in Arabic
+                  </span>
+                </div>
+                <div className="w-16 h-1 bg-[#77B1D4] mb-8" />
+
+                <div className="space-y-4 text-slate-600 leading-relaxed mb-12">
+                  <p>Yassmin is an estate planning and real estate Chicago-area attorney who helps clients plan for the future with clarity and confidence. Whether a client is buying their first home, growing a real estate portfolio, or making sure their loved ones are taken care of after passing, Yassmin is committed to making the process as seamless and stress-free as possible.</p>
+                  <p>Her estate planning work ranges from straightforward plans designed to keep assets out of probate, to more intricate strategies for business owners looking to protect what they have built. She works with clients to ensure that their estate plan is not only legally efficient, but also tailored to their specific wants and needs. On the real estate side, she counsels everyone from individual homebuyers and sellers to experienced investors, providing practical guidance at every step of the transaction.</p>
+                  <p>Yassmin is proud to serve Chicagoland&apos;s vibrant and diverse communities, offering counsel that is not only legally sound but culturally aware and personally attentive. She believes that every client deserves to feel informed, respected, and confident in the decisions that shape their family&apos;s future.</p>
+                  <p>Outside of the office, you will find Yassmin enjoying time with her family, experimenting with new recipes, and painting.</p>
+                </div>
+
+                <div className="mt-12">
+                  <p className="text-xl lg:text-2xl font-bold text-slate-800 mb-6">Education</p>
+
+                  <h3 className="text-lg font-bold text-slate-800 mb-3">Columbia University in the City of New York</h3>
+                  <ul className="mb-8">
+                    <li className="flex items-start gap-3 text-slate-600">
+                      <svg fill="none" height="12" width="12" xmlns="http://www.w3.org/2000/svg" className="mt-2 flex-shrink-0">
+                        <circle cx="6" cy="6" fill="#77B1D4" r="6" />
+                      </svg>
+                      <span>Bachelor&apos;s Degree, Political Science &amp; Middle Eastern and South Asian Studies</span>
+                    </li>
+                  </ul>
+
+                  <h3 className="text-lg font-bold text-slate-800 mb-3">DePaul University College of Law</h3>
+                  <ul className="mb-8">
+                    <li className="flex items-start gap-3 text-slate-600">
+                      <svg fill="none" height="12" width="12" xmlns="http://www.w3.org/2000/svg" className="mt-2 flex-shrink-0">
+                        <circle cx="6" cy="6" fill="#77B1D4" r="6" />
+                      </svg>
+                      <span>Doctor of Law (J.D.)</span>
+                    </li>
+                  </ul>
+
+                  <p className="text-xl lg:text-2xl font-bold text-slate-800 mb-4">Bar Admission</p>
+                  <ul>
+                    <li className="flex items-start gap-3 text-slate-600">
+                      <svg fill="none" height="12" width="12" xmlns="http://www.w3.org/2000/svg" className="mt-2 flex-shrink-0">
+                        <circle cx="6" cy="6" fill="#77B1D4" r="6" />
+                      </svg>
+                      <span>Illinois</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Staff Members ── */}
+      <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-[1140px] mx-auto">
 
