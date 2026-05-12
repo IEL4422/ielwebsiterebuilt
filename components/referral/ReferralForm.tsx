@@ -29,7 +29,6 @@ const LEGAL_MATTERS = [
   'Probate',
   'Trust Administration',
   'Prenuptial Agreement',
-  'Small Business Formation',
   'Real Estate',
   'Other',
 ];

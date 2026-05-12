@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { CalendarCheck } from 'lucide-react';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -9,30 +11,6 @@ export default function ContactPage() {
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.innerHTML = `
-      (function(L,U,N){let p=(a,ar)=>a.q.push(ar),d=L.document;L.Lunacal=L.Lunacal||function(){let lun=L.Lunacal,ar=arguments;if(!lun.loaded){lun.ns={};lun.q=lun.q||[];d.head.appendChild(d.createElement("script")).src=U;lun.loaded=!0}if(ar[0]===N){const api=function(){p(api,arguments)};const ns=ar[1];api.q=api.q||[];if(typeof ns==="string"){lun.ns[ns]=lun.ns[ns]||api;p(lun.ns[ns],ar);p(lun,["initNamespace",ns])}else p(lun,ar);return}p(lun,ar)};if(!L.Cal)L.Cal=L.Lunacal})(window,"https://app.lunacal.ai/embed/embed.js","init");Lunacal("init","initial-consultation",{origin:"https://app.lunacal.ai"});
-      Lunacal.config = Lunacal.config || {};
-      Lunacal.config.forwardQueryParams = true;
-
-      Lunacal.ns["initial-consultation"]("inline", {
-        elementOrSelector:"#my-lunacal-inline-contact",
-        config: {"layout":""},
-        calLink: "team/illinois-estate-law/initial-consultation",
-      });
-      Lunacal.ns["initial-consultation"]("preload", { calLink: "team/illinois-estate-law/initial-consultation", type: "inline", options: { prerenderIframe: true } });
-      Lunacal.ns["initial-consultation"]("ui", {"theme":"light","styles":{"branding":{}},"hideEventTypeDetails":false,"layout":"","cssVarsPerTheme":{"light":{"theme-border":"#E7E7EE","theme-background-primary":"#7033FF","theme-background-secondary":"#E2EBFF","theme-background-card":"#FFFFFF","theme-background-base":"#FFFFFF","theme-text-primary":"#FFFFFF","theme-text-secondary":"#1E69DC","theme-text-card":"#000000","theme-text-base":"#0B0D0E","theme-rounded-base":"20px","theme-rounded-calendar":" 24px","theme-rounded-timeslot":"100px","theme-rounded-day":"100px","theme-rounded-button":"100px","theme-shadow-calendar":"2px 2px 4px 0px #0000001A","theme-shadow-button":"1px 2px 2px 0px #0000001A","theme-shadow-timeslot":"0px 0px 0px 0px #000000","theme-font-family":"Inter"},"dark":{"theme-border":"#33353A","theme-background-primary":"#7033FF","theme-background-secondary":"#1E293B","theme-background-card":"#222327","theme-background-base":"#1A1B1E","theme-text-primary":"#FFFFFF","theme-text-secondary":"#1E69DC","theme-text-card":"#FFFFFF","theme-text-base":"#FFFFFF","theme-rounded-base":"20px","theme-rounded-calendar":" 24px","theme-rounded-timeslot":"100px","theme-rounded-day":"100px","theme-rounded-button":"100px","theme-shadow-calendar":"2px 2px 4px 0px #0000001A","theme-shadow-button":"1px 2px 2px 0px #0000001A","theme-shadow-timeslot":"0px 0px 0px 0px #000000","theme-font-family":"Inter"}},"displayedContent":{"image":true,"name":true,"designation":true,"description":true,"eventName":true,"highlightBar":false},"background":null,"stylePreset":null});
-    `;
-    document.body.appendChild(script);
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
 
   const onSubmit = async (data: any) => {
     setIsSubmitting(true);
@@ -236,12 +214,20 @@ export default function ContactPage() {
               </form>
             </div>
 
-            {/* Lunacal Widget */}
-            <div className="border border-[#2d3e50] rounded-[14px] p-1.5">
-              <div
-                id="my-lunacal-inline-contact"
-                style={{ width: '100%', height: '700px', overflow: 'scroll' }}
-              />
+            {/* Book a Consultation CTA */}
+            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8 text-center flex flex-col items-center justify-center">
+              <CalendarCheck className="w-14 h-14 text-white/80 mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2">Book a Free Consultation</h3>
+              <p className="text-white/80 mb-6 max-w-sm">
+                Select your case type to be matched with the right attorney — estate planning, real estate, probate, or prenuptial agreements.
+              </p>
+              <Link
+                href="/book-consultation/"
+                className="inline-block bg-white text-[#2D3E50] font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg"
+              >
+                Book a Consultation
+              </Link>
+              <p className="text-white/60 text-sm mt-4">Free · No obligation · All of Illinois</p>
             </div>
           </div>
         </div>

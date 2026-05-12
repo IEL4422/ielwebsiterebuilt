@@ -21,7 +21,7 @@ const getSupabaseClient = () => {
 };
 
 interface QuizAnswers {
-  needType: 'estate-planning' | 'probate' | 'prenuptial' | 'small-business' | '';
+  needType: 'estate-planning' | 'probate' | 'prenuptial' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
   estateValue: 'under-100k' | '100k-3.5m' | 'over-3.5m' | '';
@@ -216,66 +216,6 @@ export default function RecommendedServicePage() {
           requiresConsultation: false,
           standardizedCaseType: 'Prenuptial Agreement',
           standardizedServiceName: 'Prenuptial Agreement - Drafting'
-        };
-      }
-    }
-
-    if (needType === 'small-business') {
-      if (hasExistingBusiness === 'no' && needsTrademark === 'yes') {
-        return {
-          name: 'Small Business Package',
-          price: '$2,000',
-          description: 'Comprehensive business formation and brand protection package including LLC registration, trademark protection, and all necessary documentation.',
-          includes: [
-            'LLC Registration',
-            'Trademark Registration',
-            'Operating Agreement',
-            'EIN Number',
-            'All Filing Fees Included'
-          ],
-          addOns: [],
-          serviceId: 'small-business-package',
-          requiresConsultation: false,
-          standardizedCaseType: 'Small Business',
-          standardizedServiceName: 'Small Business Package'
-        };
-      }
-
-      if (hasExistingBusiness === 'no' && needsTrademark === 'no') {
-        return {
-          name: 'Business Essentials',
-          price: '$1,000',
-          description: 'Essential business formation package with LLC registration and operating agreement.',
-          includes: [
-            'LLC Registration',
-            'EIN Number',
-            'Operating Agreement',
-            'Filing Fees Included'
-          ],
-          addOns: [],
-          serviceId: 'business-essentials',
-          requiresConsultation: false,
-          standardizedCaseType: 'Small Business',
-          standardizedServiceName: 'Business Essentials Package'
-        };
-      }
-
-      if (hasExistingBusiness === 'yes' || needsTrademark === 'yes') {
-        return {
-          name: 'Trademark Registration',
-          price: '$1,250',
-          description: 'Protect your brand identity with federal trademark registration, including comprehensive searches and application filing.',
-          includes: [
-            'Comprehensive trademark search',
-            'Federal trademark application filing',
-            'Filing fees included',
-            'Expert guidance throughout the process'
-          ],
-          addOns: [],
-          serviceId: 'trademark-registration',
-          requiresConsultation: false,
-          standardizedCaseType: 'Small Business',
-          standardizedServiceName: 'Trademark Registration'
         };
       }
     }
@@ -560,9 +500,6 @@ export default function RecommendedServicePage() {
     if (answers.needType === 'prenuptial') {
       return 3;
     }
-    if (answers.needType === 'small-business') {
-      return 3;
-    }
     if (answers.needType === 'probate') {
       if (answers.isRepresentative === 'no') return 2;
       if (answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'yes') return 3;
@@ -606,12 +543,10 @@ export default function RecommendedServicePage() {
         return answers.needType !== '';
       case 2:
         if (answers.needType === 'prenuptial') return answers.hasExistingPrenup !== '';
-        if (answers.needType === 'small-business') return answers.hasExistingBusiness !== '';
         if (answers.needType === 'probate') return answers.isRepresentative !== '';
         return answers.maritalStatus !== '';
       case 3:
         if (answers.needType === 'prenuptial') return answers.needsNegotiation !== '';
-        if (answers.needType === 'small-business') return answers.needsTrademark !== '';
         if (answers.needType === 'probate') return answers.needsNewAttorney !== '';
         return answers.ownsRealEstate !== '';
       case 4:
@@ -937,28 +872,6 @@ export default function RecommendedServicePage() {
                           </div>
                         </div>
                         {answers.needType === 'prenuptial' && (
-                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
-                        )}
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => updateAnswer('needType', 'small-business')}
-                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                        answers.needType === 'small-business'
-                          ? 'border-[#4a708b] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#4a708b]/50'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                            Small Business Services
-                          </div>
-                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                            I need to form an LLC or register a trademark for my business
-                          </div>
-                        </div>
-                        {answers.needType === 'small-business' && (
                           <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
                         )}
                       </div>
@@ -1330,115 +1243,6 @@ export default function RecommendedServicePage() {
                               No, just drafting or review
                             </span>
                             {answers.needsNegotiation === 'no' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
-                            )}
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-
-              {/* Small Business Path */}
-              {answers.needType === 'small-business' && (
-                <>
-                  {step === 2 && (
-                    <div className="space-y-6">
-                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
-                        Do you already have an LLC?
-                      </h2>
-                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
-                        This will help us determine if you need business formation services or just trademark registration.
-                      </p>
-                      <div className="space-y-4">
-                        <button
-                          onClick={() => updateAnswer('hasExistingBusiness', 'yes')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.hasExistingBusiness === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                                Yes, I have an existing LLC
-                              </div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                                I just need trademark or other services
-                              </div>
-                            </div>
-                            {answers.hasExistingBusiness === 'yes' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
-                            )}
-                          </div>
-                        </button>
-                        <button
-                          onClick={() => updateAnswer('hasExistingBusiness', 'no')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.hasExistingBusiness === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                                No, I need to form an LLC
-                              </div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                                I need help creating a new business entity
-                              </div>
-                            </div>
-                            {answers.hasExistingBusiness === 'no' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
-                            )}
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {step === 3 && (
-                    <div className="space-y-6">
-                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
-                        Do you need trademark registration?
-                      </h2>
-                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
-                        Trademark registration protects your brand name, logo, or slogan from being used by competitors.
-                      </p>
-                      <div className="space-y-4">
-                        <button
-                          onClick={() => updateAnswer('needsTrademark', 'yes')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.needsTrademark === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              Yes, I need trademark protection
-                            </span>
-                            {answers.needsTrademark === 'yes' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
-                            )}
-                          </div>
-                        </button>
-                        <button
-                          onClick={() => updateAnswer('needsTrademark', 'no')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.needsTrademark === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              No, just LLC formation
-                            </span>
-                            {answers.needsTrademark === 'no' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>

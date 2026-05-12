@@ -486,52 +486,6 @@ export function CategorizedServicesDisplay() {
       aLaCarte: [],
       addOns: []
     },
-    {
-      id: 'small-business',
-      name: 'Small Business',
-      packages: [
-        {
-          name: 'Small Business Package',
-          fixedPrice: 2000,
-          includes: [
-            'LLC Registration',
-            'Trademark Registration',
-            'Operating Agreement',
-            'EIN Number',
-            'All Filing Fees Included'
-          ]
-        },
-        {
-          name: 'Business Essentials',
-          fixedPrice: 1000,
-          includes: [
-            'LLC Registration',
-            'EIN Number',
-            'Operating Agreement',
-            'Filing Fees Included'
-          ]
-        }
-      ],
-      aLaCarte: [
-        {
-          name: 'Trademark Registration',
-          fixedPrice: 1250,
-          note: 'Includes filing fees',
-          includes: []
-        },
-        {
-          name: 'Office Action Response (Procedural)',
-          fixedPrice: 500,
-          includes: []
-        },
-        {
-          name: 'Office Action Response (Substantive)',
-          fixedPrice: 1500,
-          includes: []
-        }
-      ],
-      addOns: []
-    }
   ];
 
   return (

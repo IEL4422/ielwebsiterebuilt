@@ -1,4 +1,4 @@
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Prenuptial Agreement' | 'Small Business' | 'Real Estate';
+export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Prenuptial Agreement' | 'Real Estate';
 
 export type StandardizedServiceName =
   | 'Individual Trust Package'
@@ -29,11 +29,6 @@ export type StandardizedServiceName =
   | 'Prenuptial Agreement - Review and Negotiation'
   | 'Prenuptial Agreement - Drafting'
   | 'Prenuptial Agreement - Drafting and Negotiation'
-  | 'Small Business Package'
-  | 'Business Essentials Package'
-  | 'Trademark Registration'
-  | 'Office Action Response (Procedural)'
-  | 'Office Action Response (Substantive)'
   | 'Probate (Tier 1)'
   | 'Probate (Tier 2)'
   | 'Probate (Tier 3)'
@@ -56,7 +51,7 @@ export interface Service {
   id: string;
   name: string;
   subtitle?: string;
-  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'small-business' | 'real-estate';
+  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'real-estate';
   standardizedCaseType: StandardizedCaseType;
   standardizedServiceName: {
     individual: StandardizedServiceName;
@@ -617,71 +612,6 @@ export const prenuptialServices: Service[] = [
   }
 ];
 
-export const smallBusinessServices: Service[] = [
-  {
-    id: 'small-business-package',
-    name: 'Small Business Package',
-    category: 'small-business',
-    standardizedCaseType: 'Small Business',
-    standardizedServiceName: 'Small Business Package',
-    fixedPrice: 2000,
-    description: 'Comprehensive business formation and brand protection package including LLC registration, trademark protection, and all necessary documentation',
-    includes: [
-      'LLC Registration',
-      'Trademark Registration',
-      'Operating Agreement',
-      'EIN Number',
-      'All Filing Fees Included'
-    ]
-  },
-  {
-    id: 'business-essentials',
-    name: 'Business Essentials',
-    category: 'small-business',
-    standardizedCaseType: 'Small Business',
-    standardizedServiceName: 'Business Essentials Package',
-    fixedPrice: 1000,
-    description: 'Essential business formation package with LLC registration and operating agreement',
-    includes: [
-      'LLC Registration',
-      'EIN Number',
-      'Operating Agreement',
-      'Filing Fees Included'
-    ]
-  },
-  {
-    id: 'trademark-registration',
-    name: 'Trademark Registration',
-    category: 'small-business',
-    standardizedCaseType: 'Small Business',
-    standardizedServiceName: 'Trademark Registration',
-    fixedPrice: 1250,
-    description: 'Protect your brand identity with federal trademark registration, including comprehensive searches and application filing',
-    includes: [],
-    note: 'Includes filing fees'
-  },
-  {
-    id: 'office-action-procedural',
-    name: 'Office Action Response (Procedural)',
-    category: 'small-business',
-    standardizedCaseType: 'Small Business',
-    standardizedServiceName: 'Office Action Response (Procedural)',
-    fixedPrice: 500,
-    description: 'Expert response to procedural USPTO office actions to overcome trademark application obstacles',
-    includes: []
-  },
-  {
-    id: 'office-action-substantive',
-    name: 'Office Action Response (Substantive)',
-    category: 'small-business',
-    standardizedCaseType: 'Small Business',
-    standardizedServiceName: 'Office Action Response (Substantive)',
-    fixedPrice: 1500,
-    description: 'Expert response to substantive USPTO office actions to overcome trademark application obstacles',
-    includes: []
-  }
-];
-
 export const realEstateServices: Service[] = [
   {
     id: 'residential-closing',
@@ -800,6 +730,5 @@ export const allServices = [
   ...trustAdministrationServices,
   ...aLaCarteServices,
   ...prenuptialServices,
-  ...smallBusinessServices,
   ...realEstateServices
 ];
