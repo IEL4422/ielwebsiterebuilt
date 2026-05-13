@@ -5,10 +5,10 @@ import RelatedServices from '@/components/services/RelatedServices'
 
 export const metadata: Metadata = {
   title: 'Real Estate Closings | Illinois Estate Law',
-  description: 'Full-service residential real estate closing representation in Illinois for $2,000. Our attorneys handle every detail of your home purchase or sale closing.',
+  description: 'Full-service residential real estate closing representation in Illinois for $750. Our attorneys handle every detail of your home purchase or sale closing.',
   openGraph: {
     title: 'Real Estate Closings | Illinois Estate Law',
-    description: 'Full-service residential real estate closing representation in Illinois for $2,000.',
+    description: 'Full-service residential real estate closing representation in Illinois for $750.',
     url: 'https://www.illinoisestatelaw.com/chicago-real-estate-closings-lawyer/',
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
@@ -58,7 +58,7 @@ export default function RealEstateClosingsPage() {
                     Real Estate Closings
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                    Full-service attorney representation for your home purchase or sale closing in Illinois &mdash; flat fee of $2,000.
+                    Full-service attorney representation for your home purchase or sale closing in Illinois &mdash; flat fee of $750.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
@@ -103,7 +103,7 @@ export default function RealEstateClosingsPage() {
                     </ul>
                     <div className="mt-6 pt-6 border-t border-white/20">
                       <p className="text-white/70 text-sm">Flat Fee</p>
-                      <p className="text-3xl font-bold text-white">$2,000</p>
+                      <p className="text-3xl font-bold text-white">$750</p>
                     </div>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ export default function RealEstateClosingsPage() {
                 In Illinois, having an attorney represent you at a real estate closing is standard practice. Whether you are buying or selling a home, an experienced real estate attorney protects your interests throughout the transaction and ensures everything is handled correctly.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Our attorneys review every document, negotiate terms on your behalf, resolve title issues, and attend the closing to make sure the transaction goes smoothly. With a flat fee of $2,000, there are no surprises &mdash; you know the cost upfront.
+                Our attorneys review every document, negotiate terms on your behalf, resolve title issues, and attend the closing to make sure the transaction goes smoothly. With a flat fee of $750, there are no surprises &mdash; you know the cost upfront.
               </p>
             </div>
           </div>
@@ -212,7 +212,7 @@ export default function RealEstateClosingsPage() {
 
               <details className="group border-b border-gray-200">
                 <summary className="flex justify-between items-center cursor-pointer py-4 text-[#011627] font-['Plus_Jakarta_Sans'] font-semibold text-lg hover:text-[#4a708b]">
-                  What does the $2,000 flat fee cover?
+                  What does the $750 flat fee cover?
                   <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -273,7 +273,7 @@ export default function RealEstateClosingsPage() {
               Need Closing Representation?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us to schedule your residential real estate closing. Flat fee of $2,000 with no hidden charges.
+              Contact us to schedule your residential real estate closing. Flat fee of $750 with no hidden charges.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -472,7 +472,7 @@ export function CategorizedServicesDisplay() {
       packages: [
         {
           name: 'Residential Closing (Full Service Representation)',
-          fixedPrice: 1750,
+          fixedPrice: 750,
           includes: [
             'Contract Review & Negotiation',
             'Title Review & Clearance',

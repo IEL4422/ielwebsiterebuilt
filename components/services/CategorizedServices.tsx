@@ -530,7 +530,7 @@ export function CategorizedServices({
           id: 'residential-closing',
           name: 'Residential Closing (Full Service Representation)',
           category: 'real-estate',
-          fixedPrice: 2000,
+          fixedPrice: 750,
           description: 'Full-service attorney representation for residential real estate closings in Illinois, including contract review, title review, document preparation, and closing attendance.',
           includes: [
             'Contract Review & Negotiation',
