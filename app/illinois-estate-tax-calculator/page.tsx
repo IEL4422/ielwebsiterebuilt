@@ -63,6 +63,7 @@ function tentativeTax(table: RateRow[], amount: number): number {
 }
 
 interface CalcResults {
+  gross: number;
   ate: number;
   ilPreliminaryTax: number;
   ilApportionedTax: number;
@@ -78,7 +79,7 @@ interface CalcResults {
 }
 
 const EMPTY: CalcResults = {
-  ate: 0, ilPreliminaryTax: 0, ilApportionedTax: 0, ilRow: null, situsPct: 100,
+  gross: 0, ate: 0, ilPreliminaryTax: 0, ilApportionedTax: 0, ilRow: null, situsPct: 100,
   fedExemptionUsed: 0, fedTentativeTax: 0, fedUnifiedCredit: 0, fedTax: 0,
   totalTax: 0, details: '', hasError: false,
 };
@@ -153,7 +154,7 @@ export default function EstateTaxCalculatorPage() {
 
     const fedDetail = ate <= fedEx
       ? `<p><strong>Federal:</strong> ${fmt(ate)} is at or below the $${(fedEx / 1_000_000).toFixed(1)}M federal exemption — estimated federal estate tax is $0.</p>`
-      : `<p><strong>Federal:</strong> Tentative tax on ${fmt(ate)}: ${fmt(fedTentativeTax)}. Unified credit (tentative tax on ${fmt(fedEx)} exemption): ${fmt(fedUnifiedCredit)}. Net federal tax: <strong>${fmt(fedTax)}</strong> (effective rate on estate above exemption: ${ate > fedEx ? ((fedTax / (ate - fedEx)) * 100).toFixed(1) : '0'}%).</p>`;
+      : `<p><strong>Federal:</strong> Tentative tax on ${fmt(ate)}: ${fmt(fedTentativeTax)}. Unified credit (tentative tax on ${fmt(fedEx)} exemption): ${fmt(fedUnifiedCredit)}. Net federal tax: <strong>${fmt(fedTax)}</strong> (effective rate on gross estate: ${gross > 0 ? ((fedTax / gross) * 100).toFixed(2) : '0'}%).</p>`;
 
     const details = `
       <p><strong>Inputs:</strong> Gross estate ${fmt(gross)}, adjusted taxable gifts ${fmt(gifts)}, adjusted taxable estate (ATE) ${fmt(ate)}. Federal exemption used: ${fmt(fedEx)}.</p>
@@ -164,7 +165,7 @@ export default function EstateTaxCalculatorPage() {
       </p>
     `;
 
-    setResults({ ate, ilPreliminaryTax, ilApportionedTax, ilRow, situsPct, fedExemptionUsed: fedEx, fedTentativeTax, fedUnifiedCredit, fedTax, totalTax, details, hasError: false });
+    setResults({ gross, ate, ilPreliminaryTax, ilApportionedTax, ilRow, situsPct, fedExemptionUsed: fedEx, fedTentativeTax, fedUnifiedCredit, fedTax, totalTax, details, hasError: false });
     setShowResults(true);
   }
 
@@ -340,6 +341,11 @@ export default function EstateTaxCalculatorPage() {
                       <div className={`kpi-value${results.ilApportionedTax === 0 ? ' zero' : ''}`}>{fmt(results.ilApportionedTax)}</div>
                     </div>
                   </div>
+                  {results.ilApportionedTax > 0 && results.gross > 0 && (
+                    <p style={{ fontSize: 13, color: 'rgba(45,62,80,.7)', marginTop: 6, fontWeight: 600 }}>
+                      Effective Illinois estate tax rate: {((results.ilApportionedTax / results.gross) * 100).toFixed(2)}% of gross estate
+                    </p>
+                  )}
                   {results.ate <= IL_THRESHOLD && (
                     <p style={{ fontSize: 13, color: 'rgba(0,0,0,.5)', marginTop: 6 }}>
                       Estate is at or below the $4,000,000 Illinois threshold — no Illinois estate tax. Note: Illinois has a &ldquo;cliff&rdquo; at $4M, meaning estates just above this threshold owe tax on the full estate value, not just the excess.
@@ -364,14 +370,26 @@ export default function EstateTaxCalculatorPage() {
                       <div className={`kpi-value${results.fedTax === 0 ? ' zero' : ''}`}>{fmt(results.fedTax)}</div>
                     </div>
                   </div>
+                  {results.fedTax > 0 && results.gross > 0 && (
+                    <p style={{ fontSize: 13, color: 'rgba(74,112,139,.8)', marginTop: 6, fontWeight: 600 }}>
+                      Effective federal estate tax rate: {((results.fedTax / results.gross) * 100).toFixed(2)}% of gross estate
+                    </p>
+                  )}
                   <div className="fed-note">
-                    ⚠️ The TCJA enhanced federal exemption (~$13.99M in 2025) sunsetted on January 1, 2026, reverting to approximately $7,000,000 per person. If portability was preserved from a predeceased spouse, or if subsequent legislation changed the exemption, adjust the &ldquo;Federal exemption&rdquo; field above accordingly.
+                    ⚠️ The TCJA enhanced federal exemption (~$13.99M in 2025) sunsetted on January 1, 2026, reverting to approximately $7,000,000 per person (inflation-adjusted). If portability was preserved from a predeceased spouse, or if subsequent legislation has changed the exemption, adjust the &ldquo;Federal exemption&rdquo; field above.
                   </div>
                 </div>
 
                 {/* Combined */}
                 <div className="combined">
-                  <div className="combined-label">Total estimated estate tax (IL + Federal)</div>
+                  <div>
+                    <div className="combined-label">Total estimated estate tax (IL + Federal)</div>
+                    {results.totalTax > 0 && results.gross > 0 && (
+                      <div style={{ fontSize: 13, color: 'rgba(45,62,80,.65)', marginTop: 4 }}>
+                        ≈ {((results.totalTax / results.gross) * 100).toFixed(2)}% effective rate on gross estate
+                      </div>
+                    )}
+                  </div>
                   <div className={`combined-value${results.totalTax === 0 ? ' zero' : ''}`}>{fmt(results.totalTax)}</div>
                 </div>
 
