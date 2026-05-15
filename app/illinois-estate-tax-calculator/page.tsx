@@ -36,9 +36,9 @@ const IL_CREDIT_TABLE = [
 // ── Federal estate tax ─────────────────────────────────────────────────────────
 // Federal unified rate schedule — 26 U.S.C. § 2001(c).
 // Net federal tax = tentativeTax(gross + gifts) − tentativeTax(exemption).
-// The TCJA enhanced exemption (~$13.99M in 2025) sunsetted on 1/1/2026,
-// reverting to the pre-TCJA level indexed for inflation (~$7,000,000 per person).
-// Users may adjust the exemption field if subsequent legislation has changed it.
+// Federal exemption: $15,000,000 per person (2026), per the "One Big Beautiful Bill"
+// signed into law in 2025, which extended and increased the TCJA exemption.
+// Users may adjust the exemption field if the amount changes.
 const FED_RATE_TABLE = [
   { atLeast: 0,        lessThan: 10000,    base: 0,       rate: 0.18, excessOver: 0 },
   { atLeast: 10000,    lessThan: 20000,    base: 1800,    rate: 0.20, excessOver: 10000 },
@@ -89,7 +89,7 @@ export default function EstateTaxCalculatorPage() {
   const [grossEstate, setGrossEstate]   = useState('');
   const [taxableGifts, setTaxableGifts] = useState('');
   const [ilSitusPct, setIlSitusPct]     = useState('100');
-  const [fedExemption, setFedExemption] = useState('7000000');
+  const [fedExemption, setFedExemption] = useState('15000000');
   const [showResults, setShowResults]   = useState(false);
   const [results, setResults]           = useState<CalcResults>(EMPTY);
 
@@ -117,7 +117,7 @@ export default function EstateTaxCalculatorPage() {
     if (!Number.isFinite(gross) || gross < 0) errors.push('Gross estate must be a valid non-negative number.');
     if (!Number.isFinite(gifts) || gifts < 0) errors.push('Adjusted taxable gifts must be a valid non-negative number.');
     if (!Number.isFinite(situsPct)) situsPct = 100;
-    if (!Number.isFinite(fedEx) || fedEx < 0) fedEx = 7_000_000;
+    if (!Number.isFinite(fedEx) || fedEx < 0) fedEx = 15_000_000;
     situsPct = clamp(situsPct, 0, 100);
 
     if (errors.length) {
@@ -174,7 +174,7 @@ export default function EstateTaxCalculatorPage() {
     setGrossEstate('');
     setTaxableGifts('');
     setIlSitusPct('100');
-    setFedExemption('7000000');
+    setFedExemption('15000000');
     setShowResults(false);
     setResults(EMPTY);
   }
@@ -202,7 +202,7 @@ export default function EstateTaxCalculatorPage() {
               {[
                 { label: 'Illinois Threshold', value: '$4,000,000' },
                 { label: 'IL Top Rate',         value: '16%' },
-                { label: 'Federal Exemption',   value: '~$7M (2026)' },
+                { label: 'Federal Exemption',   value: '$15M (2026)' },
                 { label: 'Federal Top Rate',    value: '40%' },
               ].map(stat => (
                 <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 min-w-[120px]">
@@ -294,11 +294,11 @@ export default function EstateTaxCalculatorPage() {
                     value={fedExemption}
                     onChange={e => setFedExemption(e.target.value)}
                     inputMode="decimal"
-                    placeholder="7,000,000"
+                    placeholder="15,000,000"
                     className={`${inputClass} pl-7 pr-4`}
                   />
                 </div>
-                <p className="text-xs text-gray-400 mt-1.5">Default: $7,000,000 (2026 post-TCJA sunset) · Adjust if legislation changed</p>
+                <p className="text-xs text-gray-400 mt-1.5">Default: $15,000,000 per person (2026) · Adjust if amount changes</p>
               </div>
             </div>
 
@@ -455,8 +455,8 @@ export default function EstateTaxCalculatorPage() {
                     </div>
                   )}
 
-                  <p className="mt-3 text-xs text-amber-700 bg-amber-50 rounded-lg px-3 py-2.5 leading-relaxed">
-                    ⚠️ TCJA exemption (~$13.99M in 2025) sunsetted Jan 1, 2026 — now ~$7M. Adjust the field above if legislation has changed this.
+                  <p className="mt-3 text-xs text-blue-700 bg-blue-50 rounded-lg px-3 py-2.5 leading-relaxed">
+                    ℹ️ The federal exemption is $15,000,000 per person in 2026 per current law. Married couples can shelter up to $30M combined with portability. Adjust the field above if the amount changes.
                   </p>
                 </div>
               </div>
