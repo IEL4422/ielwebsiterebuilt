@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 // ── Illinois estate tax ────────────────────────────────────────────────────────
 // Illinois imposes its own estate tax using the former federal "state death tax
@@ -85,12 +86,12 @@ const EMPTY: CalcResults = {
 };
 
 export default function EstateTaxCalculatorPage() {
-  const [grossEstate, setGrossEstate]       = useState('');
-  const [taxableGifts, setTaxableGifts]     = useState('');
-  const [ilSitusPct, setIlSitusPct]         = useState('100');
-  const [fedExemption, setFedExemption]     = useState('7000000');
-  const [showResults, setShowResults]       = useState(false);
-  const [results, setResults]               = useState<CalcResults>(EMPTY);
+  const [grossEstate, setGrossEstate]   = useState('');
+  const [taxableGifts, setTaxableGifts] = useState('');
+  const [ilSitusPct, setIlSitusPct]     = useState('100');
+  const [fedExemption, setFedExemption] = useState('7000000');
+  const [showResults, setShowResults]   = useState(false);
+  const [results, setResults]           = useState<CalcResults>(EMPTY);
 
   function parseMoney(value: string): number {
     if (!value) return 0;
@@ -113,14 +114,14 @@ export default function EstateTaxCalculatorPage() {
     let fedEx = parseMoney(fedExemption);
 
     const errors: string[] = [];
-    if (!Number.isFinite(gross) || gross < 0)   errors.push('Gross estate must be a valid non-negative number.');
-    if (!Number.isFinite(gifts) || gifts < 0)   errors.push('Adjusted taxable gifts must be a valid non-negative number.');
-    if (!Number.isFinite(situsPct))              situsPct = 100;
-    if (!Number.isFinite(fedEx) || fedEx < 0)   fedEx = 7_000_000;
+    if (!Number.isFinite(gross) || gross < 0) errors.push('Gross estate must be a valid non-negative number.');
+    if (!Number.isFinite(gifts) || gifts < 0) errors.push('Adjusted taxable gifts must be a valid non-negative number.');
+    if (!Number.isFinite(situsPct)) situsPct = 100;
+    if (!Number.isFinite(fedEx) || fedEx < 0) fedEx = 7_000_000;
     situsPct = clamp(situsPct, 0, 100);
 
     if (errors.length) {
-      setResults({ ...EMPTY, details: `<div class="warn"><strong>Please fix:</strong><ul>${errors.map(e => `<li>${e}</li>`).join('')}</ul></div>`, hasError: true });
+      setResults({ ...EMPTY, details: errors.map(e => `<p>${e}</p>`).join(''), hasError: true });
       setShowResults(true);
       return;
     }
@@ -150,17 +151,17 @@ export default function EstateTaxCalculatorPage() {
     // ── Detail copy ───────────────────────────────────────────────────────────
     const ilDetail = ate <= IL_THRESHOLD
       ? `<p><strong>Illinois:</strong> ${fmt(ate)} is at or below the $4,000,000 Illinois threshold — estimated IL estate tax is $0.</p>`
-      : `<p><strong>Illinois:</strong> Bracket used: ${fmt(ilRow!.atLeast)} to &lt; ${fmt(ilRow!.lessThan)} — base ${fmt(ilRow!.base)} + ${(ilRow!.rate * 100).toFixed(1)}% of excess over ${fmt(ilRow!.excessOver)}. Preliminary IL tax: ${fmt(ilPreliminaryTax)}. After ${situsPct.toFixed(2)}% IL-situs apportionment: <strong>${fmt(ilApportionedTax)}</strong>.</p>`;
+      : `<p><strong>Illinois:</strong> Bracket: ${fmt(ilRow!.atLeast)} to &lt; ${fmt(ilRow!.lessThan)} — base ${fmt(ilRow!.base)} + ${(ilRow!.rate * 100).toFixed(1)}% of excess over ${fmt(ilRow!.excessOver)}. Preliminary IL tax: ${fmt(ilPreliminaryTax)}. After ${situsPct.toFixed(2)}% IL-situs apportionment: <strong>${fmt(ilApportionedTax)}</strong>.</p>`;
 
     const fedDetail = ate <= fedEx
-      ? `<p><strong>Federal:</strong> ${fmt(ate)} is at or below the $${(fedEx / 1_000_000).toFixed(1)}M federal exemption — estimated federal estate tax is $0.</p>`
+      ? `<p><strong>Federal:</strong> ${fmt(ate)} is at or below the ${fmt(fedEx)} federal exemption — estimated federal estate tax is $0.</p>`
       : `<p><strong>Federal:</strong> Tentative tax on ${fmt(ate)}: ${fmt(fedTentativeTax)}. Unified credit (tentative tax on ${fmt(fedEx)} exemption): ${fmt(fedUnifiedCredit)}. Net federal tax: <strong>${fmt(fedTax)}</strong> (effective rate on gross estate: ${gross > 0 ? ((fedTax / gross) * 100).toFixed(2) : '0'}%).</p>`;
 
     const details = `
-      <p><strong>Inputs:</strong> Gross estate ${fmt(gross)}, adjusted taxable gifts ${fmt(gifts)}, adjusted taxable estate (ATE) ${fmt(ate)}. Federal exemption used: ${fmt(fedEx)}.</p>
+      <p><strong>Inputs:</strong> Gross estate ${fmt(gross)}, adjusted taxable gifts ${fmt(gifts)}, adjusted taxable estate (ATE) ${fmt(ate)}. Federal exemption: ${fmt(fedEx)}.</p>
       ${ilDetail}
       ${fedDetail}
-      <p style="margin-top:10px;font-size:13px;color:rgba(0,0,0,.55);">
+      <p style="margin-top:8px;font-size:12px;color:#888;">
         This estimate does not account for marital deductions, charitable deductions, debts, mortgages, administrative expenses, QTIP elections, or other adjustments that may significantly reduce your taxable estate. Consult an estate planning attorney for a complete analysis.
       </p>
     `;
@@ -178,235 +179,361 @@ export default function EstateTaxCalculatorPage() {
     setResults(EMPTY);
   }
 
+  const inputClass =
+    'w-full py-3 rounded-xl border border-gray-200 text-[#2D3E50] font-medium text-[15px] focus:outline-none focus:border-[#4A708B] focus:ring-2 focus:ring-[#4A708B]/20 transition-all bg-gray-50 focus:bg-white';
+
+  const ilPct  = results.gross > 0 ? (results.ilApportionedTax / results.gross) * 100 : 0;
+  const fedPct = results.gross > 0 ? (results.fedTax / results.gross) * 100 : 0;
+  const totalPct = results.gross > 0 ? (results.totalTax / results.gross) * 100 : 0;
+
   return (
     <main>
-      <style jsx>{`
-        .widget { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-        .card {
-          max-width: 900px; margin: 0 auto; padding: 24px;
-          border: 1px solid rgba(0,0,0,.12); border-radius: 16px;
-          box-shadow: 0 10px 25px rgba(0,0,0,.06); background: #fff;
-        }
-        .card h2 { margin: 0 0 6px; font-size: 24px; letter-spacing: -.02em; }
-        .sub { margin: 0 0 20px; color: rgba(0,0,0,.65); line-height: 1.4; font-size: 14px; }
-        .grid4 {
-          display: grid; gap: 14px;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-        @media (max-width: 700px) { .grid4 { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 480px) { .grid4 { grid-template-columns: 1fr; } }
-        .field { display: flex; flex-direction: column; gap: 5px; }
-        .field span { font-weight: 650; font-size: 14px; }
-        .field input {
-          padding: 11px 12px; border-radius: 10px;
-          border: 1px solid rgba(0,0,0,.18); font-size: 15px; outline: none;
-        }
-        .field input:focus { border-color: rgba(0,0,0,.45); }
-        .field small { color: rgba(0,0,0,.55); font-size: 12px; }
-        .actions { display: flex; gap: 10px; margin-top: 16px; }
-        .actions button {
-          border: 0; padding: 12px 20px; border-radius: 10px; cursor: pointer;
-          font-weight: 700; font-size: 14px;
-          background: #2D3E50; color: #fff;
-        }
-        .actions button.ghost {
-          background: transparent; color: #2D3E50;
-          border: 1px solid rgba(45,62,80,.35);
-        }
-        .results { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,.10); }
-        .tax-section { margin-bottom: 18px; }
-        .section-label {
-          font-size: 11px; font-weight: 800; letter-spacing: .08em;
-          text-transform: uppercase; color: rgba(0,0,0,.45); margin: 0 0 8px;
-        }
-        .kpis3 {
-          display: grid; gap: 10px;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-        @media (max-width: 600px) { .kpis3 { grid-template-columns: 1fr; } }
-        .kpi {
-          border: 1px solid rgba(0,0,0,.10); border-radius: 12px;
-          padding: 12px 14px; background: rgba(0,0,0,.02);
-        }
-        .kpi-label { color: rgba(0,0,0,.60); font-size: 12px; margin-bottom: 5px; }
-        .kpi-value { font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
-        .kpi-value.zero { color: rgba(0,0,0,.35); }
-        .kpi.il { border-color: rgba(45,62,80,.2); background: rgba(45,62,80,.03); }
-        .kpi.fed { border-color: rgba(74,112,139,.2); background: rgba(74,112,139,.03); }
-        .combined {
-          border: 2px solid rgba(45,62,80,.25);
-          background: linear-gradient(135deg, rgba(45,62,80,.06), rgba(74,112,139,.06));
-          border-radius: 14px; padding: 16px 20px;
-          display: flex; justify-content: space-between; align-items: center;
-        }
-        .combined-label { font-size: 15px; font-weight: 700; color: rgba(0,0,0,.7); }
-        .combined-value { font-size: 28px; font-weight: 900; letter-spacing: -.03em; color: #2D3E50; }
-        .detail-wrap { margin-top: 16px; }
-        .detail-wrap summary { cursor: pointer; font-weight: 700; font-size: 14px; color: #2D3E50; }
-        .detail { margin-top: 10px; color: rgba(0,0,0,.72); line-height: 1.5; font-size: 14px; }
-        .warn { color: #8a2c00; background: #fff3e8; border: 1px solid #ffd9c2; padding: 10px; border-radius: 12px; }
-        .fed-note {
-          font-size: 12px; color: rgba(0,0,0,.5); margin-top: 6px; padding: 8px 12px;
-          background: rgba(255,200,0,.08); border: 1px solid rgba(200,160,0,.2);
-          border-radius: 8px;
-        }
-      `}</style>
-
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-[#2D3E50] via-[#3a5268] to-[#4A708B] flex items-center py-14">
         <div className="container mx-auto px-4">
-          <div className="max-w-[1140px] mx-auto">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-white leading-[50px] md:leading-[65px] lg:leading-[75px] text-center">
+          <div className="max-w-[1140px] mx-auto text-center">
+            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[68px] lg:text-[82px] font-normal text-white leading-tight mb-4">
               Illinois Estate Tax Calculator
             </h1>
+            <p className="text-white/75 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+              Estimate your 2026 Illinois and federal estate tax exposure instantly — using current rates and exemptions.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                { label: 'Illinois Threshold', value: '$4,000,000' },
+                { label: 'IL Top Rate',         value: '16%' },
+                { label: 'Federal Exemption',   value: '~$7M (2026)' },
+                { label: 'Federal Top Rate',    value: '40%' },
+              ].map(stat => (
+                <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 min-w-[120px]">
+                  <div className="text-white/55 text-[11px] font-bold uppercase tracking-wider mb-0.5">{stat.label}</div>
+                  <div className="text-white text-xl font-bold">{stat.value}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-[60px] px-5 lg:px-0 bg-gray-50">
-        <section className="widget" aria-label="Illinois & Federal Estate Tax Calculator">
-          <div className="card">
-            <h2>Illinois &amp; Federal Estate Tax Calculator (Estimate)</h2>
-            <p className="sub">
-              For informational purposes only — not legal or tax advice. Estimates Illinois estate tax using the Form 700 credit table ($4,000,000 threshold, up to 16%) and federal estate tax using the unified rate schedule (up to 40%). Does not account for marital deductions, charitable deductions, debts, mortgages, or other adjustments that may significantly reduce the taxable estate.
+      {/* ── Body ─────────────────────────────────────────────────────────── */}
+      <section className="py-14 px-4 bg-gray-50">
+        <div className="max-w-[860px] mx-auto space-y-6">
+
+          {/* Input card */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2D3E50] mb-1">
+              Enter Your Estate Details
+            </h2>
+            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+              For informational purposes only — not legal or tax advice. Results do not account for marital deductions, debts, or other adjustments.
             </p>
 
-            <div className="grid4">
-              <label className="field">
-                <span>Gross estate value</span>
-                <input
-                  value={grossEstate}
-                  onChange={e => setGrossEstate(e.target.value)}
-                  inputMode="decimal"
-                  placeholder="e.g., 5000000"
-                />
-                <small>Total approximate gross value before deductions, in dollars.</small>
-              </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Gross estate */}
+              <div>
+                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                  Gross estate value
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">$</span>
+                  <input
+                    value={grossEstate}
+                    onChange={e => setGrossEstate(e.target.value)}
+                    inputMode="decimal"
+                    placeholder="5,000,000"
+                    className={`${inputClass} pl-7 pr-4`}
+                  />
+                </div>
+                <p className="text-xs text-gray-400 mt-1.5">Total approximate gross value before deductions</p>
+              </div>
 
-              <label className="field">
-                <span>Adjusted taxable gifts</span>
-                <input
-                  value={taxableGifts}
-                  onChange={e => setTaxableGifts(e.target.value)}
-                  inputMode="decimal"
-                  placeholder="e.g., 0"
-                />
-                <small>Post-1976 taxable gifts. Enter 0 if unknown.</small>
-              </label>
+              {/* Taxable gifts */}
+              <div>
+                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                  Adjusted taxable gifts
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">$</span>
+                  <input
+                    value={taxableGifts}
+                    onChange={e => setTaxableGifts(e.target.value)}
+                    inputMode="decimal"
+                    placeholder="0"
+                    className={`${inputClass} pl-7 pr-4`}
+                  />
+                </div>
+                <p className="text-xs text-gray-400 mt-1.5">Post-1976 taxable gifts — enter 0 if none</p>
+              </div>
 
-              <label className="field">
-                <span>Illinois situs %</span>
-                <input
-                  value={ilSitusPct}
-                  onChange={e => setIlSitusPct(e.target.value)}
-                  inputMode="decimal"
-                  placeholder="100"
-                />
-                <small>100 for IL residents. Non-residents: ratio of IL assets to total assets.</small>
-              </label>
+              {/* IL situs % */}
+              <div>
+                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                  Illinois situs %
+                </label>
+                <div className="relative">
+                  <input
+                    value={ilSitusPct}
+                    onChange={e => setIlSitusPct(e.target.value)}
+                    inputMode="decimal"
+                    placeholder="100"
+                    className={`${inputClass} pl-4 pr-8`}
+                  />
+                  <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">%</span>
+                </div>
+                <p className="text-xs text-gray-400 mt-1.5">100 for IL residents · Non-residents: % of assets in Illinois</p>
+              </div>
 
-              <label className="field">
-                <span>Federal exemption (per person)</span>
-                <input
-                  value={fedExemption}
-                  onChange={e => setFedExemption(e.target.value)}
-                  inputMode="decimal"
-                  placeholder="7000000"
-                />
-                <small>Default: $7,000,000 (2026 post-TCJA sunset). Adjust if legislation has changed.</small>
-              </label>
+              {/* Federal exemption */}
+              <div>
+                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                  Federal exemption <span className="font-normal text-gray-400">(per person)</span>
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">$</span>
+                  <input
+                    value={fedExemption}
+                    onChange={e => setFedExemption(e.target.value)}
+                    inputMode="decimal"
+                    placeholder="7,000,000"
+                    className={`${inputClass} pl-7 pr-4`}
+                  />
+                </div>
+                <p className="text-xs text-gray-400 mt-1.5">Default: $7,000,000 (2026 post-TCJA sunset) · Adjust if legislation changed</p>
+              </div>
             </div>
 
-            <div className="actions">
-              <button type="button" onClick={calculate}>Calculate</button>
-              <button type="button" className="ghost" onClick={reset}>Reset</button>
+            <div className="flex items-center gap-3 mt-8">
+              <button
+                type="button"
+                onClick={calculate}
+                className="bg-[#2D3E50] hover:bg-[#4A708B] text-white font-bold px-8 py-3.5 rounded-full transition-colors text-[15px]"
+              >
+                Calculate
+              </button>
+              {showResults && (
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="text-[#2D3E50]/70 hover:text-[#2D3E50] border border-gray-200 hover:border-gray-300 font-semibold px-6 py-3.5 rounded-full transition-colors text-[15px] bg-white"
+                >
+                  Reset
+                </button>
+              )}
             </div>
+          </div>
 
-            {showResults && !results.hasError && (
-              <div className="results">
+          {/* ── Error state ─────────────────────────────────────────────── */}
+          {showResults && results.hasError && (
+            <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6">
+              <p className="text-orange-800 font-semibold mb-1">Please fix the following:</p>
+              <div
+                className="text-orange-700 text-sm leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: results.details }}
+              />
+            </div>
+          )}
 
-                {/* Illinois */}
-                <div className="tax-section">
-                  <div className="section-label">Illinois Estate Tax</div>
-                  <div className="kpis3">
-                    <div className="kpi il">
-                      <div className="kpi-label">Adjusted taxable estate (estate + gifts)</div>
-                      <div className={`kpi-value${results.ate === 0 ? ' zero' : ''}`}>{fmt(results.ate)}</div>
-                    </div>
-                    <div className="kpi il">
-                      <div className="kpi-label">Preliminary IL tax (before apportionment)</div>
-                      <div className={`kpi-value${results.ilPreliminaryTax === 0 ? ' zero' : ''}`}>{fmt(results.ilPreliminaryTax)}</div>
-                    </div>
-                    <div className="kpi il">
-                      <div className="kpi-label">Apportioned IL tax (after {results.situsPct.toFixed(0)}% situs)</div>
-                      <div className={`kpi-value${results.ilApportionedTax === 0 ? ' zero' : ''}`}>{fmt(results.ilApportionedTax)}</div>
-                    </div>
-                  </div>
-                  {results.ilApportionedTax > 0 && results.gross > 0 && (
-                    <p style={{ fontSize: 13, color: 'rgba(45,62,80,.7)', marginTop: 6, fontWeight: 600 }}>
-                      Effective Illinois estate tax rate: {((results.ilApportionedTax / results.gross) * 100).toFixed(2)}% of gross estate
-                    </p>
+          {/* ── Results ─────────────────────────────────────────────────── */}
+          {showResults && !results.hasError && (
+            <>
+              {/* Visual breakdown bar */}
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7">
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">
+                  Estate Tax Breakdown
+                </h3>
+
+                {/* Stacked bar */}
+                <div className="h-6 rounded-full overflow-hidden flex bg-gray-100 mb-4">
+                  {ilPct > 0 && (
+                    <div
+                      className="bg-[#2D3E50] h-full"
+                      style={{ width: `${Math.min(ilPct, 100)}%` }}
+                    />
                   )}
-                  {results.ate <= IL_THRESHOLD && (
-                    <p style={{ fontSize: 13, color: 'rgba(0,0,0,.5)', marginTop: 6 }}>
-                      Estate is at or below the $4,000,000 Illinois threshold — no Illinois estate tax. Note: Illinois has a &ldquo;cliff&rdquo; at $4M, meaning estates just above this threshold owe tax on the full estate value, not just the excess.
-                    </p>
+                  {fedPct > 0 && (
+                    <div
+                      className="bg-[#4A708B] h-full"
+                      style={{ width: `${Math.min(fedPct, 100)}%` }}
+                    />
                   )}
                 </div>
 
-                {/* Federal */}
-                <div className="tax-section">
-                  <div className="section-label">Federal Estate Tax</div>
-                  <div className="kpis3">
-                    <div className="kpi fed">
-                      <div className="kpi-label">Federal tentative tax (on estate + gifts)</div>
-                      <div className={`kpi-value${results.fedTentativeTax === 0 ? ' zero' : ''}`}>{fmt(results.fedTentativeTax)}</div>
+                <div className="flex flex-wrap gap-5">
+                  <span className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="w-3 h-3 rounded-sm bg-[#2D3E50] flex-shrink-0" />
+                    Illinois{ilPct > 0 ? ` — ${ilPct.toFixed(2)}% of estate` : ' — $0'}
+                  </span>
+                  <span className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="w-3 h-3 rounded-sm bg-[#4A708B] flex-shrink-0" />
+                    Federal{fedPct > 0 ? ` — ${fedPct.toFixed(2)}% of estate` : ' — $0'}
+                  </span>
+                  <span className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="w-3 h-3 rounded-sm bg-gray-200 flex-shrink-0 border border-gray-300" />
+                    {results.gross > 0
+                      ? `Passes to heirs — ${(100 - totalPct).toFixed(2)}% of estate`
+                      : 'Passes to heirs'}
+                  </span>
+                </div>
+              </div>
+
+              {/* IL + Federal detail cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                {/* Illinois card */}
+                <div className="bg-white rounded-2xl shadow-sm border border-[#2D3E50]/15 p-6">
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#2D3E50]" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#2D3E50]/60">
+                      Illinois Estate Tax
+                    </span>
+                  </div>
+
+                  <div className="space-y-0 divide-y divide-gray-50">
+                    <div className="flex justify-between items-center py-2.5">
+                      <span className="text-sm text-gray-500">Adjusted taxable estate</span>
+                      <span className="font-semibold text-[#2D3E50] text-sm">{fmt(results.ate)}</span>
                     </div>
-                    <div className="kpi fed">
-                      <div className="kpi-label">Federal unified credit (on {fmt(results.fedExemptionUsed)} exemption)</div>
-                      <div className={`kpi-value${results.fedUnifiedCredit === 0 ? ' zero' : ''}`}>{fmt(results.fedUnifiedCredit)}</div>
+                    <div className="flex justify-between items-center py-2.5">
+                      <span className="text-sm text-gray-500">Preliminary IL tax</span>
+                      <span className="font-semibold text-[#2D3E50] text-sm">{fmt(results.ilPreliminaryTax)}</span>
                     </div>
-                    <div className="kpi fed">
-                      <div className="kpi-label">Net federal estate tax</div>
-                      <div className={`kpi-value${results.fedTax === 0 ? ' zero' : ''}`}>{fmt(results.fedTax)}</div>
+                    <div className="flex justify-between items-center py-2.5">
+                      <span className="text-sm text-gray-500">IL tax ({results.situsPct.toFixed(0)}% situs)</span>
+                      <span className="font-bold text-[#2D3E50] text-lg">{fmt(results.ilApportionedTax)}</span>
                     </div>
                   </div>
-                  {results.fedTax > 0 && results.gross > 0 && (
-                    <p style={{ fontSize: 13, color: 'rgba(74,112,139,.8)', marginTop: 6, fontWeight: 600 }}>
-                      Effective federal estate tax rate: {((results.fedTax / results.gross) * 100).toFixed(2)}% of gross estate
-                    </p>
+
+                  {results.ilApportionedTax > 0 && results.gross > 0 ? (
+                    <div className="mt-4 bg-[#2D3E50]/5 rounded-xl px-4 py-3 flex justify-between items-center">
+                      <span className="text-xs font-semibold text-[#2D3E50]/60">Effective IL rate</span>
+                      <span className="text-[#2D3E50] font-bold text-base">{ilPct.toFixed(2)}%</span>
+                    </div>
+                  ) : (
+                    <div className="mt-4 bg-gray-50 rounded-xl px-4 py-3">
+                      <p className="text-xs text-gray-400 leading-relaxed">
+                        Below the $4M Illinois threshold — no IL estate tax.{' '}
+                        <span className="text-amber-600">Note: Illinois has a &ldquo;cliff&rdquo; — estates just over $4M owe tax on the full value.</span>
+                      </p>
+                    </div>
                   )}
-                  <div className="fed-note">
-                    ⚠️ The TCJA enhanced federal exemption (~$13.99M in 2025) sunsetted on January 1, 2026, reverting to approximately $7,000,000 per person (inflation-adjusted). If portability was preserved from a predeceased spouse, or if subsequent legislation has changed the exemption, adjust the &ldquo;Federal exemption&rdquo; field above.
-                  </div>
                 </div>
 
-                {/* Combined */}
-                <div className="combined">
+                {/* Federal card */}
+                <div className="bg-white rounded-2xl shadow-sm border border-[#4A708B]/20 p-6">
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#4A708B]" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#4A708B]/70">
+                      Federal Estate Tax
+                    </span>
+                  </div>
+
+                  <div className="space-y-0 divide-y divide-gray-50">
+                    <div className="flex justify-between items-center py-2.5">
+                      <span className="text-sm text-gray-500">Tentative federal tax</span>
+                      <span className="font-semibold text-[#2D3E50] text-sm">{fmt(results.fedTentativeTax)}</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2.5">
+                      <span className="text-sm text-gray-500">Unified credit ({fmt(results.fedExemptionUsed)})</span>
+                      <span className="font-semibold text-[#2D3E50] text-sm">− {fmt(results.fedUnifiedCredit)}</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2.5">
+                      <span className="text-sm text-gray-500">Net federal tax</span>
+                      <span className="font-bold text-[#2D3E50] text-lg">{fmt(results.fedTax)}</span>
+                    </div>
+                  </div>
+
+                  {results.fedTax > 0 && results.gross > 0 ? (
+                    <div className="mt-4 bg-[#4A708B]/10 rounded-xl px-4 py-3 flex justify-between items-center">
+                      <span className="text-xs font-semibold text-[#4A708B]/70">Effective federal rate</span>
+                      <span className="text-[#4A708B] font-bold text-base">{fedPct.toFixed(2)}%</span>
+                    </div>
+                  ) : (
+                    <div className="mt-4 bg-gray-50 rounded-xl px-4 py-3">
+                      <p className="text-xs text-gray-400 leading-relaxed">
+                        Below the {fmt(results.fedExemptionUsed)} federal exemption — no federal estate tax.
+                      </p>
+                    </div>
+                  )}
+
+                  <p className="mt-3 text-xs text-amber-700 bg-amber-50 rounded-lg px-3 py-2.5 leading-relaxed">
+                    ⚠️ TCJA exemption (~$13.99M in 2025) sunsetted Jan 1, 2026 — now ~$7M. Adjust the field above if legislation has changed this.
+                  </p>
+                </div>
+              </div>
+
+              {/* Total card */}
+              <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
                   <div>
-                    <div className="combined-label">Total estimated estate tax (IL + Federal)</div>
-                    {results.totalTax > 0 && results.gross > 0 && (
-                      <div style={{ fontSize: 13, color: 'rgba(45,62,80,.65)', marginTop: 4 }}>
-                        ≈ {((results.totalTax / results.gross) * 100).toFixed(2)}% effective rate on gross estate
+                    <div className="text-white/55 text-xs font-bold uppercase tracking-widest mb-2">
+                      Total Estimated Estate Tax (IL + Federal)
+                    </div>
+                    <div className="text-white text-5xl font-black tracking-tight leading-none">
+                      {fmt(results.totalTax)}
+                    </div>
+                    {results.totalTax > 0 && results.gross > 0 ? (
+                      <div className="text-white/65 text-sm mt-2">
+                        ≈ {totalPct.toFixed(2)}% effective rate on gross estate
+                      </div>
+                    ) : (
+                      <div className="text-white/65 text-sm mt-2">
+                        No estate tax estimated at this value
                       </div>
                     )}
                   </div>
-                  <div className={`combined-value${results.totalTax === 0 ? ' zero' : ''}`}>{fmt(results.totalTax)}</div>
-                </div>
 
-                <details className="detail-wrap">
-                  <summary>Show calculation details</summary>
-                  <div className="detail" dangerouslySetInnerHTML={{ __html: results.details }} />
+                  {results.totalTax > 0 && results.gross > 0 && (
+                    <div className="bg-white/10 rounded-xl px-6 py-4 text-right flex-shrink-0">
+                      <div className="text-white/55 text-xs font-bold uppercase tracking-wider mb-1">
+                        Estimated heirs receive
+                      </div>
+                      <div className="text-white text-2xl font-bold">
+                        {fmt(results.gross - results.totalTax)}
+                      </div>
+                      <div className="text-white/55 text-xs mt-0.5">
+                        {(100 - totalPct).toFixed(1)}% of gross estate
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Calculation details */}
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <details>
+                  <summary className="px-6 py-4 cursor-pointer select-none text-sm font-semibold text-[#2D3E50] hover:bg-gray-50 transition-colors">
+                    Show calculation details
+                  </summary>
+                  <div
+                    className="px-6 pb-6 pt-4 text-gray-500 text-sm leading-relaxed border-t border-gray-100 [&_p]:mb-2 [&_strong]:text-[#2D3E50]"
+                    dangerouslySetInnerHTML={{ __html: results.details }}
+                  />
                 </details>
               </div>
-            )}
 
-            {showResults && results.hasError && (
-              <div className="results">
-                <div className="detail" dangerouslySetInnerHTML={{ __html: results.details }} />
+              {/* CTA */}
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center">
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#2D3E50] mb-2">
+                  Concerned about your estate tax exposure?
+                </h3>
+                <p className="text-gray-500 text-sm mb-6 max-w-lg mx-auto leading-relaxed">
+                  With the right planning — trusts, gifting strategies, charitable vehicles — you may be able to significantly reduce or eliminate estate taxes. Our attorneys can build a plan tailored to your situation.
+                </p>
+                <Link
+                  href="/book-consultation/"
+                  className="inline-flex items-center bg-[#2D3E50] hover:bg-[#4A708B] text-white font-bold px-8 py-3.5 rounded-full transition-colors"
+                >
+                  Schedule a Free Consultation
+                </Link>
               </div>
-            )}
-          </div>
-        </section>
+            </>
+          )}
+
+          {/* Disclaimer */}
+          <p className="text-center text-xs text-gray-400 leading-relaxed max-w-2xl mx-auto pb-2">
+            This calculator provides estimates only and does not constitute legal or tax advice. Results do not account for marital deductions, charitable deductions, debts, mortgages, QTIP elections, or other adjustments that may reduce the taxable estate. Consult a licensed estate planning attorney for a complete analysis.
+          </p>
+        </div>
       </section>
     </main>
   );
