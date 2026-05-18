@@ -224,7 +224,7 @@ export function CategorizedServicesDisplay() {
         {
           name: 'Tier 2 Probate Package',
           subtitle: 'Estates above $150,000, no real estate sale needed',
-          fixedPrice: 5000,
+          fixedPrice: 6500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',

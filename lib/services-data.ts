@@ -263,7 +263,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate (Tier 2)',
-    fixedPrice: 5000,
+    fixedPrice: 6500,
     description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed',
     includes: [
       'Preparation and Filing of All Necessary Documents',

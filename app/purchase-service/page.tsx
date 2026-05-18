@@ -1202,7 +1202,7 @@ export default function PurchaseServicePage() {
                     <p className="mb-3"><strong>2.8 Probate Services Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands the following flat-fee pricing structure for standard, uncontested probate administration:</p>
                     <ul className="list-disc ml-6 space-y-1 mb-3">
                       <li><strong>Tier 1 Probate Package (estates under $150,000 with no real estate)</strong> &ndash; $2,500 flat fee (with or without a will)</li>
-                      <li><strong>Tier 2 Probate Package (estates above $150,000, no real estate sale needed)</strong> &ndash; $5,000 flat fee (with or without a will)</li>
+                      <li><strong>Tier 2 Probate Package (estates above $150,000, no real estate sale needed)</strong> &ndash; $6,500 flat fee (with or without a will)</li>
                       <li><strong>Tier 3 Probate Package (estates above $150,000, real estate sale representation included)</strong> &ndash; $7,500 flat fee, includes real estate sale representation (with or without a will)</li>
                       <li><strong>Tier 4 Probate Package (estates over $1,000,000)</strong> &ndash; $7,500 plus 1.5% of estate value (with or without a will)</li>
                     </ul>
