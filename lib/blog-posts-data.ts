@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'beneficiary-designations-override-your-will-illinois',
+    title: 'Beneficiary Designations Override Your Will in Illinois: What You Need to Know',
+    url: '/blog/beneficiary-designations-override-your-will-illinois/',
+    date: 'May 20, 2026',
+    summary: 'Comprehensive guide explaining why beneficiary designations on life insurance, IRAs, 401(k)s, and POD/TOD accounts override your will in Illinois, which assets are affected, the most common mistakes families make, and how to coordinate your entire estate plan so every asset goes to the right person.',
+    excerpt: 'Learn why beneficiary designations override your will in Illinois, which accounts are affected, and how to coordinate your will and designation forms so your estate plan works as intended.',
+  },
+  {
     slug: 'how-to-contest-a-will-in-illinois',
     title: 'How to Contest a Will in Illinois: Grounds, Deadlines, and the Legal Process',
     url: '/blog/how-to-contest-a-will-in-illinois/',
