@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-long-does-probate-take-in-illinois',
+    title: 'How Long Does Probate Take in Illinois? 2026 Timeline Guide',
+    url: '/blog/how-long-does-probate-take-in-illinois/',
+    date: 'May 27, 2026',
+    summary: 'Phase-by-phase guide to how long Illinois probate takes — from opening the estate through final distribution. Covers Cook County timelines, the mandatory six-month creditor period, factors that extend the process, summary probate and small estate affidavit options, and strategies to avoid probate entirely.',
+    excerpt: 'Illinois probate typically takes 9–18 months. Learn what drives the timeline, how each phase works in Cook County, and how to help your family avoid probate entirely.',
+  },
+  {
     slug: 'beneficiary-designations-override-your-will-illinois',
     title: 'Beneficiary Designations Override Your Will in Illinois: What You Need to Know',
     url: '/blog/beneficiary-designations-override-your-will-illinois/',
