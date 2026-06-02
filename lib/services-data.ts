@@ -198,21 +198,22 @@ export const estatePlanningPackages: Service[] = [
   {
     id: 'irrevocable-trust',
     name: 'Irrevocable Trust',
-    subtitle: 'life insurance, medicaid asset protection trust, special needs',
+    subtitle: 'Gifting Trust, Special Needs Trust, Life Insurance Trust (ILIT), or Supplemental Needs Trust',
     category: 'estate-planning',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Irrevocable Trust - A La Carte',
-    fixedPrice: 4500,
-    description: 'An Irrevocable Trust is a permanent legal arrangement where you transfer assets—like life insurance, property, or funds—into a trust that you cannot easily change or undo, often used to protect assets for Medicaid eligibility, reduce estate taxes, or provide for a loved one with special needs without affecting their government benefits.',
+    fixedPrice: 5000,
+    description: 'A custom-drafted irrevocable trust tailored to your goals — whether you need a Gifting Trust to reduce your taxable estate, a Special Needs or Supplemental Needs Trust to protect a loved one\'s government benefits, or an Irrevocable Life Insurance Trust (ILIT) to keep life insurance proceeds out of your estate. Once established, an irrevocable trust cannot be changed without beneficiary consent, offering strong asset protection and tax planning benefits.',
     includes: [
-      'Custom irrevocable trust drafting',
-      'Asset protection planning',
-      'Medicaid planning consultation',
-      'Special needs trust provisions',
+      'Attorney consultation to determine the right trust type (Gifting, Special Needs, ILIT, or Supplemental Needs)',
+      'Custom irrevocable trust drafting tailored to your specific goals',
+      'Asset protection and tax planning guidance',
+      'Coordination with financial advisors or insurance agents as needed',
       'Online or Mobile Notarization',
       'Access to Client Portal',
       'Unlimited Attorney Consultation'
     ],
+    note: 'Includes one of the following: Gifting Trust, Special Needs Trust, Life Insurance Trust (ILIT), or Supplemental Needs Trust. Additional trust types may be added at a reduced rate.',
     addOns: estatePlanningAddOns
   },
   {

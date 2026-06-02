@@ -49,7 +49,9 @@ export default function GetStartedPage() {
         <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <a
-              href="/purchase-service/"
+              href="https://portal.illinoisestatelaw.com/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#4a708b] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
             >
               <div className="flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-[#4a708b] group-hover:bg-white rounded-full flex items-center justify-center transition-all duration-300">

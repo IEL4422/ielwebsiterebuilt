@@ -231,11 +231,11 @@ export default function ComparePackagesPage() {
                 <td className="p-4"></td>
                 {packages.map((pkg) => (
                   <td key={pkg.id} className="p-4 text-center border-l border-slate-200">
-                    <Link href={`/purchase-service?service=${pkg.id}`}>
+                    <a href="https://portal.illinoisestatelaw.com/get-started" target="_blank" rel="noopener noreferrer">
                       <Button className={`w-full ${pkg.recommended ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'bg-slate-600 hover:bg-slate-700'}`}>
                         Select Package
                       </Button>
-                    </Link>
+                    </a>
                   </td>
                 ))}
               </tr>
@@ -286,11 +286,11 @@ export default function ComparePackagesPage() {
                 ))}
               </div>
 
-              <Link href={`/purchase-service?service=${pkg.id}`}>
+              <a href="https://portal.illinoisestatelaw.com/get-started" target="_blank" rel="noopener noreferrer">
                 <Button className={`w-full ${pkg.recommended ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'bg-slate-600 hover:bg-slate-700'}`}>
                   Select Package
                 </Button>
-              </Link>
+              </a>
             </Card>
           ))}
         </div>

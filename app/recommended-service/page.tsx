@@ -627,11 +627,7 @@ export default function RecommendedServicePage() {
   };
 
   const handleProceedToPurchase = () => {
-    if (recommendation?.requiresConsultation) {
-      window.location.href = '/book-consultation/';
-      return;
-    }
-    setShowClientInfo(true);
+    window.location.href = 'https://portal.illinoisestatelaw.com/get-started';
   };
 
   const handleClientInfoSubmit = (e: React.FormEvent) => {
