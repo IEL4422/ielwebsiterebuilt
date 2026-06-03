@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'what-happens-to-digital-assets-when-you-die-illinois',
+    title: 'What Happens to Digital Assets When You Die in Illinois?',
+    url: '/blog/what-happens-to-digital-assets-when-you-die-illinois/',
+    date: 'Jun 3, 2026',
+    summary: 'Comprehensive guide to digital assets at death in Illinois — covering the RUFADAA (755 ILCS 10), how to grant executor access, what happens to cryptocurrency, social media accounts, online financial accounts, and digital content, plus a six-step practical plan for protecting your digital estate.',
+    excerpt: 'Learn what Illinois law says about digital assets at death, why cryptocurrency can be permanently lost without a plan, and the practical steps to protect your digital estate.',
+  },
+  {
     slug: 'how-long-does-probate-take-in-illinois',
     title: 'How Long Does Probate Take in Illinois? 2026 Timeline Guide',
     url: '/blog/how-long-does-probate-take-in-illinois/',
