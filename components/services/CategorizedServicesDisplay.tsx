@@ -324,63 +324,32 @@ export function CategorizedServicesDisplay() {
       name: 'Trust Administration',
       packages: [
         {
-          name: 'Simple Trust Administration',
-          subtitle: 'Liquid assets only, no real estate, estate under $500K',
-          fixedPrice: 2500,
+          name: 'Trustee Services',
+          subtitle: 'Illinois Estate Law serves as your named trustee',
+          pricingLabel: '1.5% of Trust Value / Year (min. $3,500/year)',
           includes: [
-            'Review of Trust Document & Asset Inventory',
-            'Beneficiary Notifications',
-            'Asset Collection & Distribution',
-            'Final Accounting to Beneficiaries',
+            'Full fiduciary responsibility as named trustee',
+            'Ongoing trust asset management and oversight',
+            'Distributions to beneficiaries per trust terms',
+            'Annual trustee accountings',
+            'Beneficiary communication and reporting',
+            'Coordination with financial advisors and institutions',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For straightforward trust estates with liquid assets only (uncontested matters only)'
+          note: 'Annual fee of 1.5% of total trust value, minimum $3,500/year. Billed annually.'
         },
         {
-          name: 'Standard Trust Administration',
-          subtitle: 'Mixed assets, estate $500K–$1M, or real estate hold/transfer',
-          fixedPrice: 5000,
+          name: 'Trust Administration Consulting',
+          subtitle: 'Attorney guidance for individuals serving as trustee',
+          pricingLabel: '$3,500 / Year',
           includes: [
-            'Review of Trust Document & Asset Inventory',
-            'Beneficiary Notifications',
-            'Asset Collection & Distribution',
-            'Real Estate Transfer or Hold Management',
-            'Tax Coordination (Form 1041 referral as needed)',
-            'Final Accounting to Beneficiaries',
-            'Unlimited Attorney Consultation'
+            'Trust accounting review and preparation',
+            'Distribution review and guidance',
+            'Review of trust document and beneficiary rights',
+            'Guidance on trustee fiduciary duties under Illinois law',
+            'Unlimited Attorney Consultation throughout the year'
           ],
-          note: 'For trust estates with mixed assets including real estate (uncontested matters only)'
-        },
-        {
-          name: 'Trust Administration with Real Estate Sale',
-          subtitle: 'Includes sale of real estate from the trust',
-          fixedPrice: 7500,
-          includes: [
-            'Review of Trust Document & Asset Inventory',
-            'Beneficiary Notifications',
-            'Asset Collection & Distribution',
-            'Real Estate Sale Representation',
-            'Tax Coordination (Form 1041 referral as needed)',
-            'Final Accounting to Beneficiaries',
-            'Unlimited Attorney Consultation'
-          ],
-          note: 'For trust estates requiring sale of real property (uncontested matters only)'
-        },
-        {
-          name: 'Large or Complex Trust Administration',
-          subtitle: 'Estates over $1M or with business interests',
-          pricingLabel: '$7,500 + 1% of Trust Estate Value',
-          includes: [
-            'Review of Trust Document & Asset Inventory',
-            'Beneficiary Notifications',
-            'Asset Collection & Distribution',
-            'Business Interest Management',
-            'Real Estate Sale Representation',
-            'Tax Coordination (Form 1041 referral as needed)',
-            'Final Accounting to Beneficiaries',
-            'Unlimited Attorney Consultation'
-          ],
-          note: 'For large or complex trust estates over $1M or involving business interests (uncontested matters only)'
+          note: 'Flat annual fee of $3,500. For successor trustees who need ongoing legal support.'
         }
       ],
       aLaCarte: [],

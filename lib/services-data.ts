@@ -45,7 +45,9 @@ export type StandardizedServiceName =
   | 'Trust Administration (Simple)'
   | 'Trust Administration (Standard)'
   | 'Trust Administration (Standard with Real Estate)'
-  | 'Trust Administration (Large Trust)';
+  | 'Trust Administration (Large Trust)'
+  | 'Trustee Services'
+  | 'Trust Administration Consulting';
 
 export interface Service {
   id: string;
@@ -635,92 +637,43 @@ export const realEstateServices: Service[] = [
 
 export const trustAdministrationServices: Service[] = [
   {
-    id: 'trust-admin-tier-1',
-    name: 'Trust Administration — Simple',
-    subtitle: 'Trust assets under $150,000',
+    id: 'trustee-services',
+    name: 'Trustee Services',
+    subtitle: 'Illinois Estate Law serves as your trustee',
     category: 'probate',
     standardizedCaseType: 'Trust Administration',
-    standardizedServiceName: 'Trust Administration (Simple)',
-    fixedPrice: 2500,
-    description: 'Full-service trust administration for trusts with assets under $150,000. We guide the successor trustee through every step — notifying beneficiaries, gathering assets, paying expenses, and distributing the estate.',
+    standardizedServiceName: 'Trustee Services',
+    pricingLabel: '1.5% of Trust Value / Year (min. $3,500/year)',
+    description: 'Illinois Estate Law serves as the named trustee for your trust, assuming full fiduciary responsibility for ongoing trust management, investment oversight, distributions to beneficiaries, and annual accountings. Ideal for grantors who want professional, independent administration without placing the burden on a family member.',
     includes: [
-      'Review of Trust Document and Asset Inventory',
-      'Notification of Beneficiaries',
-      'Asset Gathering and Valuation',
-      'Payment of Trust Debts and Expenses',
-      'Preparation of Trustee Accounting',
-      'Distribution to Beneficiaries',
+      'Full fiduciary responsibility as named trustee',
+      'Ongoing trust asset management and oversight',
+      'Distributions to beneficiaries per trust terms',
+      'Annual trustee accountings',
+      'Beneficiary communication and reporting',
+      'Coordination with financial advisors and institutions',
       'Unlimited Attorney Consultation'
     ],
-    note: 'Illinois Estate Law handles uncontested trust administration matters only.',
+    note: 'Annual fee of 1.5% of total trust value, with a minimum of $3,500 per year. Billed annually.',
     addOns: []
   },
   {
-    id: 'trust-admin-tier-2',
-    name: 'Trust Administration — Standard',
-    subtitle: 'Trust assets over $150,000, no real estate sale',
+    id: 'trust-admin-consulting',
+    name: 'Trust Administration Consulting',
+    subtitle: 'Attorney guidance for individuals serving as trustee',
     category: 'probate',
     standardizedCaseType: 'Trust Administration',
-    standardizedServiceName: 'Trust Administration (Standard)',
-    fixedPrice: 5000,
-    description: 'Comprehensive trust administration for trusts with assets over $150,000 where no real estate sale is required.',
+    standardizedServiceName: 'Trust Administration Consulting',
+    pricingLabel: '$3,500 / Year',
+    description: 'Comprehensive legal consulting for individuals who have been named trustee and need professional support to carry out their duties correctly. We review accountings, guide distributions, and provide unlimited attorney access — so you can fulfill your fiduciary obligations with confidence.',
     includes: [
-      'Review of Trust Document and Asset Inventory',
-      'Notification of Beneficiaries',
-      'Asset Gathering and Valuation',
-      'Payment of Trust Debts and Expenses',
-      'Preparation of Trustee Accounting',
-      'Coordination with Financial Institutions',
-      'Distribution to Beneficiaries',
-      'Unlimited Attorney Consultation'
+      'Trust accounting review and preparation',
+      'Distribution review and guidance',
+      'Review of trust document and beneficiary rights',
+      'Guidance on trustee fiduciary duties under Illinois law',
+      'Unlimited Attorney Consultation throughout the year'
     ],
-    note: 'Illinois Estate Law handles uncontested trust administration matters only.',
-    addOns: []
-  },
-  {
-    id: 'trust-admin-tier-3',
-    name: 'Trust Administration — with Real Estate Sale',
-    subtitle: 'Trust assets over $150,000, real estate sale included',
-    category: 'probate',
-    standardizedCaseType: 'Trust Administration',
-    standardizedServiceName: 'Trust Administration (Standard with Real Estate)',
-    fixedPrice: 7500,
-    description: 'Full-service trust administration for trusts that include real estate requiring sale representation, including coordination with title companies and closing attendance.',
-    includes: [
-      'Review of Trust Document and Asset Inventory',
-      'Notification of Beneficiaries',
-      'Asset Gathering and Valuation',
-      'Payment of Trust Debts and Expenses',
-      'Preparation of Trustee Accounting',
-      'Real Estate Sale Representation',
-      'Coordination with Financial Institutions',
-      'Distribution to Beneficiaries',
-      'Unlimited Attorney Consultation'
-    ],
-    note: 'Illinois Estate Law handles uncontested trust administration matters only.',
-    addOns: []
-  },
-  {
-    id: 'trust-admin-tier-4',
-    name: 'Trust Administration — Large Trust',
-    subtitle: 'Trust assets over $1,000,000',
-    category: 'probate',
-    standardizedCaseType: 'Trust Administration',
-    standardizedServiceName: 'Trust Administration (Large Trust)',
-    pricingLabel: '$7,500 + 1% of Trust Value',
-    description: 'Full-service trust administration for larger trusts over $1,000,000, including real estate sale representation and coordination with financial advisors.',
-    includes: [
-      'Review of Trust Document and Asset Inventory',
-      'Notification of Beneficiaries',
-      'Asset Gathering and Valuation',
-      'Payment of Trust Debts and Expenses',
-      'Preparation of Trustee Accounting',
-      'Real Estate Sale Representation',
-      'Coordination with Financial Institutions and Advisors',
-      'Distribution to Beneficiaries',
-      'Unlimited Attorney Consultation'
-    ],
-    note: 'Illinois Estate Law handles uncontested trust administration matters only.',
+    note: 'Flat annual fee of $3,500. Designed for successor trustees who need ongoing legal support without full-service administration.',
     addOns: []
   }
 ];
