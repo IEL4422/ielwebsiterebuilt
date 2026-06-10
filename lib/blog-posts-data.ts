@@ -65,6 +65,16 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Learn how to sell a house during Illinois probate, including executor authority, the court approval process, and how to close efficiently while protecting the estate.',
   },
   {
+    slug: 'special-needs-trust-illinois-guide',
+    title: 'Special Needs Trusts in Illinois: A Complete Guide for Families',
+    url: '/blog/special-needs-trust-illinois-guide/',
+    date: 'Jun 10, 2026',
+    summary:
+      'Complete guide to special needs trusts in Illinois — why direct inheritance destroys SSI and Medicaid eligibility, the difference between third-party and first-party (d4A) SNTs, what an SNT can pay for, how to create and fund one, trustee selection, and Illinois pooled trust alternatives.',
+    excerpt:
+      'Learn how a special needs trust preserves SSI and Medicaid for a disabled loved one in Illinois, the key differences between trust types, and how to set one up.',
+  },
+  {
     slug: 'how-to-hold-title-to-your-home-in-illinois',
     title: 'How to Hold Title to Your Home in Illinois: Joint Tenancy, Trust, or Sole Ownership?',
     url: '/blog/how-to-hold-title-to-your-home-in-illinois/',
