@@ -83,27 +83,33 @@ export default function BlogPage() {
 
   useEffect(() => {
     async function fetchPosts() {
-      try {
-        // Start with all static hardcoded posts
-        const staticSlugs = new Set(staticBlogPosts.map(p => p.slug));
-        let allPosts: BlogPost[] = [...staticBlogPosts];
+      // ALWAYS show static posts immediately — no API call required
+      const staticSorted = [...staticBlogPosts].sort(
+        (a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime()
+      );
+      setPosts(staticSorted);
+      setFilteredPosts(staticSorted);
+      setLoading(false);
 
-        // Also fetch from MongoDB for any posts stored there not already in static list
+      // Optionally merge in any MongoDB-only posts on top
+      try {
+        const staticSlugs = new Set(staticBlogPosts.map(p => p.slug));
         const apiRes = await fetch('/api/blog-posts').catch(() => null);
         if (apiRes && apiRes.ok) {
-          const dbPosts: BlogPost[] = await apiRes.json();
-          const newPosts = dbPosts.filter(p => !staticSlugs.has(p.slug));
-          allPosts = [...allPosts, ...newPosts];
+          const data = await apiRes.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const newPosts = data.filter((p: BlogPost) => p && p.slug && !staticSlugs.has(p.slug));
+            if (newPosts.length > 0) {
+              const allPosts = [...staticBlogPosts, ...newPosts].sort(
+                (a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime()
+              );
+              setPosts(allPosts);
+              setFilteredPosts(allPosts);
+            }
+          }
         }
-
-        allPosts.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
-
-        setPosts(allPosts);
-        setFilteredPosts(allPosts);
-      } catch (err) {
-        console.error('Error loading blog posts:', err);
-      } finally {
-        setLoading(false);
+      } catch {
+        // Static posts are already set above — API errors don't affect the listing
       }
     }
 
