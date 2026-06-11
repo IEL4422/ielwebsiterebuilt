@@ -207,9 +207,23 @@ export function CategorizedServicesDisplay() {
       name: 'Probate',
       packages: [
         {
-          name: 'Tier 1 Probate Package (Summary Probate)',
-          subtitle: 'Estates valued under $150,000 with no real estate',
-          fixedPrice: 2500,
+          name: 'Bond in Lieu of Probate',
+          subtitle: 'When the only asset is real estate',
+          fixedPrice: 1500,
+          includes: [
+            'Preparation and Filing of Bond in Lieu of Probate',
+            'Title Transfer Documentation',
+            'Notification of Heirs',
+            'Representation at Court Hearing',
+            'Filing Fees',
+            'Unlimited Attorney Consultation'
+          ],
+          note: 'Available when the sole estate asset is real estate. The only additional fee is the surety bond premium, paid directly to the bond provider.'
+        },
+        {
+          name: 'Summary Probate',
+          subtitle: 'For uncontested cases with assets under $50,000',
+          fixedPrice: 3000,
           includes: [
             'Preparation and Filing of Summary Administration Petition',
             'Notification of Heirs and Creditors',
@@ -219,29 +233,11 @@ export function CategorizedServicesDisplay() {
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued under $150,000 with no real estate — streamlined summary administration (uncontested matters only)'
+          note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.'
         },
         {
-          name: 'Tier 2 Probate Package',
-          subtitle: 'Estates above $150,000, no real estate sale needed',
-          fixedPrice: 6500,
-          includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Filing Fees',
-            'Creditor Notification Publication Fees',
-            'Preparation of Final Accounting',
-            'Access to Probate Portal',
-            'Unlimited Attorney Consultation'
-          ],
-          note: 'For estates above $150,000 with or without real estate, no sale of real estate needed (uncontested matters only)'
-        },
-        {
-          name: 'Tier 3 Probate Package',
-          subtitle: 'Estates above $150,000, real estate sale representation included',
+          name: 'Standard Probate',
+          subtitle: 'Uncontested probate for estates under $2 million',
           fixedPrice: 7500,
           includes: [
             'Preparation and Filing of All Necessary Documents',
@@ -249,33 +245,31 @@ export function CategorizedServicesDisplay() {
             'Heirship Research',
             'Asset Search',
             'Representation at All Court Hearings',
-            'Filing Fees',
-            'Creditor Notification Publication Fees',
+            'Filing Fees, Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
             'Real Estate Sale Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates above $150,000 that require real estate sale representation (uncontested matters only)'
+          note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.'
         },
         {
-          name: 'Tier 4 Probate Package',
-          subtitle: 'Estates over $1,000,000',
-          pricingLabel: '$7,500 + 1.5% of Estate Value',
+          name: 'Large Estate Probate',
+          subtitle: 'Uncontested probate for estates above $2 million',
+          pricingLabel: '$7,500 + 1% of Estate Value',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
             'Heirship Research',
             'Asset Search',
             'Representation at All Court Hearings',
-            'Filing Fees',
-            'Creditor Notification Publication Fees',
+            'Filing Fees, Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
             'Real Estate Sale Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
-          note: 'For estates valued over $1,000,000 (uncontested matters only)'
+          note: 'The $7,500 base fee is due at engagement. The 1% fee on total estate value is collected at the time of administration. Illinois Estate Law handles uncontested probate matters only.'
         },
         {
           name: 'Heir Representation',

@@ -34,6 +34,9 @@ export type StandardizedServiceName =
   | 'Probate (Tier 3)'
   | 'Probate (Tier 4)'
   | 'Summary Probate'
+  | 'Bond in Lieu of Probate'
+  | 'Standard Probate'
+  | 'Large Estate Probate'
   | 'Partial Probate'
   | 'Heir Representation'
   | 'Spousal Representation'
@@ -239,14 +242,34 @@ export const estatePlanningPackages: Service[] = [
 
 export const probatePackages: Service[] = [
   {
-    id: 'probate-tier-1',
-    name: 'Tier 1 Probate Package (Summary Probate)',
-    subtitle: 'Estates valued under $150,000 with no real estate',
+    id: 'bond-in-lieu-of-probate',
+    name: 'Bond in Lieu of Probate',
+    subtitle: 'When the only asset is real estate',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate (Tier 1)',
-    fixedPrice: 2500,
-    description: 'Streamlined summary probate administration for estates valued under $150,000 with no real estate — a faster, simpler process than standard probate under Illinois law.',
+    standardizedServiceName: 'Bond in Lieu of Probate',
+    fixedPrice: 1500,
+    description: 'A streamlined alternative to full probate when the only estate asset is real estate. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a lengthy probate proceeding.',
+    includes: [
+      'Preparation and Filing of Bond in Lieu of Probate',
+      'Title Transfer Documentation',
+      'Notification of Heirs',
+      'Representation at Court Hearing',
+      'Filing Fees',
+      'Unlimited Attorney Consultation'
+    ],
+    note: 'Available when the sole estate asset is real estate. The only additional fee is the surety bond premium, paid directly to the bond provider.',
+    addOns: []
+  },
+  {
+    id: 'summary-probate',
+    name: 'Summary Probate',
+    subtitle: 'For uncontested cases with assets under $50,000',
+    category: 'probate',
+    standardizedCaseType: 'Probate',
+    standardizedServiceName: 'Summary Probate',
+    fixedPrice: 3000,
+    description: 'Streamlined summary probate administration for uncontested estates with total assets under $50,000.',
     includes: [
       'Preparation and Filing of Summary Administration Petition',
       'Notification of Heirs and Creditors',
@@ -260,37 +283,14 @@ export const probatePackages: Service[] = [
     addOns: []
   },
   {
-    id: 'probate-tier-2',
-    name: 'Tier 2 Probate Package',
-    subtitle: 'Estates above $150,000, no real estate sale needed',
+    id: 'standard-probate',
+    name: 'Standard Probate',
+    subtitle: 'Uncontested probate for estates under $2 million',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate (Tier 2)',
-    fixedPrice: 6500,
-    description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed',
-    includes: [
-      'Preparation and Filing of All Necessary Documents',
-      'Notification of Heirs and Creditors',
-      'Heirship Research',
-      'Asset Search',
-      'Representation at All Court Hearings',
-      'Filing Fees, Creditor Notification Publication Fees',
-      'Preparation of Final Accounting',
-      'Access to Probate Portal',
-      'Unlimited Attorney Consultation'
-    ],
-    note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.',
-    addOns: []
-  },
-  {
-    id: 'probate-tier-3',
-    name: 'Tier 3 Probate Package',
-    subtitle: 'Estates above $150,000, real estate sale representation included',
-    category: 'probate',
-    standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate (Tier 3)',
+    standardizedServiceName: 'Standard Probate',
     fixedPrice: 7500,
-    description: 'Flat-fee probate administration for estates valued above $150,000 that require real estate sale representation',
+    description: 'Flat-fee probate administration for uncontested estates under $2,000,000, with or without real estate.',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -307,14 +307,14 @@ export const probatePackages: Service[] = [
     addOns: []
   },
   {
-    id: 'probate-tier-4',
-    name: 'Tier 4 Probate Package',
-    subtitle: 'Estates over $1,000,000',
+    id: 'large-estate-probate',
+    name: 'Large Estate Probate',
+    subtitle: 'Uncontested probate for estates above $2 million',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Probate (Tier 4)',
-    pricingLabel: '$7,500 + 1.5% of Estate Value',
-    description: 'Probate administration for estates valued over $1,000,000',
+    standardizedServiceName: 'Large Estate Probate',
+    pricingLabel: '$7,500 + 1% of Estate Value',
+    description: 'Probate administration for uncontested estates valued above $2,000,000.',
     includes: [
       'Preparation and Filing of All Necessary Documents',
       'Notification of Heirs and Creditors',
@@ -327,7 +327,7 @@ export const probatePackages: Service[] = [
       'Access to Probate Portal',
       'Unlimited Attorney Consultation'
     ],
-    note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.',
+    note: 'The $7,500 base fee is due at engagement. The 1% fee on total estate value is collected at the time of administration. Illinois Estate Law handles uncontested probate matters only.',
     addOns: []
   },
   {

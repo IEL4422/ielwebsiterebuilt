@@ -286,19 +286,16 @@ export default function RecommendedServicePage() {
 
       if (decedentEstateValue === 'under-100k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
-          name: 'Tier 1 Probate Package (Summary Probate)',
-          price: '$2,500',
-          description: 'For estates valued under $150,000 with no real estate — streamlined summary administration under Illinois law.',
+          name: 'Summary Probate',
+          price: '$3,000',
+          description: 'For uncontested estates with assets under $50,000 — streamlined summary administration under Illinois law.',
           includes: [
-            'Preparation and Filing of All Necessary Documents',
+            'Preparation and Filing of Summary Administration Petition',
             'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
+            'Representation at Court Hearing',
             'Filing Fees',
-            'Creditor Notification Publication Fees',
-            'Preparation of Final Accounting',
-            'Access to Client Portal',
+            'Preparation of Distribution Order',
+            'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
           addOns: [],
@@ -312,26 +309,26 @@ export default function RecommendedServicePage() {
       const needsFullProbate = decedentEstateValue === 'over-100k' || decedentHasRealEstate === 'yes';
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
-          name: 'Tier 2 Probate Package',
-          price: '$6,500',
-          description: 'Flat-fee probate administration for estates valued above $150,000, with or without real estate, where no sale of real estate is needed. Contact us if your estate requires real estate sale representation or is valued over $1,000,000.',
+          name: 'Standard Probate',
+          price: '$7,500',
+          description: 'Flat-fee probate administration for uncontested estates under $2,000,000, with or without real estate. Contact us for large estate probate (over $2,000,000).',
           includes: [
             'Preparation and Filing of All Necessary Documents',
             'Notification of Heirs and Creditors',
             'Heirship Research',
             'Asset Search',
             'Representation at All Court Hearings',
-            'Filing Fees',
-            'Creditor Notification Publication Fees',
+            'Filing Fees, Creditor Notification Publication Fees',
             'Preparation of Final Accounting',
+            'Real Estate Sale Representation',
             'Access to Probate Portal',
             'Unlimited Attorney Consultation'
           ],
           addOns: [],
-          serviceId: 'probate-tier-2',
+          serviceId: 'standard-probate',
           requiresConsultation: false,
           standardizedCaseType: 'Probate',
-          standardizedServiceName: 'Probate (Tier 2)'
+          standardizedServiceName: 'Standard Probate'
         };
       }
 
