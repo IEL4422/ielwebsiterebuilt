@@ -49,6 +49,14 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'What Illinois home sellers need to know about the attorney review period — protecting your interests, responding to buyer modifications, and disclosure requirements.',
   },
   {
+    slug: 'guardianship-vs-power-of-attorney-illinois',
+    title: 'Guardianship vs. Power of Attorney in Illinois: What Every Family Needs to Know',
+    url: '/blog/guardianship-vs-power-of-attorney-illinois/',
+    date: 'Jun 17, 2026',
+    summary: 'Comprehensive guide to guardianship vs. power of attorney in Illinois — how each is created, key differences in cost and court involvement, when a POA prevents guardianship, when guardianship becomes necessary anyway, and how to plan ahead with a complete estate plan to protect your family.',
+    excerpt: 'Learn the key differences between guardianship and power of attorney in Illinois, why a POA costs a fraction of guardianship, and how to protect your family before a crisis hits.',
+  },
+  {
     slug: 'illinois-real-estate-transfer-tax',
     title: 'Illinois Real Estate Transfer Tax: What Sellers (and Buyers) Pay at Closing',
     url: '/blog/illinois-real-estate-transfer-tax/',
