@@ -225,13 +225,14 @@ export function CategorizedServicesDisplay() {
           subtitle: 'For uncontested cases with assets under $50,000',
           fixedPrice: 3000,
           includes: [
-            'Preparation and Filing of Summary Administration Petition',
-            'Notification of Heirs and Creditors',
-            'Representation at Court Hearing',
-            'Filing Fees',
-            'Preparation of Distribution Order',
-            'Access to Probate Portal',
-            'Unlimited Attorney Consultation'
+            'Prepare and file all required court documentation and filings',
+            'Handling of all court dates and hearings (uncontested matters only)',
+            'Opening of estate bank account',
+            'Obtaining EIN number',
+            'Asset search',
+            'Creditor notification publication',
+            'Final tax returns (if required, does not include estate tax returns)',
+            'Unlimited attorney consultation'
           ],
           note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.'
         },
@@ -240,16 +241,14 @@ export function CategorizedServicesDisplay() {
           subtitle: 'Uncontested probate for estates under $2 million',
           fixedPrice: 7500,
           includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Filing Fees, Creditor Notification Publication Fees',
-            'Preparation of Final Accounting',
-            'Real Estate Sale Representation',
-            'Access to Probate Portal',
-            'Unlimited Attorney Consultation'
+            'Prepare and file all required court documentation and filings',
+            'Handling of all court dates and hearings (uncontested matters only)',
+            'Opening of estate bank account',
+            'Obtaining EIN number',
+            'Asset search',
+            'Creditor notification publication',
+            'Final tax returns (if required, does not include estate tax returns)',
+            'Unlimited attorney consultation'
           ],
           note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.'
         },
@@ -258,16 +257,14 @@ export function CategorizedServicesDisplay() {
           subtitle: 'Uncontested probate for estates above $2 million',
           pricingLabel: '$7,500 + 1% of Estate Value',
           includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Filing Fees, Creditor Notification Publication Fees',
-            'Preparation of Final Accounting',
-            'Real Estate Sale Representation',
-            'Access to Probate Portal',
-            'Unlimited Attorney Consultation'
+            'Prepare and file all required court documentation and filings',
+            'Handling of all court dates and hearings (uncontested matters only)',
+            'Opening of estate bank account',
+            'Obtaining EIN number',
+            'Asset search',
+            'Creditor notification publication',
+            'Final tax returns (if required, does not include estate tax returns)',
+            'Unlimited attorney consultation'
           ],
           note: 'The $7,500 base fee is due at engagement. The 1% fee on total estate value is collected at the time of administration. Illinois Estate Law handles uncontested probate matters only.'
         },
