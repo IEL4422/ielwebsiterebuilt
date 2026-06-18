@@ -21,7 +21,8 @@ const getSupabaseClient = () => {
 };
 
 interface QuizAnswers {
-  needType: 'estate-planning' | 'probate' | 'prenuptial' | '';
+  needType: 'estate-planning' | 'probate' | 'prenuptial' | 'real-estate' | '';
+  realEstateRole: 'buyer' | 'seller' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
   estateValue: 'under-100k' | '100k-3.5m' | 'over-3.5m' | '';
@@ -77,6 +78,7 @@ export default function RecommendedServicePage() {
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState<QuizAnswers>({
     needType: '',
+    realEstateRole: '',
     maritalStatus: '',
     ownsRealEstate: '',
     estateValue: '',
@@ -218,6 +220,27 @@ export default function RecommendedServicePage() {
           standardizedServiceName: 'Prenuptial Agreement - Drafting'
         };
       }
+    }
+
+    if (needType === 'real-estate') {
+      return {
+        name: 'Residential Closing — Attorney Representation',
+        price: '$750',
+        description: 'Full-service attorney representation for your Illinois residential real estate closing, whether you are buying or selling.',
+        includes: [
+          'Contract Review & Negotiation',
+          'Title Review & Clearance',
+          'Attorney Representation at Closing',
+          'Document Preparation & Review',
+          'Settlement Statement Review',
+          'Unlimited Attorney Consultation'
+        ],
+        addOns: [],
+        serviceId: 'residential-closing',
+        requiresConsultation: false,
+        standardizedCaseType: 'Real Estate',
+        standardizedServiceName: 'Residential Closing'
+      };
     }
 
     if (needType === 'probate') {
@@ -494,6 +517,9 @@ export default function RecommendedServicePage() {
   };
 
   const getMaxSteps = () => {
+    if (answers.needType === 'real-estate') {
+      return 2;
+    }
     if (answers.needType === 'prenuptial') {
       return 3;
     }
@@ -539,6 +565,7 @@ export default function RecommendedServicePage() {
       case 1:
         return answers.needType !== '';
       case 2:
+        if (answers.needType === 'real-estate') return answers.realEstateRole !== '';
         if (answers.needType === 'prenuptial') return answers.hasExistingPrenup !== '';
         if (answers.needType === 'probate') return answers.isRepresentative !== '';
         return answers.maritalStatus !== '';
@@ -570,6 +597,7 @@ export default function RecommendedServicePage() {
     setStep(1);
     setAnswers({
       needType: '',
+      realEstateRole: '',
       maritalStatus: '',
       ownsRealEstate: '',
       estateValue: '',
@@ -865,6 +893,83 @@ export default function RecommendedServicePage() {
                           </div>
                         </div>
                         {answers.needType === 'prenuptial' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => updateAnswer('needType', 'real-estate')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.needType === 'real-estate'
+                          ? 'border-[#4a708b] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            Real Estate Closing
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            I need an attorney for a residential real estate closing in Illinois
+                          </div>
+                        </div>
+                        {answers.needType === 'real-estate' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Real Estate Path */}
+              {answers.needType === 'real-estate' && step === 2 && (
+                <div className="space-y-6">
+                  <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
+                    Are you buying or selling?
+                  </h2>
+                  <div className="space-y-4">
+                    <button
+                      onClick={() => updateAnswer('realEstateRole', 'buyer')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.realEstateRole === 'buyer'
+                          ? 'border-[#4a708b] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            I am the Buyer
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            Purchasing a residential property in Illinois
+                          </div>
+                        </div>
+                        {answers.realEstateRole === 'buyer' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => updateAnswer('realEstateRole', 'seller')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.realEstateRole === 'seller'
+                          ? 'border-[#4a708b] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            I am the Seller
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            Selling a residential property in Illinois
+                          </div>
+                        </div>
+                        {answers.realEstateRole === 'seller' && (
                           <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
                         )}
                       </div>
