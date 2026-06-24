@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'trustee-vs-executor-illinois',
+    title: 'Trustee vs. Executor in Illinois: Roles, Duties, and Which You Need',
+    url: '/blog/trustee-vs-executor-illinois/',
+    date: 'Jun 24, 2026',
+    summary: 'Clear guide to the difference between a trustee and an executor in Illinois — how each is appointed, what duties each role carries, how the Illinois Trust Code and Probate Act govern each, and how to choose the right person (or people) for each role in your estate plan.',
+    excerpt: 'Learn the difference between a trustee and executor in Illinois, what each role requires, and how to choose the right person for your estate plan.',
+  },
+  {
     slug: 'what-happens-to-digital-assets-when-you-die-illinois',
     title: 'What Happens to Digital Assets When You Die in Illinois?',
     url: '/blog/what-happens-to-digital-assets-when-you-die-illinois/',
