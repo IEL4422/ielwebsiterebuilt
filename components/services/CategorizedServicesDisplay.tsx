@@ -221,9 +221,9 @@ export function CategorizedServicesDisplay() {
           note: 'Available when the sole estate asset is real estate. The only additional fee is the surety bond premium, paid directly to the bond provider.'
         },
         {
-          name: 'Summary Probate',
+          name: 'Small Estate Probate',
           subtitle: 'For uncontested cases with assets under $50,000',
-          fixedPrice: 3000,
+          fixedPrice: 3500,
           includes: [
             'Prepare and file all required court documentation and filings',
             'Handling of all court dates and hearings (uncontested matters only)',
@@ -239,7 +239,7 @@ export function CategorizedServicesDisplay() {
         {
           name: 'Standard Probate',
           subtitle: 'Uncontested probate for estates under $2 million',
-          fixedPrice: 7500,
+          fixedPrice: 6500,
           includes: [
             'Prepare and file all required court documentation and filings',
             'Handling of all court dates and hearings (uncontested matters only)',

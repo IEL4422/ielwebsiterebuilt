@@ -309,8 +309,8 @@ export default function RecommendedServicePage() {
 
       if (decedentEstateValue === 'under-100k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
-          name: 'Summary Probate',
-          price: '$3,000',
+          name: 'Small Estate Probate',
+          price: '$3,500',
           description: 'For uncontested estates with assets under $50,000 — streamlined summary administration under Illinois law.',
           includes: [
             'Prepare and file all required court documentation and filings',
@@ -326,7 +326,7 @@ export default function RecommendedServicePage() {
           serviceId: 'summary-probate',
           requiresConsultation: false,
           standardizedCaseType: 'Probate',
-          standardizedServiceName: 'Summary Probate'
+          standardizedServiceName: 'Small Estate Probate'
         };
       }
 
@@ -334,7 +334,7 @@ export default function RecommendedServicePage() {
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Standard Probate',
-          price: '$7,500',
+          price: '$6,500',
           description: 'Flat-fee probate administration for uncontested estates under $2,000,000, with or without real estate. Contact us for large estate probate (over $2,000,000).',
           includes: [
             'Prepare and file all required court documentation and filings',

@@ -40,7 +40,7 @@ export default function Page() {
     const hourlyLow = Math.max(5000, value * 0.03);
     const hourlyHigh = Math.max(8000, value * 0.05);
 
-    const flatFee = 7500;
+    const flatFee = 6500;
 
     return {
       baseCosts,
@@ -68,7 +68,7 @@ export default function Page() {
   const faqs = [
     {
       question: 'How much does a probate attorney cost in Illinois?',
-      answer: 'Probate attorney costs in Illinois vary widely depending on the billing model. Hourly attorneys typically charge $250-$450 per hour and bill for every phone call, email, and court appearance, resulting in total fees of $5,000-$15,000 or more. Flat-fee attorneys, like Illinois Estate Law, charge a set amount regardless of how long the case takes. Our flat fee of $7,500 for standard probate covers the entire process from filing through final distribution, giving families cost certainty from day one.',
+      answer: 'Probate attorney costs in Illinois vary widely depending on the billing model. Hourly attorneys typically charge $250-$450 per hour and bill for every phone call, email, and court appearance, resulting in total fees of $5,000-$15,000 or more. Flat-fee attorneys, like Illinois Estate Law, charge a set amount regardless of how long the case takes. Our flat fee of $6,500 for standard probate covers the entire process from filing through final distribution, giving families cost certainty from day one.',
     },
     {
       question: 'Who pays probate costs in Illinois?',
@@ -203,7 +203,7 @@ export default function Page() {
                     This guide breaks down every category of probate expense &mdash; court filing fees, attorney fees, executor compensation, publication costs, and hidden charges &mdash; for Cook County, DuPage County, and Kane County. You will find an interactive cost calculator to estimate your total and a side-by-side comparison of hourly versus flat-fee billing.
                   </p>
                   <p className="mb-0">
-                    At Illinois Estate Law, we offer a reasonable flat fee of <strong>$7,500</strong> for standard probate &mdash; a fraction of what many hourly firms charge for the same work. Families working with hourly attorneys often pay double or triple that amount before the case is closed.
+                    At Illinois Estate Law, we offer a reasonable flat fee of <strong>$6,500</strong> for standard probate &mdash; a fraction of what many hourly firms charge for the same work. Families working with hourly attorneys often pay double or triple that amount before the case is closed.
                   </p>
                 </div>
               </div>
@@ -270,7 +270,7 @@ export default function Page() {
                     </tr>
                     <tr className="bg-green-50">
                       <td className="py-3 px-4 font-semibold text-green-700">Attorney Fees (Flat Fee)</td>
-                      <td className="py-3 px-4 font-bold text-green-700">$7,500</td>
+                      <td className="py-3 px-4 font-bold text-green-700">$6,500</td>
                       <td className="py-3 px-4 text-green-700">Our standard flat fee &mdash; no surprises</td>
                     </tr>
                     <tr>
@@ -404,7 +404,7 @@ export default function Page() {
                   </h3>
                 </div>
                 <div className="p-6">
-                  <div className="text-3xl font-bold text-green-600 mb-4">$7,500</div>
+                  <div className="text-3xl font-bold text-green-600 mb-4">$6,500</div>
                   <ul className="space-y-3 text-sm">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
@@ -437,7 +437,7 @@ export default function Page() {
                 <div>
                   <p className="font-semibold mb-2">Real-world example:</p>
                   <p className="text-gray-700">
-                    A $400,000 estate in Cook County with a house, two bank accounts, and three beneficiaries. An hourly firm billed 42 hours at $350/hr = <strong>$14,700 in attorney fees alone</strong>. With our flat fee, the same family would have paid <strong>$7,500</strong> &mdash; saving over $7,000. The legal work is identical; the billing model is what makes the difference.
+                    A $400,000 estate in Cook County with a house, two bank accounts, and three beneficiaries. An hourly firm billed 42 hours at $350/hr = <strong>$14,700 in attorney fees alone</strong>. With our flat fee, the same family would have paid <strong>$6,500</strong> &mdash; saving over $8,000. The legal work is identical; the billing model is what makes the difference.
                   </p>
                 </div>
               </div>
@@ -493,7 +493,7 @@ export default function Page() {
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
-                  Flat Fee ($7,500)
+                  Flat Fee ($6,500)
                 </button>
               </div>
 
@@ -517,7 +517,7 @@ export default function Page() {
                         ${costs.flatTotal.toLocaleString()}
                       </div>
                       <div className="text-sm text-gray-500 mt-2">
-                        $7,500 flat fee + court costs + publication + certified copies
+                        $6,500 flat fee + court costs + publication + certified copies
                         {parseFloat(estateValue) > 200000 && ' + real estate appraisal'}
                       </div>
                     </div>
@@ -597,7 +597,7 @@ export default function Page() {
                   Choose a flat-fee attorney
                 </h3>
                 <p className="text-sm text-gray-700">
-                  The single most impactful decision. Our $7,500 flat fee saves families thousands compared to hourly billing &mdash; especially when cases take longer than expected or involve multiple court appearances.
+                  The single most impactful decision. Our $6,500 flat fee saves families thousands compared to hourly billing &mdash; especially when cases take longer than expected or involve multiple court appearances.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-lg border border-emerald-200">
@@ -669,7 +669,7 @@ export default function Page() {
                 Get a Clear, Honest Quote
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed">
-                At Illinois Estate Law, we handle probate for a flat fee of $7,500. No hourly billing, no surprise invoices, no meter running every time you pick up the phone. Families working with hourly law firms often pay double or triple that amount for the same legal work.
+                At Illinois Estate Law, we handle probate for a flat fee of $6,500. No hourly billing, no surprise invoices, no meter running every time you pick up the phone. Families working with hourly law firms often pay double or triple that amount for the same legal work.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link

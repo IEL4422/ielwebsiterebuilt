@@ -54,7 +54,7 @@ export async function generateMetadata({
 
 const probateServices = [
   { icon: Gavel, title: 'Full Probate Representation', description: 'Complete legal representation from petition filing through final distribution of estate assets.' },
-  { icon: FileText, title: 'Summary Probate', description: 'Expedited probate for qualifying smaller estates, reducing time and costs significantly.' },
+  { icon: FileText, title: 'Small Estate Probate', description: 'Expedited probate for qualifying smaller estates, reducing time and costs significantly.' },
   { icon: Users, title: 'Executor / Administrator Support', description: 'Guidance and legal support for executors and administrators throughout the probate process.' },
   { icon: UserCheck, title: 'Heir & Beneficiary Representation', description: 'Protecting the interests and inheritance rights of heirs and beneficiaries during probate.' },
   { icon: CreditCard, title: 'Creditor Notification & Debt Settlement', description: 'Proper notification of creditors and negotiation of outstanding debts owed by the estate.' },
@@ -62,8 +62,8 @@ const probateServices = [
 ];
 
 const probatePricing = [
-  { name: 'Full Probate Package', price: '$7,500' },
-  { name: 'Summary Probate Package', price: '$4,000', featured: true },
+  { name: 'Full Probate Package', price: '$6,500' },
+  { name: 'Small Estate Probate Package', price: '$3,500', featured: true },
   { name: 'Partial Probate Package', price: '$3,500' },
   { name: 'Surviving Spouse', price: '$5,000' },
   { name: 'Heir Representation', price: '$2,500' },
@@ -77,7 +77,7 @@ function getCountyFAQs(county: string) {
     },
     {
       question: `How much does a probate lawyer cost in ${county}?`,
-      answer: `Illinois Estate Law offers flat-fee probate representation starting at $7,500 for full probate, $4,000 for summary probate, and $3,500 for partial probate. There are no hourly rates or hidden fees. Payment plans are available for all services.`,
+      answer: `Illinois Estate Law offers flat-fee probate representation starting at $6,500 for standard probate and $3,500 for small estate probate. There are no hourly rates or hidden fees. Payment plans are available for all services.`,
     },
     {
       question: 'Can probate be avoided in Illinois?',

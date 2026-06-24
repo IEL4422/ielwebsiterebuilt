@@ -296,10 +296,10 @@ export function CategorizedServices({
         },
         {
           id: 'summary-probate',
-          name: 'Summary Probate',
+          name: 'Small Estate Probate',
           subtitle: 'For uncontested cases with assets under $50,000',
           category: 'probate',
-          fixedPrice: 3000,
+          fixedPrice: 3500,
           description: 'Streamlined summary probate administration for uncontested estates with total assets under $50,000.',
           includes: [
             'Prepare and file all required court documentation and filings',
@@ -318,7 +318,7 @@ export function CategorizedServices({
           name: 'Standard Probate',
           subtitle: 'Uncontested probate for estates under $2 million',
           category: 'probate',
-          fixedPrice: 7500,
+          fixedPrice: 6500,
           description: 'Flat-fee probate administration for uncontested estates under $2,000,000, with or without real estate.',
           includes: [
             'Prepare and file all required court documentation and filings',

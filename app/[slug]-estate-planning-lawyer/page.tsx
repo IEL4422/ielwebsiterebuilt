@@ -65,7 +65,7 @@ const pricingPackages = [
   { name: 'Joint Trust Package', price: '$5,000', featured: true },
   { name: 'Married Will Package', price: '$1,750' },
   { name: 'Individual Will', price: '$750' },
-  { name: 'Probate Package', price: '$7,500' },
+  { name: 'Probate Package', price: '$6,500' },
 ];
 
 function getCityFAQs(city: string) {

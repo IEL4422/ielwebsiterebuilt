@@ -33,7 +33,7 @@ export type StandardizedServiceName =
   | 'Probate (Tier 2)'
   | 'Probate (Tier 3)'
   | 'Probate (Tier 4)'
-  | 'Summary Probate'
+  | 'Small Estate Probate'
   | 'Bond in Lieu of Probate'
   | 'Standard Probate'
   | 'Large Estate Probate'
@@ -263,12 +263,12 @@ export const probatePackages: Service[] = [
   },
   {
     id: 'summary-probate',
-    name: 'Summary Probate',
+    name: 'Small Estate Probate',
     subtitle: 'For uncontested cases with assets under $50,000',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Summary Probate',
-    fixedPrice: 3000,
+    standardizedServiceName: 'Small Estate Probate',
+    fixedPrice: 3500,
     description: 'Streamlined summary probate administration for uncontested estates with total assets under $50,000.',
     includes: [
       'Prepare and file all required court documentation and filings',
@@ -290,7 +290,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Standard Probate',
-    fixedPrice: 7500,
+    fixedPrice: 6500,
     description: 'Flat-fee probate administration for uncontested estates under $2,000,000, with or without real estate.',
     includes: [
       'Prepare and file all required court documentation and filings',
