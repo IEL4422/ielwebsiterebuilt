@@ -145,15 +145,15 @@ export default function RecommendedServicePage() {
     if (needType === 'prenuptial') {
       if (hasExistingPrenup === 'yes' && needsNegotiation === 'yes') {
         return {
-          name: 'Prenuptial Agreement Review & Negotiation',
-          price: '$3,000',
-          description: 'Professional review and negotiation of an existing prenuptial agreement to protect your interests.',
+          name: 'Prenuptial Agreement — Review & Negotiation',
+          price: '$3,500',
+          description: 'Review of an existing prenuptial agreement with negotiation with the other party to protect your interests.',
           includes: [
-            'Comprehensive legal review',
-            'Analysis of fairness and enforceability',
-            'Negotiation on your behalf',
-            'Recommendations for modifications',
-            'Protection of your interests'
+            'Initial consultation with represented party',
+            'Full financial disclosure review',
+            'Review of drafted agreement',
+            'Negotiation between parties',
+            'Finalization and execution of the agreement'
           ],
           addOns: [],
           serviceId: 'prenuptial-review-negotiation',
@@ -165,14 +165,12 @@ export default function RecommendedServicePage() {
 
       if (hasExistingPrenup === 'yes' && needsNegotiation === 'no') {
         return {
-          name: 'Prenuptial Agreement Review',
+          name: 'Prenuptial Agreement — Review Only (No Negotiation)',
           price: '$1,500',
-          description: 'Professional review of your prenuptial agreement to understand implications and identify any concerns.',
+          description: 'Review of an already drafted and agreed-upon prenuptial agreement.',
           includes: [
-            'Detailed legal analysis',
-            'Identification of unfair provisions',
-            'Consultation on implications',
-            'Recommendations for protection'
+            'Review of agreement to ensure it is in line with client\'s wishes',
+            'Legal compliance review'
           ],
           addOns: [],
           serviceId: 'prenuptial-review',
@@ -184,15 +182,15 @@ export default function RecommendedServicePage() {
 
       if (hasExistingPrenup === 'no' && needsNegotiation === 'yes') {
         return {
-          name: 'Prenuptial Agreement Drafting & Negotiation',
+          name: 'Prenuptial Agreement — Drafting & Negotiation',
           price: '$5,000',
-          description: 'Comprehensive prenuptial agreement service including custom drafting and negotiation between parties.',
+          description: 'Full drafting of prenuptial agreement and negotiation with the other party.',
           includes: [
-            'Initial consultation with both parties',
+            'Initial consultation with represented party',
             'Full financial disclosure review',
-            'Custom drafting tailored to your situation',
+            'Custom drafting tailored to client\'s situation',
             'Negotiation between parties',
-            'Finalization and execution'
+            'Finalization and execution of the agreement'
           ],
           addOns: [],
           serviceId: 'prenuptial-drafting-negotiation',
@@ -204,14 +202,14 @@ export default function RecommendedServicePage() {
 
       if (hasExistingPrenup === 'no' && needsNegotiation === 'no') {
         return {
-          name: 'Prenuptial Agreement Drafting',
-          price: '$3,000',
-          description: 'Custom prenuptial agreement drafting service tailored to your specific needs and situation.',
+          name: 'Prenuptial Agreement — Drafting Only (No Negotiation)',
+          price: '$2,500',
+          description: 'Full drafting of prenuptial agreement based on already agreed-upon terms; no negotiation with the other side.',
           includes: [
-            'Initial consultation',
+            'Initial consultation with represented party',
             'Custom agreement drafting',
             'Legal compliance review',
-            'Finalization and execution guidance'
+            'Finalization and execution of the agreement'
           ],
           addOns: [],
           serviceId: 'prenuptial-drafting',
@@ -224,15 +222,16 @@ export default function RecommendedServicePage() {
 
     if (needType === 'real-estate') {
       return {
-        name: 'Residential Closing — Attorney Representation',
+        name: 'Residential Closing (Buyer or Seller)',
         price: '$750',
-        description: 'Full-service attorney representation for your Illinois residential real estate closing, whether you are buying or selling.',
+        description: 'Full-service attorney representation for your Illinois residential real estate closing. Flat fee paid at closing.',
         includes: [
-          'Contract Review & Negotiation',
+          'Contract Review',
           'Title Review & Clearance',
-          'Attorney Representation at Closing',
-          'Document Preparation & Review',
+          'Title Search',
+          'Document Preparation',
           'Settlement Statement Review',
+          'Attorney Representation at Closing',
           'Unlimited Attorney Consultation'
         ],
         addOns: [],
@@ -248,13 +247,13 @@ export default function RecommendedServicePage() {
         return {
           name: 'Heir Representation',
           price: '$2,500',
-          description: 'Full legal representation for non-representative heirs throughout the probate process.',
+          description: 'Representation of a non-executor heir throughout a probate matter.',
           includes: [
-            'Full Legal Representation Throughout the Probate Proceeding',
-            'Review of All Filings and Court Documents',
-            'Protection of Heir\'s Interests and Inheritance Rights',
-            'Attendance at All Court Hearings on Behalf of Heir',
-            'Unlimited Attorney Consultation'
+            'Review of all filings and court documentation',
+            'Advice and guidance regarding the heir\'s interest and inheritance rights',
+            'Filing of claims against the estate, if needed',
+            'Attendance at all court hearings on behalf of the heir',
+            'Unlimited Attorney Consultations'
           ],
           addOns: [],
           serviceId: 'heir-representation',
@@ -267,16 +266,10 @@ export default function RecommendedServicePage() {
       if (needsNewAttorney === 'yes') {
         return {
           name: 'Partial Probate',
-          price: 'Varies - Consultation Required',
-          description: 'For probate cases that have already been filed and need new legal representation.',
+          price: 'Starting at $3,500',
+          description: 'For probate cases already in progress that need new legal representation. Final fee individually quoted based on case progress and complexity.',
           includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Preparation of Final Accounting',
-            'Unlimited Attorney Consultation'
+            'Scope of services determined based on the stage of the probate matter and what remains to be completed'
           ],
           addOns: [],
           serviceId: 'partial-probate',
@@ -292,18 +285,20 @@ export default function RecommendedServicePage() {
 
       if (issuesAmongHeirs === 'yes') {
         return {
-          name: 'Contested Probate — Referral Consultation',
-          price: 'Consultation Required',
-          description: 'Illinois Estate Law handles uncontested probate matters only. If there are disputes among heirs or other contested issues, we are happy to speak with you and refer you to experienced litigation counsel.',
+          name: 'Contested Probate',
+          price: '$5,000 retainer + hourly',
+          description: 'For probate matters that are or are anticipated to be contested. NOT a flat fee — billed hourly with a $5,000 retainer. Attorney: $350/hr; Paralegal/Administrative: $125/hr.',
           includes: [
-            'Review of your situation',
-            'Referral to experienced contested probate counsel'
+            'Minimum $5,000 retainer required to commence representation',
+            'Attorney hourly rate: $350 / hour',
+            'Paralegal / Administrative hourly rate: $125 / hour',
+            'Retainer replenished as needed throughout the matter'
           ],
           addOns: [],
-          serviceId: 'probate-package-contested',
+          serviceId: 'contested-probate',
           requiresConsultation: true,
           standardizedCaseType: 'Probate',
-          standardizedServiceName: 'Probate Package'
+          standardizedServiceName: 'Contested Probate'
         };
       }
 
@@ -311,16 +306,18 @@ export default function RecommendedServicePage() {
         return {
           name: 'Small Estate Probate',
           price: '$3,500',
-          description: 'For uncontested estates with assets under $50,000 — streamlined summary administration under Illinois law.',
+          description: 'For uncontested estates under $150,000 requiring Letters of Office. Flat fee from opening through closing.',
           includes: [
-            'Prepare and file all required court documentation and filings',
-            'Handling of all court dates and hearings (uncontested matters only)',
-            'Opening of estate bank account',
-            'Obtaining EIN number',
-            'Asset search',
-            'Creditor notification publication',
-            'Final tax returns (if required, does not include estate tax returns)',
-            'Unlimited attorney consultation'
+            'All required filings with the Probate Court from opening through closing',
+            'Appearance and handling of all court hearings',
+            'Opening of Estate Bank Account',
+            'Obtaining Estate EIN',
+            'Asset & Debt Search',
+            'Creditor Notification & Publication',
+            'Obtaining Tax Transcripts',
+            'Final Tax Returns (if required)',
+            'Transfer of Real Estate via Deed, if necessary',
+            'Unlimited Attorney Consultations'
           ],
           addOns: [],
           serviceId: 'summary-probate',
@@ -335,16 +332,18 @@ export default function RecommendedServicePage() {
         return {
           name: 'Standard Probate',
           price: '$6,500',
-          description: 'Flat-fee probate administration for uncontested estates under $2,000,000, with or without real estate. Contact us for large estate probate (over $2,000,000).',
+          description: 'Flat-fee probate administration for uncontested estates between $150,000 and $2,000,000, with or without real estate.',
           includes: [
-            'Prepare and file all required court documentation and filings',
-            'Handling of all court dates and hearings (uncontested matters only)',
-            'Opening of estate bank account',
-            'Obtaining EIN number',
-            'Asset search',
-            'Creditor notification publication',
-            'Final tax returns (if required, does not include estate tax returns)',
-            'Unlimited attorney consultation'
+            'All required filings with the Probate Court from opening through closing',
+            'Appearance and handling of all court hearings',
+            'Opening of Estate Bank Account',
+            'Obtaining Estate EIN',
+            'Asset & Debt Search',
+            'Creditor Notification & Publication',
+            'Obtaining Tax Transcripts',
+            'Final Tax Returns (if required)',
+            'Transfer of Real Estate via Deed, if necessary',
+            'Unlimited Attorney Consultations'
           ],
           addOns: [],
           serviceId: 'standard-probate',
@@ -367,9 +366,9 @@ export default function RecommendedServicePage() {
       if (needsTaxPlanning) {
         addOns.push({
           id: 'estate-tax-planning',
-          name: 'Estate Tax Planning',
+          name: 'Estate Tax Planning (Add-On)',
           price: 5000,
-          description: 'Comprehensive estate tax planning strategies for estates over $3.5 million',
+          description: '$5,000 base + 1% of total estate value — can be added to any package',
           suggested: true
         });
       }
@@ -378,24 +377,24 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
-          price: 3000,
-          description: 'Special needs trust planning and documentation',
+          price: 3500,
+          description: 'Creation or amendment of trust for special needs planning',
           suggested: true
         });
       }
 
       addOns.push({
         id: 'trust-funding',
-        name: 'Trust Funding Assistance',
-        price: 1000,
-        description: '$1,000 for all assets - Professional assistance with transferring financial assets into your trust'
+        name: 'Trust Funding',
+        price: 1500,
+        description: 'Funding of up to 15 financial assets into trust. Does not include real estate / deed transfers.'
       });
 
       addOns.push({
         id: 'additional-deed',
-        name: 'Additional Deed',
+        name: 'Additional Deed Transfer to Trust',
         price: 500,
-        description: 'For those owning multiple properties'
+        description: 'For clients owning multiple properties'
       });
 
       return {
@@ -404,16 +403,19 @@ export default function RecommendedServicePage() {
         description: `Perfect for ${isMarried ? 'married couples' : 'individuals'} who own real estate or have estates over $100,000 and need comprehensive estate planning protection.`,
         includes: [
           'Revocable Living Trust',
-          'Pour-Over Will',
-          'Power of Attorney for Healthcare and Property',
+          'Pour Over Will',
+          'Power of Attorney for Healthcare',
+          'Power of Attorney for Property',
           'Healthcare Directive (Living Will)',
-          'Remembrance & Services Memorandum',
+          'HIPAA Authorization',
+          'End of Life Planner (complimentary gift)',
           'Personal Property Memorandum',
-          '(1) Deed Transfer of Real Estate to Trust',
+          '1 Transfer on Death Instrument (TODI) of Real Estate to Trust',
+          'Full Trust Funding',
           'Online or Mobile Notarization',
           'Physical & Digital Portfolio',
-          'Access to Client Portal',
-          'Unlimited Attorney Consultation'
+          'Client Portal Access',
+          'Unlimited Attorney Consultations'
         ],
         addOns,
         serviceId: 'trust-package',
@@ -427,9 +429,9 @@ export default function RecommendedServicePage() {
       if (needsTaxPlanning) {
         addOns.push({
           id: 'estate-tax-planning',
-          name: 'Estate Tax Planning',
+          name: 'Estate Tax Planning (Add-On)',
           price: 5000,
-          description: 'Comprehensive estate tax planning strategies for estates over $3.5 million',
+          description: '$5,000 base + 1% of total estate value — can be added to any package',
           suggested: true
         });
       }
@@ -438,17 +440,17 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
-          price: 3000,
-          description: 'Special needs trust planning and documentation',
+          price: 3500,
+          description: 'Creation or amendment of trust for special needs planning',
           suggested: true
         });
       }
 
       addOns.push({
         id: 'trust-funding',
-        name: 'Trust Funding Assistance',
-        price: 1000,
-        description: '$1,000 for all assets - Professional assistance with transferring financial assets into your trust'
+        name: 'Trust Funding',
+        price: 1500,
+        description: 'Funding of up to 15 financial assets into trust. Does not include real estate / deed transfers.'
       });
 
       return {
@@ -474,15 +476,17 @@ export default function RecommendedServicePage() {
         description: `For ${isMarried ? 'married couples' : 'individuals'} who own real estate but have estates under $100,000 and want to avoid probate without a full trust.`,
         includes: [
           'Last Will & Testament',
-          'Power of Attorney for Healthcare and Property',
-          'Transfer-on-Death Instrument',
+          'Power of Attorney for Healthcare',
+          'Power of Attorney for Property',
+          'Transfer on Death Instrument (TODI) for Real Estate',
           'Healthcare Directive (Living Will)',
-          'Remembrance & Services Memorandum',
+          'HIPAA Authorization',
+          'End of Life Planner (complimentary gift)',
           'Personal Property Memorandum',
           'Online or Mobile Notarization',
           'Physical & Digital Portfolio',
-          'Access to Client Portal',
-          'Unlimited Attorney Consultation'
+          'Client Portal Access',
+          'Unlimited Attorney Consultations'
         ],
         addOns: [],
         serviceId: 'probate-avoidance-package',
@@ -495,17 +499,19 @@ export default function RecommendedServicePage() {
     return {
       name: `${isMarried ? 'Joint' : 'Individual'} Will Package`,
       price: isMarried ? '$1,750' : '$1,250',
-      description: `For ${isMarried ? 'married couples' : 'individuals'} who need basic estate planning with essential documents.`,
+      description: `For ${isMarried ? 'married couples' : 'individuals'} who need essential estate planning documents.`,
       includes: [
         'Last Will & Testament',
-        'Power of Attorney for Healthcare and Property',
+        'Power of Attorney for Healthcare',
+        'Power of Attorney for Property',
         'Healthcare Directive (Living Will)',
-        'Remembrance & Services Memorandum',
+        'HIPAA Authorization',
+        'End of Life Planner (complimentary gift)',
         'Personal Property Memorandum',
         'Online or Mobile Notarization',
-        'Physical & Digital Portfolio',
-        'Access to Client Portal',
-        'Unlimited Attorney Consultation'
+        'Physical & Digital Estate Planning Portfolio',
+        'Client Portal Access',
+        'Unlimited Attorney Consultations'
       ],
       addOns: [],
       serviceId: 'will-package',

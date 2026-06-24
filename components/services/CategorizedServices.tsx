@@ -116,6 +116,19 @@ export function CategorizedServices({
     );
   };
 
+  const probateIncludes = [
+    'All required filings with the Probate Court from opening through closing',
+    'Appearance and handling of all court hearings and court appearances',
+    'Opening of Estate Bank Account',
+    'Obtaining Estate EIN',
+    'Asset & Debt Search',
+    'Creditor Notification & Publication',
+    'Obtaining Tax Transcripts',
+    'Final Tax Returns (if required)',
+    'Transfer of Real Estate via Deed, if necessary (includes all recording fees)',
+    'Unlimited Attorney Consultations'
+  ];
+
   const categories: ServiceCategory[] = [
     {
       id: 'estate-planning',
@@ -127,19 +140,22 @@ export function CategorizedServices({
           category: 'estate-planning',
           individualPrice: 3500,
           jointPrice: 5000,
-          description: 'Comprehensive trust-based estate plan',
+          description: 'Comprehensive trust-based estate plan. Joint package includes two complete sets of all documents. Trust may be joint, individual, or one of each.',
           includes: [
             'Revocable Living Trust',
-            'Pour-Over Will',
-            'Power of Attorney for Healthcare and Property',
+            'Pour Over Will',
+            'Power of Attorney for Healthcare',
+            'Power of Attorney for Property',
             'Healthcare Directive (Living Will)',
-            'End of Life Planner',
+            'HIPAA Authorization',
+            'End of Life Planner (complimentary gift)',
             'Personal Property Memorandum',
-            '(1) Deed Transfer of Real Estate to Trust',
+            '1 Transfer on Death Instrument (TODI) of Real Estate to Trust',
+            'Full Trust Funding',
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
-            'Access to Client Portal',
-            'Unlimited Attorney Consultation'
+            'Client Portal Access',
+            'Unlimited Attorney Consultations'
           ]
         },
         {
@@ -148,18 +164,20 @@ export function CategorizedServices({
           category: 'estate-planning',
           individualPrice: 1750,
           jointPrice: 2250,
-          description: 'Essential documents to avoid probate',
+          description: 'Essential documents to avoid probate. Joint package includes two complete sets of all documents.',
           includes: [
             'Last Will & Testament',
-            'Power of Attorney for Healthcare and Property',
-            'Transfer-on-Death Instrument',
+            'Power of Attorney for Healthcare',
+            'Power of Attorney for Property',
+            'Transfer on Death Instrument (TODI) for Real Estate',
             'Healthcare Directive (Living Will)',
-            'End of Life Planner',
+            'HIPAA Authorization',
+            'End of Life Planner (complimentary gift)',
             'Personal Property Memorandum',
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
-            'Access to Client Portal',
-            'Unlimited Attorney Consultation'
+            'Client Portal Access',
+            'Unlimited Attorney Consultations'
           ]
         },
         {
@@ -168,29 +186,43 @@ export function CategorizedServices({
           category: 'estate-planning',
           individualPrice: 1250,
           jointPrice: 1750,
-          description: 'Complete will-based estate plan',
+          description: 'Complete will-based estate plan. Joint package includes two complete sets of all documents.',
           includes: [
             'Last Will & Testament',
-            'Power of Attorney for Healthcare and Property',
+            'Power of Attorney for Healthcare',
+            'Power of Attorney for Property',
             'Healthcare Directive (Living Will)',
-            'End of Life Planner',
+            'HIPAA Authorization',
+            'End of Life Planner (complimentary gift)',
             'Personal Property Memorandum',
             'Online or Mobile Notarization',
-            'Physical & Digital Portfolio',
-            'Access to Client Portal',
-            'Unlimited Attorney Consultation'
+            'Physical & Digital Estate Planning Portfolio',
+            'Client Portal Access',
+            'Unlimited Attorney Consultations'
           ]
         },
         {
           id: 'diy-estate-plan-review',
           name: 'DIY Estate Plan Review',
           category: 'estate-planning',
-          individualPrice: 750,
-          jointPrice: 1000,
-          description: 'Professional review of existing documents',
+          individualPrice: 500,
+          jointPrice: 750,
+          description: 'Professional review of existing estate planning documents. Joint covers up to 5 documents per person.',
           includes: [
-            'Comprehensive review and redlining of previously drafted estate planning documents',
-            'One (1) hour attorney review session'
+            'Comprehensive review and redlining of previously drafted estate planning documents (up to 5 documents)',
+            '1-Hour Attorney Review Session'
+          ]
+        },
+        {
+          id: 'estate-tax-planning-package',
+          name: 'Estate Tax Planning Package',
+          category: 'estate-planning',
+          pricingLabel: 'Individual: $10,000 + 1% | Joint: $15,000 + 1%',
+          description: 'Individual: $10,000 base + 1% of total estate value. Joint: $15,000 base + 1% of total estate value. Base fee paid upfront; 1% of total estate value invoiced separately at time of document finalization.',
+          includes: [
+            'All documents included in the Trust Package',
+            'Federal & Illinois Estate Tax Planning',
+            'Any necessary Irrevocable Trust(s) required to minimize or avoid estate tax (in addition to base Revocable Living Trust)'
           ]
         }
       ],
@@ -201,7 +233,7 @@ export function CategorizedServices({
           category: 'a-la-carte',
           individualPrice: 2500,
           jointPrice: 3500,
-          description: 'A Revocable Living Trust is a legal plan where you put your home, bank accounts, and other property into a trust you control—so you can manage everything like normal while you\'re alive, and when you pass away, the person you picked (your "successor trustee") can transfer or manage those assets for your loved ones without going through probate court.',
+          description: 'A Revocable Living Trust is a legal plan where you put your home, bank accounts, and other property into a trust you control. Includes 1 deed transfer to trust and online notarization.',
           includes: []
         },
         {
@@ -210,65 +242,68 @@ export function CategorizedServices({
           category: 'a-la-carte',
           individualPrice: 750,
           jointPrice: 1250,
-          description: 'A Will is a legal document that says who should inherit your property after you die and who should be in charge of handling your affairs, but it usually still has to go through probate court to carry out those instructions.',
+          description: 'A Will is a legal document that says who should inherit your property after you die. Joint includes 2 Wills. Includes online notarization.',
           includes: []
         },
         {
           id: 'power-of-attorney',
-          name: 'Power of Attorney (Financial/Medical)',
+          name: 'Powers of Attorney',
           category: 'a-la-carte',
-          fixedPrice: 500,
-          description: 'A Power of Attorney is a legal document that lets you choose someone you trust to make financial and/or medical decisions for you if you can\'t—so bills get paid, accounts are managed, and healthcare choices can be made without having to go to court.',
+          individualPrice: 500,
+          jointPrice: 750,
+          description: 'Includes Power of Attorney for Healthcare and Power of Attorney for Property. Joint includes two of each document. Includes online notarization.',
           includes: []
         },
         {
           id: 'healthcare-directive',
-          name: 'Healthcare Directive',
+          name: 'Healthcare Directive (Living Will)',
           category: 'a-la-carte',
-          fixedPrice: 500,
-          description: 'A Healthcare Directive is a document in which you write down your medical wishes and name someone to speak for you, so doctors and loved ones know what you want if you\'re too sick or unable to communicate.',
+          fixedPrice: 350,
+          description: 'A Healthcare Directive records your medical wishes and names someone to speak for you. Includes online notarization.',
           includes: []
         },
         {
           id: 'trust-restatement',
           name: 'Trust Restatement',
           category: 'a-la-carte',
-          fixedPrice: 2000,
-          description: 'A Trust Restatement is a way to update and rewrite the terms of your existing trust—like changing who inherits, who\'s in charge, or how distributions work—while keeping the same trust name and date, so you don\'t have to start a brand-new trust from scratch.',
+          individualPrice: 2000,
+          jointPrice: 3000,
+          description: 'Rewrites the terms of your existing trust while keeping the same trust name and date. Includes review of all prior estate planning documents and online/mobile notarization.',
           includes: []
         },
         {
           id: 'will-amendment',
           name: 'Will Amendment',
           category: 'a-la-carte',
-          fixedPrice: 500,
-          description: 'Amendment to existing will',
+          individualPrice: 500,
+          jointPrice: 750,
+          description: 'Amendment to an existing will. Includes review of the prior will and online notarization.',
+          includes: []
+        },
+        {
+          id: 'trust-funding-service',
+          name: 'Trust Funding',
+          category: 'a-la-carte',
+          fixedPrice: 1500,
+          description: 'Funding of up to 15 financial assets into trust. Does not include real estate / deed transfers.',
           includes: []
         }
       ],
       addOns: [
         {
-          id: 'trust-funding-addon',
-          name: 'Additional Trust Funding Assistance',
-          category: 'a-la-carte',
-          fixedPrice: 100,
-          description: 'Professional assistance with transferring additional assets into your trust (per asset)',
-          includes: []
-        },
-        {
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
           category: 'a-la-carte',
-          fixedPrice: 2500,
-          description: 'Special needs trust planning and documentation',
+          fixedPrice: 3500,
+          description: 'Creation or amendment of Revocable Living Trust, or creation of Irrevocable Trust. Can be added to any package or purchased standalone.',
           includes: []
         },
         {
           id: 'estate-tax-planning',
-          name: 'Estate Tax Planning',
+          name: 'Estate Tax Planning (Add-On)',
           category: 'a-la-carte',
-          fixedPrice: 5000,
-          description: 'Comprehensive estate tax planning strategies',
+          pricingLabel: '$5,000 base + 1% of Total Estate Value',
+          description: 'Can be added to any existing package or estate plan. $5,000 base fee paid upfront; 1% of total estate value invoiced at time of document finalization.',
           includes: []
         }
       ]
@@ -280,89 +315,74 @@ export function CategorizedServices({
         {
           id: 'bond-in-lieu-of-probate',
           name: 'Bond in Lieu of Probate',
-          subtitle: 'When the only asset is real estate',
+          subtitle: 'When the sole estate asset is real estate',
           category: 'probate',
           fixedPrice: 1500,
-          description: 'A streamlined alternative to full probate when the only estate asset is real estate.',
+          description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition. Illinois law allows title transfer through a bond in lieu of probate, avoiding a full probate proceeding.',
           includes: [
-            'Preparation and Filing of Bond in Lieu of Probate',
             'Title Transfer Documentation',
-            'Notification of Heirs',
-            'Representation at Court Hearing',
-            'Filing Fees',
-            'Unlimited Attorney Consultation'
+            'Coordination with Title Company for Out-of-Court Title Transfer',
+            'Unlimited Attorney Consultations'
           ],
-          note: 'Available when the sole estate asset is real estate. The only additional fee is the surety bond premium, paid directly to the bond provider.'
+          note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
         {
           id: 'summary-probate',
           name: 'Small Estate Probate',
-          subtitle: 'For uncontested cases with assets under $50,000',
+          subtitle: 'For uncontested estates under $150,000 requiring Letters of Office',
           category: 'probate',
           fixedPrice: 3500,
-          description: 'Streamlined summary probate administration for uncontested estates with total assets under $50,000.',
-          includes: [
-            'Prepare and file all required court documentation and filings',
-            'Handling of all court dates and hearings (uncontested matters only)',
-            'Opening of estate bank account',
-            'Obtaining EIN number',
-            'Asset search',
-            'Creditor notification publication',
-            'Final tax returns (if required, does not include estate tax returns)',
-            'Unlimited attorney consultation'
-          ],
-          note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.'
+          description: 'Applies to estates under $150,000 where a bank will not accept a Small Estate Affidavit and Letters of Office are required. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+          includes: probateIncludes,
+          note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
         {
           id: 'standard-probate',
           name: 'Standard Probate',
-          subtitle: 'Uncontested probate for estates under $2 million',
+          subtitle: 'Uncontested probate for estates between $150,000 and $2,000,000',
           category: 'probate',
           fixedPrice: 6500,
-          description: 'Flat-fee probate administration for uncontested estates under $2,000,000, with or without real estate.',
-          includes: [
-            'Prepare and file all required court documentation and filings',
-            'Handling of all court dates and hearings (uncontested matters only)',
-            'Opening of estate bank account',
-            'Obtaining EIN number',
-            'Asset search',
-            'Creditor notification publication',
-            'Final tax returns (if required, does not include estate tax returns)',
-            'Unlimited attorney consultation'
-          ],
-          note: 'Illinois Estate Law handles uncontested probate matters only. The only additional fee is the surety bond premium in cases without a will, paid directly to the bond provider.'
+          description: 'Applies to uncontested estates valued between $150,000 and $2,000,000. Flat-fee from opening through closing. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+          includes: probateIncludes,
+          note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
         {
           id: 'large-estate-probate',
           name: 'Large Estate Probate',
-          subtitle: 'Uncontested probate for estates above $2 million',
+          subtitle: 'Uncontested probate for estates above $2,000,000',
           category: 'probate',
-          pricingLabel: '$7,500 + 1% of Estate Value',
-          description: 'Probate administration for uncontested estates valued above $2,000,000.',
+          pricingLabel: '$6,500 + 1% of Net Estate Value',
+          description: 'Applies to uncontested estates anticipated to be valued above $2,000,000. The 1% fee on net estate value is invoiced at the time of administration. Uncontested matters only.',
+          includes: probateIncludes,
+          note: 'The $6,500 base fee is due at engagement. The 1% fee on net estate value is collected at the time of administration. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+        },
+        {
+          id: 'probate-reopening',
+          name: 'Probate Reopening',
+          category: 'probate',
+          fixedPrice: 2500,
+          description: 'Applies when a previously closed probate estate is reopened due to newly discovered assets requiring administration.',
           includes: [
-            'Prepare and file all required court documentation and filings',
-            'Handling of all court dates and hearings (uncontested matters only)',
-            'Opening of estate bank account',
-            'Obtaining EIN number',
-            'Asset search',
-            'Creditor notification publication',
-            'Final tax returns (if required, does not include estate tax returns)',
-            'Unlimited attorney consultation'
-          ],
-          note: 'The $7,500 base fee is due at engagement. The 1% fee on total estate value is collected at the time of administration. Illinois Estate Law handles uncontested probate matters only.'
+            'Motion to Reopen Probate',
+            'Attendance at all required court hearings',
+            'Reopening and closing of the estate',
+            'Assistance with administration of newly discovered assets',
+            'Notice to all heirs',
+            'Unlimited Attorney Consultations'
+          ]
         },
         {
           id: 'heir-representation',
           name: 'Heir Representation',
           category: 'probate',
           fixedPrice: 2500,
-          description: 'Representation throughout the entire probate matter of non-representative heirs',
+          description: 'Representation of a non-executor / non-administrator heir throughout a probate matter. Does not include contested hearings or motions to contest a will.',
           includes: [
-            'Full legal representation throughout the probate proceeding',
-            'Review of all filings and court documents',
-            'Protection of heir\'s interests and inheritance rights',
-            'Attendance at all court hearings on behalf of heir',
-            'Unlimited Attorney Consultation'
+            'Review of all filings and court documentation',
+            'Advice and guidance regarding the heir\'s interest and inheritance rights',
+            'Filing of claims against the estate, if needed',
+            'Attendance at all court hearings on behalf of the heir',
+            'Unlimited Attorney Consultations'
           ],
           note: '$2,500 per heir'
         },
@@ -370,45 +390,67 @@ export function CategorizedServices({
           id: 'partial-probate',
           name: 'Partial Probate',
           category: 'probate',
-          fixedPrice: 3500,
-          description: 'For probate cases already filed that need new legal representation. We take over from your current attorney and complete the process.',
+          pricingLabel: 'Starting at $3,500 — individually quoted',
+          description: 'Applies when an estate has already been opened and the client is seeking new representation to replace prior counsel. Starting at $3,500; final fee individually quoted based on case progress and complexity (up to $6,500). Uncontested matters only.',
           includes: [
-            'Preparation and Filing of All Necessary Documents',
-            'Notification of Heirs and Creditors',
-            'Heirship Research',
-            'Asset Search',
-            'Representation at All Court Hearings',
-            'Preparation of Final Accounting',
-            'Access to Probate Portal',
-            'Unlimited Attorney Consultation'
-          ],
-          note: 'For cases already in probate that need new legal representation'
+            'Scope of services determined based on the stage of the probate matter and what remains to be completed'
+          ]
         },
         {
           id: 'spousal-representation',
           name: 'Spousal Representation',
           category: 'probate',
           fixedPrice: 3500,
-          description: 'Legal representation for a surviving spouse throughout the probate proceeding to protect spousal rights and interests.',
+          description: 'Applies when representing a spouse who is not the executor or administrator of the estate. Uncontested matters only.',
           includes: [
-            'Full Legal Representation Throughout the Probate Proceeding',
-            'Protection of Spousal Rights and Interests',
-            'Review of All Filings and Court Documents',
-            'Attendance at All Court Hearings on Behalf of Spouse',
-            'Unlimited Attorney Consultation'
+            'Full legal representation of the spouse throughout probate proceedings',
+            'Advice and consultation regarding spousal rights and interests',
+            'Filing of claims against the estate, including spousal claim for 50% of the estate if not otherwise provided for in that amount in the will',
+            'Attendance at all court hearings on behalf of the spouse',
+            'Unlimited Attorney Consultations'
+          ]
+        },
+        {
+          id: 'contested-probate',
+          name: 'Contested Probate',
+          subtitle: 'NOT A FLAT FEE — Hourly Billing',
+          category: 'probate',
+          pricingLabel: '$5,000 retainer + hourly',
+          description: 'Applies when any probate matter becomes or is anticipated to be contested. Attorney hourly rate: $350/hour. Paralegal/Administrative: $125/hour. Retainer replenished as needed.',
+          includes: [
+            'Minimum $5,000 retainer required to commence representation',
+            'Attorney hourly rate: $350 / hour',
+            'Paralegal / Administrative hourly rate: $125 / hour',
+            'Retainer replenished as needed throughout the matter'
           ]
         }
       ],
-      aLaCarte: [
+      aLaCarte: [],
+      addOns: []
+    },
+    {
+      id: 'trust-administration',
+      name: 'Trust Administration',
+      packages: [
         {
-          id: 'document-review',
-          name: 'Document Review',
-          category: 'a-la-carte',
-          fixedPrice: 500,
-          description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
-          includes: []
+          id: 'trust-admin-consulting',
+          name: 'Trust Administration Consulting',
+          subtitle: 'Attorney guidance for individuals serving as trustee',
+          category: 'probate',
+          pricingLabel: '$3,500 / Year',
+          description: 'Comprehensive legal consulting for individuals named as trustee. Illinois Estate Law does NOT serve as Trustee — trustee services are not offered by this firm.',
+          includes: [
+            'Trust Accounting Review and Preparation',
+            'Distribution Review and Guidance',
+            'Review of Trust Documentation and Beneficiary Rights',
+            'Guidance on Trustee Fiduciary Duties under Illinois Law',
+            'Correspondence with Beneficiaries of the Trust',
+            'Unlimited Attorney Consultations throughout the year'
+          ],
+          note: 'Flat annual fee of $3,500.'
         }
       ],
+      aLaCarte: [],
       addOns: []
     },
     {
@@ -417,56 +459,54 @@ export function CategorizedServices({
       packages: [
         {
           id: 'prenuptial-drafting-negotiation',
-          name: 'Prenuptial Agreement Drafting & Negotiation',
+          name: 'Prenuptial Agreement — Drafting & Negotiation',
           category: 'prenuptial',
           fixedPrice: 5000,
-          description: 'Comprehensive prenuptial agreement service including drafting and negotiation',
+          description: 'Full drafting of agreement and negotiation with the other party.',
           includes: [
-            'Initial consultation with both parties',
+            'Initial consultation with represented party',
             'Full financial disclosure review',
-            'Custom drafting tailored to your situation',
+            'Custom drafting tailored to client\'s situation',
             'Negotiation between parties',
-            'Finalization and execution'
+            'Finalization and execution of the agreement'
           ]
         },
         {
           id: 'prenuptial-review-negotiation',
-          name: 'Prenuptial Agreement Review & Negotiation',
+          name: 'Prenuptial Agreement — Review & Negotiation',
           category: 'prenuptial',
-          fixedPrice: 3000,
-          description: 'Professional review and negotiation of prenuptial agreement',
+          fixedPrice: 3500,
+          description: 'Review of an already drafted agreement with negotiation with the other party.',
           includes: [
-            'Comprehensive legal review',
-            'Analysis of fairness and enforceability',
-            'Negotiation on your behalf',
-            'Recommendations for modifications',
-            'Protection of your interests'
+            'Initial consultation with represented party',
+            'Full financial disclosure review',
+            'Review of drafted agreement',
+            'Negotiation between parties',
+            'Finalization and execution of the agreement'
           ]
         },
         {
           id: 'prenuptial-drafting',
-          name: 'Prenuptial Agreement Drafting',
+          name: 'Prenuptial Agreement — Drafting Only (No Negotiation)',
           category: 'prenuptial',
-          fixedPrice: 3000,
-          description: 'Custom prenuptial agreement drafting service',
+          fixedPrice: 2500,
+          description: 'Full drafting of agreement based on already agreed upon terms; no negotiation with the other side.',
           includes: [
-            'Initial consultation',
+            'Initial consultation with represented party',
             'Custom agreement drafting',
             'Legal compliance review',
-            'Finalization and execution guidance'
+            'Finalization and execution of the agreement'
           ]
         },
         {
           id: 'prenuptial-review',
-          name: 'Prenuptial Agreement Review',
+          name: 'Prenuptial Agreement — Review Only (No Negotiation)',
           category: 'prenuptial',
-          fixedPrice: 2000,
-          description: 'Professional review of prenuptial agreement',
+          fixedPrice: 1500,
+          description: 'Review of an already drafted and agreed upon agreement.',
           includes: [
-            'Detailed legal analysis',
-            'Identification of unfair provisions',
-            'Consultation on implications',
-            'Recommendations for protection'
+            'Review of agreement to ensure it is in line with client\'s wishes',
+            'Legal compliance review'
           ]
         }
       ],
@@ -475,23 +515,31 @@ export function CategorizedServices({
     },
     {
       id: 'deeds',
-      name: 'Deeds',
+      name: 'Deed Services',
       packages: [],
       aLaCarte: [
         {
-          id: 'quit-claim-deed',
-          name: 'Quit Claim Deed',
+          id: 'deed-transfer-to-trust',
+          name: 'Additional Deed Transfer to Trust',
           category: 'a-la-carte',
           fixedPrice: 500,
-          description: 'A Quit Claim Deed is a simple legal document that transfers whatever ownership interest you have in a property to someone else—commonly used to add or remove a spouse or move a home into a trust—without making promises about the title.',
+          description: 'For funding multiple properties into an existing or newly created trust. May be added to any package or trust funding service.',
+          includes: []
+        },
+        {
+          id: 'quit-claim-deed',
+          name: 'Quitclaim Deed',
+          category: 'a-la-carte',
+          fixedPrice: 500,
+          description: 'Preparation and recording of a Quitclaim Deed.',
           includes: []
         },
         {
           id: 'transfer-on-death',
-          name: 'Transfer-on-Death Instrument',
+          name: 'Transfer on Death Instrument (TODI)',
           category: 'a-la-carte',
           fixedPrice: 500,
-          description: 'A Transfer-on-Death Instrument (TODI) lets you name who will automatically inherit your real estate when you pass away, without going through probate—you keep full control while you\'re alive, and the property transfers directly to your chosen beneficiaries.',
+          description: 'Preparation and recording of a Transfer on Death Instrument for real estate.',
           includes: []
         },
         {
@@ -499,20 +547,11 @@ export function CategorizedServices({
           name: 'Life Estate Deed',
           category: 'a-la-carte',
           fixedPrice: 500,
-          description: 'A Life Estate Deed is a deed that lets you keep the right to live in and control your home for the rest of your life, while naming who will automatically receive the property after you pass away—so it transfers outside of probate.',
+          description: 'Preparation and recording of a Life Estate Deed.',
           includes: []
         }
       ],
-      addOns: [
-        {
-          id: 'additional-deed',
-          name: 'Additional Deed',
-          category: 'a-la-carte',
-          fixedPrice: 500,
-          description: 'One deed transferring property to trust is included in the package. For those owning multiple properties, purchase additional deeds here.',
-          includes: []
-        }
-      ]
+      addOns: []
     },
     {
       id: 'real-estate',
@@ -520,17 +559,18 @@ export function CategorizedServices({
       packages: [
         {
           id: 'residential-closing',
-          name: 'Residential Closing (Full Service Representation)',
+          name: 'Residential Closing (Buyer or Seller)',
           category: 'real-estate',
           fixedPrice: 750,
-          description: 'Full-service attorney representation for residential real estate closings in Illinois, including contract review, title review, document preparation, and closing attendance.',
+          description: 'Flat fee paid at the time of closing. Does not include closing costs. Full-service attorney representation for residential real estate closings in Illinois.',
           includes: [
-            'Contract Review & Negotiation',
-            'Title Review & Clearance',
-            'Attorney Representation at Closing',
-            'Document Preparation & Review',
+            'Contract Review',
+            'Title Review and Clearance',
+            'Title Search',
+            'Document Preparation',
             'Settlement Statement Review',
-            'Unlimited Attorney Consultation'
+            'Attorney Representation at Closing',
+            'Unlimited Attorney Consultations'
           ]
         }
       ],

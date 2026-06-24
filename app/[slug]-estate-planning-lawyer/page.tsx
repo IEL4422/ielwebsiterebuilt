@@ -63,8 +63,8 @@ const services = [
 const pricingPackages = [
   { name: 'Individual Trust Package', price: '$3,500' },
   { name: 'Joint Trust Package', price: '$5,000', featured: true },
-  { name: 'Married Will Package', price: '$1,750' },
-  { name: 'Individual Will', price: '$750' },
+  { name: 'Will Package — Joint', price: '$1,750' },
+  { name: 'Will Package — Individual', price: '$1,250' },
   { name: 'Probate Package', price: '$6,500' },
 ];
 
@@ -76,7 +76,7 @@ function getCityFAQs(city: string) {
     },
     {
       question: `How much does estate planning cost in ${city}?`,
-      answer: `Illinois Estate Law uses transparent flat-fee pricing for all services. Individual wills start at $750, married will packages at $1,750, individual trust packages at $3,500, and joint trust packages at $5,000. There are no hourly rates or hidden fees, and payment plans are available.`,
+      answer: `Illinois Estate Law uses transparent flat-fee pricing for all services. Individual will packages start at $1,250, joint will packages at $1,750, individual trust packages at $3,500, and joint trust packages at $5,000. There are no hourly rates or hidden fees, and payment plans are available.`,
     },
     {
       question: 'How long does it take to complete an estate plan?',
