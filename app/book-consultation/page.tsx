@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import Script from 'next/script';
-import { ArrowLeft, Building2, ScrollText, Scale, Heart } from 'lucide-react';
+import { ArrowLeft, Building2, ScrollText, Scale, Heart, Briefcase } from 'lucide-react';
 
-type CaseType = 'estate-planning' | 'real-estate' | 'probate' | 'prenuptial';
+type CaseType = 'estate-planning' | 'trust-administration' | 'real-estate' | 'probate' | 'prenuptial';
 
 const TYPE_TO_EMBED: Record<CaseType, string> = {
   'estate-planning': 'my-lunacal-inline-initial-consultation',
+  'trust-administration': 'my-lunacal-inline-initial-consultation',
   'real-estate': 'my-lunacal-inline-initial-consultation-yassmin',
   'probate': 'my-lunacal-inline-initial-consultation-probate',
   'prenuptial': 'my-lunacal-inline-initial-consultation-mary-liberty',
@@ -37,7 +38,21 @@ const CASE_OPTIONS: CaseOption[] = [
       'Special Needs Planning',
     ],
     bookWith: 'Our Estate Planning Team',
-    bookWithRole: 'Mary Liberty, Owner & Lead Attorney',
+    bookWithRole: 'Mary Liberty · Yassmin Koudmani · Victoria Lozano',
+  },
+  {
+    id: 'trust-administration',
+    icon: Briefcase,
+    label: 'Trust Administration',
+    subtitle: 'Guidance for trustees navigating their fiduciary duties',
+    examples: [
+      'Trust Accounting & Review',
+      'Distribution Guidance',
+      'Beneficiary Communication',
+      'Trustee Fiduciary Duties',
+    ],
+    bookWith: 'Our Estate Planning Team',
+    bookWithRole: 'Mary Liberty · Yassmin Koudmani · Victoria Lozano',
   },
   {
     id: 'real-estate',
@@ -50,8 +65,8 @@ const CASE_OPTIONS: CaseOption[] = [
       'Title Issues',
       'Real Estate Transactions',
     ],
-    bookWith: 'Yassmin Koudmani',
-    bookWithRole: 'Senior Attorney · Fluent in Arabic',
+    bookWith: 'Yassmin Koudmani or Victoria Lozano',
+    bookWithRole: 'Real Estate Attorneys',
   },
   {
     id: 'probate',
@@ -61,11 +76,11 @@ const CASE_OPTIONS: CaseOption[] = [
     examples: [
       'Estate Administration',
       'Court Proceedings',
-      'Inheritance Disputes',
+      'Heir & Spousal Representation',
       'Asset Distribution',
     ],
-    bookWith: 'Mary Liberty',
-    bookWithRole: 'Owner & Lead Attorney',
+    bookWith: 'Victoria Lozano or Mary Liberty',
+    bookWithRole: 'Probate Attorneys',
   },
   {
     id: 'prenuptial',
