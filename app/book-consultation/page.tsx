@@ -9,7 +9,7 @@ type CaseType = 'estate-planning' | 'real-estate' | 'probate' | 'prenuptial';
 const TYPE_TO_EMBED: Record<CaseType, string> = {
   'estate-planning': 'my-lunacal-inline-initial-consultation',
   'real-estate': 'my-lunacal-inline-initial-consultation-yassmin',
-  'probate': 'my-lunacal-inline-initial-consultation-mary-liberty',
+  'probate': 'my-lunacal-inline-initial-consultation-probate',
   'prenuptial': 'my-lunacal-inline-initial-consultation-mary-liberty',
 };
 
@@ -217,6 +217,14 @@ export default function BookConsultationPage() {
               }}
             />
             <div
+              id="my-lunacal-inline-initial-consultation-probate"
+              style={{
+                width: '100%',
+                height: embedHeight('my-lunacal-inline-initial-consultation-probate'),
+                overflow: embedOverflow('my-lunacal-inline-initial-consultation-probate'),
+              }}
+            />
+            <div
               id="my-lunacal-inline-initial-consultation-mary-liberty"
               style={{
                 width: '100%',
@@ -256,7 +264,17 @@ export default function BookConsultationPage() {
           Lunacal.ns["initial-consultation-yassmin"]("preload", { calLink: "team/illinois-estate-law?eventType=initial-consultation-yassmin", type: "inline", options: { prerenderIframe: true } });
           Lunacal.ns["initial-consultation-yassmin"]("ui", ${LUNACAL_UI_THEME});
 
-          // ── Probate & Prenuptial (Mary Liberty) ──
+          // ── Probate ──
+          Lunacal("init","initial-consultation-probate",{origin:"https://app.lunacal.ai"});
+          Lunacal.ns["initial-consultation-probate"]("inline", {
+            elementOrSelector:"#my-lunacal-inline-initial-consultation-probate",
+            config: {"layout":""},
+            calLink: "team/illinois-estate-law/initial-consultation-probate",
+          });
+          Lunacal.ns["initial-consultation-probate"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-probate", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consultation-probate"]("ui", ${LUNACAL_UI_THEME});
+
+          // ── Prenuptial (Mary Liberty) ──
           Lunacal("init","initial-consultation-mary-liberty",{origin:"https://app.lunacal.ai"});
           Lunacal.ns["initial-consultation-mary-liberty"]("inline", {
             elementOrSelector:"#my-lunacal-inline-initial-consultation-mary-liberty",
