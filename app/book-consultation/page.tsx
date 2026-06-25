@@ -51,7 +51,7 @@ const CASE_OPTIONS: CaseOption[] = [
       'Beneficiary Communication',
       'Trustee Fiduciary Duties',
     ],
-    bookWith: 'Our Estate Planning Team',
+    bookWith: 'Our Trust Administration Team',
     bookWithRole: 'Mary Liberty · Yassmin Koudmani · Victoria Lozano',
   },
   {
