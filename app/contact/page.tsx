@@ -1,21 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { CalendarCheck } from 'lucide-react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const onSubmit = async (data: any) => {
-    if (!executeRecaptcha) {
-      setSubmitMessage('There was an error submitting your form. Please try again or call us at (312) 373-0731.');
+    const recaptchaToken = recaptchaRef.current?.getValue();
+    if (!recaptchaToken) {
+      setSubmitMessage('Please complete the reCAPTCHA verification.');
       return;
     }
 
@@ -29,7 +30,6 @@ export default function ContactPage() {
       formSubmitted = true;
 
       try {
-        const recaptchaToken = await executeRecaptcha('contact_form');
 
         const nameParts = data.name.split(' ');
         const firstName = nameParts[0];
@@ -75,6 +75,7 @@ export default function ContactPage() {
 
         setSubmitMessage('Thank you for your message. We will get back to you soon!');
         reset();
+        recaptchaRef.current?.reset();
       } catch (error) {
         console.error('Contact form error:', error);
         setSubmitMessage('There was an error submitting your form. Please try again or call us at (312) 373-0731.');
@@ -198,6 +199,14 @@ export default function ContactPage() {
                   {errors.message && (
                     <p className="text-red-300 text-sm mt-1">{errors.message.message as string}</p>
                   )}
+                </div>
+
+                {/* reCAPTCHA */}
+                <div>
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                  />
                 </div>
 
                 {/* Submit Button */}

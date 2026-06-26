@@ -22,8 +22,7 @@ export async function POST(req: NextRequest) {
 
     const recaptchaData = await recaptchaRes.json();
 
-    // v3 score: 1.0 = human, 0.0 = bot — reject below 0.5
-    if (!recaptchaData.success || recaptchaData.score < 0.5) {
+    if (!recaptchaData.success) {
       console.error('reCAPTCHA failed:', recaptchaData);
       return NextResponse.json({ error: 'reCAPTCHA verification failed' }, { status: 400 });
     }
