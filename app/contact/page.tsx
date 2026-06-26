@@ -4,15 +4,21 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { CalendarCheck } from 'lucide-react';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const onSubmit = async (data: any) => {
+    if (!executeRecaptcha) {
+      setSubmitMessage('There was an error submitting your form. Please try again or call us at (312) 373-0731.');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitMessage('');
 
@@ -23,6 +29,8 @@ export default function ContactPage() {
       formSubmitted = true;
 
       try {
+        const recaptchaToken = await executeRecaptcha('contact_form');
+
         const nameParts = data.name.split(' ');
         const firstName = nameParts[0];
         const lastName = nameParts.slice(1).join(' ');
@@ -40,7 +48,8 @@ export default function ContactPage() {
             last_name: lastName,
             phone_number: data.phone,
             email: data.email,
-            message: data.message
+            message: data.message,
+            recaptcha_token: recaptchaToken
           })
         });
 

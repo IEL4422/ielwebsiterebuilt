@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MobileStickyBar } from '@/components/layout/MobileStickyBar';
+import { RecaptchaProvider } from '@/components/RecaptchaProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.illinoisestatelaw.com'),
@@ -48,12 +49,14 @@ export default function RootLayout({
             gtag('config', 'G-DDLGV7ZF0Z');
           `}
         </Script>
-        <Header />
-        <div className="pb-[62px] md:pb-0">
-          {children}
-        </div>
-        <Footer />
-        <MobileStickyBar />
+        <RecaptchaProvider>
+          <Header />
+          <div className="pb-[62px] md:pb-0">
+            {children}
+          </div>
+          <Footer />
+          <MobileStickyBar />
+        </RecaptchaProvider>
       </body>
     </html>
   );
