@@ -35,14 +35,9 @@ export default function ContactPage() {
         const firstName = nameParts[0];
         const lastName = nameParts.slice(1).join(' ');
 
-        // Send to edge function which proxies to Zapier
-        const edgeFunctionUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-contact-form`;
-        const webhookResponse = await fetch(edgeFunctionUrl, {
+        const webhookResponse = await fetch('/api/contact', {
           method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             first_name: firstName,
             last_name: lastName,
