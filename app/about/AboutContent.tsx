@@ -260,11 +260,12 @@ export function AboutContent() {
       {/* Modal */}
       {selected && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm"
           onClick={close}
         >
+          <div className="flex min-h-full items-center justify-center p-4 py-8">
           <div
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+            className="bg-white rounded-2xl max-w-2xl w-full shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
@@ -353,6 +354,7 @@ export function AboutContent() {
                 </div>
               )}
             </div>
+          </div>
           </div>
         </div>
       )}
