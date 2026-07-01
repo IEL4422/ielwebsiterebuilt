@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'illinois-inheritance-laws-dying-without-a-will',
+    title: 'Illinois Inheritance Laws: Who Inherits When You Die Without a Will',
+    url: '/blog/illinois-inheritance-laws-dying-without-a-will/',
+    date: 'Jul 1, 2026',
+    summary: 'Comprehensive guide to Illinois intestate succession laws (755 ILCS 5/2-1) — who inherits your estate when you die without a will, how assets are divided among spouses, children, parents, and siblings, special situations for blended families and unmarried partners, and why a will almost always produces a better outcome.',
+    excerpt: 'Learn who inherits in Illinois when someone dies without a will, how intestate succession divides assets between spouses, children, and other heirs — and why a will gives you far more control.',
+  },
+  {
     slug: 'trustee-vs-executor-illinois',
     title: 'Trustee vs. Executor in Illinois: Roles, Duties, and Which You Need',
     url: '/blog/trustee-vs-executor-illinois/',
