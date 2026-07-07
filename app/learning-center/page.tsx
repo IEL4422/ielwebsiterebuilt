@@ -4,6 +4,7 @@ import { MessageSquare } from 'lucide-react';
 import { getDb } from '@/lib/mongodb';
 import GuidesSearch from '@/components/learning-center/GuidesSearch';
 import { staticGuides } from '@/lib/guides-data';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export const metadata: Metadata = {
   title: 'Key Illinois Estate Law Terms for Effective Estate Planning',
@@ -61,18 +62,7 @@ export default async function LearningCenter() {
 
   return (
     <main className="bg-white">
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-20">
-        <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal text-white mb-6">
-              Learning Center
-            </h1>
-            <p className="text-xl text-white/90">
-              Search our comprehensive library of estate planning and probate guides to help you make informed decisions about your future.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Learning Center" subtitle="Search our comprehensive library of estate planning and probate guides to help you make informed decisions about your future." />
 
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">

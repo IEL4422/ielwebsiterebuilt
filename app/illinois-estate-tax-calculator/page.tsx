@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 // ── Illinois estate tax ────────────────────────────────────────────────────────
 // Illinois imposes its own estate tax using the former federal "state death tax
@@ -189,31 +190,22 @@ export default function EstateTaxCalculatorPage() {
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-[#2D3E50] via-[#3a5268] to-[#4A708B] flex items-center py-14">
-        <div className="container mx-auto px-4">
-          <div className="max-w-[1140px] mx-auto text-center">
-            <h1 className="font-extrabold text-[50px] md:text-[68px] lg:text-[82px] font-normal text-white leading-tight mb-4">
-              Illinois Estate Tax Calculator
-            </h1>
-            <p className="text-white/75 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-              Estimate your 2026 Illinois and federal estate tax exposure instantly — using current rates and exemptions.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                { label: 'Illinois Threshold', value: '$4,000,000' },
-                { label: 'IL Top Rate',         value: '16%' },
-                { label: 'Federal Exemption',   value: '$15M (2026)' },
-                { label: 'Federal Top Rate',    value: '40%' },
-              ].map(stat => (
-                <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 min-w-[120px]">
-                  <div className="text-white/55 text-[11px] font-bold uppercase tracking-wider mb-0.5">{stat.label}</div>
-                  <div className="text-white text-xl font-bold">{stat.value}</div>
-                </div>
-              ))}
+      <InnerPageHero title="Illinois Estate Tax Calculator" subtitle="Estimate your 2026 Illinois and federal estate tax exposure instantly — using current rates and exemptions." />
+      <div className="bg-[#33414E] pb-8 px-4">
+        <div className="max-w-[1140px] mx-auto flex flex-wrap justify-center gap-4">
+          {[
+            { label: 'Illinois Threshold', value: '$4,000,000' },
+            { label: 'IL Top Rate',         value: '16%' },
+            { label: 'Federal Exemption',   value: '$15M (2026)' },
+            { label: 'Federal Top Rate',    value: '40%' },
+          ].map(stat => (
+            <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 min-w-[120px]">
+              <div className="text-white/55 text-[11px] font-bold uppercase tracking-wider mb-0.5">{stat.label}</div>
+              <div className="text-white text-xl font-bold">{stat.value}</div>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
 
       {/* ── Body ─────────────────────────────────────────────────────────── */}
       <section className="py-14 px-4 bg-gray-50">

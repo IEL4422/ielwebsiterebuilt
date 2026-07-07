@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Users, AlertCircle, CheckCircle, Heart, Shield } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export default function ChicagoPrenuptialAgreementsLawyerPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -95,60 +96,51 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
       />
 
       <main>
-        <section className="relative bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] min-h-[400px] flex items-center py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-[1140px] mx-auto">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h1 className="font-extrabold text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Prenuptial Agreements
-                  </h1>
-                  <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                    Protect your assets and clarify expectations with a comprehensive prenuptial agreement
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href="/book-consultation/"
-                      className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
-                    >
-                      Schedule Consultation
-                    </Link>
-                    <Link
-                      href="tel:3123730731"
-                      className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors"
-                    >
-                      <Phone className="w-5 h-5 mr-2" />
-                      (312) 373-0731
-                    </Link>
-                  </div>
-                </div>
-                <div className="hidden lg:block">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                    <h3 className="text-2xl font-bold text-white mb-4">Why Consider a Prenup?</h3>
-                    <ul className="space-y-3 text-white/90">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Protect pre-marriage assets</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Clarify financial responsibilities</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Safeguard family businesses</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Reduce future conflict</span>
-                      </li>
-                    </ul>
-                  </div>
+        <InnerPageHero title="Prenuptial Agreements" subtitle="Protect your assets and clarify expectations with a comprehensive prenuptial agreement" />
+        <div className="bg-[#2D3E50] py-8 px-4">
+          <div className="max-w-[1140px] mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/book-consultation/"
+                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                >
+                  Schedule Consultation
+                </Link>
+                <Link
+                  href="tel:3123730731"
+                  className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  (312) 373-0731
+                </Link>
+              </div>
+              <div className="hidden lg:block">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                  <h3 className="text-2xl font-bold text-white mb-4">Why Consider a Prenup?</h3>
+                  <ul className="space-y-3 text-white/90">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Protect pre-marriage assets</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Clarify financial responsibilities</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Safeguard family businesses</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Reduce future conflict</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">

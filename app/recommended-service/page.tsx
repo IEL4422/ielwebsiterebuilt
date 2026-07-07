@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -798,15 +799,7 @@ export default function RecommendedServicePage() {
 
   return (
     <main>
-      <section className="relative min-h-[180px] bg-gradient-to-r from-[#2D3E50] to-[#4a708b] flex items-center justify-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
-        <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
-          <div className="flex justify-center lg:justify-start">
-            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
-              Find the Right Service for You
-            </h1>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Find the Right Service for You" />
 
       <section className="py-16 lg:py-24 bg-white">
         <div className="mx-auto max-w-[900px] px-5 lg:px-8">

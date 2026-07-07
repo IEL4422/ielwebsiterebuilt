@@ -1,16 +1,10 @@
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
+
 export default function InPersonConsultationsPage() {
   return (
     <main>
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-[1140px] mx-auto">
-            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] font-normal text-white leading-[50px] md:leading-[65px] lg:leading-[75px] text-center">
-              In-Person Meetings
-            </h1>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="In-Person Meetings" />
 
       {/* Content Section */}
       <section className="py-16 lg:py-24 bg-white">

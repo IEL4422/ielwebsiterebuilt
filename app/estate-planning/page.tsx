@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FileText, Shield, Heart, Scale, ScrollText } from 'lucide-react'
+import { InnerPageHero } from '@/components/layout/InnerPageHero'
 
 export const metadata: Metadata = {
   title: 'Estate Planning Services',
@@ -54,18 +55,7 @@ const practiceAreas = [
 export default function EstatePlanningPage() {
   return (
     <main>
-      <section className="relative bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] min-h-[340px] flex items-center py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-[1140px] mx-auto text-center">
-            <h1 className="font-extrabold text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-              Estate Planning Services in Illinois
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive, customized estate planning to protect your family, your assets, and your legacy under Illinois law.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Estate Planning Services in Illinois" subtitle="Comprehensive, customized estate planning to protect your family, your assets, and your legacy under Illinois law." />
 
       <section className="bg-white py-16 lg:py-24">
         <div className="container mx-auto px-4 max-w-[1140px]">

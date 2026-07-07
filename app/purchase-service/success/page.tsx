@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import Link from 'next/link';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export default function SuccessPage() {
   const searchParams = useSearchParams();
@@ -26,13 +27,7 @@ export default function SuccessPage() {
 
   return (
     <main>
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6">
-        <div className="container mx-auto px-5 max-w-[1240px]">
-          <h1 className="font-extrabold font-normal text-[#fefefe] capitalize text-[50px] md:text-[60px] lg:text-[100px] leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
-            Purchase Complete
-          </h1>
-        </div>
-      </section>
+      <InnerPageHero title="Purchase Complete" />
 
       <div className="container mx-auto px-5 max-w-[800px] py-[100px]">
         {isVerifying ? (

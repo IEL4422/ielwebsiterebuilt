@@ -15,7 +15,7 @@ const trustBadges = [
 
 export function LocationHero({ title, subtitle }: LocationHeroProps) {
   return (
-    <section className="relative bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] py-16 md:py-20">
+    <section className="relative bg-[#33414E] py-16 md:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-[1140px] mx-auto text-center">
           <h1 className="font-extrabold text-[40px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-5">

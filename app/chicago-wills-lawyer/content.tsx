@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Star, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 interface AccordionItemProps {
   title: string;
@@ -53,17 +54,7 @@ export default function ChicagoWillsContent() {
 
   return (
     <div className="min-h-screen">
-      <section
-        className="relative min-h-[180px] bg-gradient-to-r from-[#2D3E50] to-[#4a708b] flex items-center justify-center py-6 lg:min-h-[160px] sm:min-h-[140px]"
-      >
-        <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
-          <div className="flex justify-center lg:justify-start">
-            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
-              Chicago Wills Lawyer
-            </h1>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Chicago Wills Lawyer" />
 
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-5 gap-12">

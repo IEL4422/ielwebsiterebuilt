@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export const metadata: Metadata = {
   title: 'Top Rated Estate Planning Services in Illinois',
@@ -38,15 +39,7 @@ export default function AreasWeServePage() {
     <>
       <main>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
-          <div className="container mx-auto max-w-[1140px] px-5 xl:px-0">
-            <div className="flex flex-col items-center justify-center py-4">
-              <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal capitalize text-[#FEFEFE] text-center">
-                Estate Planning &amp; Probate Services Across Illinois
-              </h1>
-            </div>
-          </div>
-        </section>
+        <InnerPageHero title="Estate Planning & Probate Services Across Illinois" />
 
         {/* Introduction Section */}
         <section className="bg-white py-8 lg:py-12">

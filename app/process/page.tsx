@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Clock, CircleCheck as CheckCircle2, FileText, Scale, Chrome as Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export const metadata = {
   title: 'Our Process | Illinois Estate Law',
@@ -16,13 +17,7 @@ export default function ProcessPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-[1140px] mx-auto">
-            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] font-normal text-white leading-[50px] md:leading-[65px] lg:leading-[75px] text-center">The Process</h1>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="The Process" />
 
       {/* Process Navigation */}
       <section className="py-8 bg-white border-b sticky top-0 z-10 shadow-sm">
