@@ -77,7 +77,7 @@ export function PracticeAreasSection() {
             Practice Areas
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">
-            Flat-fee legal services across all of Illinois — transparent pricing before you commit.
+            Complete estate law services across all of Illinois — transparent flat-fee pricing before you commit.
           </p>
         </div>
 

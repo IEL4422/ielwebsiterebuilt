@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MobileStickyBar } from '@/components/layout/MobileStickyBar';
+import FloatingConsultButton from '@/components/ui/FloatingConsultButton';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.illinoisestatelaw.com'),
@@ -54,6 +55,7 @@ export default function RootLayout({
           </div>
           <Footer />
           <MobileStickyBar />
+          <FloatingConsultButton />
       </body>
     </html>
   );

@@ -89,13 +89,13 @@ export default function HealthcareDirectivesPage() {
 
       <main>
         <InnerPageHero title="Healthcare Directives" subtitle="Ensure your medical wishes are honored with comprehensive healthcare directives tailored to Illinois law" />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -138,7 +138,7 @@ export default function HealthcareDirectivesPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-8 mb-12 shadow-sm">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   Protect Your Healthcare Decisions with Illinois Healthcare Directives
                 </h2>
@@ -160,9 +160,9 @@ export default function HealthcareDirectivesPage() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">Types of Healthcare Directives in Illinois</h3>
 
                 <div className="grid md:grid-cols-2 gap-6 my-8">
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Heart className="w-6 h-6" />
                       </div>
                       <div>
@@ -174,9 +174,9 @@ export default function HealthcareDirectivesPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <FileText className="w-6 h-6" />
                       </div>
                       <div>
@@ -188,9 +188,9 @@ export default function HealthcareDirectivesPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <AlertCircle className="w-6 h-6" />
                       </div>
                       <div>
@@ -202,9 +202,9 @@ export default function HealthcareDirectivesPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <CheckCircle className="w-6 h-6" />
                       </div>
                       <div>
@@ -249,7 +249,7 @@ export default function HealthcareDirectivesPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('requirements')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Illinois Healthcare Directive Requirements</span>
                     {expandedSection === 'requirements' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -302,27 +302,27 @@ export default function HealthcareDirectivesPage() {
                 <div className="bg-blue-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Trustworthy and Responsible:</strong> Someone who takes commitments seriously and acts in your best interests</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Good Under Pressure:</strong> Able to make difficult decisions during emotional and stressful situations</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Understands Your Values:</strong> Knows your beliefs about medical treatment and end-of-life care</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Willing to Serve:</strong> Has agreed to take on this responsibility and understands what it entails</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Geographically Accessible:</strong> Lives close enough to respond quickly if needed</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Assertive Communicator:</strong> Can effectively communicate with medical professionals and family members</span>
                     </li>
                   </ul>
@@ -338,7 +338,7 @@ export default function HealthcareDirectivesPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('decisions')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Medical Treatment Decisions</span>
                     {expandedSection === 'decisions' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -412,7 +412,7 @@ export default function HealthcareDirectivesPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#77B1D4]">
+                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#7E9CC0]">
                     <h4 className="text-xl font-bold text-slate-800 mb-3">Power of Attorney for Healthcare</h4>
                     <ul className="space-y-2 text-slate-600">
                       <li>• Names someone to make decisions</li>
@@ -485,35 +485,35 @@ export default function HealthcareDirectivesPage() {
                 <div className="bg-slate-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Comprehensive consultation to understand your healthcare wishes and values</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Drafting customized living wills that comply with Illinois law</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Creating powers of attorney for healthcare with appropriate limitations</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Preparing HIPAA authorizations to ensure information access</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Guidance on discussing your wishes with family and healthcare agents</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Coordination with your overall estate plan</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Regular reviews and updates as your circumstances change</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Assistance with document storage and distribution</span>
                     </li>
                   </ul>
@@ -602,7 +602,7 @@ export default function HealthcareDirectivesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -614,7 +614,7 @@ export default function HealthcareDirectivesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Your Consultation
                 </Link>

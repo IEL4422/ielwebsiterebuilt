@@ -119,7 +119,7 @@ export default function BookConsultationPage() {
         <section className={`bg-white py-12 lg:py-16 ${selectedType ? 'hidden' : 'block'}`}>
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-[#2D3E50] mb-3">
+              <h2 className="text-3xl font-bold text-[#33414E] mb-3">
                 What type of legal help do you need?
               </h2>
               <p className="text-lg text-gray-500">
@@ -134,14 +134,14 @@ export default function BookConsultationPage() {
                   <button
                     key={option.id}
                     onClick={() => setSelectedType(option.id)}
-                    className="text-left bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-[#4A708B] hover:shadow-lg transition-all duration-200 group"
+                    className="text-left bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-[#547298] hover:shadow-lg transition-all duration-200 group"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#2D3E50]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2D3E50] transition-colors duration-200">
-                        <Icon className="w-6 h-6 text-[#2D3E50] group-hover:text-white transition-colors duration-200" />
+                      <div className="w-12 h-12 rounded-xl bg-[#33414E]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#33414E] transition-colors duration-200">
+                        <Icon className="w-6 h-6 text-[#33414E] group-hover:text-white transition-colors duration-200" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-xl font-bold text-[#2D3E50] mb-1">{option.label}</h3>
+                        <h3 className="text-xl font-bold text-[#33414E] mb-1">{option.label}</h3>
                         <p className="text-gray-500 text-sm mb-3">{option.subtitle}</p>
                         <ul className="space-y-1">
                           {option.examples.map((ex) => (
@@ -177,14 +177,14 @@ export default function BookConsultationPage() {
           <div className="container mx-auto px-4 max-w-6xl">
             <button
               onClick={() => setSelectedType(null)}
-              className="inline-flex items-center gap-2 text-[#4A708B] hover:text-[#2D3E50] font-semibold mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-[#4A708B] hover:text-[#33414E] font-semibold mb-6 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Change case type
             </button>
 
             {selectedOption && (
-              <div className="bg-gradient-to-r from-[#2D3E50] to-[#4A708B] rounded-xl p-5 mb-8 text-white flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+              <div className="bg-[#33414E] rounded-xl p-5 mb-8 text-white flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
                 <div className="flex-1">
                   <p className="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">
                     {selectedOption.label} Consultation

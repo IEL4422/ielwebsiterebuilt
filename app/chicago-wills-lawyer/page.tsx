@@ -97,13 +97,13 @@ export default function ChicagoWillsLawyerPage() {
 
       <main>
         <InnerPageHero title="Wills & Testaments" subtitle="Protect your family's future with a comprehensive will tailored to Illinois law" />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -146,7 +146,7 @@ export default function ChicagoWillsLawyerPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-8 mb-12 shadow-sm">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   Create Your Legacy with a Comprehensive Illinois Will
                 </h2>
@@ -168,9 +168,9 @@ export default function ChicagoWillsLawyerPage() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">Essential Components of an Illinois Will</h3>
 
                 <div className="grid md:grid-cols-2 gap-6 my-8">
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Users className="w-6 h-6" />
                       </div>
                       <div>
@@ -182,9 +182,9 @@ export default function ChicagoWillsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Shield className="w-6 h-6" />
                       </div>
                       <div>
@@ -196,9 +196,9 @@ export default function ChicagoWillsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Heart className="w-6 h-6" />
                       </div>
                       <div>
@@ -210,9 +210,9 @@ export default function ChicagoWillsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <FileText className="w-6 h-6" />
                       </div>
                       <div>
@@ -260,7 +260,7 @@ export default function ChicagoWillsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('requirements')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Legal Requirements for Valid Illinois Wills</span>
                     {expandedSection === 'requirements' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -321,31 +321,31 @@ export default function ChicagoWillsLawyerPage() {
                 <div className="bg-blue-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Trustworthy and Honest:</strong> Must handle your estate with integrity and follow your wishes faithfully</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Organized and Detail-Oriented:</strong> Needs to manage paperwork, deadlines, and financial records carefully</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Financially Responsible:</strong> Should understand basic financial concepts and money management</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Available and Willing:</strong> Has agreed to serve and has time to dedicate to the role</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Good Communicator:</strong> Can work with family members, attorneys, and institutions effectively</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Mature and Responsible:</strong> Can handle stress and make difficult decisions</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Impartial and Fair:</strong> Will treat all beneficiaries fairly according to your wishes</span>
                     </li>
                   </ul>
@@ -389,7 +389,7 @@ export default function ChicagoWillsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('bequests')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Types of Bequests You Can Include</span>
                     {expandedSection === 'bequests' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -456,7 +456,7 @@ export default function ChicagoWillsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('intestacy')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Illinois Intestacy Distribution Rules</span>
                     {expandedSection === 'intestacy' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -561,7 +561,7 @@ export default function ChicagoWillsLawyerPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#77B1D4]">
+                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#7E9CC0]">
                     <h4 className="text-xl font-bold text-slate-800 mb-3">New Will</h4>
                     <p className="text-slate-600 mb-3">Creating a completely new will that automatically revokes all previous wills and codicils.</p>
                     <p className="text-sm text-slate-500 font-medium mb-2">Best for:</p>
@@ -628,35 +628,35 @@ export default function ChicagoWillsLawyerPage() {
                 <div className="bg-slate-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Comprehensive consultation to understand your family structure and goals</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Review of all assets and property to ensure complete coverage</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Guidance on choosing executors, guardians, and beneficiaries</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Drafting clear, unambiguous will provisions that comply with Illinois law</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Proper execution with witnesses and self-proving affidavits</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Coordination with trusts, powers of attorney, and healthcare directives</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Tax planning considerations for larger estates</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Secure storage and easy updating as your life changes</span>
                     </li>
                   </ul>
@@ -762,7 +762,7 @@ export default function ChicagoWillsLawyerPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -774,7 +774,7 @@ export default function ChicagoWillsLawyerPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Your Consultation
                 </Link>

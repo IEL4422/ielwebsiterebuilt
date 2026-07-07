@@ -202,7 +202,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -664,7 +664,7 @@ export default function Page() {
               </a>
               <a
                 href="/book-consultation/"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#4A708B] font-semibold rounded border-2 border-[#4A708B] hover:bg-[#4A708B] hover:text-white transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#4A708B] font-semibold rounded border-2 border-[#547298] hover:bg-[#4A708B] hover:text-white transition-colors"
               >
                 BOOK ONLINE
               </a>

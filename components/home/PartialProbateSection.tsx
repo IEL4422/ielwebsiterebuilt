@@ -14,7 +14,7 @@ export function PartialProbateSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Partial Probate: Taking Over and Seeing It Through
             </h2>
-            <div className="w-16 h-1 bg-[#77B1D4] mb-6" />
+            <div className="w-16 h-1 bg-[#7E9CC0] mb-6" />
             <div className="prose prose-slate max-w-none prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-5">
               <p>
                 If you've already started the probate process but feel stuck or frustrated with your current attorney, you're not alone. Many people find themselves in this situation; cases drag on, unclear billing, or a lack of communication, leaving you with more questions than answers. You shouldn't have to deal with that on top of managing the loss of a loved one.
@@ -45,7 +45,7 @@ export function PartialProbateSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="tel:3123730731"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
                 >
                   CALL (312) 373-0731
                 </a>

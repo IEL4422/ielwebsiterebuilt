@@ -176,7 +176,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -205,7 +205,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             {/* Summary Section */}
-            <div className="bg-[#f0f7ff] border-l-4 border-[#4A708B] p-6 rounded-r-lg mb-8">
+            <div className="bg-[#f0f7ff] border-l-4 border-[#547298] p-6 rounded-r-lg mb-8">
               <h3 className="text-xl font-bold mb-3 mt-0">Article Summary</h3>
               <p className="mb-0">
                 Aging brings unique legal challenges that require thoughtful planning and preparation. This comprehensive guide covers essential documents every aging adult needs, how to protect yourself from financial abuse, navigating Medicaid eligibility, guardianship considerations, and planning for long-term care. Learn the critical steps to protect your rights, preserve your independence, and ensure your wishes are honored.
@@ -282,7 +282,7 @@ export default function Page() {
                   onClick={() => setActiveTab('essential')}
                   className={`px-6 py-3 font-semibold transition-colors whitespace-nowrap ${
                     activeTab === 'essential'
-                      ? 'border-b-2 border-[#4A708B] text-[#4A708B]'
+                      ? 'border-b-2 border-[#547298] text-[#4A708B]'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
@@ -292,7 +292,7 @@ export default function Page() {
                   onClick={() => setActiveTab('healthcare')}
                   className={`px-6 py-3 font-semibold transition-colors whitespace-nowrap ${
                     activeTab === 'healthcare'
-                      ? 'border-b-2 border-[#4A708B] text-[#4A708B]'
+                      ? 'border-b-2 border-[#547298] text-[#4A708B]'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
@@ -302,7 +302,7 @@ export default function Page() {
                   onClick={() => setActiveTab('financial')}
                   className={`px-6 py-3 font-semibold transition-colors whitespace-nowrap ${
                     activeTab === 'financial'
-                      ? 'border-b-2 border-[#4A708B] text-[#4A708B]'
+                      ? 'border-b-2 border-[#547298] text-[#4A708B]'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >

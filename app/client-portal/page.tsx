@@ -46,7 +46,7 @@ export default function ClientPortalPage() {
 
           <div className="bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] rounded-xl p-8 mb-12 sm:p-6">
             <div className="flex items-start gap-4 mb-4">
-              <div className="bg-[#77B1D4] rounded-full p-3 flex-shrink-0">
+              <div className="bg-[#7E9CC0] rounded-full p-3 flex-shrink-0">
                 <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -68,8 +68,8 @@ export default function ClientPortalPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#77B1D4]/10 rounded-lg p-3 flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#77B1D4]" />
+                  <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
+                    <Clock className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
@@ -84,8 +84,8 @@ export default function ClientPortalPage() {
 
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#77B1D4]/10 rounded-lg p-3 flex-shrink-0">
-                    <FileText className="w-6 h-6 text-[#77B1D4]" />
+                  <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
+                    <FileText className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
@@ -100,8 +100,8 @@ export default function ClientPortalPage() {
 
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#77B1D4]/10 rounded-lg p-3 flex-shrink-0">
-                    <MessageCircle className="w-6 h-6 text-[#77B1D4]" />
+                  <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
+                    <MessageCircle className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
@@ -116,8 +116,8 @@ export default function ClientPortalPage() {
 
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#77B1D4]/10 rounded-lg p-3 flex-shrink-0">
-                    <Bell className="w-6 h-6 text-[#77B1D4]" />
+                  <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
+                    <Bell className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
@@ -132,8 +132,8 @@ export default function ClientPortalPage() {
 
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#77B1D4]/10 rounded-lg p-3 flex-shrink-0">
-                    <Lock className="w-6 h-6 text-[#77B1D4]" />
+                  <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
+                    <Lock className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
@@ -148,8 +148,8 @@ export default function ClientPortalPage() {
 
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#77B1D4]/10 rounded-lg p-3 flex-shrink-0">
-                    <Shield className="w-6 h-6 text-[#77B1D4]" />
+                  <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
+                    <Shield className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
@@ -170,7 +170,7 @@ export default function ClientPortalPage() {
             </h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="bg-[#77B1D4] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-[#7E9CC0] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
@@ -178,7 +178,7 @@ export default function ClientPortalPage() {
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="bg-[#77B1D4] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-[#7E9CC0] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
@@ -186,7 +186,7 @@ export default function ClientPortalPage() {
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="bg-[#77B1D4] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-[#7E9CC0] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
@@ -194,7 +194,7 @@ export default function ClientPortalPage() {
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="bg-[#77B1D4] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-[#7E9CC0] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
@@ -202,7 +202,7 @@ export default function ClientPortalPage() {
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="bg-[#77B1D4] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-[#7E9CC0] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
@@ -222,7 +222,7 @@ export default function ClientPortalPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/services-pricing/"
-                className="inline-block px-8 py-4 bg-[#77B1D4] text-white font-['Plus_Jakarta_Sans'] font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-center"
+                className="inline-block px-8 py-4 bg-[#7E9CC0] text-white font-['Plus_Jakarta_Sans'] font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-center"
               >
                 View Packages &amp; Pricing
               </Link>
@@ -237,7 +237,7 @@ export default function ClientPortalPage() {
 
           <div className="mt-12 text-center">
             <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#6c757d] sm:text-[14px]">
-              Questions about the client portal? <Link href="/contact/" className="text-[#77B1D4] hover:underline">Contact us</Link> or call <a href="tel:3123730731" className="text-[#77B1D4] hover:underline">(312) 373-0731</a>
+              Questions about the client portal? <Link href="/contact/" className="text-[#7E9CC0] hover:underline">Contact us</Link> or call <a href="tel:3123730731" className="text-[#7E9CC0] hover:underline">(312) 373-0731</a>
             </p>
           </div>
         </div>

@@ -244,7 +244,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
 
       <div className="min-h-screen bg-white">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] via-[#4A708B] to-[#33414E] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -288,7 +288,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Timer className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -307,7 +307,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
 
             {/* Quick reference timeline */}
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] text-lg mb-4 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] text-lg mb-4 font-['Plus_Jakarta_Sans']">
                 Illinois Probate Timeline at a Glance
               </h3>
               <div className="grid sm:grid-cols-3 gap-4">
@@ -390,7 +390,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
                     className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-between gap-4"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#2D3E50] text-white flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
+                      <div className="w-10 h-10 rounded-full bg-[#33414E] text-white flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
                         {phase.number}
                       </div>
                       <div className="text-left">
@@ -430,7 +430,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
-              <div className="bg-[#2D3E50] text-white rounded-xl p-6">
+              <div className="bg-[#33414E] text-white rounded-xl p-6">
                 <Building2 className="w-8 h-8 mb-3 opacity-80" />
                 <h3 className="font-bold text-lg mb-3 font-['Plus_Jakarta_Sans']">Cook County Court Specifics</h3>
                 <ul className="space-y-2 text-sm text-white/85 font-['Plus_Jakarta_Sans']">
@@ -480,11 +480,11 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
               Cook County&apos;s volume means court dates for contested matters or accounting hearings may take several additional weeks to schedule compared to less busy counties. However, for straightforward estates where beneficiaries sign waivers and the executor works efficiently, Cook County probate can be completed on the faster end of the 9–18 month range.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Scale className="w-5 h-5 text-[#4a708b] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#2D3E50] mb-1 font-['Plus_Jakarta_Sans']">Independent vs. Supervised Administration in Illinois</p>
+                  <p className="font-semibold text-[#33414E] mb-1 font-['Plus_Jakarta_Sans']">Independent vs. Supervised Administration in Illinois</p>
                   <p className="text-gray-700 text-sm font-['Plus_Jakarta_Sans']">
                     Illinois allows estates to be administered &ldquo;independently&rdquo; — meaning the executor can pay debts, manage assets, and even sell property without going back to the court for approval at every step. This significantly reduces timeline and legal costs. Most well-drafted Illinois wills grant independent administration authority. If your loved one died without a will or with a will that does not address this, &ldquo;supervised&rdquo; administration may be required, which involves more court oversight and more time.
                   </p>
@@ -625,11 +625,11 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
               ].map((item, i) => (
                 <div key={i} className="border border-gray-200 rounded-xl p-6 bg-white">
                   <div className="flex items-start gap-4">
-                    <span className="bg-[#2D3E50] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
+                    <span className="bg-[#33414E] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
                       {item.num}
                     </span>
                     <div>
-                      <h3 className="font-bold text-[#2D3E50] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
+                      <h3 className="font-bold text-[#33414E] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
                       <p className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans'] mb-3">{item.body}</p>
                       <Link
                         href={item.link}
@@ -645,7 +645,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
             </div>
 
             {/* Mid-article CTA */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
               <h3 className="text-xl font-bold mb-3 font-['Plus_Jakarta_Sans']">
                 Trying to Avoid Putting Your Family Through Probate?
               </h3>
@@ -655,7 +655,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[#33414E] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
                 >
                   Book a Free Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -730,7 +730,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
               pages explain your options.
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Speak With an Illinois Probate Attorney
               </h3>
@@ -763,7 +763,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
 
             {/* Related articles */}
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] mb-3 font-['Plus_Jakarta_Sans']">
                 Related Illinois Probate &amp; Estate Planning Guides
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -778,7 +778,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
+                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
                   >
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
@@ -821,7 +821,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
             </div>
 
             {/* Final CTA banner */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
                 Ready to Protect Your Family from a Lengthy Probate?
               </p>

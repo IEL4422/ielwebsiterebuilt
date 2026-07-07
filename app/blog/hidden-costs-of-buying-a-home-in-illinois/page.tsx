@@ -77,7 +77,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -100,7 +100,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="summary" className="text-2xl font-bold mt-8 mb-4">The Hidden Costs Overview</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">Closing costs for a home buyer in Illinois typically run 2–4% of the purchase price on top of the down payment. On a $400,000 home in Chicago, that means $8,000–$16,000 in additional cash — beyond whatever you put down.</p>
               <p className="mb-0 text-gray-700">Chicago is one of the more expensive cities in the country for closing costs, primarily because of the city's real estate transfer tax ($3.75 per $500 of purchase price) layered on top of Cook County and state transfer taxes. Understanding every line item before you make an offer helps you avoid unpleasant surprises at the closing table.</p>
             </div>
@@ -110,7 +110,7 @@ export default function Page() {
             <p className="mb-6">Illinois is an attorney state for real estate — meaning attorneys handle closings here rather than the non-attorney escrow officers used in many Western states. This adds a modest legal fee but provides significant consumer protection.</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Fee</th><th className="border border-gray-300 px-4 py-3 text-left">Typical Range</th><th className="border border-gray-300 px-4 py-3 text-left">Who Pays</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Fee</th><th className="border border-gray-300 px-4 py-3 text-left">Typical Range</th><th className="border border-gray-300 px-4 py-3 text-left">Who Pays</th></tr></thead>
                 <tbody>
                   {[
                     ['Buyer\'s attorney fee', '$750–$1,500 (flat fee)', 'Buyer'],
@@ -132,12 +132,12 @@ export default function Page() {
             <h3 className="text-xl font-bold mt-8 mb-3">Title Insurance</h3>
             <div className="grid md:grid-cols-2 gap-4 my-6">
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h4 className="font-bold text-[#2D3E50] mb-2">Owner&apos;s Policy</h4>
+                <h4 className="font-bold text-[#33414E] mb-2">Owner&apos;s Policy</h4>
                 <p className="text-sm text-gray-700 mb-2">Protects the buyer against title defects discovered after closing. One-time premium, typically 0.5–0.7% of purchase price. Optional but strongly recommended.</p>
                 <p className="text-sm font-semibold">On a $400k home: approx. $2,000–$2,800</p>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h4 className="font-bold text-[#2D3E50] mb-2">Lender&apos;s Policy</h4>
+                <h4 className="font-bold text-[#33414E] mb-2">Lender&apos;s Policy</h4>
                 <p className="text-sm text-gray-700 mb-2">Required by your mortgage lender. Protects the lender only. Separate premium, typically 0.2–0.4% of loan amount. Expires when loan is paid off.</p>
                 <p className="text-sm font-semibold">On a $360k loan: approx. $720–$1,440</p>
               </div>
@@ -149,7 +149,7 @@ export default function Page() {
             </div>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Tax</th><th className="border border-gray-300 px-4 py-3 text-left">Rate</th><th className="border border-gray-300 px-4 py-3 text-left">Who Pays</th><th className="border border-gray-300 px-4 py-3 text-left">On $400k</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Tax</th><th className="border border-gray-300 px-4 py-3 text-left">Rate</th><th className="border border-gray-300 px-4 py-3 text-left">Who Pays</th><th className="border border-gray-300 px-4 py-3 text-left">On $400k</th></tr></thead>
                 <tbody>
                   {[
                     ['State of Illinois', '$0.50 per $500', 'Seller', '$400'],
@@ -157,7 +157,7 @@ export default function Page() {
                     ['City of Chicago', '$3.75 per $500', 'Seller', '$3,000'],
                     ['Total (Chicago seller)', '$4.50 per $500 = $9.00/1,000', 'Seller', '$3,600'],
                   ].map(([tax, rate, pays, amount], i) => (
-                    <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : ''}><td className="border border-gray-300 px-4 py-3 text-sm font-semibold">{tax}</td><td className="border border-gray-300 px-4 py-3 text-sm">{rate}</td><td className="border border-gray-300 px-4 py-3 text-sm">{pays}</td><td className="border border-gray-300 px-4 py-3 text-sm font-semibold text-[#2D3E50]">{amount}</td></tr>
+                    <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : ''}><td className="border border-gray-300 px-4 py-3 text-sm font-semibold">{tax}</td><td className="border border-gray-300 px-4 py-3 text-sm">{rate}</td><td className="border border-gray-300 px-4 py-3 text-sm">{pays}</td><td className="border border-gray-300 px-4 py-3 text-sm font-semibold text-[#33414E]">{amount}</td></tr>
                   ))}
                 </tbody>
               </table>
@@ -168,7 +168,7 @@ export default function Page() {
             <p className="mb-6">If you are financing the purchase, your lender will charge origination and processing fees that appear on your Loan Estimate and later your Closing Disclosure. These vary significantly by lender.</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Lender Fee</th><th className="border border-gray-300 px-4 py-3 text-left">Typical Range</th><th className="border border-gray-300 px-4 py-3 text-left">Notes</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Lender Fee</th><th className="border border-gray-300 px-4 py-3 text-left">Typical Range</th><th className="border border-gray-300 px-4 py-3 text-left">Notes</th></tr></thead>
                 <tbody>
                   {[
                     ['Loan origination fee', '0–1% of loan amount', 'Often negotiable or rolled into rate'],
@@ -196,8 +196,8 @@ export default function Page() {
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-[#2D3E50] text-sm">{item.title}</h3>
-                    <span className="text-xs bg-[#2D3E50] text-white px-2 py-1 rounded-full flex-shrink-0 ml-2">{item.est}</span>
+                    <h3 className="font-bold text-[#33414E] text-sm">{item.title}</h3>
+                    <span className="text-xs bg-[#33414E] text-white px-2 py-1 rounded-full flex-shrink-0 ml-2">{item.est}</span>
                   </div>
                   <p className="text-gray-700 text-sm mb-0">{item.desc}</p>
                 </div>
@@ -213,13 +213,13 @@ export default function Page() {
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                     <input type="number" value={purchasePrice} onChange={e => setPurchasePrice(e.target.value)}
-                      className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg text-lg font-semibold focus:outline-none focus:border-[#4a708b]" />
+                      className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg text-lg font-semibold focus:outline-none focus:border-[#547298]" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
                   <select value={location} onChange={e => setLocation(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4a708b]">
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#547298]">
                     <option value="chicago">City of Chicago</option>
                     <option value="cook">Cook County (outside Chicago)</option>
                     <option value="other">Other Illinois County</option>
@@ -245,7 +245,7 @@ export default function Page() {
                     <span className="font-semibold text-gray-900">{fmt(amount as number)}</span>
                   </div>
                 ))}
-                <div className="flex justify-between items-center py-3 bg-[#2D3E50] text-white rounded-lg px-4 mt-3">
+                <div className="flex justify-between items-center py-3 bg-[#33414E] text-white rounded-lg px-4 mt-3">
                   <span className="font-bold">Estimated Total Buyer Closing Costs</span>
                   <span className="font-bold text-xl">{fmt(costs.total)}</span>
                 </div>
@@ -266,7 +266,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Get a Precise Closing Cost Estimate for Your Transaction</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law provides flat-fee real estate representation for buyers throughout Chicago and Cook County. We review your Closing Disclosure line by line to ensure every number is correct before you sign.</p>
               <div className="flex flex-wrap gap-4">

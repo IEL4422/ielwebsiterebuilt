@@ -98,7 +98,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -121,7 +121,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="overview" className="text-2xl font-bold mt-8 mb-4">The Four Ways to Hold Title in Illinois</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">How you hold title to your home is one of the most consequential — and most overlooked — decisions in real estate and estate planning. The ownership structure appears on your deed and determines what happens to the property at your death, during incapacity, and in the event of financial trouble.</p>
               <p className="mb-0 text-gray-700">Illinois law recognizes four principal ways to hold title to real property: sole ownership, joint tenancy with right of survivorship, tenancy in common, and ownership through a trust. Notably, Illinois does not recognize tenancy by the entirety — a form of ownership for married couples that exists in many other states.</p>
             </div>
@@ -132,13 +132,13 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mb-6">
                 {methods.map((m, i) => (
                   <button key={i} onClick={() => setActiveMethod(i)}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeMethod === i ? 'bg-[#2D3E50] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeMethod === i ? 'bg-[#33414E] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                     {m.label}
                   </button>
                 ))}
               </div>
-              <div className="bg-white border-2 border-[#2D3E50] rounded-xl p-6">
-                <h3 className="font-bold text-[#2D3E50] text-xl mb-3">{methods[activeMethod].title}</h3>
+              <div className="bg-white border-2 border-[#33414E] rounded-xl p-6">
+                <h3 className="font-bold text-[#33414E] text-xl mb-3">{methods[activeMethod].title}</h3>
                 <p className="text-gray-700 mb-4">{methods[activeMethod].description}</p>
                 <p className="text-gray-700 mb-4 text-sm">{methods[activeMethod].howItWorks}</p>
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -168,7 +168,7 @@ export default function Page() {
             <h2 id="comparison" className="text-2xl font-bold mt-12 mb-4">Full Comparison: Probate, Taxes, and Creditors</h2>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-3 py-3 text-left text-sm">Method</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Probate at Death?</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Property Tax Reassessment?</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Creditor Exposure</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Control During Life</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-3 py-3 text-left text-sm">Method</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Probate at Death?</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Property Tax Reassessment?</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Creditor Exposure</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Control During Life</th></tr></thead>
                 <tbody>
                   {[
                     ['Sole Ownership', 'Yes (unless + trust/TODI)', 'N/A (sole owner)', 'Full — creditors can reach property', 'Complete'],
@@ -212,7 +212,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Hold Title the Right Way for Your Goals</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law advises buyers and homeowners on title structure as part of comprehensive estate planning — and handles all deed work to implement the right structure for your situation. Schedule a consultation to review how you currently hold title.</p>
               <div className="flex flex-wrap gap-4">

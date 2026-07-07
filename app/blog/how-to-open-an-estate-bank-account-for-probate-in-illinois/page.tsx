@@ -199,7 +199,7 @@ export default function Page() {
       />
 
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -242,7 +242,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Landmark className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -630,7 +630,7 @@ export default function Page() {
               Illinois follows a statutory priority order for paying estate debts (755 ILCS 5/18-10). Executors who distribute assets to beneficiaries before paying all legitimate debts can be held personally liable for those unpaid obligations. When in doubt about the order of payments, consult your probate attorney before writing checks.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <ListChecks className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -736,7 +736,7 @@ export default function Page() {
               If you are navigating probate for the first time, you do not have to figure this out alone. An experienced probate attorney can guide you through every step, from obtaining Letters of Office to closing the estate account and everything in between.
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Need Help with Illinois Probate?
               </h3>

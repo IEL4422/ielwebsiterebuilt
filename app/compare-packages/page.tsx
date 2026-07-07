@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Check, X, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 type FeatureKey = 'Revocable Living Trust' | 'Last Will & Testament' | 'Pour-Over Will' |
   'Power of Attorney for Healthcare' | 'Power of Attorney for Property' |
@@ -148,6 +149,7 @@ export default function ComparePackagesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <InnerPageHero title="Compare Packages & Pricing" subtitle="See exactly what's included in every service — with flat-fee pricing shown upfront." />
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <Link href="/services-pricing" className="inline-flex items-center text-[#2d3e50] hover:text-[#4a708b] mb-4">

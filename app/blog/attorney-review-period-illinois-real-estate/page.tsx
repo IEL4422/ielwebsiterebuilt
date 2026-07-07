@@ -69,7 +69,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -92,7 +92,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="summary" className="text-2xl font-bold mt-8 mb-4">What Is the Attorney Review Period?</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">The attorney review period is a 5-business-day window built into most Illinois residential real estate contracts. It begins after both buyer and seller sign the contract and gives each party the right to have an attorney review the agreement — and either approve it, request modifications, or terminate it entirely.</p>
               <p className="mb-0 text-gray-700">This is not a cooling-off period for changing your mind about the purchase price. It is a legal review window specifically designed to allow licensed attorneys to identify and correct problems in the contract before it becomes fully binding.</p>
             </div>
@@ -105,13 +105,13 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mb-6">
                 {days.map((day, i) => (
                   <button key={i} onClick={() => setActiveDay(i)}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeDay === i ? 'bg-[#2D3E50] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeDay === i ? 'bg-[#33414E] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                     {day.label}
                   </button>
                 ))}
               </div>
-              <div className="bg-white border-2 border-[#2D3E50] rounded-xl p-6">
-                <h3 className="font-bold text-[#2D3E50] text-lg mb-3">{days[activeDay].title}</h3>
+              <div className="bg-white border-2 border-[#33414E] rounded-xl p-6">
+                <h3 className="font-bold text-[#33414E] text-lg mb-3">{days[activeDay].title}</h3>
                 <p className="text-gray-700 leading-relaxed">{days[activeDay].desc}</p>
               </div>
             </div>
@@ -125,8 +125,8 @@ export default function Page() {
             <div className="grid md:grid-cols-2 gap-4 my-8">
               {modifications.map((mod, i) => (
                 <div key={i} className="flex gap-3 bg-gray-50 border border-gray-200 rounded-xl p-4">
-                  <div className="w-9 h-9 rounded-full bg-[#2D3E50] text-white flex items-center justify-center flex-shrink-0">{mod.icon}</div>
-                  <div><p className="font-bold text-[#2D3E50] text-sm mb-1">{mod.title}</p><p className="text-gray-700 text-sm">{mod.desc}</p></div>
+                  <div className="w-9 h-9 rounded-full bg-[#33414E] text-white flex items-center justify-center flex-shrink-0">{mod.icon}</div>
+                  <div><p className="font-bold text-[#33414E] text-sm mb-1">{mod.title}</p><p className="text-gray-700 text-sm">{mod.desc}</p></div>
                 </div>
               ))}
             </div>
@@ -137,7 +137,7 @@ export default function Page() {
             <p className="mb-6">Because either attorney can terminate for any reason during the review period, some buyers and sellers view the signed contract as not truly "firm" until the attorney review period has expired without termination. This is largely correct — a signed contract with an open attorney review period is executory, meaning it can still be unwound by either side without breaching the contract.</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Action During Review Period</th><th className="border border-gray-300 px-4 py-3 text-left">Effect on Contract</th><th className="border border-gray-300 px-4 py-3 text-left">Earnest Money</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Action During Review Period</th><th className="border border-gray-300 px-4 py-3 text-left">Effect on Contract</th><th className="border border-gray-300 px-4 py-3 text-left">Earnest Money</th></tr></thead>
                 <tbody>
                   {[
                     ['No action taken', 'Contract approved as written; becomes fully binding', 'Stays in escrow; applied to purchase'],
@@ -175,7 +175,7 @@ export default function Page() {
                 { title: 'Use the period to verify earnest money mechanics', desc: 'Confirm exactly when and how earnest money is deposited, who holds it, and on what conditions it is returned. These details matter most if the transaction falls apart later — get them right during review.' },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                  <h3 className="font-bold text-[#2D3E50] mb-2">{item.title}</h3>
+                  <h3 className="font-bold text-[#33414E] mb-2">{item.title}</h3>
                   <p className="text-gray-700 text-sm mb-0">{item.desc}</p>
                 </div>
               ))}
@@ -194,7 +194,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Have an Attorney Review Your Contract Today</h3>
               <p className="text-white/90 mb-6">The 5-day attorney review window moves fast. Illinois Estate Law provides flat-fee real estate contract review and represents buyers and sellers throughout Cook County and the Chicago area. Do not let the deadline pass without protecting yourself.</p>
               <div className="flex flex-wrap gap-4">

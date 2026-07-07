@@ -13,7 +13,7 @@ export function CourthouseCard({ county, address, phone, filingSystems }: Courth
       <div className="container mx-auto px-4">
         <div className="max-w-[1140px] mx-auto">
           <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 md:p-10 max-w-2xl mx-auto">
-            <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#2D3E50] mb-6">
+            <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E] mb-6">
               {county} Circuit Court
             </h3>
             <div className="space-y-4">

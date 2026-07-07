@@ -97,13 +97,13 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
 
       <main>
         <InnerPageHero title="Prenuptial Agreements" subtitle="Protect your assets and clarify expectations with a comprehensive prenuptial agreement" />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -145,7 +145,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-8 mb-12 shadow-sm">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   Professional Prenuptial Agreement Services in Chicago
                 </h2>
@@ -167,9 +167,9 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">What Can a Prenuptial Agreement Cover?</h3>
 
                 <div className="grid md:grid-cols-2 gap-6 my-8">
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Shield className="w-6 h-6" />
                       </div>
                       <div>
@@ -181,9 +181,9 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <FileText className="w-6 h-6" />
                       </div>
                       <div>
@@ -195,9 +195,9 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Users className="w-6 h-6" />
                       </div>
                       <div>
@@ -209,9 +209,9 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Heart className="w-6 h-6" />
                       </div>
                       <div>
@@ -229,35 +229,35 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                 <div className="bg-blue-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Protecting Separate Property:</strong> Keep assets you owned before marriage as your separate property</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Protecting Children from Prior Relationships:</strong> Ensure assets pass to children from previous marriages or relationships</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Protecting Family Businesses:</strong> Keep family business interests separate and prevent dilution through divorce</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Clarifying Financial Roles:</strong> Define how expenses, accounts, and property will be managed during marriage</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Managing Student Loans or Debt:</strong> Ensure one spouse isn't responsible for the other's pre-existing debts</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Protecting Future Inheritance:</strong> Preserve inheritance rights for specific beneficiaries</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Second Marriages:</strong> Address complex financial situations when both parties have established assets and possibly children</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Significant Income Disparity:</strong> Create fair expectations when partners have very different earning capacities</span>
                     </li>
                   </ul>
@@ -272,7 +272,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('requirements')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Legal Requirements for Valid Illinois Prenuptial Agreements</span>
                     {expandedSection === 'requirements' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -282,37 +282,37 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                     <div className="bg-white p-6">
                       <ul className="space-y-4 text-slate-700">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#77B1D4] font-bold">1.</span>
+                          <span className="text-[#7E9CC0] font-bold">1.</span>
                           <div>
                             <strong className="text-slate-800">Written Agreement:</strong> The prenuptial agreement must be in writing and signed by both parties
                           </div>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#77B1D4] font-bold">2.</span>
+                          <span className="text-[#7E9CC0] font-bold">2.</span>
                           <div>
                             <strong className="text-slate-800">Voluntary Agreement:</strong> Both parties must enter the agreement voluntarily, without coercion or duress
                           </div>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#77B1D4] font-bold">3.</span>
+                          <span className="text-[#7E9CC0] font-bold">3.</span>
                           <div>
                             <strong className="text-slate-800">Full Disclosure:</strong> Both parties must provide fair and reasonable disclosure of their assets and financial obligations
                           </div>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#77B1D4] font-bold">4.</span>
+                          <span className="text-[#7E9CC0] font-bold">4.</span>
                           <div>
                             <strong className="text-slate-800">Not Unconscionable:</strong> The agreement cannot be unconscionable when executed or when enforcement is sought
                           </div>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#77B1D4] font-bold">5.</span>
+                          <span className="text-[#7E9CC0] font-bold">5.</span>
                           <div>
                             <strong className="text-slate-800">Independent Legal Counsel:</strong> While not legally required, each party should have their own attorney to review the agreement
                           </div>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#77B1D4] font-bold">6.</span>
+                          <span className="text-[#7E9CC0] font-bold">6.</span>
                           <div>
                             <strong className="text-slate-800">Adequate Time for Review:</strong> Both parties should have sufficient time to review and understand the agreement before signing
                           </div>
@@ -325,7 +325,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                 <h2 className="text-3xl font-bold text-slate-800 mb-6 mt-12">Our Prenuptial Agreement Services</h2>
 
                 <div className="grid md:grid-cols-2 gap-8 my-8">
-                  <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-8 text-white">
+                  <div className="bg-[#33414E] rounded-lg p-8 text-white">
                     <h3 className="text-2xl font-bold mb-4">Prenuptial Agreement Drafting & Negotiation</h3>
                     <p className="text-3xl font-bold mb-4">$5,000</p>
                     <p className="mb-4">Comprehensive prenuptial agreement services including:</p>
@@ -338,7 +338,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-gradient-to-br from-slate-100 to-blue-50 rounded-lg p-8 border-2 border-[#77B1D4]">
+                  <div className="bg-gradient-to-br from-slate-100 to-blue-50 rounded-lg p-8 border-2 border-[#7E9CC0]">
                     <h3 className="text-2xl font-bold text-slate-800 mb-4">Prenuptial Agreement Review & Negotiation</h3>
                     <p className="text-3xl font-bold text-slate-800 mb-4">$3,000</p>
                     <p className="text-slate-700 mb-4">Professional review of existing prenup including:</p>
@@ -351,7 +351,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-gradient-to-br from-[#4A708B] to-[#2D3E50] rounded-lg p-8 text-white">
+                  <div className="bg-gradient-to-br from-[#4A708B] to-[#33414E] rounded-lg p-8 text-white">
                     <h3 className="text-2xl font-bold mb-4">Prenuptial Agreement Drafting</h3>
                     <p className="text-3xl font-bold mb-4">$3,000</p>
                     <p className="mb-4">Professional drafting services when both parties agree on terms:</p>
@@ -475,7 +475,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -487,7 +487,7 @@ export default function ChicagoPrenuptialAgreementsLawyerPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Your Consultation
                 </Link>

@@ -70,7 +70,7 @@ export default async function LearningCenter() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#2D3E50]">
+      <section className="py-16 bg-[#33414E]">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <div className="max-w-3xl mx-auto text-center">
             <MessageSquare className="w-16 h-16 text-white mx-auto mb-6" />
@@ -83,13 +83,13 @@ export default async function LearningCenter() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="tel:3123730731"
-                className="inline-block bg-white text-[#2D3E50] font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg"
+                className="inline-block bg-white text-[#33414E] font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg"
               >
                 Call (312) 373-0731
               </Link>
               <Link
                 href="/book-consultation/"
-                className="inline-block bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-[#2D3E50] transition-colors text-lg"
+                className="inline-block bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-[#33414E] transition-colors text-lg"
               >
                 Book a Consultation
               </Link>

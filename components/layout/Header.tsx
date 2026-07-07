@@ -52,7 +52,7 @@ export function Header() {
 
   return (
     <>
-      <header className="hidden lg:block sticky top-0 z-[999] bg-[#2D3E50]">
+      <header className="hidden lg:block sticky top-0 z-[999] bg-[#33414E]">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <div className="flex items-center justify-between py-4 pb-5">
             <div className="w-[25%] flex items-center">
@@ -78,7 +78,7 @@ export function Header() {
                 </Link>
                 <Link
                   href="/book-consultation/"
-                  className="bg-[#FEFEFE] border border-[#FEFEFE] text-[#2D3E50] font-bold text-sm px-5 py-2.5 rounded-r-full hover:bg-[#4A708B] hover:border-[#4A708B] hover:text-[#FEFEFE] transition-colors"
+                  className="bg-[#FEFEFE] border border-[#FEFEFE] text-[#33414E] font-bold text-sm px-5 py-2.5 rounded-r-full hover:bg-[#4A708B] hover:border-[#4A708B] hover:text-[#FEFEFE] transition-colors"
                 >
                   Free Consultation
                 </Link>
@@ -109,7 +109,7 @@ export function Header() {
                     )}
                     {item.children && openDropdown === item.label && (
                       <div className="absolute top-full left-0 mt-0 pt-[22px] min-w-[220px] z-50">
-                        <div className="bg-[#F3F3F3] border border-[#2D3E50] rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-[#F3F3F3] border border-[#33414E] rounded-lg overflow-hidden shadow-lg">
                           {item.children.map((child, index) => {
                             const isExternal = 'external' in child && child.external;
                             return isExternal ? (
@@ -118,9 +118,7 @@ export function Header() {
                                 href={child.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`block px-5 py-3.5 text-[#2D3E50] text-base font-medium uppercase hover:bg-[#2D3E50] hover:text-[#FEFEFE] transition-colors ${
-                                  index < item.children!.length - 1 ? 'border-b border-[#DFDADE]' : ''
-                                }`}
+                                className="block mx-3 my-2 px-3 py-1.5 text-xs font-bold text-[#547298] border border-[#7E9CC0] hover:bg-[#7E9CC0] hover:text-white rounded-full transition-colors text-center"
                               >
                                 {child.label}
                               </a>
@@ -128,7 +126,7 @@ export function Header() {
                               <Link
                                 key={child.label}
                                 href={child.href}
-                                className={`block px-5 py-3.5 text-[#2D3E50] text-base font-medium uppercase hover:bg-[#2D3E50] hover:text-[#FEFEFE] transition-colors ${
+                                className={`block px-5 py-3.5 text-[#33414E] text-base font-medium uppercase hover:bg-[#33414E] hover:text-[#FEFEFE] transition-colors ${
                                   index < item.children!.length - 1 ? 'border-b border-[#DFDADE]' : ''
                                 }`}
                               >
@@ -148,7 +146,7 @@ export function Header() {
       </header>
 
       <header className="lg:hidden sticky top-0 z-[999]">
-        <div className="bg-[#2D3E50] px-5 py-4">
+        <div className="bg-[#33414E] px-5 py-4">
           <div className="flex items-center justify-between">
             <Link href="/">
               <Image
@@ -163,7 +161,7 @@ export function Header() {
             <div className="flex items-center gap-3">
               <Link
                 href="/get-started/"
-                className="bg-[#FEFEFE] text-[#2D3E50] font-bold text-xs px-3 py-2 rounded-full hover:bg-[#4A708B] hover:text-[#FEFEFE] transition-colors whitespace-nowrap"
+                className="bg-[#FEFEFE] text-[#33414E] font-bold text-xs px-3 py-2 rounded-full hover:bg-[#4A708B] hover:text-[#FEFEFE] transition-colors whitespace-nowrap"
               >
                 Get Started
               </Link>
@@ -179,7 +177,7 @@ export function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="bg-[#F3F3F3] border-t border-[#2D3E50]">
+          <div className="bg-[#F3F3F3] border-t border-[#33414E]">
             <nav className="flex flex-col">
               {navItems.map((item) => (
                 <div key={item.label}>
@@ -187,7 +185,7 @@ export function Header() {
                     <>
                       <button
                         onClick={() => setOpenMobileDropdown(openMobileDropdown === item.label ? null : item.label)}
-                        className="flex items-center justify-between w-full px-5 py-4 text-[#2D3E50] text-sm font-medium uppercase border-b border-[#2D3E50] hover:bg-[#E8E8E8] transition-colors"
+                        className="flex items-center justify-between w-full px-5 py-4 text-[#33414E] text-sm font-medium uppercase border-b border-[#33414E] hover:bg-[#E8E8E8] transition-colors"
                       >
                         {item.label}
                         <ChevronDown className={`w-4 h-4 transition-transform ${openMobileDropdown === item.label ? 'rotate-180' : ''}`} />
@@ -202,7 +200,7 @@ export function Header() {
                                 href={child.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block px-8 py-3 text-[#2D3E50] text-sm font-medium uppercase border-b border-[#DFDADE] hover:bg-[#2D3E50] hover:text-[#FEFEFE] transition-colors"
+                                className="block mx-4 my-2 px-3 py-1.5 text-xs font-bold text-[#547298] border border-[#7E9CC0] hover:bg-[#7E9CC0] hover:text-white rounded-full transition-colors text-center"
                                 onClick={() => {
                                   setMobileMenuOpen(false);
                                   setOpenMobileDropdown(null);
@@ -214,7 +212,7 @@ export function Header() {
                               <Link
                                 key={child.label}
                                 href={child.href}
-                                className="block px-8 py-3 text-[#2D3E50] text-sm font-medium uppercase border-b border-[#DFDADE] hover:bg-[#2D3E50] hover:text-[#FEFEFE] transition-colors"
+                                className="block px-8 py-3 text-[#33414E] text-sm font-medium uppercase border-b border-[#DFDADE] hover:bg-[#33414E] hover:text-[#FEFEFE] transition-colors"
                                 onClick={() => {
                                   setMobileMenuOpen(false);
                                   setOpenMobileDropdown(null);
@@ -230,7 +228,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block px-5 py-4 text-[#2D3E50] text-sm font-medium uppercase border-b border-[#2D3E50] hover:bg-[#E8E8E8] transition-colors"
+                      className="block px-5 py-4 text-[#33414E] text-sm font-medium uppercase border-b border-[#33414E] hover:bg-[#E8E8E8] transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}

@@ -72,11 +72,11 @@ export function AttorneyProfileSection() {
                 />
               </div>
               <h2 className="text-2xl font-bold text-slate-800 text-center mb-2">
-                <a href="/about/" className="hover:text-[#77B1D4] transition-colors">
+                <a href="/about/" className="hover:text-[#7E9CC0] transition-colors">
                   Chicago Estate Planning Attorney - Mary Liberty
                 </a>
               </h2>
-              <div className="w-16 h-1 bg-[#77B1D4] mx-auto mb-6" />
+              <div className="w-16 h-1 bg-[#7E9CC0] mx-auto mb-6" />
               <div className="text-slate-600 space-y-4 leading-relaxed">
                 <p>
                   Mary Liberty is the Lead Attorney and Owner of Illinois Estate Law, where she focuses her practice on estate planning and probate. She works closely with individuals and families to create clear, customized legal plans that reflect their goals. From wills and trusts to powers of attorney and guardianship matters, Mary provides a thoughtful, client-first approach to every step of the process. Her practice includes full support for probate matters throughout the state of Illinois.
@@ -96,7 +96,7 @@ export function AttorneyProfileSection() {
               </p>
               <a
                 href="/get-started/"
-                className="inline-flex items-center justify-center px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
               >
                 GET STARTED TODAY
               </a>
@@ -110,14 +110,14 @@ export function AttorneyProfileSection() {
           <div className="max-w-2xl mx-auto">
             <div className="flex justify-center gap-0.5 mb-4">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-[#77B1D4] text-[#77B1D4]" />
+                <Star key={i} className="w-5 h-5 fill-[#7E9CC0] text-[#7E9CC0]" />
               ))}
             </div>
 
             <p className="text-xl lg:text-2xl font-bold text-slate-800 text-center mb-3">
               The Estate Planning Decision You Won't Regret
             </p>
-            <div className="w-12 h-1 bg-[#77B1D4] mx-auto mb-8" />
+            <div className="w-12 h-1 bg-[#7E9CC0] mx-auto mb-8" />
 
             <div className="relative">
               <div className="overflow-hidden rounded-2xl">
@@ -164,7 +164,7 @@ export function AttorneyProfileSection() {
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i)}
-                  className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#77B1D4]' : 'bg-slate-300'}`}
+                  className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#7E9CC0]' : 'bg-slate-300'}`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
@@ -175,7 +175,7 @@ export function AttorneyProfileSection() {
                 href="https://share.google/Kt6O2VG1jlRRoNos9"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-block px-5 py-2 bg-[#77B1D4] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors"
+                className="inline-block px-5 py-2 bg-[#7E9CC0] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors"
               >
                 READ ALL REVIEWS ON GOOGLE
               </a>

@@ -305,14 +305,14 @@ export default function ProcessPage() {
 
         {/* CTA Section */}
         <section className="mt-20">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#77B1D4] p-1">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#33414E] via-[#4A708B] to-[#7E9CC0] p-1">
             <div className="relative bg-white rounded-xl p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#77B1D4] to-[#4A708B] rounded-xl mb-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#7E9CC0] to-[#4A708B] rounded-xl mb-4">
                     <CheckCircle2 className="w-7 h-7 text-white" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#2D3E50]">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#33414E]">
                     Ready to Get Started?
                   </h2>
                   <p className="text-lg text-slate-600 leading-relaxed">
@@ -322,16 +322,16 @@ export default function ProcessPage() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <Link href="/book-consultation" className="w-full">
-                    <Button size="lg" className="w-full bg-gradient-to-r from-[#2D3E50] to-[#4A708B] hover:from-[#4A708B] hover:to-[#77B1D4] text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all">
+                    <Button size="lg" className="w-full bg-gradient-to-r from-[#33414E] to-[#4A708B] hover:from-[#4A708B] hover:to-[#7E9CC0] text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all">
                       Book Consultation
                     </Button>
                   </Link>
                   <Link href="/get-started" className="w-full">
-                    <Button size="lg" variant="outline" className="w-full border-2 border-[#2D3E50] text-[#2D3E50] hover:bg-[#2D3E50] hover:text-white text-lg px-8 py-6 transition-all">
+                    <Button size="lg" variant="outline" className="w-full border-2 border-[#33414E] text-[#33414E] hover:bg-[#33414E] hover:text-white text-lg px-8 py-6 transition-all">
                       Get Started Online
                     </Button>
                   </Link>
-                  <Link href="/contact" className="w-full text-center text-[#4A708B] hover:text-[#2D3E50] font-semibold transition-colors">
+                  <Link href="/contact" className="w-full text-center text-[#4A708B] hover:text-[#33414E] font-semibold transition-colors">
                     Or contact us with questions →
                   </Link>
                 </div>

@@ -151,7 +151,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -722,7 +722,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6 my-8 border-l-4 border-[#4a708b]">
+            <div className="bg-gray-50 rounded-lg p-6 my-8 border-l-4 border-[#547298]">
               <p className="text-lg font-bold mb-3">Secure Your Family's Future from Home</p>
               <p className="mb-4">Professional legal guidance without leaving your house.</p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -734,7 +734,7 @@ export default function Page() {
                 </a>
                 <a
                   href="/book-consultation/"
-                  className="inline-block bg-white text-[#4a708b] font-semibold px-6 py-3 rounded-lg border-2 border-[#4a708b] hover:bg-[#4a708b] hover:text-white transition-colors text-center"
+                  className="inline-block bg-white text-[#4a708b] font-semibold px-6 py-3 rounded-lg border-2 border-[#547298] hover:bg-[#4a708b] hover:text-white transition-colors text-center"
                 >
                   BOOK ONLINE
                 </a>

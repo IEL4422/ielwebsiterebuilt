@@ -107,7 +107,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -130,7 +130,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="how-it-works" className="text-2xl font-bold mt-8 mb-4">How Property Deed Changes Actually Work</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">A recorded deed is a permanent legal instrument — you cannot modify, amend, or cross anything out on it. To change who is on a property's title in Illinois, you must execute and record an entirely new deed that supersedes the previous one.</p>
               <p className="mb-0 text-gray-700">The process always involves the same core steps: preparing a new deed, signing it with proper formalities (notary and two witnesses), completing the PTAX-203 transfer declaration, and recording everything with the county recorder of deeds where the property is located.</p>
             </div>
@@ -142,20 +142,20 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mb-6">
                 {scenarios.map((s, i) => (
                   <button key={i} onClick={() => setActiveScenario(i)}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeScenario === i ? 'bg-[#2D3E50] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeScenario === i ? 'bg-[#33414E] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                     {s.label}
                   </button>
                 ))}
               </div>
-              <div className="bg-white border-2 border-[#2D3E50] rounded-xl p-6">
+              <div className="bg-white border-2 border-[#33414E] rounded-xl p-6">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-xs font-semibold bg-[#4a708b] text-white px-3 py-1 rounded-full">Deed Type: {scenarios[activeScenario].deedType}</span>
                 </div>
-                <h3 className="font-bold text-[#2D3E50] text-lg mt-3 mb-4">{scenarios[activeScenario].title}</h3>
+                <h3 className="font-bold text-[#33414E] text-lg mt-3 mb-4">{scenarios[activeScenario].title}</h3>
                 <ol className="space-y-3 mb-4">
                   {scenarios[activeScenario].steps.map((step, i) => (
                     <li key={i} className="flex gap-3">
-                      <span className="w-6 h-6 rounded-full bg-[#2D3E50] text-white text-xs flex items-center justify-center flex-shrink-0 font-bold mt-0.5">{i + 1}</span>
+                      <span className="w-6 h-6 rounded-full bg-[#33414E] text-white text-xs flex items-center justify-center flex-shrink-0 font-bold mt-0.5">{i + 1}</span>
                       <span className="text-gray-700 text-sm">{step}</span>
                     </li>
                   ))}
@@ -177,7 +177,7 @@ export default function Page() {
             <p className="mb-6">Deed changes and mortgage obligations are separate legal matters that people frequently confuse:</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Deed Change</th><th className="border border-gray-300 px-4 py-3 text-left">Effect on Mortgage</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Deed Change</th><th className="border border-gray-300 px-4 py-3 text-left">Effect on Mortgage</th></tr></thead>
                 <tbody>
                   {[
                     ['Adding a spouse to deed', 'No effect on mortgage obligation — spouse is not liable for the loan unless they sign new loan documents'],
@@ -205,7 +205,7 @@ export default function Page() {
                 { title: 'Capital Gains / Stepped-Up Basis', desc: 'Adding a child to the deed during your lifetime means they inherit your cost basis — not a stepped-up basis at death. This can result in significant capital gains taxes if they later sell. A living trust or TODI avoids this problem by providing a full step-up at death.' },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                  <h3 className="font-bold text-[#2D3E50] mb-2 text-sm">{item.title}</h3>
+                  <h3 className="font-bold text-[#33414E] mb-2 text-sm">{item.title}</h3>
                   <p className="text-gray-700 text-sm mb-0">{item.desc}</p>
                 </div>
               ))}
@@ -224,7 +224,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Let Us Handle Your Deed Change Correctly</h3>
               <p className="text-white/90 mb-6">Deed errors can cloud your title and cause expensive problems years later. Illinois Estate Law prepares and records deed transfers for families throughout Cook County and the Chicago suburbs — flat-fee, fast, and done right.</p>
               <div className="flex flex-wrap gap-4">

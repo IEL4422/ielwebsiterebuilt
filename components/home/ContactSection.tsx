@@ -89,7 +89,7 @@ export function ContactSection() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#77B1D4] focus:border-[#77B1D4] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
                   />
                 </div>
 
@@ -103,7 +103,7 @@ export function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#77B1D4] focus:border-[#77B1D4] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
                   />
                 </div>
 
@@ -118,7 +118,7 @@ export function ContactSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     title="Only numbers and phone characters (#, -, *, etc) are accepted."
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#77B1D4] focus:border-[#77B1D4] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
                   />
                 </div>
 
@@ -132,14 +132,14 @@ export function ContactSection() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#77B1D4] focus:border-[#77B1D4] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400 resize-none"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-8 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-8 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
@@ -148,7 +148,7 @@ export function ContactSection() {
           </div>
 
           <div className="flex flex-col justify-center items-center text-center">
-            <Calendar className="w-16 h-16 text-[#77B1D4] mb-6" />
+            <Calendar className="w-16 h-16 text-[#7E9CC0] mb-6" />
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
               Schedule a Consultation
             </h3>
@@ -157,7 +157,7 @@ export function ContactSection() {
             </p>
             <Link
               href="/book-consultation/"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#77B1D4] text-white font-semibold text-lg rounded-lg hover:bg-[#5A9BC4] transition-colors"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#7E9CC0] text-white font-semibold text-lg rounded-lg hover:bg-[#5A9BC4] transition-colors"
             >
               <Calendar className="w-5 h-5" />
               Book a Consultation

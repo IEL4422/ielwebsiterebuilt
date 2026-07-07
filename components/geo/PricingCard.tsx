@@ -11,12 +11,12 @@ export function PricingCard({ name, price, featured }: PricingCardProps) {
     <div
       className={`rounded-xl p-6 text-center border ${
         featured
-          ? 'bg-[#2D3E50] text-white border-[#2D3E50] shadow-lg'
-          : 'bg-white text-[#2D3E50] border-slate-200'
+          ? 'bg-[#33414E] text-white border-[#33414E] shadow-lg'
+          : 'bg-white text-[#33414E] border-slate-200'
       }`}
     >
       <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold mb-3">{name}</h3>
-      <p className={`text-3xl font-bold mb-1 ${featured ? 'text-white' : 'text-[#2D3E50]'}`}>
+      <p className={`text-3xl font-bold mb-1 ${featured ? 'text-white' : 'text-[#33414E]'}`}>
         {price}
       </p>
       <p className={`text-sm ${featured ? 'text-white/70' : 'text-slate-500'}`}>flat fee</p>

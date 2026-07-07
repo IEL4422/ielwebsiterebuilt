@@ -128,7 +128,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"

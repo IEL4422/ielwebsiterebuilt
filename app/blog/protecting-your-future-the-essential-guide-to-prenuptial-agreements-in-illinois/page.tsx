@@ -269,7 +269,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] text-white py-20">
+      <div className="bg-gradient-to-br from-[#33414E] to-[#4A708B] text-white py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-6">
@@ -317,14 +317,14 @@ export default function Page() {
             {/* Main Article Content */}
             <div className="prose prose-lg max-w-none">
               {/* Introduction */}
-              <div className="bg-blue-50 border-l-4 border-[#2D3E50] p-6 mb-8 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-[#33414E] p-6 mb-8 rounded-r-lg">
                 <p className="text-lg font-medium text-gray-800 mb-0">
                   Marriage is one of life's most beautiful commitments—and one of its most significant legal contracts. While no one enters marriage planning for it to end, the reality is that roughly 50% of marriages in the United States end in divorce. A prenuptial agreement isn't about pessimism; it's about preparation, protection, and partnership.
                 </p>
               </div>
 
               <section id="what-is-prenuptial-agreement" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6 flex items-center">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6 flex items-center">
                   <FileText className="w-8 h-8 mr-3 text-[#4A708B]" />
                   What Is a Prenuptial Agreement?
                 </h2>
@@ -335,7 +335,7 @@ export default function Page() {
                   In Illinois, prenuptial agreements are governed by the Illinois Uniform Premarital Agreement Act (750 ILCS 10/). This law provides a framework for creating valid, enforceable agreements that protect both parties' interests while ensuring fairness.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 my-6">
-                  <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-4">Core Purposes of a Prenuptial Agreement:</h3>
+                  <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-4">Core Purposes of a Prenuptial Agreement:</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
@@ -362,7 +362,7 @@ export default function Page() {
               </section>
 
               <section id="why-prenuptial-agreements-matter" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6 flex items-center">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6 flex items-center">
                   <TrendingUp className="w-8 h-8 mr-3 text-[#4A708B]" />
                   Why Prenuptial Agreements Matter More Than Ever
                 </h2>
@@ -376,28 +376,28 @@ export default function Page() {
                   <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                     <div className="flex items-center mb-4">
                       <Briefcase className="w-6 h-6 text-[#4A708B] mr-3" />
-                      <h3 className="font-semibold text-lg text-[#2D3E50]">Business Ownership</h3>
+                      <h3 className="font-semibold text-lg text-[#33414E]">Business Ownership</h3>
                     </div>
                     <p className="text-gray-700">More couples own businesses or professional practices before marriage, requiring protection from potential division in divorce.</p>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                     <div className="flex items-center mb-4">
                       <DollarSign className="w-6 h-6 text-[#4A708B] mr-3" />
-                      <h3 className="font-semibold text-lg text-[#2D3E50]">Student Loan Debt</h3>
+                      <h3 className="font-semibold text-lg text-[#33414E]">Student Loan Debt</h3>
                     </div>
                     <p className="text-gray-700">Average student loan debt exceeds $30,000 per borrower, making debt protection a critical concern for partners.</p>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                     <div className="flex items-center mb-4">
                       <Home className="w-6 h-6 text-[#4A708B] mr-3" />
-                      <h3 className="font-semibold text-lg text-[#2D3E50]">Real Estate Holdings</h3>
+                      <h3 className="font-semibold text-lg text-[#33414E]">Real Estate Holdings</h3>
                     </div>
                     <p className="text-gray-700">Many individuals purchase property before marriage and want to protect this investment and any associated appreciation.</p>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                     <div className="flex items-center mb-4">
                       <Users className="w-6 h-6 text-[#4A708B] mr-3" />
-                      <h3 className="font-semibold text-lg text-[#2D3E50]">Second Marriages</h3>
+                      <h3 className="font-semibold text-lg text-[#33414E]">Second Marriages</h3>
                     </div>
                     <p className="text-gray-700">With children from previous relationships, estate planning and inheritance protection become paramount concerns.</p>
                   </div>
@@ -416,7 +416,7 @@ export default function Page() {
               </section>
 
               <section id="what-prenups-protect" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6 flex items-center">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6 flex items-center">
                   <Shield className="w-8 h-8 mr-3 text-[#4A708B]" />
                   What Do Prenuptial Agreements Protect?
                 </h2>
@@ -424,7 +424,7 @@ export default function Page() {
                   Prenuptial agreements in Illinois can address a wide range of financial matters. Understanding what can and cannot be included is essential for creating an effective agreement.
                 </p>
 
-                <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-semibold text-[#2D3E50] mb-4 mt-8">What CAN Be Included:</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-semibold text-[#33414E] mb-4 mt-8">What CAN Be Included:</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
                     <h4 className="font-semibold text-lg text-gray-800 mb-2 flex items-center">
@@ -483,7 +483,7 @@ export default function Page() {
                   </div>
                 </div>
 
-                <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-semibold text-[#2D3E50] mb-4 mt-8">What CANNOT Be Included:</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-semibold text-[#33414E] mb-4 mt-8">What CANNOT Be Included:</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
                     <h4 className="font-semibold text-lg text-gray-800 mb-2">Child Custody or Visitation</h4>
@@ -508,7 +508,7 @@ export default function Page() {
               </section>
 
               <section id="common-myths" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6">
                   Common Myths About Prenuptial Agreements
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -550,7 +550,7 @@ export default function Page() {
               </section>
 
               <section id="real-world-scenarios" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6">
                   Real-World Scenarios: When Prenups Make a Difference
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -565,13 +565,13 @@ export default function Page() {
                     >
                       <div className={`border-2 rounded-lg p-6 transition-all ${
                         selectedScenario === scenario.id
-                          ? 'border-[#4A708B] bg-blue-50'
+                          ? 'border-[#547298] bg-blue-50'
                           : 'border-gray-200 bg-white hover:border-gray-300'
                       }`}>
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center">
                             <scenario.icon className="w-8 h-8 text-[#4A708B] mr-3" />
-                            <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#2D3E50]">
+                            <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">
                               {scenario.title}
                             </h3>
                           </div>
@@ -611,14 +611,14 @@ export default function Page() {
               </section>
 
               <section id="illinois-specific-considerations" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6">
                   Illinois-Specific Considerations
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   Illinois has specific laws governing prenuptial agreements that differ from other states. Understanding these requirements is essential for creating a valid, enforceable agreement.
                 </p>
 
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-4">The Illinois Uniform Premarital Agreement Act</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-4">The Illinois Uniform Premarital Agreement Act</h3>
                 <p className="text-gray-700 mb-4">
                   Illinois adopted the Uniform Premarital Agreement Act (750 ILCS 10/) to provide consistency in how prenups are created and enforced. Key provisions include:
                 </p>
@@ -648,7 +648,7 @@ export default function Page() {
                   </ul>
                 </div>
 
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-4">Illinois Property Division Rules</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-4">Illinois Property Division Rules</h3>
                 <p className="text-gray-700 mb-4">
                   Without a prenup, Illinois follows the principle of "equitable distribution" in divorce. This means property is divided fairly, though not necessarily equally. The court considers factors like:
                 </p>
@@ -665,7 +665,7 @@ export default function Page() {
               </section>
 
               <section id="prenup-process" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6">
                   The Prenuptial Agreement Process
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -673,8 +673,8 @@ export default function Page() {
                 </p>
 
                 <div className="space-y-6">
-                  <div className="bg-white border-l-4 border-[#4A708B] p-6 rounded-r-lg shadow-sm">
-                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-3">Step 1: Have the Conversation (6-12 months before wedding)</h3>
+                  <div className="bg-white border-l-4 border-[#547298] p-6 rounded-r-lg shadow-sm">
+                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-3">Step 1: Have the Conversation (6-12 months before wedding)</h3>
                     <p className="text-gray-700 mb-3">
                       Start by discussing the idea with your partner. This conversation should happen early—ideally 6-12 months before your wedding. Focus on the practical benefits and emphasize that you're protecting both parties.
                     </p>
@@ -689,8 +689,8 @@ export default function Page() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-l-4 border-[#4A708B] p-6 rounded-r-lg shadow-sm">
-                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-3">Step 2: Consult with Attorneys (4-6 months before wedding)</h3>
+                  <div className="bg-white border-l-4 border-[#547298] p-6 rounded-r-lg shadow-sm">
+                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-3">Step 2: Consult with Attorneys (4-6 months before wedding)</h3>
                     <p className="text-gray-700 mb-3">
                       Each person should retain their own attorney who specializes in family law and prenuptial agreements. Your attorney will explain your rights under Illinois law, what a prenup can and cannot do, and help you understand the implications of various provisions.
                     </p>
@@ -699,22 +699,22 @@ export default function Page() {
                     </p>
                   </div>
 
-                  <div className="bg-white border-l-4 border-[#4A708B] p-6 rounded-r-lg shadow-sm">
-                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-3">Step 3: Full Financial Disclosure (3-4 months before wedding)</h3>
+                  <div className="bg-white border-l-4 border-[#547298] p-6 rounded-r-lg shadow-sm">
+                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-3">Step 3: Full Financial Disclosure (3-4 months before wedding)</h3>
                     <p className="text-gray-700 mb-3">
                       Both parties must provide complete disclosure of their financial situation, including assets, debts, income, and expected inheritances. Incomplete or fraudulent disclosure is the primary reason prenups get invalidated.
                     </p>
                   </div>
 
-                  <div className="bg-white border-l-4 border-[#4A708B] p-6 rounded-r-lg shadow-sm">
-                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-3">Step 4: Negotiate and Draft (2-3 months before wedding)</h3>
+                  <div className="bg-white border-l-4 border-[#547298] p-6 rounded-r-lg shadow-sm">
+                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-3">Step 4: Negotiate and Draft (2-3 months before wedding)</h3>
                     <p className="text-gray-700 mb-3">
                       Your attorneys will negotiate the terms and draft the agreement. This involves back-and-forth discussions to ensure both parties feel the agreement is fair. Don't rush this phase—thoughtful negotiation creates a stronger, more enforceable agreement.
                     </p>
                   </div>
 
-                  <div className="bg-white border-l-4 border-[#4A708B] p-6 rounded-r-lg shadow-sm">
-                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#2D3E50] mb-3">Step 5: Review and Sign (at least 30 days before wedding)</h3>
+                  <div className="bg-white border-l-4 border-[#547298] p-6 rounded-r-lg shadow-sm">
+                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-[#33414E] mb-3">Step 5: Review and Sign (at least 30 days before wedding)</h3>
                     <p className="text-gray-700 mb-3">
                       Once both parties and their attorneys are satisfied, you'll sign the agreement. This should happen at least 30 days before the wedding, ideally longer. Last-minute prenups are vulnerable to claims of duress.
                     </p>
@@ -726,7 +726,7 @@ export default function Page() {
               </section>
 
               <section id="checklist" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6">
                   Interactive Prenup Planning Checklist
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -735,7 +735,7 @@ export default function Page() {
                 <div className="space-y-6">
                   {checklistItems.map((category, catIndex) => (
                     <div key={catIndex} className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
-                      <div className="bg-gradient-to-r from-[#2D3E50] to-[#4A708B] px-6 py-4">
+                      <div className="bg-gradient-to-r from-[#33414E] to-[#4A708B] px-6 py-4">
                         <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-white">
                           {category.category}
                         </h3>
@@ -779,7 +779,7 @@ export default function Page() {
               </section>
 
               <section id="faq" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-3">
@@ -809,7 +809,7 @@ export default function Page() {
               </section>
 
               <section id="next-steps" className="mb-12 scroll-mt-8">
-                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mb-6">
+                <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-6">
                   Taking the Next Step
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -818,7 +818,7 @@ export default function Page() {
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   At Motherway Law, we understand that discussing a prenup can feel uncomfortable. Our approach is compassionate, professional, and focused on creating agreements that protect both parties fairly. We've helped hundreds of Illinois couples navigate this process successfully.
                 </p>
-                <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 text-white">
+                <div className="bg-[#33414E] rounded-xl p-8 text-white">
                   <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold mb-4">Ready to Protect Your Future?</h3>
                   <p className="text-lg mb-6">
                     Schedule a consultation to discuss your prenuptial agreement. We offer transparent flat-rate pricing and personalized service tailored to your unique situation.
@@ -826,13 +826,13 @@ export default function Page() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
                       href="/book-consultation"
-                      className="inline-block bg-white text-[#2D3E50] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-center"
+                      className="inline-block bg-white text-[#33414E] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-center"
                     >
                       Schedule Consultation
                     </Link>
                     <Link
                       href="/chicago-prenuptial-agreements-lawyer"
-                      className="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#2D3E50] transition-colors text-center"
+                      className="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#33414E] transition-colors text-center"
                     >
                       Learn More About Our Services
                     </Link>

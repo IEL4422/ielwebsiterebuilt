@@ -9,7 +9,7 @@ export function MobileStickyBar() {
            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         <Link
           href="/book-consultation/"
-          className="flex items-center justify-center gap-2 py-4 bg-[#2D3E50] text-white font-['Plus_Jakarta_Sans'] font-bold text-[14px] uppercase tracking-wide hover:bg-[#3a4f63] active:bg-[#1e2d3b] transition-colors"
+          className="flex items-center justify-center gap-2 py-4 bg-[#33414E] text-white font-['Plus_Jakarta_Sans'] font-bold text-[14px] uppercase tracking-wide hover:bg-[#3a4f63] active:bg-[#1e2d3b] transition-colors"
         >
           <Calendar className="w-4 h-4 shrink-0" />
           Book Consultation

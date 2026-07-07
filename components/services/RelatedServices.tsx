@@ -90,7 +90,7 @@ export default function RelatedServices({ currentPage }: { currentPage: string }
           const Icon = ICON_MAP[service.icon];
           return (
             <Link key={service.href} href={service.href}>
-              <div className="flex flex-col h-full rounded-[16px] p-5 bg-gradient-to-br from-[#2D3E50] via-[#3a5068] to-[#4A708B] hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+              <div className="flex flex-col h-full rounded-[16px] p-5 bg-gradient-to-br from-[#33414E] via-[#3a5068] to-[#4A708B] hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
                 <Icon className="w-8 h-8 text-white mb-3 flex-shrink-0" />
                 <h3 className="text-white font-bold mb-2" style={{ fontSize: '15px' }}>
                   {service.name}

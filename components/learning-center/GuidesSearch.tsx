@@ -48,7 +48,7 @@ export default function GuidesSearch({ guides }: GuidesSearchProps) {
             placeholder="Search guides..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-[#2D3E50] focus:outline-none transition-colors"
+            className="w-full pl-12 pr-4 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-[#33414E] focus:outline-none transition-colors"
           />
         </div>
 
@@ -59,7 +59,7 @@ export default function GuidesSearch({ guides }: GuidesSearchProps) {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-2 rounded-full font-medium transition-all ${
                 selectedCategory === category
-                  ? 'bg-[#2D3E50] text-white shadow-md'
+                  ? 'bg-[#33414E] text-white shadow-md'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -78,7 +78,7 @@ export default function GuidesSearch({ guides }: GuidesSearchProps) {
           <Link
             key={guide.id}
             href={`/learning-center/${guide.slug}`}
-            className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 hover:border-[#2D3E50]"
+            className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 hover:border-[#33414E]"
           >
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -88,7 +88,7 @@ export default function GuidesSearch({ guides }: GuidesSearchProps) {
                 <div className="text-xs font-semibold text-[#4A708B] mb-2 uppercase tracking-wider">
                   {guide.category}
                 </div>
-                <h3 className="text-lg font-bold text-[#2D3E50] mb-2 group-hover:text-[#4A708B] transition-colors">
+                <h3 className="text-lg font-bold text-[#33414E] mb-2 group-hover:text-[#4A708B] transition-colors">
                   {guide.title}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">

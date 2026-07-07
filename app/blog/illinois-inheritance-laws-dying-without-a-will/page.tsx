@@ -159,7 +159,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] via-[#4A708B] to-[#33414E] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -203,7 +203,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Scale className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -222,7 +222,7 @@ export default function Page() {
 
             {/* Quick reference table */}
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] text-lg mb-4 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] text-lg mb-4 font-['Plus_Jakarta_Sans']">
                 Illinois Intestate Succession at a Glance
               </h3>
               <div className="overflow-x-auto">
@@ -230,7 +230,7 @@ export default function Page() {
                   <thead>
                     <tr className="border-b border-gray-300 bg-gray-100">
                       <th className="text-left py-3 px-4 font-bold text-gray-700">Situation</th>
-                      <th className="text-left py-3 px-4 font-bold text-[#2D3E50]">Surviving Spouse</th>
+                      <th className="text-left py-3 px-4 font-bold text-[#33414E]">Surviving Spouse</th>
                       <th className="text-left py-3 px-4 font-bold text-[#4a708b]">Children</th>
                       <th className="text-left py-3 px-4 font-bold text-gray-600">Other Heirs</th>
                     </tr>
@@ -299,7 +299,7 @@ export default function Page() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
-              <div className="bg-[#2D3E50] text-white rounded-xl p-6">
+              <div className="bg-[#33414E] text-white rounded-xl p-6">
                 <Heart className="w-8 h-8 mb-3 opacity-80" />
                 <h3 className="font-bold text-lg mb-3 font-['Plus_Jakarta_Sans']">Spouse Only (No Children)</h3>
                 <p className="text-white/85 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
@@ -352,11 +352,11 @@ export default function Page() {
                 },
               ].map((item, i) => (
                 <div key={i} className="border border-gray-200 rounded-xl p-5 bg-white flex items-start gap-4">
-                  <span className="bg-[#2D3E50] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
+                  <span className="bg-[#33414E] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
                     {item.num}
                   </span>
                   <div>
-                    <h3 className="font-bold text-[#2D3E50] text-base mb-1 font-['Plus_Jakarta_Sans']">{item.title}</h3>
+                    <h3 className="font-bold text-[#33414E] text-base mb-1 font-['Plus_Jakarta_Sans']">{item.title}</h3>
                     <p className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">{item.body}</p>
                   </div>
                 </div>
@@ -372,7 +372,7 @@ export default function Page() {
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] text-base mb-4 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] text-base mb-4 font-['Plus_Jakarta_Sans']">
                 Illinois Intestate Priority Order: No Spouse or Children
               </h3>
               <div className="space-y-3">
@@ -386,7 +386,7 @@ export default function Page() {
                 ].map((row, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap font-['Plus_Jakarta_Sans'] ${
-                      i === 0 ? 'bg-[#2D3E50] text-white' :
+                      i === 0 ? 'bg-[#33414E] text-white' :
                       i === 1 ? 'bg-[#4A708B] text-white' :
                       i < 4 ? 'bg-gray-400 text-white' : 'bg-gray-200 text-gray-600'
                     }`}>
@@ -485,11 +485,11 @@ export default function Page() {
               For many Illinois families, these non-probate assets make up the majority of the estate&apos;s value. But that does not mean intestate succession is irrelevant — any asset held solely in your name with no beneficiary designation will go through probate and follow the intestate rules. Real estate without a TODI, individually-held bank accounts without a POD designation, vehicles, personal property, and business interests all fall into this category.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <FileText className="w-5 h-5 text-[#4a708b] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#2D3E50] mb-1 font-['Plus_Jakarta_Sans']">Beneficiary designations override your will — and intestate succession</p>
+                  <p className="font-semibold text-[#33414E] mb-1 font-['Plus_Jakarta_Sans']">Beneficiary designations override your will — and intestate succession</p>
                   <p className="text-gray-700 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
                     Even if you have a will naming a specific person to receive your IRA, the beneficiary designation on the IRA controls — not the will, and not intestate succession. Outdated beneficiary designations (naming an ex-spouse, a deceased parent, or no one) are one of the most common and costly estate planning mistakes in Illinois. Read our guide on{' '}
                     <Link href="/blog/beneficiary-designations-override-your-will-illinois/" className="text-[#4a708b] underline font-medium">
@@ -512,7 +512,7 @@ export default function Page() {
 
             <div className="space-y-3 my-8">
               {limits.map((limit, i) => (
-                <div key={i} className="border-l-4 border-[#4a708b] bg-gray-50 p-5 rounded-r-lg">
+                <div key={i} className="border-l-4 border-[#547298] bg-gray-50 p-5 rounded-r-lg">
                   <h3 className="font-bold text-gray-900 mb-2 font-['Plus_Jakarta_Sans']">{limit.title}</h3>
                   <p className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">{limit.detail}</p>
                 </div>
@@ -520,7 +520,7 @@ export default function Page() {
             </div>
 
             {/* Mid-article CTA */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
               <h3 className="text-xl font-bold mb-3 font-['Plus_Jakarta_Sans']">
                 Want to Control Who Inherits Your Estate?
               </h3>
@@ -530,7 +530,7 @@ export default function Page() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[#33414E] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
                 >
                   Book a Free Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -663,7 +663,7 @@ export default function Page() {
               pages explain your options.
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Speak With an Illinois Estate Planning Attorney
               </h3>
@@ -696,7 +696,7 @@ export default function Page() {
 
             {/* Related articles */}
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] mb-3 font-['Plus_Jakarta_Sans']">
                 Related Illinois Estate Planning Guides
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -711,7 +711,7 @@ export default function Page() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
+                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
                   >
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
@@ -754,7 +754,7 @@ export default function Page() {
             </div>
 
             {/* Final CTA banner */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
                 Ready to Write Your Own Inheritance Rules?
               </p>

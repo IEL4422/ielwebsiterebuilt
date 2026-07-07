@@ -154,7 +154,7 @@ function BulletItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2 text-slate-600 text-sm">
       <svg fill="none" height="8" width="8" xmlns="http://www.w3.org/2000/svg" className="mt-1.5 flex-shrink-0">
-        <circle cx="4" cy="4" fill="#77B1D4" r="4" />
+        <circle cx="4" cy="4" fill="#7E9CC0" r="4" />
       </svg>
       <span>{text}</span>
     </div>
@@ -227,7 +227,7 @@ export function AboutContent() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4 text-center">
               Meet Illinois Estate Law
             </h2>
-            <div className="w-16 h-1 bg-[#77B1D4] mb-8 mx-auto" />
+            <div className="w-16 h-1 bg-[#7E9CC0] mb-8 mx-auto" />
             <p className="text-slate-600 text-lg text-center mb-12 max-w-3xl mx-auto">
               Watch this video to learn more about Illinois Estate Law and how we can help you with your estate planning needs.
             </p>
@@ -306,7 +306,7 @@ export function AboutContent() {
               </div>
 
               {/* Bio */}
-              <div className="w-12 h-0.5 bg-[#77B1D4] mb-5" />
+              <div className="w-12 h-0.5 bg-[#7E9CC0] mb-5" />
               <div className="space-y-4 text-slate-600 leading-relaxed mb-6">
                 {selected.bio.map((para, i) => <p key={i}>{para}</p>)}
               </div>

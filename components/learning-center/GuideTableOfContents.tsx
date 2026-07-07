@@ -41,7 +41,7 @@ export default function GuideTableOfContents({ items }: { items: TocItem[] }) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors"
       >
-        <span className="flex items-center gap-2 font-bold text-[#2D3E50]">
+        <span className="flex items-center gap-2 font-bold text-[#33414E]">
           <List className="w-5 h-5" />
           In This Guide
         </span>
@@ -64,8 +64,8 @@ export default function GuideTableOfContents({ items }: { items: TocItem[] }) {
                 item.level === 3 ? 'pl-4' : ''
               } ${
                 activeId === item.id
-                  ? 'text-[#2D3E50] font-semibold'
-                  : 'text-gray-500 hover:text-[#2D3E50]'
+                  ? 'text-[#33414E] font-semibold'
+                  : 'text-gray-500 hover:text-[#33414E]'
               }`}
             >
               {item.title}

@@ -55,14 +55,14 @@ export function HighlyRecommendedSection() {
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex justify-center gap-0.5 mb-4">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-[#77B1D4] text-[#77B1D4]" />
+              <Star key={i} className="w-5 h-5 fill-[#7E9CC0] text-[#7E9CC0]" />
             ))}
           </div>
 
           <p className="text-xl lg:text-2xl font-bold text-white mb-3">
             Highly Recommended for Compassionate and Professional Probate Services
           </p>
-          <div className="w-12 h-1 bg-[#77B1D4] mx-auto mb-8" />
+          <div className="w-12 h-1 bg-[#7E9CC0] mx-auto mb-8" />
 
           <div className="relative">
             <div className="overflow-hidden rounded-2xl">
@@ -77,7 +77,7 @@ export function HighlyRecommendedSection() {
                         "{testimonial.text}"
                       </p>
                       <div className="flex items-center justify-center gap-3">
-                        <div className="w-8 h-8 bg-[#77B1D4] rounded-full flex items-center justify-center">
+                        <div className="w-8 h-8 bg-[#7E9CC0] rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-semibold">{testimonial.name.charAt(0)}</span>
                         </div>
                         <span className="text-white text-sm font-medium">{testimonial.name}</span>
@@ -109,7 +109,7 @@ export function HighlyRecommendedSection() {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#77B1D4]' : 'bg-slate-600'}`}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#7E9CC0]' : 'bg-slate-600'}`}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
             ))}
@@ -120,7 +120,7 @@ export function HighlyRecommendedSection() {
               href="https://share.google/Kt6O2VG1jlRRoNos9"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-block px-5 py-2 bg-[#77B1D4] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors"
+              className="inline-block px-5 py-2 bg-[#7E9CC0] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors"
             >
               READ ALL REVIEWS ON GOOGLE
             </a>

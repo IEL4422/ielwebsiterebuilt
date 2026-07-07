@@ -66,7 +66,7 @@ export default function DuPageCountyProbatePage() {
 
       <main>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[280px] flex items-center py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] min-h-[280px] flex items-center py-12">
           <div className="container mx-auto max-w-[1140px] px-5 xl:px-0">
             <div className="flex flex-col items-center justify-center">
               <h1 className="font-extrabold text-[45px] md:text-[60px] lg:text-[75px] leading-tight font-normal text-[#FEFEFE] text-center mb-4">
@@ -102,7 +102,7 @@ export default function DuPageCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
               DuPage County Probate Guide
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12"></div>
 
             <Tabs defaultValue="process" className="w-full">
               <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 h-auto gap-2">
@@ -217,19 +217,19 @@ export default function DuPageCountyProbatePage() {
                     <div>
                       <h4 className="text-xl font-semibold text-slate-800 mb-4">Expected Timeline</h4>
                       <div className="space-y-4">
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Month 1-2: Opening the Estate</p>
                           <p className="text-slate-600">File petition, attend hearing, obtain letters of office</p>
                         </div>
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Month 2-4: Initial Administration</p>
                           <p className="text-slate-600">Inventory assets, notify heirs and creditors, secure property</p>
                         </div>
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Month 4-12: Claims & Asset Management</p>
                           <p className="text-slate-600">Review claims, pay debts, file tax returns, manage assets</p>
                         </div>
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Month 9-18: Distribution & Closing</p>
                           <p className="text-slate-600">Final accounting, distribute assets, petition for discharge</p>
                         </div>
@@ -276,7 +276,7 @@ export default function DuPageCountyProbatePage() {
                       <p className="text-slate-600 text-sm mt-4 italic">
                         Costs vary significantly based on estate size, complexity, and whether disputes arise.
                       </p>
-                      <div className="mt-4 p-4 bg-blue-50 border-l-4 border-[#77B1D4] rounded">
+                      <div className="mt-4 p-4 bg-blue-50 border-l-4 border-[#7E9CC0] rounded">
                         <p className="text-sm text-slate-700">
                           <strong>Note:</strong> Our probate packages include all attorney fees and court costs except for the surety bond, which is required to be paid directly to the surety bond provider.
                         </p>
@@ -295,11 +295,11 @@ export default function DuPageCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
               DuPage County Probate Scenarios
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12"></div>
 
             <Accordion type="single" collapsible className="w-full space-y-4">
               <AccordionItem value="item-1" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Testate Estates (With a Valid Will)
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -316,7 +316,7 @@ export default function DuPageCountyProbatePage() {
               </AccordionItem>
 
               <AccordionItem value="item-2" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Intestate Administration (No Will)
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -333,7 +333,7 @@ export default function DuPageCountyProbatePage() {
               </AccordionItem>
 
               <AccordionItem value="item-3" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Small Estate Affidavit Alternative
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -350,7 +350,7 @@ export default function DuPageCountyProbatePage() {
               </AccordionItem>
 
               <AccordionItem value="item-4" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Real Estate in DuPage County Probate
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -372,7 +372,7 @@ export default function DuPageCountyProbatePage() {
         {/* CTA Section */}
         <section className="bg-slate-50 py-16">
           <div className="container mx-auto px-4 max-w-4xl">
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8 lg:p-12 text-center">
+            <div className="bg-[#33414E] rounded-2xl p-8 lg:p-12 text-center">
               <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
                 Need Probate Assistance in DuPage County?
               </h2>
@@ -383,7 +383,7 @@ export default function DuPageCountyProbatePage() {
                 <a
                   href="tel:3123730731"
                   rel="nofollow"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-lg"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-lg"
                 >
                   Call (312) 373-0731
                 </a>
@@ -404,7 +404,7 @@ export default function DuPageCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
               DuPage County Probate FAQ
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mb-12"></div>
 
             <div className="space-y-8">
               <div>
@@ -452,10 +452,10 @@ export default function DuPageCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
               Related Services
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12"></div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/chicago-wills-lawyer/" className="group bg-white hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/chicago-wills-lawyer/" className="group bg-white hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Wills & Estate Planning
                 </h3>
@@ -464,7 +464,7 @@ export default function DuPageCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/chicago-revocable-trusts-lawyer/" className="group bg-white hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/chicago-revocable-trusts-lawyer/" className="group bg-white hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Revocable Living Trusts
                 </h3>
@@ -473,7 +473,7 @@ export default function DuPageCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/probate/cook-county/" className="group bg-white hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/probate/cook-county/" className="group bg-white hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Cook County Probate
                 </h3>
@@ -482,7 +482,7 @@ export default function DuPageCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/areas-we-serve/" className="group bg-white hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/areas-we-serve/" className="group bg-white hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Other Counties
                 </h3>
@@ -491,7 +491,7 @@ export default function DuPageCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/contact/" className="group bg-white hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/contact/" className="group bg-white hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Estate Tax Planning
                 </h3>
@@ -500,7 +500,7 @@ export default function DuPageCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/contact/" className="group bg-white hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/contact/" className="group bg-white hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Trust Administration
                 </h3>

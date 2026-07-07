@@ -32,7 +32,7 @@ export function AdultGuardianshipSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Adult Guardianship
             </h2>
-            <div className="w-16 h-1 bg-[#77B1D4] mb-6" />
+            <div className="w-16 h-1 bg-[#7E9CC0] mb-6" />
 
             <div className="prose prose-slate max-w-none prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-5">
               <p>
@@ -55,7 +55,7 @@ export function AdultGuardianshipSection() {
               </a>
               <a
                 href="/contact/"
-                className="inline-flex items-center justify-center px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
               >
                 Schedule a Consultation
               </a>
@@ -69,7 +69,7 @@ export function AdultGuardianshipSection() {
                 className="bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
               >
                 <div className="w-12 h-12 bg-[#E5F2F9] rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-[#77B1D4]" />
+                  <feature.icon className="w-6 h-6 text-[#7E9CC0]" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-800 mb-2">
                   {feature.title}

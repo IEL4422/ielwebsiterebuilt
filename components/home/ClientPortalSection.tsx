@@ -9,11 +9,11 @@ export function ClientPortalSection() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
-              Stay Connected with Your Secure <a href="/client-portal" className="text-[#77B1D4] hover:underline">Client Portal</a>
+              Stay Connected with Your Secure <a href="/client-portal" className="text-[#7E9CC0] hover:underline">Client Portal</a>
             </h2>
-            <div className="h-1 w-24 bg-[#77B1D4] mx-auto mb-6" />
+            <div className="h-1 w-24 bg-[#7E9CC0] mx-auto mb-6" />
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Whether you're creating an estate plan or managing probate, our <a href="/client-portal" className="text-[#77B1D4] hover:underline">client portal</a> keeps you informed and empowered every step of the way.
+              Whether you're creating an estate plan or managing probate, our <a href="/client-portal" className="text-[#7E9CC0] hover:underline">client portal</a> keeps you informed and empowered every step of the way.
             </p>
           </div>
 
@@ -21,8 +21,8 @@ export function ClientPortalSection() {
             <div className="bg-white rounded-2xl shadow-2xl p-8 lg:p-12 border border-slate-200">
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div className="space-y-6">
-                  <div className="inline-block px-4 py-2 bg-[#77B1D4]/10 rounded-full">
-                    <span className="text-[#77B1D4] font-semibold text-sm">Your Portal Dashboard</span>
+                  <div className="inline-block px-4 py-2 bg-[#7E9CC0]/10 rounded-full">
+                    <span className="text-[#7E9CC0] font-semibold text-sm">Your Portal Dashboard</span>
                   </div>
                   <h3 className="text-3xl font-bold text-slate-800">
                     Everything You Need in One Place
@@ -31,7 +31,7 @@ export function ClientPortalSection() {
                     Access your case information, communicate with your attorney, and manage documents from a single, secure platform designed specifically for estate planning and probate clients.
                   </p>
                   <div className="flex items-center gap-3 text-sm text-slate-500">
-                    <Shield className="w-5 h-5 text-[#77B1D4]" />
+                    <Shield className="w-5 h-5 text-[#7E9CC0]" />
                     <span>256-bit SSL Encryption</span>
                   </div>
                 </div>
@@ -40,7 +40,7 @@ export function ClientPortalSection() {
                   <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 shadow-xl">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#77B1D4] rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-[#7E9CC0] rounded-full flex items-center justify-center">
                           <span className="text-white font-bold text-sm">JD</span>
                         </div>
                         <div>
@@ -106,7 +106,7 @@ export function ClientPortalSection() {
                     </div>
                   </div>
 
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#77B1D4]/20 rounded-full blur-2xl" />
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#7E9CC0]/20 rounded-full blur-2xl" />
                   <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl" />
                 </div>
               </div>
@@ -116,7 +116,7 @@ export function ClientPortalSection() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-[#77B1D4] rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 bg-[#7E9CC0] rounded-full flex items-center justify-center flex-shrink-0">
                   <FileCheck className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800">Track Your Matter Status</h3>
@@ -126,15 +126,15 @@ export function ClientPortalSection() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">See document preparation progress</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Monitor court filing statuses</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Access completed documents anytime</span>
                 </li>
               </ul>
@@ -142,7 +142,7 @@ export function ClientPortalSection() {
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-[#77B1D4] rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 bg-[#7E9CC0] rounded-full flex items-center justify-center flex-shrink-0">
                   <MessageSquare className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800">Direct Attorney Communication</h3>
@@ -152,15 +152,15 @@ export function ClientPortalSection() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">No more phone tag or email delays</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">All conversations documented and saved</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Get answers without scheduling calls</span>
                 </li>
               </ul>
@@ -168,7 +168,7 @@ export function ClientPortalSection() {
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-[#77B1D4] rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 bg-[#7E9CC0] rounded-full flex items-center justify-center flex-shrink-0">
                   <Clock className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800">Access 24/7</h3>
@@ -178,15 +178,15 @@ export function ClientPortalSection() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Login from any device, anywhere</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Perfect for busy schedules</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">No office hours limitations</span>
                 </li>
               </ul>
@@ -194,7 +194,7 @@ export function ClientPortalSection() {
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-[#77B1D4] rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 bg-[#7E9CC0] rounded-full flex items-center justify-center flex-shrink-0">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800">Bank-Level Security</h3>
@@ -204,15 +204,15 @@ export function ClientPortalSection() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">End-to-end encryption</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">HIPAA-compliant data storage</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <ChevronRight className="w-5 h-5 text-[#77B1D4] flex-shrink-0 mt-0.5" />
+                  <ChevronRight className="w-5 h-5 text-[#7E9CC0] flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Secure document sharing</span>
                 </li>
               </ul>
@@ -229,7 +229,7 @@ export function ClientPortalSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/get-started"
-                className="inline-block px-8 py-4 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-lg"
+                className="inline-block px-8 py-4 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-lg"
               >
                 Get Started Today
               </a>

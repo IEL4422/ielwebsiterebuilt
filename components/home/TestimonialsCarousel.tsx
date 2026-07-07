@@ -131,7 +131,7 @@ export function TestimonialsCarousel({ initialReviews, overallRating, totalRatin
           <p className="text-xl lg:text-2xl font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
             Stress-Free and Transparent Estate Planning Experience
           </p>
-          <div className="w-12 h-1 bg-[#77B1D4] mx-auto mb-8" />
+          <div className="w-12 h-1 bg-[#7E9CC0] mx-auto mb-8" />
 
           {/* Carousel */}
           <div className="relative">
@@ -168,7 +168,7 @@ export function TestimonialsCarousel({ initialReviews, overallRating, totalRatin
                                 return next;
                               })
                             }
-                            className="text-[#77B1D4] text-xs underline mb-3 hover:text-[#5A9BC4] transition-colors"
+                            className="text-[#7E9CC0] text-xs underline mb-3 hover:text-[#5A9BC4] transition-colors"
                           >
                             {isExpanded ? 'Show less' : 'Read more'}
                           </button>
@@ -185,7 +185,7 @@ export function TestimonialsCarousel({ initialReviews, overallRating, totalRatin
                               referrerPolicy="no-referrer"
                             />
                           ) : (
-                            <div className="w-8 h-8 bg-[#77B1D4] rounded-full flex items-center justify-center shrink-0">
+                            <div className="w-8 h-8 bg-[#7E9CC0] rounded-full flex items-center justify-center shrink-0">
                               <span className="text-white text-xs font-semibold">
                                 {initials(review.name)}
                               </span>
@@ -232,7 +232,7 @@ export function TestimonialsCarousel({ initialReviews, overallRating, totalRatin
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#77B1D4]' : 'bg-slate-600'}`}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#7E9CC0]' : 'bg-slate-600'}`}
                 aria-label={`Go to review ${i + 1}`}
               />
             ))}
@@ -244,7 +244,7 @@ export function TestimonialsCarousel({ initialReviews, overallRating, totalRatin
               href="https://share.google/Kt6O2VG1jlRRoNos9"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#77B1D4] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors font-['Plus_Jakarta_Sans'] uppercase tracking-wide"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-[#7E9CC0] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors font-['Plus_Jakarta_Sans'] uppercase tracking-wide"
             >
               <GoogleLogo className="w-3.5 h-3.5" />
               Read All Reviews on Google

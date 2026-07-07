@@ -38,10 +38,10 @@ export default function SendReferralPage() {
         <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 bg-[#2D3E50] text-white rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="w-12 h-12 bg-[#33414E] text-white rounded-full flex items-center justify-center font-bold text-lg">
                 1
               </div>
-              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#2D3E50]">
+              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#33414E]">
                 Submit This Form
               </p>
               <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
@@ -50,10 +50,10 @@ export default function SendReferralPage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 bg-[#2D3E50] text-white rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="w-12 h-12 bg-[#33414E] text-white rounded-full flex items-center justify-center font-bold text-lg">
                 2
               </div>
-              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#2D3E50]">
+              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#33414E]">
                 We Contact Your Client
               </p>
               <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
@@ -62,10 +62,10 @@ export default function SendReferralPage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 bg-[#2D3E50] text-white rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="w-12 h-12 bg-[#33414E] text-white rounded-full flex items-center justify-center font-bold text-lg">
                 3
               </div>
-              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#2D3E50]">
+              <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[#33414E]">
                 You Receive 10%
               </p>
               <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">

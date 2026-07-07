@@ -71,7 +71,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -94,14 +94,14 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="when-required" className="text-2xl font-bold mt-8 mb-4">When a Probate Sale Is Required</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">A probate sale is required when the decedent owned the property in their individual name — with no joint owner, no Transfer on Death Instrument (TODI), and no trust — at the time of death.</p>
               <p className="mb-0 text-gray-700">In that situation, the property cannot be sold or transferred until a personal representative (executor or administrator) is appointed by the Cook County Probate Division, obtains Letters of Office, and has authority to act on behalf of the estate.</p>
             </div>
             <p className="mb-6">Probate is NOT required when the property passes automatically by operation of law — for example, when it was held in joint tenancy (survivor takes without probate), when there is a recorded TODI (beneficiary takes without probate), or when the property was in a living trust (successor trustee acts without probate). These are the very tools that good estate planning uses to avoid this situation.</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">How Property Was Held</th><th className="border border-gray-300 px-4 py-3 text-left">Probate Required?</th><th className="border border-gray-300 px-4 py-3 text-left">How It Transfers</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">How Property Was Held</th><th className="border border-gray-300 px-4 py-3 text-left">Probate Required?</th><th className="border border-gray-300 px-4 py-3 text-left">How It Transfers</th></tr></thead>
                 <tbody>
                   {[
                     ['Decedent\'s name alone (no other mechanism)', 'Yes', 'Probate court — executor\'s deed at sale'],
@@ -120,11 +120,11 @@ export default function Page() {
             <p className="mb-6">To sell estate property, the personal representative must first obtain Letters of Office from the Cook County Probate Division. This requires filing a petition for probate, providing the original will (if any), paying the filing fee, and being appointed by the court.</p>
             <div className="grid md:grid-cols-2 gap-4 my-6">
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h3 className="font-bold text-[#2D3E50] mb-3">What Letters of Office Authorize</h3>
+                <h3 className="font-bold text-[#33414E] mb-3">What Letters of Office Authorize</h3>
                 <ul className="space-y-2">{['Signing real estate contracts on behalf of the estate', 'Listing the property with a real estate agent', 'Granting access to the property for inspections', 'Executing the deed at closing', 'Receiving sale proceeds into the estate account', 'Paying estate debts from sale proceeds'].map((item, i) => <li key={i} className="flex items-start gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-[#4a708b] flex-shrink-0 mt-0.5" />{item}</li>)}</ul>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h3 className="font-bold text-[#2D3E50] mb-3">Executor&apos;s Fiduciary Duties</h3>
+                <h3 className="font-bold text-[#33414E] mb-3">Executor&apos;s Fiduciary Duties</h3>
                 <ul className="space-y-2">{['Sell for fair market value — not significantly below', 'Act in the interest of all beneficiaries, not just some', 'Avoid self-dealing (do not buy the property yourself without court approval)', 'Maintain the property while in the estate (utilities, insurance, security)', 'Account for all sale proceeds', 'Pay estate debts and taxes from proceeds before distributing'].map((item, i) => <li key={i} className="flex items-start gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-[#4a708b] flex-shrink-0 mt-0.5" />{item}</li>)}</ul>
               </div>
             </div>
@@ -135,13 +135,13 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mb-6">
                 {adminTypes.map((a, i) => (
                   <button key={i} onClick={() => setActiveAdmin(i)}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeAdmin === i ? 'bg-[#2D3E50] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeAdmin === i ? 'bg-[#33414E] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                     {a.label}
                   </button>
                 ))}
               </div>
-              <div className="bg-white border-2 border-[#2D3E50] rounded-xl p-6">
-                <h3 className="font-bold text-[#2D3E50] text-xl mb-3">{adminTypes[activeAdmin].title}</h3>
+              <div className="bg-white border-2 border-[#33414E] rounded-xl p-6">
+                <h3 className="font-bold text-[#33414E] text-xl mb-3">{adminTypes[activeAdmin].title}</h3>
                 <p className="text-gray-700 mb-4">{adminTypes[activeAdmin].description}</p>
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
@@ -173,14 +173,14 @@ export default function Page() {
                 { title: 'Get Owner\'s Title Insurance', desc: 'An executor\'s or administrator\'s deed provides limited warranties. Owner\'s title insurance is essential for probate purchases — the title insurer will investigate and insure against the risks that come with estate transfers, including missing heirs and estate administration issues.' },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                  <h3 className="font-bold text-[#2D3E50] text-sm mb-2">{item.title}</h3>
+                  <h3 className="font-bold text-[#33414E] text-sm mb-2">{item.title}</h3>
                   <p className="text-gray-700 text-sm mb-0">{item.desc}</p>
                 </div>
               ))}
             </div>
 
             <h2 id="tax-issues" className="text-2xl font-bold mt-12 mb-4">Tax Issues: Stepped-Up Basis and Capital Gains</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">The "stepped-up basis" is one of the most powerful tax benefits available to heirs. When someone inherits property, their cost basis for capital gains purposes is "stepped up" to the fair market value at the date of the decedent's death — not the decedent's original purchase price.</p>
               <p className="mb-0 text-gray-700">Example: Decedent bought the home in 1985 for $80,000. It is worth $400,000 at death. The estate (or heir) has a cost basis of $400,000. If the estate sells for $400,000 shortly after death, there is no capital gain. The $320,000 of appreciation the decedent accumulated is permanently excluded from capital gains tax.</p>
             </div>
@@ -199,7 +199,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Selling an Inherited Home? We Can Help.</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law handles probate real estate sales for executors and personal representatives throughout Cook County — from opening the estate to closing day. We also represent buyers purchasing probate properties. Schedule a consultation to discuss your situation.</p>
               <div className="flex flex-wrap gap-4">

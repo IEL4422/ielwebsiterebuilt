@@ -25,7 +25,7 @@ export function WhyChooseSection() {
               </p>
               <a
                 href="/contact/"
-                className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
               >
                 BOOK A CONSULTATION
               </a>
@@ -36,7 +36,7 @@ export function WhyChooseSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Why Choose Illinois Estate Law?
             </h2>
-            <div className="w-16 h-1 bg-[#77B1D4] mb-6" />
+            <div className="w-16 h-1 bg-[#7E9CC0] mb-6" />
 
             <p className="text-slate-600 leading-relaxed mb-8">
               Planning your estate shouldn't feel like a burden. At Illinois Estate Law, we've designed a law firm that works the way your life does, efficiently, thoughtfully, and on your terms. We combine secure technology with warm, responsive service to create a legal experience that is human, not transactional. Our flat-fee pricing, virtual meetings, and attorney-led support are all part of making estate planning approachable and trustworthy for Illinois families like yours.
@@ -77,7 +77,7 @@ export function WhyChooseSection() {
                 At Illinois Estate Law, we help you create a plan that reflects your values and goals with care, clarity, and respect. Our team takes the time to get to know you, offering a streamlined, virtual alternative and flat-fee pricing that keeps things simple and stress-free. If you're ready to take that next step, we're here to walk with you one decision at a time.
               </p>
               <p className="font-semibold text-slate-800">
-                <a href="/contact/" className="hover:text-[#77B1D4] transition-colors">Contact us</a> at <a href="tel:3123730731" className="hover:text-[#77B1D4] transition-colors">(312) 373-0731</a> or use our online booking tool to schedule a consultation today.
+                <a href="/contact/" className="hover:text-[#7E9CC0] transition-colors">Contact us</a> at <a href="tel:3123730731" className="hover:text-[#7E9CC0] transition-colors">(312) 373-0731</a> or use our online booking tool to schedule a consultation today.
               </p>
             </div>
           </div>

@@ -10,6 +10,9 @@ import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { ClientPortalSection } from '@/components/home/ClientPortalSection';
 import { ContactSection } from '@/components/home/ContactSection';
 import { FAQSection } from '@/components/home/FAQSection';
+import WhichServiceSection from '@/components/home/WhichServiceSection';
+import RecentArticlesStrip from '@/components/home/RecentArticlesStrip';
+import IllinoisCoverageSection from '@/components/home/IllinoisCoverageSection';
 
 export const metadata: Metadata = {
   title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
@@ -219,6 +222,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <StatsSection />
         <TwoPathsSection />
         <PracticeAreasSection />
+        <WhichServiceSection />
+        <RecentArticlesStrip />
+        <IllinoisCoverageSection />
         <TestimonialsSection />
         <ClientPortalSection />
         <ContactSection />

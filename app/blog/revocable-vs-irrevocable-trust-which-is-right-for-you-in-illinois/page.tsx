@@ -230,7 +230,7 @@ export default function Page() {
       />
 
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -273,7 +273,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Scale className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -299,7 +299,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              From a practical standpoint, your daily life does not change after creating a revocable trust. You continue to use your bank accounts, live in your home, and manage your investments exactly as before. The legal ownership changes from your personal name to the trust, but you maintain signing authority and decision-making power over everything. For an in-depth look at how revocable trusts work in Illinois, see our <Link href="/chicago-revocable-trusts-lawyer/" className="text-[#4a708b] underline hover:text-[#2D3E50]">revocable trusts practice page</Link>.
+              From a practical standpoint, your daily life does not change after creating a revocable trust. You continue to use your bank accounts, live in your home, and manage your investments exactly as before. The legal ownership changes from your personal name to the trust, but you maintain signing authority and decision-making power over everything. For an in-depth look at how revocable trusts work in Illinois, see our <Link href="/chicago-revocable-trusts-lawyer/" className="text-[#4a708b] underline hover:text-[#33414E]">revocable trusts practice page</Link>.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 my-8">
@@ -327,7 +327,7 @@ export default function Page() {
             </div>
 
             <p className="mb-6">
-              The primary advantage of a revocable trust is <strong>probate avoidance</strong>. When you die, the assets held in the trust pass directly to your named beneficiaries without going through the Illinois probate court system. This means faster distribution, lower costs, and complete privacy. To understand more about the <Link href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/" className="text-[#4a708b] underline hover:text-[#2D3E50]">advantages and disadvantages of revocable living trusts</Link>, see our detailed analysis.
+              The primary advantage of a revocable trust is <strong>probate avoidance</strong>. When you die, the assets held in the trust pass directly to your named beneficiaries without going through the Illinois probate court system. This means faster distribution, lower costs, and complete privacy. To understand more about the <Link href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/" className="text-[#4a708b] underline hover:text-[#33414E]">advantages and disadvantages of revocable living trusts</Link>, see our detailed analysis.
             </p>
 
             <p className="mb-6">
@@ -371,7 +371,7 @@ export default function Page() {
             </div>
 
             <p className="mb-6">
-              Common types of irrevocable trusts in Illinois include irrevocable life insurance trusts (ILITs), special needs trusts, charitable remainder trusts, and Medicaid asset protection trusts. Each serves a specific purpose and requires careful drafting to achieve its intended benefits. For more on the benefits trusts can provide, read our guide on <Link href="/blog/what-are-the-key-benefits-of-setting-up-a-trust-in-illinois/" className="text-[#4a708b] underline hover:text-[#2D3E50]">the key benefits of setting up a trust in Illinois</Link>.
+              Common types of irrevocable trusts in Illinois include irrevocable life insurance trusts (ILITs), special needs trusts, charitable remainder trusts, and Medicaid asset protection trusts. Each serves a specific purpose and requires careful drafting to achieve its intended benefits. For more on the benefits trusts can provide, read our guide on <Link href="/blog/what-are-the-key-benefits-of-setting-up-a-trust-in-illinois/" className="text-[#4a708b] underline hover:text-[#33414E]">the key benefits of setting up a trust in Illinois</Link>.
             </p>
 
             <h2 id="side-by-side-comparison" className="text-2xl font-bold mt-12 mb-4">
@@ -509,7 +509,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">You want flexibility for life changes</h3>
                   <p className="text-gray-700 text-sm">
-                    Marriage, divorce, new children or grandchildren, changes in financial situation, moves between states &mdash; a revocable trust accommodates all of these easily. You can update beneficiaries, change distribution terms, or restructure the trust entirely. For more on how life events affect estate planning, see our article on <Link href="/blog/what-happens-to-your-estate-plan-when-you-get-divorced-and-why-you-should-update-it/" className="text-[#4a708b] underline hover:text-[#2D3E50]">what happens to your estate plan after divorce</Link>.
+                    Marriage, divorce, new children or grandchildren, changes in financial situation, moves between states &mdash; a revocable trust accommodates all of these easily. You can update beneficiaries, change distribution terms, or restructure the trust entirely. For more on how life events affect estate planning, see our article on <Link href="/blog/what-happens-to-your-estate-plan-when-you-get-divorced-and-why-you-should-update-it/" className="text-[#4a708b] underline hover:text-[#33414E]">what happens to your estate plan after divorce</Link>.
                   </p>
                 </div>
               </div>
@@ -518,7 +518,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">You own real estate in Illinois</h3>
                   <p className="text-gray-700 text-sm">
-                    Real property that passes through a will must go through probate. A revocable trust holding your home or investment properties avoids this entirely. This is especially valuable in Cook County, where probate can be slow and expensive. Learn more about <Link href="/blog/can-a-house-transfer-automatically-at-death-in-illinois-5-ways-it-can-and-3-ways-it-cant/" className="text-[#4a708b] underline hover:text-[#2D3E50]">how houses can transfer automatically at death</Link>.
+                    Real property that passes through a will must go through probate. A revocable trust holding your home or investment properties avoids this entirely. This is especially valuable in Cook County, where probate can be slow and expensive. Learn more about <Link href="/blog/can-a-house-transfer-automatically-at-death-in-illinois-5-ways-it-can-and-3-ways-it-cant/" className="text-[#4a708b] underline hover:text-[#33414E]">how houses can transfer automatically at death</Link>.
                   </p>
                 </div>
               </div>
@@ -547,7 +547,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">Your estate exceeds $4 million</h3>
                   <p className="text-gray-700 text-sm">
-                    Illinois taxes estates above $4 million at rates from 0.8% to 16%. For a $5 million estate, the Illinois estate tax alone can exceed $300,000. An irrevocable trust that removes assets from your taxable estate can substantially reduce or eliminate this liability. Our <Link href="/illinois-estate-tax-calculator/" className="text-[#4a708b] underline hover:text-[#2D3E50]">Illinois estate tax calculator</Link> can help you estimate your potential exposure. For a deeper understanding of how the tax works, read our guide on <Link href="/blog/how-estate-taxes-work-in-illinois/" className="text-[#4a708b] underline hover:text-[#2D3E50]">how estate taxes work in Illinois</Link>.
+                    Illinois taxes estates above $4 million at rates from 0.8% to 16%. For a $5 million estate, the Illinois estate tax alone can exceed $300,000. An irrevocable trust that removes assets from your taxable estate can substantially reduce or eliminate this liability. Our <Link href="/illinois-estate-tax-calculator/" className="text-[#4a708b] underline hover:text-[#33414E]">Illinois estate tax calculator</Link> can help you estimate your potential exposure. For a deeper understanding of how the tax works, read our guide on <Link href="/blog/how-estate-taxes-work-in-illinois/" className="text-[#4a708b] underline hover:text-[#33414E]">how estate taxes work in Illinois</Link>.
                   </p>
                 </div>
               </div>
@@ -556,7 +556,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">You need asset protection from creditors or lawsuits</h3>
                   <p className="text-gray-700 text-sm">
-                    Business owners, medical professionals, real estate investors, and others in high-liability professions face real risks. An irrevocable trust can shelter assets from future creditors and lawsuit judgments. For broader protection strategies, see our article on <Link href="/blog/ways-to-protect-your-assets-for-the-future/" className="text-[#4a708b] underline hover:text-[#2D3E50]">ways to protect your assets for the future</Link>.
+                    Business owners, medical professionals, real estate investors, and others in high-liability professions face real risks. An irrevocable trust can shelter assets from future creditors and lawsuit judgments. For broader protection strategies, see our article on <Link href="/blog/ways-to-protect-your-assets-for-the-future/" className="text-[#4a708b] underline hover:text-[#33414E]">ways to protect your assets for the future</Link>.
                   </p>
                 </div>
               </div>
@@ -565,7 +565,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">You are planning for Medicaid or long-term care</h3>
                   <p className="text-gray-700 text-sm">
-                    Medicaid requires you to spend down most of your assets before qualifying for benefits. An irrevocable trust can protect assets, but only if established at least five years before applying. Timing is critical &mdash; the sooner you plan, the better. For related planning considerations, read about <Link href="/blog/what-happens-if-you-become-incapacitated-without-a-plan-in-illinois/" className="text-[#4a708b] underline hover:text-[#2D3E50]">what happens if you become incapacitated without a plan</Link>.
+                    Medicaid requires you to spend down most of your assets before qualifying for benefits. An irrevocable trust can protect assets, but only if established at least five years before applying. Timing is critical &mdash; the sooner you plan, the better. For related planning considerations, read about <Link href="/blog/what-happens-if-you-become-incapacitated-without-a-plan-in-illinois/" className="text-[#4a708b] underline hover:text-[#33414E]">what happens if you become incapacitated without a plan</Link>.
                   </p>
                 </div>
               </div>
@@ -606,7 +606,7 @@ export default function Page() {
                     Illinois has one of the lowest estate tax exemptions in the country. While the federal exemption exceeds $13 million, Illinois taxes estates above $4 million. This means Illinois residents face estate tax at levels that would be tax-free in most other states. If your estate is anywhere near $4 million &mdash; and remember, this includes your home, retirement accounts, life insurance death benefits, and all other assets &mdash; you should seriously evaluate whether an irrevocable trust could reduce your tax liability.
                   </p>
                   <p className="text-gray-700 mb-0">
-                    For 2026 law changes that may affect your planning, see our article on <Link href="/blog/illinois-estate-planning-laws-changing-2026-cook-county-families/" className="text-[#4a708b] underline hover:text-[#2D3E50]">Illinois estate planning laws changing in 2026</Link>.
+                    For 2026 law changes that may affect your planning, see our article on <Link href="/blog/illinois-estate-planning-laws-changing-2026-cook-county-families/" className="text-[#4a708b] underline hover:text-[#33414E]">Illinois estate planning laws changing in 2026</Link>.
                   </p>
                 </div>
               </div>
@@ -620,7 +620,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">Cook County probate is expensive and slow</h3>
                   <p className="text-gray-700 text-sm">
-                    The Cook County Probate Division handles a high volume of cases, which means delays, crowded courtrooms, and administrative backlogs. Any trust &mdash; revocable or irrevocable &mdash; that keeps assets out of probate is particularly valuable for Cook County residents. For details on what probate costs, see our breakdown of <Link href="/blog/how-much-does-probate-cost-in-illinois/" className="text-[#4a708b] underline hover:text-[#2D3E50]">probate costs in Illinois</Link>.
+                    The Cook County Probate Division handles a high volume of cases, which means delays, crowded courtrooms, and administrative backlogs. Any trust &mdash; revocable or irrevocable &mdash; that keeps assets out of probate is particularly valuable for Cook County residents. For details on what probate costs, see our breakdown of <Link href="/blog/how-much-does-probate-cost-in-illinois/" className="text-[#4a708b] underline hover:text-[#33414E]">probate costs in Illinois</Link>.
                   </p>
                 </div>
               </div>
@@ -642,7 +642,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">Trust funding requires recording deeds</h3>
                   <p className="text-gray-700 text-sm">
-                    Transferring real estate into a trust requires recording a new deed with the county recorder. In Cook County, this involves transfer tax considerations and proper legal descriptions. If not done correctly, the property remains in your personal name and will go through probate regardless of what your trust says. For a complete guide, see our <Link href="/blog/trust-funding-check-list/" className="text-[#4a708b] underline hover:text-[#2D3E50]">trust funding checklist</Link>.
+                    Transferring real estate into a trust requires recording a new deed with the county recorder. In Cook County, this involves transfer tax considerations and proper legal descriptions. If not done correctly, the property remains in your personal name and will go through probate regardless of what your trust says. For a complete guide, see our <Link href="/blog/trust-funding-check-list/" className="text-[#4a708b] underline hover:text-[#33414E]">trust funding checklist</Link>.
                   </p>
                 </div>
               </div>
@@ -653,7 +653,7 @@ export default function Page() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">Powers of attorney are still essential</h3>
                   <p className="text-gray-700 text-sm">
-                    Neither type of trust replaces the need for <Link href="/chicago-powers-of-attorney-lawyer/" className="text-[#4a708b] underline hover:text-[#2D3E50]">powers of attorney</Link> and <Link href="/chicago-healthcare-directives-lawyer/" className="text-[#4a708b] underline hover:text-[#2D3E50]">healthcare directives</Link>. A trust manages your assets, but you still need someone authorized to make financial and medical decisions on your behalf if you become incapacitated. These documents should be part of every estate plan. Learn more about <Link href="/blog/do-you-really-need-a-power-of-attorney-in-illinois/" className="text-[#4a708b] underline hover:text-[#2D3E50]">why you need a power of attorney in Illinois</Link>.
+                    Neither type of trust replaces the need for <Link href="/chicago-powers-of-attorney-lawyer/" className="text-[#4a708b] underline hover:text-[#33414E]">powers of attorney</Link> and <Link href="/chicago-healthcare-directives-lawyer/" className="text-[#4a708b] underline hover:text-[#33414E]">healthcare directives</Link>. A trust manages your assets, but you still need someone authorized to make financial and medical decisions on your behalf if you become incapacitated. These documents should be part of every estate plan. Learn more about <Link href="/blog/do-you-really-need-a-power-of-attorney-in-illinois/" className="text-[#4a708b] underline hover:text-[#33414E]">why you need a power of attorney in Illinois</Link>.
                   </p>
                 </div>
               </div>
@@ -735,7 +735,7 @@ export default function Page() {
               Answer these five questions to get a preliminary sense of which trust type might be the better fit for your situation. This is a starting point &mdash; not a substitute for personalized legal advice.
             </p>
 
-            <div className="bg-gradient-to-br from-slate-50 to-blue-50 border-2 border-[#4a708b]/30 rounded-lg p-6 my-8">
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50 border-2 border-[#547298]/30 rounded-lg p-6 my-8">
               <div className="flex items-center gap-3 mb-6">
                 <HelpCircle className="w-8 h-8 text-[#4a708b]" />
                 <div>
@@ -777,7 +777,7 @@ export default function Page() {
                         }}
                         className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
                           quizAnswers[quizStep] === option.value
-                            ? 'border-[#4a708b] bg-blue-50'
+                            ? 'border-[#547298] bg-blue-50'
                             : 'border-gray-200 bg-white hover:border-gray-300'
                         }`}
                       >
@@ -809,7 +809,7 @@ export default function Page() {
                         Based on your answers, your priorities align with a revocable living trust. You value flexibility, control, and simplicity. A revocable trust will help you avoid probate, maintain privacy, and keep your estate plan easy to manage and update as life changes.
                       </p>
                       <p className="text-gray-700">
-                        Consider our <Link href="/compare-packages/" className="text-[#4a708b] underline hover:text-[#2D3E50] font-semibold">trust packages</Link> to see which plan includes a revocable trust tailored to your needs.
+                        Consider our <Link href="/compare-packages/" className="text-[#4a708b] underline hover:text-[#33414E] font-semibold">trust packages</Link> to see which plan includes a revocable trust tailored to your needs.
                       </p>
                     </div>
                   )}
@@ -824,7 +824,7 @@ export default function Page() {
                         Your answers suggest that estate tax reduction, asset protection, or Medicaid planning are priorities. An irrevocable trust can address these goals, though it requires giving up control of the transferred assets. Many families use both a revocable trust for everyday management and an irrevocable trust for specific protection goals.
                       </p>
                       <p className="text-gray-700">
-                        We recommend <Link href="/book-consultation/" className="text-[#4a708b] underline hover:text-[#2D3E50] font-semibold">scheduling a consultation</Link> to discuss whether an irrevocable trust makes sense for your specific situation.
+                        We recommend <Link href="/book-consultation/" className="text-[#4a708b] underline hover:text-[#33414E] font-semibold">scheduling a consultation</Link> to discuss whether an irrevocable trust makes sense for your specific situation.
                       </p>
                     </div>
                   )}
@@ -839,7 +839,7 @@ export default function Page() {
                         Your answers indicate mixed priorities &mdash; you value both flexibility and protection. Many Illinois families in this situation use a dual-trust strategy: a revocable trust for everyday estate management and probate avoidance, plus an irrevocable trust for specific goals like estate tax reduction or asset protection.
                       </p>
                       <p className="text-gray-700">
-                        A personalized conversation with an estate planning attorney will help clarify the right approach. <Link href="/book-consultation/" className="text-[#4a708b] underline hover:text-[#2D3E50] font-semibold">Schedule a consultation</Link> to discuss your options.
+                        A personalized conversation with an estate planning attorney will help clarify the right approach. <Link href="/book-consultation/" className="text-[#4a708b] underline hover:text-[#33414E] font-semibold">Schedule a consultation</Link> to discuss your options.
                       </p>
                     </div>
                   )}
@@ -894,10 +894,10 @@ export default function Page() {
             </p>
 
             <p className="mb-6">
-              For a broader view of all the documents that go into a complete estate plan, see our guide on <Link href="/blog/understanding-the-basics-of-estate-planning/" className="text-[#4a708b] underline hover:text-[#2D3E50]">understanding the basics of estate planning</Link>, or explore our <Link href="/services-pricing/" className="text-[#4a708b] underline hover:text-[#2D3E50]">services and pricing page</Link> to see our flat-fee trust packages.
+              For a broader view of all the documents that go into a complete estate plan, see our guide on <Link href="/blog/understanding-the-basics-of-estate-planning/" className="text-[#4a708b] underline hover:text-[#33414E]">understanding the basics of estate planning</Link>, or explore our <Link href="/services-pricing/" className="text-[#4a708b] underline hover:text-[#33414E]">services and pricing page</Link> to see our flat-fee trust packages.
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Ready to Decide? Let Us Help.
               </h3>

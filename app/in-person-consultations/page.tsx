@@ -11,7 +11,7 @@ export default function InPersonConsultationsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="prose max-w-none">
-              <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8 md:p-12 text-center mb-8">
+              <div className="bg-[#33414E] rounded-2xl p-8 md:p-12 text-center mb-8">
                 <h2 className="text-white font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold mb-4">
                   In-Person Meetings for Current Clients
                 </h2>
@@ -21,7 +21,7 @@ export default function InPersonConsultationsPage() {
               </div>
 
               <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 md:p-10">
-                <h3 className="text-[#2D3E50] font-['Plus_Jakarta_Sans'] text-xl md:text-2xl font-bold mb-4">
+                <h3 className="text-[#33414E] font-['Plus_Jakarta_Sans'] text-xl md:text-2xl font-bold mb-4">
                   For New Clients
                 </h3>
                 <p className="text-slate-600 font-['Plus_Jakarta_Sans'] text-base md:text-lg leading-relaxed mb-6">
@@ -30,13 +30,13 @@ export default function InPersonConsultationsPage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="/contact/"
-                    className="inline-block px-8 py-4 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-center no-underline"
+                    className="inline-block px-8 py-4 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-center no-underline"
                   >
                     Schedule Virtual Consultation
                   </a>
                   <a
                     href="tel:3123730731"
-                    className="inline-block px-8 py-4 bg-white text-[#2D3E50] border-2 border-[#2D3E50] font-semibold rounded-lg hover:bg-slate-50 transition-colors text-center no-underline"
+                    className="inline-block px-8 py-4 bg-white text-[#33414E] border-2 border-[#33414E] font-semibold rounded-lg hover:bg-slate-50 transition-colors text-center no-underline"
                   >
                     Call (312) 373-0731
                   </a>
@@ -44,14 +44,14 @@ export default function InPersonConsultationsPage() {
               </div>
 
               <div className="mt-8 bg-white border border-slate-200 rounded-xl p-8 md:p-10">
-                <h3 className="text-[#2D3E50] font-['Plus_Jakarta_Sans'] text-xl md:text-2xl font-bold mb-4">
+                <h3 className="text-[#33414E] font-['Plus_Jakarta_Sans'] text-xl md:text-2xl font-bold mb-4">
                   For Current Clients
                 </h3>
                 <p className="text-slate-600 font-['Plus_Jakarta_Sans'] text-base md:text-lg leading-relaxed mb-4">
                   If you are a current client and would like to schedule an in-person meeting, please contact our office to arrange a convenient time and location.
                 </p>
                 <p className="text-slate-600 font-['Plus_Jakarta_Sans'] text-base md:text-lg leading-relaxed">
-                  <a href="/locations/" className="text-[#77B1D4] hover:text-[#5A9BC4] font-semibold underline">
+                  <a href="/locations/" className="text-[#7E9CC0] hover:text-[#5A9BC4] font-semibold underline">
                     View our locations
                   </a> throughout Illinois.
                 </p>

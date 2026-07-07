@@ -97,13 +97,13 @@ export default function ChicagoRevocableTrustsLawyerPage() {
 
       <main>
         <InnerPageHero title="Revocable Living Trusts" subtitle="Avoid probate, protect privacy, and secure your family's future with a comprehensive revocable living trust" />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -146,7 +146,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-8 mb-12 shadow-sm">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   Protect Your Legacy with an Illinois Revocable Living Trust
                 </h2>
@@ -168,9 +168,9 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">Key Roles in a Revocable Living Trust</h3>
 
                 <div className="grid md:grid-cols-3 gap-6 my-8">
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <FileText className="w-6 h-6" />
                       </div>
                       <div>
@@ -182,9 +182,9 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Lock className="w-6 h-6" />
                       </div>
                       <div>
@@ -196,9 +196,9 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <TrendingUp className="w-6 h-6" />
                       </div>
                       <div>
@@ -223,9 +223,9 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                   The primary reason most people create revocable trusts is to avoid probate. Assets held in a properly funded trust pass directly to your beneficiaries without court involvement. This saves time, money, and stress for your family during an already difficult time.
                 </p>
 
-                <div className="bg-blue-50 border-l-4 border-[#77B1D4] p-6 rounded-lg my-8">
+                <div className="bg-blue-50 border-l-4 border-[#7E9CC0] p-6 rounded-lg my-8">
                   <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-[#77B1D4] flex-shrink-0 mt-1" />
+                    <CheckCircle className="w-6 h-6 text-[#7E9CC0] flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-slate-900 mb-2">Benefits of Avoiding Probate:</h4>
                       <ul className="text-slate-800 space-y-2">
@@ -263,7 +263,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('process')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Trust Creation and Administration Process</span>
                     {expandedSection === 'process' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -335,7 +335,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('funding')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Trust Funding Methods by Asset Type</span>
                     {expandedSection === 'funding' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -404,31 +404,31 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 <div className="bg-blue-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Trustworthy and Ethical:</strong> Must act in beneficiaries' best interests and resist conflicts of interest</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Financially Competent:</strong> Understands investments, taxes, and financial management</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Organized and Detail-Oriented:</strong> Can manage paperwork, records, and administrative tasks</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Good Communicator:</strong> Can work effectively with beneficiaries, attorneys, and financial institutions</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Impartial:</strong> Can treat all beneficiaries fairly without favoritism</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Available:</strong> Has time to dedicate to trust administration duties</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Younger Than You:</strong> Likely to survive you and be available when needed</span>
                     </li>
                   </ul>
@@ -456,7 +456,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#77B1D4]">
+                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#7E9CC0]">
                     <h4 className="text-xl font-bold text-slate-800 mb-3">Corporate Trustee</h4>
                     <p className="text-slate-600 mb-3">A bank, trust company, or professional fiduciary serves as trustee.</p>
                     <p className="text-sm text-slate-500 font-medium mb-2">Advantages:</p>
@@ -486,7 +486,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('comparison')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Revocable Trust vs. Will Comparison</span>
                     {expandedSection === 'comparison' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -549,9 +549,9 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                   )}
                 </div>
 
-                <div className="bg-blue-50 border-l-4 border-[#77B1D4] p-6 rounded-lg my-8">
+                <div className="bg-blue-50 border-l-4 border-[#7E9CC0] p-6 rounded-lg my-8">
                   <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-[#77B1D4] flex-shrink-0 mt-1" />
+                    <CheckCircle className="w-6 h-6 text-[#7E9CC0] flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-slate-900 mb-2">You Still Need a "Pour-Over" Will:</h4>
                       <p className="text-slate-800">
@@ -655,39 +655,39 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 <div className="bg-slate-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Comprehensive consultation to understand your assets, family, and goals</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Customized trust drafting that complies with Illinois Trust Code</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Complete funding assistance for all asset types</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Preparation of deeds for real estate transfers</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Coordination with financial institutions for account transfers</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Pour-over will to complement your trust</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Powers of attorney and healthcare directives</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Regular reviews and amendments as your life changes</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Successor trustee guidance and support</span>
                     </li>
                   </ul>
@@ -793,7 +793,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -805,7 +805,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Your Consultation
                 </Link>

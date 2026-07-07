@@ -55,14 +55,14 @@ export function OverwhelmingMomentsSection() {
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex justify-center gap-0.5 mb-4">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-[#77B1D4] text-[#77B1D4]" />
+              <Star key={i} className="w-5 h-5 fill-[#7E9CC0] text-[#7E9CC0]" />
             ))}
           </div>
 
           <p className="text-xl lg:text-2xl font-bold text-slate-800 mb-3">
             Turn Overwhelming Moments into Manageable Steps
           </p>
-          <div className="w-12 h-1 bg-[#77B1D4] mx-auto mb-8" />
+          <div className="w-12 h-1 bg-[#7E9CC0] mx-auto mb-8" />
 
           <div className="relative">
             <div className="overflow-hidden rounded-2xl">
@@ -109,7 +109,7 @@ export function OverwhelmingMomentsSection() {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#77B1D4]' : 'bg-[#A8D4ED]'}`}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentIndex ? 'bg-[#7E9CC0]' : 'bg-[#A8D4ED]'}`}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
             ))}
@@ -120,7 +120,7 @@ export function OverwhelmingMomentsSection() {
               href="https://maps.app.goo.gl/ukgQFvJjphvX4bDE6"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="inline-block px-5 py-2 bg-[#77B1D4] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors"
+              className="inline-block px-5 py-2 bg-[#7E9CC0] text-white text-xs font-semibold rounded-full hover:bg-[#5A9BC4] transition-colors"
             >
               READ ALL REVIEWS ON GOOGLE
             </a>

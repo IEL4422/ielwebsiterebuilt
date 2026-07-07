@@ -43,13 +43,13 @@ export default function GetStartedPage() {
               href="https://portal.illinoisestatelaw.com/get-started"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#4a708b] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
+              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#547298] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
             >
               <div className="flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-[#4a708b] group-hover:bg-white rounded-full flex items-center justify-center transition-all duration-300">
                 <ShoppingCart className="w-7 h-7 lg:w-8 lg:h-8 text-white group-hover:text-[#4a708b] transition-all duration-300" />
               </div>
               <div className="flex-1">
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#2D3E50] group-hover:text-white transition-all duration-300">
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#33414E] group-hover:text-white transition-all duration-300">
                   Purchase a Service
                 </h3>
                 <p className="mt-1 font-['Plus_Jakarta_Sans'] text-sm lg:text-base text-gray-600 group-hover:text-white/90 transition-all duration-300">
@@ -60,13 +60,13 @@ export default function GetStartedPage() {
 
             <a
               href="/recommended-service/"
-              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#4a708b] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
+              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#547298] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
             >
               <div className="flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-[#4a708b] group-hover:bg-white rounded-full flex items-center justify-center transition-all duration-300">
                 <HelpCircle className="w-7 h-7 lg:w-8 lg:h-8 text-white group-hover:text-[#4a708b] transition-all duration-300" />
               </div>
               <div className="flex-1">
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#2D3E50] group-hover:text-white transition-all duration-300">
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#33414E] group-hover:text-white transition-all duration-300">
                   Help Me Select a Service
                 </h3>
                 <p className="mt-1 font-['Plus_Jakarta_Sans'] text-sm lg:text-base text-gray-600 group-hover:text-white/90 transition-all duration-300">
@@ -77,13 +77,13 @@ export default function GetStartedPage() {
 
             <a
               href="/book-consultation/"
-              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#4a708b] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
+              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#547298] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
             >
               <div className="flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-[#4a708b] group-hover:bg-white rounded-full flex items-center justify-center transition-all duration-300">
                 <Calendar className="w-7 h-7 lg:w-8 lg:h-8 text-white group-hover:text-[#4a708b] transition-all duration-300" />
               </div>
               <div className="flex-1">
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#2D3E50] group-hover:text-white transition-all duration-300">
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#33414E] group-hover:text-white transition-all duration-300">
                   Book a Consultation
                 </h3>
                 <p className="mt-1 font-['Plus_Jakarta_Sans'] text-sm lg:text-base text-gray-600 group-hover:text-white/90 transition-all duration-300">
@@ -94,13 +94,13 @@ export default function GetStartedPage() {
 
             <a
               href="/contact/"
-              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#4a708b] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
+              className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#547298] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
             >
               <div className="flex-shrink-0 w-14 h-14 lg:w-16 lg:h-16 bg-[#4a708b] group-hover:bg-white rounded-full flex items-center justify-center transition-all duration-300">
                 <MessageSquare className="w-7 h-7 lg:w-8 lg:h-8 text-white group-hover:text-[#4a708b] transition-all duration-300" />
               </div>
               <div className="flex-1">
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#2D3E50] group-hover:text-white transition-all duration-300">
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl lg:text-2xl font-bold text-[#33414E] group-hover:text-white transition-all duration-300">
                   Send Legal Team a Message
                 </h3>
                 <p className="mt-1 font-['Plus_Jakarta_Sans'] text-sm lg:text-base text-gray-600 group-hover:text-white/90 transition-all duration-300">

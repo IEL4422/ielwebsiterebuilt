@@ -194,7 +194,7 @@ export default function JointBankAccountPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -260,7 +260,7 @@ export default function JointBankAccountPage() {
               The legal mechanism is simple: the deceased owner's interest in the account extinguishes at death, and the surviving owner's interest expands to encompass the entire account. The money never becomes part of the deceased person's estate. It does not pass under the Will (or the intestacy laws if there is no Will). It belongs entirely to the survivor from the moment of death.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] rounded-r-lg p-6 my-8">
+            <div className="bg-blue-50 border-l-4 border-[#547298] rounded-r-lg p-6 my-8">
               <p className="font-bold text-[#2d3e50] mb-2">Key Takeaway</p>
               <p className="text-[#2d3e50] mb-0">
                 The right of survivorship in a joint account operates like a built-in beneficiary designation. It overrides your Will. Even if your Will says "divide my estate equally among my three children," your joint account goes entirely to the surviving joint owner — not your children.
@@ -562,8 +562,8 @@ export default function JointBankAccountPage() {
                     onClick={() => setActiveScenario(activeScenario === scenario.id ? null : scenario.id)}
                     className={`text-left p-4 rounded-lg border-2 transition-all ${
                       activeScenario === scenario.id
-                        ? 'border-[#4a708b] bg-blue-50'
-                        : 'border-gray-200 hover:border-[#4a708b] hover:bg-gray-50'
+                        ? 'border-[#547298] bg-blue-50'
+                        : 'border-gray-200 hover:border-[#547298] hover:bg-gray-50'
                     }`}
                   >
                     <span className="font-semibold text-[#2d3e50]">{scenario.label}</span>
@@ -756,7 +756,7 @@ export default function JointBankAccountPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3">Ready to Protect What You Have Built?</p>
               <p className="text-white/90 mb-5">Get a comprehensive estate plan that works exactly the way you intend — from a Chicago attorney you can trust.</p>
               <div className="flex flex-col sm:flex-row gap-4">

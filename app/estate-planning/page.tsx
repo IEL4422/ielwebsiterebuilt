@@ -60,7 +60,7 @@ export default function EstatePlanningPage() {
       <section className="bg-white py-16 lg:py-24">
         <div className="container mx-auto px-4 max-w-[1140px]">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[40px] text-[#2D3E50] mb-4">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[40px] text-[#33414E] mb-4">
               Our Estate Planning Services
             </h2>
             <p className="text-lg text-slate-600">
@@ -75,12 +75,12 @@ export default function EstatePlanningPage() {
                 <Link
                   key={area.title}
                   href={area.href}
-                  className="group border border-gray-200 rounded-xl p-6 hover:border-[#4A708B] hover:shadow-lg transition-all duration-300"
+                  className="group border border-gray-200 rounded-xl p-6 hover:border-[#547298] hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-[#2D3E50]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#4A708B]/15 transition-colors">
-                    <Icon className="w-6 h-6 text-[#2D3E50]" />
+                  <div className="w-12 h-12 bg-[#33414E]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#4A708B]/15 transition-colors">
+                    <Icon className="w-6 h-6 text-[#33414E]" />
                   </div>
-                  <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-xl text-[#2D3E50] mb-2 group-hover:text-[#4A708B] transition-colors">
+                  <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-xl text-[#33414E] mb-2 group-hover:text-[#4A708B] transition-colors">
                     {area.title}
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-4">
@@ -99,37 +99,37 @@ export default function EstatePlanningPage() {
       <section className="bg-[#f8f9fa] py-16 lg:py-20">
         <div className="container mx-auto px-4 max-w-[1140px]">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#2D3E50] mb-4">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#33414E] mb-4">
               Why Choose Illinois Estate Law?
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-14 h-14 bg-[#4A708B]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-[#2D3E50] font-bold text-xl">$</span>
+                <span className="text-[#33414E] font-bold text-xl">$</span>
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Flat-Fee Pricing</h3>
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Flat-Fee Pricing</h3>
               <p className="text-slate-600 text-sm">No hourly billing. Know exactly what your estate plan costs before you begin.</p>
             </div>
             <div className="text-center">
               <div className="w-14 h-14 bg-[#4A708B]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-[#2D3E50] font-bold text-xl">&infin;</span>
+                <span className="text-[#33414E] font-bold text-xl">&infin;</span>
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Unlimited Consultations</h3>
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Unlimited Consultations</h3>
               <p className="text-slate-600 text-sm">Talk to your attorney as many times as you need throughout the process.</p>
             </div>
             <div className="text-center">
               <div className="w-14 h-14 bg-[#4A708B]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-[#2D3E50] font-bold text-xl">IL</span>
+                <span className="text-[#33414E] font-bold text-xl">IL</span>
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Illinois Focused</h3>
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Illinois Focused</h3>
               <p className="text-slate-600 text-sm">Deep expertise in Illinois estate planning law across Cook County and beyond.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-[#2D3E50] to-[#4A708B] py-14">
+      <section className="bg-gradient-to-r from-[#33414E] to-[#4A708B] py-14">
         <div className="container mx-auto px-4 max-w-[1140px] text-center">
           <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] lg:text-[32px] text-white mb-4">
             Ready to Protect Your Family?
@@ -140,7 +140,7 @@ export default function EstatePlanningPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/book-consultation/"
-              className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
             >
               Free Consultation
             </Link>

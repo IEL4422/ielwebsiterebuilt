@@ -51,7 +51,7 @@ export default function SuccessPage() {
               Your payment has been successfully processed. We have received your signed Client Service Agreement.
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-8 mb-8">
+            <div className="bg-[#33414E] rounded-[10px] p-8 mb-8">
               <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] mb-4">
                 What Happens Next?
               </h3>

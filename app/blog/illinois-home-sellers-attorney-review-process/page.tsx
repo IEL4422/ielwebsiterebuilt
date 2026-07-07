@@ -85,7 +85,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -108,7 +108,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="sellers-perspective" className="text-2xl font-bold mt-8 mb-4">Attorney Review from the Seller&apos;s Perspective</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">Most sellers think of the attorney review period as something that happens to them — a window where the buyer's attorney sends requests that the seller must respond to. In reality, the review period is equally available to sellers and their attorneys to add protective language to the contract.</p>
               <p className="mb-0 text-gray-700">A seller's attorney uses the 5 business days to review the contract the buyer's agent drafted, identify provisions that are insufficiently protective of the seller, and propose modifications that better serve the seller's interests — all before the contract becomes fully binding.</p>
             </div>
@@ -118,7 +118,7 @@ export default function Page() {
             <p className="mb-6">When you hire a seller's attorney for attorney review, they examine the entire purchase contract, including:</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Contract Section</th><th className="border border-gray-300 px-4 py-3 text-left">What the Seller&apos;s Attorney Looks For</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Contract Section</th><th className="border border-gray-300 px-4 py-3 text-left">What the Seller&apos;s Attorney Looks For</th></tr></thead>
                 <tbody>
                   {[
                     ['Closing date', 'Is the date feasible? Is there adequate time for the buyer\'s financing to close? Does it align with your purchase timeline?'],
@@ -172,7 +172,7 @@ export default function Page() {
                 { title: 'If You Cannot Reach Agreement', desc: 'If after back-and-forth the parties cannot agree on modifications, the contract may be effectively dead. Either attorney can send a formal disapproval. The earnest money returns to the buyer. While this is a poor outcome, it is better than signing a contract with terms that expose you to significant risk.' },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                  <h3 className="font-bold text-[#2D3E50] mb-2">{item.title}</h3>
+                  <h3 className="font-bold text-[#33414E] mb-2">{item.title}</h3>
                   <p className="text-gray-700 text-sm mb-0">{item.desc}</p>
                 </div>
               ))}
@@ -233,7 +233,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Selling Your Home? Protect Yourself During Attorney Review.</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law provides flat-fee representation for home sellers throughout Chicago and Cook County. We review your contract during the attorney review period, add seller-protective language, and represent you through closing — so you sell on your terms.</p>
               <div className="flex flex-wrap gap-4">

@@ -73,7 +73,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Header Section with Date and Title */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -322,7 +322,7 @@ export default function Page() {
                   </a>
                   <a
                     href="/book-consultation/"
-                    className="block w-full text-center px-6 py-3 bg-white border-2 border-[#4a708b] text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold rounded hover:bg-[#4a708b] hover:text-white transition"
+                    className="block w-full text-center px-6 py-3 bg-white border-2 border-[#547298] text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold rounded hover:bg-[#4a708b] hover:text-white transition"
                   >
                     BOOK ONLINE
                   </a>
@@ -382,7 +382,7 @@ export default function Page() {
                 href="/blog/understanding-the-basics-of-estate-planning"
                 className="flex-1 group"
               >
-                <div className="h-full flex items-center gap-4 p-6 bg-white border-2 border-gray-200 rounded-lg hover:border-[#4a708b] transition">
+                <div className="h-full flex items-center gap-4 p-6 bg-white border-2 border-gray-200 rounded-lg hover:border-[#547298] transition">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#4a708b] flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                       <path d="M28.9998 20C28.9998 20.2653 28.8945 20.5196 28.7069 20.7071C28.5194 20.8947 28.2651 21 27.9998 21L14.4138 21L19.7078 26.292C19.8956 26.4798 20.0011 26.7345 20.0011 27C20.0011 27.2656 19.8956 27.5203 19.7078 27.708C19.5201 27.8958 19.2654 28.0013 18.9998 28.0013C18.7343 28.0013 18.4796 27.8958 18.2918 27.708L11.2918 20.708C11.1987 20.6152 11.1248 20.5048 11.0744 20.3833C11.024 20.2618 10.998 20.1316 10.998 20C10.998 19.8685 11.024 19.7383 11.0744 19.6168C11.1248 19.4953 11.1987 19.3849 11.2918 19.292L18.2918 12.292C18.3848 12.1991 18.4952 12.1253 18.6167 12.075C18.7381 12.0247 18.8683 11.9988 18.9998 11.9988C19.2654 11.9988 19.5201 12.1043 19.7078 12.292C19.8956 12.4798 20.0011 12.7345 20.0011 13C20.0011 13.2656 19.8956 13.5203 19.7078 13.708L14.4138 19L27.9998 19C28.2651 19 28.5194 19.1054 28.7069 19.2929C28.8945 19.4805 28.9998 19.7348 28.9998 20Z" fill="currentColor" />
@@ -405,7 +405,7 @@ export default function Page() {
                 href="/blog/what-happens-to-your-estate-plan-when-you-get-divorced-and-why-you-should-update-it"
                 className="flex-1 group"
               >
-                <div className="h-full flex items-center gap-4 p-6 bg-white border-2 border-gray-200 rounded-lg hover:border-[#4a708b] transition">
+                <div className="h-full flex items-center gap-4 p-6 bg-white border-2 border-gray-200 rounded-lg hover:border-[#547298] transition">
                   <div className="flex-1 text-right">
                     <div className="text-sm text-gray-500 font-['Plus_Jakarta_Sans'] mb-1">Next post</div>
                     <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[var(--e-global-color-text)] group-hover:text-[#4a708b] transition">
@@ -448,7 +448,7 @@ export default function Page() {
                     <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600 mb-4">
                       In Illinois, you can protect your assets through strategies like establishing trusts, maximizing insurance coverage, using homestead exemptions, and structuring business entities properly. These approaches work together to shield your wealth from creditors, lawsuits, and
                     </p>
-                    <span className="inline-block px-4 py-2 text-sm font-['Plus_Jakarta_Sans'] font-semibold text-[#4a708b] border-2 border-[#4a708b] rounded hover:bg-[#4a708b] hover:text-white transition">
+                    <span className="inline-block px-4 py-2 text-sm font-['Plus_Jakarta_Sans'] font-semibold text-[#4a708b] border-2 border-[#547298] rounded hover:bg-[#4a708b] hover:text-white transition">
                       READ MORE
                     </span>
                   </div>
@@ -489,7 +489,7 @@ export default function Page() {
                     <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600 mb-4">
                       Creating a trust is a significant step in safeguarding your assets and ensuring your wishes are carried out, but establishing the trust is only half the battle. Unfortunately, many people overlook funding their trusts, which
                     </p>
-                    <span className="inline-block px-4 py-2 text-sm font-['Plus_Jakarta_Sans'] font-semibold text-[#4a708b] border-2 border-[#4a708b] rounded hover:bg-[#4a708b] hover:text-white transition">
+                    <span className="inline-block px-4 py-2 text-sm font-['Plus_Jakarta_Sans'] font-semibold text-[#4a708b] border-2 border-[#547298] rounded hover:bg-[#4a708b] hover:text-white transition">
                       READ MORE
                     </span>
                   </div>
@@ -530,7 +530,7 @@ export default function Page() {
                     <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600 mb-4">
                       Setting up a trust in Illinois provides benefits that go beyond what a simple will can offer. A trust helps you avoid probate, protect your privacy, shield assets from creditors, and maintain control over how
                     </p>
-                    <span className="inline-block px-4 py-2 text-sm font-['Plus_Jakarta_Sans'] font-semibold text-[#4a708b] border-2 border-[#4a708b] rounded hover:bg-[#4a708b] hover:text-white transition">
+                    <span className="inline-block px-4 py-2 text-sm font-['Plus_Jakarta_Sans'] font-semibold text-[#4a708b] border-2 border-[#547298] rounded hover:bg-[#4a708b] hover:text-white transition">
                       READ MORE
                     </span>
                   </div>
@@ -555,7 +555,7 @@ export default function Page() {
 
           {/* Contact Form Section */}
           <div className="max-w-[1240px] mx-auto mt-16 mb-12">
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-8 md:p-12">
+            <div className="bg-[#33414E] rounded-lg p-8 md:p-12">
               <p className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-white mb-4">
                 Send Us a Message
               </p>

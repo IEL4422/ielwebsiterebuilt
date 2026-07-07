@@ -94,7 +94,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -117,7 +117,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="overview" className="text-2xl font-bold mt-8 mb-4">Illinois Deed Types Overview</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">All Illinois deeds transfer real property ownership — but they differ dramatically in the legal promises (called "covenants of warranty") the grantor makes about the quality of title being conveyed.</p>
               <p className="mb-0 text-gray-700">Using the wrong deed type is a common and expensive mistake. A buyer who accepts a quitclaim deed in a sale from a stranger is giving up significant legal protection. A family member who insists on a warranty deed for a simple intra-family transfer is adding unnecessary formality. Understanding what each deed type promises — and guarantees — is essential knowledge for anyone dealing with Illinois real estate.</p>
             </div>
@@ -128,13 +128,13 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mb-6">
                 {deedTypes.map((d, i) => (
                   <button key={i} onClick={() => setActiveType(i)}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeType === i ? 'bg-[#2D3E50] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeType === i ? 'bg-[#33414E] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                     {d.label}
                   </button>
                 ))}
               </div>
-              <div className="bg-white border-2 border-[#2D3E50] rounded-xl p-6">
-                <h3 className="font-bold text-[#2D3E50] text-xl mb-3">{deedTypes[activeType].title}</h3>
+              <div className="bg-white border-2 border-[#33414E] rounded-xl p-6">
+                <h3 className="font-bold text-[#33414E] text-xl mb-3">{deedTypes[activeType].title}</h3>
                 <p className="text-gray-700 mb-4">{deedTypes[activeType].description}</p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -165,7 +165,7 @@ export default function Page() {
             <h2 id="comparison" className="text-2xl font-bold mt-12 mb-4">Side-by-Side Comparison</h2>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-3 py-3 text-left text-sm">Deed Type</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Warrants Pre-Ownership Claims</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Warrants During-Ownership Claims</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Best Used For</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-3 py-3 text-left text-sm">Deed Type</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Warrants Pre-Ownership Claims</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Warrants During-Ownership Claims</th><th className="border border-gray-300 px-3 py-3 text-left text-sm">Best Used For</th></tr></thead>
                 <tbody>
                   {[
                     ['General Warranty', 'Yes', 'Yes', 'Residential sales (arm\'s length)'],
@@ -194,7 +194,7 @@ export default function Page() {
                   <p className="text-xs text-gray-500 font-semibold uppercase mb-1">Situation</p>
                   <p className="font-semibold text-gray-800 text-sm mb-2">{item.situation}</p>
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 bg-[#2D3E50] text-white text-xs rounded-full font-semibold">{item.deed}</span>
+                    <span className="px-3 py-1 bg-[#33414E] text-white text-xs rounded-full font-semibold">{item.deed}</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-2">{item.note}</p>
                 </div>
@@ -203,7 +203,7 @@ export default function Page() {
 
             <h2 id="title-insurance" className="text-2xl font-bold mt-12 mb-4">How Title Insurance Fills the Gap</h2>
             <p className="mb-6">No deed type provides perfect protection — even a general warranty deed is only as valuable as the seller's financial ability to compensate you if a title defect emerges years later. This is where title insurance becomes critical.</p>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">Title insurance pays claims that the seller's warranty cannot — particularly when the seller is unavailable, insolvent, or deceased decades after the sale.</p>
               <p className="mb-0 text-gray-700">When a deed provides limited warranties (special warranty, trustee's, executor's) or no warranties (quitclaim), a robust owner's title insurance policy becomes even more important as the buyer's primary protection against title defects. The title insurance underwriter — not the seller — becomes the financial backstop.</p>
             </div>
@@ -221,7 +221,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Make Sure You Get the Right Deed</h3>
               <p className="text-white/90 mb-6">Whether you are buying, selling, or transferring property in Illinois, the deed type matters. Illinois Estate Law represents buyers and sellers throughout Cook County and advises on deed selection for all types of real estate transactions.</p>
               <div className="flex flex-wrap gap-4">

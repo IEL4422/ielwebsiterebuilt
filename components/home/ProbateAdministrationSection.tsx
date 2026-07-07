@@ -80,7 +80,7 @@ export function ProbateAdministrationSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="tel:3123730731"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
                 >
                   CALL (312) 373-0731
                 </a>
@@ -98,7 +98,7 @@ export function ProbateAdministrationSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Experienced Assistance in Illinois Probate Administration
             </h2>
-            <div className="w-16 h-1 bg-[#77B1D4] mb-6" />
+            <div className="w-16 h-1 bg-[#7E9CC0] mb-6" />
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
               Losing someone close to you is never easy. On top of the emotional weight, there are often legal steps that must be taken, especially if your loved one owned property or had assets in their name alone. The probate process in Illinois pertains to how a deceased person's estate is legally settled. We work closely with families and executors to make each step less stressful and more manageable.
             </p>

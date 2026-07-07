@@ -22,7 +22,7 @@ export function FAQAccordion({ title, items }: FAQAccordionProps) {
     <section className="py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-[1140px] mx-auto">
-          <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-10 text-center">
+          <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-10 text-center">
             {title}
           </h2>
           <div className="max-w-3xl mx-auto">

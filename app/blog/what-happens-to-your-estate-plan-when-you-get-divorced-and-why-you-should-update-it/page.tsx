@@ -118,7 +118,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+      <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link
             href="/blog"
@@ -292,13 +292,13 @@ export default function Page() {
               <div className="flex flex-col sm:flex-row lg:flex-col gap-[10px]">
                 <a
                   href="tel:3123730731"
-                  className="inline-block bg-white text-[#2D3E50] text-center font-bold py-[14px] px-[15px] rounded-full border border-white hover:bg-gray-100 transition-colors font-['Plus_Jakarta_Sans']"
+                  className="inline-block bg-white text-[#33414E] text-center font-bold py-[14px] px-[15px] rounded-full border border-white hover:bg-gray-100 transition-colors font-['Plus_Jakarta_Sans']"
                 >
                   CALL (312) 373-0731
                 </a>
                 <a
                   href="/book-consultation/"
-                  className="inline-block bg-transparent text-[#fefefe] text-center font-bold py-[14px] px-5 rounded-full border border-[#4A708B] hover:bg-[#3d5d75] transition-colors font-['Plus_Jakarta_Sans']"
+                  className="inline-block bg-transparent text-[#fefefe] text-center font-bold py-[14px] px-5 rounded-full border border-[#547298] hover:bg-[#3d5d75] transition-colors font-['Plus_Jakarta_Sans']"
                 >
                   BOOK ONLINE
                 </a>

@@ -97,13 +97,13 @@ export default function ChicagoProbateLawyerPage() {
 
       <main>
         <InnerPageHero title="Probate Administration" subtitle="Compassionate, experienced guidance through Illinois probate administration" />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -146,7 +146,7 @@ export default function ChicagoProbateLawyerPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-8 mb-12 shadow-sm">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   Navigate Illinois Probate with Experienced Legal Guidance
                 </h2>
@@ -168,9 +168,9 @@ export default function ChicagoProbateLawyerPage() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">Key Participants in Illinois Probate</h3>
 
                 <div className="grid md:grid-cols-2 gap-6 my-8">
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Scale className="w-6 h-6" />
                       </div>
                       <div>
@@ -182,9 +182,9 @@ export default function ChicagoProbateLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <FileText className="w-6 h-6" />
                       </div>
                       <div>
@@ -196,9 +196,9 @@ export default function ChicagoProbateLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <DollarSign className="w-6 h-6" />
                       </div>
                       <div>
@@ -210,9 +210,9 @@ export default function ChicagoProbateLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Clock className="w-6 h-6" />
                       </div>
                       <div>
@@ -249,9 +249,9 @@ export default function ChicagoProbateLawyerPage() {
                   </div>
                 </div>
 
-                <div className="bg-blue-50 border-l-4 border-[#77B1D4] p-6 rounded-lg my-8">
+                <div className="bg-blue-50 border-l-4 border-[#7E9CC0] p-6 rounded-lg my-8">
                   <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-[#77B1D4] flex-shrink-0 mt-1" />
+                    <CheckCircle className="w-6 h-6 text-[#7E9CC0] flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-bold text-slate-900 mb-2">Probate May Be Avoided When:</h4>
                       <ul className="text-slate-800 space-y-2">
@@ -276,7 +276,7 @@ export default function ChicagoProbateLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('process')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Illinois Probate Process Steps</span>
                     {expandedSection === 'process' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -360,39 +360,39 @@ export default function ChicagoProbateLawyerPage() {
                 <div className="bg-slate-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Locate and Secure Assets:</strong> Find all estate property, secure valuables, and maintain property during administration</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Notify Interested Parties:</strong> Provide proper notice to beneficiaries, heirs, and creditors as required by law</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Inventory and Value Assets:</strong> Create comprehensive list of all estate property with current fair market values</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Manage Estate Assets:</strong> Prudently invest and manage assets; maintain insurance; collect income</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Pay Debts and Expenses:</strong> Identify valid claims; pay legitimate debts, taxes, and administration expenses</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>File Tax Returns:</strong> Prepare and file all required federal and state tax returns for the estate and decedent</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Maintain Records:</strong> Keep detailed records of all transactions, receipts, and disbursements</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Distribute Property:</strong> Transfer remaining assets to beneficiaries according to will or intestacy law</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Account to Court:</strong> Provide detailed accounting of estate administration to probate court</span>
                     </li>
                   </ul>
@@ -408,7 +408,7 @@ export default function ChicagoProbateLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('disputes')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Common Probate Disputes and Resolutions</span>
                     {expandedSection === 'disputes' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -481,7 +481,7 @@ export default function ChicagoProbateLawyerPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#77B1D4]">
+                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#7E9CC0]">
                     <h4 className="text-xl font-bold text-slate-800 mb-3">Variable Costs</h4>
                     <ul className="text-sm text-slate-600 space-y-2">
                       <li>• Attorney fees: $3,000-$10,000+ (depends on complexity)</li>
@@ -535,7 +535,7 @@ export default function ChicagoProbateLawyerPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#77B1D4]">
+                  <div className="bg-blue-50 rounded-lg p-6 border-2 border-[#7E9CC0]">
                     <h4 className="text-xl font-bold text-slate-800 mb-3">Supervised Administration</h4>
                     <p className="text-slate-600 mb-3">Court actively oversees executor's actions. Required when heirs don't all consent or disputes exist.</p>
                     <p className="text-sm text-slate-500 font-medium mb-2">Characteristics:</p>
@@ -600,43 +600,43 @@ export default function ChicagoProbateLawyerPage() {
                 <div className="bg-slate-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Complete probate administration from filing to closing</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Executor representation and guidance through fiduciary duties</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Beneficiary representation to protect inheritance rights</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Preparation and filing of all court documents and petitions</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Asset inventory and valuation assistance</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Creditor claims review and resolution</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Estate tax return preparation and filing</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Will contest litigation and defense</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Small estate affidavit preparation</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Distribution planning and execution</span>
                     </li>
                   </ul>
@@ -742,7 +742,7 @@ export default function ChicagoProbateLawyerPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -754,7 +754,7 @@ export default function ChicagoProbateLawyerPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Your Consultation
                 </Link>
