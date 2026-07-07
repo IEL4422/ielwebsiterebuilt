@@ -30,7 +30,7 @@ export function HeroSection() {
           </p>
 
           <h1 className="text-[38px] sm:text-[52px] md:text-[62px] lg:text-[72px] font-extrabold text-white leading-[1.05] mb-6">
-            We Help Illinois Families<br className="hidden sm:block" /> Plan, Protect &amp; Pass On<br className="hidden sm:block" /> What Matters.
+            We Help Illinois Families<br className="hidden sm:block" /> Plan, Protect &amp; Pass&nbsp;On What&nbsp;Matters.
           </h1>
 
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl mb-3 leading-relaxed">
