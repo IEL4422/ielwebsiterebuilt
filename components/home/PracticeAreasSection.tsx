@@ -27,7 +27,7 @@ const categories: Category[] = [
       { name: 'Prenuptial Agreements', href: '/chicago-prenuptial-agreements-lawyer/' },
     ],
     ctaLabel: 'Explore Real Estate Services',
-    ctaHref: '/chicago-deeds-lawyer/',
+    ctaHref: '/chicago-real-estate-closings-lawyer/',
     featured: true,
   },
   {
