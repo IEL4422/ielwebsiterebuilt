@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ReferralForm } from '@/components/referral/ReferralForm';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export const metadata: Metadata = {
   title: 'Submit Referral | Illinois Estate Law',
@@ -30,20 +31,7 @@ export default function SendReferralPage() {
   return (
     <main>
       {/* ── Hero ───────────────────────────────────────────────── */}
-      <section className="relative min-h-[250px] bg-gradient-to-r from-[#2D3E50] to-[#4a708b] flex items-center justify-center">
-        <div className="mx-auto max-w-[1140px] px-5 lg:px-8 py-12 lg:py-16 w-full">
-          <div className="flex flex-col items-center lg:items-start">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
-              Submit a Referral
-            </h1>
-            <p className="mt-4 font-['Plus_Jakarta_Sans'] text-[#c8dae6] text-lg text-center lg:text-left max-w-xl">
-              Attorneys who refer clients to Illinois Estate Law receive{' '}
-              <strong className="text-white">10% of attorney&rsquo;s fees collected</strong> upon
-              client engagement.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Submit a Referral" subtitle="Attorneys who refer clients to Illinois Estate Law receive 10% of attorney's fees collected upon client engagement." />
 
       {/* ── How It Works ───────────────────────────────────────── */}
       <section className="bg-[#f8f9fa] border-b border-gray-200 py-10">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { InnerPageHero } from '@/components/layout/InnerPageHero'
 
 export const metadata: Metadata = {
   title: 'Illinois Estate Law: Distinctive Estate Planning Services',
@@ -29,15 +30,7 @@ export const metadata: Metadata = {
 export default function WhyWereDifferentPage() {
   return (
     <>
-      <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
-        <div className="container mx-auto px-5 max-w-[1240px]">
-          <div className="flex flex-col items-center justify-center py-0 px-0">
-            <h1 className="font-['Lobster_Two'] font-normal text-[#fefefe] capitalize text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center">
-              Why We&rsquo;re Different
-            </h1>
-          </div>
-        </div>
-      </div>
+      <InnerPageHero title="Why We're Different" />
 
       <div className="container mx-auto px-5 max-w-[1240px] py-[100px] lg:py-[60px] lg:px-5 sm:py-[60px] sm:px-5">
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Clock, Search, X } from 'lucide-react';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export interface BlogPost {
   id: string;
@@ -98,15 +99,7 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12 sm:py-16 md:py-20">
-        <div className="mx-auto max-w-[1140px] px-4 sm:px-5 xl:px-0">
-          <div className="text-center">
-            <h1 className="font-['Lobster_Two'] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[75px] leading-[44px] sm:leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal text-white">
-              Blog
-            </h1>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Blog" />
 
       {/* Search and Filter Section */}
       <section className="py-6 sm:py-8 px-4 sm:px-5 bg-gray-50">

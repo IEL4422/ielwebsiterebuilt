@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 interface TeamMember {
   name: string;
@@ -179,18 +180,7 @@ export function AboutContent() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-10 lg:min-h-[160px] sm:min-h-[140px]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-[1140px] mx-auto text-center">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-white leading-[54px] md:leading-[65px] lg:leading-[80px]">
-              Meet Our Team
-            </h1>
-            <p className="mt-4 text-white/80 text-lg max-w-2xl mx-auto font-['Plus_Jakarta_Sans']">
-              Dedicated professionals committed to making estate planning and probate approachable for every Illinois family.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Meet Our Team" subtitle="Dedicated professionals committed to making estate planning and probate approachable for every Illinois family." />
 
       {/* Attorneys */}
       <section className="py-16 lg:py-24 bg-white">

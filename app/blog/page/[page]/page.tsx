@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -102,19 +103,7 @@ export default async function BlogPaginationPage({
 
   return (
     <main>
-      {/* Hero Section */}
-      <section
-        className="relative min-h-[250px] flex items-center justify-center bg-cover bg-center bg-no-repeat px-5 py-20"
-        style={{
-          backgroundImage: 'url(https://www.illinoisestatelaw.com/wp-content/uploads/2025/09/blog-bg.png)',
-        }}
-      >
-        <div className="max-w-[1140px] w-full mx-auto">
-          <h1 className="text-white font-['Lobster_Two'] text-[100px] leading-[100px] lg:text-[70px] lg:leading-[65px] md:text-[60px] md:leading-[60px] sm:text-[50px] sm:leading-[50px]">
-            Blog
-          </h1>
-        </div>
-      </section>
+      <InnerPageHero title="Blog" />
 
       {/* Blog Grid Section */}
       <section className="py-[100px] px-5 lg:py-[60px] md:py-[60px]">

@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export const metadata: Metadata = {
   title: 'Illinois Estate Law FAQ: Key Estate Planning Answers',
@@ -142,15 +143,7 @@ export default function FrequentlyAskedQuestionsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
-        <div className="mx-auto max-w-[1140px] px-5 lg:px-8 py-24 lg:py-28">
-          <div className="flex justify-center lg:justify-start">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
-              Illinois Estate Planning FAQ
-            </h1>
-          </div>
-        </div>
-      </section>
+      <InnerPageHero title="Illinois Estate Planning FAQ" />
 
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4">

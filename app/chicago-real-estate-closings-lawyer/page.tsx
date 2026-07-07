@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, CircleCheck as CheckCircle, Chrome as Home, Shield, FileText, DollarSign } from 'lucide-react'
 import RelatedServices from '@/components/services/RelatedServices'
+import { InnerPageHero } from '@/components/layout/InnerPageHero'
 
 export const metadata: Metadata = {
   title: 'Real Estate Closings | Illinois Estate Law',
@@ -49,68 +50,59 @@ export default function RealEstateClosingsPage() {
       />
 
       <main>
-        <section className="relative bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] min-h-[400px] flex items-center py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-[1140px] mx-auto">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
-                    Real Estate Closings
-                  </h1>
-                  <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                    Full-service attorney representation for your home purchase or sale closing in Illinois &mdash; flat fee of $750.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href="/book-consultation/"
-                      className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
-                    >
-                      Schedule Consultation
-                    </Link>
-                    <Link
-                      href="tel:3123730731"
-                      className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors"
-                    >
-                      <Phone className="w-5 h-5 mr-2" />
-                      (312) 373-0731
-                    </Link>
-                  </div>
-                </div>
-                <div className="hidden lg:block">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                    <h3 className="text-2xl font-bold text-white mb-4">What&apos;s Included</h3>
-                    <ul className="space-y-3 text-white/90">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Contract Review &amp; Negotiation</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Title Review &amp; Clearance</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Attorney Representation at Closing</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Document Preparation &amp; Review</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
-                        <span>Unlimited Attorney Consultation</span>
-                      </li>
-                    </ul>
-                    <div className="mt-6 pt-6 border-t border-white/20">
-                      <p className="text-white/70 text-sm">Flat Fee</p>
-                      <p className="text-3xl font-bold text-white">$750</p>
-                    </div>
+        <InnerPageHero title="Real Estate Closings" subtitle="Full-service attorney representation for your home purchase or sale closing in Illinois — flat fee of $750." />
+        <div className="bg-[#2D3E50] py-8 px-4">
+          <div className="max-w-[1140px] mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/book-consultation/"
+                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                >
+                  Schedule Consultation
+                </Link>
+                <Link
+                  href="tel:3123730731"
+                  className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  (312) 373-0731
+                </Link>
+              </div>
+              <div className="hidden lg:block">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                  <h3 className="text-2xl font-bold text-white mb-4">What&apos;s Included</h3>
+                  <ul className="space-y-3 text-white/90">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Contract Review &amp; Negotiation</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Title Review &amp; Clearance</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Attorney Representation at Closing</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Document Preparation &amp; Review</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" />
+                      <span>Unlimited Attorney Consultation</span>
+                    </li>
+                  </ul>
+                  <div className="mt-6 pt-6 border-t border-white/20">
+                    <p className="text-white/70 text-sm">Flat Fee</p>
+                    <p className="text-3xl font-bold text-white">$750</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
         <section className="bg-white py-16 lg:py-20">
           <div className="container mx-auto px-4 max-w-[1140px]">

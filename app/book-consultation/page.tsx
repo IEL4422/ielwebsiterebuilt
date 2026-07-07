@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Script from 'next/script';
 import { ArrowLeft, Building2, ScrollText, Scale, Heart, Briefcase } from 'lucide-react';
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 type CaseType = 'estate-planning' | 'trust-administration' | 'real-estate' | 'probate' | 'prenuptial';
 
@@ -112,18 +113,7 @@ export default function BookConsultationPage() {
     <>
       <main>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6">
-          <div className="container mx-auto max-w-[1140px] px-5 xl:px-0">
-            <div className="flex flex-col items-center justify-center py-4">
-              <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal capitalize text-[#FEFEFE] text-center">
-                Book a Consultation
-              </h1>
-              <p className="text-white/80 text-lg mt-3 text-center">
-                Free initial consultations · Flat-fee pricing · All of Illinois
-              </p>
-            </div>
-          </div>
-        </section>
+        <InnerPageHero title="Book a Consultation" subtitle="Free initial consultations · Flat-fee pricing · All of Illinois" />
 
         {/* Step 1: Case Type Selector */}
         <section className={`bg-white py-12 lg:py-16 ${selectedType ? 'hidden' : 'block'}`}>
