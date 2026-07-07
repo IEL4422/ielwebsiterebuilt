@@ -102,6 +102,12 @@ export default function ChicagoProbateLawyerPage() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
+                  href="/get-started/"
+                  className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
+                >
+                  Get Started Online
+                </Link>
+                <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
@@ -752,6 +758,12 @@ export default function ChicagoProbateLawyerPage() {
                 Let us guide you through the probate process with compassion and expertise. Contact Illinois Estate Law today for experienced probate representation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/get-started/"
+                  className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
+                >
+                  Get Started Online
+                </Link>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
