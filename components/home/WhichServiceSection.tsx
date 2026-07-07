@@ -13,12 +13,12 @@ export default function WhichServiceSection() {
             Find the Right Service in 60 Seconds
           </h2>
           <p className="text-slate-500 text-base max-w-lg mx-auto mt-3">
-            Answer three quick questions and we'll point you to exactly the right service — and show you the flat fee upfront.
+            Answer three quick questions and we'll point you to exactly the right service, and show you the flat fee upfront.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mt-8">
-          {/* Card 1 — Quiz/Recommendation */}
+          {/* Card 1, Quiz/Recommendation */}
           <div className="bg-[#33414E] rounded-2xl p-8 flex flex-col">
             <HelpCircle className="w-10 h-10 text-[#7E9CC0] mb-4" />
             <h3 className="text-xl font-extrabold text-white mb-2">
@@ -38,7 +38,7 @@ export default function WhichServiceSection() {
             </div>
           </div>
 
-          {/* Card 2 — Compare packages */}
+          {/* Card 2, Compare packages */}
           <div className="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col hover:border-[#7E9CC0] hover:shadow-md transition-all">
             <LayoutList className="w-10 h-10 text-[#547298] mb-4" />
             <h3 className="text-xl font-extrabold text-[#33414E] mb-2">

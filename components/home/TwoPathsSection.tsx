@@ -27,7 +27,7 @@ export function TwoPathsSection() {
               Get Started Online
             </h3>
             <p className="text-slate-500 leading-relaxed mb-6 flex-1">
-              Start the intake immediately, at your own pace. Your flat fee is shown before you commit — no surprises, no pressure.
+              Start the intake immediately, at your own pace. Your flat fee is shown before you commit, no surprises, no pressure.
             </p>
             <Link
               href="/get-started/"
@@ -50,7 +50,7 @@ export function TwoPathsSection() {
               Book a Free Consultation
             </h3>
             <p className="text-white/70 leading-relaxed mb-6 flex-1">
-              Free, no obligation, same-week availability. Meet virtually or in person — whatever works for you.
+              Free, no obligation, same-week availability. Meet virtually or in person, whatever works for you.
             </p>
             <Link
               href="/book-consultation/"
