@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Phone, CheckCircle, Shield, FileText, DollarSign, Home, Users } from 'lucide-react';
+import { Phone, CheckCircle, FileText, Home, Shield, Users, RefreshCw, AlertCircle } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
@@ -11,28 +11,28 @@ export default function ChicagoDeedsLawyerPage() {
 
   const faqs = [
     {
-      q: 'Do I need an attorney for a home sale or purchase in Illinois?',
-      a: 'While Illinois law does not require an attorney, it is strongly recommended and considered standard practice. Illinois residential contracts include an attorney review period — having an attorney during this window protects your interests and can save you from costly mistakes or unfavorable terms.',
+      q: 'What is a Transfer on Death Instrument (TODI) in Illinois?',
+      a: 'A Transfer on Death Instrument (TODI) is an Illinois deed that transfers real estate directly to a named beneficiary upon the owner\'s death — without going through probate. The owner retains full control of the property during their lifetime and can revoke or change the beneficiary at any time.',
     },
     {
-      q: 'When is the $750 flat fee due?',
-      a: 'Our fee of $750 is due at closing — not upfront. You pay nothing out of pocket until the transaction is complete. For sellers, the fee can be deducted from proceeds at the closing table.',
+      q: 'What is a quit claim deed and when is it used?',
+      a: 'A quit claim deed transfers whatever interest the grantor currently holds in a property — without any warranty of title. Quit claim deeds are commonly used between family members, divorcing spouses, to add or remove a co-owner, or to correct a name on an existing deed.',
     },
     {
-      q: 'Do you represent buyers, sellers, or both?',
-      a: 'We represent both buyers and sellers in residential real estate transactions across Illinois. The flat fee is the same regardless of which side of the transaction you are on.',
+      q: 'What is the difference between a quit claim deed and a warranty deed?',
+      a: 'A warranty deed guarantees that the grantor holds clear title and will defend against any future title claims — it is the standard deed used in arm\'s-length real estate sales. A quit claim deed makes no such guarantee and simply conveys whatever interest the grantor has.',
     },
     {
-      q: 'What is the attorney review period in Illinois?',
-      a: 'Most Illinois residential contracts include a 5-business-day attorney review period after the contract is signed. During this window your attorney can review the contract, request modifications, and protect you from unfavorable terms — or void the contract entirely if needed.',
+      q: 'What is a life estate deed?',
+      a: 'A life estate deed transfers ownership of real property while reserving the right to live in or use the property for the rest of the grantor\'s life. At the grantor\'s death, the property automatically passes to the named remainderman — avoiding probate on that asset.',
     },
     {
-      q: 'Can the closing be done remotely?',
-      a: 'Yes. We offer both in-person and remote closing attendance depending on the transaction requirements and the preferences of all parties.',
+      q: 'Do I need an attorney to transfer real estate in Illinois?',
+      a: 'Illinois law does not require an attorney for deed transfers, but having one protects you from errors that can cloud title, create tax problems, or trigger unintended tax consequences. A correctly drafted and recorded deed prevents costly complications down the road.',
     },
     {
       q: 'What areas of Illinois do you serve?',
-      a: 'We represent buyers and sellers throughout Illinois, including Cook County, DuPage County, Lake County, Will County, Kane County, and surrounding areas.',
+      a: 'We draft and record deeds for properties throughout Illinois, including Cook County, DuPage County, Lake County, Will County, Kane County, and all surrounding counties.',
     },
   ];
 
@@ -44,9 +44,9 @@ export default function ChicagoDeedsLawyerPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'LegalService',
-            name: 'Illinois Estate Law — Real Estate Representation',
+            name: 'Illinois Estate Law — Real Estate Deed Transfers',
             description:
-              'Flat-fee residential real estate representation for buyers and sellers in Illinois. $750 due at closing.',
+              'Flat-fee deed drafting and recording for Illinois property owners — Transfer on Death Instruments, quit claim deeds, warranty deeds, and life estate deeds.',
             url: 'https://www.illinoisestatelaw.com/chicago-deeds-lawyer/',
             telephone: '+1-312-373-0731',
             address: {
@@ -57,15 +57,15 @@ export default function ChicagoDeedsLawyerPage() {
             },
             areaServed: { '@type': 'State', name: 'Illinois' },
             priceRange: '$',
-            serviceType: 'Residential Real Estate Representation',
+            serviceType: 'Real Estate Deed Transfers',
           }),
         }}
       />
 
       <main>
         <InnerPageHero
-          title="Residential Real Estate Representation"
-          subtitle="Flat-fee attorney representation for buyers and sellers across Illinois — $750 due at closing, not upfront."
+          title="Real Estate Deed Transfers"
+          subtitle="Flat-fee deed drafting and recording for Illinois property owners — Transfer on Death Instruments, quit claim deeds, warranty deeds, and more."
         />
 
         {/* Top CTA bar */}
@@ -95,15 +95,15 @@ export default function ChicagoDeedsLawyerPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                  <h3 className="text-2xl font-bold text-white mb-4">What&apos;s Included</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">Deed Types We Handle</h3>
                   <ul className="space-y-3 text-white/90">
                     {[
-                      'Contract Review &amp; Attorney Review Period',
-                      'Title Review &amp; Issue Resolution',
-                      'Negotiation &amp; Modification of Terms',
-                      'Document Preparation &amp; Review',
-                      'Closing Attendance (in-person or remote)',
-                      'Unlimited Attorney Consultation',
+                      'Transfer on Death Instruments (TODI)',
+                      'Quit Claim Deeds',
+                      'Warranty Deeds',
+                      'Life Estate Deeds',
+                      'Joint Tenancy &amp; Tenancy in Common',
+                      'Corrective &amp; Scrivener\'s Deeds',
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#7E9CC0]" />
@@ -111,10 +111,6 @@ export default function ChicagoDeedsLawyerPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-6 pt-6 border-t border-white/20">
-                    <p className="text-white/70 text-sm">Flat Fee &mdash; Due at Closing</p>
-                    <p className="text-3xl font-bold text-white">$750</p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -126,61 +122,61 @@ export default function ChicagoDeedsLawyerPage() {
           <div className="max-w-[1140px] mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="font-extrabold text-[32px] lg:text-[36px] text-[#33414E] mb-6">
-                Your Attorney From Contract to Keys
+                Transfer Property the Right Way
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Buying or selling a home is one of the largest financial transactions of your life. In Illinois, residential contracts include an attorney review period — and having an attorney in your corner from day one means you are protected at every step, not just at the closing table.
+                Whether you are adding a family member to a title, removing an ex-spouse, avoiding probate on your home, or correcting an error on an existing deed, the deed must be drafted correctly and recorded with the county — or it can create title problems that are expensive to undo.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                We provide full-service representation for residential buyers and sellers across Illinois for a flat fee of <strong className="text-[#33414E]">$750, due at closing</strong>. There is nothing to pay upfront. For sellers, the fee is simply deducted from proceeds at the closing table.
+                We draft and record all types of Illinois real estate deeds for a flat fee. There are no hourly billing surprises, and we handle the recording with the county recorder so you do not have to.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed">
-                No hourly billing. No surprise invoices. Just clear, flat-fee representation from contract to keys.
+                Deed transfers are one of the most common estate planning and property planning tools — and one of the most commonly mishandled without an attorney.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Services grid */}
+        {/* Deed types grid */}
         <section className="bg-[#F6F9FC] py-16 lg:py-20">
           <div className="max-w-[1140px] mx-auto px-4">
             <h2 className="font-extrabold text-[32px] lg:text-[36px] text-[#33414E] mb-3 text-center">
-              What We Handle for You
+              Deed Types We Draft
             </h2>
             <p className="text-slate-500 text-lg text-center mb-12 max-w-2xl mx-auto">
-              Everything from the first contract review through closing day — all included in the flat fee.
+              Each deed type serves a different purpose. We help you select the right instrument and draft it correctly.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  icon: FileText,
-                  title: 'Contract Review',
-                  body: 'We review your purchase or sale contract in detail during the attorney review period, flagging unfavorable terms and negotiating modifications to protect your position.',
+                  icon: Home,
+                  title: 'Transfer on Death Instrument (TODI)',
+                  body: 'Pass your Illinois home directly to a named beneficiary at death — without probate. You retain full ownership and control during your lifetime and can revoke or amend the TODI at any time.',
+                },
+                {
+                  icon: RefreshCw,
+                  title: 'Quit Claim Deed',
+                  body: 'Transfer whatever interest you hold in a property without warranty of title. Commonly used between spouses, family members, or co-owners to add or remove someone from title.',
                 },
                 {
                   icon: Shield,
-                  title: 'Attorney Review Period',
-                  body: 'Illinois contracts provide a 5-business-day attorney review window. We use this time to review, modify, or void the contract on your behalf before you are legally bound.',
-                },
-                {
-                  icon: Home,
-                  title: 'Title Review',
-                  body: 'We examine the title commitment for liens, encumbrances, or defects that could affect the transaction and work to resolve any issues before closing.',
+                  title: 'Warranty Deed',
+                  body: 'The standard deed in arm\'s-length real estate sales. The grantor warrants clear title and agrees to defend against any future claims — giving the buyer maximum protection.',
                 },
                 {
                   icon: Users,
-                  title: 'Negotiation',
-                  body: 'From repair credits to closing date adjustments, we negotiate on your behalf throughout the transaction — not just during the attorney review period.',
+                  title: 'Life Estate Deed',
+                  body: 'Retain the right to live in the property for life while transferring the remainder interest to a named person. At death, the property passes automatically to the remainderman without probate.',
                 },
                 {
-                  icon: DollarSign,
-                  title: 'Closing Statement Review',
-                  body: 'We review the closing disclosure and settlement statement to verify that all charges, credits, and prorations are accurate before you sign anything.',
+                  icon: FileText,
+                  title: 'Joint Tenancy & Tenancy in Common',
+                  body: 'Convert how co-owners hold title — joint tenancy includes right of survivorship, while tenancy in common allows each owner to pass their share through a will or trust.',
                 },
                 {
-                  icon: CheckCircle,
-                  title: 'Closing Attendance',
-                  body: 'Your attorney attends the closing in person or remotely to review final documents, answer questions, and make sure everything is handled correctly.',
+                  icon: AlertCircle,
+                  title: 'Corrective Deed',
+                  body: 'Fix errors in a previously recorded deed — misspelled names, incorrect legal descriptions, or other scrivener\'s errors that need to be corrected in the public record.',
                 },
               ].map(({ icon: Icon, title, body }) => (
                 <div key={title} className="bg-white rounded-xl p-6 border border-slate-200 hover:border-[#7E9CC0] hover:shadow-md transition-all">
@@ -195,15 +191,29 @@ export default function ChicagoDeedsLawyerPage() {
           </div>
         </section>
 
-        {/* Pricing callout */}
+        {/* What's included */}
         <section className="bg-[#33414E] py-14 px-4">
           <div className="max-w-[1140px] mx-auto text-center">
             <h2 className="font-extrabold text-[28px] lg:text-[36px] text-white mb-4">
-              $750 Flat Fee &mdash; Due at Closing
+              Flat-Fee Deed Service &mdash; We Handle Everything
             </h2>
-            <p className="text-white/80 text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-              Nothing due upfront. We handle everything from the moment you sign the contract through the day you close. Sellers can deduct the fee from proceeds at the closing table.
+            <p className="text-white/80 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+              From consultation to county recording — we take care of every step so your deed is correct and properly recorded.
             </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-10">
+              {[
+                { step: '01', title: 'Consultation', body: 'We discuss your goals and identify the right deed type for your situation.' },
+                { step: '02', title: 'Drafting', body: 'We prepare the deed to Illinois legal standards with the correct legal description.' },
+                { step: '03', title: 'Execution', body: 'We guide you through the signing and notarization requirements.' },
+                { step: '04', title: 'Recording', body: 'We record the deed with the county recorder so the transfer is in the public record.' },
+              ].map(({ step, title, body }) => (
+                <div key={step} className="bg-white/10 rounded-xl p-6 border border-white/20">
+                  <p className="text-[#7E9CC0] font-extrabold text-sm mb-2">{step}</p>
+                  <h3 className="text-white font-extrabold text-lg mb-2">{title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">{body}</p>
+                </div>
+              ))}
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/get-started/"
@@ -256,7 +266,7 @@ export default function ChicagoDeedsLawyerPage() {
         {/* Related services */}
         <section className="py-10 px-4 sm:px-5 bg-[#F6F9FC]">
           <div className="max-w-[1140px] mx-auto">
-            <RelatedServices currentPage="closing" />
+            <RelatedServices currentPage="deed" />
           </div>
         </section>
 
@@ -264,10 +274,10 @@ export default function ChicagoDeedsLawyerPage() {
         <section className="bg-[#33414E] py-14 px-4">
           <div className="max-w-[1140px] mx-auto text-center">
             <h2 className="font-extrabold text-[28px] lg:text-[32px] text-white mb-4">
-              Ready to Move Forward?
+              Ready to Transfer Your Property?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Get started online in minutes or book a free consultation. We represent buyers and sellers throughout Illinois.
+              Get started online in minutes or book a free consultation. We handle deed transfers throughout Illinois.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
