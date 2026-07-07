@@ -64,12 +64,6 @@ const groups: Group[] = [
     heading: 'Family & Property',
     areas: [
       {
-        title: 'Guardianship',
-        description: 'When a loved one can no longer make decisions independently, we help establish legal guardianship to protect their well-being and care.',
-        tags: ['Guardianship of Person', 'Guardianship of Estate', 'Court Petitions'],
-        href: '/contact/',
-      },
-      {
         title: 'Deeds & Real Estate',
         description: 'Transfer real property title efficiently — whether for estate planning purposes, inheritances, or residential closings across Illinois.',
         tags: ['Deed Transfers', 'Title Transfer', 'Residential Closings'],
