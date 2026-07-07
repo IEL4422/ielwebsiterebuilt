@@ -1,112 +1,70 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText, Scale, Building2, Home, type LucideIcon } from 'lucide-react';
 
-type PracticeArea = {
-  title: string;
-  description: string;
-  tags: string[];
+type Service = {
+  name: string;
   href: string;
 };
 
-type Group = {
-  heading: string;
-  areas: PracticeArea[];
+type Category = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  services: Service[];
+  ctaLabel: string;
+  ctaHref: string;
 };
 
-const groups: Group[] = [
+const categories: Category[] = [
   {
-    heading: 'Estate Planning',
-    areas: [
-      {
-        title: 'Wills',
-        description: 'A legally valid will ensures your assets go where you intend and your loved ones are cared for — without leaving it to the state to decide.',
-        tags: ['Last Will & Testament', 'Executor Designation', 'Guardian Nomination'],
-        href: '/chicago-wills-lawyer/',
-      },
-      {
-        title: 'Trusts',
-        description: 'A revocable living trust lets your estate pass to your family privately and without probate, giving you control now and protection later.',
-        tags: ['Revocable Living Trust', 'Probate Avoidance', 'Asset Management'],
-        href: '/chicago-revocable-trusts-lawyer/',
-      },
-      {
-        title: 'Powers of Attorney',
-        description: 'Appoint someone you trust to manage your finances if you are ever unable to do so yourself — a critical safeguard at any age.',
-        tags: ['Financial POA', 'Durable Authority', 'Successor Agent'],
-        href: '/chicago-powers-of-attorney-lawyer/',
-      },
-      {
-        title: 'Healthcare Directives',
-        description: 'Make your medical wishes clear and legally binding so your care team and family always know what you want, even if you cannot speak.',
-        tags: ['Living Will', 'Healthcare POA', 'HIPAA Authorization'],
-        href: '/chicago-healthcare-directives-lawyer/',
-      },
+    icon: FileText,
+    title: 'Estate Planning',
+    description: 'Wills, powers of attorney, and healthcare directives drafted to Illinois legal standards — so your wishes are clear and legally binding.',
+    services: [
+      { name: 'Wills', href: '/chicago-wills-lawyer/' },
+      { name: 'Powers of Attorney', href: '/chicago-powers-of-attorney-lawyer/' },
+      { name: 'Healthcare Directives', href: '/chicago-healthcare-directives-lawyer/' },
     ],
+    ctaLabel: 'Explore Estate Planning',
+    ctaHref: '/estate-planning/',
   },
   {
-    heading: 'Probate & Administration',
-    areas: [
-      {
-        title: 'Probate',
-        description: 'We guide executors and families through the Illinois probate process — filing, creditors, distributions — with flat-fee clarity from day one.',
-        tags: ['Estate Administration', 'Creditor Management', 'Court Filings'],
-        href: '/chicago-probate-lawyer/',
-      },
-      {
-        title: 'Partial Probate & Intestate Estates',
-        description: 'Already in probate with another attorney? We can take over mid-case. We also handle estates where no will exists under Illinois intestacy law.',
-        tags: ['Case Transfers', 'Intestate Succession', 'Heir Representation'],
-        href: '/chicago-probate-lawyer/',
-      },
+    icon: Scale,
+    title: 'Trust Administration',
+    description: 'Revocable living trusts let your estate pass privately and without probate. We also guide successor trustees through the administration process after death.',
+    services: [
+      { name: 'Revocable Living Trusts', href: '/chicago-revocable-trusts-lawyer/' },
+      { name: 'Successor Trustee Services', href: '/services-pricing/' },
+      { name: 'Trust Funding & Asset Transfer', href: '/services-pricing/' },
     ],
+    ctaLabel: 'Explore Trust Services',
+    ctaHref: '/chicago-revocable-trusts-lawyer/',
   },
   {
-    heading: 'Family & Property',
-    areas: [
-      {
-        title: 'Deeds & Real Estate',
-        description: 'Transfer real property title efficiently — whether for estate planning purposes, inheritances, or residential closings across Illinois.',
-        tags: ['Deed Transfers', 'Title Transfer', 'Residential Closings'],
-        href: '/chicago-deeds-lawyer/',
-      },
-      {
-        title: 'Prenuptial Agreements',
-        description: "A well-drafted prenup protects both partners' assets and interests — so you start your marriage with clarity and mutual respect.",
-        tags: ['Asset Protection', 'Debt Allocation', 'Property Division'],
-        href: '/chicago-prenuptial-agreements-lawyer/',
-      },
+    icon: Building2,
+    title: 'Probate',
+    description: 'We guide executors and families through Illinois probate — court filings, creditor management, and distributions — with flat-fee clarity from day one.',
+    services: [
+      { name: 'Probate Administration', href: '/chicago-probate-lawyer/' },
+      { name: 'Intestate Estates', href: '/chicago-probate-lawyer/' },
+      { name: 'Case Transfers Mid-Probate', href: '/chicago-probate-lawyer/' },
     ],
+    ctaLabel: 'Explore Probate Services',
+    ctaHref: '/chicago-probate-lawyer/',
+  },
+  {
+    icon: Home,
+    title: 'Real Estate',
+    description: 'Deed transfers, residential closings, and prenuptial agreements — practical legal support for Illinois families protecting their property.',
+    services: [
+      { name: 'Deed Transfers', href: '/chicago-deeds-lawyer/' },
+      { name: 'Residential Closings', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'Prenuptial Agreements', href: '/chicago-prenuptial-agreements-lawyer/' },
+    ],
+    ctaLabel: 'Explore Real Estate Services',
+    ctaHref: '/chicago-deeds-lawyer/',
   },
 ];
-
-function AreaCard({ area }: { area: PracticeArea }) {
-  return (
-    <Link
-      href={area.href}
-      className="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-[#7E9CC0] hover:shadow-md transition-all"
-    >
-      <h4 className="text-base font-bold text-[#33414E] mb-2 group-hover:text-[#547298] transition-colors">
-        {area.title}
-      </h4>
-      <p className="text-slate-500 text-sm leading-relaxed mb-4">
-        {area.description}
-      </p>
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {area.tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-[10px] font-semibold uppercase tracking-wide text-[#547298] bg-[#7E9CC0]/10 rounded-full px-2.5 py-1"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      <span className="inline-flex items-center gap-1 text-xs font-bold text-[#547298] group-hover:gap-2 transition-all">
-        Learn more <ArrowRight className="w-3.5 h-3.5" />
-      </span>
-    </Link>
-  );
-}
 
 export function PracticeAreasSection() {
   return (
@@ -117,26 +75,48 @@ export function PracticeAreasSection() {
             Practice Areas
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">
-            Flat-fee estate planning and probate services across all of Illinois — transparent pricing before you commit.
+            Flat-fee legal services across all of Illinois — transparent pricing before you commit.
           </p>
         </div>
 
-        <div className="space-y-12 lg:space-y-16">
-          {groups.map((group) => (
-            <div key={group.heading}>
-              <div className="flex items-center gap-4 mb-6">
-                <h3 className="text-lg font-extrabold text-[#33414E] uppercase tracking-wide whitespace-nowrap">
-                  {group.heading}
-                </h3>
-                <div className="flex-1 h-px bg-slate-200" />
+        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+          {categories.map((category) => {
+            const Icon = category.icon;
+            return (
+              <div
+                key={category.title}
+                className="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col hover:border-[#7E9CC0] hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#7E9CC0]/10 flex items-center justify-center mb-5">
+                  <Icon className="w-6 h-6 text-[#547298]" />
+                </div>
+                <h3 className="text-xl font-extrabold text-[#33414E] mb-3">{category.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">
+                  {category.description}
+                </p>
+                <ul className="space-y-2.5 mb-6">
+                  {category.services.map((service) => (
+                    <li key={service.name}>
+                      <Link
+                        href={service.href}
+                        className="flex items-center gap-2 text-sm text-[#547298] hover:text-[#33414E] font-medium transition-colors group"
+                      >
+                        <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                        {service.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={category.ctaHref}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#33414E] hover:bg-[#232D36] px-5 py-3 rounded-full transition-colors self-start"
+                >
+                  {category.ctaLabel}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                {group.areas.map((area) => (
-                  <AreaCard key={area.title} area={area} />
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="flex justify-center mt-12">
