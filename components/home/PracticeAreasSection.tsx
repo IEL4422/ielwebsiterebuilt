@@ -1,160 +1,151 @@
-'use client';
-
-import { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, FileText, Shield, Scale, ScrollText, Building, Users, Heart } from 'lucide-react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
-const practiceAreas = [
+type PracticeArea = {
+  title: string;
+  description: string;
+  tags: string[];
+  href: string;
+};
+
+type Group = {
+  heading: string;
+  areas: PracticeArea[];
+};
+
+const groups: Group[] = [
   {
-    title: "Wills",
-    icon: ScrollText,
-    href: "/chicago-wills-lawyer",
+    heading: 'Estate Planning',
+    areas: [
+      {
+        title: 'Wills',
+        description: 'A legally valid will ensures your assets go where you intend and your loved ones are cared for — without leaving it to the state to decide.',
+        tags: ['Last Will & Testament', 'Executor Designation', 'Guardian Nomination'],
+        href: '/chicago-wills-lawyer/',
+      },
+      {
+        title: 'Trusts',
+        description: 'A revocable living trust lets your estate pass to your family privately and without probate, giving you control now and protection later.',
+        tags: ['Revocable Living Trust', 'Probate Avoidance', 'Asset Management'],
+        href: '/chicago-revocable-trusts-lawyer/',
+      },
+      {
+        title: 'Powers of Attorney',
+        description: 'Appoint someone you trust to manage your finances if you are ever unable to do so yourself — a critical safeguard at any age.',
+        tags: ['Financial POA', 'Durable Authority', 'Successor Agent'],
+        href: '/chicago-powers-of-attorney-lawyer/',
+      },
+      {
+        title: 'Healthcare Directives',
+        description: 'Make your medical wishes clear and legally binding so your care team and family always know what you want, even if you cannot speak.',
+        tags: ['Living Will', 'Healthcare POA', 'HIPAA Authorization'],
+        href: '/chicago-healthcare-directives-lawyer/',
+      },
+    ],
   },
   {
-    title: "Trusts",
-    icon: Shield,
-    href: "/chicago-revocable-trusts-lawyer",
+    heading: 'Probate & Administration',
+    areas: [
+      {
+        title: 'Probate',
+        description: 'We guide executors and families through the Illinois probate process — filing, creditors, distributions — with flat-fee clarity from day one.',
+        tags: ['Estate Administration', 'Creditor Management', 'Court Filings'],
+        href: '/chicago-probate-lawyer/',
+      },
+      {
+        title: 'Partial Probate & Intestate Estates',
+        description: 'Already in probate with another attorney? We can take over mid-case. We also handle estates where no will exists under Illinois intestacy law.',
+        tags: ['Case Transfers', 'Intestate Succession', 'Heir Representation'],
+        href: '/chicago-probate-lawyer/',
+      },
+    ],
   },
   {
-    title: "Probate",
-    icon: Scale,
-    href: "/chicago-probate-lawyer",
-  },
-  {
-    title: "Healthcare Directives",
-    icon: FileText,
-    href: "/chicago-healthcare-directives-lawyer",
-  },
-  {
-    title: "Powers of Attorney",
-    icon: Users,
-    href: "/chicago-powers-of-attorney-lawyer",
-  },
-  {
-    title: "Deeds",
-    icon: Building,
-    href: "/chicago-deeds-lawyer",
-  },
-  {
-    title: "Prenuptial Agreements",
-    icon: Heart,
-    href: "/chicago-prenuptial-agreements-lawyer",
+    heading: 'Family & Property',
+    areas: [
+      {
+        title: 'Deeds & Real Estate',
+        description: 'Transfer real property title efficiently — whether for estate planning purposes, inheritances, or residential closings across Illinois.',
+        tags: ['Deed Transfers', 'Title Transfer', 'Residential Closings'],
+        href: '/chicago-deeds-lawyer/',
+      },
+      {
+        title: 'Prenuptial Agreements',
+        description: "A well-drafted prenup protects both partners' assets and interests — so you start your marriage with clarity and mutual respect.",
+        tags: ['Asset Protection', 'Debt Allocation', 'Property Division'],
+        href: '/chicago-prenuptial-agreements-lawyer/',
+      },
+    ],
   },
 ];
 
-export function PracticeAreasSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(3);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setSlidesToShow(1);
-      } else if (window.innerWidth < 1024) {
-        setSlidesToShow(2);
-      } else {
-        setSlidesToShow(3);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const maxIndex = Math.max(0, practiceAreas.length - slidesToShow);
-
-  const next = useCallback(() => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  }, [maxIndex]);
-
-  const prev = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-  };
-
-  useEffect(() => {
-    const interval = setInterval(next, 5000);
-    return () => clearInterval(interval);
-  }, [next]);
-
+function AreaCard({ area }: { area: PracticeArea }) {
   return (
-    <section className="pt-12 sm:pt-16 lg:pt-24 pb-8 lg:pb-12 bg-white">
-      <div className="container mx-auto px-4 sm:px-5 lg:px-4 max-w-[1140px]">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 text-center mb-8 sm:mb-12">
-          Practice Areas
-        </h2>
-
-        <div className="relative">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
-              }}
-            >
-              {practiceAreas.map((area, index) => {
-                const Icon = area.icon;
-                const content = (
-                  <div className="bg-slate-50 rounded-lg p-6 sm:p-8 h-full hover:shadow-lg transition-shadow border border-slate-100 flex flex-col items-center justify-center text-center min-h-[160px] sm:min-h-[180px]">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#77B1D4] rounded-lg flex items-center justify-center mb-4 sm:mb-6">
-                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-slate-800">
-                      {area.title}
-                    </h3>
-                  </div>
-                );
-                return (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 px-2 sm:px-4"
-                    style={{ width: `${100 / slidesToShow}%` }}
-                  >
-                    <Link href={area.href} className="block h-full">
-                      {content}
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <button
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 sm:-translate-x-2 lg:-translate-x-4 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
-            aria-label="Previous practice area"
+    <Link
+      href={area.href}
+      className="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-[#7E9CC0] hover:shadow-md transition-all"
+    >
+      <h4 className="text-base font-bold text-[#33414E] mb-2 group-hover:text-[#547298] transition-colors">
+        {area.title}
+      </h4>
+      <p className="text-slate-500 text-sm leading-relaxed mb-4">
+        {area.description}
+      </p>
+      <div className="flex flex-wrap gap-1.5 mb-4">
+        {area.tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-[10px] font-semibold uppercase tracking-wide text-[#547298] bg-[#7E9CC0]/10 rounded-full px-2.5 py-1"
           >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
-          </button>
+            {tag}
+          </span>
+        ))}
+      </div>
+      <span className="inline-flex items-center gap-1 text-xs font-bold text-[#547298] group-hover:gap-2 transition-all">
+        Learn more <ArrowRight className="w-3.5 h-3.5" />
+      </span>
+    </Link>
+  );
+}
 
-          <button
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 sm:translate-x-2 lg:translate-x-4 w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
-            aria-label="Next practice area"
-          >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
-          </button>
+export function PracticeAreasSection() {
+  return (
+    <section className="py-14 lg:py-20 bg-white">
+      <div className="mx-auto max-w-[1140px] px-4 sm:px-5 lg:px-0">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#33414E] mb-3">
+            Practice Areas
+          </h2>
+          <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">
+            Flat-fee estate planning and probate services across all of Illinois — transparent pricing before you commit.
+          </p>
         </div>
 
-        <div className="flex justify-center gap-2 mt-6 sm:mt-8">
-          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentIndex(i)}
-              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors ${
-                i === currentIndex ? 'bg-[#77B1D4]' : 'bg-slate-300 hover:bg-slate-400'
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
+        <div className="space-y-12 lg:space-y-16">
+          {groups.map((group) => (
+            <div key={group.heading}>
+              <div className="flex items-center gap-4 mb-6">
+                <h3 className="text-lg font-extrabold text-[#33414E] uppercase tracking-wide whitespace-nowrap">
+                  {group.heading}
+                </h3>
+                <div className="flex-1 h-px bg-slate-200" />
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                {group.areas.map((area) => (
+                  <AreaCard key={area.title} area={area} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
-        <div className="flex justify-center mt-8 sm:mt-12">
+        <div className="flex justify-center mt-12">
           <Link
-            href="/get-started"
-            className="bg-[#77B1D4] text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-[#5A8FB3] transition-colors shadow-md"
+            href="/get-started/"
+            className="inline-flex items-center gap-2 bg-[#33414E] hover:bg-[#232D36] text-white font-bold text-sm px-8 py-4 rounded-full transition-colors"
           >
-            Get Started
+            See all services and pricing
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

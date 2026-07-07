@@ -1,31 +1,33 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { DollarSign, Clock, Users } from 'lucide-react';
+import { DollarSign, Clock, Star, Shield } from 'lucide-react';
 
 const stats = [
   {
     value: '$15,000',
     label: 'Average Saved in Probate Costs',
     icon: DollarSign,
-    color: 'from-emerald-400 to-green-600',
   },
   {
-    value: '12-18 MONTHS ',
-    label: 'Saved From Estate Administration and Court Proceedings',
+    value: '12–18 Months',
+    label: 'Saved From Estate Administration',
     icon: Clock,
-    color: 'from-blue-400 to-cyan-600',
   },
   {
-    value: '0 FAMILY FEUDS ',
-    label: 'Conflicts Avoided Through Proper Planning',
-    icon: Users,
-    color: 'from-purple-400 to-pink-600',
+    value: '5.0 · 50+ Reviews',
+    label: 'Google Rating',
+    icon: Star,
+  },
+  {
+    value: '$0',
+    label: 'Hidden Fees. Ever.',
+    icon: Shield,
   },
 ];
 
 export function StatsSection() {
-  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false, false]);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -36,11 +38,11 @@ export function StatsSection() {
             stats.forEach((_, index) => {
               setTimeout(() => {
                 setVisibleCards((prev) => {
-                  const newVisible = [...prev];
-                  newVisible[index] = true;
-                  return newVisible;
+                  const next = [...prev];
+                  next[index] = true;
+                  return next;
                 });
-              }, index * 150);
+              }, index * 120);
             });
           }
         });
@@ -48,56 +50,32 @@ export function StatsSection() {
       { threshold: 0.2 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="pt-6 pb-3 lg:py-[50px] px-4 sm:px-5 lg:px-0">
+    <section ref={sectionRef} className="py-8 lg:py-12 px-4 sm:px-5 lg:px-0 bg-[#232D36]">
       <div className="mx-auto max-w-[1140px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-2.5 lg:gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-xl overflow-hidden">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div
                 key={index}
-                className={`min-h-[160px] sm:min-h-[140px] lg:min-h-[180px] p-4 sm:p-3 lg:p-8 rounded-[10px] border-2 border-[#4a708b] flex flex-col justify-start items-start relative overflow-hidden group cursor-pointer transition-all duration-500 ${
-                  visibleCards[index]
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-8'
-                } hover:scale-105 hover:shadow-2xl hover:border-[#5984c5] hover:-translate-y-1`}
-                style={{
-                  background: 'linear-gradient(171deg, #4a708b 0%, #231f20 82%)',
-                }}
+                className={`bg-[#2D3E50] p-6 lg:p-8 flex flex-col items-center text-center transition-all duration-500 ${
+                  visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
               >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, ${stat.color.split(' ')[0].replace('from-', '')} 0%, ${stat.color.split(' ')[1].replace('to-', '')} 100%)`,
-                  }}
-                />
-
-                <div className="absolute top-2 right-2 lg:top-4 lg:right-4 opacity-10 group-hover:opacity-30 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
-                  <Icon className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white" strokeWidth={1.5} />
+                <div className="w-10 h-10 rounded-full bg-[#7E9CC0]/20 flex items-center justify-center mb-3">
+                  <Icon className="w-5 h-5 text-[#7E9CC0]" strokeWidth={1.5} />
                 </div>
-
-                <div className="relative z-10 flex items-center gap-2 lg:gap-3 mb-2 sm:mb-3">
-                  <div className="p-1.5 lg:p-2 rounded-lg bg-white/10 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" strokeWidth={2} />
-                  </div>
-                  <p className="text-[#fefefe] text-[22px] sm:text-[26px] lg:text-[32px] font-semibold leading-[22px] sm:leading-[24px] lg:leading-[33.6px] group-hover:text-[#5984c5] transition-colors duration-300">
-                    {stat.value}
-                  </p>
-                </div>
-
-                <p className="text-[#fefefe] text-sm sm:text-base font-medium relative z-10 group-hover:text-gray-100 transition-colors duration-300">
+                <p className="text-white font-extrabold text-xl sm:text-2xl lg:text-3xl leading-tight mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-white/60 text-xs sm:text-sm font-medium leading-snug">
                   {stat.label}
                 </p>
-
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#5984c5] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             );
           })}

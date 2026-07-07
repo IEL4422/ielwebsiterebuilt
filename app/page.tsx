@@ -4,21 +4,11 @@ import { HeroSection } from '@/components/home/HeroSection';
 import { QuickFactsBar } from '@/components/home/QuickFactsBar';
 import { LogosCarousel } from '@/components/home/LogosCarousel';
 import { StatsSection } from '@/components/home/StatsSection';
-import { ClientFirstSection } from '@/components/home/ClientFirstSection';
-import { TestimonialsSection } from '@/components/home/TestimonialsSection';
+import { TwoPathsSection } from '@/components/home/TwoPathsSection';
 import { PracticeAreasSection } from '@/components/home/PracticeAreasSection';
-import { ContactSection } from '@/components/home/ContactSection';
-import { FoundationalPlanningSection } from '@/components/home/FoundationalPlanningSection';
-import { HighlyRecommendedSection } from '@/components/home/HighlyRecommendedSection';
+import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { ClientPortalSection } from '@/components/home/ClientPortalSection';
-import { AttorneyProfileSection } from '@/components/home/AttorneyProfileSection';
-import { CustomWillsTrustsSection } from '@/components/home/CustomWillsTrustsSection';
-import { OverwhelmingMomentsSection } from '@/components/home/OverwhelmingMomentsSection';
-import { PowersOfAttorneySection } from '@/components/home/PowersOfAttorneySection';
-import { ProbateAdministrationSection } from '@/components/home/ProbateAdministrationSection';
-import { PartialProbateSection } from '@/components/home/PartialProbateSection';
-import { WhyChooseSection } from '@/components/home/WhyChooseSection';
-import { AdultGuardianshipSection } from '@/components/home/AdultGuardianshipSection';
+import { ContactSection } from '@/components/home/ContactSection';
 import { FAQSection } from '@/components/home/FAQSection';
 
 export const metadata: Metadata = {
@@ -227,21 +217,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <QuickFactsBar />
         <LogosCarousel />
         <StatsSection />
-        <ClientFirstSection />
-        <TestimonialsSection />
+        <TwoPathsSection />
         <PracticeAreasSection />
-        <FoundationalPlanningSection />
-        <HighlyRecommendedSection />
+        <TestimonialsSection />
         <ClientPortalSection />
-        <AttorneyProfileSection />
-        <CustomWillsTrustsSection />
-        <OverwhelmingMomentsSection />
-        <PowersOfAttorneySection />
-        <ProbateAdministrationSection />
-        <PartialProbateSection />
-        <AdultGuardianshipSection />
         <ContactSection />
-        <WhyChooseSection />
         <FAQSection />
       </main>
     </>
