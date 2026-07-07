@@ -110,7 +110,7 @@ export default async function BlogPaginationPage({
         }}
       >
         <div className="max-w-[1140px] w-full mx-auto">
-          <h1 className="text-white font-['Lobster_Two'] text-[100px] leading-[100px] lg:text-[70px] lg:leading-[65px] md:text-[60px] md:leading-[60px] sm:text-[50px] sm:leading-[50px]">
+          <h1 className="text-white font-extrabold text-[100px] leading-[100px] lg:text-[70px] lg:leading-[65px] md:text-[60px] md:leading-[60px] sm:text-[50px] sm:leading-[50px]">
             Blog
           </h1>
         </div>

@@ -57,7 +57,7 @@ export default function EstatePlanningPage() {
       <section className="relative bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] min-h-[340px] flex items-center py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-[1140px] mx-auto text-center">
-            <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
+            <h1 className="font-extrabold text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
               Estate Planning Services in Illinois
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">

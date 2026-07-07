@@ -192,7 +192,7 @@ export default function EstateTaxCalculatorPage() {
       <section className="bg-gradient-to-br from-[#2D3E50] via-[#3a5268] to-[#4A708B] flex items-center py-14">
         <div className="container mx-auto px-4">
           <div className="max-w-[1140px] mx-auto text-center">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[68px] lg:text-[82px] font-normal text-white leading-tight mb-4">
+            <h1 className="font-extrabold text-[50px] md:text-[68px] lg:text-[82px] font-normal text-white leading-tight mb-4">
               Illinois Estate Tax Calculator
             </h1>
             <p className="text-white/75 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">

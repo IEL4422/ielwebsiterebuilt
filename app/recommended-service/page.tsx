@@ -801,7 +801,7 @@ export default function RecommendedServicePage() {
       <section className="relative min-h-[180px] bg-gradient-to-r from-[#2D3E50] to-[#4a708b] flex items-center justify-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
         <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
           <div className="flex justify-center lg:justify-start">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
+            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
               Find the Right Service for You
             </h1>
           </div>

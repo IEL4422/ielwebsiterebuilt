@@ -54,7 +54,7 @@ export default function RealEstateClosingsPage() {
             <div className="max-w-[1140px] mx-auto">
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h1 className="font-['Lobster_Two'] text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
+                  <h1 className="font-extrabold text-[45px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-6">
                     Real Estate Closings
                   </h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">

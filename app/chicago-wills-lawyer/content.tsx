@@ -58,7 +58,7 @@ export default function ChicagoWillsContent() {
       >
         <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
           <div className="flex justify-center lg:justify-start">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
+            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
               Chicago Wills Lawyer
             </h1>
           </div>

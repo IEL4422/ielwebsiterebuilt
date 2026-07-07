@@ -79,7 +79,7 @@ export function ReferralForm() {
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-10 h-10 text-green-600" />
         </div>
-        <h2 className="font-['Lobster_Two'] text-[36px] text-[#2D3E50] mb-4">
+        <h2 className="font-extrabold text-[36px] text-[#2D3E50] mb-4">
           Referral Received!
         </h2>
         <p className="font-['Plus_Jakarta_Sans'] text-lg text-gray-700 mb-4">

@@ -33,7 +33,7 @@ export default function ClientPortalPage() {
       <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6 lg:min-h-[160px] sm:min-h-[140px]">
         <div className="container mx-auto px-5 max-w-[1240px]">
           <div className="flex flex-col items-center justify-center py-0 px-0">
-            <h1 className="font-['Lobster_Two'] font-normal text-[#fefefe] capitalize text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center">
+            <h1 className="font-extrabold font-normal text-[#fefefe] capitalize text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center">
               Client Portal
             </h1>
           </div>

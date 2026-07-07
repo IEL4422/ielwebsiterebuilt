@@ -107,7 +107,7 @@ export default function SummaryProbatePage() {
             </span>
           </div>
 
-          <h1 className="font-['Lobster_Two'] text-[36px] sm:text-[48px] lg:text-[56px] leading-[40px] sm:leading-[52px] lg:leading-[60px] text-white mb-6">
+          <h1 className="font-extrabold text-[36px] sm:text-[48px] lg:text-[56px] leading-[40px] sm:leading-[52px] lg:leading-[60px] text-white mb-6">
             What Is Summary Probate in Cook County, Illinois - and When Can You Use It?
           </h1>
 

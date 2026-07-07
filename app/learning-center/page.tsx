@@ -64,7 +64,7 @@ export default async function LearningCenter() {
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-20">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal text-white mb-6">
+            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal text-white mb-6">
               Learning Center
             </h1>
             <p className="text-xl text-white/90">

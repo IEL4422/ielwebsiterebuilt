@@ -101,7 +101,7 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-[1140px] px-4 sm:px-5 xl:px-0">
           <div className="text-center">
-            <h1 className="font-['Lobster_Two'] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[75px] leading-[44px] sm:leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal text-white">
+            <h1 className="font-extrabold text-[40px] sm:text-[50px] md:text-[60px] lg:text-[75px] leading-[44px] sm:leading-[50px] md:leading-[65px] lg:leading-[75px] font-normal text-white">
               Blog
             </h1>
           </div>

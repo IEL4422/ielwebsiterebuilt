@@ -33,7 +33,7 @@ export default function SendReferralPage() {
       <section className="relative min-h-[250px] bg-gradient-to-r from-[#2D3E50] to-[#4a708b] flex items-center justify-center">
         <div className="mx-auto max-w-[1140px] px-5 lg:px-8 py-12 lg:py-16 w-full">
           <div className="flex flex-col items-center lg:items-start">
-            <h1 className="font-['Lobster_Two'] text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
+            <h1 className="font-extrabold text-[50px] md:text-[60px] lg:text-[75px] font-normal text-[#fefefe] leading-[50px] md:leading-[65px] lg:leading-[75px] text-center lg:text-left capitalize">
               Submit a Referral
             </h1>
             <p className="mt-4 font-['Plus_Jakarta_Sans'] text-[#c8dae6] text-lg text-center lg:text-left max-w-xl">

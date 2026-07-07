@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
     <main>
       <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[180px] flex items-center py-6">
         <div className="container mx-auto px-5 max-w-[1240px]">
-          <h1 className="font-['Lobster_Two'] font-normal text-[#fefefe] capitalize text-[50px] md:text-[60px] lg:text-[100px] leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
+          <h1 className="font-extrabold font-normal text-[#fefefe] capitalize text-[50px] md:text-[60px] lg:text-[100px] leading-[50px] md:leading-[65px] lg:leading-[100px] text-center">
             Privacy Policy
           </h1>
         </div>

@@ -69,7 +69,7 @@ export default function DuPageCountyProbatePage() {
         <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[280px] flex items-center py-12">
           <div className="container mx-auto max-w-[1140px] px-5 xl:px-0">
             <div className="flex flex-col items-center justify-center">
-              <h1 className="font-['Lobster_Two'] text-[45px] md:text-[60px] lg:text-[75px] leading-tight font-normal text-[#FEFEFE] text-center mb-4">
+              <h1 className="font-extrabold text-[45px] md:text-[60px] lg:text-[75px] leading-tight font-normal text-[#FEFEFE] text-center mb-4">
                 DuPage County Probate Lawyer
               </h1>
               <p className="text-xl md:text-2xl text-white/90 text-center max-w-3xl">
