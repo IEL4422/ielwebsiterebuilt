@@ -13,9 +13,23 @@ type Category = {
   services: Service[];
   ctaLabel: string;
   ctaHref: string;
+  featured?: boolean;
 };
 
 const categories: Category[] = [
+  {
+    icon: Home,
+    title: 'Real Estate',
+    description: 'Deed transfers, residential closings, and prenuptial agreements — practical legal support for Illinois families protecting their property.',
+    services: [
+      { name: 'Deed Transfers', href: '/chicago-deeds-lawyer/' },
+      { name: 'Residential Closings', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'Prenuptial Agreements', href: '/chicago-prenuptial-agreements-lawyer/' },
+    ],
+    ctaLabel: 'Explore Real Estate Services',
+    ctaHref: '/chicago-deeds-lawyer/',
+    featured: true,
+  },
   {
     icon: FileText,
     title: 'Estate Planning',
@@ -52,18 +66,6 @@ const categories: Category[] = [
     ctaLabel: 'Explore Probate Services',
     ctaHref: '/chicago-probate-lawyer/',
   },
-  {
-    icon: Home,
-    title: 'Real Estate',
-    description: 'Deed transfers, residential closings, and prenuptial agreements — practical legal support for Illinois families protecting their property.',
-    services: [
-      { name: 'Deed Transfers', href: '/chicago-deeds-lawyer/' },
-      { name: 'Residential Closings', href: '/chicago-real-estate-closings-lawyer/' },
-      { name: 'Prenuptial Agreements', href: '/chicago-prenuptial-agreements-lawyer/' },
-    ],
-    ctaLabel: 'Explore Real Estate Services',
-    ctaHref: '/chicago-deeds-lawyer/',
-  },
 ];
 
 export function PracticeAreasSection() {
@@ -82,6 +84,42 @@ export function PracticeAreasSection() {
         <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
           {categories.map((category) => {
             const Icon = category.icon;
+            if (category.featured) {
+              return (
+                <div
+                  key={category.title}
+                  className="bg-[#33414E] rounded-2xl p-8 flex flex-col hover:shadow-lg transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5">
+                    <Icon className="w-6 h-6 text-[#7E9CC0]" />
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white mb-3">{category.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed mb-5 flex-1">
+                    {category.description}
+                  </p>
+                  <ul className="space-y-2.5 mb-6">
+                    {category.services.map((service) => (
+                      <li key={service.name}>
+                        <Link
+                          href={service.href}
+                          className="flex items-center gap-2 text-sm text-[#7E9CC0] hover:text-white font-medium transition-colors group"
+                        >
+                          <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                          {service.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={category.ctaHref}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-white bg-[#7E9CC0] hover:bg-[#547298] px-5 py-3 rounded-full transition-colors self-start"
+                  >
+                    {category.ctaLabel}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              );
+            }
             return (
               <div
                 key={category.title}
