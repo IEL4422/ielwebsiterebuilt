@@ -268,7 +268,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors">
               <span className="text-lg">&larr;</span>
@@ -308,7 +308,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <FileText className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -356,7 +356,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 my-8">
-              <div className="bg-[#2D3E50] text-white rounded-xl p-6">
+              <div className="bg-[#33414E] text-white rounded-xl p-6">
                 <Users className="w-8 h-8 mb-3 opacity-80" />
                 <h3 className="font-bold text-lg mb-2">Heirs at Law</h3>
                 <p className="text-white/80 text-sm leading-relaxed">
@@ -377,7 +377,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
             </p>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-5 my-6">
-              <p className="font-semibold text-[#2D3E50] mb-2 text-sm">Note on No-Contest Clauses</p>
+              <p className="font-semibold text-[#33414E] mb-2 text-sm">Note on No-Contest Clauses</p>
               <p className="text-gray-700 text-sm">If you are a current beneficiary under the will you want to contest, check whether it contains a &ldquo;no-contest clause&rdquo; (in terrorem clause). Contesting the will may forfeit your existing bequest. Illinois courts generally enforce these clauses, though there is a probable-cause exception. Review this issue carefully with an attorney before filing.</p>
             </div>
 
@@ -443,7 +443,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
             </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-4">Timeline: When the Clock Starts</h3>
+              <h3 className="font-bold text-[#33414E] mb-4">Timeline: When the Clock Starts</h3>
               <div className="space-y-3">
                 {[
                   { event: 'Death of the testator', note: 'Will contest clock has NOT started yet' },
@@ -474,20 +474,20 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
               {processSteps.map((step, i) => (
                 <div key={i} className="flex gap-5 p-5 bg-gray-50 border border-gray-200 rounded-xl">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-[#2D3E50] text-white flex items-center justify-center font-bold text-lg">
+                    <div className="w-12 h-12 rounded-full bg-[#33414E] text-white flex items-center justify-center font-bold text-lg">
                       {step.step}
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-[#2D3E50] text-base mb-1">{step.title}</h3>
+                    <h3 className="font-bold text-[#33414E] text-base mb-1">{step.title}</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-8 rounded-r-lg">
-              <p className="font-semibold text-[#2D3E50] mb-1 text-sm">How Long Does a Will Contest Take?</p>
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-8 rounded-r-lg">
+              <p className="font-semibold text-[#33414E] mb-1 text-sm">How Long Does a Will Contest Take?</p>
               <p className="text-gray-700 text-sm">In Cook County, uncontested probate typically takes 9–18 months. A will contest adds significant time. Contested cases that go to trial routinely take 2–4 years from filing to resolution. Cases that settle — as most do — can resolve faster, but rarely in less than 12–18 months. Plan for a long process and budget accordingly.</p>
             </div>
 
@@ -500,7 +500,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] text-lg mb-4">Check All That Apply to Your Situation</h3>
+              <h3 className="font-bold text-[#33414E] text-lg mb-4">Check All That Apply to Your Situation</h3>
               <div className="space-y-3 mb-6">
                 {[
                   { label: 'The testator had dementia, was heavily medicated, or was confused about basic facts near the time they signed the will', ground: 0 },
@@ -512,7 +512,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
                 ].map((item, i) => (
                   <label key={i} className="flex items-start gap-3 cursor-pointer group">
                     <div
-                      className={`w-5 h-5 rounded border-2 flex-shrink-0 mt-0.5 flex items-center justify-center transition-colors ${checkedGrounds.has(item.ground) ? 'bg-[#2D3E50] border-[#2D3E50]' : 'border-gray-300 group-hover:border-[#4a708b]'}`}
+                      className={`w-5 h-5 rounded border-2 flex-shrink-0 mt-0.5 flex items-center justify-center transition-colors ${checkedGrounds.has(item.ground) ? 'bg-[#33414E] border-[#33414E]' : 'border-gray-300 group-hover:border-[#547298]'}`}
                       onClick={() => toggleGround(item.ground)}
                     >
                       {checkedGrounds.has(item.ground) && <CheckCircle2 className="w-3.5 h-3.5 text-white" />}
@@ -523,7 +523,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
               </div>
               <button
                 onClick={() => setShowCheckerResult(true)}
-                className="w-full bg-[#2D3E50] text-white font-semibold py-3 rounded-lg hover:bg-[#4A708B] transition-colors text-sm"
+                className="w-full bg-[#33414E] text-white font-semibold py-3 rounded-lg hover:bg-[#4A708B] transition-colors text-sm"
               >
                 Evaluate My Situation
               </button>
@@ -543,7 +543,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
                     </div>
                   ) : (
                     <div>
-                      <p className="font-bold text-[#2D3E50] mb-2">At Least One Potential Ground Identified</p>
+                      <p className="font-bold text-[#33414E] mb-2">At Least One Potential Ground Identified</p>
                       <p className="text-sm text-gray-700 mb-2">You may have a basis to explore a will contest. The ground you identified is: <strong>{grounds[Array.from(checkedGrounds)[0]].title}</strong>.</p>
                       <p className="text-sm text-gray-700">Whether this ground is viable depends on the strength of your evidence. An attorney consultation will help you assess whether your facts are sufficient to support a successful claim before you commit to the cost of litigation.</p>
                     </div>
@@ -581,14 +581,14 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
               </div>
             </div>
 
-            <div className="bg-[#2D3E50] rounded-2xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-2xl p-8 my-10 text-white">
               <Gavel className="w-10 h-10 mb-4 opacity-80" />
               <h3 className="text-xl font-bold mb-3">Think You Have a Will Contest Case?</h3>
               <p className="text-white/80 mb-6 max-w-2xl text-sm leading-relaxed">
                 Illinois will contest litigation is complex, expensive, and time-sensitive. If you believe a will was the product of undue influence, fraud, or incapacity, the most important step is consulting an experienced Illinois probate attorney as quickly as possible — the 6-month deadline waits for no one.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/book-consultation/" className="bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-center text-sm">
+                <Link href="/book-consultation/" className="bg-white text-[#33414E] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-center text-sm">
                   Book a Free Consultation
                 </Link>
                 <Link href="/chicago-probate-lawyer/" className="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-center text-sm">
@@ -635,7 +635,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
               <Link href="/blog/how-much-does-probate-cost-in-illinois/" className="text-[#4a708b] hover:underline font-medium">how much probate costs in Illinois</Link> provide essential background.
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Speak With an Illinois Probate Attorney
               </h3>
@@ -657,7 +657,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3">Related Illinois Probate &amp; Estate Planning Guides</h3>
+              <h3 className="font-bold text-[#33414E] mb-3">Related Illinois Probate &amp; Estate Planning Guides</h3>
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
                   { href: '/blog/what-makes-a-will-valid-in-illinois/', label: 'What Makes a Will Valid in Illinois?' },
@@ -667,7 +667,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
                   { href: '/blog/what-is-a-surety-bond-in-illinois-probate/', label: 'What Is a Surety Bond in Illinois Probate?' },
                   { href: '/blog/so-you-ve-been-named-executor-a-comprehensive-guide-to-administering-an-illinois-estate/', label: "So You've Been Named Executor: A Comprehensive Guide" },
                 ].map((link) => (
-                  <Link key={link.href} href={link.href} className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors">
+                  <Link key={link.href} href={link.href} className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors">
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
                   </Link>
@@ -698,7 +698,7 @@ This is one of the rarest and most difficult grounds to establish. Courts are ve
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3">Ready to Protect What You Have Built?</p>
               <p className="text-white/90 mb-5">Get a comprehensive estate plan that works exactly the way you intend — from a Chicago attorney you can trust.</p>
               <div className="flex flex-col sm:flex-row gap-4">

@@ -133,7 +133,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] via-[#4A708B] to-[#33414E] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -177,7 +177,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Heart className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -196,7 +196,7 @@ export default function Page() {
 
             {/* Quick comparison box */}
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] text-lg mb-4 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] text-lg mb-4 font-['Plus_Jakarta_Sans']">
                 Illinois Special Needs Trust Types at a Glance
               </h3>
               <div className="grid sm:grid-cols-3 gap-4">
@@ -330,7 +330,7 @@ export default function Page() {
             </p>
 
             <div className="bg-blue-50 rounded-xl border border-blue-200 p-6 my-8">
-              <h4 className="font-bold text-[#2D3E50] mb-3 font-['Plus_Jakarta_Sans']">Key Features of a Third-Party SNT</h4>
+              <h4 className="font-bold text-[#33414E] mb-3 font-['Plus_Jakarta_Sans']">Key Features of a Third-Party SNT</h4>
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
                   'No Medicaid payback requirement at beneficiary\'s death',
@@ -494,11 +494,11 @@ export default function Page() {
               ].map((item, i) => (
                 <div key={i} className="border border-gray-200 rounded-xl p-6 bg-white">
                   <div className="flex items-start gap-4">
-                    <span className="bg-[#2D3E50] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
+                    <span className="bg-[#33414E] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
                       {item.num}
                     </span>
                     <div>
-                      <h3 className="font-bold text-[#2D3E50] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
+                      <h3 className="font-bold text-[#33414E] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
                       <p
                         className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans']"
                         dangerouslySetInnerHTML={{ __html: item.body }}
@@ -510,7 +510,7 @@ export default function Page() {
             </div>
 
             {/* Mid-article CTA */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
               <h3 className="text-xl font-bold mb-3 font-['Plus_Jakarta_Sans']">Need a Special Needs Trust for Your Family?</h3>
               <p className="text-white/80 mb-5 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
                 Illinois Estate Law helps families create carefully drafted special needs trusts that protect their loved one&apos;s government benefits while preserving your legacy. Flat-fee pricing — know exactly what you&apos;ll pay before you sign anything.
@@ -518,7 +518,7 @@ export default function Page() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[#33414E] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
                 >
                   Book a Free Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -678,7 +678,7 @@ export default function Page() {
               ].map((item, i) => (
                 <div key={i} className="border border-gray-200 rounded-xl p-5 bg-white">
                   <div className="flex items-start justify-between gap-3 mb-2">
-                    <h3 className="font-bold text-[#2D3E50] font-['Plus_Jakarta_Sans']">{item.method}</h3>
+                    <h3 className="font-bold text-[#33414E] font-['Plus_Jakarta_Sans']">{item.method}</h3>
                     <span
                       className={`text-xs px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap font-['Plus_Jakarta_Sans'] ${
                         item.badgeColor === 'green'
@@ -710,7 +710,7 @@ export default function Page() {
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden my-8">
-              <div className="bg-[#2D3E50] px-6 py-4">
+              <div className="bg-[#33414E] px-6 py-4">
                 <h3 className="text-white font-bold text-lg font-['Plus_Jakarta_Sans']">
                   Pooled Trust vs. Individual SNT: Key Differences
                 </h3>
@@ -720,7 +720,7 @@ export default function Page() {
                   <thead>
                     <tr className="border-b border-gray-200 bg-gray-50">
                       <th className="text-left py-3 px-6 font-bold text-gray-700">Feature</th>
-                      <th className="text-left py-3 px-4 font-bold text-[#2D3E50]">Individual SNT</th>
+                      <th className="text-left py-3 px-4 font-bold text-[#33414E]">Individual SNT</th>
                       <th className="text-left py-3 px-4 font-bold text-[#4a708b]">Pooled Trust</th>
                     </tr>
                   </thead>
@@ -808,7 +808,7 @@ export default function Page() {
               .
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Speak With an Illinois Special Needs Trust Attorney
               </h3>
@@ -841,7 +841,7 @@ export default function Page() {
 
             {/* Related articles */}
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] mb-3 font-['Plus_Jakarta_Sans']">
                 Related Illinois Estate Planning Guides
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -874,7 +874,7 @@ export default function Page() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
+                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
                   >
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
@@ -917,7 +917,7 @@ export default function Page() {
             </div>
 
             {/* Final CTA banner */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
                 Ready to Protect Your Loved One&apos;s Future?
               </p>

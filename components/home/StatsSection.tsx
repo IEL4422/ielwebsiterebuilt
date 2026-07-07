@@ -63,7 +63,7 @@ export function StatsSection() {
             return (
               <div
                 key={index}
-                className={`bg-[#2D3E50] p-6 lg:p-8 flex flex-col items-center text-center transition-all duration-500 ${
+                className={`bg-[#33414E] p-6 lg:p-8 flex flex-col items-center text-center transition-all duration-500 ${
                   visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
               >

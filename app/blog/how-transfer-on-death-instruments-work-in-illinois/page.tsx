@@ -170,7 +170,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -199,7 +199,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             {/* Summary Section */}
-            <div className="bg-[#f0f7ff] border-l-4 border-[#4A708B] p-6 rounded-r-lg mb-8">
+            <div className="bg-[#f0f7ff] border-l-4 border-[#547298] p-6 rounded-r-lg mb-8">
               <h3 className="text-xl font-bold mb-3 mt-0">Article Summary</h3>
               <p className="mb-0">
                 Transfer-on-Death Instruments (TODIs) allow Illinois homeowners to transfer residential real estate directly to beneficiaries without probate. This comprehensive guide explores how TODIs work, their advantages and limitations, legal requirements, and how they compare to trusts. Learn when a TODI is the right choice for your estate plan and the critical steps to ensure proper execution.
@@ -557,7 +557,7 @@ export default function Page() {
                   onClick={() => setActiveTab('todi')}
                   className={`px-6 py-3 font-semibold transition-colors ${
                     activeTab === 'todi'
-                      ? 'border-b-2 border-[#4A708B] text-[#4A708B]'
+                      ? 'border-b-2 border-[#547298] text-[#4A708B]'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
@@ -567,7 +567,7 @@ export default function Page() {
                   onClick={() => setActiveTab('trust')}
                   className={`px-6 py-3 font-semibold transition-colors ${
                     activeTab === 'trust'
-                      ? 'border-b-2 border-[#4A708B] text-[#4A708B]'
+                      ? 'border-b-2 border-[#547298] text-[#4A708B]'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
@@ -577,7 +577,7 @@ export default function Page() {
                   onClick={() => setActiveTab('comparison')}
                   className={`px-6 py-3 font-semibold transition-colors ${
                     activeTab === 'comparison'
-                      ? 'border-b-2 border-[#4A708B] text-[#4A708B]'
+                      ? 'border-b-2 border-[#547298] text-[#4A708B]'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >

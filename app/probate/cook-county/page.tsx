@@ -66,7 +66,7 @@ export default function CookCountyProbatePage() {
 
       <main>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] min-h-[280px] flex items-center py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] min-h-[280px] flex items-center py-12">
           <div className="container mx-auto max-w-[1140px] px-5 xl:px-0">
             <div className="flex flex-col items-center justify-center">
               <h1 className="font-extrabold text-[45px] md:text-[60px] lg:text-[75px] leading-tight font-normal text-[#FEFEFE] text-center mb-4">
@@ -99,7 +99,7 @@ export default function CookCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
               Cook County Probate Process Overview
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12"></div>
 
             <Tabs defaultValue="overview" className="w-full">
               <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 h-auto gap-2">
@@ -183,19 +183,19 @@ export default function CookCountyProbatePage() {
                     <div>
                       <h4 className="text-xl font-semibold text-slate-800 mb-4">Expected Timeline</h4>
                       <div className="space-y-4">
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Months 1-2: Opening the Estate</p>
                           <p className="text-slate-600">File petition, attend initial hearing, obtain letters of office</p>
                         </div>
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Months 2-4: Asset Collection & Notification</p>
                           <p className="text-slate-600">Inventory assets, notify heirs and creditors, publish notice</p>
                         </div>
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Months 4-9: Claims Period & Administration</p>
                           <p className="text-slate-600">Process creditor claims, pay debts, file tax returns</p>
                         </div>
-                        <div className="border-l-4 border-[#77B1D4] pl-4">
+                        <div className="border-l-4 border-[#7E9CC0] pl-4">
                           <p className="font-semibold text-slate-800">Months 9-12+: Distribution & Closing</p>
                           <p className="text-slate-600">Distribute assets, file final accounting, close estate</p>
                         </div>
@@ -269,7 +269,7 @@ export default function CookCountyProbatePage() {
                             </tr>
                           </tbody>
                         </table>
-                        <div className="mt-4 p-4 bg-blue-50 border-l-4 border-[#77B1D4] rounded">
+                        <div className="mt-4 p-4 bg-blue-50 border-l-4 border-[#7E9CC0] rounded">
                           <p className="text-sm text-slate-700">
                             <strong>Note:</strong> Our probate packages include all attorney fees and court costs except for the surety bond, which is required to be paid directly to the surety bond provider.
                           </p>
@@ -340,11 +340,11 @@ export default function CookCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
               Common Cook County Probate Scenarios
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12"></div>
 
             <Accordion type="single" collapsible className="w-full space-y-4">
               <AccordionItem value="item-1" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Probating an Estate with a Valid Will
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -361,7 +361,7 @@ export default function CookCountyProbatePage() {
               </AccordionItem>
 
               <AccordionItem value="item-2" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Intestate Estates (No Will)
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -378,7 +378,7 @@ export default function CookCountyProbatePage() {
               </AccordionItem>
 
               <AccordionItem value="item-3" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Small Estate Affidavit Process
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -395,7 +395,7 @@ export default function CookCountyProbatePage() {
               </AccordionItem>
 
               <AccordionItem value="item-4" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Contested Wills and Will Disputes
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -412,7 +412,7 @@ export default function CookCountyProbatePage() {
               </AccordionItem>
 
               <AccordionItem value="item-5" className="bg-slate-50 rounded-lg px-6 border-none">
-                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#77B1D4] hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:text-[#7E9CC0] hover:no-underline">
                   Real Estate in Cook County Probate
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
@@ -437,11 +437,11 @@ export default function CookCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
               Why Choose Illinois Estate Law for Cook County Probate
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12"></div>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-16 h-16 bg-[#77B1D4] rounded-xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-[#7E9CC0] rounded-xl flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -455,7 +455,7 @@ export default function CookCountyProbatePage() {
               </div>
 
               <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-16 h-16 bg-[#77B1D4] rounded-xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-[#7E9CC0] rounded-xl flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
@@ -469,7 +469,7 @@ export default function CookCountyProbatePage() {
               </div>
 
               <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-16 h-16 bg-[#77B1D4] rounded-xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-[#7E9CC0] rounded-xl flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -488,7 +488,7 @@ export default function CookCountyProbatePage() {
         {/* CTA Section */}
         <section className="bg-white py-16">
           <div className="container mx-auto px-4 max-w-4xl">
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8 lg:p-12 text-center">
+            <div className="bg-[#33414E] rounded-2xl p-8 lg:p-12 text-center">
               <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
                 Need Help with Cook County Probate?
               </h2>
@@ -499,7 +499,7 @@ export default function CookCountyProbatePage() {
                 <a
                   href="tel:3123730731"
                   rel="nofollow"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-lg"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-lg"
                 >
                   Call (312) 373-0731
                 </a>
@@ -520,7 +520,7 @@ export default function CookCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
               Frequently Asked Questions About Cook County Probate
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mb-12"></div>
 
             <div className="space-y-8">
               <div>
@@ -568,10 +568,10 @@ export default function CookCountyProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
               Related Services in Cook County
             </h2>
-            <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12"></div>
+            <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12"></div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/chicago-wills-lawyer/" className="group bg-slate-50 hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/chicago-wills-lawyer/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Wills & Estate Planning
                 </h3>
@@ -580,7 +580,7 @@ export default function CookCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/chicago-revocable-trusts-lawyer/" className="group bg-slate-50 hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/chicago-revocable-trusts-lawyer/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Living Trusts
                 </h3>
@@ -589,7 +589,7 @@ export default function CookCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/chicago-probate-lawyer/" className="group bg-slate-50 hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/chicago-probate-lawyer/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Probate Administration
                 </h3>
@@ -598,7 +598,7 @@ export default function CookCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/areas-we-serve/" className="group bg-slate-50 hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/areas-we-serve/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Other Counties
                 </h3>
@@ -607,7 +607,7 @@ export default function CookCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/contact/" className="group bg-slate-50 hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/contact/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Estate Tax Planning
                 </h3>
@@ -616,7 +616,7 @@ export default function CookCountyProbatePage() {
                 </p>
               </Link>
 
-              <Link href="/contact/" className="group bg-slate-50 hover:bg-[#77B1D4] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
+              <Link href="/contact/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-6 transition-all duration-300 shadow-sm hover:shadow-lg">
                 <h3 className="text-lg font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
                   Powers of Attorney
                 </h3>

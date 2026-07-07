@@ -1,41 +1,33 @@
-import { createClient } from "@supabase/supabase-js";
+import { getDb } from "@/lib/mongodb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
+import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 // Force dynamic rendering for this page
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 interface BlogPost {
-  id: string;
   title: string;
   slug: string;
   content: string;
-  meta_description: string;
-  published_date: string;
+  metaDescription: string;
+  publishedDate: string | Date;
   topic: string;
-  internal_links: { text: string; url: string }[] | null;
+  internalLinks: { text: string; url: string }[] | null;
 }
 
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
-  const supabase = createClient(
-    "https://ipfposyjkgealvpnjtyy.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlwZnBvc3lqa2dlYWx2cG5qdHl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxMzgzOTMsImV4cCI6MjA4NTcxNDM5M30.SRAz2KlNeyaO8fdYULXgaBz3Pqz2SThWCx4KVbrefKM"
-  );
-
-  const { data, error } = await supabase
-    .from("blog_posts")
-    .select("*")
-    .eq("slug", slug)
-    .maybeSingle();
-
-  if (error || !data) {
+  try {
+    const db = await getDb();
+    const doc = await db.collection("blogPosts").findOne({ slug });
+    if (!doc) return null;
+    return doc as unknown as BlogPost;
+  } catch {
     return null;
   }
-
-  return data as BlogPost;
 }
 
 export async function generateMetadata({
@@ -53,7 +45,7 @@ export async function generateMetadata({
 
   return {
     title: post.title,
-    description: post.meta_description,
+    description: post.metaDescription,
     alternates: {
       canonical: `https://www.illinoisestatelaw.com/blog/${params.slug}/`,
     },
@@ -71,7 +63,7 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  const formattedDate = new Date(post.published_date).toLocaleDateString("en-US", {
+  const formattedDate = new Date(post.publishedDate as string).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -81,9 +73,9 @@ export default async function BlogPostPage({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
-    "description": post.meta_description,
-    "datePublished": post.published_date,
-    "dateModified": post.published_date,
+    "description": post.metaDescription,
+    "datePublished": post.publishedDate,
+    "dateModified": post.publishedDate,
     "url": `https://www.illinoisestatelaw.com/blog/${post.slug}/`,
     "author": {
       "@type": "Person",
@@ -103,6 +95,7 @@ export default async function BlogPostPage({
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <InnerPageHero title={post.title} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -127,7 +120,7 @@ export default async function BlogPostPage({
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                 {post.title}
               </h1>
-              <time className="text-slate-600" dateTime={post.published_date}>
+              <time className="text-slate-600" dateTime={post.publishedDate as string}>
                 {formattedDate}
               </time>
             </div>
@@ -137,13 +130,13 @@ export default async function BlogPostPage({
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            {post.internal_links && post.internal_links.length > 0 && (
+            {post.internalLinks && post.internalLinks.length > 0 && (
               <div className="mt-12 pt-8 border-t border-slate-200">
                 <h3 className="text-xl font-bold text-slate-900 mb-4">
                   Related Articles
                 </h3>
                 <ul className="space-y-3">
-                  {post.internal_links.map((link, index) => (
+                  {post.internalLinks.map((link, index) => (
                     <li key={index}>
                       <Link
                         href={link.url}

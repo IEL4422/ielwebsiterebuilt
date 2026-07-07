@@ -48,7 +48,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
       id: 'small-estate',
       label: 'Small Estate Affidavit',
       icon: <FileText className="w-5 h-5" />,
-      color: 'bg-[#2D3E50]',
+      color: 'bg-[#33414E]',
       oldRule: '$100,000 small estate affidavit threshold; vehicles counted toward the limit',
       newRule: '$150,000 threshold (effective August 15, 2025); vehicles excluded from the $150,000 calculation and may be transferred separately regardless of value',
       impact: 'More Cook County families can settle estates without opening formal probate — saving months of court proceedings and thousands in legal fees.',
@@ -214,7 +214,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
         }}
       />
 
-      <div className="bg-[#2D3E50] text-white py-16 px-4">
+      <div className="bg-[#33414E] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <Link href="/blog" className="inline-flex items-center text-blue-300 hover:text-white text-sm mb-6 transition-colors">
             <ArrowRight className="w-4 h-4 mr-1 rotate-180" />
@@ -247,9 +247,9 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             <div className="sticky top-6 space-y-6">
               <TableOfContents items={tocItems} />
               <div className="bg-[#f0f5f8] rounded-xl p-5 border border-[#d0e4ef]">
-                <p className="font-semibold text-[#2D3E50] text-sm mb-2">Ready to update your plan?</p>
+                <p className="font-semibold text-[#33414E] text-sm mb-2">Ready to update your plan?</p>
                 <p className="text-gray-600 text-xs mb-3">Schedule a consultation to review how 2025–2026 changes affect your estate.</p>
-                <Link href="/book-consultation" className="block text-center bg-[#2D3E50] text-white text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#4a708b] transition-colors">
+                <Link href="/book-consultation" className="block text-center bg-[#33414E] text-white text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#4a708b] transition-colors">
                   Book a Free Consultation
                 </Link>
               </div>
@@ -258,7 +258,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
 
           <article className="flex-1 min-w-0">
             <section id="why-2026-matters" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">What Actually Changed in Illinois Estate Law — and What Did Not</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#33414E] mb-4">What Actually Changed in Illinois Estate Law — and What Did Not</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 There is a great deal of misinformation circulating about Illinois estate planning law for 2026. Most notably: several sources claim the Illinois estate tax exemption doubled to $4 million in 2026. This is incorrect. The Illinois estate tax exemption has been $4 million per person since 2013 — it did not change in 2026.
               </p>
@@ -282,7 +282,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section id="small-estate-affidavit" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">Small Estate Affidavit: New $150,000 Threshold (Effective August 15, 2025)</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#33414E] mb-4">Small Estate Affidavit: New $150,000 Threshold (Effective August 15, 2025)</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 This is one of the most practically significant changes for Illinois families in recent years. Illinois Senate Bill SB0083, enacted August 15, 2025, amended the Probate Act of 1975 to raise the Small Estate Affidavit (SEA) limit from $100,000 to $150,000 for personal property.
               </p>
@@ -306,15 +306,15 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               </div>
 
               <div id="vehicle-transfers" className="mb-8">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Vehicles Now Excluded From the Limit</h3>
+                <h3 className="text-xl font-bold text-[#33414E] mb-3">Vehicles Now Excluded From the Limit</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   This is a significant change. Previously, vehicle values counted toward the $100,000 cap. With today&apos;s vehicle prices — a single late-model car may be worth $30,000–$60,000 — this regularly pushed estates over the threshold and forced families to open a formal probate case just to transfer a car.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Under the new law, vehicles are handled directly with the Illinois Secretary of State and do not count toward the $150,000 personal property limit. This is particularly beneficial for families where the decedent held vehicles in their individual name rather than in a trust.
                 </p>
-                <div className="bg-blue-50 border-l-4 border-[#4a708b] p-4 rounded-r-xl mb-4">
-                  <p className="font-semibold text-[#2D3E50] mb-1 text-sm">Practical Example</p>
+                <div className="bg-blue-50 border-l-4 border-[#547298] p-4 rounded-r-xl mb-4">
+                  <p className="font-semibold text-[#33414E] mb-1 text-sm">Practical Example</p>
                   <p className="text-gray-700 text-sm">
                     A Cook County resident passes away with $140,000 in bank and investment accounts, a $45,000 car, and no real estate in their individual name. Under the old law, the total ($185,000) exceeded the $100,000 cap and required formal probate. Under the new law, the vehicle is handled separately and the $140,000 in other assets falls under the $150,000 SEA limit — no probate required.
                   </p>
@@ -322,7 +322,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               </div>
 
               <div id="sea-limitations" className="mb-4">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">What the Small Estate Affidavit Still Cannot Do</h3>
+                <h3 className="text-xl font-bold text-[#33414E] mb-3">What the Small Estate Affidavit Still Cannot Do</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   The SEA expansion is meaningful, but it has firm limitations that families must understand:
                 </p>
@@ -337,7 +337,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                       <li key={item.label} className="flex items-start gap-2">
                         <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                         <div>
-                          <span className="font-semibold text-[#2D3E50]">{item.label}: </span>
+                          <span className="font-semibold text-[#33414E]">{item.label}: </span>
                           <span className="text-gray-600">{item.desc}</span>
                         </div>
                       </li>
@@ -348,7 +348,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section id="poa-changes" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">Power of Attorney Law Update: Public Act 103-0994 (Effective January 1, 2025)</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#33414E] mb-4">Power of Attorney Law Update: Public Act 103-0994 (Effective January 1, 2025)</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Governor Pritzker signed Illinois Public Act 103-0994 on August 9, 2024, amending the Illinois Power of Attorney Act with an effective date of January 1, 2025. The most impactful change: it is now unlawful for a third party — a bank, financial institution, or other organization — to unreasonably refuse to honor a properly executed Illinois statutory short-form power of attorney for property.
               </p>
@@ -357,7 +357,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               </p>
 
               <div id="unreasonable-refusal" className="mb-8">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">The Five Unreasonable Grounds for Refusing a POA</h3>
+                <h3 className="text-xl font-bold text-[#33414E] mb-3">The Five Unreasonable Grounds for Refusing a POA</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   The law specifies that the following are unreasonable grounds to refuse a properly executed POA:
                 </p>
@@ -375,8 +375,8 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                     </div>
                   ))}
                 </div>
-                <div className="bg-blue-50 border-l-4 border-[#4a708b] p-4 rounded-r-xl mb-4">
-                  <p className="font-semibold text-[#2D3E50] mb-1 text-sm">Important Nuance</p>
+                <div className="bg-blue-50 border-l-4 border-[#547298] p-4 rounded-r-xl mb-4">
+                  <p className="font-semibold text-[#33414E] mb-1 text-sm">Important Nuance</p>
                   <p className="text-gray-700 text-sm">
                     The law also codifies 14 <em>reasonable</em> grounds for refusal — meaning institutions retain legitimate defenses. The amendment is not a blanket mandate to accept every document; it targets the common, bad-faith rejections that previously left agents powerless. Your existing POA documents remain valid. The change addresses how third parties must respond to them.
                   </p>
@@ -391,7 +391,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section id="federal-estate-tax" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">Federal Estate Tax: The $15M Exemption Is Now Permanent</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#33414E] mb-4">Federal Estate Tax: The $15M Exemption Is Now Permanent</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 For years, federal estate tax planning was dominated by uncertainty: the Tax Cuts and Jobs Act of 2017 temporarily doubled the federal estate and gift tax exemption, but those provisions were scheduled to sunset on January 1, 2026 — reverting the exemption to roughly $7 million per person.
               </p>
@@ -403,7 +403,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               </p>
 
               <div id="illinois-unchanged" className="mb-8">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">The Illinois Exemption Remains at $4M — Federal Changes Do Not Help Here</h3>
+                <h3 className="text-xl font-bold text-[#33414E] mb-3">The Illinois Exemption Remains at $4M — Federal Changes Do Not Help Here</h3>
                 <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl mb-4">
                   <div className="flex items-start gap-3">
                     <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
@@ -421,7 +421,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               </div>
 
               <div id="estate-tax-calculator" className="mb-4">
-                <h3 className="text-xl font-bold text-[#2D3E50] mb-3">Interactive Illinois Estate Tax Calculator</h3>
+                <h3 className="text-xl font-bold text-[#33414E] mb-3">Interactive Illinois Estate Tax Calculator</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Enter your estimated gross estate value to see your Illinois estate tax exposure under the current $4 million exemption. Include home equity, retirement accounts, life insurance death benefits, and investments.
                 </p>
@@ -429,7 +429,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                   <p className="text-xs text-gray-500 mb-3 italic">This is an educational estimate only. Actual tax calculations require professional analysis.</p>
                   <div className="flex flex-col sm:flex-row gap-3 mb-4">
                     <div className="flex-1">
-                      <label className="block text-sm font-medium text-[#2D3E50] mb-1">Estimated Gross Estate Value</label>
+                      <label className="block text-sm font-medium text-[#33414E] mb-1">Estimated Gross Estate Value</label>
                       <input
                         type="text"
                         value={estateValue}
@@ -441,7 +441,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                     <div className="flex items-end">
                       <button
                         onClick={handleCalculate}
-                        className="bg-[#2D3E50] text-white px-6 py-2.5 rounded-lg hover:bg-[#4a708b] transition-colors font-medium text-sm whitespace-nowrap"
+                        className="bg-[#33414E] text-white px-6 py-2.5 rounded-lg hover:bg-[#4a708b] transition-colors font-medium text-sm whitespace-nowrap"
                       >
                         Calculate Impact
                       </button>
@@ -483,7 +483,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section id="law-changes-overview" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">All Four Changes Side by Side</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#33414E] mb-4">All Four Changes Side by Side</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Select each change below to see the old rule, the new rule, and what action you should take.
               </p>
@@ -529,18 +529,18 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section id="action-steps" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-4">6 Action Steps Cook County Families Should Take Now</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#33414E] mb-4">6 Action Steps Cook County Families Should Take Now</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 The law has changed in meaningful ways — and in one critical way it has not. Here is a prioritized list of what Cook County families should do in 2026.
               </p>
               <div className="space-y-4">
                 {actionSteps.map((step) => (
                   <div key={step.step} className="flex gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div className="w-10 h-10 rounded-full bg-[#2D3E50] text-white flex items-center justify-center font-bold text-sm shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#33414E] text-white flex items-center justify-center font-bold text-sm shrink-0">
                       {step.step}
                     </div>
                     <div>
-                      <p className="font-semibold text-[#2D3E50] mb-1">{step.title}</p>
+                      <p className="font-semibold text-[#33414E] mb-1">{step.title}</p>
                       <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
                     </div>
                   </div>
@@ -548,13 +548,13 @@ export default function IllinoisEstatePlanningLaws2026Page() {
               </div>
             </section>
 
-            <section className="mb-12 bg-[#2D3E50] rounded-2xl p-8 text-white">
+            <section className="mb-12 bg-[#33414E] rounded-2xl p-8 text-white">
               <h2 className="text-2xl font-bold mb-3">Is Your Estate Plan Accurate for 2026?</h2>
               <p className="text-gray-300 mb-6 max-w-2xl">
                 The Illinois estate tax threshold has not changed — but misinformation is widespread. Whether you need to plan around the $4M Illinois exemption, take advantage of the new SEA rules, or review your POA after the 2025 statutory update, our Cook County attorneys can review your existing documents and identify what actually needs to change.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/book-consultation" className="bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-center text-sm">
+                <Link href="/book-consultation" className="bg-white text-[#33414E] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-center text-sm">
                   Book a Free Consultation
                 </Link>
                 <Link href="/services-pricing" className="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-center text-sm">
@@ -564,7 +564,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section id="faq" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2D3E50] mb-6">Frequently Asked Questions</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#33414E] mb-6">Frequently Asked Questions</h2>
               <div className="space-y-3">
                 {faqs.map((faq, i) => (
                   <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
@@ -572,7 +572,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                       className="w-full text-left flex items-start justify-between gap-4 p-5 bg-white hover:bg-gray-50 transition-colors"
                       onClick={() => toggleFaq(i)}
                     >
-                      <span className="font-semibold text-[#2D3E50] text-sm leading-relaxed pr-2">{faq.q}</span>
+                      <span className="font-semibold text-[#33414E] text-sm leading-relaxed pr-2">{faq.q}</span>
                       {openFaq === i ? (
                         <ChevronUp className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
                       ) : (
@@ -590,7 +590,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
             </section>
 
             <section className="mb-12 bg-[#f0f5f8] rounded-2xl p-6 border border-[#d0e4ef]">
-              <h3 className="text-lg font-bold text-[#2D3E50] mb-2">More Illinois Estate Planning Guides</h3>
+              <h3 className="text-lg font-bold text-[#33414E] mb-2">More Illinois Estate Planning Guides</h3>
               <p className="text-gray-600 text-sm mb-4">Explore related topics to build a complete picture of your Illinois estate plan.</p>
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
@@ -604,7 +604,7 @@ export default function IllinoisEstatePlanningLaws2026Page() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors"
+                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors"
                   >
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}

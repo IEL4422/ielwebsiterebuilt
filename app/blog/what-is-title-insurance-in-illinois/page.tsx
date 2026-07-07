@@ -77,7 +77,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -100,7 +100,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="what-is" className="text-2xl font-bold mt-8 mb-4">What Is Title Insurance?</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">Title insurance protects property owners and mortgage lenders against financial losses arising from defects in a property's title — problems with the chain of ownership that existed before the purchase but may not have been discovered.</p>
               <p className="mb-0 text-gray-700">Unlike almost every other type of insurance, which protects against future events, title insurance primarily protects against past events — hidden defects, fraud, errors, and omissions that occurred in the property's history before you purchased it.</p>
             </div>
@@ -110,27 +110,27 @@ export default function Page() {
             <div className="grid md:grid-cols-2 gap-6 my-6">
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#2D3E50] text-white flex items-center justify-center"><Shield className="w-5 h-5" /></div>
-                  <h3 className="font-bold text-[#2D3E50] text-lg">Owner&apos;s Policy</h3>
+                  <div className="w-10 h-10 rounded-full bg-[#33414E] text-white flex items-center justify-center"><Shield className="w-5 h-5" /></div>
+                  <h3 className="font-bold text-[#33414E] text-lg">Owner&apos;s Policy</h3>
                 </div>
                 <ul className="space-y-2 mb-4">
                   {['Protects YOU, the buyer', 'Optional — your choice', 'One-time premium at closing', 'Coverage lasts as long as you own the property', 'Covers full purchase price of the home', 'Also protects heirs who inherit from you'].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />{item}</li>
                   ))}
                 </ul>
-                <p className="text-sm font-semibold text-[#2D3E50]">Typical cost: $1,000–$2,500 (varies by purchase price)</p>
+                <p className="text-sm font-semibold text-[#33414E]">Typical cost: $1,000–$2,500 (varies by purchase price)</p>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-[#4a708b] text-white flex items-center justify-center"><Shield className="w-5 h-5" /></div>
-                  <h3 className="font-bold text-[#2D3E50] text-lg">Lender&apos;s Policy</h3>
+                  <h3 className="font-bold text-[#33414E] text-lg">Lender&apos;s Policy</h3>
                 </div>
                 <ul className="space-y-2 mb-4">
                   {['Protects your MORTGAGE LENDER', 'Required for financed purchases', 'One-time premium at closing', 'Coverage expires when loan is paid off or refinanced', 'Covers loan amount (not full purchase price)', 'Does not protect you at all'].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-[#4a708b] flex-shrink-0" />{item}</li>
                   ))}
                 </ul>
-                <p className="text-sm font-semibold text-[#2D3E50]">Typical cost: $500–$1,500 (varies by loan amount)</p>
+                <p className="text-sm font-semibold text-[#33414E]">Typical cost: $500–$1,500 (varies by loan amount)</p>
               </div>
             </div>
             <div className="bg-amber-50 border-l-4 border-amber-500 p-5 my-6 rounded-r-lg">
@@ -165,7 +165,7 @@ export default function Page() {
             <p className="mb-6">Title insurance premiums in Illinois are regulated by the state and are based on the purchase price (for owner's policy) or loan amount (for lender's policy). Typical premiums:</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Purchase Price</th><th className="border border-gray-300 px-4 py-3 text-left">Owner&apos;s Policy (est.)</th><th className="border border-gray-300 px-4 py-3 text-left">Lender&apos;s Policy (on 80% LTV loan)</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Purchase Price</th><th className="border border-gray-300 px-4 py-3 text-left">Owner&apos;s Policy (est.)</th><th className="border border-gray-300 px-4 py-3 text-left">Lender&apos;s Policy (on 80% LTV loan)</th></tr></thead>
                 <tbody>
                   {[
                     ['$250,000', '$1,250–$1,750', '$750–$1,000'],
@@ -220,7 +220,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Questions About Your Title Insurance Coverage?</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law reviews title commitments for buyers and sellers — including Schedule B exceptions — to ensure you understand exactly what your title insurance will and will not cover before you close.</p>
               <div className="flex flex-wrap gap-4">

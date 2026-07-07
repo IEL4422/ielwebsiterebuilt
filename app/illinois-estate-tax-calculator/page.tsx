@@ -181,7 +181,7 @@ export default function EstateTaxCalculatorPage() {
   }
 
   const inputClass =
-    'w-full py-3 rounded-xl border border-gray-200 text-[#2D3E50] font-medium text-[15px] focus:outline-none focus:border-[#4A708B] focus:ring-2 focus:ring-[#4A708B]/20 transition-all bg-gray-50 focus:bg-white';
+    'w-full py-3 rounded-xl border border-gray-200 text-[#33414E] font-medium text-[15px] focus:outline-none focus:border-[#547298] focus:ring-2 focus:ring-[#4A708B]/20 transition-all bg-gray-50 focus:bg-white';
 
   const ilPct  = results.gross > 0 ? (results.ilApportionedTax / results.gross) * 100 : 0;
   const fedPct = results.gross > 0 ? (results.fedTax / results.gross) * 100 : 0;
@@ -213,7 +213,7 @@ export default function EstateTaxCalculatorPage() {
 
           {/* Input card */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-            <h2 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2D3E50] mb-1">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] mb-1">
               Enter Your Estate Details
             </h2>
             <p className="text-gray-400 text-sm mb-8 leading-relaxed">
@@ -223,7 +223,7 @@ export default function EstateTaxCalculatorPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Gross estate */}
               <div>
-                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                <label className="block text-sm font-semibold text-[#33414E] mb-2">
                   Gross estate value
                 </label>
                 <div className="relative">
@@ -241,7 +241,7 @@ export default function EstateTaxCalculatorPage() {
 
               {/* Taxable gifts */}
               <div>
-                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                <label className="block text-sm font-semibold text-[#33414E] mb-2">
                   Adjusted taxable gifts
                 </label>
                 <div className="relative">
@@ -259,7 +259,7 @@ export default function EstateTaxCalculatorPage() {
 
               {/* IL situs % */}
               <div>
-                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                <label className="block text-sm font-semibold text-[#33414E] mb-2">
                   Illinois situs %
                 </label>
                 <div className="relative">
@@ -277,7 +277,7 @@ export default function EstateTaxCalculatorPage() {
 
               {/* Federal exemption */}
               <div>
-                <label className="block text-sm font-semibold text-[#2D3E50] mb-2">
+                <label className="block text-sm font-semibold text-[#33414E] mb-2">
                   Federal exemption <span className="font-normal text-gray-400">(per person)</span>
                 </label>
                 <div className="relative">
@@ -298,7 +298,7 @@ export default function EstateTaxCalculatorPage() {
               <button
                 type="button"
                 onClick={calculate}
-                className="bg-[#2D3E50] hover:bg-[#4A708B] text-white font-bold px-8 py-3.5 rounded-full transition-colors text-[15px]"
+                className="bg-[#33414E] hover:bg-[#4A708B] text-white font-bold px-8 py-3.5 rounded-full transition-colors text-[15px]"
               >
                 Calculate
               </button>
@@ -306,7 +306,7 @@ export default function EstateTaxCalculatorPage() {
                 <button
                   type="button"
                   onClick={reset}
-                  className="text-[#2D3E50]/70 hover:text-[#2D3E50] border border-gray-200 hover:border-gray-300 font-semibold px-6 py-3.5 rounded-full transition-colors text-[15px] bg-white"
+                  className="text-[#33414E]/70 hover:text-[#33414E] border border-gray-200 hover:border-gray-300 font-semibold px-6 py-3.5 rounded-full transition-colors text-[15px] bg-white"
                 >
                   Reset
                 </button>
@@ -338,7 +338,7 @@ export default function EstateTaxCalculatorPage() {
                 <div className="h-6 rounded-full overflow-hidden flex bg-gray-100 mb-4">
                   {ilPct > 0 && (
                     <div
-                      className="bg-[#2D3E50] h-full"
+                      className="bg-[#33414E] h-full"
                       style={{ width: `${Math.min(ilPct, 100)}%` }}
                     />
                   )}
@@ -352,7 +352,7 @@ export default function EstateTaxCalculatorPage() {
 
                 <div className="flex flex-wrap gap-5">
                   <span className="flex items-center gap-2 text-sm text-gray-600">
-                    <span className="w-3 h-3 rounded-sm bg-[#2D3E50] flex-shrink-0" />
+                    <span className="w-3 h-3 rounded-sm bg-[#33414E] flex-shrink-0" />
                     Illinois{ilPct > 0 ? ` — ${ilPct.toFixed(2)}% of estate` : ' — $0'}
                   </span>
                   <span className="flex items-center gap-2 text-sm text-gray-600">
@@ -372,10 +372,10 @@ export default function EstateTaxCalculatorPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                 {/* Illinois card */}
-                <div className="bg-white rounded-2xl shadow-sm border border-[#2D3E50]/15 p-6">
+                <div className="bg-white rounded-2xl shadow-sm border border-[#33414E]/15 p-6">
                   <div className="flex items-center gap-2 mb-5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#2D3E50]" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#2D3E50]/60">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#33414E]" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#33414E]/60">
                       Illinois Estate Tax
                     </span>
                   </div>
@@ -383,22 +383,22 @@ export default function EstateTaxCalculatorPage() {
                   <div className="space-y-0 divide-y divide-gray-50">
                     <div className="flex justify-between items-center py-2.5">
                       <span className="text-sm text-gray-500">Adjusted taxable estate</span>
-                      <span className="font-semibold text-[#2D3E50] text-sm">{fmt(results.ate)}</span>
+                      <span className="font-semibold text-[#33414E] text-sm">{fmt(results.ate)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
                       <span className="text-sm text-gray-500">Preliminary IL tax</span>
-                      <span className="font-semibold text-[#2D3E50] text-sm">{fmt(results.ilPreliminaryTax)}</span>
+                      <span className="font-semibold text-[#33414E] text-sm">{fmt(results.ilPreliminaryTax)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
                       <span className="text-sm text-gray-500">IL tax ({results.situsPct.toFixed(0)}% situs)</span>
-                      <span className="font-bold text-[#2D3E50] text-lg">{fmt(results.ilApportionedTax)}</span>
+                      <span className="font-bold text-[#33414E] text-lg">{fmt(results.ilApportionedTax)}</span>
                     </div>
                   </div>
 
                   {results.ilApportionedTax > 0 && results.gross > 0 ? (
-                    <div className="mt-4 bg-[#2D3E50]/5 rounded-xl px-4 py-3 flex justify-between items-center">
-                      <span className="text-xs font-semibold text-[#2D3E50]/60">Effective IL rate</span>
-                      <span className="text-[#2D3E50] font-bold text-base">{ilPct.toFixed(2)}%</span>
+                    <div className="mt-4 bg-[#33414E]/5 rounded-xl px-4 py-3 flex justify-between items-center">
+                      <span className="text-xs font-semibold text-[#33414E]/60">Effective IL rate</span>
+                      <span className="text-[#33414E] font-bold text-base">{ilPct.toFixed(2)}%</span>
                     </div>
                   ) : (
                     <div className="mt-4 bg-gray-50 rounded-xl px-4 py-3">
@@ -411,7 +411,7 @@ export default function EstateTaxCalculatorPage() {
                 </div>
 
                 {/* Federal card */}
-                <div className="bg-white rounded-2xl shadow-sm border border-[#4A708B]/20 p-6">
+                <div className="bg-white rounded-2xl shadow-sm border border-[#547298]/20 p-6">
                   <div className="flex items-center gap-2 mb-5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#4A708B]" />
                     <span className="text-xs font-bold uppercase tracking-widest text-[#4A708B]/70">
@@ -422,15 +422,15 @@ export default function EstateTaxCalculatorPage() {
                   <div className="space-y-0 divide-y divide-gray-50">
                     <div className="flex justify-between items-center py-2.5">
                       <span className="text-sm text-gray-500">Tentative federal tax</span>
-                      <span className="font-semibold text-[#2D3E50] text-sm">{fmt(results.fedTentativeTax)}</span>
+                      <span className="font-semibold text-[#33414E] text-sm">{fmt(results.fedTentativeTax)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
                       <span className="text-sm text-gray-500">Unified credit ({fmt(results.fedExemptionUsed)})</span>
-                      <span className="font-semibold text-[#2D3E50] text-sm">− {fmt(results.fedUnifiedCredit)}</span>
+                      <span className="font-semibold text-[#33414E] text-sm">− {fmt(results.fedUnifiedCredit)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
                       <span className="text-sm text-gray-500">Net federal tax</span>
-                      <span className="font-bold text-[#2D3E50] text-lg">{fmt(results.fedTax)}</span>
+                      <span className="font-bold text-[#33414E] text-lg">{fmt(results.fedTax)}</span>
                     </div>
                   </div>
 
@@ -454,7 +454,7 @@ export default function EstateTaxCalculatorPage() {
               </div>
 
               {/* Total card */}
-              <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8">
+              <div className="bg-[#33414E] rounded-2xl p-8">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
                   <div>
                     <div className="text-white/55 text-xs font-bold uppercase tracking-widest mb-2">
@@ -493,11 +493,11 @@ export default function EstateTaxCalculatorPage() {
               {/* Calculation details */}
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
                 <details>
-                  <summary className="px-6 py-4 cursor-pointer select-none text-sm font-semibold text-[#2D3E50] hover:bg-gray-50 transition-colors">
+                  <summary className="px-6 py-4 cursor-pointer select-none text-sm font-semibold text-[#33414E] hover:bg-gray-50 transition-colors">
                     Show calculation details
                   </summary>
                   <div
-                    className="px-6 pb-6 pt-4 text-gray-500 text-sm leading-relaxed border-t border-gray-100 [&_p]:mb-2 [&_strong]:text-[#2D3E50]"
+                    className="px-6 pb-6 pt-4 text-gray-500 text-sm leading-relaxed border-t border-gray-100 [&_p]:mb-2 [&_strong]:text-[#33414E]"
                     dangerouslySetInnerHTML={{ __html: results.details }}
                   />
                 </details>
@@ -505,7 +505,7 @@ export default function EstateTaxCalculatorPage() {
 
               {/* CTA */}
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center">
-                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#2D3E50] mb-2">
+                <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E] mb-2">
                   Concerned about your estate tax exposure?
                 </h3>
                 <p className="text-gray-500 text-sm mb-6 max-w-lg mx-auto leading-relaxed">
@@ -513,7 +513,7 @@ export default function EstateTaxCalculatorPage() {
                 </p>
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center bg-[#2D3E50] hover:bg-[#4A708B] text-white font-bold px-8 py-3.5 rounded-full transition-colors"
+                  className="inline-flex items-center bg-[#33414E] hover:bg-[#4A708B] text-white font-bold px-8 py-3.5 rounded-full transition-colors"
                 >
                   Schedule a Free Consultation
                 </Link>

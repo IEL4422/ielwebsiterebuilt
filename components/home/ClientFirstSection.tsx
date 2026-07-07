@@ -16,7 +16,7 @@ export function ClientFirstSection() {
             <p className="text-slate-600 mb-4 sm:mb-6">
               Online convenience meets traditional legal expertise
             </p>
-            <Button asChild size="lg" className="w-full bg-[#77B1D4] hover:bg-[#5A9BC4] text-white font-semibold">
+            <Button asChild size="lg" className="w-full bg-[#7E9CC0] hover:bg-[#5A9BC4] text-white font-semibold">
               <Link href="/get-started/">GET STARTED TODAY</Link>
             </Button>
           </div>
@@ -36,7 +36,7 @@ export function ClientFirstSection() {
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                 A Modern, Client-First Approach to Estate Law
               </h2>
-              <div className="w-16 h-1 bg-[#77B1D4] mb-6"></div>
+              <div className="w-16 h-1 bg-[#7E9CC0] mb-6"></div>
               <p className="text-slate-600 leading-relaxed">
                 You deserve an estate planning experience that works around your life, not the other way around. At Illinois Estate Law, we've reimagined the process so you can feel confident, supported, and informed from start to finish. With digital tools and clear pricing, you stay in control while receiving experienced legal guidance tailored to Illinois law.
               </p>
@@ -74,7 +74,7 @@ export function ClientFirstSection() {
                   For many Illinois families, the cost of estate planning is a major concern. We've made it easier to move forward with confidence, knowing your financial investment is fair and transparent. And if your situation changes down the line? We're here to help with updates with consistent clarity around pricing. You shouldn't have to jump through hoops to protect the people and future you care about most.
                 </p>
                 <p className="font-semibold text-slate-800">
-                  <Link href="/contact/" className="text-[#77B1D4] hover:text-[#5A9BC4] underline">Contact us</Link> today at <a href="tel:3123730731" className="text-[#77B1D4] hover:text-[#5A9BC4] underline">(312) 373-0731</a> and take that first step forward, on your terms.
+                  <Link href="/contact/" className="text-[#7E9CC0] hover:text-[#5A9BC4] underline">Contact us</Link> today at <a href="tel:3123730731" className="text-[#7E9CC0] hover:text-[#5A9BC4] underline">(312) 373-0731</a> and take that first step forward, on your terms.
                 </p>
               </div>
             </div>

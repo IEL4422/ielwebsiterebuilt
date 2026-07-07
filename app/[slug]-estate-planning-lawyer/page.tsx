@@ -165,7 +165,7 @@ export default function CityEstatePlanningPage({
             <div className="max-w-[1140px] mx-auto">
               <div className="grid lg:grid-cols-3 gap-10">
                 <div className="lg:col-span-2">
-                  <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-6">
+                  <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-6">
                     Estate Planning Attorney Serving {loc.city}, {loc.county}
                   </h2>
                   <div className="w-16 h-1 bg-[#4A708B] mb-8" />
@@ -186,10 +186,10 @@ export default function CityEstatePlanningPage({
                 </div>
                 <div>
                   <div className="bg-[#f8f9fa] rounded-xl border border-slate-200 p-6">
-                    <div className="w-16 h-16 bg-[#2D3E50] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-[#33414E] rounded-full flex items-center justify-center mx-auto mb-4">
                       <User className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-[#2D3E50] text-center mb-3">
+                    <h3 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-[#33414E] text-center mb-3">
                       Mary Liberty
                     </h3>
                     <p className="text-sm text-slate-500 text-center mb-4">Estate Planning Attorney</p>
@@ -207,7 +207,7 @@ export default function CityEstatePlanningPage({
         <section className="py-16 lg:py-20 bg-[#f8f9fa]">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-10 text-center">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-10 text-center">
                 Estate Planning Services in {loc.city}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -225,7 +225,7 @@ export default function CityEstatePlanningPage({
         </section>
 
         {/* Why Illinois Estate Law */}
-        <section className="bg-[#2D3E50] py-16 lg:py-20">
+        <section className="bg-[#33414E] py-16 lg:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
               <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-white mb-12 text-center">
@@ -255,7 +255,7 @@ export default function CityEstatePlanningPage({
         <section className="py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-10 text-center">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-10 text-center">
                 Transparent Flat-Fee Pricing
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
@@ -269,7 +269,7 @@ export default function CityEstatePlanningPage({
               <div className="text-center mt-6">
                 <Link
                   href="https://www.illinoisestatelaw.com/services-pricing/"
-                  className="inline-flex items-center justify-center border-2 border-[#2D3E50] text-[#2D3E50] px-8 py-3 rounded-full font-bold hover:bg-[#2D3E50] hover:text-white transition-colors text-sm"
+                  className="inline-flex items-center justify-center border-2 border-[#33414E] text-[#33414E] px-8 py-3 rounded-full font-bold hover:bg-[#33414E] hover:text-white transition-colors text-sm"
                 >
                   View All Services &amp; Pricing
                 </Link>
@@ -282,7 +282,7 @@ export default function CityEstatePlanningPage({
         <section className="py-16 lg:py-20 bg-[#f8f9fa]">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-6 text-center">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-6 text-center">
                 Serving {loc.city} and {loc.county}
               </h2>
               <p className="text-slate-600 leading-relaxed max-w-3xl mx-auto text-center mb-10">
@@ -291,19 +291,19 @@ export default function CityEstatePlanningPage({
 
               {loc.meetingAddress ? (
                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 md:p-8 max-w-lg mx-auto text-center">
-                  <div className="w-12 h-12 bg-[#2D3E50] rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-[#33414E] rounded-lg flex items-center justify-center mx-auto mb-4">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-[#2D3E50] mb-2">In-Person Meetings Available</h3>
+                  <h3 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-[#33414E] mb-2">In-Person Meetings Available</h3>
                   <p className="text-slate-600 text-sm">{loc.meetingAddress}</p>
                   <p className="text-slate-500 text-xs mt-2">Available for current clients by appointment</p>
                 </div>
               ) : (
                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 md:p-8 max-w-lg mx-auto text-center">
-                  <div className="w-12 h-12 bg-[#2D3E50] rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-[#33414E] rounded-lg flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-[#2D3E50] mb-2">Fully Virtual Service</h3>
+                  <h3 className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-[#33414E] mb-2">Fully Virtual Service</h3>
                   <p className="text-slate-600 text-sm">No office visit needed. We serve {loc.city} residents remotely from our Chicago-area offices.</p>
                 </div>
               )}

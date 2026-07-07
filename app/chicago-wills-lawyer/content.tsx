@@ -578,7 +578,7 @@ export default function ChicagoWillsContent() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-[#2D3E50] to-[#4a708b] py-16">
+      <div className="bg-gradient-to-r from-[#33414E] to-[#4a708b] py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Start Your Legacy Planning With Confidence</h2>
           <p className="text-xl text-white mb-8">

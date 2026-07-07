@@ -67,7 +67,7 @@ export default function Page() {
       />
 
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -105,7 +105,7 @@ export default function Page() {
               This article explains what incapacity means under Illinois law, what really happens when no plan exists, and how a few simple documents can prevent a court-controlled guardianship.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               What Does "Incapacitated" Mean Under Illinois Law?
             </h2>
 
@@ -121,7 +121,7 @@ export default function Page() {
               When no legal authority has been granted in advance, Illinois institutions must assume that no one else has permission to act.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               The Dangerous Myth That Family Automatically Has Authority
             </h2>
 
@@ -146,7 +146,7 @@ export default function Page() {
               This refusal is not personal. It is required by law, and institutions face serious liability for getting it wrong.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               What Actually Happens When There Is No Power of Attorney
             </h2>
 
@@ -154,7 +154,7 @@ export default function Page() {
               When no power of attorney exists, life does not pause. It fractures.
             </p>
 
-            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2D3E50] mt-8 mb-4">
+            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] mt-8 mb-4">
               Medical Decisions Become Complicated
             </h3>
 
@@ -162,7 +162,7 @@ export default function Page() {
               Emergency care may be provided, but non-emergency decisions often require consent. Family members may be excluded from meaningful discussions, and important care decisions can be delayed.
             </p>
 
-            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2D3E50] mt-8 mb-4">
+            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] mt-8 mb-4">
               Financial Access Stops
             </h3>
 
@@ -170,7 +170,7 @@ export default function Page() {
               Bank accounts become inaccessible. Automatic payments fail. Mortgages, utilities, insurance premiums, and care expenses may go unpaid, creating cascading financial consequences.
             </p>
 
-            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2D3E50] mt-8 mb-4">
+            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] mt-8 mb-4">
               Authority Shifts to the Court
             </h3>
 
@@ -178,7 +178,7 @@ export default function Page() {
               Eventually, someone must petition the court for authority to act. This process is called adult guardianship.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               Guardianship: When the Court Takes Control
             </h2>
 
@@ -194,7 +194,7 @@ export default function Page() {
               Guardianship is often emotionally draining, time-consuming, and expensive—especially when family members disagree.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               Why Guardianship Is a Last Resort
             </h2>
 
@@ -231,7 +231,7 @@ export default function Page() {
               Guardianship removes personal autonomy. Even well-meaning guardians often need court approval for routine decisions.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               The Simple Documents That Prevent This Entire Scenario
             </h2>
 
@@ -247,7 +247,7 @@ export default function Page() {
               page.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               Why DIY and Online Forms Often Fail
             </h2>
 
@@ -259,7 +259,7 @@ export default function Page() {
               When these documents fail after incapacity, guardianship is often the only remaining option.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               A Realistic Illinois Scenario
             </h2>
 
@@ -271,7 +271,7 @@ export default function Page() {
               With proper planning, the same situation would allow immediate decision-making, uninterrupted care, and financial stability.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               When Should You Act?
             </h2>
 
@@ -279,7 +279,7 @@ export default function Page() {
               Incapacity planning is not about age. It is about control. Every adult over 18 should have these documents in place.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               How Illinois Estate Law Helps
             </h2>
 
@@ -295,7 +295,7 @@ export default function Page() {
               page.
             </p>
 
-            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#2D3E50] mt-12 mb-6">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mt-12 mb-6">
               Final Thoughts
             </h2>
 
@@ -323,7 +323,7 @@ export default function Page() {
           </article>
 
           <div className="bg-[#f5f5f5] p-8 rounded-lg my-12">
-            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2D3E50] mb-4">
+            <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] mb-4">
               Protect Your Family Before a Crisis
             </h3>
             <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-700 mb-6">

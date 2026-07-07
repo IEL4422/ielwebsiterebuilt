@@ -196,7 +196,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors">
               <span className="text-lg">&larr;</span>
@@ -236,7 +236,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <FileText className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -269,7 +269,7 @@ export default function Page() {
                 { num: '4', label: 'Testamentary Capacity', icon: <BookOpen className="w-5 h-5" /> },
                 { num: '5', label: 'Testamentary Intent', icon: <Scale className="w-5 h-5" /> },
               ].map((item) => (
-                <div key={item.num} className="bg-[#2D3E50] text-white rounded-xl p-4 text-center">
+                <div key={item.num} className="bg-[#33414E] text-white rounded-xl p-4 text-center">
                   <div className="flex justify-center mb-2 opacity-80">{item.icon}</div>
                   <div className="text-2xl font-bold mb-1">{item.num}</div>
                   <div className="text-sm font-medium opacity-90">{item.label}</div>
@@ -323,7 +323,7 @@ export default function Page() {
                 <div key={i} className="flex gap-3 bg-gray-50 border border-gray-200 rounded-lg p-4">
                   <CheckCircle2 className="w-5 h-5 text-[#4a708b] flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-[#2D3E50]">{item.label}: </span>
+                    <span className="font-semibold text-[#33414E]">{item.label}: </span>
                     <span className="text-gray-700">{item.desc}</span>
                   </div>
                 </div>
@@ -345,8 +345,8 @@ export default function Page() {
             <p className="mb-6">
               Testamentary capacity is assessed at the <em>moment of signing</em>, not before or after. A person with dementia may still have valid testamentary capacity during a &ldquo;lucid interval.&rdquo; Conversely, a person who is otherwise healthy may lack capacity if they are heavily medicated or in severe distress at the time of signing.
             </p>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
-              <p className="font-semibold text-[#2D3E50] mb-1 text-sm">Practical Guidance</p>
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
+              <p className="font-semibold text-[#33414E] mb-1 text-sm">Practical Guidance</p>
               <p className="text-gray-700 text-sm">If there is any possibility that capacity could be challenged later — due to age, illness, or family conflict — work with an attorney who can document the testator&apos;s understanding during the meeting and, if appropriate, obtain a letter from the testator&apos;s physician confirming their mental state near the execution date.</p>
             </div>
 
@@ -506,7 +506,7 @@ export default function Page() {
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <p className="font-bold text-[#2D3E50] text-lg mb-4">
+              <p className="font-bold text-[#33414E] text-lg mb-4">
                 Scenario: Janet, 72, types out her will and signs it at her kitchen table. Her adult daughter (who inherits the house) and her neighbor watch her sign, then both sign as witnesses. Is Janet&apos;s will valid in Illinois?
               </p>
               <div className="grid sm:grid-cols-3 gap-3 mb-5">
@@ -525,7 +525,7 @@ export default function Page() {
                           : quizAnswer === option.id
                           ? 'bg-red-100 border-red-500 text-red-800'
                           : 'border-gray-200 text-gray-400 bg-white'
-                        : 'border-[#2D3E50] text-[#2D3E50] hover:bg-[#2D3E50] hover:text-white'
+                        : 'border-[#33414E] text-[#33414E] hover:bg-[#33414E] hover:text-white'
                     }`}
                   >
                     {option.label}
@@ -554,13 +554,13 @@ export default function Page() {
             </p>
 
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden my-8">
-              <div className="bg-[#2D3E50] px-6 py-4">
+              <div className="bg-[#33414E] px-6 py-4">
                 <h3 className="text-white font-bold text-lg">Illinois Will Execution Checklist</h3>
               </div>
               <div className="divide-y divide-gray-100">
                 {checklistItems.map((item, i) => (
                   <div key={i} className="flex items-start gap-4 px-6 py-4">
-                    <div className={`w-5 h-5 rounded flex-shrink-0 mt-0.5 flex items-center justify-center ${item.required ? 'bg-[#2D3E50]' : 'bg-[#4a708b]'}`}>
+                    <div className={`w-5 h-5 rounded flex-shrink-0 mt-0.5 flex items-center justify-center ${item.required ? 'bg-[#33414E]' : 'bg-[#4a708b]'}`}>
                       <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
@@ -595,7 +595,7 @@ export default function Page() {
                 { title: 'Relocation to or from Illinois', desc: 'If you moved to Illinois with a will from another state, have it reviewed. And if you move away from Illinois, the new state\'s laws will eventually govern your estate — update your documents accordingly.' },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                  <h4 className="font-bold text-[#2D3E50] mb-2">{item.title}</h4>
+                  <h4 className="font-bold text-[#33414E] mb-2">{item.title}</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -608,13 +608,13 @@ export default function Page() {
               You cannot validly amend an Illinois will by writing in the margins, crossing out provisions, or adding handwritten notes — even if the changes are signed and dated. These alterations are ineffective and can raise questions about the original document&apos;s integrity.
             </p>
 
-            <div className="bg-[#2D3E50] rounded-2xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-2xl p-8 my-10 text-white">
               <h3 className="text-xl font-bold mb-3">Is Your Current Will Valid Under Illinois Law?</h3>
               <p className="text-white/80 mb-6 max-w-2xl text-sm leading-relaxed">
                 Whether you have an existing will that needs a validity review, or you are ready to create one from scratch, a brief consultation with an Illinois estate planning attorney gives you certainty. At Illinois Estate Law, we draft flat-fee wills with proper execution guidance — so you leave with a document that will actually work.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/book-consultation" className="bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-center text-sm">
+                <Link href="/book-consultation" className="bg-white text-[#33414E] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-center text-sm">
                   Book a Free Consultation
                 </Link>
                 <Link href="/chicago-wills-lawyer" className="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-center text-sm">
@@ -661,7 +661,7 @@ export default function Page() {
               <Link href="/blog/the-financial-impact-of-dying-without-a-will-in-illinois-and-the-value-of-estate-planning/" className="text-[#4a708b] hover:underline font-medium">the financial impact of dying without a will in Illinois</Link>.
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Get a Will That Actually Works
               </h3>
@@ -683,7 +683,7 @@ export default function Page() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3">Related Illinois Will & Estate Planning Guides</h3>
+              <h3 className="font-bold text-[#33414E] mb-3">Related Illinois Will & Estate Planning Guides</h3>
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
                   { href: '/blog/the-financial-impact-of-dying-without-a-will-in-illinois-and-the-value-of-estate-planning/', label: 'The Financial Impact of Dying Without a Will in Illinois' },
@@ -693,7 +693,7 @@ export default function Page() {
                   { href: '/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/', label: 'Revocable Living Trusts: Pros and Cons for Illinois Residents' },
                   { href: '/blog/understanding-the-basics-of-estate-planning/', label: 'Understanding the Basics of Estate Planning' },
                 ].map((link) => (
-                  <Link key={link.href} href={link.href} className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors">
+                  <Link key={link.href} href={link.href} className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors">
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
                   </Link>
@@ -724,7 +724,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3">Ready to Protect What You Have Built?</p>
               <p className="text-white/90 mb-5">Get a comprehensive estate plan that works exactly the way you intend — from a Chicago attorney you can trust.</p>
               <div className="flex flex-col sm:flex-row gap-4">

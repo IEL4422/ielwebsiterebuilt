@@ -172,7 +172,7 @@ export default function CountyProbatePage({
         <section className="py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-6">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-6">
                 Probate Attorney Serving {loc.county}
               </h2>
               <div className="w-16 h-1 bg-[#4A708B] mb-8" />
@@ -198,7 +198,7 @@ export default function CountyProbatePage({
         <section className="py-16 lg:py-20 bg-[#f8f9fa]">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-10 text-center">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-10 text-center">
                 Probate Services in {loc.county}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -219,14 +219,14 @@ export default function CountyProbatePage({
         <section className="py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-12 text-center">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-12 text-center">
                 The {loc.county} Probate Process
               </h2>
               <div className="max-w-3xl mx-auto space-y-0">
                 {getProcessSteps(countyCourtName).map((item, index) => (
                   <div key={item.step} className="flex gap-5">
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 bg-[#2D3E50] rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 bg-[#33414E] rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-white text-sm font-bold">{item.step}</span>
                       </div>
                       {index < 4 && (
@@ -234,7 +234,7 @@ export default function CountyProbatePage({
                       )}
                     </div>
                     <div className="pb-8">
-                      <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-[#2D3E50] mb-1">
+                      <h3 className="font-['Plus_Jakarta_Sans'] text-base font-bold text-[#33414E] mb-1">
                         {item.title}
                       </h3>
                       <p className="text-slate-600 text-sm leading-relaxed">
@@ -259,7 +259,7 @@ export default function CountyProbatePage({
         <section className="py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#2D3E50] mb-10 text-center">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-10 text-center">
                 Transparent Flat-Fee Probate Pricing
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
@@ -273,7 +273,7 @@ export default function CountyProbatePage({
               <div className="text-center mt-6">
                 <Link
                   href="https://www.illinoisestatelaw.com/services-pricing/"
-                  className="inline-flex items-center justify-center border-2 border-[#2D3E50] text-[#2D3E50] px-8 py-3 rounded-full font-bold hover:bg-[#2D3E50] hover:text-white transition-colors text-sm"
+                  className="inline-flex items-center justify-center border-2 border-[#33414E] text-[#33414E] px-8 py-3 rounded-full font-bold hover:bg-[#33414E] hover:text-white transition-colors text-sm"
                 >
                   View All Services &amp; Pricing
                 </Link>

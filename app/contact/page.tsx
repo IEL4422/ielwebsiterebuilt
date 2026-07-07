@@ -104,7 +104,7 @@ export default function ContactPage() {
       {/* Main Contact Section */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-6 lg:p-8 mb-12 shadow-sm text-center">
+          <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-6 lg:p-8 mb-12 shadow-sm text-center">
             <p className="text-xl lg:text-2xl font-bold text-slate-800 mb-2">
               Free Initial Consultation Available
             </p>
@@ -219,7 +219,7 @@ export default function ContactPage() {
             </div>
 
             {/* Book a Consultation CTA */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8 text-center flex flex-col items-center justify-center">
+            <div className="bg-[#33414E] rounded-2xl p-8 text-center flex flex-col items-center justify-center">
               <CalendarCheck className="w-14 h-14 text-white/80 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Book a Free Consultation</h3>
               <p className="text-white/80 mb-6 max-w-sm">
@@ -227,7 +227,7 @@ export default function ContactPage() {
               </p>
               <Link
                 href="/book-consultation/"
-                className="inline-block bg-white text-[#2D3E50] font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg"
+                className="inline-block bg-white text-[#33414E] font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg"
               >
                 Book a Consultation
               </Link>

@@ -135,7 +135,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] via-[#4A708B] to-[#33414E] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -179,7 +179,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Smartphone className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -198,7 +198,7 @@ export default function Page() {
 
             {/* At-a-glance summary */}
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] text-lg mb-4 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] text-lg mb-4 font-['Plus_Jakarta_Sans']">
                 Digital Asset Outcomes at a Glance
               </h3>
               <div className="grid sm:grid-cols-3 gap-4">
@@ -244,7 +244,7 @@ export default function Page() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
-              <div className="bg-[#2D3E50] text-white rounded-xl p-6">
+              <div className="bg-[#33414E] text-white rounded-xl p-6">
                 <Globe className="w-8 h-8 mb-3 opacity-80" />
                 <h3 className="font-bold text-lg mb-3 font-['Plus_Jakarta_Sans']">Digital Assets with Monetary Value</h3>
                 <ul className="space-y-2 text-sm text-white/85 font-['Plus_Jakarta_Sans']">
@@ -320,7 +320,7 @@ export default function Page() {
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden my-8">
-              <div className="bg-[#2D3E50] px-6 py-4">
+              <div className="bg-[#33414E] px-6 py-4">
                 <h3 className="text-white font-bold text-lg font-['Plus_Jakarta_Sans']">
                   What the Illinois RUFADAA Allows
                 </h3>
@@ -359,7 +359,7 @@ export default function Page() {
                       >
                         {row.permission}
                       </span>
-                      <h4 className="font-bold text-[#2D3E50] font-['Plus_Jakarta_Sans']">{row.access}</h4>
+                      <h4 className="font-bold text-[#33414E] font-['Plus_Jakarta_Sans']">{row.access}</h4>
                     </div>
                     <p className="text-gray-700 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">{row.detail}</p>
                   </div>
@@ -401,11 +401,11 @@ export default function Page() {
               ].map((item, i) => (
                 <div key={i} className="border border-gray-200 rounded-xl p-6 bg-white">
                   <div className="flex items-start gap-4">
-                    <span className="bg-[#2D3E50] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
+                    <span className="bg-[#33414E] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
                       {item.num}
                     </span>
                     <div>
-                      <h3 className="font-bold text-[#2D3E50] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
+                      <h3 className="font-bold text-[#33414E] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
                       <p className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">{item.body}</p>
                     </div>
                   </div>
@@ -492,7 +492,7 @@ export default function Page() {
                 <div
                   key={i}
                   className={`border-l-4 p-5 rounded-r-lg ${
-                    item.color === 'blue' ? 'bg-blue-50 border-[#4a708b]' : 'bg-amber-50 border-amber-400'
+                    item.color === 'blue' ? 'bg-blue-50 border-[#547298]' : 'bg-amber-50 border-amber-400'
                   }`}
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
@@ -523,11 +523,11 @@ export default function Page() {
               A traditional bank or brokerage account that is accessed online is still a conventional financial account governed by standard probate and estate law. Your executor, with proper Letters of Office, can generally access and transfer these accounts through the normal probate process — or outside of probate if the account has a payable-on-death designation. The fact that the account exists only online does not change the underlying legal rules. What it changes is <strong>discoverability</strong>: if your executor does not know the account exists, it may simply never be claimed.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Key className="w-5 h-5 text-[#4a708b] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#2D3E50] mb-1 font-['Plus_Jakarta_Sans']">
+                  <p className="font-semibold text-[#33414E] mb-1 font-['Plus_Jakarta_Sans']">
                     Unclaimed property is a real risk for online-only accounts
                   </p>
                   <p className="text-gray-700 text-sm font-['Plus_Jakarta_Sans']">
@@ -603,14 +603,14 @@ export default function Page() {
                 <div key={i} className="border border-gray-200 rounded-xl p-6 bg-white">
                   <div className="flex items-start gap-3 mb-3">
                     {item.icon}
-                    <h3 className="font-bold text-base font-['Plus_Jakarta_Sans'] text-[#2D3E50]">{item.title}</h3>
+                    <h3 className="font-bold text-base font-['Plus_Jakarta_Sans'] text-[#33414E]">{item.title}</h3>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">{item.body}</p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -625,7 +625,7 @@ export default function Page() {
             </div>
 
             {/* Mid-article CTA */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
               <h3 className="text-xl font-bold mb-3 font-['Plus_Jakarta_Sans']">
                 Need to Add Digital Assets to Your Illinois Estate Plan?
               </h3>
@@ -635,7 +635,7 @@ export default function Page() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[#33414E] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
                 >
                   Book a Free Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -706,7 +706,7 @@ export default function Page() {
               .
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Protect Your Digital Legacy With Illinois Estate Law
               </h3>
@@ -739,7 +739,7 @@ export default function Page() {
 
             {/* Related articles */}
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] mb-3 font-['Plus_Jakarta_Sans']">
                 Related Illinois Estate Planning Guides
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -754,7 +754,7 @@ export default function Page() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
+                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
                   >
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
@@ -797,7 +797,7 @@ export default function Page() {
             </div>
 
             {/* Final CTA banner */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
                 Ready to Protect Your Digital Assets?
               </p>

@@ -108,7 +108,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-14">
+      <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-14">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link
             href="/learning-center/"
@@ -163,8 +163,8 @@ export default async function GuidePage({ params }: GuidePageProps) {
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <div className="bg-white rounded-xl shadow-lg p-8 md:p-12">
             <div className="max-w-3xl mx-auto text-center">
-              <MessageSquare className="w-16 h-16 text-[#2D3E50] mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl font-bold text-[#2D3E50] mb-4">
+              <MessageSquare className="w-16 h-16 text-[#33414E] mx-auto mb-6" />
+              <h2 className="text-3xl md:text-4xl font-bold text-[#33414E] mb-4">
                 Need Personalized Guidance?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
@@ -173,13 +173,13 @@ export default async function GuidePage({ params }: GuidePageProps) {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="tel:3123730731"
-                  className="inline-block bg-[#2D3E50] text-white font-bold px-8 py-4 rounded-full hover:bg-[#4A708B] transition-colors text-lg"
+                  className="inline-block bg-[#33414E] text-white font-bold px-8 py-4 rounded-full hover:bg-[#4A708B] transition-colors text-lg"
                 >
                   Call (312) 373-0731
                 </Link>
                 <Link
                   href="/book-consultation/"
-                  className="inline-block bg-transparent border-2 border-[#2D3E50] text-[#2D3E50] font-bold px-8 py-4 rounded-full hover:bg-[#2D3E50] hover:text-white transition-colors text-lg"
+                  className="inline-block bg-transparent border-2 border-[#33414E] text-[#33414E] font-bold px-8 py-4 rounded-full hover:bg-[#33414E] hover:text-white transition-colors text-lg"
                 >
                   Book a Consultation
                 </Link>
@@ -193,7 +193,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0 text-center">
           <Link
             href="/learning-center/"
-            className="inline-flex items-center gap-2 text-[#2D3E50] hover:text-[#4A708B] font-semibold text-lg transition-colors"
+            className="inline-flex items-center gap-2 text-[#33414E] hover:text-[#4A708B] font-semibold text-lg transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             View All Guides

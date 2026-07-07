@@ -100,7 +100,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -123,7 +123,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="definition" className="text-2xl font-bold mt-8 mb-4">What Is a Quitclaim Deed?</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">A quitclaim deed transfers to the grantee (recipient) whatever interest the grantor currently holds in a piece of real estate — with no promises or warranties about the quality of that title.</p>
               <p className="mb-0 text-gray-700">In plain English: "I am giving you whatever interest I have in this property. I am not promising that I actually own it, that it is free of liens, or that anyone else won't come along and claim a superior interest." It is the opposite of a warranty deed, which includes those promises.</p>
             </div>
@@ -136,7 +136,7 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mb-6">
                 {useCases.map((uc, i) => (
                   <button key={i} onClick={() => setSelectedUseCase(i)}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${selectedUseCase === i ? 'bg-[#2D3E50] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${selectedUseCase === i ? 'bg-[#33414E] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                     {uc.label}
                   </button>
                 ))}
@@ -180,7 +180,7 @@ export default function Page() {
             <p className="mb-6">An Illinois quitclaim deed that is missing any of these elements will be rejected by the county recorder or may be legally ineffective:</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Requirement</th><th className="border border-gray-300 px-4 py-3 text-left">Details</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Requirement</th><th className="border border-gray-300 px-4 py-3 text-left">Details</th></tr></thead>
                 <tbody>
                   {requirements.map(({ req, detail }, i) => (
                     <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : ''}><td className="border border-gray-300 px-4 py-3 text-sm font-semibold">{req}</td><td className="border border-gray-300 px-4 py-3 text-sm">{detail}</td></tr>
@@ -193,7 +193,7 @@ export default function Page() {
             <p className="mb-6">After execution, the quitclaim deed must be recorded with the county recorder of deeds where the property is located. Recording provides public notice of the transfer and protects the grantee's interest against subsequent purchasers. An unrecorded deed is valid between the parties but may be defeated by a later recorded deed or judgment lien.</p>
             <div className="grid md:grid-cols-2 gap-4 my-6">
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h3 className="font-bold text-[#2D3E50] mb-2">Recording Requirements</h3>
+                <h3 className="font-bold text-[#33414E] mb-2">Recording Requirements</h3>
                 <ul className="space-y-2">
                   {['Original executed deed (with notary and witnesses)', 'PTAX-203 Real Estate Transfer Declaration', 'Transfer tax stamps (if tax is owed)', 'Recording fee ($50–$100 in Cook County)'].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-[#4a708b] flex-shrink-0" />{item}</li>
@@ -201,7 +201,7 @@ export default function Page() {
                 </ul>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h3 className="font-bold text-[#2D3E50] mb-2">Common Transfer Tax Exemptions</h3>
+                <h3 className="font-bold text-[#33414E] mb-2">Common Transfer Tax Exemptions</h3>
                 <ul className="space-y-2">
                   {['Transfers between spouses', 'Transfers to grantor\'s revocable trust', 'Transfers pursuant to divorce decree', 'Gifts with no consideration (some exemptions apply)', 'Certain transfers between parent and child'].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-[#4a708b] flex-shrink-0" />{item}</li>
@@ -223,7 +223,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Need a Quitclaim Deed Prepared Correctly?</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law prepares and records quitclaim deeds for families, trusts, divorce situations, and title corrections throughout Illinois. One mistake can create a title defect that costs thousands to fix — let us get it right the first time.</p>
               <div className="flex flex-wrap gap-4">

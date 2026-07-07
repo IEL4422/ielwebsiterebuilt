@@ -143,7 +143,7 @@ export default function TermsOfServicePage() {
               </p>
             </section>
 
-            <section className="bg-gray-50 border-2 border-[#4a708b] rounded-lg p-6">
+            <section className="bg-gray-50 border-2 border-[#547298] rounded-lg p-6">
               <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">9. SMS Text Message Communications</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 By providing your mobile number to Illinois Estate Law, you consent to receive recurring SMS messages regarding your legal matter including appointment reminders, case updates, document requests, and court date notifications.
@@ -262,7 +262,7 @@ export default function TermsOfServicePage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 If you have any questions about these Terms of Service, please contact us at:
               </p>
-              <div className="bg-gray-50 border-l-4 border-[#4a708b] p-6 rounded">
+              <div className="bg-gray-50 border-l-4 border-[#547298] p-6 rounded">
                 <p className="font-semibold text-[#2d3e50] mb-2">Illinois Estate Law</p>
                 <p className="text-gray-700">4422 N. Ravenswood Ave, Ste 212</p>
                 <p className="text-gray-700">Chicago, Illinois 60640</p>

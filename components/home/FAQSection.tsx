@@ -62,7 +62,7 @@ export function FAQSection() {
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
             Frequently Asked Questions
           </h2>
-          <div className="w-16 h-1 bg-[#77B1D4] mx-auto mb-6" />
+          <div className="w-16 h-1 bg-[#7E9CC0] mx-auto mb-6" />
           <p className="text-slate-600">
             Get answers to common questions about estate planning, probate, and our services.
           </p>
@@ -76,7 +76,7 @@ export function FAQSection() {
                 value={`item-${index}`}
                 className="border border-slate-200 rounded-lg px-6 bg-slate-50"
               >
-                <AccordionTrigger className="text-left text-slate-800 font-medium hover:text-[#77B1D4] hover:no-underline py-5">
+                <AccordionTrigger className="text-left text-slate-800 font-medium hover:text-[#7E9CC0] hover:no-underline py-5">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed pb-5">
@@ -100,7 +100,7 @@ export function FAQSection() {
             </a>
             <a
               href="/contact/"
-              className="inline-flex items-center justify-center px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
             >
               Book a Consultation
             </a>

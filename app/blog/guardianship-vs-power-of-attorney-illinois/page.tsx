@@ -133,7 +133,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] via-[#4A708B] to-[#33414E] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -177,7 +177,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Scale className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -196,7 +196,7 @@ export default function Page() {
 
             {/* Quick comparison at a glance */}
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <h3 className="font-bold text-[#2D3E50] text-lg mb-4 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] text-lg mb-4 font-['Plus_Jakarta_Sans']">
                 At a Glance: POA vs. Guardianship
               </h3>
               <div className="grid sm:grid-cols-3 gap-4">
@@ -343,11 +343,11 @@ export default function Page() {
               A guardian of the estate manages the ward&apos;s <strong>financial affairs</strong> — paying bills, managing accounts and investments, filing taxes, and protecting the ward&apos;s assets from waste or exploitation. The guardian of the estate must file an initial inventory of assets with the court, and then submit regular accountings — typically annually — showing all income received and expenditures made. This ongoing court oversight is one of the most significant differences from a private POA arrangement.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <Gavel className="w-5 h-5 text-[#4a708b] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#2D3E50] mb-1 font-['Plus_Jakarta_Sans']">Illinois favors &ldquo;limited guardianship&rdquo;</p>
+                  <p className="font-semibold text-[#33414E] mb-1 font-['Plus_Jakarta_Sans']">Illinois favors &ldquo;limited guardianship&rdquo;</p>
                   <p className="text-gray-700 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
                     Under 755 ILCS 5/11a-12, Illinois courts are required to order the least restrictive form of guardianship consistent with the ward&apos;s needs. A &ldquo;plenary&rdquo; (full) guardianship removes all decision-making authority. A &ldquo;limited&rdquo; guardianship covers only specific areas where the person cannot care for themselves, leaving them autonomous in other domains. Courts prefer limited guardianship when appropriate.
                   </p>
@@ -365,7 +365,7 @@ export default function Page() {
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden my-8">
-              <div className="bg-[#2D3E50] px-6 py-4">
+              <div className="bg-[#33414E] px-6 py-4">
                 <h3 className="text-white font-bold text-lg font-['Plus_Jakarta_Sans']">
                   POA vs. Guardianship: Key Differences
                 </h3>
@@ -375,7 +375,7 @@ export default function Page() {
                   <thead>
                     <tr className="border-b border-gray-200 bg-gray-50">
                       <th className="text-left py-3 px-6 font-bold text-gray-700">Factor</th>
-                      <th className="text-left py-3 px-4 font-bold text-[#2D3E50]">Power of Attorney</th>
+                      <th className="text-left py-3 px-4 font-bold text-[#33414E]">Power of Attorney</th>
                       <th className="text-left py-3 px-4 font-bold text-[#4a708b]">Guardianship</th>
                     </tr>
                   </thead>
@@ -442,11 +442,11 @@ export default function Page() {
               ].map((item, i) => (
                 <div key={i} className="border border-gray-200 rounded-xl p-6 bg-white">
                   <div className="flex items-start gap-4">
-                    <span className="bg-[#2D3E50] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
+                    <span className="bg-[#33414E] text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 font-['Plus_Jakarta_Sans']">
                       {item.num}
                     </span>
                     <div>
-                      <h3 className="font-bold text-[#2D3E50] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
+                      <h3 className="font-bold text-[#33414E] text-base mb-2 font-['Plus_Jakarta_Sans']">{item.title}</h3>
                       <p className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">{item.body}</p>
                     </div>
                   </div>
@@ -464,7 +464,7 @@ export default function Page() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
-              <div className="bg-[#2D3E50] text-white rounded-xl p-6">
+              <div className="bg-[#33414E] text-white rounded-xl p-6">
                 <ShieldCheck className="w-8 h-8 mb-3 opacity-80" />
                 <h3 className="font-bold text-lg mb-4 font-['Plus_Jakarta_Sans']">Power of Attorney Costs</h3>
                 <div className="space-y-3 text-sm font-['Plus_Jakarta_Sans']">
@@ -507,7 +507,7 @@ export default function Page() {
             </p>
 
             {/* Mid-article CTA */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
               <h3 className="text-xl font-bold mb-3 font-['Plus_Jakarta_Sans']">
                 Want to Avoid Guardianship for Your Family?
               </h3>
@@ -517,7 +517,7 @@ export default function Page() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[#33414E] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm font-['Plus_Jakarta_Sans']"
                 >
                   Book a Free Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -702,7 +702,7 @@ export default function Page() {
               .
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Speak With an Illinois Estate Planning Attorney
               </h3>
@@ -735,7 +735,7 @@ export default function Page() {
 
             {/* Related articles */}
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] mb-3 font-['Plus_Jakarta_Sans']">
                 Related Illinois Estate Planning Guides
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -768,7 +768,7 @@ export default function Page() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
+                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
                   >
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
@@ -811,7 +811,7 @@ export default function Page() {
             </div>
 
             {/* Final CTA banner */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
                 Ready to Protect Your Family Without a Court Battle?
               </p>

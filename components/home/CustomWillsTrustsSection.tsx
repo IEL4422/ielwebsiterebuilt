@@ -22,7 +22,7 @@ const accordionItems = [
   {
     id: 'special-needs-supplemental-needs-trusts',
     title: 'Special Needs and Supplemental Needs Trusts',
-    content: `<p>If you have a loved one with a disability, you can protect their future without risking their access to public benefits. A Supplemental Needs Trust (SNT) allows you to set aside assets for their care, while preserving eligibility for programs like SSI or Medicaid.</p><p>Illinois recognizes both first-party and third-party SNTs, each with different rules and funding sources. These trusts must follow strict guidelines, especially when it comes to distributions, so they don't inadvertently count as income or disqualify the beneficiary.</p><p><strong>This type of planning allows you to:</strong></p><ul><li>Provide for medical, recreational, or supplemental care</li><li>Appoint trusted individuals to manage the trust</li><li>Protect inheritances and legal settlements</li><li>Offer lifelong support without government interference</li></ul><p>Creating the right SNT means taking time to understand your loved one's needs today and in the years to come. We're here to guide that conversation thoughtfully and legally.</p><p>At Illinois Estate Law, we take pride in crafting custom estate plans that reflect your values, your family, and your vision for the future. Our estate planning attorney is ready to listen, plan, and support you every step of the way.</p><p><strong>Call us today at <a href="tel:3123730731" class="text-[#77B1D4] hover:text-[#5A9BC4]">(312) 373-0731</a> and start building a legacy with purpose.</strong></p>`,
+    content: `<p>If you have a loved one with a disability, you can protect their future without risking their access to public benefits. A Supplemental Needs Trust (SNT) allows you to set aside assets for their care, while preserving eligibility for programs like SSI or Medicaid.</p><p>Illinois recognizes both first-party and third-party SNTs, each with different rules and funding sources. These trusts must follow strict guidelines, especially when it comes to distributions, so they don't inadvertently count as income or disqualify the beneficiary.</p><p><strong>This type of planning allows you to:</strong></p><ul><li>Provide for medical, recreational, or supplemental care</li><li>Appoint trusted individuals to manage the trust</li><li>Protect inheritances and legal settlements</li><li>Offer lifelong support without government interference</li></ul><p>Creating the right SNT means taking time to understand your loved one's needs today and in the years to come. We're here to guide that conversation thoughtfully and legally.</p><p>At Illinois Estate Law, we take pride in crafting custom estate plans that reflect your values, your family, and your vision for the future. Our estate planning attorney is ready to listen, plan, and support you every step of the way.</p><p><strong>Call us today at <a href="tel:3123730731" class="text-[#7E9CC0] hover:text-[#5A9BC4]">(312) 373-0731</a> and start building a legacy with purpose.</strong></p>`,
   },
 ];
 
@@ -66,7 +66,7 @@ export function CustomWillsTrustsSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Custom Wills and Trusts Tailored to Your Unique Needs
             </h2>
-            <div className="w-16 h-1 bg-[#77B1D4] mb-6" />
+            <div className="w-16 h-1 bg-[#7E9CC0] mb-6" />
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
               When your estate planning goals involve more than just the basics, you deserve legal solutions that reflect the full picture of your life. Every plan we draft is built with Illinois law and your goals in mind, so your intentions are clearly documented and legally sound.
             </p>
@@ -106,7 +106,7 @@ export function CustomWillsTrustsSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                 <a
                   href="tel:3123730731"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
                 >
                   CALL (312) 373-0731
                 </a>

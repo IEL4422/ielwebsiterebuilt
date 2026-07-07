@@ -64,7 +64,7 @@ function AccordionBlock({ items }: { items: AccordionItem[] }) {
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
           >
-            <span className="font-semibold text-[#2D3E50] text-lg pr-4">{item.title}</span>
+            <span className="font-semibold text-[#33414E] text-lg pr-4">{item.title}</span>
             <ChevronDown
               className={`w-5 h-5 text-[#4A708B] flex-shrink-0 transition-transform duration-300 ${
                 openIndex === index ? 'rotate-180' : ''
@@ -94,7 +94,7 @@ function TabsBlock({ items, title }: { items: TabItem[]; title?: string }) {
     <div className="my-8 border border-gray-200 rounded-xl overflow-hidden">
       {title && (
         <div className="px-6 pt-5 pb-0">
-          <h4 className="font-bold text-[#2D3E50] text-lg">{title}</h4>
+          <h4 className="font-bold text-[#33414E] text-lg">{title}</h4>
         </div>
       )}
       <div className="flex border-b border-gray-200 overflow-x-auto">
@@ -104,7 +104,7 @@ function TabsBlock({ items, title }: { items: TabItem[]; title?: string }) {
             onClick={() => setActiveTab(index)}
             className={`px-5 py-3.5 font-medium text-sm whitespace-nowrap transition-colors border-b-2 ${
               activeTab === index
-                ? 'border-[#2D3E50] text-[#2D3E50] bg-gray-50'
+                ? 'border-[#33414E] text-[#33414E] bg-gray-50'
                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'
             }`}
           >
@@ -197,7 +197,7 @@ function ChecklistBlock({ items }: { items: ChecklistItem[] }) {
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <p className={`font-medium transition-colors ${checked.has(index) ? 'text-gray-400 line-through' : 'text-[#2D3E50]'}`}>
+              <p className={`font-medium transition-colors ${checked.has(index) ? 'text-gray-400 line-through' : 'text-[#33414E]'}`}>
                 {item.text}
               </p>
               {item.description && (
@@ -222,7 +222,7 @@ function NumberedSteps({ items }: { items: StepItem[] }) {
       {items.map((step, index) => (
         <div key={index} className="flex gap-4">
           <div className="flex flex-col items-center">
-            <div className="w-10 h-10 rounded-full bg-[#2D3E50] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+            <div className="w-10 h-10 rounded-full bg-[#33414E] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
               {index + 1}
             </div>
             {index < items.length - 1 && (
@@ -230,7 +230,7 @@ function NumberedSteps({ items }: { items: StepItem[] }) {
             )}
           </div>
           <div className={`flex-1 min-w-0 ${index < items.length - 1 ? 'pb-8' : 'pb-2'}`}>
-            <h4 className="font-bold text-[#2D3E50] text-lg mb-2">{step.title}</h4>
+            <h4 className="font-bold text-[#33414E] text-lg mb-2">{step.title}</h4>
             <div
               className="text-gray-700 leading-relaxed guide-rich-text"
               dangerouslySetInnerHTML={{ __html: step.content }}
@@ -249,7 +249,7 @@ function ComparisonTable({ headers, rows }: { headers?: string[]; rows?: Compari
     <div className="my-8 overflow-x-auto rounded-xl border border-gray-200">
       <table className="w-full text-left">
         <thead>
-          <tr className="bg-[#2D3E50]">
+          <tr className="bg-[#33414E]">
             <th className="px-5 py-4 text-white font-semibold text-sm">{headers[0]}</th>
             {headers.slice(1).map((header, i) => (
               <th key={i} className="px-5 py-4 text-white font-semibold text-sm">{header}</th>
@@ -259,7 +259,7 @@ function ComparisonTable({ headers, rows }: { headers?: string[]; rows?: Compari
         <tbody>
           {rows.map((row, index) => (
             <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-              <td className="px-5 py-4 font-medium text-[#2D3E50] text-sm">{row.label}</td>
+              <td className="px-5 py-4 font-medium text-[#33414E] text-sm">{row.label}</td>
               {row.values.map((value, i) => (
                 <td key={i} className="px-5 py-4 text-gray-700 text-sm" dangerouslySetInnerHTML={{ __html: value }} />
               ))}
@@ -275,7 +275,7 @@ function KeyTakeaway({ points, title }: { points?: string[]; title?: string }) {
   if (!points) return null;
 
   return (
-    <div className="my-8 bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-6 text-white">
+    <div className="my-8 bg-gradient-to-br from-[#33414E] to-[#4A708B] rounded-xl p-6 text-white">
       <h4 className="font-bold text-xl mb-4 flex items-center gap-2">
         <CheckCircle2 className="w-6 h-6" />
         {title || 'Key Takeaways'}
@@ -331,10 +331,10 @@ export default function GuideRenderer({ sections }: { sections: GuideSection[] }
             const Tag = `h${section.level || 2}` as keyof JSX.IntrinsicElements;
             const sizeClass =
               section.level === 2
-                ? 'text-3xl font-bold text-[#2D3E50] mt-12 mb-4'
+                ? 'text-3xl font-bold text-[#33414E] mt-12 mb-4'
                 : section.level === 3
-                ? 'text-2xl font-bold text-[#2D3E50] mt-10 mb-3'
-                : 'text-xl font-semibold text-[#2D3E50] mt-8 mb-3';
+                ? 'text-2xl font-bold text-[#33414E] mt-10 mb-3'
+                : 'text-xl font-semibold text-[#33414E] mt-8 mb-3';
             return (
               <Tag key={index} className={sizeClass} id={section.id}>
                 {section.content}

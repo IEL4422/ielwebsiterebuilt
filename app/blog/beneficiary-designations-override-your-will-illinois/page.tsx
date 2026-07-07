@@ -123,7 +123,7 @@ export default function Page() {
 
       <div className="min-h-screen bg-white">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#2D3E50] via-[#4A708B] to-[#2D3E50] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] via-[#4A708B] to-[#33414E] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -169,7 +169,7 @@ export default function Page() {
               Article Summary
             </h2>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <AlertTriangle className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -328,7 +328,7 @@ export default function Page() {
                 <div key={i} className="border border-gray-200 rounded-xl p-6 bg-white">
                   <div className="flex items-start gap-3 mb-3">
                     {item.icon}
-                    <h3 className="font-bold text-lg font-['Plus_Jakarta_Sans'] text-[#2D3E50]">{item.title}</h3>
+                    <h3 className="font-bold text-lg font-['Plus_Jakarta_Sans'] text-[#33414E]">{item.title}</h3>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">{item.body}</p>
                 </div>
@@ -524,7 +524,7 @@ export default function Page() {
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden my-8">
-              <div className="bg-[#2D3E50] px-6 py-4">
+              <div className="bg-[#33414E] px-6 py-4">
                 <h3 className="text-white font-bold text-lg font-['Plus_Jakarta_Sans']">
                   Key Illinois Statutes Affecting Beneficiary Designations
                 </h3>
@@ -562,7 +562,7 @@ export default function Page() {
                       <span className="bg-[#4a708b]/10 text-[#4a708b] text-xs font-bold px-2.5 py-1 rounded font-mono">
                         {item.statute}
                       </span>
-                      <h4 className="font-bold text-[#2D3E50] font-['Plus_Jakarta_Sans']">{item.title}</h4>
+                      <h4 className="font-bold text-[#33414E] font-['Plus_Jakarta_Sans']">{item.title}</h4>
                     </div>
                     <p className="text-gray-700 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">{item.desc}</p>
                   </div>
@@ -594,7 +594,7 @@ export default function Page() {
               trust law.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
@@ -611,7 +611,7 @@ export default function Page() {
             </div>
 
             {/* Mid-article CTA */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-10 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
               <h3 className="text-xl font-bold mb-3 font-['Plus_Jakarta_Sans']">
                 Not Sure If Your Beneficiary Designations Are Aligned?
               </h3>
@@ -623,7 +623,7 @@ export default function Page() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#2D3E50] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[#33414E] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-sm"
                 >
                   Book a Free Consultation
                   <ArrowRight className="w-4 h-4" />
@@ -701,7 +701,7 @@ export default function Page() {
               .
             </p>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4 font-['Plus_Jakarta_Sans']">
                 Get an Estate Plan That Works as One Coordinated System
               </h3>
@@ -736,7 +736,7 @@ export default function Page() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 my-8">
-              <h3 className="font-bold text-[#2D3E50] mb-3 font-['Plus_Jakarta_Sans']">
+              <h3 className="font-bold text-[#33414E] mb-3 font-['Plus_Jakarta_Sans']">
                 Related Illinois Estate Planning Guides
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -769,7 +769,7 @@ export default function Page() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#2D3E50] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
+                    className="flex items-center gap-2 text-[#4a708b] hover:text-[#33414E] text-sm font-medium hover:underline transition-colors font-['Plus_Jakarta_Sans']"
                   >
                     <ArrowRight className="w-4 h-4 shrink-0" />
                     {link.label}
@@ -820,7 +820,7 @@ export default function Page() {
             </div>
 
             {/* Final CTA banner */}
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-lg p-6 my-8">
+            <div className="bg-[#33414E] rounded-lg p-6 my-8">
               <p className="text-lg font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
                 Ready to Review Your Estate Plan?
               </p>

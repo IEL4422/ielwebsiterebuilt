@@ -17,7 +17,7 @@ export default function RelatedArticles({ articles }: RelatedArticlesProps) {
   return (
     <div className="my-10">
       <div className="flex items-center gap-4 mb-6">
-        <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#2D3E50] whitespace-nowrap">
+        <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#33414E] whitespace-nowrap">
           You Might Also Like
         </h2>
         <div className="flex-1 h-px bg-gray-200" />

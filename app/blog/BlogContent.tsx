@@ -111,7 +111,7 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
               placeholder="Search blog posts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-3 sm:py-4 rounded-[12px] border-2 border-gray-200 focus:border-[#4A708B] focus:outline-none font-['Plus_Jakarta_Sans'] text-sm sm:text-base transition-colors"
+              className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-3 sm:py-4 rounded-[12px] border-2 border-gray-200 focus:border-[#547298] focus:outline-none font-['Plus_Jakarta_Sans'] text-sm sm:text-base transition-colors"
             />
             {searchQuery && (
               <button

@@ -36,7 +36,7 @@ export default function WhyWereDifferentPage() {
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Left Column - Content */}
           <div className="lg:col-span-2">
-            <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-6 lg:p-8 mb-12 shadow-sm">
+            <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-6 lg:p-8 mb-12 shadow-sm">
               <p className="text-lg text-slate-700 leading-relaxed">
                 At Illinois Estate Law, we believe that estate planning should be accessible, straightforward, and tailored to fit your unique needs. Our focus is on helping you create a plan that provides clarity and peace of mind for the future, and we do so in a way that makes the process easy and transparent. Here&rsquo;s what sets us apart:
               </p>

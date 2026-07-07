@@ -86,7 +86,7 @@ export default function SummaryProbatePage() {
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 py-4">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[#4A708B] hover:text-[#2D3E50] font-['Plus_Jakarta_Sans'] font-semibold transition-colors group"
+            className="inline-flex items-center gap-2 text-[#4A708B] hover:text-[#33414E] font-['Plus_Jakarta_Sans'] font-semibold transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             Back to Blog
@@ -94,7 +94,7 @@ export default function SummaryProbatePage() {
         </div>
       </div>
 
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+      <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-2 mb-6">
             <span className="px-4 py-1.5 bg-white/20 text-white rounded-full text-sm font-['Plus_Jakarta_Sans'] font-semibold">

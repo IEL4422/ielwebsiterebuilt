@@ -99,7 +99,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -122,7 +122,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="benefits" className="text-2xl font-bold mt-8 mb-4">Benefits of Putting Your Home in a Trust</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">The primary reason Illinois homeowners put their home in a revocable living trust is to avoid probate — the court-supervised estate administration process that can take 12–24 months and cost thousands of dollars in Cook County.</p>
               <p className="mb-0 text-gray-700">When your home is in a trust and you die, the successor trustee can transfer or sell the property immediately, following the trust terms — no court filing, no waiting, no public proceeding. This is not possible with a will alone.</p>
             </div>
@@ -134,8 +134,8 @@ export default function Page() {
                 { icon: <Home className="w-5 h-5" />, title: 'Multi-State Property', desc: 'If you own property in multiple states, a trust avoids multiple probate proceedings (called "ancillary probate"). Without a trust, your estate may need to open probate in Illinois AND in every other state where you own real estate.' },
               ].map((item, i) => (
                 <div key={i} className="flex gap-3 bg-gray-50 border border-gray-200 rounded-xl p-4">
-                  <div className="w-9 h-9 rounded-full bg-[#2D3E50] text-white flex items-center justify-center flex-shrink-0">{item.icon}</div>
-                  <div><p className="font-bold text-[#2D3E50] text-sm mb-1">{item.title}</p><p className="text-gray-700 text-sm">{item.desc}</p></div>
+                  <div className="w-9 h-9 rounded-full bg-[#33414E] text-white flex items-center justify-center flex-shrink-0">{item.icon}</div>
+                  <div><p className="font-bold text-[#33414E] text-sm mb-1">{item.title}</p><p className="text-gray-700 text-sm">{item.desc}</p></div>
                 </div>
               ))}
             </div>
@@ -152,15 +152,15 @@ export default function Page() {
                 { step: '6', title: 'File Certificate of Trust for Homestead', desc: 'File a Certificate of Trust with the County Assessor to preserve your homestead property tax exemption. Failure to do this can result in loss of the exemption.' },
               ].map((item) => (
                 <div key={item.step} className="flex gap-4 bg-gray-50 border border-gray-200 rounded-xl p-4">
-                  <div className="w-8 h-8 rounded-full bg-[#2D3E50] text-white text-sm flex items-center justify-center font-bold flex-shrink-0">{item.step}</div>
-                  <div><p className="font-bold text-[#2D3E50] text-sm mb-1">{item.title}</p><p className="text-gray-700 text-sm">{item.desc}</p></div>
+                  <div className="w-8 h-8 rounded-full bg-[#33414E] text-white text-sm flex items-center justify-center font-bold flex-shrink-0">{item.step}</div>
+                  <div><p className="font-bold text-[#33414E] text-sm mb-1">{item.title}</p><p className="text-gray-700 text-sm">{item.desc}</p></div>
                 </div>
               ))}
             </div>
 
             <h2 id="mortgage" className="text-2xl font-bold mt-12 mb-4">Impact on Mortgage (Due-on-Sale Clause)</h2>
             <p className="mb-6">Many homeowners worry that transferring to a trust will trigger their mortgage's due-on-sale clause — a provision allowing the lender to demand immediate repayment if the property is transferred without consent. This concern is understandable but generally unfounded for living trust transfers.</p>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-2 font-semibold">Federal Law Protection</p>
               <p className="text-gray-700 mb-0">The Garn-St. Germain Depository Institutions Act of 1982 (12 U.S.C. § 1701j-3) specifically prohibits lenders from exercising the due-on-sale clause when a borrower transfers their home to an inter vivos trust where the borrower is and remains a beneficiary and the transfer does not relate to a transfer of occupancy rights. This federal protection supersedes any contrary provision in your mortgage documents.</p>
             </div>
@@ -169,7 +169,7 @@ export default function Page() {
             <h2 id="taxes-exemptions" className="text-2xl font-bold mt-12 mb-4">Property Taxes, Homestead Exemption, and Title Insurance</h2>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Concern</th><th className="border border-gray-300 px-4 py-3 text-left">Effect of Transfer to Revocable Living Trust</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Concern</th><th className="border border-gray-300 px-4 py-3 text-left">Effect of Transfer to Revocable Living Trust</th></tr></thead>
                 <tbody>
                   {[
                     ['Property tax reassessment', 'None — transfer to grantor\'s own revocable trust does not trigger reassessment in Illinois'],
@@ -189,7 +189,7 @@ export default function Page() {
             <p className="mb-6">Illinois is one of the few states with a well-developed land trust tradition. Understanding the difference between an Illinois land trust and a revocable living trust is important:</p>
             <div className="grid md:grid-cols-2 gap-4 my-6">
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h3 className="font-bold text-[#2D3E50] mb-3">Illinois Land Trust</h3>
+                <h3 className="font-bold text-[#33414E] mb-3">Illinois Land Trust</h3>
                 <ul className="space-y-2">
                   {[
                     'Trustee (usually a bank/title company) holds title',
@@ -204,7 +204,7 @@ export default function Page() {
                 </ul>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h3 className="font-bold text-[#2D3E50] mb-3">Revocable Living Trust</h3>
+                <h3 className="font-bold text-[#33414E] mb-3">Revocable Living Trust</h3>
                 <ul className="space-y-2">
                   {[
                     'You are the trustee during your lifetime',
@@ -245,7 +245,7 @@ export default function Page() {
               )}
               {hasResult ? (
                 <div>
-                  <div className="bg-[#2D3E50] text-white rounded-xl p-5 mb-4">
+                  <div className="bg-[#33414E] text-white rounded-xl p-5 mb-4">
                     <p className="font-semibold text-lg mb-0">{(currentNode as { result: string }).result}</p>
                   </div>
                   <button onClick={resetDecision} className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-300 transition-colors">Start Over</button>
@@ -255,7 +255,7 @@ export default function Page() {
                   <p className="font-semibold text-gray-800 text-lg mb-4">{(currentNode as { question: string; yes: number; no: number; yesLabel: string; noLabel: string }).question}</p>
                   <div className="flex gap-3">
                     <button onClick={() => handleDecision((currentNode as { yes: number }).yes, (currentNode as { yesLabel: string }).yesLabel)}
-                      className="px-6 py-3 bg-[#2D3E50] text-white rounded-lg font-semibold hover:bg-[#3a4f63] transition-colors">
+                      className="px-6 py-3 bg-[#33414E] text-white rounded-lg font-semibold hover:bg-[#3a4f63] transition-colors">
                       {(currentNode as { yesLabel: string }).yesLabel}
                     </button>
                     <button onClick={() => handleDecision((currentNode as { no: number }).no, (currentNode as { noLabel: string }).noLabel)}
@@ -280,7 +280,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Plan for Your Home&apos;s Future — Without Probate</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law drafts revocable living trusts and handles all deed transfers to fund your trust — so your home avoids probate and transitions seamlessly to your loved ones. Schedule a consultation to discuss your options.</p>
               <div className="flex flex-wrap gap-4">

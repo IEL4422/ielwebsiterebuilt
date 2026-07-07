@@ -89,13 +89,13 @@ export default function PowersOfAttorneyPage() {
 
       <main>
         <InnerPageHero title="Powers of Attorney" subtitle="Protect your financial future with comprehensive powers of attorney tailored to Illinois law" />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -138,7 +138,7 @@ export default function PowersOfAttorneyPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-8 mb-12 shadow-sm">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   Secure Your Financial Future with Illinois Powers of Attorney
                 </h2>
@@ -160,9 +160,9 @@ export default function PowersOfAttorneyPage() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">Types of Powers of Attorney in Illinois</h3>
 
                 <div className="grid md:grid-cols-2 gap-6 my-8">
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Shield className="w-6 h-6" />
                       </div>
                       <div>
@@ -174,9 +174,9 @@ export default function PowersOfAttorneyPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <FileText className="w-6 h-6" />
                       </div>
                       <div>
@@ -188,9 +188,9 @@ export default function PowersOfAttorneyPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <DollarSign className="w-6 h-6" />
                       </div>
                       <div>
@@ -202,9 +202,9 @@ export default function PowersOfAttorneyPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <AlertCircle className="w-6 h-6" />
                       </div>
                       <div>
@@ -251,7 +251,7 @@ export default function PowersOfAttorneyPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('powers')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Financial Powers You Can Grant</span>
                     {expandedSection === 'powers' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -324,31 +324,31 @@ export default function PowersOfAttorneyPage() {
                 <div className="bg-blue-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Absolute Trustworthiness:</strong> Must act in your best interests and resist temptation to misuse funds</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Financial Competence:</strong> Understands financial matters, budgeting, investments, and property management</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Organized and Detail-Oriented:</strong> Keeps accurate records and manages paperwork effectively</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Good Judgment:</strong> Makes sound decisions under pressure and considers long-term consequences</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Available and Accessible:</strong> Has time to dedicate to managing your affairs when needed</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Financially Stable:</strong> Not facing financial difficulties that might create conflicts of interest</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span><strong>Willing to Serve:</strong> Has agreed to accept this responsibility and understands the duties involved</span>
                     </li>
                   </ul>
@@ -376,7 +376,7 @@ export default function PowersOfAttorneyPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('requirements')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Legal Requirements for Illinois Powers of Attorney</span>
                     {expandedSection === 'requirements' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -481,7 +481,7 @@ export default function PowersOfAttorneyPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-white border-2 border-[#77B1D4] rounded-lg p-6">
+                  <div className="bg-white border-2 border-[#7E9CC0] rounded-lg p-6">
                     <h4 className="text-xl font-bold text-slate-800 mb-3">Springing Power of Attorney</h4>
                     <p className="text-slate-600 mb-3">Takes effect only when a specified condition occurs, typically your incapacity.</p>
                     <p className="text-sm text-slate-500 font-medium mb-2">Advantages:</p>
@@ -510,31 +510,31 @@ export default function PowersOfAttorneyPage() {
                 <div className="bg-slate-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Require Accounting:</strong> Mandate that your agent provide regular financial reports to a designated person or attorney</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Name Co-Agents:</strong> Require two agents to act together, providing checks and balances</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Limit Powers:</strong> Grant only specific powers needed rather than broad authority</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Set Dollar Limits:</strong> Restrict certain transactions above specified amounts</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Prohibit Gifts:</strong> Unless specifically authorized, prevent your agent from making gifts</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Designate Monitors:</strong> Allow certain people to receive copies of financial records</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span><strong>Include Expiration Date:</strong> Require renewal after a certain period</span>
                     </li>
                   </ul>
@@ -550,23 +550,23 @@ export default function PowersOfAttorneyPage() {
 
                 <div className="space-y-3 my-6 text-slate-600">
                   <div className="flex items-start gap-3">
-                    <span className="bg-[#2D3E50] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">1</span>
+                    <span className="bg-[#33414E] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">1</span>
                     <span>Execute a written revocation document clearly stating your intent to revoke</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="bg-[#2D3E50] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">2</span>
+                    <span className="bg-[#33414E] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">2</span>
                     <span>Notify your agent in writing that the power of attorney is revoked</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="bg-[#2D3E50] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">3</span>
+                    <span className="bg-[#33414E] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">3</span>
                     <span>Inform all financial institutions and third parties who received copies of the original power</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="bg-[#2D3E50] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">4</span>
+                    <span className="bg-[#33414E] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">4</span>
                     <span>Retrieve all original and copies of the revoked document if possible</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="bg-[#2D3E50] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">5</span>
+                    <span className="bg-[#33414E] text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">5</span>
                     <span>If creating a new power of attorney, deliver it to your new agent and relevant institutions</span>
                   </div>
                 </div>
@@ -581,7 +581,7 @@ export default function PowersOfAttorneyPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('comparison')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Power of Attorney vs. Guardianship Comparison</span>
                     {expandedSection === 'comparison' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -655,39 +655,39 @@ export default function PowersOfAttorneyPage() {
                 <div className="bg-slate-50 rounded-lg p-6 my-6">
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Comprehensive consultation to assess your financial situation and needs</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Guidance on selecting the right type of power of attorney</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Help choosing appropriate agents and successor agents</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Customized documents that grant appropriate powers and include protective provisions</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Coordination with your overall estate plan including trusts and wills</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Discussion of powers to grant or withhold based on your comfort level</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Education for your agent about their duties and responsibilities</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Assistance with delivery to financial institutions and third parties</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] text-xl">→</span>
+                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Regular reviews and updates as circumstances change</span>
                     </li>
                   </ul>
@@ -776,7 +776,7 @@ export default function PowersOfAttorneyPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -788,7 +788,7 @@ export default function PowersOfAttorneyPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Your Consultation
                 </Link>

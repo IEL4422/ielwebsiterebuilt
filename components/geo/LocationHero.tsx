@@ -37,7 +37,7 @@ export function LocationHero({ title, subtitle }: LocationHeroProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="https://www.illinoisestatelaw.com/book-consultation/"
-              className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors text-base"
+              className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors text-base"
             >
               Book a Free Consultation
             </Link>

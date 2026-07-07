@@ -45,13 +45,13 @@ export default function ChicagoDeedsLawyerPage() {
 
       <main>
         <InnerPageHero title="Real Estate Deeds" subtitle="Expert guidance on Transfer on Death Instruments, Quit Claim Deeds, and Life Estate Deeds in Illinois" />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -93,7 +93,7 @@ export default function ChicagoDeedsLawyerPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-[1140px] mx-auto">
-              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#77B1D4] rounded-lg p-8 mb-12 shadow-sm">
+              <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   Protect Your Property with the Right Deed Strategy
                 </h2>
@@ -111,9 +111,9 @@ export default function ChicagoDeedsLawyerPage() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">Our Deed Services</h3>
 
                 <div className="grid md:grid-cols-1 gap-6 my-8">
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-8 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-8 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Home className="w-8 h-8" />
                       </div>
                       <div>
@@ -127,47 +127,47 @@ export default function ChicagoDeedsLawyerPage() {
                       <h5 className="font-bold text-slate-800 mb-3">Key Benefits:</h5>
                       <ul className="space-y-2 text-slate-600 mb-4">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Avoids probate entirely for residential real estate</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>You maintain full control and ownership during your lifetime</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Can be revoked or changed at any time</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Beneficiary has no rights until your death</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Simple and cost-effective probate avoidance tool</span>
                         </li>
                       </ul>
                       <h5 className="font-bold text-slate-800 mb-3">Best For:</h5>
                       <ul className="space-y-2 text-slate-600">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Residential property (single-family homes, condos, townhouses)</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>People who want to avoid probate but maintain full control</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Those who want flexibility to change beneficiaries</span>
                         </li>
                       </ul>
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-8 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-8 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <FileText className="w-8 h-8" />
                       </div>
                       <div>
@@ -181,23 +181,23 @@ export default function ChicagoDeedsLawyerPage() {
                       <h5 className="font-bold text-slate-800 mb-3">Common Uses:</h5>
                       <ul className="space-y-2 text-slate-600 mb-4">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Adding or removing a spouse from the title</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Transferring property into a trust</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Correcting title defects or errors</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Transferring property between family members</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Clarifying ownership interests</span>
                         </li>
                       </ul>
@@ -219,9 +219,9 @@ export default function ChicagoDeedsLawyerPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white border-2 border-slate-200 rounded-lg p-8 hover:border-[#77B1D4] transition-colors shadow-sm">
+                  <div className="bg-white border-2 border-slate-200 rounded-lg p-8 hover:border-[#7E9CC0] transition-colors shadow-sm">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="bg-[#77B1D4] text-white p-3 rounded-lg">
+                      <div className="bg-[#7E9CC0] text-white p-3 rounded-lg">
                         <Shield className="w-8 h-8" />
                       </div>
                       <div>
@@ -235,19 +235,19 @@ export default function ChicagoDeedsLawyerPage() {
                       <h5 className="font-bold text-slate-800 mb-3">Key Benefits:</h5>
                       <ul className="space-y-2 text-slate-600 mb-4">
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Property transfers outside of probate automatically</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>You retain full rights to use and live in the property</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>Can qualify for Medicaid planning in some situations</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="text-[#77B1D4] font-bold">•</span>
+                          <span className="text-[#7E9CC0] font-bold">•</span>
                           <span>May provide capital gains tax benefits for beneficiaries</span>
                         </li>
                       </ul>
@@ -283,7 +283,7 @@ export default function ChicagoDeedsLawyerPage() {
                 <div className="my-8 border border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleSection('comparison')}
-                    className="w-full bg-[#2D3E50] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
+                    className="w-full bg-[#33414E] text-white px-6 py-4 flex items-center justify-between hover:bg-[#4A708B] transition-colors"
                   >
                     <span className="font-bold text-lg">Deed Comparison Chart</span>
                     {expandedSection === 'comparison' ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -359,31 +359,31 @@ export default function ChicagoDeedsLawyerPage() {
                   <h4 className="font-bold text-slate-800 mb-4">Our Deed Services Include:</h4>
                   <ul className="space-y-3 text-slate-700">
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span>Consultation to determine which deed type best fits your needs</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span>Review of current property ownership and title</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span>Professional deed preparation with accurate legal descriptions</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span>Proper execution and witnessing</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span>Recording with the county recorder's office</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span>Coordination with your overall estate plan</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-[#77B1D4] font-bold text-xl">✓</span>
+                      <span className="text-[#7E9CC0] font-bold text-xl">✓</span>
                       <span>Guidance on tax implications and benefits</span>
                     </li>
                   </ul>
@@ -488,7 +488,7 @@ export default function ChicagoDeedsLawyerPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -500,7 +500,7 @@ export default function ChicagoDeedsLawyerPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Your Consultation
                 </Link>

@@ -62,7 +62,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -85,7 +85,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="what-is" className="text-2xl font-bold mt-8 mb-4">What Is a Title Search?</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">A title search is a systematic review of public records — including the county recorder of deeds, circuit court records, and property tax records — to trace the history of ownership of a piece of real estate and identify any claims, liens, or defects affecting the title.</p>
               <p className="mb-0 text-gray-700">In Illinois, the title search is performed by a licensed title company before issuing a title insurance commitment. The searcher reviews the chain of title going back at least 40 years (often further) and reports on every recorded instrument that affects the property.</p>
             </div>
@@ -125,7 +125,7 @@ export default function Page() {
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5">
                   <div className="w-24 flex-shrink-0">
-                    <span className="font-bold text-[#2D3E50] text-sm">{item.schedule}</span>
+                    <span className="font-bold text-[#33414E] text-sm">{item.schedule}</span>
                   </div>
                   <div>
                     <p className="font-bold text-gray-800 text-sm mb-1">{item.title}</p>
@@ -143,7 +143,7 @@ export default function Page() {
             <p className="mb-6">A "cloud on title" is any claim, lien, encumbrance, or other recorded instrument that calls into question the quality of the seller's title. Clouds must be resolved before a clean title can be conveyed to a buyer. Common resolution methods include:</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Type of Cloud</th><th className="border border-gray-300 px-4 py-3 text-left">Typical Resolution</th><th className="border border-gray-300 px-4 py-3 text-left">Who Handles It</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Type of Cloud</th><th className="border border-gray-300 px-4 py-3 text-left">Typical Resolution</th><th className="border border-gray-300 px-4 py-3 text-left">Who Handles It</th></tr></thead>
                 <tbody>
                   {[
                     ['Unreleased mortgage', 'Contact prior lender for release; record payoff certificate', 'Title company + seller\'s attorney'],
@@ -189,7 +189,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Have a Title Issue? Let&apos;s Resolve It.</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law reviews title commitments and resolves title defects for buyers and sellers throughout Cook County. We identify problems others miss — and fix them before they delay your closing.</p>
               <div className="flex flex-wrap gap-4">

@@ -193,7 +193,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </section>
 
-            <section className="bg-gray-50 border-2 border-[#4a708b] rounded-lg p-6">
+            <section className="bg-gray-50 border-2 border-[#547298] rounded-lg p-6">
               <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">10. SMS Communications and Mobile Data</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Illinois Estate Law collects mobile phone numbers via signed retainer agreements and intake forms for the purpose of sending clients SMS messages regarding their legal matters.
@@ -218,7 +218,7 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:
               </p>
-              <div className="bg-gray-50 border-l-4 border-[#4a708b] p-6 rounded">
+              <div className="bg-gray-50 border-l-4 border-[#547298] p-6 rounded">
                 <p className="font-semibold text-[#2d3e50] mb-2">Illinois Estate Law</p>
                 <p className="text-gray-700">4422 N. Ravenswood Ave, Ste 212</p>
                 <p className="text-gray-700">Chicago, Illinois 60640</p>

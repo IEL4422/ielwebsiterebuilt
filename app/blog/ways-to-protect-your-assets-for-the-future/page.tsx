@@ -148,7 +148,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+      <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <Link
             href="/blog"
@@ -178,7 +178,7 @@ export default function Page() {
             Article Summary
           </h2>
 
-          <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+          <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
             <div className="flex items-start gap-3">
               <Shield className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
               <div>
@@ -242,7 +242,7 @@ export default function Page() {
               <text x="400" y="40" textAnchor="middle" fill="#1e293b" fontSize="24" fontWeight="bold">Asset Protection Timeline</text>
 
               {/* Timeline Base */}
-              <line x1="100" y1="200" x2="700" y2="200" stroke="#77B1D4" strokeWidth="4"/>
+              <line x1="100" y1="200" x2="700" y2="200" stroke="#7E9CC0" strokeWidth="4"/>
 
               {/* Left Side - Proper Planning */}
               <circle cx="200" cy="200" r="12" fill="#22c55e"/>
@@ -576,7 +576,7 @@ export default function Page() {
             This timing matters if you face potential creditor claims or are considering filing for bankruptcy protection. Waiting until the new exemptions take effect could mean the difference between keeping your home and losing it to forced sale. An estate planning attorney can help you evaluate whether to delay action to benefit from the increased protections.
           </p>
 
-          <div className="bg-[#f5f5f5] border-l-4 border-[#4a708b] p-6 my-8">
+          <div className="bg-[#f5f5f5] border-l-4 border-[#547298] p-6 my-8">
             <p className="mb-0">
               <strong>Key Takeaway:</strong> Illinois homestead exemptions protect home equity from most creditors. The exemption increases from $15,000 to $50,000 per person ($30,000 to $100,000 for couples) on January 1, 2026, providing much stronger protection for homeowners.
             </p>
@@ -686,7 +686,7 @@ export default function Page() {
           </h3>
 
           <div className="grid md:grid-cols-2 gap-6 my-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-[#4a708b]">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-[#547298]">
               <div className="flex items-center gap-3 mb-3">
                 <Home className="w-6 h-6 text-[#4a708b]" />
                 <h4 className="font-bold text-lg">Homeowners Insurance</h4>
@@ -948,7 +948,7 @@ export default function Page() {
             </table>
           </div>
 
-          <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8">
+          <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8">
             <div className="flex items-start gap-3">
               <Shield className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
               <div>

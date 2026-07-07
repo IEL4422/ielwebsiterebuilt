@@ -32,7 +32,7 @@ export function Footer() {
 
   return (
     <footer>
-      <div className="bg-[#2D3E50] px-4 sm:px-5 xl:px-0 py-10 sm:py-[60px] pb-[40px] sm:pb-[50px] md:pb-[50px]">
+      <div className="bg-[#33414E] px-4 sm:px-5 xl:px-0 py-10 sm:py-[60px] pb-[40px] sm:pb-[50px] md:pb-[50px]">
         <div className="mx-auto max-w-[1140px]">
           <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-0">
             <div className="lg:w-[25%] flex justify-center lg:justify-start">
@@ -113,7 +113,7 @@ export function Footer() {
                     target="_blank"
                     rel="nofollow noopener"
                     aria-label={social.label}
-                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FEFEFE] flex items-center justify-center text-[#2D3E50] hover:bg-[#4A708B] hover:text-[#FEFEFE] transition-colors"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FEFEFE] flex items-center justify-center text-[#33414E] hover:bg-[#4A708B] hover:text-[#FEFEFE] transition-colors"
                   >
                     {social.icon === 'x' ? (
                       <XIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
@@ -168,7 +168,7 @@ export function Footer() {
 
               {/* ISBA Member */}
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#77B1D4] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-5 h-5 text-[#7E9CC0] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/>
                   <polyline points="9 12 11 14 15 10"/>
                 </svg>
@@ -182,7 +182,7 @@ export function Footer() {
 
               {/* Licensed in Illinois */}
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#77B1D4] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-5 h-5 text-[#7E9CC0] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="8" r="6"/>
                   <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
                 </svg>
@@ -214,15 +214,15 @@ export function Footer() {
       <div className="bg-[#F3F3F3] px-4 sm:px-5 xl:px-0 py-2.5">
         <div className="mx-auto max-w-[1140px]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0 min-h-[22px]">
-            <p className="text-[#2D3E50] text-xs sm:text-sm font-normal text-center md:text-left">
+            <p className="text-[#33414E] text-xs sm:text-sm font-normal text-center md:text-left">
               Copyright © {currentYear} Illinois Estate Law Firm. All rights reserved.
             </p>
             <div className="flex items-center justify-center gap-2 text-xs sm:text-sm">
-              <Link href="/privacy-policy/" className="text-[#2D3E50] hover:text-[#4A708B] transition-colors">
+              <Link href="/privacy-policy/" className="text-[#33414E] hover:text-[#4A708B] transition-colors">
                 Privacy Policy
               </Link>
-              <span className="text-[#2D3E50]">|</span>
-              <Link href="/terms-of-service/" className="text-[#2D3E50] hover:text-[#4A708B] transition-colors">
+              <span className="text-[#33414E]">|</span>
+              <Link href="/terms-of-service/" className="text-[#33414E] hover:text-[#4A708B] transition-colors">
                 Terms of Service
               </Link>
             </div>

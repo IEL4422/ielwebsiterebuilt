@@ -34,9 +34,9 @@ const LEGAL_MATTERS = [
 ];
 
 const inputClass =
-  'w-full px-4 py-3 border border-gray-300 rounded-lg font-[\'Plus_Jakarta_Sans\'] text-[#2D3E50] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4A708B] focus:border-transparent transition-colors';
+  'w-full px-4 py-3 border border-gray-300 rounded-lg font-[\'Plus_Jakarta_Sans\'] text-[#33414E] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4A708B] focus:border-transparent transition-colors';
 const labelClass =
-  'block font-[\'Plus_Jakarta_Sans\'] font-semibold text-sm text-[#2D3E50] mb-1';
+  'block font-[\'Plus_Jakarta_Sans\'] font-semibold text-sm text-[#33414E] mb-1';
 const errorClass = 'mt-1 text-sm text-red-600 font-[\'Plus_Jakarta_Sans\']';
 
 export function ReferralForm() {
@@ -79,7 +79,7 @@ export function ReferralForm() {
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-10 h-10 text-green-600" />
         </div>
-        <h2 className="font-extrabold text-[36px] text-[#2D3E50] mb-4">
+        <h2 className="font-extrabold text-[36px] text-[#33414E] mb-4">
           Referral Received!
         </h2>
         <p className="font-['Plus_Jakarta_Sans'] text-lg text-gray-700 mb-4">
@@ -110,10 +110,10 @@ export function ReferralForm() {
       {/* ── SECTION 1: Referring Attorney ─────────────────────── */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-[#2D3E50] text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
+          <div className="w-8 h-8 bg-[#33414E] text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
             1
           </div>
-          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#2D3E50]">
+          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#33414E]">
             Your Information
           </h2>
         </div>
@@ -220,10 +220,10 @@ export function ReferralForm() {
       {/* ── SECTION 2: Client Information ─────────────────────── */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-[#2D3E50] text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
+          <div className="w-8 h-8 bg-[#33414E] text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
             2
           </div>
-          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#2D3E50]">
+          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#33414E]">
             Client Information
           </h2>
         </div>
@@ -333,10 +333,10 @@ export function ReferralForm() {
       {/* ── SECTION 3: Referral Fee Agreement ─────────────────── */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-[#2D3E50] text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
+          <div className="w-8 h-8 bg-[#33414E] text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
             3
           </div>
-          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#2D3E50]">
+          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[22px] text-[#33414E]">
             Referral Fee Agreement
           </h2>
         </div>
@@ -348,7 +348,7 @@ export function ReferralForm() {
             onClick={() => setAgreementOpen((o) => !o)}
             className="w-full flex items-center justify-between px-5 py-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
           >
-            <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[#2D3E50]">
+            <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[#33414E]">
               Attorney Referral Fee Agreement — Click to Read
             </span>
             <ChevronDown
@@ -360,7 +360,7 @@ export function ReferralForm() {
 
           {agreementOpen && (
             <div className="px-5 py-5 bg-white border-t border-gray-200 prose prose-sm max-w-none text-gray-700 space-y-4 font-['Plus_Jakarta_Sans'] text-[14px] leading-relaxed">
-              <p className="text-center font-bold text-[#2D3E50] text-base uppercase tracking-wide">
+              <p className="text-center font-bold text-[#33414E] text-base uppercase tracking-wide">
                 Attorney Referral Fee Agreement
               </p>
               <p className="text-center text-gray-600 text-xs">
@@ -375,7 +375,7 @@ export function ReferralForm() {
               </p>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">1. Referral Fee</p>
+                <p className="font-bold text-[#33414E]">1. Referral Fee</p>
                 <p>
                   If the referred client retains the Firm and pays attorney&rsquo;s fees, the Firm
                   agrees to pay the Referring Attorney a referral fee equal to{' '}
@@ -386,7 +386,7 @@ export function ReferralForm() {
               </div>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">2. Payment Terms</p>
+                <p className="font-bold text-[#33414E]">2. Payment Terms</p>
                 <p>
                   The referral fee will be paid to the Referring Attorney within{' '}
                   <strong>30 days</strong> of the Firm&rsquo;s receipt of final payment from the
@@ -396,7 +396,7 @@ export function ReferralForm() {
               </div>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">
+                <p className="font-bold text-[#33414E]">
                   3. Compliance with Illinois Rules of Professional Conduct
                 </p>
                 <p>
@@ -430,7 +430,7 @@ export function ReferralForm() {
               </div>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">4. No Guaranty of Engagement</p>
+                <p className="font-bold text-[#33414E]">4. No Guaranty of Engagement</p>
                 <p>
                   This Agreement does not guarantee that the referred client will retain the
                   Firm. The referral fee is contingent solely upon the client signing an
@@ -440,7 +440,7 @@ export function ReferralForm() {
               </div>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">5. Referring Attorney&rsquo;s Role</p>
+                <p className="font-bold text-[#33414E]">5. Referring Attorney&rsquo;s Role</p>
                 <p>
                   The Referring Attorney will not provide legal services in connection with the
                   referred matter unless separately agreed to in writing by both parties. The
@@ -450,7 +450,7 @@ export function ReferralForm() {
               </div>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">6. Confidentiality</p>
+                <p className="font-bold text-[#33414E]">6. Confidentiality</p>
                 <p>
                   Both parties agree to maintain the confidentiality of all client information
                   in accordance with the Illinois Rules of Professional Conduct and applicable
@@ -459,7 +459,7 @@ export function ReferralForm() {
               </div>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">7. Governing Law</p>
+                <p className="font-bold text-[#33414E]">7. Governing Law</p>
                 <p>
                   This Agreement is governed by the laws of the State of Illinois and the
                   Illinois Rules of Professional Conduct. Any dispute arising under this
@@ -468,7 +468,7 @@ export function ReferralForm() {
               </div>
 
               <div>
-                <p className="font-bold text-[#2D3E50]">8. Entire Agreement</p>
+                <p className="font-bold text-[#33414E]">8. Entire Agreement</p>
                 <p>
                   This Agreement constitutes the entire agreement between the parties with
                   respect to the referral fee arrangement. No modification shall be binding
@@ -494,12 +494,12 @@ export function ReferralForm() {
               type="checkbox"
               className="mt-0.5 w-5 h-5 rounded border-gray-300 text-[#4A708B] focus:ring-[#4A708B] cursor-pointer shrink-0"
             />
-            <span className="font-['Plus_Jakarta_Sans'] text-[15px] text-gray-700 group-hover:text-[#2D3E50] transition-colors">
+            <span className="font-['Plus_Jakarta_Sans'] text-[15px] text-gray-700 group-hover:text-[#33414E] transition-colors">
               I have read and agree to the{' '}
               <button
                 type="button"
                 onClick={() => setAgreementOpen(true)}
-                className="text-[#4A708B] underline font-semibold hover:text-[#2D3E50]"
+                className="text-[#4A708B] underline font-semibold hover:text-[#33414E]"
               >
                 Referral Fee Agreement
               </button>{' '}
@@ -518,7 +518,7 @@ export function ReferralForm() {
               type="checkbox"
               className="mt-0.5 w-5 h-5 rounded border-gray-300 text-[#4A708B] focus:ring-[#4A708B] cursor-pointer shrink-0"
             />
-            <span className="font-['Plus_Jakarta_Sans'] text-[15px] text-gray-700 group-hover:text-[#2D3E50] transition-colors">
+            <span className="font-['Plus_Jakarta_Sans'] text-[15px] text-gray-700 group-hover:text-[#33414E] transition-colors">
               I have already informed my client that I am referring them to Illinois Estate Law
               and that a referral fee arrangement exists.
             </span>
@@ -539,7 +539,7 @@ export function ReferralForm() {
         <button
           type="submit"
           disabled={isSubmitting || !agreedToTerms}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2D3E50] hover:bg-[#4A708B] disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-['Plus_Jakarta_Sans'] font-bold text-base uppercase py-4 px-10 rounded-full transition-colors duration-200"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#33414E] hover:bg-[#4A708B] disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-['Plus_Jakarta_Sans'] font-bold text-base uppercase py-4 px-10 rounded-full transition-colors duration-200"
         >
           {isSubmitting && <Loader2 className="w-5 h-5 animate-spin" />}
           {isSubmitting ? 'Submitting Referral…' : 'Submit Referral'}

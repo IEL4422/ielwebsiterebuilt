@@ -155,7 +155,7 @@ export default function FrequentlyAskedQuestionsPage() {
                   value={`item-${index}`}
                   className="border border-slate-200 rounded-lg px-6 bg-slate-50"
                 >
-                  <AccordionTrigger className="text-left text-slate-800 font-semibold hover:text-[#77B1D4] hover:no-underline py-5 text-base md:text-lg">
+                  <AccordionTrigger className="text-left text-slate-800 font-semibold hover:text-[#7E9CC0] hover:no-underline py-5 text-base md:text-lg">
                     {index + 1}. {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-slate-600 leading-relaxed pb-5">
@@ -166,7 +166,7 @@ export default function FrequentlyAskedQuestionsPage() {
             </Accordion>
           </div>
 
-          <div className="max-w-4xl mx-auto mt-16 bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8 md:p-12 text-center">
+          <div className="max-w-4xl mx-auto mt-16 bg-[#33414E] rounded-2xl p-8 md:p-12 text-center">
             <h2 className="text-white font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold mb-4">
               Still Have Questions?
             </h2>
@@ -176,13 +176,13 @@ export default function FrequentlyAskedQuestionsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:3123730731"
-                className="inline-block px-8 py-4 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors no-underline"
+                className="inline-block px-8 py-4 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors no-underline"
               >
                 Call (312) 373-0731
               </a>
               <a
                 href="/contact/"
-                className="inline-block px-8 py-4 bg-white text-[#2D3E50] font-semibold rounded-lg hover:bg-gray-100 transition-colors no-underline"
+                className="inline-block px-8 py-4 bg-white text-[#33414E] font-semibold rounded-lg hover:bg-gray-100 transition-colors no-underline"
               >
                 Book a Consultation
               </a>

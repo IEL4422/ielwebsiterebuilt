@@ -132,7 +132,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
       />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-12">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-12">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link
               href="/blog"
@@ -555,7 +555,7 @@ export default function Page() {
 
               <div className="overflow-x-auto mb-8">
                 <table className="w-full border-collapse border border-gray-300">
-                  <thead className="bg-[#2D3E50] text-white">
+                  <thead className="bg-[#33414E] text-white">
                     <tr>
                       <th className="border border-gray-300 px-4 py-3 text-left font-bold">Priority Level</th>
                       <th className="border border-gray-300 px-4 py-3 text-left font-bold">Type of Debt</th>
@@ -1284,14 +1284,14 @@ export default function Page() {
                   </Link>
                   <Link
                     href="/services-pricing"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#4A708B] border-2 border-[#4A708B] font-semibold rounded-lg hover:bg-gray-50 transition-colors font-['Plus_Jakarta_Sans']"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#4A708B] border-2 border-[#547298] font-semibold rounded-lg hover:bg-gray-50 transition-colors font-['Plus_Jakarta_Sans']"
                   >
                     View Services & Pricing
                   </Link>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] text-white p-8 rounded-lg mb-8">
+              <div className="bg-gradient-to-br from-[#33414E] to-[#4A708B] text-white p-8 rounded-lg mb-8">
                 <h2 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold mb-4">Final Thoughts: You Can Do This</h2>
                 <p className="font-['Plus_Jakarta_Sans'] text-base mb-4">
                   Being named as executor or administrator is both an honor and a serious responsibility. While the process can seem overwhelming at first, thousands of people successfully navigate estate administration every year by following these key principles:

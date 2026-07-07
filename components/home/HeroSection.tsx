@@ -26,19 +26,19 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-[1140px] px-4 sm:px-5 lg:px-0 flex flex-col justify-center min-h-[580px] md:min-h-[660px] lg:min-h-[700px] py-16 lg:py-24">
         <div className="max-w-3xl">
           <p className="text-[#7E9CC0] font-semibold text-sm sm:text-base uppercase tracking-[0.2em] mb-4">
-            Illinois Estate Law &mdash; Chicago&apos;s Estate Planning Firm
+            Illinois Estate Law &mdash; Full-Service Estate Law Firm
           </p>
 
-          <h1 className="text-[42px] sm:text-[56px] md:text-[68px] lg:text-[80px] font-extrabold text-white leading-[1.05] mb-6">
-            Protect What<br className="hidden sm:block" /> Matters Most.
+          <h1 className="text-[38px] sm:text-[52px] md:text-[62px] lg:text-[72px] font-extrabold text-white leading-[1.05] mb-6">
+            Estate Law for Illinois<br className="hidden sm:block" /> Families &mdash; Start to Finish.
           </h1>
 
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl mb-3 leading-relaxed">
-            Flat-fee estate planning and probate across all of Illinois. Virtual, same-week, no surprises.
+            From your first will to final probate distribution, we handle it all: estate planning, trust administration, real estate, and beyond.
           </p>
 
           <p className="text-[#7E9CC0] text-sm sm:text-base mb-8 leading-relaxed">
-            Start on your own online, no consultation required, or talk to us first. Your choice.
+            Flat-fee, virtual, same week.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">

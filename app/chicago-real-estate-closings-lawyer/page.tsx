@@ -51,13 +51,13 @@ export default function RealEstateClosingsPage() {
 
       <main>
         <InnerPageHero title="Real Estate Closings" subtitle="Full-service attorney representation for your home purchase or sale closing in Illinois — flat fee of $750." />
-        <div className="bg-[#2D3E50] py-8 px-4">
+        <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
                 >
                   Schedule Consultation
                 </Link>
@@ -107,7 +107,7 @@ export default function RealEstateClosingsPage() {
         <section className="bg-white py-16 lg:py-20">
           <div className="container mx-auto px-4 max-w-[1140px]">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#2D3E50] mb-6">
+              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#33414E] mb-6">
                 Why You Need an Attorney for Your Real Estate Closing
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
@@ -122,60 +122,60 @@ export default function RealEstateClosingsPage() {
 
         <section className="bg-[#f8f9fa] py-16 lg:py-20">
           <div className="container mx-auto px-4 max-w-[1140px]">
-            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#2D3E50] mb-10 text-center">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#33414E] mb-10 text-center">
               Our Closing Representation Services
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-[#2D3E50]/10 rounded-lg flex items-center justify-center mb-4">
-                  <FileText className="w-6 h-6 text-[#2D3E50]" />
+                <div className="w-12 h-12 bg-[#33414E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="w-6 h-6 text-[#33414E]" />
                 </div>
-                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Contract Review</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Contract Review</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Thorough review and negotiation of your purchase or sale contract to protect your interests and identify potential issues before they become problems.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-[#2D3E50]/10 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-[#2D3E50]" />
+                <div className="w-12 h-12 bg-[#33414E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-[#33414E]" />
                 </div>
-                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Title Review &amp; Clearance</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Title Review &amp; Clearance</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Examination of the title commitment to identify liens, encumbrances, or other issues that need to be resolved before closing.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-[#2D3E50]/10 rounded-lg flex items-center justify-center mb-4">
-                  <Home className="w-6 h-6 text-[#2D3E50]" />
+                <div className="w-12 h-12 bg-[#33414E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <Home className="w-6 h-6 text-[#33414E]" />
                 </div>
-                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Closing Attendance</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Closing Attendance</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Your attorney attends the closing in person or virtually to review final documents, ensure accuracy, and protect your interests at every step.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-[#2D3E50]/10 rounded-lg flex items-center justify-center mb-4">
-                  <DollarSign className="w-6 h-6 text-[#2D3E50]" />
+                <div className="w-12 h-12 bg-[#33414E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <DollarSign className="w-6 h-6 text-[#33414E]" />
                 </div>
-                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Settlement Statement Review</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Settlement Statement Review</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Careful review of the closing disclosure and settlement statement to verify all charges, credits, and prorations are accurate.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-[#2D3E50]/10 rounded-lg flex items-center justify-center mb-4">
-                  <FileText className="w-6 h-6 text-[#2D3E50]" />
+                <div className="w-12 h-12 bg-[#33414E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="w-6 h-6 text-[#33414E]" />
                 </div>
-                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Document Preparation</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Document Preparation</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Preparation and review of all closing documents including deeds, transfer declarations, and any additional legal instruments required for the transaction.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="w-12 h-12 bg-[#2D3E50]/10 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-[#2D3E50]" />
+                <div className="w-12 h-12 bg-[#33414E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-[#33414E]" />
                 </div>
-                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#2D3E50] mb-2">Issue Resolution</h3>
+                <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Issue Resolution</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   Negotiation and resolution of any issues that arise during the closing process, including title defects, inspection concerns, or last-minute disputes.
                 </p>
@@ -186,7 +186,7 @@ export default function RealEstateClosingsPage() {
 
         <section className="bg-white py-16 lg:py-20">
           <div className="container mx-auto px-4 max-w-[1140px]">
-            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#2D3E50] mb-10 text-center">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] lg:text-[36px] text-[#33414E] mb-10 text-center">
               Frequently Asked Questions
             </h2>
             <div className="max-w-3xl mx-auto space-y-4">
@@ -259,7 +259,7 @@ export default function RealEstateClosingsPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-r from-[#2D3E50] to-[#4A708B] py-14">
+        <section className="bg-gradient-to-r from-[#33414E] to-[#4A708B] py-14">
           <div className="container mx-auto px-4 max-w-[1140px] text-center">
             <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] lg:text-[32px] text-white mb-4">
               Need Closing Representation?
@@ -270,7 +270,7 @@ export default function RealEstateClosingsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/book-consultation/"
-                className="inline-flex items-center justify-center bg-white text-[#2D3E50] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
+                className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
               >
                 Schedule Consultation
               </Link>

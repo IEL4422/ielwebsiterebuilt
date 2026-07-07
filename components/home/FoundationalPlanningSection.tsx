@@ -22,7 +22,7 @@ const accordionItems = [
   {
     id: 'why-every-adult-needs-a-basic-estate-plan',
     title: 'Why Every Adult Needs a Basic Estate Plan',
-    content: `<p>It's easy to delay estate planning, especially when life is busy and the future feels far away. But even a basic plan gives you real control and peace of mind.</p><p>An estate plan isn't just about what happens when you die; it's about making sure your voice is heard if something unexpected happens while you're living. Illness, accidents, or temporary incapacity can strike at any time. Without the right documents, your family may be left in the dark or forced into costly and stressful court proceedings.</p><p>We take pride in helping Illinois families build estate plans that feel personal, clear, and doable. Whether you're starting from scratch or reviewing your current plan, we're here to guide you through it step by step.</p><p><strong>Call Illinois Estate Law at <a href="tel:3123730731" class="text-[#77B1D4] hover:text-[#5A9BC4]">(312) 373-0731</a> and discover how your future can feel more secure with a plan that truly reflects you.</strong></p>`,
+    content: `<p>It's easy to delay estate planning, especially when life is busy and the future feels far away. But even a basic plan gives you real control and peace of mind.</p><p>An estate plan isn't just about what happens when you die; it's about making sure your voice is heard if something unexpected happens while you're living. Illness, accidents, or temporary incapacity can strike at any time. Without the right documents, your family may be left in the dark or forced into costly and stressful court proceedings.</p><p>We take pride in helping Illinois families build estate plans that feel personal, clear, and doable. Whether you're starting from scratch or reviewing your current plan, we're here to guide you through it step by step.</p><p><strong>Call Illinois Estate Law at <a href="tel:3123730731" class="text-[#7E9CC0] hover:text-[#5A9BC4]">(312) 373-0731</a> and discover how your future can feel more secure with a plan that truly reflects you.</strong></p>`,
   },
 ];
 
@@ -65,7 +65,7 @@ export function FoundationalPlanningSection() {
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 text-center mb-4">
             Foundational Estate Planning for Every Illinois Family
           </h2>
-          <div className="w-16 h-1 bg-[#77B1D4] mx-auto mb-8" />
+          <div className="w-16 h-1 bg-[#7E9CC0] mx-auto mb-8" />
 
           <p className="text-slate-600 text-lg leading-relaxed mb-12 text-center">
             Putting your affairs in order doesn't need to be overwhelming or reserved for later in life. In fact, having a foundational estate plan in place is one of the most thoughtful and proactive steps you can take for your family, no matter your age, income, or family structure. We can help you take this important step with clarity, comfort, and confidence, tailoring every part of the process to meet Illinois legal standards and your personal needs.
@@ -81,7 +81,7 @@ export function FoundationalPlanningSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:3123730731"
-                className="inline-flex items-center justify-center px-6 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
               >
                 CALL (312) 373-0731
               </a>

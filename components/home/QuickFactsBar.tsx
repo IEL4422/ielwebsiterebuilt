@@ -30,7 +30,7 @@ const facts = [
 
 export function QuickFactsBar() {
   return (
-    <section className="bg-[#2D3E50] border-b border-white/10">
+    <section className="bg-[#33414E] border-b border-white/10">
       <div className="mx-auto max-w-[1140px] px-4 sm:px-5 xl:px-0">
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
           {facts.map(({ icon: Icon, label, sub, href }) => (

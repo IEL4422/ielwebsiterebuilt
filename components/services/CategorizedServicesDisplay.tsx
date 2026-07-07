@@ -44,7 +44,7 @@ export function CategorizedServicesDisplay() {
     return (
       <div
         key={index}
-        className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-[10px] p-6 sm:p-4"
+        className="bg-gradient-to-br from-[#33414E] to-[#4A708B] rounded-[10px] p-6 sm:p-4"
       >
         <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[24px] text-[#fefefe] sm:text-[20px]">
           {service.name}
@@ -465,7 +465,7 @@ export function CategorizedServicesDisplay() {
           <div key={category.id} className="border border-gray-300 rounded-xl overflow-hidden">
             <button
               onClick={() => toggleCategory(category.id)}
-              className="w-full flex items-center justify-between px-6 py-5 bg-gradient-to-r from-[#2D3E50] to-[#4A708B] hover:from-[#4A708B] hover:to-[#2D3E50] transition-all"
+              className="w-full flex items-center justify-between px-6 py-5 bg-gradient-to-r from-[#33414E] to-[#4A708B] hover:from-[#4A708B] hover:to-[#33414E] transition-all"
             >
               <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#fefefe] sm:text-[24px]">
                 {category.name}
@@ -492,14 +492,14 @@ export function CategorizedServicesDisplay() {
                       {category.packages.map(renderServiceCard)}
                     </div>
                     {category.id === 'probate' && (
-                      <div className="mt-6 bg-[#2D3E50]/5 border border-[#2D3E50]/20 rounded-lg p-5">
-                        <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#2D3E50]">
+                      <div className="mt-6 bg-[#33414E]/5 border border-[#33414E]/20 rounded-lg p-5">
+                        <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#33414E]">
                           <strong>Wrongful Death Cases:</strong> Ask us about our special wrongful death attorney referral pricing.{' '}
-                          <Link href="/book-consultation/" className="text-[#4A708B] underline hover:text-[#2D3E50] transition-colors">
+                          <Link href="/book-consultation/" className="text-[#4A708B] underline hover:text-[#33414E] transition-colors">
                             Schedule a consultation
                           </Link>{' '}
                           or call{' '}
-                          <a href="tel:3123730731" className="text-[#4A708B] underline hover:text-[#2D3E50] transition-colors">
+                          <a href="tel:3123730731" className="text-[#4A708B] underline hover:text-[#33414E] transition-colors">
                             (312) 373-0731
                           </a>{' '}
                           for details.

@@ -81,7 +81,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -104,7 +104,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="overview" className="text-2xl font-bold mt-8 mb-4">Illinois Transfer Tax Overview</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-5 my-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-6 rounded-r-lg">
               <p className="mb-3 font-semibold">Illinois is one of the more expensive states for real estate transfer taxes, particularly in Chicago where three layers of taxation — state, county, and city — apply to every sale.</p>
               <p className="mb-0 text-gray-700">Transfer taxes are one-time taxes imposed when real property is sold or conveyed. They are separate from property taxes (which are annual) and income taxes. They are paid at closing and are typically a seller cost — though contract terms can shift the burden. They are calculated based on the consideration (sale price) and reported on the PTAX-203 form required by the Illinois Department of Revenue.</p>
             </div>
@@ -113,21 +113,21 @@ export default function Page() {
             <div className="space-y-4 my-6">
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold text-[#2D3E50]">Layer 1: State of Illinois Transfer Tax</h3>
-                  <span className="bg-[#2D3E50] text-white px-3 py-1 rounded-full text-sm font-bold">$0.50 per $500</span>
+                  <h3 className="font-bold text-[#33414E]">Layer 1: State of Illinois Transfer Tax</h3>
+                  <span className="bg-[#33414E] text-white px-3 py-1 rounded-full text-sm font-bold">$0.50 per $500</span>
                 </div>
                 <p className="text-gray-700 text-sm mb-2">Authorized under 35 ILCS 200/31-10 et seq. Applies statewide to all deed recordings. Rate: $0.50 per $500 of consideration (or $1.00 per $1,000). Paid by the seller. On a $400,000 sale: $400. This is the base layer that applies everywhere in Illinois.</p>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold text-[#2D3E50]">Layer 2: Cook County Transfer Tax</h3>
+                  <h3 className="font-bold text-[#33414E]">Layer 2: Cook County Transfer Tax</h3>
                   <span className="bg-[#4a708b] text-white px-3 py-1 rounded-full text-sm font-bold">$0.25 per $500</span>
                 </div>
                 <p className="text-gray-700 text-sm mb-2">Cook County imposes an additional transfer tax of $0.25 per $500 of consideration. This applies to all property in Cook County — including Chicago. Paid by the seller. On a $400,000 sale: $200. Properties in DuPage, Lake, Will, Kane, and other counties outside Cook do not pay this county tax.</p>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold text-[#2D3E50]">Layer 3: City of Chicago Transfer Tax</h3>
+                  <h3 className="font-bold text-[#33414E]">Layer 3: City of Chicago Transfer Tax</h3>
                   <span className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">$3.75 per $500</span>
                 </div>
                 <p className="text-gray-700 text-sm mb-2">The City of Chicago imposes the largest transfer tax layer: $3.75 per $500 of consideration, paid by the seller. On a $400,000 sale: $3,000. For transactions over $1,000,000, the buyer also pays $1.50 per $500 of consideration. This city tax applies only to property within Chicago city limits — not to Cook County suburbs.</p>
@@ -135,7 +135,7 @@ export default function Page() {
             </div>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Tax Layer</th><th className="border border-gray-300 px-4 py-3 text-left">Rate</th><th className="border border-gray-300 px-4 py-3 text-left">Where Applies</th><th className="border border-gray-300 px-4 py-3 text-left">On $400k Sale</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Tax Layer</th><th className="border border-gray-300 px-4 py-3 text-left">Rate</th><th className="border border-gray-300 px-4 py-3 text-left">Where Applies</th><th className="border border-gray-300 px-4 py-3 text-left">On $400k Sale</th></tr></thead>
                 <tbody>
                   {[
                     ['State of Illinois', '$0.50 / $500', 'All Illinois counties', '$400'],
@@ -145,7 +145,7 @@ export default function Page() {
                     ['Total (Cook County, not Chicago)', '$0.75 / $500 = $1.50 / $1,000', 'Cook suburbs', '$600'],
                     ['Total (other Illinois counties)', '$0.50 / $500 = $1.00 / $1,000', 'Statewide base', '$400'],
                   ].map(([layer, rate, where, amount], i) => (
-                    <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : ''}><td className="border border-gray-300 px-4 py-3 text-sm font-semibold">{layer}</td><td className="border border-gray-300 px-4 py-3 text-sm">{rate}</td><td className="border border-gray-300 px-4 py-3 text-sm">{where}</td><td className="border border-gray-300 px-4 py-3 text-sm font-bold text-[#2D3E50]">{amount}</td></tr>
+                    <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : ''}><td className="border border-gray-300 px-4 py-3 text-sm font-semibold">{layer}</td><td className="border border-gray-300 px-4 py-3 text-sm">{rate}</td><td className="border border-gray-300 px-4 py-3 text-sm">{where}</td><td className="border border-gray-300 px-4 py-3 text-sm font-bold text-[#33414E]">{amount}</td></tr>
                   ))}
                 </tbody>
               </table>
@@ -200,13 +200,13 @@ export default function Page() {
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                     <input type="number" value={calcPrice} onChange={e => setCalcPrice(e.target.value)}
-                      className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg text-lg font-semibold focus:outline-none focus:border-[#4a708b]" />
+                      className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg text-lg font-semibold focus:outline-none focus:border-[#547298]" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
                   <select value={calcCounty} onChange={e => setCalcCounty(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4a708b]">
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#547298]">
                     <option value="chicago">City of Chicago</option>
                     <option value="cook">Cook County (outside Chicago)</option>
                     <option value="dupage">DuPage County</option>
@@ -233,7 +233,7 @@ export default function Page() {
                     <span className="font-semibold">{fmt(cityTax)}</span>
                   </div>
                 )}
-                <div className="flex justify-between items-center py-3 bg-[#2D3E50] text-white rounded-lg px-4 mt-3">
+                <div className="flex justify-between items-center py-3 bg-[#33414E] text-white rounded-lg px-4 mt-3">
                   <span className="font-bold">Total Seller Transfer Tax</span>
                   <span className="font-bold text-xl">{fmt(totalSellerTax)}</span>
                 </div>
@@ -260,7 +260,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Selling in Illinois? Know Your Transfer Tax Costs.</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law handles PTAX-203 preparation and all transfer tax compliance for sellers throughout Cook County and Chicago. We ensure your transfer tax obligations are correctly calculated and reported at closing.</p>
               <div className="flex flex-wrap gap-4">

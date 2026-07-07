@@ -833,8 +833,8 @@ export default function RecommendedServicePage() {
                       onClick={() => updateAnswer('needType', 'estate-planning')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                         answers.needType === 'estate-planning'
-                          ? 'border-[#4a708b] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -855,8 +855,8 @@ export default function RecommendedServicePage() {
                       onClick={() => updateAnswer('needType', 'probate')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                         answers.needType === 'probate'
-                          ? 'border-[#4a708b] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -877,8 +877,8 @@ export default function RecommendedServicePage() {
                       onClick={() => updateAnswer('needType', 'prenuptial')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                         answers.needType === 'prenuptial'
-                          ? 'border-[#4a708b] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -899,8 +899,8 @@ export default function RecommendedServicePage() {
                       onClick={() => updateAnswer('needType', 'real-estate')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                         answers.needType === 'real-estate'
-                          ? 'border-[#4a708b] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -932,8 +932,8 @@ export default function RecommendedServicePage() {
                       onClick={() => updateAnswer('realEstateRole', 'buyer')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                         answers.realEstateRole === 'buyer'
-                          ? 'border-[#4a708b] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -954,8 +954,8 @@ export default function RecommendedServicePage() {
                       onClick={() => updateAnswer('realEstateRole', 'seller')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                         answers.realEstateRole === 'seller'
-                          ? 'border-[#4a708b] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#4a708b]/50'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -989,8 +989,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('maritalStatus', 'single')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.maritalStatus === 'single'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1006,8 +1006,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('maritalStatus', 'married')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.maritalStatus === 'married'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1036,8 +1036,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('ownsRealEstate', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.ownsRealEstate === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1053,8 +1053,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('ownsRealEstate', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.ownsRealEstate === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1083,8 +1083,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('estateValue', 'under-100k')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.estateValue === 'under-100k'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1100,8 +1100,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('estateValue', '100k-3.5m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.estateValue === '100k-3.5m'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1117,8 +1117,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('estateValue', 'over-3.5m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.estateValue === 'over-3.5m'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1147,8 +1147,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('needsAncillary', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.needsAncillary === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1169,8 +1169,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('needsAncillary', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.needsAncillary === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1204,8 +1204,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('hasSpecialNeeds', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.hasSpecialNeeds === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1221,8 +1221,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('hasSpecialNeeds', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.hasSpecialNeeds === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1256,8 +1256,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('hasExistingPrenup', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.hasExistingPrenup === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1278,8 +1278,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('hasExistingPrenup', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.hasExistingPrenup === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1313,8 +1313,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('needsNegotiation', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.needsNegotiation === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1330,8 +1330,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('needsNegotiation', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.needsNegotiation === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1365,8 +1365,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('isRepresentative', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.isRepresentative === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1382,8 +1382,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('isRepresentative', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.isRepresentative === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1412,8 +1412,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('needsNewAttorney', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.needsNewAttorney === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1429,8 +1429,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('needsNewAttorney', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.needsNewAttorney === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1458,8 +1458,8 @@ export default function RecommendedServicePage() {
                             onClick={() => updateAnswer('decedentCounty', county)}
                             className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                               answers.decedentCounty === county
-                                ? 'border-[#4a708b] bg-[#4a708b]/10'
-                                : 'border-gray-300 hover:border-[#4a708b]/50'
+                                ? 'border-[#547298] bg-[#4a708b]/10'
+                                : 'border-gray-300 hover:border-[#547298]/50'
                             }`}
                           >
                             <div className="flex items-center justify-between">
@@ -1486,8 +1486,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('decedentEstateValue', 'under-100k')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.decedentEstateValue === 'under-100k'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1503,8 +1503,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('decedentEstateValue', 'over-100k')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.decedentEstateValue === 'over-100k'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1530,8 +1530,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('decedentHasRealEstate', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.decedentHasRealEstate === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1547,8 +1547,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('decedentHasRealEstate', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.decedentHasRealEstate === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1574,8 +1574,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('issuesAmongHeirs', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.issuesAmongHeirs === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1591,8 +1591,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('issuesAmongHeirs', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.issuesAmongHeirs === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1618,8 +1618,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('allDebtsPaid', 'yes')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.allDebtsPaid === 'yes'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1635,8 +1635,8 @@ export default function RecommendedServicePage() {
                           onClick={() => updateAnswer('allDebtsPaid', 'no')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                             answers.allDebtsPaid === 'no'
-                              ? 'border-[#4a708b] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#4a708b]/50'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
@@ -1673,7 +1673,7 @@ export default function RecommendedServicePage() {
                     <Button
                       onClick={resetQuiz}
                       variant="outline"
-                      className="border-2 border-[#4a708b] text-[#4a708b] hover:bg-[#4a708b]/10 px-8 py-3"
+                      className="border-2 border-[#547298] text-[#4a708b] hover:bg-[#4a708b]/10 px-8 py-3"
                     >
                       Start Over
                     </Button>
@@ -1687,7 +1687,7 @@ export default function RecommendedServicePage() {
                   {step > 1 && (
                     <button
                       onClick={handleBack}
-                      className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#4a708b] text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold hover:bg-[#4a708b] hover:text-white transition-all"
+                      className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#547298] text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold hover:bg-[#4a708b] hover:text-white transition-all"
                     >
                       <ArrowLeft className="w-5 h-5" />
                       Back
@@ -1722,7 +1722,7 @@ export default function RecommendedServicePage() {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-2xl p-8 mb-8">
+              <div className="bg-[#33414E] rounded-2xl p-8 mb-8">
                 <h3 className="font-['Plus_Jakarta_Sans'] text-[28px] font-bold text-white mb-2">
                   {recommendation.name}
                 </h3>
@@ -2099,7 +2099,7 @@ export default function RecommendedServicePage() {
                 Choose Your Payment Option
               </h2>
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="border-2 border-gray-300 rounded-xl p-8 hover:border-[#4a708b] transition-all">
+                <div className="border-2 border-gray-300 rounded-xl p-8 hover:border-[#547298] transition-all">
                   <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2d3e50] mb-4">
                     Pay in Full
                   </h3>
@@ -2118,7 +2118,7 @@ export default function RecommendedServicePage() {
                   </Button>
                 </div>
 
-                <div className="border-2 border-gray-300 rounded-xl p-8 hover:border-[#4a708b] transition-all">
+                <div className="border-2 border-gray-300 rounded-xl p-8 hover:border-[#547298] transition-all">
                   <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2d3e50] mb-4">
                     Payment Plan
                   </h3>
@@ -2135,7 +2135,7 @@ export default function RecommendedServicePage() {
                     onClick={() => handlePaymentMethodSelect('plan')}
                     disabled={isProcessing}
                     variant="outline"
-                    className="w-full border-2 border-[#4a708b] text-[#4a708b] hover:bg-[#4a708b]/10"
+                    className="w-full border-2 border-[#547298] text-[#4a708b] hover:bg-[#4a708b]/10"
                   >
                     {isProcessing ? 'Processing...' : 'Select Payment Plan'}
                   </Button>

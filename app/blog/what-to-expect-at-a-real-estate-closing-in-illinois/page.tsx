@@ -59,7 +59,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -82,7 +82,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="summary" className="text-2xl font-bold mt-8 mb-4">Article Summary</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <p className="mb-3 font-semibold text-lg">A real estate closing in Illinois is the final step in buying or selling a home — the moment legal ownership transfers from seller to buyer. For many people it is one of the largest transactions of their lives, yet most do not know exactly what happens.</p>
               <p className="mb-0 text-gray-700">This guide walks you through every stage of an Illinois residential closing: what happens before closing day, who attends, what documents you sign, and what your attorney does to protect you throughout.</p>
             </div>
@@ -97,8 +97,8 @@ export default function Page() {
                 { icon: <Users className="w-5 h-5" />, title: 'Title Search', desc: 'The title company searches public records for liens, judgments, or title defects. The title commitment is reviewed by your attorney to confirm the seller can convey clear title.' },
               ].map((item, i) => (
                 <div key={i} className="flex gap-3 bg-gray-50 border border-gray-200 rounded-xl p-4">
-                  <div className="w-9 h-9 rounded-full bg-[#2D3E50] text-white flex items-center justify-center flex-shrink-0">{item.icon}</div>
-                  <div><p className="font-bold text-[#2D3E50] text-sm mb-1">{item.title}</p><p className="text-gray-700 text-sm">{item.desc}</p></div>
+                  <div className="w-9 h-9 rounded-full bg-[#33414E] text-white flex items-center justify-center flex-shrink-0">{item.icon}</div>
+                  <div><p className="font-bold text-[#33414E] text-sm mb-1">{item.title}</p><p className="text-gray-700 text-sm">{item.desc}</p></div>
                 </div>
               ))}
             </div>
@@ -107,7 +107,7 @@ export default function Page() {
             <p className="mb-6">Illinois closings typically include the following parties — though remote closings mean not everyone needs to be physically present at the same table:</p>
             <div className="overflow-x-auto my-6">
               <table className="min-w-full border-collapse border border-gray-300">
-                <thead><tr className="bg-[#2D3E50] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Party</th><th className="border border-gray-300 px-4 py-3 text-left">Role</th><th className="border border-gray-300 px-4 py-3 text-left">Always Present?</th></tr></thead>
+                <thead><tr className="bg-[#33414E] text-white"><th className="border border-gray-300 px-4 py-3 text-left">Party</th><th className="border border-gray-300 px-4 py-3 text-left">Role</th><th className="border border-gray-300 px-4 py-3 text-left">Always Present?</th></tr></thead>
                 <tbody>
                   {[
                     ['Buyer(s)', 'Sign loan documents, deed receipt, and closing disclosures', 'Yes'],
@@ -130,15 +130,15 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mb-6">
                 {steps.map((step, i) => (
                   <button key={i} onClick={() => setActiveStep(i)}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeStep === i ? 'bg-[#2D3E50] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeStep === i ? 'bg-[#33414E] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                     Step {i + 1}
                   </button>
                 ))}
               </div>
-              <div className="bg-white border-2 border-[#2D3E50] rounded-xl p-6">
+              <div className="bg-white border-2 border-[#33414E] rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="w-9 h-9 rounded-full bg-[#2D3E50] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">{activeStep + 1}</span>
-                  <h3 className="font-bold text-[#2D3E50] text-lg">{steps[activeStep].title}</h3>
+                  <span className="w-9 h-9 rounded-full bg-[#33414E] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">{activeStep + 1}</span>
+                  <h3 className="font-bold text-[#33414E] text-lg">{steps[activeStep].title}</h3>
                 </div>
                 <p className="text-gray-700 leading-relaxed">{steps[activeStep].desc}</p>
               </div>
@@ -151,7 +151,7 @@ export default function Page() {
                 { label: 'For Sellers', items: ['Deed (warranty or quitclaim)', 'Bill of Sale (for personal property)', 'Seller\'s Affidavit of Title', 'Transfer Tax Declaration', 'ALTA Settlement Statement', 'Payoff authorization for existing mortgage', 'Real estate disclosure documents'] },
               ].map((col, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                  <h3 className="font-bold text-[#2D3E50] mb-3">{col.label}</h3>
+                  <h3 className="font-bold text-[#33414E] mb-3">{col.label}</h3>
                   <ul className="space-y-2">{col.items.map((item, j) => <li key={j} className="flex items-center gap-2 text-sm text-gray-700"><CheckCircle2 className="w-4 h-4 text-[#4a708b] flex-shrink-0" />{item}</li>)}</ul>
                 </div>
               ))}
@@ -190,7 +190,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Ready to Close with Confidence?</h3>
               <p className="text-white/90 mb-6">Illinois Estate Law provides flat-fee closing representation for buyers and sellers throughout Cook County and the Chicago suburbs. We review every document before you sign.</p>
               <div className="flex flex-wrap gap-4">

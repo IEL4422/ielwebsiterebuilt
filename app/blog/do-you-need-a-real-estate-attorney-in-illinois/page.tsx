@@ -65,7 +65,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] py-16 sm:py-20">
+        <section className="bg-gradient-to-br from-[#33414E] to-[#4A708B] py-16 sm:py-20">
           <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
             <Link href="/blog" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors"><span className="text-lg">&larr;</span>Back to Blog</Link>
             <div className="max-w-4xl">
@@ -90,7 +90,7 @@ export default function Page() {
             <TableOfContents items={tocItems} />
 
             <h2 id="summary" className="text-2xl font-bold mt-8 mb-4">Article Summary</h2>
-            <div className="bg-blue-50 border-l-4 border-[#4a708b] p-6 my-8 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <p className="mb-3 font-semibold text-lg">Illinois follows attorney-closing custom for residential real estate. While no state statute mandates an attorney for every closing, the practical reality is that attorneys are expected on both sides of nearly every transaction — and attempting to close without one puts your interests at serious risk.</p>
               <p className="mb-0 text-gray-700">This guide explains what an Illinois real estate attorney does, how they differ from your real estate agent, what they cost, and when their role is most critical.</p>
             </div>
@@ -111,8 +111,8 @@ export default function Page() {
               {roles.map((role, i) => (
                 <div key={i} className="bg-gray-50 border border-gray-200 rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-full bg-[#2D3E50] text-white flex items-center justify-center flex-shrink-0">{role.icon}</div>
-                    <h3 className="font-bold text-[#2D3E50] text-base">{role.title}</h3>
+                    <div className="w-10 h-10 rounded-full bg-[#33414E] text-white flex items-center justify-center flex-shrink-0">{role.icon}</div>
+                    <h3 className="font-bold text-[#33414E] text-base">{role.title}</h3>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed">{role.desc}</p>
                 </div>
@@ -124,7 +124,7 @@ export default function Page() {
             <div className="overflow-x-auto my-8">
               <table className="min-w-full border-collapse border border-gray-300">
                 <thead>
-                  <tr className="bg-[#2D3E50] text-white">
+                  <tr className="bg-[#33414E] text-white">
                     <th className="border border-gray-300 px-4 py-3 text-left">Task</th>
                     <th className="border border-gray-300 px-4 py-3 text-left">Real Estate Agent</th>
                     <th className="border border-gray-300 px-4 py-3 text-left">Real Estate Attorney</th>
@@ -161,7 +161,7 @@ export default function Page() {
                 { label: 'Hourly Rate (some attorneys)', range: '$200 – $400/hr', note: 'Less common for residential closings' },
               ].map((item, i) => (
                 <div key={i} className="bg-[#f0f5f8] border border-[#d0e4ef] rounded-xl p-5 text-center">
-                  <p className="text-2xl font-bold text-[#2D3E50] mb-1">{item.range}</p>
+                  <p className="text-2xl font-bold text-[#33414E] mb-1">{item.range}</p>
                   <p className="font-semibold text-gray-800 text-sm mb-1">{item.label}</p>
                   <p className="text-gray-500 text-xs">{item.note}</p>
                 </div>
@@ -182,18 +182,18 @@ export default function Page() {
               ].map((item, i) => (
                 <div key={i} className="flex gap-3 bg-white border border-gray-200 rounded-lg p-4">
                   <CheckCircle2 className="w-5 h-5 text-[#4a708b] flex-shrink-0 mt-0.5" />
-                  <div><span className="font-semibold text-[#2D3E50]">{item.title}: </span><span className="text-gray-700 text-sm">{item.desc}</span></div>
+                  <div><span className="font-semibold text-[#33414E]">{item.title}: </span><span className="text-gray-700 text-sm">{item.desc}</span></div>
                 </div>
               ))}
             </div>
 
             <h2 id="quiz" className="text-2xl font-bold mt-12 mb-4">Quick Quiz</h2>
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
-              <p className="font-bold text-[#2D3E50] text-lg mb-4">True or False: In Illinois, a real estate agent can review your purchase contract and provide legal advice about the terms.</p>
+              <p className="font-bold text-[#33414E] text-lg mb-4">True or False: In Illinois, a real estate agent can review your purchase contract and provide legal advice about the terms.</p>
               <div className="flex gap-4 mb-4">
                 {['True', 'False'].map((opt) => (
                   <button key={opt} onClick={() => { if (!quizSubmitted) { setQuizAnswer(opt); setQuizSubmitted(true); } }}
-                    className={`px-8 py-3 rounded-lg font-semibold border-2 transition-all ${quizSubmitted ? opt === 'False' ? 'bg-green-100 border-green-500 text-green-800' : quizAnswer === 'True' ? 'bg-red-100 border-red-500 text-red-800' : 'border-gray-200 text-gray-400' : 'border-[#2D3E50] text-[#2D3E50] hover:bg-[#2D3E50] hover:text-white'}`}>
+                    className={`px-8 py-3 rounded-lg font-semibold border-2 transition-all ${quizSubmitted ? opt === 'False' ? 'bg-green-100 border-green-500 text-green-800' : quizAnswer === 'True' ? 'bg-red-100 border-red-500 text-red-800' : 'border-gray-200 text-gray-400' : 'border-[#33414E] text-[#33414E] hover:bg-[#33414E] hover:text-white'}`}>
                     {opt}
                   </button>
                 ))}
@@ -221,7 +221,7 @@ export default function Page() {
 
             <h2 id="next-steps" className="text-2xl font-bold mt-12 mb-4">Next Steps</h2>
             <p className="mb-6">Whether you are buying your first home, selling a property, or navigating a more complex transaction, Illinois Estate Law provides flat-fee real estate closing representation for buyers and sellers throughout Cook County and the Chicago suburbs. We handle the legal side of your transaction so you can close with confidence.</p>
-            <div className="bg-gradient-to-br from-[#2D3E50] to-[#4A708B] rounded-xl p-8 my-8 text-white">
+            <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Real Estate Closing Representation in Illinois</h3>
               <p className="text-white/90 mb-6">Flat-fee buyer and seller representation for residential real estate closings in Cook County and the Chicago area. Contact us to discuss your transaction.</p>
               <div className="flex flex-wrap gap-4">

@@ -17,7 +17,7 @@ const accordionItems = [
   {
     id: 'hipaa-authorizations',
     title: 'The Importance of HIPAA Authorizations',
-    content: `<p>Medical privacy laws are strict, and that's a good thing. But in moments of crisis, those same rules can make it hard for loved ones to get the information they need.</p><p>That's where a HIPAA authorization comes in. This document gives your chosen individuals access to your medical information without giving them decision-making authority. It's a crucial tool that lets your family talk with your doctors, understand your condition, and be involved, even if they're not your healthcare agent.</p><p>Illinois residents often overlook this step, but it plays a big role in giving your support system the tools they need to be effective and informed.</p><p>You've worked hard to build your life; now it's time to protect your ability to make choices even if you can't speak for yourself. At Illinois Estate Law, we guide you through creating powers of attorney and healthcare directives that feel clear, empowering, and uniquely yours.</p><p><strong><a href="/contact-us/" class="text-[#77B1D4] hover:text-[#5A9BC4]">Contact us</a> today at <a href="tel:3123730731" class="text-[#77B1D4] hover:text-[#5A9BC4]">(312) 373-0731</a> to start building a plan that protects your voice and supports the people who care about you most.</strong></p>`,
+    content: `<p>Medical privacy laws are strict, and that's a good thing. But in moments of crisis, those same rules can make it hard for loved ones to get the information they need.</p><p>That's where a HIPAA authorization comes in. This document gives your chosen individuals access to your medical information without giving them decision-making authority. It's a crucial tool that lets your family talk with your doctors, understand your condition, and be involved, even if they're not your healthcare agent.</p><p>Illinois residents often overlook this step, but it plays a big role in giving your support system the tools they need to be effective and informed.</p><p>You've worked hard to build your life; now it's time to protect your ability to make choices even if you can't speak for yourself. At Illinois Estate Law, we guide you through creating powers of attorney and healthcare directives that feel clear, empowering, and uniquely yours.</p><p><strong><a href="/contact-us/" class="text-[#7E9CC0] hover:text-[#5A9BC4]">Contact us</a> today at <a href="tel:3123730731" class="text-[#7E9CC0] hover:text-[#5A9BC4]">(312) 373-0731</a> to start building a plan that protects your voice and supports the people who care about you most.</strong></p>`,
   },
 ];
 
@@ -61,7 +61,7 @@ export function PowersOfAttorneySection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Essential Planning with Powers of Attorney and Healthcare Directives
             </h2>
-            <div className="w-16 h-1 bg-[#77B1D4] mb-6" />
+            <div className="w-16 h-1 bg-[#7E9CC0] mb-6" />
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
               There's more to estate planning than deciding who inherits your belongings. It's also about making sure someone you trust is there to step in if you ever need help managing your finances or making medical decisions. Our top-rated Chicago estate planning attorney Mary Liberty can help you put clear, legally sound documents in place so that your voice is heard, even in difficult or unexpected moments.
             </p>
@@ -88,7 +88,7 @@ export function PowersOfAttorneySection() {
               </p>
               <a
                 href="/get-started/"
-                className="inline-flex items-center justify-center px-8 py-3 bg-[#77B1D4] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors w-full"
+                className="inline-flex items-center justify-center px-8 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors w-full"
               >
                 GET STARTED TODAY
               </a>

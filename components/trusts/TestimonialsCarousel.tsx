@@ -96,7 +96,7 @@ export default function TestimonialsCarousel() {
             Client Testimonials
           </h2>
 
-          <div className="w-24 h-1 bg-[#77B1D4] mx-auto mb-12" />
+          <div className="w-24 h-1 bg-[#7E9CC0] mx-auto mb-12" />
 
           <Carousel
             opts={{
@@ -136,7 +136,7 @@ export default function TestimonialsCarousel() {
                           href={testimonial.link}
                           target="_blank"
                           rel="nofollow"
-                          className="inline-block px-6 py-3 bg-[#77B1D4] text-white text-sm font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
+                          className="inline-block px-6 py-3 bg-[#7E9CC0] text-white text-sm font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
                         >
                           READ FULL REVIEW ON GOOGLE
                         </a>
