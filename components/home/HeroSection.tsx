@@ -26,15 +26,15 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-[1140px] px-4 sm:px-5 lg:px-0 flex flex-col justify-center min-h-[580px] md:min-h-[660px] lg:min-h-[700px] py-16 lg:py-24">
         <div className="max-w-3xl">
           <p className="text-[#7E9CC0] font-semibold text-sm sm:text-base uppercase tracking-[0.2em] mb-4">
-            Illinois Estate Law &mdash; Full-Service Estate Law Firm
+            Estate Planning &middot; Trusts &middot; Probate &middot; Real Estate
           </p>
 
           <h1 className="text-[38px] sm:text-[52px] md:text-[62px] lg:text-[72px] font-extrabold text-white leading-[1.05] mb-6">
-            Estate Law for Illinois<br className="hidden sm:block" /> Families &mdash; Start to Finish.
+            We Help Illinois Families<br className="hidden sm:block" /> Plan, Protect &amp; Pass On<br className="hidden sm:block" /> What Matters.
           </h1>
 
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl mb-3 leading-relaxed">
-            From your first will to final probate distribution, we handle it all: estate planning, trust administration, real estate, and beyond.
+            Whether you&rsquo;re drafting your first will, setting up a trust, navigating probate, or transferring property &mdash; we&rsquo;re here for every step, with flat-fee pricing and same-week appointments.
           </p>
 
           <p className="text-[#7E9CC0] text-sm sm:text-base mb-8 leading-relaxed">
