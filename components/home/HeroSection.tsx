@@ -34,7 +34,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl mb-3 leading-relaxed">
-            Whether you&rsquo;re drafting your first will, setting up a trust, navigating probate, or transferring property &mdash; we&rsquo;re here for every step, with flat-fee pricing and same-week appointments.
+            Whether you&rsquo;re drafting your first will, setting up a trust, navigating probate, or buying or selling your home &mdash; we&rsquo;re here for every step, with flat-fee pricing and same-week appointments.
           </p>
 
           <p className="text-[#7E9CC0] text-sm sm:text-base mb-8 leading-relaxed">
