@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-fund-a-revocable-living-trust-illinois',
+    title: 'How to Fund a Revocable Living Trust in Illinois: Step-by-Step Guide',
+    url: '/blog/how-to-fund-a-revocable-living-trust-illinois/',
+    date: 'Jul 8, 2026',
+    summary:
+      'Comprehensive guide to funding a revocable living trust in Illinois — why an unfunded trust provides zero protection, how to transfer real estate via deed, how to retitle bank and brokerage accounts, what assets to keep out of the trust, and how to coordinate beneficiary designations and a pour-over will for a complete estate plan.',
+    excerpt:
+      'Learn how to fund a revocable living trust in Illinois — which assets to transfer, how to retitle real estate and bank accounts, and what NOT to put in the trust.',
+  },
+  {
     slug: 'illinois-inheritance-laws-dying-without-a-will',
     title: 'Illinois Inheritance Laws: Who Inherits When You Die Without a Will',
     url: '/blog/illinois-inheritance-laws-dying-without-a-will/',
