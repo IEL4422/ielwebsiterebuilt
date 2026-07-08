@@ -194,8 +194,8 @@ export function CategorizedServicesDisplay() {
         {
           name: 'Powers of Attorney',
           note: 'Power of Attorney for Healthcare & Power of Attorney for Property. Joint includes two of each.',
-          individualPrice: 500,
-          jointPrice: 750,
+          individualPrice: 400,
+          jointPrice: 600,
           includes: []
         },
         {
@@ -220,6 +220,13 @@ export function CategorizedServicesDisplay() {
           fixedPrice: 1500,
           note: 'Up to 15 assets. Does not include real estate / deed transfers.',
           includes: []
+        },
+        {
+          name: 'Irrevocable Trust',
+          subtitle: 'Gifting Trust, Life Insurance Trust (ILIT), or Supplemental Needs Trust',
+          fixedPrice: 4500,
+          includes: [],
+          note: 'A custom-drafted irrevocable trust tailored to your goals. Includes full trust funding.'
         }
       ],
       addOns: [
@@ -321,8 +328,8 @@ export function CategorizedServicesDisplay() {
           pricingLabel: '$5,000 retainer + hourly',
           includes: [
             'Minimum $5,000 retainer required to commence representation',
-            'Attorney hourly rate: $350 / hour',
-            'Paralegal / Administrative hourly rate: $125 / hour',
+            'Attorney hourly rate: $400 / hour',
+            'Paralegal / Administrative hourly rate: $150 / hour',
             'Retainer replenished as needed throughout the matter'
           ]
         }
@@ -407,23 +414,23 @@ export function CategorizedServicesDisplay() {
       aLaCarte: [
         {
           name: 'Additional Deed Transfer to Trust',
-          fixedPrice: 500,
+          fixedPrice: 450,
           note: 'Per deed. For funding multiple properties into an existing or newly created trust.',
           includes: []
         },
         {
           name: 'Quitclaim Deed',
-          fixedPrice: 500,
+          fixedPrice: 450,
           includes: []
         },
         {
           name: 'Transfer on Death Instrument (TODI)',
-          fixedPrice: 500,
+          fixedPrice: 450,
           includes: []
         },
         {
           name: 'Life Estate Deed',
-          fixedPrice: 500,
+          fixedPrice: 450,
           includes: []
         }
       ],
@@ -446,6 +453,21 @@ export function CategorizedServicesDisplay() {
             'Unlimited Attorney Consultations'
           ],
           note: 'Flat fee paid at the time of closing. Does not include closing costs.'
+        },
+        {
+          name: 'For Sale By Owner (FSBO) Representation',
+          fixedPrice: 1500,
+          includes: [
+            'Purchase/Sale Contract Drafting or Review',
+            'Title Review and Clearance',
+            'Title Search',
+            'Document Preparation',
+            'Settlement Statement Review',
+            'Attorney Representation at Closing',
+            'Coordination normally handled by a real estate agent',
+            'Unlimited Attorney Consultations'
+          ],
+          note: 'Full-service representation for a For Sale By Owner transaction where you are not represented by a real estate agent. Flat fee paid at closing.'
         }
       ],
       aLaCarte: [],
