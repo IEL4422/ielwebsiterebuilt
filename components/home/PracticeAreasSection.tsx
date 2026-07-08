@@ -20,7 +20,7 @@ const categories: Category[] = [
   {
     icon: Home,
     title: 'Real Estate',
-    description: 'Deed transfers, residential closings, and prenuptial agreements — practical legal support for Illinois families protecting their property.',
+    description: 'Deed transfers, residential closings, and prenuptial agreements, practical legal support for Illinois families protecting their property.',
     services: [
       { name: 'Deed Transfers', href: '/chicago-deeds-lawyer/' },
       { name: 'Residential Closings', href: '/chicago-real-estate-closings-lawyer/' },
@@ -33,7 +33,7 @@ const categories: Category[] = [
   {
     icon: FileText,
     title: 'Estate Planning',
-    description: 'Wills, powers of attorney, and healthcare directives drafted to Illinois legal standards — so your wishes are clear and legally binding.',
+    description: 'Wills, powers of attorney, and healthcare directives drafted to Illinois legal standards, so your wishes are clear and legally binding.',
     services: [
       { name: 'Wills', href: '/chicago-wills-lawyer/' },
       { name: 'Powers of Attorney', href: '/chicago-powers-of-attorney-lawyer/' },
@@ -57,7 +57,7 @@ const categories: Category[] = [
   {
     icon: Building2,
     title: 'Probate',
-    description: 'We guide executors and families through Illinois probate — court filings, creditor management, and distributions — with flat-fee clarity from day one.',
+    description: 'We guide executors and families through Illinois probate, court filings, creditor management, and distributions, with flat-fee clarity from day one.',
     services: [
       { name: 'Probate Administration', href: '/chicago-probate-lawyer/' },
       { name: 'Intestate Estates', href: '/chicago-probate-lawyer/' },
@@ -77,7 +77,7 @@ export function PracticeAreasSection() {
             Practice Areas
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">
-            Complete estate law services across all of Illinois — transparent flat-fee pricing before you commit.
+            Complete estate law services across all of Illinois, transparent flat-fee pricing before you commit.
           </p>
         </div>
 

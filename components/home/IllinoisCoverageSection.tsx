@@ -34,7 +34,7 @@ export default function IllinoisCoverageSection() {
               Serving All of Illinois
             </h2>
             <p className="text-white/70 text-base leading-relaxed mb-8 max-w-md">
-              We handle estate planning, probate, trust administration, and real estate law for clients in every county. Fully virtual — no office visit required.
+              We handle estate planning, probate, trust administration, and real estate law for clients in every county. Fully virtual, no office visit required.
             </p>
 
             {/* City chips grid */}
@@ -70,7 +70,7 @@ export default function IllinoisCoverageSection() {
             <div className="my-6 w-16 h-px bg-white/20 mx-auto" />
 
             <p className="text-4xl font-extrabold text-white">100%</p>
-            <p className="text-[#7E9CC0] text-base font-bold mt-2">Virtual — No Office Visit Required</p>
+            <p className="text-[#7E9CC0] text-base font-bold mt-2">Virtual, No Office Visit Required</p>
 
             <div className="my-6 w-16 h-px bg-white/20 mx-auto" />
 

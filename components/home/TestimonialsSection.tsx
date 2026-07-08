@@ -11,7 +11,7 @@ async function getGoogleReviews(): Promise<{
     const apiKey = process.env.GOOGLE_PLACES_API_KEY;
     const placeId = process.env.GOOGLE_PLACE_ID;
 
-    // Keys not configured yet — use fallback silently
+    // Keys not configured yet, use fallback silently
     if (!apiKey || !placeId) {
       return { reviews: [], overallRating: 5.0, totalRatings: 50, isLive: false };
     }

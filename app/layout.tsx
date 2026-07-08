@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MobileStickyBar } from '@/components/layout/MobileStickyBar';
 import FloatingConsultButton from '@/components/ui/FloatingConsultButton';
+import { StructuredData } from '@/components/StructuredData';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.illinoisestatelaw.com'),
@@ -32,6 +33,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
+        <StructuredData />
         <link rel="profile" href="https://gmpg.org/xfn/11" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

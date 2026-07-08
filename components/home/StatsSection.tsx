@@ -1,17 +1,17 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { DollarSign, Clock, Star, Shield } from 'lucide-react';
+import { MapPin, Clock, Star, Shield } from 'lucide-react';
 
 const stats = [
   {
-    value: '$15,000',
-    label: 'Average Saved in Probate Costs',
-    icon: DollarSign,
+    value: 'All 102',
+    label: 'Illinois Counties Served',
+    icon: MapPin,
   },
   {
-    value: '12–18 Months',
-    label: 'Saved From Estate Administration',
+    value: 'Same Week',
+    label: 'Appointments Available',
     icon: Clock,
   },
   {
