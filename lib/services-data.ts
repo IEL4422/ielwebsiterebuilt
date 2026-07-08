@@ -475,8 +475,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Quit Claim Deed - A La Carte',
-    fixedPrice: 450,
-    description: 'Preparation and recording of a Quitclaim Deed. Commonly used to add or remove a spouse or move a home into a trust.',
+    fixedPrice: 500,
+    description: 'Preparation and recording of a Quitclaim Deed. Commonly used to add or remove a spouse or move a home into a trust. Recording fee included.',
     includes: [],
     addOns: estatePlanningAddOns
   },
@@ -486,8 +486,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Transfer on Death Instrument - A La Carte',
-    fixedPrice: 450,
-    description: 'Preparation and recording of a Transfer on Death Instrument for real estate. Allows real estate to transfer to a named beneficiary at death without probate.',
+    fixedPrice: 500,
+    description: 'Preparation and recording of a Transfer on Death Instrument for real estate. Allows real estate to transfer to a named beneficiary at death without probate. Recording fee included.',
     includes: [],
     addOns: estatePlanningAddOns
   },
@@ -497,8 +497,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Life Estate Deed - A La Carte',
-    fixedPrice: 450,
-    description: 'Preparation and recording of a Life Estate Deed. Lets you keep the right to live in and control your home for the rest of your life, while naming who will automatically receive the property after you pass away — outside of probate.',
+    fixedPrice: 500,
+    description: 'Preparation and recording of a Life Estate Deed. Lets you keep the right to live in and control your home for the rest of your life, while naming who will automatically receive the property after you pass away — outside of probate. Recording fee included.',
     includes: [],
     addOns: estatePlanningAddOns
   },

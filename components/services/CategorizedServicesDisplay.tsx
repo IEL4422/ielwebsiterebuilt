@@ -414,23 +414,26 @@ export function CategorizedServicesDisplay() {
       aLaCarte: [
         {
           name: 'Additional Deed Transfer to Trust',
-          fixedPrice: 450,
-          note: 'Per deed. For funding multiple properties into an existing or newly created trust.',
+          fixedPrice: 500,
+          note: 'Per deed, recording fee included. For funding multiple properties into an existing or newly created trust.',
           includes: []
         },
         {
           name: 'Quitclaim Deed',
-          fixedPrice: 450,
+          fixedPrice: 500,
+          note: 'Recording fee included.',
           includes: []
         },
         {
           name: 'Transfer on Death Instrument (TODI)',
-          fixedPrice: 450,
+          fixedPrice: 500,
+          note: 'Recording fee included.',
           includes: []
         },
         {
           name: 'Life Estate Deed',
-          fixedPrice: 450,
+          fixedPrice: 500,
+          note: 'Recording fee included.',
           includes: []
         }
       ],
