@@ -50,6 +50,7 @@ export type StandardizedServiceName =
   | 'Prenuptial Agreement - Q&A Session'
   | 'Trust Funding - A La Carte'
   | 'Residential Closing'
+  | 'For Sale By Owner Representation'
   | 'Trust Administration Consulting';
 
 export interface Service {
@@ -222,7 +223,7 @@ export const estatePlanningPackages: Service[] = [
     category: 'estate-planning',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Irrevocable Trust - A La Carte',
-    fixedPrice: 5000,
+    fixedPrice: 4500,
     description: 'A custom-drafted irrevocable trust tailored to your goals — whether you need a Gifting Trust to reduce your taxable estate, a Special Needs or Supplemental Needs Trust to protect a loved one\'s government benefits, or an Irrevocable Life Insurance Trust (ILIT) to keep life insurance proceeds out of your estate.',
     includes: [
       'Attorney consultation to determine the right trust type (Gifting, Special Needs, ILIT, or Supplemental Needs)',
@@ -400,7 +401,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Contested Probate',
     pricingLabel: '$5,000 retainer + hourly',
-    description: 'Applies when any probate matter becomes or is anticipated to be contested. This is not a flat-fee service. Attorney hourly rate: $350/hour. Paralegal/Administrative hourly rate: $125/hour. Retainer replenished as needed throughout the matter.',
+    description: 'Applies when any probate matter becomes or is anticipated to be contested. This is not a flat-fee service. Attorney hourly rate: $400/hour. Paralegal/Administrative hourly rate: $150/hour. Retainer replenished as needed throughout the matter.',
     includes: [
       'Minimum $5,000 retainer required to commence representation',
       'Attorney hourly rate: $350 / hour',
@@ -453,8 +454,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: { individual: 'Individual Power of Attorney - A La Carte', joint: 'Joint Power of Attorney - A La Carte' },
-    individualPrice: 500,
-    jointPrice: 750,
+    individualPrice: 400,
+    jointPrice: 600,
     description: 'Powers of Attorney let you choose someone you trust to make financial and/or medical decisions for you if you can\'t. Includes Power of Attorney for Healthcare and Power of Attorney for Property. Joint package includes two of each document. Includes online notarization.',
     includes: []
   },
@@ -474,7 +475,7 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Quit Claim Deed - A La Carte',
-    fixedPrice: 500,
+    fixedPrice: 450,
     description: 'Preparation and recording of a Quitclaim Deed. Commonly used to add or remove a spouse or move a home into a trust.',
     includes: [],
     addOns: estatePlanningAddOns
@@ -485,7 +486,7 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Transfer on Death Instrument - A La Carte',
-    fixedPrice: 500,
+    fixedPrice: 450,
     description: 'Preparation and recording of a Transfer on Death Instrument for real estate. Allows real estate to transfer to a named beneficiary at death without probate.',
     includes: [],
     addOns: estatePlanningAddOns
@@ -496,7 +497,7 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Life Estate Deed - A La Carte',
-    fixedPrice: 500,
+    fixedPrice: 450,
     description: 'Preparation and recording of a Life Estate Deed. Lets you keep the right to live in and control your home for the rest of your life, while naming who will automatically receive the property after you pass away — outside of probate.',
     includes: [],
     addOns: estatePlanningAddOns
@@ -630,7 +631,7 @@ export const realEstateServices: Service[] = [
     standardizedCaseType: 'Real Estate',
     standardizedServiceName: 'Residential Closing',
     fixedPrice: 750,
-    description: 'Flat fee paid at the time of closing. Does not include closing costs. Full-service attorney representation for residential real estate closings in Illinois.',
+    description: 'Flat fee paid at the time of closing. Does not include closing costs. For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois.',
     includes: [
       'Contract Review',
       'Title Review and Clearance',
@@ -638,6 +639,25 @@ export const realEstateServices: Service[] = [
       'Document Preparation',
       'Settlement Statement Review',
       'Attorney Representation at Closing',
+      'Unlimited Attorney Consultations'
+    ]
+  },
+  {
+    id: 'fsbo-representation',
+    name: 'For Sale By Owner (FSBO) Representation',
+    category: 'real-estate',
+    standardizedCaseType: 'Real Estate',
+    standardizedServiceName: 'For Sale By Owner Representation',
+    fixedPrice: 1500,
+    description: 'Full-service attorney representation for a For Sale By Owner (FSBO) residential real estate transaction in Illinois, where you are not represented by a real estate agent. Flat fee paid at closing (does not include closing costs).',
+    includes: [
+      'Purchase/Sale Contract Drafting or Review',
+      'Title Review and Clearance',
+      'Title Search',
+      'Document Preparation',
+      'Settlement Statement Review',
+      'Attorney Representation at Closing',
+      'Coordination normally handled by a real estate agent',
       'Unlimited Attorney Consultations'
     ]
   }
