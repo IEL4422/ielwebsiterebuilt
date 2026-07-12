@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Calendar } from 'lucide-react';
+import { trackLead } from '@/lib/fbpixel';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -47,6 +48,16 @@ export function ContactSection() {
         console.error('Edge function response not OK:', response.status, errorData);
         throw new Error('Failed to send message');
       }
+
+      // Meta Lead — only after the edge function confirms success.
+      trackLead('HOME_CONTACT_FORM', {
+        userData: {
+          email: formData.email,
+          phone: formData.phone,
+          firstName: firstName,
+          lastName: lastName,
+        },
+      });
 
       setSubmitted(true);
     } catch (error) {

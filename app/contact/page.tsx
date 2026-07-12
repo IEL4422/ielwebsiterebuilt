@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { CalendarCheck } from 'lucide-react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { trackLead } from '@/lib/fbpixel';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -73,6 +74,16 @@ export default function ContactPage() {
           const emailError = await emailResponse.text();
           console.error('Email confirmation failed:', emailError);
         }
+
+        // Meta Lead — only on a confirmed successful submission.
+        trackLead('CONTACT_FORM', {
+          userData: {
+            email: data.email,
+            phone: data.phone,
+            firstName: firstName,
+            lastName: lastName,
+          },
+        });
 
         setSubmitMessage('Thank you for your message. We will get back to you soon!');
         reset();
