@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Search, BookOpen } from 'lucide-react';
 
@@ -19,6 +19,13 @@ interface GuidesSearchProps {
 export default function GuidesSearch({ guides }: GuidesSearchProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Seed the search box from ?q= so the WebSite SearchAction in our JSON-LD
+  // resolves to a real, working search result view.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) setSearchQuery(q);
+  }, []);
 
   const categories = useMemo(() => {
     const uniqueCategories = new Set(guides.map(g => g.category));

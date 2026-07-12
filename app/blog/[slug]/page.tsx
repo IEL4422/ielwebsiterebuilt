@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { breadcrumbSchema } from '@/lib/seo';
 
 // Force dynamic rendering for this page
 export const dynamic = 'force-dynamic';
@@ -43,11 +44,29 @@ export async function generateMetadata({
     };
   }
 
+  const url = `https://www.illinoisestatelaw.com/blog/${params.slug}/`;
+
   return {
     title: post.title,
     description: post.metaDescription,
     alternates: {
-      canonical: `https://www.illinoisestatelaw.com/blog/${params.slug}/`,
+      canonical: url,
+    },
+    robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.metaDescription,
+      url,
+      siteName: 'Illinois Estate Law',
+      locale: 'en_US',
+      publishedTime: new Date(post.publishedDate as string).toISOString(),
+      authors: ['https://www.illinoisestatelaw.com/about/'],
+    },
+    twitter: {
+      card: 'summary',
+      title: post.title,
+      description: post.metaDescription,
     },
   };
 }
@@ -84,14 +103,24 @@ export default async function BlogPostPage({
     },
     "publisher": {
       "@type": "Organization",
+      "@id": "https://www.illinoisestatelaw.com/#organization",
       "name": "Illinois Estate Law",
       "url": "https://www.illinoisestatelaw.com"
     },
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "about": { "@type": "Thing", "name": "Illinois estate law" },
+    "spatialCoverage": { "@type": "State", "name": "Illinois" },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://www.illinoisestatelaw.com/blog/${post.slug}/`
     }
   };
+
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Learning Center', path: '/blog/' },
+    { name: post.title, path: `/blog/${post.slug}/` },
+  ]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -100,9 +129,13 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <Link
-          href="/blog"
+          href="/blog/"
           className="inline-flex items-center text-slate-600 hover:text-slate-900 mb-8 transition-colors"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />

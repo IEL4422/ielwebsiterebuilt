@@ -1,38 +1,45 @@
 import type { Metadata } from 'next';
+import { breadcrumbSchema, serviceSchema } from '@/lib/seo';
+
+const TITLE = 'Illinois Deed Transfer Attorney | Quitclaim & Warranty Deeds | Illinois Estate Law';
+const DESCRIPTION = 'Illinois deed attorney preparing quitclaim deeds, warranty deeds, and transfer on death instruments, and recording them with the county recorder. Call (312) 373-0731.';
+const PATH = '/chicago-deeds-lawyer/';
+const URL = `https://www.illinoisestatelaw.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: { absolute: 'Real Estate Deeds | Illinois Estate Law' },
-  description: 'Experienced Chicago deeds lawyer handling property transfers, quitclaim deeds, and title transfers in Illinois. Protect your real estate interests. Call (312) 373-0731.',
-  alternates: {
-    canonical: 'https://www.illinoisestatelaw.com/chicago-deeds-lawyer/',
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: URL },
+  robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
-    title: 'Real Estate Deeds | Illinois Estate Law',
-    description: 'Experienced Chicago deeds lawyer handling property transfers, quitclaim deeds, and title transfers in Illinois. Protect your real estate interests. Call (312) 373-0731.',
-    url: 'https://www.illinoisestatelaw.com/chicago-deeds-lawyer/',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.illinoisestatelaw.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Chicago Deeds Lawyer', item: 'https://www.illinoisestatelaw.com/chicago-deeds-lawyer/' },
-  ],
-};
+const breadcrumb = breadcrumbSchema([{ name: 'Chicago Deeds Lawyer', path: PATH }]);
 
-export default function ChicagoDeedsLawyerLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const service = serviceSchema({
+  name: 'Illinois Deed Preparation and Transfer',
+  description: 'Preparation and recording of Illinois deeds, including quitclaim deeds, warranty deeds, trustee deeds, and transfer on death instruments, with the required transfer tax declarations.',
+  path: PATH,
+  serviceType: 'Deed preparation and property transfer',
+});
+
+export default function ChicagoDeedsLawyerLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }} />
       {children}
     </>
   );
