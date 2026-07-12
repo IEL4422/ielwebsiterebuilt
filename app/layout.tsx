@@ -11,10 +11,23 @@ import { MetaPixel } from '@/components/analytics/MetaPixel';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.illinoisestatelaw.com'),
   title: {
-    default: 'Illinois Estate Law',
+    default: 'Illinois Estate Planning, Probate & Real Estate Attorneys | Illinois Estate Law',
     template: '%s | Illinois Estate Law'
   },
-  generator: 'WordPress 6.9',
+  description:
+    'Illinois Estate Law is an Illinois law firm offering flat-fee estate planning, wills, trusts, probate, deeds, and residential real estate closings statewide. Call (312) 373-0731.',
+  applicationName: 'Illinois Estate Law',
+  robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+  openGraph: {
+    type: 'website',
+    siteName: 'Illinois Estate Law',
+    locale: 'en_US',
+    url: 'https://www.illinoisestatelaw.com/',
+  },
+  twitter: {
+    card: 'summary',
+    site: '@IllinoisEstate',
+  },
   icons: {
     icon: '/favicon.png',
     apple: '/favicon.png',
@@ -35,7 +48,6 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
         <StructuredData />
-        <link rel="profile" href="https://gmpg.org/xfn/11" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>

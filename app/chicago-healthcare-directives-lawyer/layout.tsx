@@ -1,38 +1,45 @@
 import type { Metadata } from 'next';
+import { breadcrumbSchema, serviceSchema } from '@/lib/seo';
+
+const TITLE = 'Illinois Healthcare Directive & Living Will Attorney | Illinois Estate Law';
+const DESCRIPTION = 'Illinois attorney preparing health care powers of attorney, living wills, and HIPAA authorizations so your medical wishes are documented. Call (312) 373-0731.';
+const PATH = '/chicago-healthcare-directives-lawyer/';
+const URL = `https://www.illinoisestatelaw.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: { absolute: 'Healthcare Directives | Illinois Estate Law' },
-  description: 'Experienced Chicago healthcare directives lawyer helping you create living wills and HIPAA authorizations that protect your medical wishes. Call (312) 373-0731.',
-  alternates: {
-    canonical: 'https://www.illinoisestatelaw.com/chicago-healthcare-directives-lawyer/',
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: URL },
+  robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
-    title: 'Healthcare Directives | Illinois Estate Law',
-    description: 'Experienced Chicago healthcare directives lawyer helping you create living wills and HIPAA authorizations that protect your medical wishes. Call (312) 373-0731.',
-    url: 'https://www.illinoisestatelaw.com/chicago-healthcare-directives-lawyer/',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.illinoisestatelaw.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Chicago Healthcare Directives Lawyer', item: 'https://www.illinoisestatelaw.com/chicago-healthcare-directives-lawyer/' },
-  ],
-};
+const breadcrumb = breadcrumbSchema([{ name: 'Chicago Healthcare Directives Lawyer', path: PATH }]);
 
-export default function HealthcareDirectivesLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const service = serviceSchema({
+  name: 'Illinois Healthcare Directives',
+  description: 'Preparation of Illinois health care powers of attorney, living wills, and HIPAA authorizations that document medical treatment wishes and name a health care agent.',
+  path: PATH,
+  serviceType: 'Advance healthcare directives',
+});
+
+export default function HealthcareDirectivesLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }} />
       {children}
     </>
   );

@@ -1,38 +1,45 @@
 import type { Metadata } from 'next';
+import { breadcrumbSchema, serviceSchema } from '@/lib/seo';
+
+const TITLE = 'Illinois Prenuptial Agreement Attorney | Illinois Estate Law';
+const DESCRIPTION = 'Illinois prenuptial agreement attorney drafting clear, enforceable prenups under the Illinois Uniform Premarital Agreement Act. Flat fee. Call (312) 373-0731.';
+const PATH = '/chicago-prenuptial-agreements-lawyer/';
+const URL = `https://www.illinoisestatelaw.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: { absolute: 'Prenuptial Agreements | Illinois Estate Law' },
-  description: 'Experienced Chicago prenuptial agreements lawyer helping couples protect assets and plan for the future. Fair, enforceable prenups in Illinois. Call (312) 373-0731.',
-  alternates: {
-    canonical: 'https://www.illinoisestatelaw.com/chicago-prenuptial-agreements-lawyer/',
-  },
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: URL },
+  robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
-    title: 'Prenuptial Agreements | Illinois Estate Law',
-    description: 'Experienced Chicago prenuptial agreements lawyer helping couples protect assets and plan for the future. Fair, enforceable prenups in Illinois. Call (312) 373-0731.',
-    url: 'https://www.illinoisestatelaw.com/chicago-prenuptial-agreements-lawyer/',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.illinoisestatelaw.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Chicago Prenuptial Agreements Lawyer', item: 'https://www.illinoisestatelaw.com/chicago-prenuptial-agreements-lawyer/' },
-  ],
-};
+const breadcrumb = breadcrumbSchema([{ name: 'Chicago Prenuptial Agreements Lawyer', path: PATH }]);
 
-export default function PrenuptialAgreementsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const service = serviceSchema({
+  name: 'Illinois Prenuptial Agreements',
+  description: 'Drafting and review of prenuptial agreements under the Illinois Uniform Premarital Agreement Act, coordinated with estate planning documents.',
+  path: PATH,
+  serviceType: 'Prenuptial agreement drafting',
+});
+
+export default function PrenuptialAgreementsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }} />
       {children}
     </>
   );
