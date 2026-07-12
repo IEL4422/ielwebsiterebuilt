@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { trackLead } from '@/lib/fbpixel';
 
 export default function BlogContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,6 +57,16 @@ export default function BlogContactForm() {
         console.error('Email confirmation failed:', emailError);
         // Don't throw error for confirmation email failure
       }
+
+      // Meta Lead — only on a confirmed successful submission.
+      trackLead('BLOG_CONTACT_FORM', {
+        userData: {
+          email: data.email,
+          phone: data.phone,
+          firstName: data.firstName,
+          lastName: data.lastName,
+        },
+      });
 
       setSubmitMessage('Thank you for your message. We will get back to you soon!');
       reset();

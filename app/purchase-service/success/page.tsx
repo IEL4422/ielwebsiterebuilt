@@ -1,15 +1,17 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import Link from 'next/link';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { trackEvent, DEFAULT_PURCHASE_VALUE } from '@/lib/fbpixel';
 
 export default function SuccessPage() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');
   const [isVerifying, setIsVerifying] = useState(true);
+  const purchaseTrackedRef = useRef(false);
 
   useEffect(() => {
     if (sessionId) {
@@ -24,6 +26,24 @@ export default function SuccessPage() {
       (window as any).gtag('event', 'ads_conversion_About_Us_1', {});
     }
   }, [isVerifying]);
+
+  // Meta Purchase (NOT Lead) — fires once, after payment is confirmed.
+  useEffect(() => {
+    if (isVerifying || !sessionId || purchaseTrackedRef.current) return;
+    purchaseTrackedRef.current = true;
+
+    const amountParam = searchParams.get('amount');
+    const parsed = amountParam ? Number(amountParam) : NaN;
+    const value = Number.isFinite(parsed) && parsed > 0 ? parsed : DEFAULT_PURCHASE_VALUE;
+
+    trackEvent('Purchase', value, {
+      params: {
+        content_type: 'product',
+        content_category: 'legal_services',
+        order_id: sessionId,
+      },
+    });
+  }, [isVerifying, sessionId, searchParams]);
 
   return (
     <main>

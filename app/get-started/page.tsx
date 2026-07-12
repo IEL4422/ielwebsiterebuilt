@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { ShoppingCart, CircleHelp as HelpCircle, Calendar, MessageSquare } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { TrackedLeadLink } from '@/components/analytics/TrackedLeadLink';
 
 export const metadata: Metadata = {
   title: 'Get Started',
@@ -39,8 +40,9 @@ export default function GetStartedPage() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="mx-auto max-w-[1140px] px-5 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            <a
+            <TrackedLeadLink
               href="https://portal.illinoisestatelaw.com/shop"
+              source="PORTAL_HANDOFF"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-4 p-6 lg:p-8 bg-white border-2 border-[#547298] rounded-lg hover:bg-[#4a708b] transition-all duration-300 shadow-md hover:shadow-xl"
@@ -56,7 +58,7 @@ export default function GetStartedPage() {
                   Browse and select from our service offerings
                 </p>
               </div>
-            </a>
+            </TrackedLeadLink>
 
             <a
               href="/recommended-service/"

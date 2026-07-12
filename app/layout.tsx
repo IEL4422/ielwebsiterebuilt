@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { MobileStickyBar } from '@/components/layout/MobileStickyBar';
 import FloatingConsultButton from '@/components/ui/FloatingConsultButton';
 import { StructuredData } from '@/components/StructuredData';
+import { MetaPixel } from '@/components/analytics/MetaPixel';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.illinoisestatelaw.com'),
@@ -39,6 +40,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-['Plus_Jakarta_Sans'] antialiased">
+        <MetaPixel />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DDLGV7ZF0Z"
           strategy="afterInteractive"
