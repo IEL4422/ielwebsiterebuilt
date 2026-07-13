@@ -100,8 +100,8 @@ export default function ProcessPage() {
               },
               {
                 step: 7,
-                title: 'Trust Funding',
-                description: 'Transfer assets into your trust to ensure your plan works as intended when the time comes.',
+                title: 'Trust Funding Guidance',
+                description: 'We show you which assets belong in the trust and how to retitle each one, and we draft and record the deed for your real estate. You complete the account transfers with your institutions.',
               },
               {
                 step: 8,

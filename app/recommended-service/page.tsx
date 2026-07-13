@@ -386,9 +386,9 @@ export default function RecommendedServicePage() {
 
       addOns.push({
         id: 'trust-funding',
-        name: 'Trust Funding',
+        name: 'Trust Funding Guidance',
         price: 1500,
-        description: 'Funding of up to 15 financial assets into trust. Does not include real estate / deed transfers.'
+        description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.'
       });
 
       addOns.push({
@@ -412,7 +412,7 @@ export default function RecommendedServicePage() {
           'End of Life Planner (complimentary gift)',
           'Personal Property Memorandum',
           '1 Transfer on Death Instrument (TODI) of Real Estate to Trust',
-          'Full Trust Funding',
+          'Trust Funding Guidance',
           'Online or Mobile Notarization',
           'Physical & Digital Portfolio',
           'Client Portal Access',
@@ -449,9 +449,9 @@ export default function RecommendedServicePage() {
 
       addOns.push({
         id: 'trust-funding',
-        name: 'Trust Funding',
+        name: 'Trust Funding Guidance',
         price: 1500,
-        description: 'Funding of up to 15 financial assets into trust. Does not include real estate / deed transfers.'
+        description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.'
       });
 
       return {
@@ -2005,7 +2005,7 @@ export default function RecommendedServicePage() {
 
                   <p className="mb-3"><strong>10.04 Client Responsibilities.</strong> Provide complete and accurate information; respond to requests within 5 business days; meet deadlines; keep contact info current; and promptly review drafts. Delays or inaccuracies may increase cost or limit available options.</p>
 
-                  <p className="mb-3"><strong>10.05 Trust Funding.</strong> Full trust funding is included in all trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust). The Firm will coordinate with banks, financial institutions, and other entities to transfer Client's assets into the trust. One (1) deed transfer of real estate into the trust is included; additional deeds are $500 each. For a la carte services that do not include a trust, trust funding is not included unless separately purchased. The Firm is not responsible for delays caused by third-party institutions or for Client's failure to provide required information or documentation in a timely manner.</p>
+                  <p className="mb-3"><strong>10.05 Trust Funding Guidance.</strong> Trust funding guidance is included in all trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust). The Firm will review Client's assets, identify which assets should be transferred into the trust, and provide Client with instructions and any trust certification or letters of instruction needed to complete each transfer. Client is responsible for completing the transfers with Client's banks, brokerages, and other institutions; the Firm does not retitle Client's financial accounts on Client's behalf. One (1) deed transfer of real estate into the trust is drafted and recorded by the Firm and is included; additional deeds are $500 each. For a la carte services that do not include a trust, trust funding guidance is not included unless separately purchased. The Firm is not responsible for delays caused by third-party institutions or for Client's failure to complete transfers or to provide required information or documentation in a timely manner.</p>
 
                   <h3 className="font-bold text-lg mt-6 mb-3">STATEMENT OF CLIENT'S RIGHTS AND RESPONSIBILITIES</h3>
 

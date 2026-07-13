@@ -114,7 +114,7 @@ export function CategorizedServicesDisplay() {
             'End of Life Planner (complimentary gift)',
             'Personal Property Memorandum',
             '1 Transfer on Death Instrument (TODI) of Real Estate to Trust',
-            'Full Trust Funding',
+            'Trust Funding Guidance',
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
             'Client Portal Access',
@@ -216,9 +216,9 @@ export function CategorizedServicesDisplay() {
           includes: []
         },
         {
-          name: 'Trust Funding',
+          name: 'Trust Funding Guidance',
           fixedPrice: 1500,
-          note: 'Up to 15 assets. Does not include real estate / deed transfers.',
+          note: 'Guidance for retitling up to 15 financial assets into your trust. You complete the transfers with your institutions. Does not include real estate / deed transfers.',
           includes: []
         },
         {
@@ -226,7 +226,7 @@ export function CategorizedServicesDisplay() {
           subtitle: 'Gifting Trust, Life Insurance Trust (ILIT), or Supplemental Needs Trust',
           fixedPrice: 4500,
           includes: [],
-          note: 'A custom-drafted irrevocable trust tailored to your goals. Includes full trust funding.'
+          note: 'A custom-drafted irrevocable trust tailored to your goals. Includes trust funding guidance.'
         }
       ],
       addOns: [

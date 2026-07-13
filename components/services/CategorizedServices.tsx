@@ -151,7 +151,7 @@ export function CategorizedServices({
             'End of Life Planner (complimentary gift)',
             'Personal Property Memorandum',
             '1 Transfer on Death Instrument (TODI) of Real Estate to Trust',
-            'Full Trust Funding',
+            'Trust Funding Guidance',
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
             'Client Portal Access',
@@ -282,10 +282,10 @@ export function CategorizedServices({
         },
         {
           id: 'trust-funding-service',
-          name: 'Trust Funding',
+          name: 'Trust Funding Guidance',
           category: 'a-la-carte',
           fixedPrice: 1500,
-          description: 'Funding of up to 15 financial assets into trust. Does not include real estate / deed transfers.',
+          description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.',
           includes: []
         }
       ],
@@ -523,7 +523,7 @@ export function CategorizedServices({
           name: 'Additional Deed Transfer to Trust',
           category: 'a-la-carte',
           fixedPrice: 500,
-          description: 'For funding multiple properties into an existing or newly created trust. May be added to any package or trust funding service.',
+          description: 'For transferring additional properties into an existing or newly created trust. We draft and record the deed. May be added to any package or trust funding guidance service.',
           includes: []
         },
         {

@@ -49,7 +49,7 @@ const categories: Category[] = [
     services: [
       { name: 'Revocable Living Trusts', href: '/chicago-revocable-trusts-lawyer/' },
       { name: 'Successor Trustee Services', href: '/services-pricing/' },
-      { name: 'Trust Funding & Asset Transfer', href: '/services-pricing/' },
+      { name: 'Trust Funding Guidance', href: '/services-pricing/' },
     ],
     ctaLabel: 'Explore Trust Services',
     ctaHref: '/chicago-revocable-trusts-lawyer/',

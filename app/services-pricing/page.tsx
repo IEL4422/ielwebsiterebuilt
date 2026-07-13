@@ -62,7 +62,7 @@ const faqSchema = {
       "name": "Does Your Flat-Fee Include Costs for Court Filings or Third-Party Expenses, Beyond the Recording of the First Deed?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our packages include most extraneous expenses, court fees, etc. For probate matters, this includes the creditor publication charge and the filing fee. The surety bond or the insurance policy for the estate would be directly paid by the client to the insurance provider. For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- full trust funding, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged."
+        "text": "Our packages include most extraneous expenses, court fees, etc. For probate matters, this includes the creditor publication charge and the filing fee. The surety bond or the insurance policy for the estate would be directly paid by the client to the insurance provider. For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- trust funding guidance, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged."
       }
     },
     {
@@ -78,15 +78,15 @@ const faqSchema = {
       "name": "Does the Package Include Transfer of Property Into the Trust?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes -- full trust funding is included in all of our trust packages and trust services. We draft one (1) deed for you and record it with the Recorder of Deeds as part of the service. Additional deeds beyond the first are $500 each for completion and recording."
+        "text": "Yes -- as to real estate. We draft one (1) deed for you and record it with the Recorder of Deeds as part of the service. Trust funding guidance for your other assets is also included: we tell you exactly what to retitle and how, and you complete those transfers with your institutions. Additional deeds beyond the first are $500 each for completion and recording."
       }
     },
     {
       "@type": "Question",
-      "name": "Do You Provide Assistance With Funding My Trust?",
+      "name": "Do You Help Me Fund My Trust?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes -- full trust funding is included in all trust packages and trust services at no additional cost. Our team will coordinate directly with your banks, financial institutions, and other entities to transfer your assets into the trust. We also draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Our goal is to ensure all your assets are properly transferred to the trust or have designated pay-on-death beneficiaries. Trust funding is also available as a standalone a la carte service for $1,500 for clients who have an existing trust."
+        "text": "Yes -- trust funding guidance is included in all trust packages and trust services at no additional cost. We review your assets, tell you which ones belong in the trust, and give you the trust certification, letters of instruction, and step-by-step direction you need. You complete the transfers with your banks and financial institutions; we do not retitle your accounts for you. We do draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Trust funding guidance is also available as a standalone a la carte service for $1,500 for clients who already have a trust."
       }
     },
     {
@@ -302,7 +302,7 @@ export default function ServicesPage() {
             </summary>
             <div className="pb-4 text-[#2d3e50]">
               <p className="mb-4">Our packages include most extraneous expenses, court fees, etc. For probate matters, this includes the creditor publication charge and the filing fee. The surety bond or the insurance policy for the estate would be directly paid by the client to the insurance provider.</p>
-              <p>For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- full trust funding, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged.</p>
+              <p>For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- trust funding guidance, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged.</p>
             </div>
           </details>
 
@@ -326,19 +326,19 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes -- full trust funding is included in all of our trust packages and trust services. We draft one (1) deed for you and record it with the Recorder of Deeds as part of the service. Additional deeds beyond the first are $500 each for completion and recording.</p>
+              <p>Yes -- as to real estate. We draft one (1) deed for you and record it with the Recorder of Deeds as part of the service. Trust funding guidance for your other assets is also included: we tell you exactly what to retitle and how, and you complete those transfers with your institutions. Additional deeds beyond the first are $500 each for completion and recording.</p>
             </div>
           </details>
 
           <details className="group border-b border-gray-200">
             <summary className="flex justify-between items-center cursor-pointer py-4 text-[#011627] font-['Plus_Jakarta_Sans'] font-semibold text-lg hover:text-[#4a708b] sm:text-base sm:py-3">
-              Do You Provide Assistance With Funding My Trust?
+              Do You Help Me Fund My Trust?
               <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes -- full trust funding is included in all trust packages and trust services at no additional cost. Our team will coordinate directly with your banks, financial institutions, and other entities to transfer your assets into the trust. We also draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Our goal is to ensure all your assets are properly transferred to the trust or have designated pay-on-death beneficiaries. Trust funding is also available as a standalone a la carte service for $1,500 for clients who have an existing trust.</p>
+              <p>Yes -- trust funding guidance is included in all trust packages and trust services at no additional cost. We review your assets, tell you which ones belong in the trust, and give you the trust certification, letters of instruction, and step-by-step direction you need. You complete the transfers with your banks and financial institutions; we do not retitle your accounts for you. We do draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Trust funding guidance is also available as a standalone a la carte service for $1,500 for clients who already have a trust.</p>
             </div>
           </details>
 
