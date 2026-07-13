@@ -120,6 +120,22 @@ export default function SuccessPage() {
                 <p>Email: <a href="mailto:contact@illinoisestatelaw.com" className="text-[#4a708b] hover:underline">contact@illinoisestatelaw.com</a></p>
               </div>
 
+              <div className="pt-6">
+                <p className="font-['Plus_Jakarta_Sans'] text-[#2d3e50]">
+                  Once we have worked together, we would be grateful if you shared your honest
+                  experience.{' '}
+                  <a
+                    href="https://g.page/r/CXtTQeh-RTV-EBM/review"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#4a708b] underline hover:no-underline font-semibold"
+                  >
+                    Leave us a Google review
+                  </a>
+                  .
+                </p>
+              </div>
+
               <div className="pt-8">
                 <Link
                   href="/"

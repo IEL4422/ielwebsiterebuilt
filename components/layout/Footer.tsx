@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Star, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const footerNavItems = [
   { label: 'ABOUT', href: '/about/' },
@@ -94,6 +94,19 @@ export function Footer() {
                 >
                   <Mail className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
                   <span>contact@illinoisestatelaw.com</span>
+                </Link>
+                <p className="flex items-start gap-2 sm:gap-3 text-[#FEFEFE] font-medium text-sm sm:text-base">
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
+                  <span>Hours: Monday&ndash;Friday, 9:00 AM&ndash;5:00 PM Central</span>
+                </p>
+                <Link
+                  href="https://g.page/r/CXtTQeh-RTV-EBM/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 sm:gap-3 text-[#FEFEFE] hover:text-[#CCCCCC] font-medium underline transition-colors text-sm sm:text-base"
+                >
+                  <Star className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                  <span>Leave us a Google review</span>
                 </Link>
               </div>
             </div>

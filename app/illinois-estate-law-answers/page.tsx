@@ -196,7 +196,8 @@ export default function IllinoisEstateLawAnswersPage() {
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
               Office: {FIRM.streetAddress}, {FIRM.addressLocality}, {FIRM.addressRegion}{' '}
-              {FIRM.postalCode}. Phone: {FIRM.phoneDisplay}. Email: {FIRM.email}. Consultations are
+              {FIRM.postalCode}. Office hours: Monday&ndash;Friday, 9:00 AM&ndash;5:00 PM Central.
+              Phone: {FIRM.phoneDisplay}. Email: {FIRM.email}. Consultations are
               free and can be booked at{' '}
               <Link href="/book-consultation/" className="text-[#4A708B] underline">
                 illinoisestatelaw.com/book-consultation

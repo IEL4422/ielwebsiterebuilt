@@ -297,6 +297,29 @@ export default function ContactPage() {
                     <span className="font-['Plus_Jakarta_Sans'] font-medium">(312) 373 - 0731</span>
                   </a>
 
+                  <p className="flex items-start gap-3 text-[#2d3e50]">
+                    <svg className="w-6 h-6 flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10.59V6h-2v7.41l4.29 4.3 1.42-1.42L13 12.59Z" />
+                    </svg>
+                    <span className="font-['Plus_Jakarta_Sans'] font-medium">
+                      Office hours: Monday&ndash;Friday, 9:00 AM&ndash;5:00 PM Central
+                    </span>
+                  </p>
+
+                  <a
+                    href="https://g.page/r/CXtTQeh-RTV-EBM/review"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-[#2d3e50] hover:text-[#4a708b] transition-colors"
+                  >
+                    <svg className="w-6 h-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="m12 17.27 5.18 3.13-1.37-5.89 4.57-3.96-6.02-.52L12 4.5 9.64 10.03l-6.02.52 4.57 3.96-1.37 5.89L12 17.27Z" />
+                    </svg>
+                    <span className="font-['Plus_Jakarta_Sans'] font-medium underline">
+                      Been a client? Leave us a Google review
+                    </span>
+                  </a>
+
                   <a
                     href="fax:8156051321"
                     className="flex items-center gap-3 text-[#2d3e50] hover:text-[#4a708b] transition-colors"
