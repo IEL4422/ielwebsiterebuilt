@@ -17,6 +17,9 @@ export const FIRM = {
   latitude: 41.9622,
   longitude: -87.6739,
   mapUrl: 'https://maps.app.goo.gl/EvyUmQa3QaEx4dzm9',
+  reviewUrl: 'https://g.page/r/CXtTQeh-RTV-EBM/review',
+  googleProfileUrl: 'https://g.page/r/CXtTQeh-RTV-EBM',
+  hoursText: 'Monday to Friday, 9:00 AM to 5:00 PM Central',
   logo: 'https://i.imgur.com/bSfExtA.png',
   sameAs: [
     'https://www.facebook.com/profile.php?id=61561472971623',
@@ -24,8 +27,21 @@ export const FIRM = {
     'https://www.instagram.com/illinoisestatelaw/',
     'https://www.linkedin.com/company/illinois-estate-law/',
     'https://www.youtube.com/channel/UCgnYeLkyQuInlCyfFpBQtgA',
+    'https://g.page/r/CXtTQeh-RTV-EBM',
   ],
 } as const;
+
+/**
+ * Office hours. Assumed Monday-Friday 9:00-17:00 America/Chicago.
+ * If the firm keeps different or additional days, edit this one array and both
+ * the JSON-LD and the on-page hours text follow.
+ */
+export const OPENING_HOURS = {
+  '@type': 'OpeningHoursSpecification',
+  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+  opens: '09:00',
+  closes: '17:00',
+};
 
 export const postalAddress = {
   '@type': 'PostalAddress',

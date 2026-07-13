@@ -1,4 +1,4 @@
-import { FIRM, SITE_URL, postalAddress } from '@/lib/seo';
+import { FIRM, SITE_URL, postalAddress, OPENING_HOURS } from '@/lib/seo';
 
 /**
  * Site-wide JSON-LD graph: the firm (LegalService / Attorney / LocalBusiness),
@@ -37,6 +37,7 @@ export function StructuredData() {
           { '@type': 'City', name: 'Chicago' },
         ],
         availableLanguage: ['English', 'Arabic'],
+        openingHoursSpecification: [OPENING_HOURS],
         knowsAbout: [
           'Illinois estate planning',
           'Illinois probate and estate administration',
