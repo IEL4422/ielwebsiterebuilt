@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { trackLead } from '@/lib/fbpixel';
+import { trackGoogleConversion } from '@/lib/gtag';
 
 export default function BlogContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,6 +58,9 @@ export default function BlogContactForm() {
         console.error('Email confirmation failed:', emailError);
         // Don't throw error for confirmation email failure
       }
+
+      // Google Ads conversion — "IEL — Contact Form Lead".
+      trackGoogleConversion();
 
       // Meta Lead — only on a confirmed successful submission.
       trackLead('BLOG_CONTACT_FORM', {

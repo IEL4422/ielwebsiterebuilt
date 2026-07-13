@@ -7,6 +7,7 @@ import { CalendarCheck } from 'lucide-react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { trackLead } from '@/lib/fbpixel';
+import { trackGoogleConversion } from '@/lib/gtag';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -74,6 +75,9 @@ export default function ContactPage() {
           const emailError = await emailResponse.text();
           console.error('Email confirmation failed:', emailError);
         }
+
+        // Google Ads conversion — "IEL — Contact Form Lead".
+        trackGoogleConversion();
 
         // Meta Lead — only on a confirmed successful submission.
         trackLead('CONTACT_FORM', {

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Calendar } from 'lucide-react';
 import { trackLead } from '@/lib/fbpixel';
+import { trackGoogleConversion } from '@/lib/gtag';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -48,6 +49,9 @@ export function ContactSection() {
         console.error('Edge function response not OK:', response.status, errorData);
         throw new Error('Failed to send message');
       }
+
+      // Google Ads conversion — "IEL — Contact Form Lead".
+      trackGoogleConversion();
 
       // Meta Lead — only after the edge function confirms success.
       trackLead('HOME_CONTACT_FORM', {
