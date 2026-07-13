@@ -129,7 +129,7 @@ export const estatePlanningPackages: Service[] = [
       'End of Life Planner (complimentary gift)',
       'Personal Property Memorandum',
       '1 Transfer on Death Instrument (TODI) of Real Estate to Trust',
-      'Full Trust Funding',
+      'Trust Funding Guidance',
       'Online or Mobile Notarization',
       'Physical & Digital Portfolio',
       'Client Portal Access',
@@ -550,12 +550,12 @@ export const aLaCarteServices: Service[] = [
   },
   {
     id: 'trust-funding-service',
-    name: 'Trust Funding',
+    name: 'Trust Funding Guidance',
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Trust Funding - A La Carte',
     fixedPrice: 1500,
-    description: 'Funding of up to 15 financial assets into trust. Includes review of trust and funding of financial assets. Does not include real estate / deed transfers.',
+    description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.',
     includes: []
   }
 ];

@@ -29,7 +29,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 "name": "How much does it cost to create a revocable trust in Chicago?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The cost of creating a revocable trust typically ranges from $2,000 to $5,000 depending on the complexity of your situation. This usually includes the trust document, pour-over will, powers of attorney, healthcare directives, and initial funding assistance. While this is more expensive than a simple will, the savings in probate costs and the benefits to your family far exceed the initial investment. At Illinois Estate Law, we provide transparent flat-fee pricing with no hidden costs."
+                  "text": "The cost of creating a revocable trust typically ranges from $2,000 to $5,000 depending on the complexity of your situation. This usually includes the trust document, pour-over will, powers of attorney, healthcare directives, and trust funding guidance. While this is more expensive than a simple will, the savings in probate costs and the benefits to your family far exceed the initial investment. At Illinois Estate Law, we provide transparent flat-fee pricing with no hidden costs."
                 }
               },
               {
@@ -670,7 +670,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#7E9CC0] text-xl">→</span>
-                      <span>Complete funding assistance for all asset types</span>
+                      <span>Trust funding guidance for every asset type, so you know exactly what to retitle and how</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#7E9CC0] text-xl">→</span>
@@ -713,7 +713,7 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                     {expandedSection === 'faq1' && (
                       <div className="bg-white px-6 py-4 border-t border-slate-200">
                         <p className="text-slate-600">
-                          The cost of creating a revocable trust typically ranges from $2,000 to $5,000 depending on the complexity of your situation. This usually includes the trust document, pour-over will, powers of attorney, healthcare directives, and initial funding assistance. While this is more expensive than a simple will, the savings in probate costs and the benefits to your family far exceed the initial investment. At Illinois Estate Law, we provide transparent flat-fee pricing with no hidden costs.
+                          The cost of creating a revocable trust typically ranges from $2,000 to $5,000 depending on the complexity of your situation. This usually includes the trust document, pour-over will, powers of attorney, healthcare directives, and trust funding guidance. While this is more expensive than a simple will, the savings in probate costs and the benefits to your family far exceed the initial investment. At Illinois Estate Law, we provide transparent flat-fee pricing with no hidden costs.
                         </p>
                       </div>
                     )}

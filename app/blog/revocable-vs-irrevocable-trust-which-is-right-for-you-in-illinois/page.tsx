@@ -902,7 +902,7 @@ export default function Page() {
                 Ready to Decide? Let Us Help.
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed">
-                At Illinois Estate Law, we help families choose and implement the right trust strategy for their goals. Our flat-fee trust packages include drafting, funding assistance, and all supporting documents &mdash; no hourly billing surprises.
+                At Illinois Estate Law, we help families choose and implement the right trust strategy for their goals. Our flat-fee trust packages include drafting, trust funding guidance, and all supporting documents &mdash; no hourly billing surprises.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
