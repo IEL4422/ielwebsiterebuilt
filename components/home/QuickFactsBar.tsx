@@ -9,9 +9,12 @@ const facts = [
     href: '/book-consultation/',
   },
   {
+    // Was: label '100% Flat-Fee' / sub 'No hourly billing, ever'.
+    // "ever" was false — contested matters are billed hourly against a retainer,
+    // and the services page already said so. See lib/fee-structure.ts.
     icon: DollarSign,
-    label: '100% Flat-Fee',
-    sub: 'No hourly billing, ever',
+    label: '100% Flat-Fee*',
+    sub: 'Hourly only for contested matters',
     href: '/services-pricing/',
   },
   {
