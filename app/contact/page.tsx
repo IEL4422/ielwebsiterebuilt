@@ -100,15 +100,7 @@ export default function ContactPage() {
       }
     };
 
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'ads_conversion_Sign_up_1', {
-        'event_callback': submitForm,
-        'event_timeout': 2000,
-      });
-      setTimeout(submitForm, 2000);
-    } else {
-      await submitForm();
-    }
+    await submitForm();
   };
 
   return (
