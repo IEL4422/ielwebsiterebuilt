@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Gavel, FileText, Users, UserCheck, CreditCard, Search, CircleCheck as CheckCircle } from 'lucide-react';
+import { Gavel, FileText, Users, UserCheck, CreditCard, Search } from 'lucide-react';
 import { countyProbateLocations, CountyProbateLocation } from '@/lib/locations-data';
+import { PROBATE, usd } from '@/lib/pricing';
 import { LocationHero } from '@/components/geo/LocationHero';
 import { ServiceCard } from '@/components/geo/ServiceCard';
 import { PricingCard } from '@/components/geo/PricingCard';
@@ -61,12 +62,20 @@ const probateServices = [
   { icon: Search, title: 'Estate Asset Search & Inventory', description: 'Comprehensive identification, location, and inventory of all estate assets for court reporting.' },
 ];
 
+/**
+ * DRIFT FIX. This array previously hardcoded its own prices, and one of them was a
+ * fee the firm does not charge: "Surviving Spouse $5,000" — the actual Spousal
+ * Representation fee is $3,500. It rendered on every county probate page.
+ *
+ * Every figure now reads from lib/pricing.ts. Do not reintroduce a literal dollar
+ * amount in this file.
+ */
 const probatePricing = [
-  { name: 'Full Probate Package', price: '$6,500' },
-  { name: 'Small Estate Probate Package', price: '$3,500', featured: true },
-  { name: 'Partial Probate Package', price: '$3,500' },
-  { name: 'Surviving Spouse', price: '$5,000' },
-  { name: 'Heir Representation', price: '$2,500' },
+  { name: 'Standard Probate', price: usd(PROBATE.standard) },
+  { name: 'Small Estate Probate', price: usd(PROBATE.smallEstate), featured: true },
+  { name: 'Partial Probate', price: `From ${usd(PROBATE.partialProbateFrom)}` },
+  { name: 'Spousal Representation', price: usd(PROBATE.spousalRepresentation) },
+  { name: 'Heir Representation', price: usd(PROBATE.heirRepresentation) },
 ];
 
 function getCountyFAQs(county: string) {
@@ -77,7 +86,7 @@ function getCountyFAQs(county: string) {
     },
     {
       question: `How much does a probate lawyer cost in ${county}?`,
-      answer: `Illinois Estate Law offers flat-fee probate representation starting at $6,500 for standard probate and $3,500 for small estate probate. There are no hourly rates or hidden fees. Payment plans are available for all services.`,
+      answer: `Illinois Estate Law handles uncontested probate on a flat fee: ${usd(PROBATE.standard)} for standard probate and ${usd(PROBATE.smallEstate)} for small estate probate. The flat fee is all-inclusive — court filing fees, creditor publication, and recording fees are covered by the fee rather than billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Contested probate — a will contest, a disputed accounting, or a fight over who serves as executor — is billed hourly against a retainer instead, because in a contested matter the opposing party drives the scope of the work and no honest fixed price can be quoted in advance. Payment plans are available for all services.`,
     },
     {
       question: 'Can probate be avoided in Illinois?',
@@ -89,7 +98,7 @@ function getCountyFAQs(county: string) {
     },
     {
       question: `Do I need to hire a probate attorney in ${county}?`,
-      answer: `While Illinois law does not require you to hire an attorney for probate, the process involves complex court filings, strict deadlines, and legal obligations that can create liability for the executor. Working with an experienced ${county} probate attorney ensures compliance with all requirements and protects both the estate and its beneficiaries.`,
+      answer: `While Illinois law does not require you to hire an attorney for probate, the process involves complex court filings, strict deadlines, and legal obligations that can create personal liability for the executor. Working with an experienced ${county} probate attorney ensures compliance with all requirements and protects both the estate and its beneficiaries.`,
     },
   ];
 }
@@ -165,7 +174,7 @@ export default function CountyProbatePage({
       <main>
         <LocationHero
           title={`${loc.county} Probate Lawyer`}
-          subtitle={`Expert probate and estate administration in ${loc.county}, Illinois \u2014 from court filings to final distribution`}
+          subtitle={`Expert probate and estate administration in ${loc.county}, Illinois — from court filings to final distribution`}
         />
 
         {/* Intro */}
@@ -187,7 +196,7 @@ export default function CountyProbatePage({
                   Probate cases in {loc.county} are filed at the {countyCourtName} located at {loc.courthouseAddress}. {loc.filingSystems} Our firm has extensive experience navigating {loc.county}&apos;s probate system and can guide you through every step.
                 </p>
                 <p>
-                  Whether you are an executor named in a will, an heir seeking representation, or a family member trying to understand the process, Illinois Estate Law offers transparent flat-fee pricing with no hourly billing. We serve all of {loc.county} from {loc.seat} and every community in the county.
+                  Whether you are an executor named in a will, an heir seeking representation, or a family member trying to understand the process, Illinois Estate Law offers transparent flat-fee pricing on uncontested probate. Contested matters &mdash; will contests and estate litigation &mdash; are billed hourly against a retainer. We serve all of {loc.county} from {loc.seat} and every community in the county.
                 </p>
               </div>
             </div>
@@ -267,12 +276,12 @@ export default function CountyProbatePage({
                   <PricingCard key={pkg.name} name={pkg.name} price={pkg.price} featured={pkg.featured} />
                 ))}
               </div>
-              <p className="text-center text-slate-500 text-sm mt-8">
-                All packages include unlimited attorney consultation. Payment plans available.
+              <p className="text-center text-slate-500 text-sm mt-8 max-w-3xl mx-auto leading-relaxed">
+                These flat fees are <strong className="text-slate-700">all-inclusive</strong> &mdash; court filing fees, creditor publication, and recording are covered by the fee, not billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Unlimited attorney consultation included. Payment plans available.
               </p>
               <div className="text-center mt-6">
                 <Link
-                  href="https://www.illinoisestatelaw.com/services-pricing/"
+                  href="/services-pricing/"
                   className="inline-flex items-center justify-center border-2 border-[#33414E] text-[#33414E] px-8 py-3 rounded-full font-bold hover:bg-[#33414E] hover:text-white transition-colors text-sm"
                 >
                   View All Services &amp; Pricing
@@ -288,7 +297,7 @@ export default function CountyProbatePage({
         />
 
         <FAQAccordion
-          title={`Frequently Asked Questions \u2014 Probate in ${loc.county}`}
+          title={`Frequently Asked Questions — Probate in ${loc.county}`}
           items={getCountyFAQs(loc.county)}
         />
       </main>
