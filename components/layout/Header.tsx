@@ -24,9 +24,10 @@ const navItems = [
     children: [
       { label: 'Estate Planning', href: '/estate-planning/' },
       { label: 'Probate', href: '/chicago-probate-lawyer/' },
-      { label: 'Contested Probate & Will Contests', href: '/contested-probate-lawyer/' },
-      { label: 'Adult Guardianship', href: '/adult-guardianship-lawyer/' },
-      { label: 'Minor Guardianship', href: '/minor-guardianship-lawyer/' },
+      { label: 'Contested Probate & Will Contests', href: '/chicago-probate-lawyer/#contested' },
+      { label: 'Guardianship', href: '/guardianship/' },
+      { label: 'Adult Guardianship', href: '/guardianship/#adult' },
+      { label: 'Minor Guardianship', href: '/guardianship/#minor' },
       { label: 'Real Estate', href: '/chicago-real-estate-closings-lawyer/' },
       { label: 'Prenuptial Agreements', href: '/chicago-prenuptial-agreements-lawyer/' },
       { label: 'Deeds', href: '/chicago-deeds-lawyer/' },

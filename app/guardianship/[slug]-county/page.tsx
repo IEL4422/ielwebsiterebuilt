@@ -67,7 +67,7 @@ export default function CountyGuardianshipPage({ params }: { params: { slug: str
   };
   const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.illinoisestatelaw.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Guardianship', item: 'https://www.illinoisestatelaw.com/adult-guardianship-lawyer/' },
+    { '@type': 'ListItem', position: 2, name: 'Guardianship', item: 'https://www.illinoisestatelaw.com/guardianship/' },
     { '@type': 'ListItem', position: 3, name: `${loc.county} Guardianship`, item: `https://www.illinoisestatelaw.com/guardianship/${loc.slug}-county/` },
   ] };
 
@@ -101,9 +101,9 @@ export default function CountyGuardianshipPage({ params }: { params: { slug: str
           <div className="flex flex-wrap gap-3">
             {guardianshipCounties.filter((c) => c.slug !== loc.slug).map((c) => (<Link key={c.slug} href={`/guardianship/${c.slug}-county/`} className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">{c.county}</Link>))}
             <span className="text-slate-300">|</span>
-            <Link href="/adult-guardianship-lawyer/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Adult guardianship</Link>
+            <Link href="/guardianship/#adult" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Adult guardianship</Link>
             <span className="text-slate-300">|</span>
-            <Link href="/minor-guardianship-lawyer/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Minor guardianship</Link>
+            <Link href="/guardianship/#minor" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Minor guardianship</Link>
           </div>
         </div></div></section>
         <CTABanner title={`Guardianship help in ${loc.county}`} subtitle="Adult or minor, contested or uncontested — schedule a consultation and we’ll tell you exactly what your matter needs." bookingUrl={BOOKING_GUARDIANSHIP} ctaLabel="Schedule a Guardianship Consultation" />
