@@ -7,10 +7,12 @@
  * schema block, llms.txt entry, county page, comparison table, portal surface,
  * or CSA may hardcode a dollar figure. They all import from this file.
  *
- * STATUS: LOCKED 2026-07-14. Approved by Mary Liberty. The guardianship and
- * contested-matter numbers below are the final, live figures from the corrected
- * (remote-hearing + portal-document-generation) bottom-up labor model in
- * IEL-Fee-Proposal-Guardianship-Contested.pdf. There are no PENDING prices.
+ * STATUS: LOCKED 2026-07-14; retainers standardized 2026-07-15. Approved by
+ * Mary Liberty. Every retainer_hourly matter now opens on a UNIFORM $5,000
+ * retainer ($450 attorney / $175 paralegal, costs billable). Contested probate
+ * ($10,000 -> $5,000) and contested guardianship ($7,500 -> $5,000) were brought
+ * down to match adult guardianship. Everything else is unchanged. There are no
+ * PENDING prices.
  *
  * ---------------------------------------------------------------------------
  * THE BILLING MODEL — fee structure is a property of MATTER POSTURE, not of the
@@ -56,10 +58,9 @@ export const RATES = {
 /**
  * Retainers for retainer_hourly matters. LOCKED.
  *
- * Sized to cover the expected work through the first substantive milestone so the
- * retainer does not run dry before the first meaningful event. All are EVERGREEN:
- * the client replenishes to the full amount when the balance falls below the
- * floor. See RETAINER_FLOORS.
+ * Every retainer_hourly matter opens on the SAME $5,000 initial retainer. All are
+ * EVERGREEN: the client replenishes to the full amount when the balance falls
+ * below the floor. See RETAINER_FLOORS.
  *
  * An unearned retainer is CLIENT MONEY (RPC 1.15): it belongs in IOLTA, ledgered
  * per client, drawn only as earned and billed. Do not put IOLTA language in
@@ -70,15 +71,15 @@ export const RETAINERS = {
   /** Adult guardianship (person + estate), UNCONTESTED. Retainer+hourly, not flat. */
   adultGuardianshipUncontested: 5000,
   /** Contested guardianship — competing petition, objection, removal. */
-  contestedGuardianship: 7500,
+  contestedGuardianship: 5000,
   /** Contested probate / will contests / estate litigation. */
-  contestedProbate: 10000,
+  contestedProbate: 5000,
 } as const;
 
 /** Evergreen replenishment floors. Balance below floor -> top back up to full. */
 export const RETAINER_FLOORS = {
   contestedGuardianship: 2500,
-  contestedProbate: 3300,
+  contestedProbate: 2500,
 } as const;
 
 /**
@@ -234,6 +235,23 @@ export function usdRange(low: number, high: number): string {
 /** Standard contested-matter pricing label. */
 export function retainerLabel(retainer: number): string {
   return `${usd(retainer)} retainer + hourly`;
+}
+
+/**
+ * PAYMENT ROUTING. An unearned retainer is client money (RPC 1.15) and must be
+ * collected into the client trust account via LawPay — never Stripe. Flat,
+ * earned-on-completion fees stay on Stripe. Never wire Stripe checkout for a
+ * retainer_hourly service; route it to LawPay/trust.
+ */
+export const PAYMENT_METHOD = {
+  lawpay_trust: 'Paid via LawPay (client trust)',
+  stripe: 'Paid via Stripe',
+} as const;
+export type PaymentMethod = keyof typeof PAYMENT_METHOD;
+
+/** retainer_hourly -> LawPay/trust; every flat model -> Stripe. */
+export function paymentMethodFor(billingModel: BillingModel): PaymentMethod {
+  return billingModel === 'retainer_hourly' ? 'lawpay_trust' : 'stripe';
 }
 
 export const PRICING = {
