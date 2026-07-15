@@ -3,158 +3,124 @@
  * CANONICAL PRICING SOURCE OF TRUTH — Illinois Estate Law
  * ============================================================================
  *
- * EVERY price the firm charges lives HERE and ONLY here.
+ * EVERY price the firm charges lives HERE and ONLY here. No page, component,
+ * schema block, llms.txt entry, county page, comparison table, portal surface,
+ * or CSA may hardcode a dollar figure. They all import from this file.
  *
- * Nothing else in this repo — no page, no component, no schema block, no
- * llms.txt entry, no county page, no comparison table — may hardcode a dollar
- * figure. They all import from this file. The staff portal and the Client
- * Service Agreement read from this file too (see PROPAGATION below).
+ * STATUS: LOCKED 2026-07-14. Approved by Mary Liberty. The guardianship and
+ * contested-matter numbers below are the final, live figures from the corrected
+ * (remote-hearing + portal-document-generation) bottom-up labor model in
+ * IEL-Fee-Proposal-Guardianship-Contested.pdf. There are no PENDING prices.
  *
- * WHY THIS FILE EXISTS
- * --------------------
- * Before this file existed, the same service was priced differently in
- * different places at the same time. Real examples found in this repo on
- * 2026-07-14:
+ * ---------------------------------------------------------------------------
+ * THE BILLING MODEL — fee structure is a property of MATTER POSTURE, not of the
+ * practice area. There are exactly three models:
  *
- *   - lib/services-data.ts `contested-probate`: the `description` field said
- *     "$400/hour" while the `includes` array on the SAME OBJECT said
- *     "$350 / hour". Both were live.
- *   - app/probate/[slug]-county/page.tsx hardcoded "Surviving Spouse $5,000"
- *     while services-pricing said Spousal Representation was $3,500.
- *   - The `StandardizedServiceName` union still carried "Probate (Tier 1..4)",
- *     packages the firm does not sell.
+ *   'flat_all_inclusive'  Uncontested, knowable scope. The flat fee covers ALL
+ *                         costs — filing fees, publication, recording, court
+ *                         costs — except the items in `exclusions`.
+ *   'retainer_hourly'     Contested matters AND adult guardianship. Billed
+ *                         hourly against a retainer. Costs and expenses
+ *                         (GAL, filing, process server, transcripts) ARE
+ *                         billable to the client, on a separate invoice line.
+ *   'flat_annual'         Recurring court-required compliance work.
  *
- * A law firm quoting two different fees for one service in two public places is
- * not a formatting problem. Single source. No exceptions.
- *
- * HOW TO CHANGE A PRICE
- * ---------------------
- * Edit the number here. That is the whole procedure.
- *
- * PROPAGATION — everything downstream of this file
- * ------------------------------------------------
- *   website  → lib/services-data.ts, lib/guardianship-data.ts,
- *              app/services-pricing, app/compare-packages, app/probate/**,
- *              app/contested-probate/**, app/guardianship/**,
- *              public/llms.txt, app/illinois-estate-law-answers
- *   portal   → portal repo: shop, get-started, service types, package defs
- *   CSA      → Client Service Agreement fee schedule (coordinate with PR #151)
- *   intake   → Intake Specialist Guide (services + fees quick reference)
- *
- * ⚠️  APPROVAL STATUS
- * -------------------
- * Prices marked PENDING below are RECOMMENDATIONS from the July 2026 fee
- * research and have NOT been approved by Mary. They are already wired through
- * the whole site, so approving them is a one-number edit here.
- * See: IEL-Guardianship-Contested-Probate-Pricing-Recommendation.md
- *
- * Anything not marked PENDING is a currently-live, already-approved price.
+ * The named cost carve-outs, and there are only these:
+ *   - Uncontested probate flat fee -> surety bond premium.
+ *   - Trust funding -> one deed + recording included; additional deeds $500 ea.
+ *   - Guardianship / contested matters are retainer_hourly, so the GAL fee is
+ *     simply a billable expense there, NOT a carve-out from a flat fee.
  * ============================================================================
  */
 
-export type PriceStatus = 'live' | 'pending-approval';
+export type BillingModel = 'flat_all_inclusive' | 'retainer_hourly' | 'flat_annual';
+
+export const BILLING_MODEL_LABEL: Record<BillingModel, string> = {
+  flat_all_inclusive: 'Flat fee (all costs included)',
+  retainer_hourly: 'Retainer + hourly (costs billable)',
+  flat_annual: 'Flat annual fee',
+};
 
 /**
- * Hourly rates. Used for every contested / litigated matter.
+ * Hourly rates — every retainer_hourly matter. LOCKED.
  *
- * NOTE (755 ILCS 5/27-2): in supervised estate administration and in
- * guardianship matters, the COURT determines what compensation is reasonable.
- * These rates are what the firm CHARGES; what the firm ultimately COLLECTS out
- * of a decedent's or ward's estate is subject to court approval. Contemporaneous
- * time records are therefore mandatory on every hourly matter — they are the
+ * 755 ILCS 5/27-2: where fees are paid from a ward's or decedent's estate the
+ * COURT determines reasonable compensation. Contemporaneous time records are the
  * evidentiary basis of the fee, not a billing convenience.
  */
 export const RATES = {
-  /** PENDING — recommended raise from the currently-live $400. */
   attorneyHourly: 450,
-  /** PENDING — recommended raise from the currently-live $150. */
   paralegalHourly: 175,
 } as const;
 
-export const RATES_STATUS: Record<keyof typeof RATES, PriceStatus> = {
-  attorneyHourly: 'pending-approval',
-  paralegalHourly: 'pending-approval',
-};
-
-/** Currently-live rates, kept only so we can show Mary the diff. Delete after approval. */
-export const RATES_CURRENTLY_LIVE = {
-  attorneyHourly: 400,
-  paralegalHourly: 150,
-} as const;
-
 /**
- * Retainers for contested matters.
+ * Retainers for retainer_hourly matters. LOCKED.
  *
- * ⚠️  TRUST ACCOUNTING: a retainer is CLIENT MONEY. Under Illinois RPC 1.15 it
- * must be deposited in the firm's IOLTA trust account, ledgered per client, and
- * may not be moved to operating until it is earned by work actually performed
- * and billed, with the bill delivered to the client first. Do not accept a
- * retainer until the IOLTA account and per-client trust ledger are live.
+ * Sized to cover the expected work through the first substantive milestone so the
+ * retainer does not run dry before the first meaningful event. All are EVERGREEN:
+ * the client replenishes to the full amount when the balance falls below the
+ * floor. See RETAINER_FLOORS.
+ *
+ * An unearned retainer is CLIENT MONEY (RPC 1.15): it belongs in IOLTA, ledgered
+ * per client, drawn only as earned and billed. Do not put IOLTA language in
+ * public marketing copy, and do not accept a retainer until the trust account and
+ * per-client ledger are live.
  */
 export const RETAINERS = {
-  /** PENDING — recommended raise from the currently-live $5,000. */
-  contestedProbate: 7500,
-  /** PENDING — new. GAL, physician evidence, possible jury demand. */
+  /** Adult guardianship (person + estate), UNCONTESTED. Retainer+hourly, not flat. */
+  adultGuardianshipUncontested: 5000,
+  /** Contested guardianship — competing petition, objection, removal. */
   contestedGuardianship: 7500,
+  /** Contested probate / will contests / estate litigation. */
+  contestedProbate: 10000,
 } as const;
 
-export const RETAINERS_STATUS: Record<keyof typeof RETAINERS, PriceStatus> = {
-  contestedProbate: 'pending-approval',
-  contestedGuardianship: 'pending-approval',
-};
-
-export const RETAINERS_CURRENTLY_LIVE = {
-  contestedProbate: 5000,
+/** Evergreen replenishment floors. Balance below floor -> top back up to full. */
+export const RETAINER_FLOORS = {
+  contestedGuardianship: 2500,
+  contestedProbate: 3300,
 } as const;
 
 /**
- * Guardianship flat fees. All PENDING — new practice area.
+ * Guardianship FLAT fees (flat_all_inclusive). LOCKED.
  *
- * Flat because the scope of an UNCONTESTED guardianship petition is knowable:
- * investigate, draft, file, serve, coordinate with the GAL, appear, get
- * appointed, take out Letters of Office. A finite list of documents and a finite
- * list of appearances.
+ * Only the genuinely narrow, low-variance guardianship work is flat-fee'd:
+ *   - Minor guardianship: petition -> notice -> hearing -> letters. No physician's
+ *     report, no personal service on a disabled respondent, GAL discretionary.
+ *   - Discrete interim petitions and uncontested termination.
  *
- * The moment anyone objects it stops being knowable, because the scope is then
- * set by the opposing party. See CONVERSION_CLAUSE.
+ * Adult guardianship of the person and estate is deliberately NOT here — its
+ * labor tail (thin physician's report, hard-to-serve respondent, GAL second
+ * interview) is not caught by the conversion clause, so it is retainer_hourly.
+ * See RETAINERS.adultGuardianshipUncontested.
  */
-export const GUARDIANSHIP = {
-  minorUncontested: 3500,
-  adultPersonUncontested: 4500,
-  adultEstateUncontested: 5500,
-  adultPersonAndEstateUncontested: 6500,
-  terminationUncontested: 2000,
+export const GUARDIANSHIP_FLAT = {
+  minorUncontested: 4500,
   interimPetition: 1500,
+  terminationUncontested: 2000,
 } as const;
 
 /**
- * Annual guardianship compliance — the recurring revenue line.
+ * Annual guardianship compliance (flat_annual). LOCKED. The recurring-revenue
+ * line — mandatory, court-required, on a file the firm already holds, and the
+ * client cannot opt out.
  *
- * Illinois guardians are under STANDING, COURT-SUPERVISED reporting duties for
- * the entire life of the guardianship. Mandatory, calendar-driven, and the
- * client cannot opt out — the court requires the filing.
- *
- *   - Guardian of the PERSON, 755 ILCS 5/11a-17(b): annual report on the ward.
- *   - Guardian of the ESTATE, 755 ILCS 5/24-11: accounting due within 30 days of
- *     the ONE-YEAR anniversary of appointment, then every three years unless the
- *     court orders otherwise, and again within 30 days of termination. The
- *     guardian BEARS THE BURDEN of proving every disbursement was proper.
- *
- * Sell this at intake, not two years later when the client gets a court notice.
+ *   - Annual Report on the Ward: 755 ILCS 5/11a-17(b). Portal-templated; highest
+ *     margin service in the firm.
+ *   - Annual Estate Accounting: 755 ILCS 5/24-11. NOT automated — assembling the
+ *     evidence for every disbursement is real paralegal time.
  */
 export const GUARDIANSHIP_COMPLIANCE = {
-  annualReportPerson: 750,
-  annualAccountingEstate: 1500,
-  compliancePlanBundled: 1950,
+  annualReportPerson: 850,
+  annualAccountingEstate: 1800,
+  compliancePlanBundled: 2300,
 } as const;
 
 /**
- * Third-party pass-through costs. NOT firm revenue. Disclose in every quote.
- *
- * A GAL fee that surfaces after the client has already paid a flat fee is the
- * single most predictable complaint in this practice area.
+ * Third-party pass-through / billable costs. NOT firm revenue.
+ * In retainer_hourly matters these are billed to the client. Disclose always.
  */
-export const GUARDIANSHIP_PASSTHROUGH = {
+export const GUARDIANSHIP_COSTS = {
   galFeeLow: 1500,
   galFeeHigh: 2500,
   galHourlyLow: 225,
@@ -162,14 +128,11 @@ export const GUARDIANSHIP_PASSTHROUGH = {
   filingPersonOnly: 50,
   filingEstateUnder15k: 70,
   filingEstateOver15k: 105,
-  /**
-   * Minor guardianship filing + appearance fees were ELIMINATED by Illinois
-   * Supreme Court amendment to M.R. Order 29741, effective October 1, 2025.
-   */
+  /** Minor guardianship filing + appearance fees eliminated 10/1/2025 (M.R. 29741). */
   filingMinorGuardianship: 0,
 } as const;
 
-/** Probate flat fees — currently live and approved. */
+/** Probate flat fees (flat_all_inclusive). Carve-out: surety bond premium. */
 export const PROBATE = {
   bondInLieu: 1500,
   smallEstate: 3500,
@@ -184,7 +147,7 @@ export const PROBATE = {
   documentReview: 500,
 } as const;
 
-/** Estate planning — currently live and approved. */
+/** Estate planning — unchanged, live and approved. */
 export const ESTATE_PLANNING = {
   trustPackageIndividual: 3500,
   trustPackageJoint: 5000,
@@ -201,7 +164,7 @@ export const ESTATE_PLANNING = {
   annualReviewMembership: 199,
 } as const;
 
-/** A la carte — currently live and approved. */
+/** A la carte — unchanged. */
 export const A_LA_CARTE = {
   revocableTrustIndividual: 2500,
   revocableTrustJoint: 3500,
@@ -217,16 +180,13 @@ export const A_LA_CARTE = {
   trustFundingGuidance: 1500,
   specialNeedsPlanning: 3500,
   estateTaxPlanningAddOnBase: 5000,
-  /** Any deed: quitclaim, TODI, life estate, additional transfer to trust. Recording included. */
   deed: 500,
 } as const;
 
-/** Trust administration — currently live and approved. */
-export const TRUST_ADMIN = {
-  consultingAnnual: 3500,
-} as const;
+/** Trust administration — unchanged. */
+export const TRUST_ADMIN = { consultingAnnual: 3500 } as const;
 
-/** Prenuptial agreements — currently live and approved. */
+/** Prenuptial agreements — unchanged. */
 export const PRENUP = {
   draftingAndNegotiation: 5000,
   reviewAndNegotiation: 3500,
@@ -234,19 +194,16 @@ export const PRENUP = {
   reviewOnly: 1500,
 } as const;
 
-/** Real estate — currently live and approved. */
-export const REAL_ESTATE = {
-  residentialClosing: 750,
-  fsboRepresentation: 1500,
-} as const;
+/** Real estate — unchanged. */
+export const REAL_ESTATE = { residentialClosing: 750, fsboRepresentation: 1500 } as const;
 
 /**
- * The single most important sentence in any uncontested guardianship engagement.
+ * The conversion clause. Required in every uncontested guardianship engagement.
+ * If anyone objects, the matter converts to hourly and the flat fee is credited.
  *
- * Without it, a flat fee on a guardianship that turns contested is how a firm
- * loses money: the opposing party sets the scope, and the firm has already
- * agreed to a fixed price for unlimited work. With it, the firm gets the
- * marketing benefit of the flat fee and none of the downside.
+ * NOTE: this protects against a FORMAL objection or competing petition. It does
+ * NOT protect against a technically-uncontested adult guardianship that quietly
+ * consumes the fee — which is exactly why adult guardianship is retainer_hourly.
  */
 export const CONVERSION_CLAUSE =
   'This flat fee covers an uncontested proceeding. If any person files an objection, ' +
@@ -254,48 +211,38 @@ export const CONVERSION_CLAUSE =
   'representation billed hourly against a retainer, and the flat fee paid to date is ' +
   'credited against that retainer.';
 
-/**
- * Court-approval disclosure. Required wherever a guardianship or estate-paid fee
- * is quoted. 755 ILCS 5/27-2; ISBA Ethics Op. 13-01.
- */
+/** Court-approval disclosure. 755 ILCS 5/27-2; ISBA Ethics Op. 13-01. */
 export const COURT_APPROVAL_DISCLOSURE =
   'Where attorney fees are paid from a ward’s estate or a decedent’s estate, Illinois law ' +
   'requires that those fees be reasonable and approved by the court (755 ILCS 5/27-2). Fees paid ' +
-  'personally by a family member or other third party are governed by the engagement agreement. ' +
-  'We will tell you which applies to your matter before you engage us.';
+  'personally by a family member or other third party are governed by the engagement agreement.';
 
-/* ---------------------------------------------------------------------------
- * Formatting helpers. Use these everywhere so currency renders identically
- * across the site, the portal, and the CSA.
- * ------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 
 /** 3500 -> "$3,500" */
 export function usd(n: number): string {
   return `$${n.toLocaleString('en-US')}`;
 }
-
 /** 450 -> "$450 / hour" */
 export function hourly(n: number): string {
   return `${usd(n)} / hour`;
 }
-
 /** 1500, 2500 -> "$1,500–$2,500" */
 export function usdRange(low: number, high: number): string {
   return `${usd(low)}–${usd(high)}`;
 }
-
-/** The standard contested-matter pricing label, built from the canonical numbers. */
+/** Standard contested-matter pricing label. */
 export function retainerLabel(retainer: number): string {
   return `${usd(retainer)} retainer + hourly`;
 }
 
-/** Everything, for the pricing guard and the intake-guide generator. */
 export const PRICING = {
   RATES,
   RETAINERS,
-  GUARDIANSHIP,
+  RETAINER_FLOORS,
+  GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
-  GUARDIANSHIP_PASSTHROUGH,
+  GUARDIANSHIP_COSTS,
   PROBATE,
   ESTATE_PLANNING,
   A_LA_CARTE,
