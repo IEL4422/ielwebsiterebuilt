@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, FileText, Scale, Building2, Home, type LucideIcon } from 'lucide-react';
+import { ArrowRight, FileText, Scale, Building2, Home, HeartHandshake, type LucideIcon } from 'lucide-react';
 
 type Service = {
   name: string;
@@ -62,9 +62,22 @@ const categories: Category[] = [
       { name: 'Probate Administration', href: '/chicago-probate-lawyer/' },
       { name: 'Intestate Estates', href: '/chicago-probate-lawyer/' },
       { name: 'Case Transfers Mid-Probate', href: '/chicago-probate-lawyer/' },
+      { name: 'Contested Probate & Will Contests', href: '/contested-probate-lawyer/' },
     ],
     ctaLabel: 'Explore Probate Services',
     ctaHref: '/chicago-probate-lawyer/',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Guardianship',
+    description: 'Guardianship of an adult who can no longer decide, or of a minor child, contested and uncontested \u2014 with the annual court reporting that follows appointment.',
+    services: [
+      { name: 'Adult Guardianship', href: '/adult-guardianship-lawyer/' },
+      { name: 'Minor Guardianship', href: '/minor-guardianship-lawyer/' },
+      { name: 'Contested Guardianship', href: '/adult-guardianship-lawyer/' },
+    ],
+    ctaLabel: 'Explore Guardianship',
+    ctaHref: '/adult-guardianship-lawyer/',
   },
 ];
 
