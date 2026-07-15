@@ -2,16 +2,25 @@
 
 import { useState } from 'react';
 import Script from 'next/script';
-import { ArrowLeft, Building2, ScrollText, Scale, Heart, Briefcase } from 'lucide-react';
+import { ArrowLeft, Building2, ScrollText, Scale, Heart, Briefcase, Gavel, HeartHandshake } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
-type CaseType = 'estate-planning' | 'trust-administration' | 'real-estate' | 'probate' | 'prenuptial';
+type CaseType =
+  | 'estate-planning'
+  | 'trust-administration'
+  | 'real-estate'
+  | 'uncontested-probate'
+  | 'contested-probate'
+  | 'guardianship'
+  | 'prenuptial';
 
 const TYPE_TO_EMBED: Record<CaseType, string> = {
   'estate-planning': 'my-lunacal-inline-initial-consultation',
   'trust-administration': 'my-lunacal-inline-initial-consultation',
   'real-estate': 'my-lunacal-inline-initial-consultation-yassmin',
-  'probate': 'my-lunacal-inline-initial-consultation-probate',
+  'uncontested-probate': 'my-lunacal-inline-initial-consultation-probate',
+  'contested-probate': 'my-lunacal-inline-initial-consultation-contested-probate',
+  'guardianship': 'my-lunacal-inline-initial-consultation-guardianship',
   'prenuptial': 'my-lunacal-inline-initial-consultation-mary-liberty',
 };
 
@@ -70,9 +79,9 @@ const CASE_OPTIONS: CaseOption[] = [
     bookWithRole: 'Real Estate Attorneys',
   },
   {
-    id: 'probate',
+    id: 'uncontested-probate',
     icon: Scale,
-    label: 'Probate',
+    label: 'Uncontested Probate',
     subtitle: 'Guide your family through estate administration',
     examples: [
       'Estate Administration',
@@ -82,6 +91,34 @@ const CASE_OPTIONS: CaseOption[] = [
     ],
     bookWith: 'Victoria Lozano or Mary Liberty',
     bookWithRole: 'Probate Attorneys',
+  },
+  {
+    id: 'contested-probate',
+    icon: Gavel,
+    label: 'Contested Probate',
+    subtitle: 'Will contests and estate disputes that end up before a judge',
+    examples: [
+      'Will Contests',
+      'Undue Influence & Capacity',
+      'Executor Removal',
+      'Estate Litigation',
+    ],
+    bookWith: 'Our Contested Probate Team',
+    bookWithRole: 'Estate Litigation Attorneys',
+  },
+  {
+    id: 'guardianship',
+    icon: HeartHandshake,
+    label: 'Guardianship',
+    subtitle: 'Adult or minor guardianship, contested or uncontested',
+    examples: [
+      'Adult Guardianship',
+      'Minor Guardianship',
+      'Guardian of the Person / Estate',
+      'Annual Compliance',
+    ],
+    bookWith: 'Our Guardianship Team',
+    bookWithRole: 'Guardianship Attorneys',
   },
   {
     id: 'prenuptial',
@@ -237,6 +274,22 @@ export default function BookConsultationPage() {
                 overflow: embedOverflow('my-lunacal-inline-initial-consultation-mary-liberty'),
               }}
             />
+            <div
+              id="my-lunacal-inline-initial-consultation-contested-probate"
+              style={{
+                width: '100%',
+                height: embedHeight('my-lunacal-inline-initial-consultation-contested-probate'),
+                overflow: embedOverflow('my-lunacal-inline-initial-consultation-contested-probate'),
+              }}
+            />
+            <div
+              id="my-lunacal-inline-initial-consultation-guardianship"
+              style={{
+                width: '100%',
+                height: embedHeight('my-lunacal-inline-initial-consultation-guardianship'),
+                overflow: embedOverflow('my-lunacal-inline-initial-consultation-guardianship'),
+              }}
+            />
           </div>
         </div>
       </main>
@@ -288,6 +341,26 @@ export default function BookConsultationPage() {
           });
           Lunacal.ns["initial-consultation-mary-liberty"]("preload", { calLink: "team/illinois-estate-law?eventType=initial-consultation-mary-liberty", type: "inline", options: { prerenderIframe: true } });
           Lunacal.ns["initial-consultation-mary-liberty"]("ui", ${LUNACAL_UI_THEME});
+
+          // ── Contested Probate (confirmed link) ──
+          Lunacal("init","initial-consultation-contested-probate",{origin:"https://app.lunacal.ai"});
+          Lunacal.ns["initial-consultation-contested-probate"]("inline", {
+            elementOrSelector:"#my-lunacal-inline-initial-consultation-contested-probate",
+            config: {"layout":""},
+            calLink: "team/illinois-estate-law/initial-consultation-contested-probate",
+          });
+          Lunacal.ns["initial-consultation-contested-probate"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-contested-probate", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consultation-contested-probate"]("ui", ${LUNACAL_UI_THEME});
+
+          // ── Guardianship (confirmed link) ──
+          Lunacal("init","initial-consultation-guardianship",{origin:"https://app.lunacal.ai"});
+          Lunacal.ns["initial-consultation-guardianship"]("inline", {
+            elementOrSelector:"#my-lunacal-inline-initial-consultation-guardianship",
+            config: {"layout":""},
+            calLink: "team/illinois-estate-law/initial-consultation-guardianship",
+          });
+          Lunacal.ns["initial-consultation-guardianship"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-guardianship", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consultation-guardianship"]("ui", ${LUNACAL_UI_THEME});
         `}
       </Script>
     </>

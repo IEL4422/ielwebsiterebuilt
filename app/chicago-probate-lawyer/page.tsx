@@ -11,6 +11,7 @@ import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 import { contestedProbateFAQs } from '@/lib/practice-faqs';
+import { BOOKING_UNCONTESTED_PROBATE, BOOKING_CONTESTED_PROBATE } from '@/lib/booking';
 
 // Contested probate / will contests, consolidated into this page. The former
 // standalone /contested-probate-lawyer/ page 301-redirects to #contested below.
@@ -788,6 +789,16 @@ export default function ChicagoProbateLawyerPage() {
               </div>
 
               <div className="mt-8 max-w-4xl text-sm text-slate-500 leading-relaxed border-t border-slate-200 pt-6"><p><strong className="text-slate-700">A note on court approval of fees.</strong> Where attorney fees are paid out of the decedent&rsquo;s estate, Illinois law requires that those fees be reasonable and approved by the court (755 ILCS 5/27-2). Where a fee is paid personally — for example, by an heir hiring us out of their own pocket — it is governed by our engagement agreement instead.</p></div>
+
+              {/* Dual scheduling: uncontested and contested probate use SEPARATE booking links. */}
+              <div className="mt-10 max-w-4xl rounded-xl border border-slate-200 bg-[#f8f9fa] p-6">
+                <p className="font-['Plus_Jakarta_Sans'] text-lg font-bold text-[#33414E] mb-1">Schedule a probate consultation</p>
+                <p className="text-slate-600 text-sm mb-5">Not sure which one you need? Uncontested probate (administering an estate) and contested probate (a will contest or estate dispute) book onto different calendars — choose the one that fits.</p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href={BOOKING_UNCONTESTED_PROBATE} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-[#33414E] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4A708B] transition-colors text-center">Schedule an Uncontested Probate Consultation</a>
+                  <a href={BOOKING_CONTESTED_PROBATE} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-white text-[#33414E] border-2 border-[#33414E] px-6 py-3 rounded-full font-bold hover:bg-slate-100 transition-colors text-center">Schedule a Contested Probate Consultation</a>
+                </div>
+              </div>
 
               <div className="mt-8 max-w-4xl flex flex-wrap items-center gap-3">
                 <Link href="/blog/how-to-contest-a-will-in-illinois/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">How to contest a will in Illinois</Link><span className="text-slate-300">|</span>
