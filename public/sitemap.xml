@@ -163,6 +163,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.illinoisestatelaw.com/blog/how-guardianship-works-in-illinois/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.illinoisestatelaw.com/blog/adult-vs-minor-guardianship-illinois/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.illinoisestatelaw.com/blog/guardian-of-the-person-vs-estate-illinois/</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.illinoisestatelaw.com/blog/what-happens-when-guardianship-is-contested-illinois/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.illinoisestatelaw.com/blog/7-overlooked-steps-that-make-or-break-an-illinois-estate-plan/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -643,19 +667,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.illinoisestatelaw.com/contested-probate-lawyer/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.illinoisestatelaw.com/adult-guardianship-lawyer/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.illinoisestatelaw.com/minor-guardianship-lawyer/</loc>
+    <loc>https://www.illinoisestatelaw.com/guardianship/</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

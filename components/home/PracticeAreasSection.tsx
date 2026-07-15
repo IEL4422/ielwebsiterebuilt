@@ -62,7 +62,7 @@ const categories: Category[] = [
       { name: 'Probate Administration', href: '/chicago-probate-lawyer/' },
       { name: 'Intestate Estates', href: '/chicago-probate-lawyer/' },
       { name: 'Case Transfers Mid-Probate', href: '/chicago-probate-lawyer/' },
-      { name: 'Contested Probate & Will Contests', href: '/contested-probate-lawyer/' },
+      { name: 'Contested Probate & Will Contests', href: '/chicago-probate-lawyer/#contested' },
     ],
     ctaLabel: 'Explore Probate Services',
     ctaHref: '/chicago-probate-lawyer/',
@@ -72,12 +72,12 @@ const categories: Category[] = [
     title: 'Guardianship',
     description: 'Guardianship of an adult who can no longer decide, or of a minor child, contested and uncontested \u2014 with the annual court reporting that follows appointment.',
     services: [
-      { name: 'Adult Guardianship', href: '/adult-guardianship-lawyer/' },
-      { name: 'Minor Guardianship', href: '/minor-guardianship-lawyer/' },
-      { name: 'Contested Guardianship', href: '/adult-guardianship-lawyer/' },
+      { name: 'Adult Guardianship', href: '/guardianship/#adult' },
+      { name: 'Minor Guardianship', href: '/guardianship/#minor' },
+      { name: 'Contested Guardianship', href: '/guardianship/#contested' },
     ],
     ctaLabel: 'Explore Guardianship',
-    ctaHref: '/adult-guardianship-lawyer/',
+    ctaHref: '/guardianship/',
   },
 ];
 

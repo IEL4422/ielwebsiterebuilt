@@ -4,9 +4,24 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, Phone, Mail, FileText, Scale, AlertCircle, CheckCircle, Clock, DollarSign } from 'lucide-react';
+import { ChevronDown, ChevronUp, Phone, Mail, FileText, Scale, AlertCircle, CheckCircle, Clock, DollarSign, FileWarning, UserX, ShieldAlert, Landmark } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { ServiceCard } from '@/components/geo/ServiceCard';
+import { FAQAccordion } from '@/components/geo/FAQAccordion';
+import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
+import { contestedProbateFAQs } from '@/lib/practice-faqs';
+
+// Contested probate / will contests, consolidated into this page. The former
+// standalone /contested-probate-lawyer/ page 301-redirects to #contested below.
+const contestedGrounds = [
+  { icon: Scale, title: 'Lack of Testamentary Capacity', description: 'The testator did not understand what they owned, who their natural heirs were, or what the will actually did. Often follows a dementia or terminal diagnosis.' },
+  { icon: ShieldAlert, title: 'Undue Influence', description: 'Someone in a position of trust overpowered the testator’s free will. The classic pattern: a sudden new will, signed near death, prepared by the person who now inherits everything.' },
+  { icon: FileWarning, title: 'Fraud or Forgery', description: 'The signature is not the testator’s, or they were deceived about what they were signing, or about facts that shaped how they left their estate.' },
+  { icon: Landmark, title: 'Improper Execution', description: 'Illinois requires a will to be in writing, signed by the testator, and attested by two credible witnesses. A will that fails those formalities can be denied admission.' },
+  { icon: UserX, title: 'Removal of an Executor or Administrator', description: 'For failing to account, self-dealing, wasting estate assets, refusing to distribute, or a disabling conflict of interest — often paired with a breach of fiduciary duty claim.' },
+  { icon: Clock, title: 'Disputed Heirship & Estate Claims', description: 'Fights over who the legal heirs actually are, contested creditor claims, and disputes over the ownership or valuation of estate property.' },
+];
 
 export default function ChicagoProbateLawyerPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -740,6 +755,50 @@ export default function ChicagoProbateLawyerPage() {
             </div>
           </div>
         </section>
+
+        {/* ============================ CONTESTED PROBATE ============================ */}
+        {/* Consolidated from the former /contested-probate-lawyer/ page, which now */}
+        {/* 301-redirects here to #contested. Keyword H2s + Service/FAQPage schema */}
+        {/* (in layout.tsx) preserve the standalone page's SEO. */}
+        <section id="contested" className="scroll-mt-24 py-16 lg:py-20 bg-white border-t border-slate-200">
+          <div className="container mx-auto px-4">
+            <div className="max-w-[1140px] mx-auto">
+              <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-6">Contested Probate & Will Contests in Illinois</h2>
+              <div className="w-16 h-1 bg-[#4A708B] mb-8" />
+              <div className="space-y-4 text-slate-600 leading-relaxed max-w-4xl">
+                <p><strong className="text-[#33414E]">Probate becomes &ldquo;contested&rdquo; the moment someone formally objects to something the court is being asked to do</strong> — a will being admitted, an executor being appointed, an accounting being approved, or an estate being distributed. Until someone objects, probate is administrative. Once they do, it is litigation, with discovery, evidence, motions, and, if it does not settle, a trial. We represent heirs, beneficiaries, executors, and administrators on both sides of these disputes.</p>
+                <p>A <strong>will contest</strong> is not an appeal against an outcome you dislike — being unhappy with your inheritance is not a ground to contest a will. It is a claim that the will itself is legally defective. <strong className="text-[#33414E]">In Illinois you generally have six months from the date the will is admitted to probate to file a will contest.</strong> That deadline is short and unforgiving; if you think something is wrong with an estate, the worst thing you can do is wait.</p>
+              </div>
+
+              <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E] mt-12 mb-6">Grounds for a will contest &amp; other probate disputes</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">{contestedGrounds.map((g) => (<ServiceCard key={g.title} icon={g.icon} title={g.title} description={g.description} />))}</div>
+
+              <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E] mt-12 mb-6">How we bill contested matters — and why it is not a flat fee</h3>
+              <div className="max-w-4xl space-y-4 text-slate-600 leading-relaxed">
+                <p>Almost everything this firm does is flat-fee. Contested probate is the exception. <strong className="text-[#33414E]">We can only quote a fixed price for work whose scope we control.</strong> An uncontested probate has a knowable list of filings and hearings, so we price it to the dollar. A contested matter does not — the other side decides how many motions to file, whether to fight discovery, and whether to settle or push to trial. Any firm quoting a flat fee for a court fight is guessing. We would rather bill you honestly for the hours we actually work.</p>
+              </div>
+              <div className="mt-8 grid md:grid-cols-2 gap-6 max-w-4xl">
+                <div className="border-2 border-[#33414E] rounded-xl p-6"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">To begin</p><p className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-2">{usd(RETAINERS.contestedProbate)}</p><p className="text-slate-600 text-sm">Minimum evergreen retainer, replenished as the matter proceeds.</p></div>
+                <div className="border border-slate-200 rounded-xl p-6 bg-[#f8f9fa]"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Hourly rates</p><p className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">{hourly(RATES.attorneyHourly)} — attorney</p><p className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E] mb-2">{hourly(RATES.paralegalHourly)} — paralegal</p><p className="text-slate-600 text-sm">You receive an itemized bill. Costs — filing, process server, transcripts — are billed to you as expenses.</p></div>
+              </div>
+
+              <div className="mt-8 max-w-4xl border-l-4 border-[#4A708B] bg-[#f8f9fa] p-6 rounded-r-lg">
+                <p className="font-bold text-[#33414E] mb-2">If a flat-fee probate of ours becomes contested</p>
+                <p className="text-slate-600 text-sm leading-relaxed">If someone files an objection or a competing petition in a matter we took on a flat fee, it converts to representation billed hourly against a {usd(RETAINERS.contestedProbate)} retainer. The <strong>unearned portion</strong> of the flat fee you have already paid — the part we have not yet earned, as determined by the firm — is credited toward that retainer and held in <strong>our client trust account</strong>, drawn down only as fees are actually earned and billed. We notify you in writing of the exact amount credited. We explain all of this before you engage us, and it is written into your engagement agreement, so it is never a surprise.</p>
+              </div>
+
+              <div className="mt-8 max-w-4xl text-sm text-slate-500 leading-relaxed border-t border-slate-200 pt-6"><p><strong className="text-slate-700">A note on court approval of fees.</strong> Where attorney fees are paid out of the decedent&rsquo;s estate, Illinois law requires that those fees be reasonable and approved by the court (755 ILCS 5/27-2). Where a fee is paid personally — for example, by an heir hiring us out of their own pocket — it is governed by our engagement agreement instead.</p></div>
+
+              <div className="mt-8 max-w-4xl flex flex-wrap items-center gap-3">
+                <Link href="/blog/how-to-contest-a-will-in-illinois/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">How to contest a will in Illinois</Link><span className="text-slate-300">|</span>
+                <Link href="/guardianship/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Guardianship</Link><span className="text-slate-300">|</span>
+                <Link href="/services-pricing/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">All services &amp; pricing</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <FAQAccordion title="Contested Probate & Will Contests — Frequently Asked Questions" items={contestedProbateFAQs} />
 
         <section className="py-10 px-4 sm:px-5 bg-gray-50">
           <div className="max-w-[1140px] mx-auto">

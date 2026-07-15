@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { breadcrumbSchema, serviceSchema } from '@/lib/seo';
+import { breadcrumbSchema, serviceSchema, faqPageSchema } from '@/lib/seo';
+import { contestedProbateFAQs } from '@/lib/practice-faqs';
 
 const TITLE = 'Chicago Probate Lawyer | Illinois Probate Attorney | Illinois Estate Law';
 const DESCRIPTION = 'Chicago probate lawyer guiding executors and families through Illinois probate and estate administration. Flat-fee probate in Cook County and statewide. Call (312) 373-0731.';
@@ -35,11 +36,30 @@ const service = serviceSchema({
   serviceType: 'Probate and estate administration',
 });
 
+// Contested probate / will contests was consolidated into this page (the former
+// /contested-probate-lawyer/ 301-redirects to /chicago-probate-lawyer/#contested).
+// Its Service entity is preserved here with a distinct @id so it does not collide
+// with the uncontested-probate Service node above.
+const contestedService = {
+  ...serviceSchema({
+    name: 'Illinois Contested Probate, Will Contests, and Estate Litigation',
+    description:
+      'Representation of heirs, beneficiaries, executors, and administrators in contested Illinois probate matters — will contests based on undue influence, lack of testamentary capacity, fraud, or improper execution; disputed heirship; petitions to remove an executor or administrator; breach of fiduciary duty claims; and estate litigation generally.',
+    path: PATH,
+    serviceType: 'Contested probate and estate litigation',
+  }),
+  '@id': `${URL}#service-contested`,
+};
+
+const contestedFaq = faqPageSchema(contestedProbateFAQs, PATH);
+
 export default function ChicagoProbateLawyerLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contestedService) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contestedFaq) }} />
       {children}
     </>
   );

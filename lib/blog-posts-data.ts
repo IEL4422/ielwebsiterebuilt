@@ -9,6 +9,46 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-guardianship-works-in-illinois',
+    title: 'How Guardianship Works in Illinois: The Complete 2026 Guide',
+    url: '/blog/how-guardianship-works-in-illinois/',
+    date: 'Jul 15, 2026',
+    summary:
+      'Complete guide to how guardianship works in Illinois — what guardianship is under the Probate Act, who needs a guardian, the difference between guardianship of the person and of the estate, the step-by-step court process (petition, physician’s report, guardian ad litem, hearing, and Letters of Office), a guardian’s ongoing annual reporting and accounting duties, and the least-restrictive alternatives that can avoid guardianship altogether.',
+    excerpt:
+      'Learn how guardianship works in Illinois — who needs one, the step-by-step court process, a guardian’s duties after appointment, and the planning that can avoid it.',
+  },
+  {
+    slug: 'adult-vs-minor-guardianship-illinois',
+    title: 'Adult vs. Minor Guardianship in Illinois: Key Differences Explained',
+    url: '/blog/adult-vs-minor-guardianship-illinois/',
+    date: 'Jul 14, 2026',
+    summary:
+      'Clear comparison of adult and minor guardianship in Illinois — two separate proceedings under different statutes and legal standards. Covers what they share, how adult guardianship (Article XIa, disability standard, physician’s report) differs from minor guardianship (Article XI, best-interest standard, parental consent), how the process and cost structure differ, and which one fits your situation.',
+    excerpt:
+      'Adult and minor guardianship are two different proceedings in Illinois. Learn how the statutes, standards, process, and costs differ — and which one applies to you.',
+  },
+  {
+    slug: 'guardian-of-the-person-vs-estate-illinois',
+    title: 'Guardian of the Person vs. Guardian of the Estate in Illinois',
+    url: '/blog/guardian-of-the-person-vs-estate-illinois/',
+    date: 'Jul 13, 2026',
+    summary:
+      'Illinois splits guardianship into two roles: a guardian of the person handles care, residence, and medical decisions, while a guardian of the estate manages money and property and must account to the court. This guide explains each role’s authority and duties, when you need both, limited vs. plenary guardianship, the estate accounting burden under 755 ILCS 5/24-11, and guardianship of a minor’s estate.',
+    excerpt:
+      'Learn the difference between a guardian of the person and a guardian of the estate in Illinois — the authority, the duties, the bond and accounting, and when you need both.',
+  },
+  {
+    slug: 'what-happens-when-guardianship-is-contested-illinois',
+    title: 'What Happens When a Guardianship Is Contested in Illinois?',
+    url: '/blog/what-happens-when-guardianship-is-contested-illinois/',
+    date: 'Jul 12, 2026',
+    summary:
+      'What to expect when an Illinois guardianship is contested — the three ways a matter becomes contested (the respondent objects, a competing petition, or a move to remove a guardian), how the litigation unfolds with a guardian ad litem and an evidentiary hearing, the clear-and-convincing standard of proof, how a guardian is removed or replaced, how fees work, what happens to a flat fee when a matter converts to hourly, and how advance planning reduces the risk.',
+    excerpt:
+      'When a family disagrees or the proposed ward objects, an Illinois guardianship becomes litigation. Learn how a contested guardianship unfolds, how it is decided, and what it costs.',
+  },
+  {
     slug: 'how-to-fund-a-revocable-living-trust-illinois',
     title: 'How to Fund a Revocable Living Trust in Illinois: Step-by-Step Guide',
     url: '/blog/how-to-fund-a-revocable-living-trust-illinois/',

@@ -7,7 +7,7 @@ import { MapPin, Phone, Mail, Clock, Star, Facebook, Instagram, Linkedin, Youtub
 const footerNavItems = [
   { label: 'ABOUT', href: '/about/' },
   { label: 'SERVICES', href: '/services-pricing/' },
-  { label: 'GUARDIANSHIP', href: '/adult-guardianship-lawyer/' },
+  { label: 'GUARDIANSHIP', href: '/guardianship/' },
   { label: 'RESOURCES', href: '/learning-center/' },
   { label: 'ILLINOIS ANSWERS', href: '/illinois-estate-law-answers/' },
   { label: 'CONTACT', href: '/contact/' },

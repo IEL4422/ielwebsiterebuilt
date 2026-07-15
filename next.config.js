@@ -53,6 +53,12 @@ const nextConfig = {
       { source: '/consultation/', destination: '/book-consultation/', permanent: true },
       { source: '/services/', destination: '/services-pricing/', permanent: true },
 
+      // Practice-area consolidation (2026-07): contested probate folded into the
+      // Probate hub; adult + minor guardianship folded into the Guardianship hub.
+      { source: '/contested-probate-lawyer/', destination: '/chicago-probate-lawyer/#contested', permanent: true },
+      { source: '/adult-guardianship-lawyer/', destination: '/guardianship/#adult', permanent: true },
+      { source: '/minor-guardianship-lawyer/', destination: '/guardianship/#minor', permanent: true },
+
       // Legacy redirects
       { source: '/chicago-uncontested-probate-lawyer/', destination: '/chicago-probate-lawyer/', permanent: true },
       { source: '/homepage/', destination: '/', permanent: true },
