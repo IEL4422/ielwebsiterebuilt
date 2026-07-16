@@ -230,7 +230,7 @@ export default function ContactPage() {
               <CalendarCheck className="w-14 h-14 text-white/80 mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">Book a Free Consultation</h3>
               <p className="text-white/80 mb-6 max-w-sm">
-                Select your case type to be matched with the right attorney — estate planning, real estate, probate, or prenuptial agreements.
+                Select your case type to be matched with the right attorney — estate planning, real estate, or probate.
               </p>
               <Link
                 href="/book-consultation/"

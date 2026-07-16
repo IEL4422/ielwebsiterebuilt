@@ -360,54 +360,6 @@ export function CategorizedServicesDisplay() {
       addOns: []
     },
     {
-      id: 'prenuptial-agreements',
-      name: 'Prenuptial Agreements',
-      packages: [
-        {
-          name: 'Prenuptial Agreement — Drafting & Negotiation',
-          fixedPrice: 5000,
-          includes: [
-            'Initial consultation with represented party',
-            'Full financial disclosure review',
-            'Custom drafting tailored to client\'s situation',
-            'Negotiation between parties',
-            'Finalization and execution of the agreement'
-          ]
-        },
-        {
-          name: 'Prenuptial Agreement — Review & Negotiation',
-          fixedPrice: 3500,
-          includes: [
-            'Initial consultation with represented party',
-            'Full financial disclosure review',
-            'Review of drafted agreement',
-            'Negotiation between parties',
-            'Finalization and execution of the agreement'
-          ]
-        },
-        {
-          name: 'Prenuptial Agreement — Drafting Only (No Negotiation)',
-          fixedPrice: 2500,
-          includes: [
-            'Initial consultation with represented party',
-            'Custom agreement drafting',
-            'Legal compliance review',
-            'Finalization and execution of the agreement'
-          ]
-        },
-        {
-          name: 'Prenuptial Agreement — Review Only (No Negotiation)',
-          fixedPrice: 1500,
-          includes: [
-            'Review of agreement to ensure it is in line with client\'s wishes',
-            'Legal compliance review'
-          ]
-        }
-      ],
-      aLaCarte: [],
-      addOns: []
-    },
-    {
       id: 'deeds',
       name: 'Deed Services',
       packages: [],

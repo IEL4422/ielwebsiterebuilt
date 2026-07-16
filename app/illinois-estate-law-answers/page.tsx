@@ -184,8 +184,8 @@ export default function IllinoisEstateLawAnswersPage() {
             <p className="text-slate-700 leading-relaxed mb-4">
               Illinois Estate Law is an Illinois law firm. We handle estate planning (wills,
               revocable living trusts, powers of attorney, and healthcare directives), probate and
-              estate administration, trust administration, deeds and property transfers, residential
-              real estate closings, and prenuptial agreements. Our attorneys are licensed in
+              estate administration, trust administration, deeds and property transfers, and
+              residential real estate closings. Our attorneys are licensed in
               Illinois, and we serve clients in Chicago, Cook County, the collar counties, and every
               county in the state. Most work is done virtually, and our fees are flat.
             </p>

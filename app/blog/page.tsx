@@ -7,7 +7,6 @@ function inferTopic(slug: string): string {
   if (/contest-a-will|will-contest/.test(slug)) return 'Probate';
   if (/probate|executor|estate-bank|small-estate|surety-bond/.test(slug)) return 'Probate';
   if (/power-of-attorney/.test(slug)) return 'Powers of Attorney';
-  if (/prenuptial/.test(slug)) return 'Prenuptial Agreements';
   if (/guardian/.test(slug)) return 'Guardianship';
   if (/dying-without-a-will|financial-impact-of-dying/.test(slug)) return 'Estate Planning';
   if (/what-makes-a-will-valid|will-package|\bwills?\b/.test(slug)) return 'Wills';

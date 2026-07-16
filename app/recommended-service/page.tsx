@@ -22,7 +22,7 @@ const getSupabaseClient = () => {
 };
 
 interface QuizAnswers {
-  needType: 'estate-planning' | 'probate' | 'prenuptial' | 'real-estate' | '';
+  needType: 'estate-planning' | 'probate' | 'real-estate' | '';
   realEstateRole: 'buyer' | 'seller' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
@@ -36,9 +36,6 @@ interface QuizAnswers {
   allDebtsPaid: 'yes' | 'no' | '';
   isRepresentative: 'yes' | 'no' | '';
   needsNewAttorney: 'yes' | 'no' | '';
-  prenupNeed: 'draft-negotiate' | 'review-negotiate' | 'draft' | 'review' | '';
-  hasExistingPrenup: 'yes' | 'no' | '';
-  needsNegotiation: 'yes' | 'no' | '';
   businessNeed: 'full-package' | 'llc-only' | 'trademark-only' | '';
   hasExistingBusiness: 'yes' | 'no' | '';
   needsTrademark: 'yes' | 'no' | '';
@@ -92,9 +89,6 @@ export default function RecommendedServicePage() {
     allDebtsPaid: '',
     isRepresentative: '',
     needsNewAttorney: '',
-    prenupNeed: '',
-    hasExistingPrenup: '',
-    needsNegotiation: '',
     businessNeed: '',
     hasExistingBusiness: '',
     needsTrademark: ''
@@ -135,91 +129,10 @@ export default function RecommendedServicePage() {
       allDebtsPaid,
       isRepresentative,
       needsNewAttorney,
-      prenupNeed,
-      hasExistingPrenup,
-      needsNegotiation,
       businessNeed,
       hasExistingBusiness,
       needsTrademark
     } = answers;
-
-    if (needType === 'prenuptial') {
-      if (hasExistingPrenup === 'yes' && needsNegotiation === 'yes') {
-        return {
-          name: 'Prenuptial Agreement — Review & Negotiation',
-          price: '$3,500',
-          description: 'Review of an existing prenuptial agreement with negotiation with the other party to protect your interests.',
-          includes: [
-            'Initial consultation with represented party',
-            'Full financial disclosure review',
-            'Review of drafted agreement',
-            'Negotiation between parties',
-            'Finalization and execution of the agreement'
-          ],
-          addOns: [],
-          serviceId: 'prenuptial-review-negotiation',
-          requiresConsultation: false,
-          standardizedCaseType: 'Prenuptial Agreement',
-          standardizedServiceName: 'Prenuptial Agreement - Review and Negotiation'
-        };
-      }
-
-      if (hasExistingPrenup === 'yes' && needsNegotiation === 'no') {
-        return {
-          name: 'Prenuptial Agreement — Review Only (No Negotiation)',
-          price: '$1,500',
-          description: 'Review of an already drafted and agreed-upon prenuptial agreement.',
-          includes: [
-            'Review of agreement to ensure it is in line with client\'s wishes',
-            'Legal compliance review'
-          ],
-          addOns: [],
-          serviceId: 'prenuptial-review',
-          requiresConsultation: false,
-          standardizedCaseType: 'Prenuptial Agreement',
-          standardizedServiceName: 'Prenuptial Agreement - Review'
-        };
-      }
-
-      if (hasExistingPrenup === 'no' && needsNegotiation === 'yes') {
-        return {
-          name: 'Prenuptial Agreement — Drafting & Negotiation',
-          price: '$5,000',
-          description: 'Full drafting of prenuptial agreement and negotiation with the other party.',
-          includes: [
-            'Initial consultation with represented party',
-            'Full financial disclosure review',
-            'Custom drafting tailored to client\'s situation',
-            'Negotiation between parties',
-            'Finalization and execution of the agreement'
-          ],
-          addOns: [],
-          serviceId: 'prenuptial-drafting-negotiation',
-          requiresConsultation: false,
-          standardizedCaseType: 'Prenuptial Agreement',
-          standardizedServiceName: 'Prenuptial Agreement - Drafting and Negotiation'
-        };
-      }
-
-      if (hasExistingPrenup === 'no' && needsNegotiation === 'no') {
-        return {
-          name: 'Prenuptial Agreement — Drafting Only (No Negotiation)',
-          price: '$2,500',
-          description: 'Full drafting of prenuptial agreement based on already agreed-upon terms; no negotiation with the other side.',
-          includes: [
-            'Initial consultation with represented party',
-            'Custom agreement drafting',
-            'Legal compliance review',
-            'Finalization and execution of the agreement'
-          ],
-          addOns: [],
-          serviceId: 'prenuptial-drafting',
-          requiresConsultation: false,
-          standardizedCaseType: 'Prenuptial Agreement',
-          standardizedServiceName: 'Prenuptial Agreement - Drafting'
-        };
-      }
-    }
 
     if (needType === 'real-estate') {
       return {
@@ -526,9 +439,6 @@ export default function RecommendedServicePage() {
     if (answers.needType === 'real-estate') {
       return 2;
     }
-    if (answers.needType === 'prenuptial') {
-      return 3;
-    }
     if (answers.needType === 'probate') {
       if (answers.isRepresentative === 'no') return 2;
       if (answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'yes') return 3;
@@ -572,11 +482,9 @@ export default function RecommendedServicePage() {
         return answers.needType !== '';
       case 2:
         if (answers.needType === 'real-estate') return answers.realEstateRole !== '';
-        if (answers.needType === 'prenuptial') return answers.hasExistingPrenup !== '';
         if (answers.needType === 'probate') return answers.isRepresentative !== '';
         return answers.maritalStatus !== '';
       case 3:
-        if (answers.needType === 'prenuptial') return answers.needsNegotiation !== '';
         if (answers.needType === 'probate') return answers.needsNewAttorney !== '';
         return answers.ownsRealEstate !== '';
       case 4:
@@ -616,9 +524,6 @@ export default function RecommendedServicePage() {
       allDebtsPaid: '',
       isRepresentative: '',
       needsNewAttorney: '',
-      prenupNeed: '',
-      hasExistingPrenup: '',
-      needsNegotiation: '',
       businessNeed: '',
       hasExistingBusiness: '',
       needsTrademark: ''
@@ -869,28 +774,6 @@ export default function RecommendedServicePage() {
                           </div>
                         </div>
                         {answers.needType === 'probate' && (
-                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
-                        )}
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => updateAnswer('needType', 'prenuptial')}
-                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                        answers.needType === 'prenuptial'
-                          ? 'border-[#547298] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#547298]/50'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                            Prenuptial Agreement
-                          </div>
-                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                            I need help with a prenuptial agreement before getting married
-                          </div>
-                        </div>
-                        {answers.needType === 'prenuptial' && (
                           <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
                         )}
                       </div>
@@ -1230,115 +1113,6 @@ export default function RecommendedServicePage() {
                               No
                             </span>
                             {answers.hasSpecialNeeds === 'no' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
-                            )}
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-
-              {/* Prenuptial Path */}
-              {answers.needType === 'prenuptial' && (
-                <>
-                  {step === 2 && (
-                    <div className="space-y-6">
-                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
-                        Do you already have a prenuptial agreement?
-                      </h2>
-                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
-                        This will help us determine whether you need drafting or review services.
-                      </p>
-                      <div className="space-y-4">
-                        <button
-                          onClick={() => updateAnswer('hasExistingPrenup', 'yes')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.hasExistingPrenup === 'yes'
-                              ? 'border-[#547298] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#547298]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                                Yes, I have an existing agreement
-                              </div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                                I need help reviewing an agreement I've received
-                              </div>
-                            </div>
-                            {answers.hasExistingPrenup === 'yes' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
-                            )}
-                          </div>
-                        </button>
-                        <button
-                          onClick={() => updateAnswer('hasExistingPrenup', 'no')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.hasExistingPrenup === 'no'
-                              ? 'border-[#547298] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#547298]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                                No, I need a new agreement
-                              </div>
-                              <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                                I need help creating a prenuptial agreement from scratch
-                              </div>
-                            </div>
-                            {answers.hasExistingPrenup === 'no' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
-                            )}
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {step === 3 && (
-                    <div className="space-y-6">
-                      <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
-                        Do you need negotiation assistance?
-                      </h2>
-                      <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
-                        Negotiation services help ensure fair terms and protect your interests during discussions with your partner or their attorney.
-                      </p>
-                      <div className="space-y-4">
-                        <button
-                          onClick={() => updateAnswer('needsNegotiation', 'yes')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.needsNegotiation === 'yes'
-                              ? 'border-[#547298] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#547298]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              Yes, I need negotiation help
-                            </span>
-                            {answers.needsNegotiation === 'yes' && (
-                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
-                            )}
-                          </div>
-                        </button>
-                        <button
-                          onClick={() => updateAnswer('needsNegotiation', 'no')}
-                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.needsNegotiation === 'no'
-                              ? 'border-[#547298] bg-[#4a708b]/10'
-                              : 'border-gray-300 hover:border-[#547298]/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              No, just drafting or review
-                            </span>
-                            {answers.needsNegotiation === 'no' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>
