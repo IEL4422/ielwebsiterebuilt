@@ -7,31 +7,38 @@
  * schema block, llms.txt entry, county page, comparison table, portal surface,
  * or CSA may hardcode a dollar figure. They all import from this file.
  *
- * STATUS: LOCKED 2026-07-14; retainers standardized 2026-07-15. Approved by
- * Mary Liberty. Every retainer_hourly matter now opens on a UNIFORM $5,000
- * retainer ($450 attorney / $175 paralegal, costs billable). Contested probate
- * ($10,000 -> $5,000) and contested guardianship ($7,500 -> $5,000) were brought
- * down to match adult guardianship. Everything else is unchanged. There are no
- * PENDING prices.
+ * STATUS: LOCKED 2026-07-14; retainers standardized 2026-07-15; guardianship
+ * moved to flat fees 2026-07-16. Approved by Mary Liberty. The model is now
+ * clean: ONLY contested matters carry a retainer. Every contested matter opens
+ * on a UNIFORM $5,000 retainer ($450 attorney / $175 paralegal, costs billable):
+ * contested probate, will contests, and contested guardianship. EVERYTHING
+ * uncontested is a flat fee — including adult guardianship of the person and
+ * estate, which moved from a $5,000 retainer to a flat $5,500 (all-inclusive of
+ * the firm's work; the GAL fee is a disclosed pass-through, like the probate
+ * surety bond). There are no PENDING prices.
  *
  * ---------------------------------------------------------------------------
  * THE BILLING MODEL — fee structure is a property of MATTER POSTURE, not of the
- * practice area. There are exactly three models:
+ * practice area. The rule is simple: contested = retainer + hourly; everything
+ * uncontested = flat fee. There are exactly three models:
  *
- *   'flat_all_inclusive'  Uncontested, knowable scope. The flat fee covers ALL
- *                         costs — filing fees, publication, recording, court
- *                         costs — except the items in `exclusions`.
- *   'retainer_hourly'     Contested matters AND adult guardianship. Billed
- *                         hourly against a retainer. Costs and expenses
- *                         (GAL, filing, process server, transcripts) ARE
- *                         billable to the client, on a separate invoice line.
+ *   'flat_all_inclusive'  Uncontested, knowable scope — INCLUDING all uncontested
+ *                         guardianship (adult and minor). The flat fee covers ALL
+ *                         of the firm's work and court costs except the named
+ *                         carve-outs below.
+ *   'retainer_hourly'     CONTESTED matters ONLY. Billed hourly against a
+ *                         retainer. Costs and expenses (GAL, filing, process
+ *                         server, transcripts) ARE billable to the client, on a
+ *                         separate invoice line.
  *   'flat_annual'         Recurring court-required compliance work.
  *
  * The named cost carve-outs, and there are only these:
  *   - Uncontested probate flat fee -> surety bond premium.
+ *   - Adult guardianship flat fee -> guardian ad litem (GAL) fee, a court-set
+ *     pass-through (like the probate surety bond).
  *   - Trust funding -> one deed + recording included; additional deeds $500 ea.
- *   - Guardianship / contested matters are retainer_hourly, so the GAL fee is
- *     simply a billable expense there, NOT a carve-out from a flat fee.
+ *   - Contested matters are retainer_hourly, so the GAL fee is simply a billable
+ *     expense there, NOT a carve-out from a flat fee.
  * ============================================================================
  */
 
@@ -56,20 +63,18 @@ export const RATES = {
 } as const;
 
 /**
- * Retainers for retainer_hourly matters. LOCKED.
+ * Retainers. LOCKED. ONLY contested matters carry a retainer.
  *
- * Every retainer_hourly matter opens on the SAME $5,000 initial retainer. All are
- * EVERGREEN: the client replenishes to the full amount when the balance falls
- * below the floor. See RETAINER_FLOORS.
+ * Every contested matter opens on the SAME $5,000 initial retainer, EVERGREEN:
+ * the client replenishes to the full amount when the balance falls below the
+ * floor. See RETAINER_FLOORS.
  *
- * An unearned retainer is CLIENT MONEY (RPC 1.15): it belongs in IOLTA, ledgered
- * per client, drawn only as earned and billed. Do not put IOLTA language in
- * public marketing copy, and do not accept a retainer until the trust account and
- * per-client ledger are live.
+ * An unearned retainer is CLIENT MONEY (RPC 1.15): it belongs in the client
+ * trust account, ledgered per client, drawn only as earned and billed. Do not
+ * put IOLTA language in public marketing copy, and do not accept a retainer
+ * until the trust account and per-client ledger are live.
  */
 export const RETAINERS = {
-  /** Adult guardianship (person + estate), UNCONTESTED. Retainer+hourly, not flat. */
-  adultGuardianshipUncontested: 5000,
   /** Contested guardianship — competing petition, objection, removal. */
   contestedGuardianship: 5000,
   /** Contested probate / will contests / estate litigation. */
@@ -83,19 +88,21 @@ export const RETAINER_FLOORS = {
 } as const;
 
 /**
- * Guardianship FLAT fees (flat_all_inclusive). LOCKED.
+ * Guardianship FLAT fees (flat_all_inclusive). LOCKED. ALL uncontested
+ * guardianship is flat-fee'd — only a contest flips a matter to retainer+hourly.
  *
- * Only the genuinely narrow, low-variance guardianship work is flat-fee'd:
- *   - Minor guardianship: petition -> notice -> hearing -> letters. No physician's
- *     report, no personal service on a disabled respondent, GAL discretionary.
+ *   - Adult guardianship of the person and estate: flat $5,500, all-inclusive of
+ *     the firm's work (petition, physician's report coordination, personal
+ *     service, GAL coordination, surety bond and inventory, hearing). The GAL fee
+ *     itself is a court-set pass-through billed to the client — a carve-out, like
+ *     the probate surety bond — not part of the flat fee. (Labor break-even is
+ *     ~$6,275; $5,500 is set close to that, slightly below, as a client-friendly
+ *     entry price — revisit if volume/labor shifts.)
+ *   - Minor guardianship: petition -> notice -> hearing -> letters.
  *   - Discrete interim petitions and uncontested termination.
- *
- * Adult guardianship of the person and estate is deliberately NOT here — its
- * labor tail (thin physician's report, hard-to-serve respondent, GAL second
- * interview) is not caught by the conversion clause, so it is retainer_hourly.
- * See RETAINERS.adultGuardianshipUncontested.
  */
 export const GUARDIANSHIP_FLAT = {
+  adultUncontested: 5500,
   minorUncontested: 4500,
   interimPetition: 1500,
   terminationUncontested: 2000,
@@ -199,12 +206,13 @@ export const PRENUP = {
 export const REAL_ESTATE = { residentialClosing: 750, fsboRepresentation: 1500 } as const;
 
 /**
- * The conversion clause. Required in every uncontested guardianship engagement.
- * If anyone objects, the matter converts to hourly and the flat fee is credited.
+ * The conversion clause. Required in every uncontested guardianship engagement
+ * (adult and minor, now both flat-fee). If anyone objects, the matter converts
+ * to hourly against a retainer and the UNEARNED portion of the flat fee is
+ * credited toward that retainer, held in the client trust account until earned.
  *
- * NOTE: this protects against a FORMAL objection or competing petition. It does
- * NOT protect against a technically-uncontested adult guardianship that quietly
- * consumes the fee — which is exactly why adult guardianship is retainer_hourly.
+ * NOTE: this protects against a FORMAL objection or competing petition — the
+ * event that flips an uncontested flat-fee matter into contested litigation.
  */
 export const CONVERSION_CLAUSE =
   'This flat fee covers an uncontested proceeding. If any person files an objection, ' +
