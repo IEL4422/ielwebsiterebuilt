@@ -15,7 +15,7 @@ type CaseType =
 
 const TYPE_TO_EMBED: Record<CaseType, string> = {
   'estate-planning': 'my-lunacal-inline-initial-consultation',
-  'trust-administration': 'my-lunacal-inline-initial-consultation',
+  'trust-administration': 'my-lunacal-inline-initial-consultation-trust-administration',
   'real-estate': 'my-lunacal-inline-initial-consultation-yassmin',
   'uncontested-probate': 'my-lunacal-inline-initial-consultation-probate',
   'contested-probate': 'my-lunacal-inline-initial-consultation-contested-probate',
@@ -236,6 +236,14 @@ export default function BookConsultationPage() {
               }}
             />
             <div
+              id="my-lunacal-inline-initial-consultation-trust-administration"
+              style={{
+                width: '100%',
+                height: embedHeight('my-lunacal-inline-initial-consultation-trust-administration'),
+                overflow: embedOverflow('my-lunacal-inline-initial-consultation-trust-administration'),
+              }}
+            />
+            <div
               id="my-lunacal-inline-initial-consultation-yassmin"
               style={{
                 width: '100%',
@@ -271,7 +279,7 @@ export default function BookConsultationPage() {
         </div>
       </main>
 
-      {/* Single Lunacal script block initializing all 3 embeds */}
+      {/* Single Lunacal script block initializing all team-event embeds */}
       <Script id="lunacal-all-embeds" strategy="lazyOnload">
         {`
           (function(L,U,N){let p=(a,ar)=>a.q.push(ar),d=L.document;L.Lunacal=L.Lunacal||function(){let lun=L.Lunacal,ar=arguments;if(!lun.loaded){lun.ns={};lun.q=lun.q||[];d.head.appendChild(d.createElement("script")).src=U;lun.loaded=!0}if(ar[0]===N){const api=function(){p(api,arguments)};const ns=ar[1];api.q=api.q||[];if(typeof ns==="string"){lun.ns[ns]=lun.ns[ns]||api;p(lun.ns[ns],ar);p(lun,["initNamespace",ns])}else p(lun,ar);return}p(lun,ar)};if(!L.Cal)L.Cal=L.Lunacal})(window,"https://app.lunacal.ai/embed/embed.js","init");
@@ -289,14 +297,24 @@ export default function BookConsultationPage() {
           Lunacal.ns["initial-consultation"]("preload", { calLink: "team/illinois-estate-law/initial-consultation", type: "inline", options: { prerenderIframe: true } });
           Lunacal.ns["initial-consultation"]("ui", ${LUNACAL_UI_THEME});
 
-          // ── Real Estate (Yassmin) ──
+          // ── Trust Administration (team event) ──
+          Lunacal("init","initial-consultation-trust-administration",{origin:"https://app.lunacal.ai"});
+          Lunacal.ns["initial-consultation-trust-administration"]("inline", {
+            elementOrSelector:"#my-lunacal-inline-initial-consultation-trust-administration",
+            config: {"layout":""},
+            calLink: "team/illinois-estate-law/initial-consultation-trust-administration",
+          });
+          Lunacal.ns["initial-consultation-trust-administration"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-trust-administration", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consultation-trust-administration"]("ui", ${LUNACAL_UI_THEME});
+
+          // ── Real Estate (team event: Initial Consultation - Real Estate) ──
           Lunacal("init","initial-consultation-yassmin",{origin:"https://app.lunacal.ai"});
           Lunacal.ns["initial-consultation-yassmin"]("inline", {
             elementOrSelector:"#my-lunacal-inline-initial-consultation-yassmin",
             config: {"layout":""},
-            calLink: "team/illinois-estate-law?eventType=initial-consultation-yassmin",
+            calLink: "team/illinois-estate-law/initial-consultation-yassmin",
           });
-          Lunacal.ns["initial-consultation-yassmin"]("preload", { calLink: "team/illinois-estate-law?eventType=initial-consultation-yassmin", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consultation-yassmin"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-yassmin", type: "inline", options: { prerenderIframe: true } });
           Lunacal.ns["initial-consultation-yassmin"]("ui", ${LUNACAL_UI_THEME});
 
           // ── Probate ──
