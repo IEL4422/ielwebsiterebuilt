@@ -13,7 +13,8 @@
  * on a UNIFORM $5,000 retainer ($450 attorney / $175 paralegal, costs billable):
  * contested probate, will contests, and contested guardianship. EVERYTHING
  * uncontested is a flat fee — including adult guardianship of the person and
- * estate, which moved from a $5,000 retainer to a flat $5,500 (all-inclusive of
+ * estate, which moved from a $5,000 retainer to a flat fee. Both uncontested
+ * guardianships (adult and minor) are the SAME flat $4,500 (all-inclusive of
  * the firm's work; the GAL fee is a disclosed pass-through, like the probate
  * surety bond). There are no PENDING prices.
  *
@@ -91,18 +92,19 @@ export const RETAINER_FLOORS = {
  * Guardianship FLAT fees (flat_all_inclusive). LOCKED. ALL uncontested
  * guardianship is flat-fee'd — only a contest flips a matter to retainer+hourly.
  *
- *   - Adult guardianship of the person and estate: flat $5,500, all-inclusive of
+ *   - Adult guardianship of the person and estate: flat $4,500, all-inclusive of
  *     the firm's work (petition, physician's report coordination, personal
  *     service, GAL coordination, surety bond and inventory, hearing). The GAL fee
  *     itself is a court-set pass-through billed to the client — a carve-out, like
- *     the probate surety bond — not part of the flat fee. (Labor break-even is
- *     ~$6,275; $5,500 is set close to that, slightly below, as a client-friendly
- *     entry price — revisit if volume/labor shifts.)
- *   - Minor guardianship: petition -> notice -> hearing -> letters.
+ *     the probate surety bond — not part of the flat fee. (Set to MATCH minor
+ *     guardianship per Mary 2026-07-16; note this is well under the ~$6,275 labor
+ *     break-even for an adult case — a deliberate loss-leader. Revisit if volume
+ *     shifts.)
+ *   - Minor guardianship: petition -> notice -> hearing -> letters. Same $4,500.
  *   - Discrete interim petitions and uncontested termination.
  */
 export const GUARDIANSHIP_FLAT = {
-  adultUncontested: 5500,
+  adultUncontested: 4500,
   minorUncontested: 4500,
   interimPetition: 1500,
   terminationUncontested: 2000,

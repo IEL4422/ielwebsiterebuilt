@@ -63,7 +63,7 @@ export default function Page() {
     {
       question: 'How much does guardianship cost in Illinois?',
       answer:
-        'Cost depends on the type of case. At Illinois Estate Law, an uncontested guardianship — whether adult or minor — is handled for a flat fee, so the family knows the price up front; the adult flat fee is higher than the minor one because an adult case involves more built-in work. Only a contested guardianship is billed hourly against a retainer, because a dispute makes the amount of court work unpredictable. Separate costs — such as the court filing fee and the guardian ad litem’s fee — are billed on top of attorney fees. For current figures and to find out which structure applies to your situation, see our ' +
+        'Cost depends on the type of case. At Illinois Estate Law, an uncontested guardianship — whether adult or minor — is handled for the same flat fee, so the family knows the price up front (an adult case involves more built-in work, but the firm charges one predictable flat fee for each). Only a contested guardianship is billed hourly against a retainer, because a dispute makes the amount of court work unpredictable. Separate costs — such as the court filing fee and the guardian ad litem’s fee — are billed on top of attorney fees. For current figures and to find out which structure applies to your situation, see our ' +
         'guardianship page or book a consultation.',
     },
     {
