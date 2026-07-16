@@ -26,7 +26,6 @@ const navItems = [
       { label: 'Probate', href: '/chicago-probate-lawyer/' },
       { label: 'Guardianship', href: '/guardianship/' },
       { label: 'Real Estate', href: '/chicago-real-estate-closings-lawyer/' },
-      { label: 'Prenuptial Agreements', href: '/chicago-prenuptial-agreements-lawyer/' },
       { label: 'Deeds', href: '/chicago-deeds-lawyer/' },
     ],
   },

@@ -147,7 +147,6 @@ export default function Home() {
               "Wills and Trusts",
               "Powers of Attorney",
               "Healthcare Directives",
-              "Prenuptial Agreements",
               "Deed Transfers"
             ],
             "openingHoursSpecification": [

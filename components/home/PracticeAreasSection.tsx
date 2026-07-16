@@ -20,11 +20,10 @@ const categories: Category[] = [
   {
     icon: Home,
     title: 'Real Estate',
-    description: 'Deed transfers, residential closings, and prenuptial agreements, practical legal support for Illinois families protecting their property.',
+    description: 'Deed transfers and residential closings — practical legal support for Illinois families protecting their property.',
     services: [
       { name: 'Deed Transfers', href: '/chicago-deeds-lawyer/' },
       { name: 'Residential Closings', href: '/chicago-real-estate-closings-lawyer/' },
-      { name: 'Prenuptial Agreements', href: '/chicago-prenuptial-agreements-lawyer/' },
     ],
     ctaLabel: 'Explore Real Estate Services',
     ctaHref: '/chicago-deeds-lawyer/',

@@ -301,14 +301,6 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Discover when summary probate (summary administration) is available in Cook County, Illinois, and whether it\'s the right choice for your estate.',
   },
   {
-    slug: 'protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois',
-    title: 'Protecting Your Future: The Essential Guide to Prenuptial Agreements in Illinois',
-    url: '/blog/protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois/',
-    date: 'Feb 12, 2026',
-    summary: 'A comprehensive guide to understanding prenuptial agreements in Illinois—what they protect, common myths, real-world scenarios, and the step-by-step process of creating an enforceable prenup that protects both partners.',
-    excerpt: 'A comprehensive guide to understanding prenuptial agreements in Illinois—what they protect, common myths, real-world scenarios, and the step-by-step process of creating an enforceable prenup that protects both partners.',
-  },
-  {
     slug: 'when-is-probate-required-in-illinois',
     title: 'When Is Probate Required in Illinois? Complete 2026 Guide with Interactive Tools',
     url: '/blog/when-is-probate-required-in-illinois/',
@@ -524,7 +516,6 @@ function inferTopicFromSlug(slug: string): string {
   if (/contest-a-will|will-contest/.test(slug)) return 'Probate';
   if (/probate|executor|estate-bank|small-estate|surety-bond/.test(slug)) return 'Probate';
   if (/power-of-attorney/.test(slug)) return 'Powers of Attorney';
-  if (/prenuptial/.test(slug)) return 'Prenuptial Agreements';
   if (/guardian/.test(slug)) return 'Guardianship';
   if (/dying-without-a-will|financial-impact-of-dying/.test(slug)) return 'Estate Planning';
   if (/what-makes-a-will-valid|will-package|\bwills?\b/.test(slug)) return 'Wills';

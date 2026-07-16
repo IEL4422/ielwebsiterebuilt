@@ -454,66 +454,6 @@ export function CategorizedServices({
       addOns: []
     },
     {
-      id: 'prenuptial-agreements',
-      name: 'Prenuptial Agreements',
-      packages: [
-        {
-          id: 'prenuptial-drafting-negotiation',
-          name: 'Prenuptial Agreement — Drafting & Negotiation',
-          category: 'prenuptial',
-          fixedPrice: 5000,
-          description: 'Full drafting of agreement and negotiation with the other party.',
-          includes: [
-            'Initial consultation with represented party',
-            'Full financial disclosure review',
-            'Custom drafting tailored to client\'s situation',
-            'Negotiation between parties',
-            'Finalization and execution of the agreement'
-          ]
-        },
-        {
-          id: 'prenuptial-review-negotiation',
-          name: 'Prenuptial Agreement — Review & Negotiation',
-          category: 'prenuptial',
-          fixedPrice: 3500,
-          description: 'Review of an already drafted agreement with negotiation with the other party.',
-          includes: [
-            'Initial consultation with represented party',
-            'Full financial disclosure review',
-            'Review of drafted agreement',
-            'Negotiation between parties',
-            'Finalization and execution of the agreement'
-          ]
-        },
-        {
-          id: 'prenuptial-drafting',
-          name: 'Prenuptial Agreement — Drafting Only (No Negotiation)',
-          category: 'prenuptial',
-          fixedPrice: 2500,
-          description: 'Full drafting of agreement based on already agreed upon terms; no negotiation with the other side.',
-          includes: [
-            'Initial consultation with represented party',
-            'Custom agreement drafting',
-            'Legal compliance review',
-            'Finalization and execution of the agreement'
-          ]
-        },
-        {
-          id: 'prenuptial-review',
-          name: 'Prenuptial Agreement — Review Only (No Negotiation)',
-          category: 'prenuptial',
-          fixedPrice: 1500,
-          description: 'Review of an already drafted and agreed upon agreement.',
-          includes: [
-            'Review of agreement to ensure it is in line with client\'s wishes',
-            'Legal compliance review'
-          ]
-        }
-      ],
-      aLaCarte: [],
-      addOns: []
-    },
-    {
       id: 'deeds',
       name: 'Deed Services',
       packages: [],

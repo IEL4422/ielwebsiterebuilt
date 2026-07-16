@@ -1,4 +1,4 @@
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Prenuptial Agreement' | 'Real Estate';
+export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate';
 
 export type StandardizedServiceName =
   | 'Individual Trust Package'
@@ -28,10 +28,6 @@ export type StandardizedServiceName =
   | 'Special Needs Planning - Add-On'
   | 'Irrevocable Trust - A La Carte'
   | 'Estate Tax Planning - Add-On'
-  | 'Prenuptial Agreement - Review'
-  | 'Prenuptial Agreement - Review and Negotiation'
-  | 'Prenuptial Agreement - Drafting'
-  | 'Prenuptial Agreement - Drafting and Negotiation'
   | 'Probate (Tier 1)'
   | 'Probate (Tier 2)'
   | 'Probate (Tier 3)'
@@ -47,7 +43,6 @@ export type StandardizedServiceName =
   | 'Spousal Representation'
   | 'Document Review'
   | 'Annual Review Membership'
-  | 'Prenuptial Agreement - Q&A Session'
   | 'Trust Funding - A La Carte'
   | 'Residential Closing'
   | 'For Sale By Owner Representation'
@@ -57,7 +52,7 @@ export interface Service {
   id: string;
   name: string;
   subtitle?: string;
-  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'prenuptial' | 'real-estate';
+  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'real-estate';
   standardizedCaseType: StandardizedCaseType;
   standardizedServiceName: {
     individual: StandardizedServiceName;
@@ -560,69 +555,6 @@ export const aLaCarteServices: Service[] = [
   }
 ];
 
-export const prenuptialServices: Service[] = [
-  {
-    id: 'prenuptial-drafting-negotiation',
-    name: 'Prenuptial Agreement — Drafting & Negotiation',
-    category: 'prenuptial',
-    standardizedCaseType: 'Prenuptial Agreement',
-    standardizedServiceName: 'Prenuptial Agreement - Drafting and Negotiation',
-    fixedPrice: 5000,
-    description: 'Full drafting of agreement and negotiation with the other party.',
-    includes: [
-      'Initial consultation with represented party',
-      'Full financial disclosure review',
-      'Custom drafting tailored to client\'s situation',
-      'Negotiation between parties',
-      'Finalization and execution of the agreement'
-    ]
-  },
-  {
-    id: 'prenuptial-review-negotiation',
-    name: 'Prenuptial Agreement — Review & Negotiation',
-    category: 'prenuptial',
-    standardizedCaseType: 'Prenuptial Agreement',
-    standardizedServiceName: 'Prenuptial Agreement - Review and Negotiation',
-    fixedPrice: 3500,
-    description: 'Review of an already drafted agreement with negotiation with the other party.',
-    includes: [
-      'Initial consultation with represented party',
-      'Full financial disclosure review',
-      'Review of drafted agreement',
-      'Negotiation between parties',
-      'Finalization and execution of the agreement'
-    ]
-  },
-  {
-    id: 'prenuptial-drafting',
-    name: 'Prenuptial Agreement — Drafting Only (No Negotiation)',
-    category: 'prenuptial',
-    standardizedCaseType: 'Prenuptial Agreement',
-    standardizedServiceName: 'Prenuptial Agreement - Drafting',
-    fixedPrice: 2500,
-    description: 'Full drafting of agreement based on already agreed upon terms; no negotiation with the other side.',
-    includes: [
-      'Initial consultation with represented party',
-      'Custom agreement drafting',
-      'Legal compliance review',
-      'Finalization and execution of the agreement'
-    ]
-  },
-  {
-    id: 'prenuptial-review',
-    name: 'Prenuptial Agreement — Review Only (No Negotiation)',
-    category: 'prenuptial',
-    standardizedCaseType: 'Prenuptial Agreement',
-    standardizedServiceName: 'Prenuptial Agreement - Review',
-    fixedPrice: 1500,
-    description: 'Review of an already drafted and agreed upon agreement.',
-    includes: [
-      'Review of agreement to ensure it is in line with client\'s wishes',
-      'Legal compliance review'
-    ]
-  }
-];
-
 export const realEstateServices: Service[] = [
   {
     id: 'residential-closing',
@@ -691,6 +623,5 @@ export const allServices = [
   ...probatePackages,
   ...trustAdministrationServices,
   ...aLaCarteServices,
-  ...prenuptialServices,
   ...realEstateServices
 ];

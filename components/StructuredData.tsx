@@ -46,7 +46,6 @@ export function StructuredData() {
           'Healthcare directives',
           'Illinois real estate closings',
           'Illinois deeds and property transfers',
-          'Prenuptial agreements',
         ],
         parentOrganization: { '@id': `${SITE_URL}/#organization` },
         sameAs: FIRM.sameAs,
@@ -65,7 +64,6 @@ export function StructuredData() {
           'Trust administration',
           'Residential real estate closings',
           'Deed preparation and transfers',
-          'Prenuptial agreements',
         ].map((s) => ({
           '@type': 'Offer',
           itemOffered: { '@type': 'Service', name: s, areaServed: { '@type': 'State', name: 'Illinois' } },

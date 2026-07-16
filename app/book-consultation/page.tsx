@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Script from 'next/script';
-import { ArrowLeft, Building2, ScrollText, Scale, Heart, Briefcase, Gavel, HeartHandshake } from 'lucide-react';
+import { ArrowLeft, Building2, ScrollText, Scale, Briefcase, Gavel, HeartHandshake } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 type CaseType =
@@ -11,8 +11,7 @@ type CaseType =
   | 'real-estate'
   | 'uncontested-probate'
   | 'contested-probate'
-  | 'guardianship'
-  | 'prenuptial';
+  | 'guardianship';
 
 const TYPE_TO_EMBED: Record<CaseType, string> = {
   'estate-planning': 'my-lunacal-inline-initial-consultation',
@@ -21,7 +20,6 @@ const TYPE_TO_EMBED: Record<CaseType, string> = {
   'uncontested-probate': 'my-lunacal-inline-initial-consultation-probate',
   'contested-probate': 'my-lunacal-inline-initial-consultation-contested-probate',
   'guardianship': 'my-lunacal-inline-initial-consultation-guardianship',
-  'prenuptial': 'my-lunacal-inline-initial-consultation-mary-liberty',
 };
 
 interface CaseOption {
@@ -119,19 +117,6 @@ const CASE_OPTIONS: CaseOption[] = [
     ],
     bookWith: 'Our Guardianship Team',
     bookWithRole: 'Guardianship Attorneys',
-  },
-  {
-    id: 'prenuptial',
-    icon: Heart,
-    label: 'Prenuptial Agreement',
-    subtitle: 'Protect both parties with clear, fair agreements',
-    examples: [
-      'Prenuptial Agreements',
-      'Postnuptial Agreements',
-      'Asset Protection Planning',
-    ],
-    bookWith: 'Mary Liberty',
-    bookWithRole: 'Owner & Lead Attorney',
   },
 ];
 
@@ -267,14 +252,6 @@ export default function BookConsultationPage() {
               }}
             />
             <div
-              id="my-lunacal-inline-initial-consultation-mary-liberty"
-              style={{
-                width: '100%',
-                height: embedHeight('my-lunacal-inline-initial-consultation-mary-liberty'),
-                overflow: embedOverflow('my-lunacal-inline-initial-consultation-mary-liberty'),
-              }}
-            />
-            <div
               id="my-lunacal-inline-initial-consultation-contested-probate"
               style={{
                 width: '100%',
@@ -331,16 +308,6 @@ export default function BookConsultationPage() {
           });
           Lunacal.ns["initial-consultation-probate"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-probate", type: "inline", options: { prerenderIframe: true } });
           Lunacal.ns["initial-consultation-probate"]("ui", ${LUNACAL_UI_THEME});
-
-          // ── Prenuptial (Mary Liberty) ──
-          Lunacal("init","initial-consultation-mary-liberty",{origin:"https://app.lunacal.ai"});
-          Lunacal.ns["initial-consultation-mary-liberty"]("inline", {
-            elementOrSelector:"#my-lunacal-inline-initial-consultation-mary-liberty",
-            config: {"layout":""},
-            calLink: "team/illinois-estate-law?eventType=initial-consultation-mary-liberty",
-          });
-          Lunacal.ns["initial-consultation-mary-liberty"]("preload", { calLink: "team/illinois-estate-law?eventType=initial-consultation-mary-liberty", type: "inline", options: { prerenderIframe: true } });
-          Lunacal.ns["initial-consultation-mary-liberty"]("ui", ${LUNACAL_UI_THEME});
 
           // ── Contested Probate (confirmed link) ──
           Lunacal("init","initial-consultation-contested-probate",{origin:"https://app.lunacal.ai"});

@@ -43,12 +43,6 @@ const SERVICES: Record<string, { name: string; href: string; icon: keyof typeof 
     icon: 'Heart',
     desc: 'Specify your medical wishes and appoint a healthcare agent in advance.',
   },
-  prenup: {
-    name: 'Prenuptial Agreements',
-    href: '/chicago-prenuptial-agreements-lawyer/',
-    icon: 'FileCheck',
-    desc: 'Protect your assets and clarify financial expectations before marriage.',
-  },
   deeds: {
     name: 'Deed Preparation',
     href: '/chicago-deeds-lawyer/',
@@ -69,7 +63,6 @@ const RELATED: Record<string, string[]> = {
   probate:    ['wills', 'trusts', 'deeds'],
   poa:        ['healthcare', 'wills', 'trusts'],
   healthcare: ['poa', 'wills', 'trusts'],
-  prenup:     ['wills', 'trusts', 'poa'],
   deeds:      ['closing', 'probate', 'trusts'],
   closing:    ['deeds', 'probate', 'wills'],
 };

@@ -194,14 +194,6 @@ export const A_LA_CARTE = {
 /** Trust administration — unchanged. */
 export const TRUST_ADMIN = { consultingAnnual: 3500 } as const;
 
-/** Prenuptial agreements — unchanged. */
-export const PRENUP = {
-  draftingAndNegotiation: 5000,
-  reviewAndNegotiation: 3500,
-  draftingOnly: 2500,
-  reviewOnly: 1500,
-} as const;
-
 /** Real estate — unchanged. */
 export const REAL_ESTATE = { residentialClosing: 750, fsboRepresentation: 1500 } as const;
 
@@ -273,6 +265,5 @@ export const PRICING = {
   ESTATE_PLANNING,
   A_LA_CARTE,
   TRUST_ADMIN,
-  PRENUP,
   REAL_ESTATE,
 } as const;

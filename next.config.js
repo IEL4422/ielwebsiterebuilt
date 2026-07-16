@@ -42,7 +42,10 @@ const nextConfig = {
       { source: '/powers-of-attorney/', destination: '/chicago-powers-of-attorney-lawyer/', permanent: true },
       { source: '/healthcare-directives/', destination: '/chicago-healthcare-directives-lawyer/', permanent: true },
       { source: '/deeds/', destination: '/chicago-deeds-lawyer/', permanent: true },
-      { source: '/prenuptial-agreements/', destination: '/chicago-prenuptial-agreements-lawyer/', permanent: true },
+      // Prenuptial agreements removed as a practice area (2026-07). Retire all prenup URLs.
+      { source: '/prenuptial-agreements/', destination: '/', permanent: true },
+      { source: '/chicago-prenuptial-agreements-lawyer/', destination: '/', permanent: true },
+      { source: '/blog/protecting-your-future-the-essential-guide-to-prenuptial-agreements-in-illinois/', destination: '/blog/', permanent: true },
       { source: '/real-estate-closings/', destination: '/chicago-real-estate-closings-lawyer/', permanent: true },
 
       // Short URL redirects to service/utility pages

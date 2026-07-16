@@ -30,9 +30,6 @@ export const BOOKING_UNCONTESTED_PROBATE = `${BASE}/initial-consultation-probate
 /** Real estate — currently Yassmin Koudmani's calendar. CONFIRM slug with Mary. */
 export const BOOKING_REAL_ESTATE = `${BASE}/initial-consultation-yassmin`;
 
-/** Prenuptial agreements — currently Mary Liberty's calendar. CONFIRM slug. */
-export const BOOKING_PRENUP = `${BASE}/initial-consultation-mary-liberty`;
-
 /**
  * Trust administration — NO dedicated Lunacal link exists yet; the current site
  * routes trust-administration bookings to the general initial-consultation
