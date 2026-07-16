@@ -88,12 +88,12 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'How much does adult guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law bills adult guardianship of the person and estate hourly against a ${usd(RETAINERS.adultGuardianshipUncontested)} retainer, not as a flat fee. Even an “uncontested” adult guardianship involves a physician’s report that must be obtained, personal service on the respondent, and a court-appointed guardian ad litem whose recommendations must be answered — work whose scope is not fully within our control. If the guardianship is contested, it is billed against a ${usd(RETAINERS.contestedGuardianship)} retainer. Costs, including the guardian ad litem fee, are billed to the client.`,
+      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship of the person and estate — all-inclusive of the firm’s work on the petition, the physician’s report, personal service on the respondent, coordinating the court-appointed guardian ad litem, and the surety bond, inventory, and hearing. The only separate charge is the guardian ad litem (GAL) fee, a court-set pass-through disclosed to you like a surety bond in probate. If the guardianship becomes contested — someone objects or files a competing petition — it converts to hourly billing against a ${usd(RETAINERS.contestedGuardianship)} retainer.`,
   },
   {
-    question: 'Why is adult guardianship billed hourly when your other services are flat fee?',
+    question: 'Is adult guardianship a flat fee?',
     answer:
-      'Because we can only quote a fixed price for work whose scope we control. A minor guardianship is narrow and predictable, so it is flat-fee. An adult guardianship is not: a thin or non-committal physician’s report may have to be re-obtained, a respondent can be difficult to serve, and the guardian ad litem may ask for a second interview or recommend conditions. None of that is “contested” in the legal sense, but it is real work, and billing it honestly by the hour is fairer than a flat fee that quietly absorbs it.',
+      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, so you know the price of the firm’s work up front — only the guardian ad litem’s court-set fee is separate, and it is disclosed to you as a pass-through cost. A guardianship is billed hourly (against a ${usd(RETAINERS.contestedGuardianship)} retainer) only when it is contested — the respondent objects, a competing petition is filed, or a sitting guardian is challenged. Contested matters cannot be flat-fee’d honestly because the opposing party, not the firm, drives how much work the case takes.`,
   },
   {
     question: 'What is the difference between guardianship of the person and guardianship of the estate?',
@@ -103,7 +103,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'What is a guardian ad litem and do I have to pay for one?',
     answer:
-      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — and in a retainer matter it is billed to you as an expense, not absorbed into a flat fee.`,
+      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — always disclosed to you and billed separately: a carve-out from the flat fee in an uncontested matter, or a billable expense in a contested one. It is never firm revenue.`,
   },
   {
     question: 'What are a guardian’s ongoing duties after appointment?',

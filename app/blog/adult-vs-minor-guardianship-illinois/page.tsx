@@ -58,7 +58,7 @@ export default function Page() {
     {
       question: 'Why does adult guardianship cost more than minor guardianship?',
       answer:
-        'It costs more because it requires more work and more proof. Adult guardianship is built around a disputed question — whether an adult has truly lost capacity — so Illinois law requires a physician\'s report documenting the disability, personal service of the petition on the respondent, and usually a guardian ad litem who investigates and reports to the court. Any of these steps can lead to objections and a contested hearing. An uncontested minor guardianship is far more straightforward, especially when the parents consent, so it is typically handled for a flat fee. Because the amount of work in an adult or contested case depends on what happens, those matters are handled hourly against a retainer. For current pricing on each type, see our guardianship page at /guardianship/.',
+        'It costs more because it has more built-in work and requires more proof. Adult guardianship is organized around a demanding question — whether an adult has truly lost capacity — so Illinois law requires a physician\'s report documenting the disability, personal service of the petition on the respondent, and usually a guardian ad litem who investigates and reports to the court. Those added steps mean an uncontested adult guardianship carries a higher flat fee than an uncontested minor guardianship — but it is still a flat, predictable fee, so the family knows the price up front. Only a contested matter — adult or minor — is handled hourly against a retainer, because then the opposing party, not the firm, drives how much work the case takes. For current pricing on each type, see our guardianship page at /guardianship/.',
     },
     {
       question: 'Can the same person be guardian of both an adult and a minor?',
@@ -373,7 +373,7 @@ export default function Page() {
                       ['Who can object', 'The adult respondent (and interested parties)', 'A parent asserting superior rights'],
                       ['Typical petitioner', 'Adult child, spouse, sibling, or other relative', 'Grandparent, relative, or family friend'],
                       ['Duration', 'Continues while the disability lasts', 'Ends automatically at age 18'],
-                      ['Fee structure', 'Hourly against a retainer', 'Flat fee when uncontested'],
+                      ['Fee structure', 'Flat fee (uncontested); hourly if contested', 'Flat fee (uncontested); hourly if contested'],
                     ].map(([factor, adult, minor], i) => (
                       <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className="py-3 px-6 font-medium text-gray-700">{factor}</td>
@@ -441,7 +441,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Cost follows directly from the work involved, so it makes sense to think about fee <em>structure</em> rather than a single number. The core distinction is simple: a predictable, cooperative matter can be handled for a flat fee, while a matter whose length depends on what unfolds is handled hourly against a retainer.
+              Cost follows directly from the work involved, so it makes sense to think about fee <em>structure</em> rather than a single number. The core distinction is simple: an uncontested matter is handled for a flat fee, while a contested matter — whose length depends on what the opposing party does — is handled hourly against a retainer. Among uncontested matters, an adult guardianship costs more than a minor one because it carries more built-in work, but it is still a flat, predictable fee.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -465,10 +465,10 @@ export default function Page() {
               </div>
               <div className="bg-[#33414E] text-white rounded-xl p-6">
                 <Gavel className="w-8 h-8 mb-3 opacity-80" />
-                <h3 className="font-bold text-lg mb-4 font-['Plus_Jakarta_Sans']">Adult &amp; Contested Matters</h3>
+                <h3 className="font-bold text-lg mb-4 font-['Plus_Jakarta_Sans']">Uncontested Adult Guardianship</h3>
                 <div className="space-y-3 text-sm font-['Plus_Jakarta_Sans']">
                   {[
-                    'Handled hourly against a retainer',
+                    'Handled on a flat fee — higher than a minor case',
                     'Adult cases require a physician\'s report',
                     'Personal service on the respondent',
                     'Guardian ad litem investigation and report',
@@ -484,7 +484,7 @@ export default function Page() {
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              The reason adult guardianship costs more is structural, not arbitrary. The physician&apos;s report, personal service, and guardian ad litem work are built into every adult case, and any of them can lead to objections and a hearing — so the amount of work is not knowable up front and is billed hourly. An uncontested minor guardianship has none of those moving parts, which is why it fits a flat fee. And a <strong>contested</strong> matter of either kind is handled hourly, because a dispute can extend the case in ways no flat fee could fairly capture. For current pricing on each type, visit our{' '}
+              The reason adult guardianship costs more is structural, not arbitrary. The physician&apos;s report, personal service, and guardian ad litem work are built into every adult case, so an uncontested adult guardianship carries a higher flat fee than an uncontested minor guardianship — but it is still a flat, predictable fee, because the scope of that built-in work is known up front. Only a <strong>contested</strong> matter of either kind is handled hourly against a retainer, because a dispute can extend the case in ways no flat fee could fairly capture. For current pricing on each type, visit our{' '}
               <Link href="/guardianship/" className="text-[#4a708b] hover:underline font-medium font-['Plus_Jakarta_Sans']">
                 guardianship page
               </Link>{' '}
@@ -501,7 +501,7 @@ export default function Page() {
                 Not Sure Which Type of Guardianship You Need?
               </h3>
               <p className="text-white/80 mb-5 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
-                Illinois Estate Law helps Chicago-area families navigate both adult and minor guardianship — from an uncontested flat-fee minor petition to a fully contested adult case. We&apos;ll tell you which proceeding applies and exactly how our fee structure works before you commit.
+                Illinois Estate Law helps Chicago-area families navigate both adult and minor guardianship — from an uncontested flat-fee petition to a fully contested case. We&apos;ll tell you which proceeding applies and exactly how our fee structure works before you commit.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
@@ -654,7 +654,7 @@ export default function Page() {
                 Speak With an Illinois Guardianship Attorney
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed font-['Plus_Jakarta_Sans']">
-                Illinois Estate Law helps Chicago-area families with both adult and minor guardianship — uncontested minor petitions on a flat fee, and adult and contested matters handled transparently on an hourly basis. Start with a free consultation so you know exactly which proceeding applies to your family.
+                Illinois Estate Law helps Chicago-area families with both adult and minor guardianship — uncontested guardianship, adult and minor, on a flat fee, and contested matters handled transparently on an hourly basis against a retainer. Start with a free consultation so you know exactly which proceeding applies to your family.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
