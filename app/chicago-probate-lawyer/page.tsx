@@ -10,7 +10,7 @@ import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
-import { contestedProbateFAQs } from '@/lib/practice-faqs';
+import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 import { BOOKING_UNCONTESTED_PROBATE, BOOKING_CONTESTED_PROBATE } from '@/lib/booking';
 
 // Contested probate / will contests, consolidated into this page. The former
@@ -33,83 +33,6 @@ export default function ChicagoProbateLawyerPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How long does probate take in Cook County?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A typical uncontested probate in Cook County takes 9-18 months from start to finish. The minimum is about 6-7 months due to the required creditor claims period. Complex estates with disputes, tax issues, or business interests can take 2-3 years or longer. Independent administration typically moves faster than supervised administration because it requires less court oversight and fewer court appearances."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do I need a lawyer for probate in Illinois?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "While Illinois law doesn't require you to hire an attorney for probate, it is strongly recommended. Probate involves complex legal procedures, strict deadlines, detailed accounting requirements, and potential liability for executors who make mistakes. An experienced probate attorney ensures compliance with all legal requirements, protects you from personal liability, handles disputes, and usually speeds up the process. The cost of legal help is typically far less than the cost of mistakes made without proper guidance."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What happens if someone dies without a will in Illinois?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "When someone dies without a will (called \"intestate\"), Illinois intestacy laws determine who inherits the estate. The probate process is similar, but the court appoints an administrator instead of an executor, and property is distributed according to a fixed statutory scheme rather than the deceased's wishes. Spouses and children have priority, followed by other relatives. The process may be more complicated because there's no will to clarify the deceased's intentions, and it may not result in the distribution the deceased would have wanted."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can an executor be removed in Illinois?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, an executor can be removed by the probate court for cause. Valid reasons include breach of fiduciary duty, self-dealing, mismanagement of assets, failure to perform duties, dishonesty, incapacity, or conflicts of interest. A beneficiary or heir can file a petition to remove the executor, but must prove grounds for removal. The court will hold a hearing and may remove the executor if the evidence shows they are unfit to serve. Removal is a serious matter and typically requires strong evidence of wrongdoing or incapacity."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much does probate cost in Chicago?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Probate costs in Chicago typically range from $5,000-$15,000 for a straightforward estate, including court fees ($400-$500), publication costs ($200-$400), attorney fees ($3,000-$10,000+), and executor compensation (usually 2-4% of estate value). Complex estates with disputes or significant assets cost more. Additional expenses may include appraisals, accounting fees, and bond premiums. While these costs may seem high, they are paid from the estate, not by the executor personally, and are generally necessary to properly administer the estate according to law."
-                }
-              }
-            ]
-          })
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LegalService",
-            "name": "Illinois Estate Law - Probate Attorney",
-            "description": "Experienced Chicago probate lawyer guiding executors and beneficiaries through Illinois probate process with compassion and expertise.",
-            "url": "https://www.illinoisestatelaw.com/chicago-probate-lawyer/",
-            "telephone": "+1-312-373-0731",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Chicago",
-              "addressRegion": "IL",
-              "addressCountry": "US"
-            },
-            "areaServed": {
-              "@type": "State",
-              "name": "Illinois"
-            },
-            "priceRange": "$$",
-            "serviceType": "Probate Administration and Estate Settlement"
-          })
-        }}
-      />
 
       <main>
         <InnerPageHero title="Probate Administration" subtitle="Compassionate, experienced guidance through Illinois probate administration" />
@@ -664,94 +587,7 @@ export default function ChicagoProbateLawyerPage() {
                   </ul>
                 </div>
 
-                <h2 className="text-3xl font-bold text-slate-800 mb-6 mt-12">Frequently Asked Questions</h2>
-
-                <div className="space-y-4 my-8">
-                  <div className="border border-slate-200 rounded-lg overflow-hidden">
-                    <button
-                      onClick={() => toggleSection('faq1')}
-                      className="w-full bg-slate-50 px-6 py-4 flex items-center justify-between hover:bg-slate-100 transition-colors text-left"
-                    >
-                      <span className="font-bold text-slate-800">How long does probate take in Cook County?</span>
-                      {expandedSection === 'faq1' ? <ChevronUp className="w-5 h-5 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 flex-shrink-0" />}
-                    </button>
-                    {expandedSection === 'faq1' && (
-                      <div className="bg-white px-6 py-4 border-t border-slate-200">
-                        <p className="text-slate-600">
-                          A typical uncontested probate in Cook County takes 9-18 months from start to finish. The minimum is about 6-7 months due to the required creditor claims period. Complex estates with disputes, tax issues, or business interests can take 2-3 years or longer. Independent administration typically moves faster than supervised administration because it requires less court oversight and fewer court appearances.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="border border-slate-200 rounded-lg overflow-hidden">
-                    <button
-                      onClick={() => toggleSection('faq2')}
-                      className="w-full bg-slate-50 px-6 py-4 flex items-center justify-between hover:bg-slate-100 transition-colors text-left"
-                    >
-                      <span className="font-bold text-slate-800">Do I need a lawyer for probate in Illinois?</span>
-                      {expandedSection === 'faq2' ? <ChevronUp className="w-5 h-5 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 flex-shrink-0" />}
-                    </button>
-                    {expandedSection === 'faq2' && (
-                      <div className="bg-white px-6 py-4 border-t border-slate-200">
-                        <p className="text-slate-600">
-                          While Illinois law doesn't require you to hire an attorney for probate, it is strongly recommended. Probate involves complex legal procedures, strict deadlines, detailed accounting requirements, and potential liability for executors who make mistakes. An experienced probate attorney ensures compliance with all legal requirements, protects you from personal liability, handles disputes, and usually speeds up the process. The cost of legal help is typically far less than the cost of mistakes made without proper guidance.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="border border-slate-200 rounded-lg overflow-hidden">
-                    <button
-                      onClick={() => toggleSection('faq3')}
-                      className="w-full bg-slate-50 px-6 py-4 flex items-center justify-between hover:bg-slate-100 transition-colors text-left"
-                    >
-                      <span className="font-bold text-slate-800">What happens if someone dies without a will in Illinois?</span>
-                      {expandedSection === 'faq3' ? <ChevronUp className="w-5 h-5 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 flex-shrink-0" />}
-                    </button>
-                    {expandedSection === 'faq3' && (
-                      <div className="bg-white px-6 py-4 border-t border-slate-200">
-                        <p className="text-slate-600">
-                          When someone dies without a will (called "intestate"), Illinois intestacy laws determine who inherits the estate. The probate process is similar, but the court appoints an administrator instead of an executor, and property is distributed according to a fixed statutory scheme rather than the deceased's wishes. Spouses and children have priority, followed by other relatives. The process may be more complicated because there's no will to clarify the deceased's intentions, and it may not result in the distribution the deceased would have wanted.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="border border-slate-200 rounded-lg overflow-hidden">
-                    <button
-                      onClick={() => toggleSection('faq4')}
-                      className="w-full bg-slate-50 px-6 py-4 flex items-center justify-between hover:bg-slate-100 transition-colors text-left"
-                    >
-                      <span className="font-bold text-slate-800">Can an executor be removed in Illinois?</span>
-                      {expandedSection === 'faq4' ? <ChevronUp className="w-5 h-5 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 flex-shrink-0" />}
-                    </button>
-                    {expandedSection === 'faq4' && (
-                      <div className="bg-white px-6 py-4 border-t border-slate-200">
-                        <p className="text-slate-600">
-                          Yes, an executor can be removed by the probate court for cause. Valid reasons include breach of fiduciary duty, self-dealing, mismanagement of assets, failure to perform duties, dishonesty, incapacity, or conflicts of interest. A beneficiary or heir can file a petition to remove the executor, but must prove grounds for removal. The court will hold a hearing and may remove the executor if the evidence shows they are unfit to serve. Removal is a serious matter and typically requires strong evidence of wrongdoing or incapacity.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="border border-slate-200 rounded-lg overflow-hidden">
-                    <button
-                      onClick={() => toggleSection('faq5')}
-                      className="w-full bg-slate-50 px-6 py-4 flex items-center justify-between hover:bg-slate-100 transition-colors text-left"
-                    >
-                      <span className="font-bold text-slate-800">How much does probate cost in Chicago?</span>
-                      {expandedSection === 'faq5' ? <ChevronUp className="w-5 h-5 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 flex-shrink-0" />}
-                    </button>
-                    {expandedSection === 'faq5' && (
-                      <div className="bg-white px-6 py-4 border-t border-slate-200">
-                        <p className="text-slate-600">
-                          Probate costs in Chicago typically range from $5,000-$15,000 for a straightforward estate, including court fees ($400-$500), publication costs ($200-$400), attorney fees ($3,000-$10,000+), and executor compensation (usually 2-4% of estate value). Complex estates with disputes or significant assets cost more. Additional expenses may include appraisals, accounting fees, and bond premiums. While these costs may seem high, they are paid from the estate, not by the executor personally, and are generally necessary to properly administer the estate according to law.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                <FAQAccordion title="Frequently Asked Questions" items={probateFAQs} />
               </div>
             </div>
           </div>

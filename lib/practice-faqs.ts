@@ -1,5 +1,6 @@
 import type { QA } from '@/lib/seo';
 import {
+  PROBATE,
   GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   RETAINERS,
@@ -171,4 +172,44 @@ export const guardianshipFAQs: QA[] = [
   ...minorGuardianshipFAQs.filter(
     (f) => !/Which Illinois counties/.test(f.question),
   ),
+];
+
+/**
+ * General (uncontested) Illinois probate FAQs for /chicago-probate-lawyer/.
+ *
+ * Moved here from the page body so the FAQPage JSON-LD (built in that page's
+ * layout.tsx) and the rendered accordion share one array and cannot drift.
+ *
+ * The cost answer is generated from lib/pricing.ts. It previously quoted
+ * generic market ranges that both hardcoded dollar figures — which
+ * lib/pricing.ts forbids — and described an hourly billing model this firm
+ * does not use for uncontested probate, undercutting the all-inclusive flat
+ * fee that is the firm's actual differentiator.
+ */
+export const probateFAQs: QA[] = [
+  {
+    question: 'How long does probate take in Cook County?',
+    answer:
+      'A typical uncontested probate in Cook County takes 9-18 months from start to finish. The minimum is about 6-7 months due to the required creditor claims period. Complex estates with disputes, tax issues, or business interests can take 2-3 years or longer. Independent administration typically moves faster than supervised administration because it requires less court oversight and fewer court appearances.',
+  },
+  {
+    question: 'Do I need a lawyer for probate in Illinois?',
+    answer:
+      'While Illinois law doesn\'t require you to hire an attorney for probate, it is strongly recommended. Probate involves complex legal procedures, strict deadlines, detailed accounting requirements, and potential liability for executors who make mistakes. An experienced probate attorney ensures compliance with all legal requirements, protects you from personal liability, handles disputes, and usually speeds up the process. The cost of legal help is typically far less than the cost of mistakes made without proper guidance.',
+  },
+  {
+    question: 'What happens if someone dies without a will in Illinois?',
+    answer:
+      'When someone dies without a will (called "intestate"), Illinois intestacy laws determine who inherits the estate. The probate process is similar, but the court appoints an administrator instead of an executor, and property is distributed according to a fixed statutory scheme rather than the deceased\'s wishes. Spouses and children have priority, followed by other relatives. The process may be more complicated because there\'s no will to clarify the deceased\'s intentions, and it may not result in the distribution the deceased would have wanted.',
+  },
+  {
+    question: 'Can an executor be removed in Illinois?',
+    answer:
+      'Yes, an executor can be removed by the probate court for cause. Valid reasons include breach of fiduciary duty, self-dealing, mismanagement of assets, failure to perform duties, dishonesty, incapacity, or conflicts of interest. A beneficiary or heir can file a petition to remove the executor, but must prove grounds for removal. The court will hold a hearing and may remove the executor if the evidence shows they are unfit to serve. Removal is a serious matter and typically requires strong evidence of wrongdoing or incapacity.',
+  },
+  {
+    question: 'How much does probate cost in Illinois?',
+    answer:
+      `An uncontested Illinois probate at this firm is a flat fee — ${usd(PROBATE.standard)} for a standard estate and ${usd(PROBATE.smallEstate)} for a small estate — and that fee is all-inclusive. Court filing fees, creditor publication charges, and recording fees are covered by the flat fee rather than billed on top of it. The one separate cost is the surety bond premium, if the court requires the representative to post a bond, which is paid directly to the bond provider. Probate fees are not standardized in Illinois, so other firms may quote an hourly rate instead, in which case the total is not knowable at the outset. Where attorney fees are paid out of the decedent's estate rather than personally, Illinois law requires that they be reasonable and approved by the court (755 ILCS 5/27-2).`,
+  },
 ];
