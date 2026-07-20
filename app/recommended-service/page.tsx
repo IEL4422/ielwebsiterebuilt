@@ -36,9 +36,8 @@ interface QuizAnswers {
   allDebtsPaid: 'yes' | 'no' | '';
   isRepresentative: 'yes' | 'no' | '';
   needsNewAttorney: 'yes' | 'no' | '';
-  businessNeed: 'full-package' | 'llc-only' | 'trademark-only' | '';
+  businessNeed: 'full-package' | 'llc-only' | '';
   hasExistingBusiness: 'yes' | 'no' | '';
-  needsTrademark: 'yes' | 'no' | '';
 }
 
 interface ServiceRecommendation {
@@ -91,7 +90,6 @@ export default function RecommendedServicePage() {
     needsNewAttorney: '',
     businessNeed: '',
     hasExistingBusiness: '',
-    needsTrademark: ''
   });
   const [showResult, setShowResult] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
@@ -131,7 +129,6 @@ export default function RecommendedServicePage() {
       needsNewAttorney,
       businessNeed,
       hasExistingBusiness,
-      needsTrademark
     } = answers;
 
     if (needType === 'real-estate') {
@@ -526,7 +523,6 @@ export default function RecommendedServicePage() {
       needsNewAttorney: '',
       businessNeed: '',
       hasExistingBusiness: '',
-      needsTrademark: ''
     });
     setShowResult(false);
     setShowClientInfo(false);
