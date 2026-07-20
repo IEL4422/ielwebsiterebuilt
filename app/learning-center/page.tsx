@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { MessageSquare } from 'lucide-react';
 import { getDb } from '@/lib/mongodb';
 import GuidesSearch from '@/components/learning-center/GuidesSearch';
-import { staticGuides } from '@/lib/guides-data';
+import { staticGuides, isHiddenGuide } from '@/lib/guides-data';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export const metadata: Metadata = {
@@ -58,7 +58,9 @@ export default async function LearningCenter() {
     .filter(g => !dbSlugs.has(g.slug))
     .map(({ content: _content, ...rest }) => rest)
     .concat(dbGuides);
-  const guides = merged.sort((a, b) => a.title.localeCompare(b.title));
+  const guides = merged
+    .filter(g => !isHiddenGuide(g))
+    .sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <main className="bg-white">

@@ -103,6 +103,13 @@ const nextConfig = {
       { source: '/guidebook-request/', destination: '/', permanent: true },
       { source: '/glossary/', destination: '/learning-center/', permanent: true },
       { source: '/glossary/:slug/', destination: '/learning-center/:slug/', permanent: true },
+
+      // Retired Learning Center guides (2026-07): trademark guide removed and the
+      // Prenuptial Agreements guide category retired. 301 the old guide URLs to the index.
+      { source: '/learning-center/trademark-registration-guide/', destination: '/learning-center/', statusCode: 301 },
+      { source: '/learning-center/what-is-a-prenuptial-agreement-illinois/', destination: '/learning-center/', statusCode: 301 },
+      { source: '/learning-center/how-to-create-prenuptial-agreement-illinois/', destination: '/learning-center/', statusCode: 301 },
+      { source: '/learning-center/prenuptial-agreement-checklist-illinois/', destination: '/learning-center/', statusCode: 301 },
     ];
   },
 };
