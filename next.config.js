@@ -50,7 +50,10 @@ const nextConfig = {
         source: '/:path*',
         has: [{ type: 'host', value: 'illinoisestatelaw.com' }],
         destination: 'https://www.illinoisestatelaw.com/:path*',
-        permanent: true,
+        // Explicit 301 (statusCode) rather than `permanent: true`, which Next
+        // emits as 308. Google treats 301 and 308 identically for
+        // canonicalization; 301 is used here to match the documented intent.
+        statusCode: 301,
       },
 
       // Short URL redirects to practice area pages
