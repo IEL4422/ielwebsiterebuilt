@@ -35,6 +35,24 @@ const nextConfig = {
   trailingSlash: true,
   async redirects() {
     return [
+      // ---------------------------------------------------------------------
+      // Host canonicalization: 301 non-www -> www. The site's canonical tags,
+      // sitemap, and Open Graph all use the www host, so www is the single
+      // authoritative host. Without this, illinoisestatelaw.com/* also served
+      // HTTP 200 with identical content, and Google Search Console flagged
+      // "Duplicate without user-selected canonical" (the canonical tag alone
+      // was a hint Google had not honored since 2026-01). This makes the
+      // non-www URL a real redirect so link equity consolidates to www.
+      //
+      // The `has` host match is anchored to the full host, so www.* does NOT
+      // match this rule and no loop occurs. Must stay first.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'illinoisestatelaw.com' }],
+        destination: 'https://www.illinoisestatelaw.com/:path*',
+        permanent: true,
+      },
+
       // Short URL redirects to practice area pages
       { source: '/probate/', destination: '/chicago-probate-lawyer/', permanent: true },
       { source: '/wills/', destination: '/chicago-wills-lawyer/', permanent: true },
