@@ -2,7 +2,91 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import { FEE_STRUCTURE_NOTE, FEE_STRUCTURE_HREF } from '@/lib/fee-structure';
+
+// The firm's practice areas, cycled in the hero headline. Kept in sync with the
+// homepage "Practice Areas" section on illinoisestatelaw.com. "Estate Planning"
+// is the longest term and reserves the container width so nothing shifts.
+const PRACTICE_AREAS = [
+  'Estate Planning',
+  'Wills',
+  'Trusts',
+  'Probate',
+  'Guardianship',
+  'Real Estate',
+] as const;
+
+const LONGEST_AREA = PRACTICE_AREAS.reduce(
+  (a, b) => (b.length > a.length ? b : a),
+  PRACTICE_AREAS[0],
+);
+
+const FADE_MS = 450; // must match the transition duration on the animated word
+const HOLD_MS = 2000; // time a word stays fully visible before fading out
+
+function RotatingPracticeArea() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const fadeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Respect prefers-reduced-motion: hold the first word, never cycle.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduceMotion(mq.matches);
+    update();
+    mq.addEventListener?.('change', update);
+    return () => mq.removeEventListener?.('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || PRACTICE_AREAS.length <= 1) return;
+    let mounted = true;
+
+    const tick = () => {
+      // 1) Fade the current word fully OUT.
+      setVisible(false);
+      // 2) Only AFTER it is gone, swap the text and fade the next word IN.
+      //    Because a single element is reused, two words are never visible.
+      fadeTimer.current = setTimeout(() => {
+        if (!mounted) return;
+        setIndex((i) => (i + 1) % PRACTICE_AREAS.length);
+        setVisible(true);
+      }, FADE_MS);
+    };
+
+    const interval = setInterval(tick, HOLD_MS + FADE_MS);
+    return () => {
+      mounted = false;
+      clearInterval(interval);
+      if (fadeTimer.current) clearTimeout(fadeTimer.current);
+    };
+  }, [reduceMotion]);
+
+  return (
+    // Fixed-size, inline container sized to the longest practice area so the
+    // headline and period never move as the word changes.
+    <span className="relative inline-block align-baseline text-[#9DB6D6]">
+      {/* Invisible sizer reserves width + height; never read by AT. */}
+      <span aria-hidden="true" className="invisible whitespace-nowrap">
+        {LONGEST_AREA}
+      </span>
+      {/* The single animated word, absolutely positioned over the sizer. */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 whitespace-nowrap transition-opacity ease-in-out"
+        style={{
+          opacity: visible ? 1 : 0,
+          transitionDuration: reduceMotion ? '0ms' : `${FADE_MS}ms`,
+        }}
+      >
+        {PRACTICE_AREAS[index]}
+      </span>
+    </span>
+  );
+}
 
 export function HeroSection() {
   return (
@@ -30,8 +114,17 @@ export function HeroSection() {
             Estate Planning &middot; Trusts &middot; Probate &middot; Real Estate
           </p>
 
-          <h1 className="text-[38px] sm:text-[52px] md:text-[62px] lg:text-[72px] font-extrabold text-white leading-[1.05] mb-6">
-            We Help Illinois Families<br className="hidden sm:block" /> <span className="sm:whitespace-nowrap">Plan, Protect &amp; Pass On</span><br className="hidden sm:block" /> What Matters.
+          <h1 className="text-[32px] sm:text-[50px] md:text-[62px] lg:text-[72px] font-extrabold text-white leading-[1.06] mb-6">
+            We Help Illinois Families<br className="hidden sm:block" /> With{' '}
+            <RotatingPracticeArea />
+            {'.'}
+            {/* Stable, complete label for screen readers (the visual word cycles
+                and is aria-hidden, so spell out every practice area here). */}
+            <span className="sr-only">
+              {' '}
+              Estate Planning, Wills, Trusts, Probate, Guardianship, and Real
+              Estate.
+            </span>
           </h1>
 
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl mb-3 leading-relaxed">
