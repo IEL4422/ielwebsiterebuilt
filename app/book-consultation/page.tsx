@@ -128,8 +128,17 @@ export default function BookConsultationPage() {
   const selectedOption = CASE_OPTIONS.find((o) => o.id === selectedType);
   const activeEmbedId = selectedType ? TYPE_TO_EMBED[selectedType] : null;
 
-  const embedHeight = (id: string) => (activeEmbedId === id ? '700px' : '0px');
-  const embedOverflow = (id: string) => (activeEmbedId === id ? 'scroll' : 'hidden');
+  // Lunacal sizes its own inline iframe to the exact height of whatever step is
+  // showing (calendar, attendee details, confirm/book) and re-sizes it as the
+  // user advances — including the taller stacked layout on mobile. So the active
+  // container is set to height:auto + overflow:visible: it always grows to match
+  // the iframe exactly, meaning the entire booking flow is visible with no inner
+  // scrollbar; the page scrolls instead. Inactive containers collapse to 0 so
+  // they stay preloaded in the background but hidden. (Previously these were a
+  // fixed 700px with overflow:scroll, which clipped the taller steps and forced
+  // users to scroll inside the iframe to reach the booking button.)
+  const embedHeight = (id: string) => (activeEmbedId === id ? 'auto' : '0px');
+  const embedOverflow = (id: string) => (activeEmbedId === id ? 'visible' : 'hidden');
 
   return (
     <>
