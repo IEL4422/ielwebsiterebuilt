@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CategorizedServicesDisplay } from '@/components/services/CategorizedServicesDisplay'
+import { QuickPriceList } from '@/components/services/QuickPriceList'
 import { LunacalBookingEmbed } from '@/components/services/LunacalBookingEmbed'
 import { InnerPageHero } from '@/components/layout/InnerPageHero'
 
@@ -228,6 +229,7 @@ export default function ServicesPage() {
       <div className="container mx-auto px-5 max-w-[1240px] py-[100px] lg:py-[60px] lg:px-5 sm:py-[60px] sm:px-4">
         <div className="flex flex-col gap-[21px] lg:flex-row lg:gap-[60px]">
           <div className="flex-1">
+            <QuickPriceList />
             <CategorizedServicesDisplay />
           </div>
 
