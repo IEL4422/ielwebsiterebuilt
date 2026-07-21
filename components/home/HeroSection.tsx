@@ -67,7 +67,7 @@ function RotatingPracticeArea() {
 
   return (
     // Fixed-size, inline container sized to the longest practice area so the
-    // headline and period never move as the word changes.
+    // headline never moves as the word changes.
     <span className="relative inline-block align-baseline text-[#9DB6D6]">
       {/* Invisible sizer reserves width + height; never read by AT. */}
       <span aria-hidden="true" className="invisible whitespace-nowrap">
@@ -117,7 +117,6 @@ export function HeroSection() {
           <h1 className="text-[32px] sm:text-[50px] md:text-[62px] lg:text-[72px] font-extrabold text-white leading-[1.06] mb-6">
             We Help Illinois Families<br className="hidden sm:block" /> With{' '}
             <RotatingPracticeArea />
-            {'.'}
             {/* Stable, complete label for screen readers (the visual word cycles
                 and is aria-hidden, so spell out every practice area here). */}
             <span className="sr-only">
