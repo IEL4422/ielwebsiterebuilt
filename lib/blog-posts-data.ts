@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-handle-deceased-persons-debt-illinois',
+    title: "How to Handle a Deceased Person's Debt in Illinois",
+    url: '/blog/how-to-handle-deceased-persons-debt-illinois/',
+    date: 'Jul 29, 2026',
+    summary:
+      "Comprehensive guide to handling a deceased person's debt in Illinois — which debts die with the person, which survive and must be addressed through probate, the statutory priority order for paying creditors under 755 ILCS 5/18-10, when heirs are and are not personally liable, how to handle mortgages, credit card debt, medical bills, and student loans, and the duties Illinois executors must fulfill to avoid personal liability.",
+    excerpt:
+      "When someone dies in Illinois, their debts don't simply disappear. Learn which must be paid from the estate, who is personally responsible, and how executors should handle creditors during probate.",
+  },
+  {
     slug: 'how-guardianship-works-in-illinois',
     title: 'How Guardianship Works in Illinois: The Complete 2026 Guide',
     url: '/blog/how-guardianship-works-in-illinois/',
