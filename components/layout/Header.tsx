@@ -57,14 +57,16 @@ export function Header() {
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <div className="flex items-center justify-between gap-6 h-[74px]">
             <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center shrink-0">
-              <Image
-                src="https://i.imgur.com/bSfExtA.png"
-                alt="Illinois Estate Law"
-                width={160}
-                height={44}
-                className="h-11 w-auto"
-                priority
-              />
+              <span className="inline-flex items-center rounded-xl bg-[#33414E] px-3.5 py-2">
+                <Image
+                  src="https://i.imgur.com/bSfExtA.png"
+                  alt="Illinois Estate Law"
+                  width={160}
+                  height={44}
+                  className="h-8 w-auto"
+                  priority
+                />
+              </span>
             </Link>
 
             <nav className="flex items-center gap-7">
@@ -144,15 +146,17 @@ export function Header() {
       {/* ===== Mobile header (modernized, shared across all pages) ===== */}
       <header className="lg:hidden sticky top-0 z-[999] bg-white/95 backdrop-blur-md border-b border-[#E3EAF1]">
         <div className="px-5 h-16 flex items-center justify-between">
-          <Link href="/" aria-label="Illinois Estate Law home">
-            <Image
-              src="https://i.imgur.com/bSfExtA.png"
-              alt="Illinois Estate Law"
-              width={130}
-              height={38}
-              className="h-9 w-auto"
-              priority
-            />
+          <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center">
+            <span className="inline-flex items-center rounded-lg bg-[#33414E] px-2.5 py-1.5">
+              <Image
+                src="https://i.imgur.com/bSfExtA.png"
+                alt="Illinois Estate Law"
+                width={130}
+                height={38}
+                className="h-7 w-auto"
+                priority
+              />
+            </span>
           </Link>
           <div className="flex items-center gap-2">
             <Link
