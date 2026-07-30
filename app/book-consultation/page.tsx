@@ -16,7 +16,7 @@ type CaseType =
 const TYPE_TO_EMBED: Record<CaseType, string> = {
   'estate-planning': 'my-lunacal-inline-initial-consultation',
   'trust-administration': 'my-lunacal-inline-initial-consultation-trust-administration',
-  'real-estate': 'my-lunacal-inline-initial-consultation-yassmin',
+  'real-estate': 'my-lunacal-inline-initial-consultation-real-estate',
   'uncontested-probate': 'my-lunacal-inline-initial-consultation-probate',
   'contested-probate': 'my-lunacal-inline-initial-consultation-contested-probate',
   'guardianship': 'my-lunacal-inline-initial-consultation-guardianship',
@@ -253,11 +253,11 @@ export default function BookConsultationPage() {
               }}
             />
             <div
-              id="my-lunacal-inline-initial-consultation-yassmin"
+              id="my-lunacal-inline-initial-consultation-real-estate"
               style={{
                 width: '100%',
-                height: embedHeight('my-lunacal-inline-initial-consultation-yassmin'),
-                overflow: embedOverflow('my-lunacal-inline-initial-consultation-yassmin'),
+                height: embedHeight('my-lunacal-inline-initial-consultation-real-estate'),
+                overflow: embedOverflow('my-lunacal-inline-initial-consultation-real-estate'),
               }}
             />
             <div
@@ -317,14 +317,14 @@ export default function BookConsultationPage() {
           Lunacal.ns["initial-consultation-trust-administration"]("ui", ${LUNACAL_UI_THEME});
 
           // ── Real Estate (team event: Initial Consultation - Real Estate) ──
-          Lunacal("init","initial-consultation-yassmin",{origin:"https://app.lunacal.ai"});
-          Lunacal.ns["initial-consultation-yassmin"]("inline", {
-            elementOrSelector:"#my-lunacal-inline-initial-consultation-yassmin",
+          Lunacal("init","initial-consultation-real-estate",{origin:"https://app.lunacal.ai"});
+          Lunacal.ns["initial-consultation-real-estate"]("inline", {
+            elementOrSelector:"#my-lunacal-inline-initial-consultation-real-estate",
             config: {"layout":""},
-            calLink: "team/illinois-estate-law/initial-consultation-yassmin",
+            calLink: "team/illinois-estate-law/initial-consultation-real-estate",
           });
-          Lunacal.ns["initial-consultation-yassmin"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-yassmin", type: "inline", options: { prerenderIframe: true } });
-          Lunacal.ns["initial-consultation-yassmin"]("ui", ${LUNACAL_UI_THEME});
+          Lunacal.ns["initial-consultation-real-estate"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-real-estate", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consultation-real-estate"]("ui", ${LUNACAL_UI_THEME});
 
           // ── Probate ──
           Lunacal("init","initial-consultation-probate",{origin:"https://app.lunacal.ai"});
