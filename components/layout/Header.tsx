@@ -53,20 +53,18 @@ export function Header() {
   return (
     <>
       {/* ===== Desktop header (modernized, shared across all pages) ===== */}
-      <header className="hidden lg:block sticky top-0 z-[999] bg-white/90 backdrop-blur-md border-b border-[#E3EAF1]">
+      <header className="hidden lg:block sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <div className="flex items-center justify-between gap-6 h-[74px]">
             <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center shrink-0">
-              <span className="inline-flex items-center rounded-xl bg-[#33414E] px-3.5 py-2">
-                <Image
-                  src="https://i.imgur.com/bSfExtA.png"
-                  alt="Illinois Estate Law"
-                  width={160}
-                  height={44}
-                  className="h-8 w-auto"
-                  priority
-                />
-              </span>
+              <Image
+                src="https://i.imgur.com/bSfExtA.png"
+                alt="Illinois Estate Law"
+                width={160}
+                height={44}
+                className="h-11 w-auto"
+                priority
+              />
             </Link>
 
             <nav className="flex items-center gap-7">
@@ -78,18 +76,18 @@ export function Header() {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   {item.children ? (
-                    <button className="group relative flex items-center gap-1 text-[#33414E] hover:text-[#547298] text-[15px] font-semibold transition-colors whitespace-nowrap">
+                    <button className="group relative flex items-center gap-1 text-[#FEFEFE] hover:text-[#7E9CC0] text-[15px] font-semibold transition-colors whitespace-nowrap">
                       {item.label}
                       <ChevronDown className="w-4 h-4" />
-                      <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-0 bg-[#547298] transition-all duration-200 group-hover:w-full" />
+                      <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-0 bg-[#7E9CC0] transition-all duration-200 group-hover:w-full" />
                     </button>
                   ) : (
                     <Link
                       href={item.href}
-                      className="group relative flex items-center text-[#33414E] hover:text-[#547298] text-[15px] font-semibold transition-colors whitespace-nowrap"
+                      className="group relative flex items-center text-[#FEFEFE] hover:text-[#7E9CC0] text-[15px] font-semibold transition-colors whitespace-nowrap"
                     >
                       {item.label}
-                      <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-0 bg-[#547298] transition-all duration-200 group-hover:w-full" />
+                      <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-0 bg-[#7E9CC0] transition-all duration-200 group-hover:w-full" />
                     </Link>
                   )}
 
@@ -134,7 +132,7 @@ export function Header() {
               </Link>
               <Link
                 href="/get-started/"
-                className="inline-flex items-center justify-center rounded-full bg-[#547298] px-5 py-2.5 text-sm font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#33414E] transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full bg-[#547298] px-5 py-2.5 text-sm font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#4A708B] transition-colors whitespace-nowrap"
               >
                 Get Started Online
               </Link>
@@ -144,30 +142,28 @@ export function Header() {
       </header>
 
       {/* ===== Mobile header (modernized, shared across all pages) ===== */}
-      <header className="lg:hidden sticky top-0 z-[999] bg-white/95 backdrop-blur-md border-b border-[#E3EAF1]">
+      <header className="lg:hidden sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
         <div className="px-5 h-16 flex items-center justify-between">
           <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center">
-            <span className="inline-flex items-center rounded-lg bg-[#33414E] px-2.5 py-1.5">
-              <Image
-                src="https://i.imgur.com/bSfExtA.png"
-                alt="Illinois Estate Law"
-                width={130}
-                height={38}
-                className="h-7 w-auto"
-                priority
-              />
-            </span>
+            <Image
+              src="https://i.imgur.com/bSfExtA.png"
+              alt="Illinois Estate Law"
+              width={130}
+              height={38}
+              className="h-9 w-auto"
+              priority
+            />
           </Link>
           <div className="flex items-center gap-2">
             <Link
               href="/get-started/"
-              className="rounded-full bg-[#547298] text-white font-bold text-xs px-3.5 py-2 hover:bg-[#33414E] transition-colors whitespace-nowrap"
+              className="rounded-full bg-[#547298] text-white font-bold text-xs px-3.5 py-2 hover:bg-[#4A708B] transition-colors whitespace-nowrap"
             >
               Get Started
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-[#33414E] p-2"
+              className="text-[#FEFEFE] p-2"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -247,7 +243,7 @@ export function Header() {
               <Link
                 href="/get-started/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center rounded-full bg-[#547298] px-5 py-3 text-sm font-bold text-white hover:bg-[#33414E] transition-colors"
+                className="w-full inline-flex items-center justify-center rounded-full bg-[#547298] px-5 py-3 text-sm font-bold text-white hover:bg-[#4A708B] transition-colors"
               >
                 Get Started Online
               </Link>
