@@ -55,14 +55,14 @@ export function Header() {
       {/* ===== Desktop header (modernized, shared across all pages) ===== */}
       <header className="hidden lg:block sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
-          <div className="flex items-center justify-between gap-6 h-[74px]">
+          <div className="flex items-center justify-between gap-6 h-[92px]">
             <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center shrink-0">
               <Image
                 src="https://i.imgur.com/bSfExtA.png"
                 alt="Illinois Estate Law"
-                width={160}
-                height={44}
-                className="h-11 w-auto"
+                width={240}
+                height={120}
+                className="h-14 w-auto"
                 priority
               />
             </Link>
@@ -143,14 +143,14 @@ export function Header() {
 
       {/* ===== Mobile header (modernized, shared across all pages) ===== */}
       <header className="lg:hidden sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
-        <div className="px-5 h-16 flex items-center justify-between">
+        <div className="px-5 h-20 flex items-center justify-between">
           <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center">
             <Image
               src="https://i.imgur.com/bSfExtA.png"
               alt="Illinois Estate Law"
-              width={130}
-              height={38}
-              className="h-9 w-auto"
+              width={190}
+              height={95}
+              className="h-11 w-auto"
               priority
             />
           </Link>
@@ -172,7 +172,7 @@ export function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="bg-white border-t border-[#E3EAF1] max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="bg-white border-t border-[#E3EAF1] max-h-[calc(100vh-5rem)] overflow-y-auto">
             <nav className="flex flex-col py-1">
               {navItems.map((item) => (
                 <div key={item.label}>

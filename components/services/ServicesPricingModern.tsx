@@ -200,7 +200,7 @@ export function ServicesPricingModern() {
   return (
     <div className="font-['Plus_Jakarta_Sans']">
       {/* Sticky category nav */}
-      <div className="sticky top-[64px] lg:top-[74px] z-40 border-b border-[#E3EAF1] bg-white/95 backdrop-blur-md">
+      <div className="sticky top-[80px] lg:top-[92px] z-40 border-b border-[#E3EAF1] bg-white/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1180px] flex-wrap justify-center gap-2.5 px-5 py-3">
           {[
             ['Estate Planning', '#estate-planning'],
