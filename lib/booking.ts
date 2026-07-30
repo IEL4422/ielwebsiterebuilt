@@ -18,7 +18,7 @@ const BASE = 'https://schedule.illinoisestatelaw.com/team/illinois-estate-law';
 export const BOOKING_ESTATE_PLANNING = `${BASE}/initial-consultation`;
 
 /** Real estate — team event "Initial Consultation - Real Estate". */
-export const BOOKING_REAL_ESTATE = `${BASE}/initial-consultation-yassmin`;
+export const BOOKING_REAL_ESTATE = `${BASE}/initial-consultation-real-estate`;
 
 /** Trust administration — team event "Initial Consultation - Trust Administration". */
 export const BOOKING_TRUST_ADMIN = `${BASE}/initial-consultation-trust-administration`;
