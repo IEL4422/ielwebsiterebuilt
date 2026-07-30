@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { CategorizedServicesDisplay } from '@/components/services/CategorizedServicesDisplay'
-import { QuickPriceList } from '@/components/services/QuickPriceList'
+import { ServicesPricingModern } from '@/components/services/ServicesPricingModern'
 import { LunacalBookingEmbed } from '@/components/services/LunacalBookingEmbed'
-import { InnerPageHero } from '@/components/layout/InnerPageHero'
 
 export const metadata: Metadata = {
   title: 'Services & Pricing',
@@ -204,54 +202,37 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <InnerPageHero title="Services & Pricing" />
-
-      <div className="bg-[#f8f9fa] border-b border-gray-200">
-        <div className="container mx-auto px-5 max-w-[1240px] py-6">
-          <p className="font-['Plus_Jakarta_Sans'] font-semibold text-[18px] text-[#2d3e50] text-center sm:text-[16px]">
-            We are pleased to offer payment plans for all services.
+      {/* Modernized services & pricing hero */}
+      <div className="bg-gradient-to-b from-[#F6F9FC] to-white">
+        <div className="mx-auto max-w-[1180px] px-5 py-12 text-center font-['Plus_Jakarta_Sans']">
+          <h1 className="text-[42px] font-bold text-[#33414E] sm:text-[30px]">Services &amp; Pricing</h1>
+          <p className="mx-auto mt-3 max-w-[680px] text-[18px] text-[#5f6b76]">
+            Transparent, 100% flat-fee pricing across every practice area — shown before you commit. We are pleased to offer payment plans for all services.
           </p>
-        </div>
-      </div>
-
-      <div className="bg-blue-50 border-b-2 border-blue-200">
-        <div className="container mx-auto px-5 max-w-[1240px] py-4">
-          <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-[#2d3e50] text-center sm:text-[14px]">
-            Not sure which estate planning package is right for you?{' '}
-            <Link href="/compare-packages" className="font-bold underline hover:text-[#4a708b]">
-              Compare our packages side-by-side
+          <p className="mt-2.5 text-[15px] font-semibold text-[#33414E]">
+            Not sure which package is right?{' '}
+            <Link href="/compare-packages/" className="text-[#547298] underline hover:text-[#33414E]">
+              Compare our packages side-by-side.
             </Link>
-            {' '}to see what's included in each option.
           </p>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-5 max-w-[1240px] py-[100px] lg:py-[60px] lg:px-5 sm:py-[60px] sm:px-4">
-        <div className="flex flex-col gap-[21px] lg:flex-row lg:gap-[60px]">
-          <div className="flex-1">
-            <QuickPriceList />
-            <CategorizedServicesDisplay />
-          </div>
-
-          <div className="w-full lg:w-[38%] flex flex-col gap-0">
-            <div className="bg-[#4a708b] rounded-[10px] p-6 lg:p-8 lg:sticky lg:top-[120px]">
-              <h3 className="font-['Plus_Jakarta_Sans'] font-semibold text-[28px] leading-[33.6px] text-[#f3f3f3] mb-4 sm:text-[20px] sm:leading-[24px]">
-                Ready to Get Started?
-              </h3>
-              <p className="text-[#e5e5e5] mb-6 sm:text-[14px]">
-                At Illinois Estate Law, we offer innovating estate planning and probate solutions that can be customized to fit your unique needs.
-              </p>
-              <a
-                href="/get-started/"
-                className="w-full inline-block text-center bg-[#fefefe] text-[#2d3e50] font-['Plus_Jakarta_Sans'] font-bold text-base uppercase py-[14px] px-6 rounded-[32px] border border-[#fefefe] hover:bg-[#2d3e50] hover:text-[#fefefe] transition-colors"
-              >
-                GET STARTED
-              </a>
-            </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3.5">
+            <Link
+              href="/get-started/"
+              className="inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3 text-base font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#33414E] transition-colors"
+            >
+              Get Started Online
+            </Link>
+            <Link
+              href="/book-consultation/"
+              className="inline-flex items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-6 py-3 text-base font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] hover:bg-[#F6F9FC] transition-colors"
+            >
+              Book a Free Consultation
+            </Link>
           </div>
         </div>
       </div>
 
+      <ServicesPricingModern />
 
       <div className="container mx-auto px-5 max-w-[1240px] pb-[60px] sm:px-4">
         <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[40px] text-[#2d3e50] mb-8 sm:text-[28px] sm:mb-6">
