@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'illinois-estate-tax-cliff-explained',
+    title: 'Illinois Estate Tax Cliff Explained: What It Is and How to Plan Around It',
+    url: '/blog/illinois-estate-tax-cliff-explained/',
+    date: 'Aug 5, 2026',
+    summary:
+      "Comprehensive guide to the Illinois estate tax cliff — why estates just above the $4 million exemption can owe six-figure tax bills, how the graduated rate structure creates a disproportionate marginal tax burden, who is most at risk (Chicago homeowners, business owners, surviving spouses), and the planning strategies — bypass trusts, ILITs, lifetime gifting, and charitable planning — that reduce or eliminate Illinois estate tax exposure.",
+    excerpt:
+      "Illinois's estate tax cliff means crossing the $4M threshold triggers a six-figure tax bill on your entire estate — not just the excess. Learn what causes it, who it affects, and how to plan around it.",
+  },
+  {
     slug: 'how-to-handle-deceased-persons-debt-illinois',
     title: "How to Handle a Deceased Person's Debt in Illinois",
     url: '/blog/how-to-handle-deceased-persons-debt-illinois/',
