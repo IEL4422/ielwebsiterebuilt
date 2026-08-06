@@ -4,7 +4,7 @@ import { ATTORNEYS, personSchema, breadcrumbSchema } from '@/lib/seo';
 
 const TITLE = 'Our Illinois Estate Planning & Probate Attorneys | Illinois Estate Law';
 const DESCRIPTION =
-  'Meet the attorneys of Illinois Estate Law: Mary Liberty, Yassmin Koudmani, and Victoria Lozano. All are licensed in Illinois and handle estate planning, probate, and real estate matters statewide.';
+  'Meet the attorneys of Illinois Estate Law: Mary Liberty, Yassmin Koudmani, Victoria Lozano, and Anna Rafanelli, serving clients in estate planning, probate, guardianship, and real estate throughout Illinois.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
