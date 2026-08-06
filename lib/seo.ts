@@ -197,6 +197,24 @@ export const ATTORNEYS: AttorneyProfile[] = [
       'Lesbian and Gay Bar Association of Chicago (LAGBAC)',
     ],
   },
+  {
+    name: 'Anna M. Rafanelli',
+    jobTitle: 'Attorney',
+    email: 'anna@illinoisestatelaw.com',
+    image: 'https://www.illinoisestatelaw.com/attorneys/anna-rafanelli.jpg',
+    description:
+      'Anna M. Rafanelli is an attorney at Illinois Estate Law focusing on probate and elder law, particularly adult guardianships. A civil litigator with over five years of experience, she is licensed in Illinois, Indiana, and the U.S. District Court for the Northern District of Illinois.',
+    alumniOf: [
+      'Valparaiso University',
+      'Loyola University Chicago School of Law',
+    ],
+    knowsAbout: [
+      'Illinois probate',
+      'Elder law',
+      'Adult guardianships',
+      'Civil litigation',
+    ],
+  },
 ];
 
 export function personSchema(a: AttorneyProfile) {
