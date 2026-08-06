@@ -77,6 +77,21 @@ const attorneys: TeamMember[] = [
       'Lesbian and Gay Bar Association of Chicago (LAGBAC)',
     ],
   },
+  {
+    name: 'Anna M. Rafanelli',
+    title: 'Attorney',
+    email: 'anna@illinoisestatelaw.com',
+    photo: '/attorneys/anna-rafanelli.jpg',
+    bio: [
+      "Anna M. Rafanelli is a passionate advocate and litigator with over five years of civil practice experience. Her area of focus is Probate and Elder Law, particularly Adult Guardianships. She is licensed to practice in Illinois, Indiana, and Northern District of Illinois. Born in Chicago and raised in the area, she attended Valparaiso University in Indiana where she graduated magna cum laude with a Bachelor's Degree in Sociology and Psychology. She returned to Chicago where she graduated from Loyola University Chicago School of Law in 2021 and obtained a certification from Loyola's noted Trial Advocacy program.",
+      "Anna loves warm weather days spent by Lake Michigan and playing in sports leagues throughout the year including tennis, volleyball, and bowling. When she is not outside, she enjoys spending time with friends at book club and relaxing at home with her cat.",
+    ],
+    education: [
+      { school: 'Valparaiso University', degrees: ["Bachelor's Degree, Sociology & Psychology, magna cum laude"] },
+      { school: 'Loyola University Chicago School of Law', degrees: ['Doctor of Law (J.D.), 2021', 'Certificate in Trial Advocacy'] },
+    ],
+    barAdmissions: ['Illinois', 'Indiana', 'U.S. District Court, Northern District of Illinois'],
+  },
 ];
 
 const staffMembers: TeamMember[] = [
