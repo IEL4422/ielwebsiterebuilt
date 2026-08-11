@@ -26,6 +26,7 @@ import {
 import { BOOKING_GUARDIANSHIP } from '@/lib/booking';
 import { guardianshipCounties } from '@/lib/guardianship-counties';
 import { guardianshipFAQs } from '@/lib/practice-faqs';
+import { CTABand } from '@/components/ui/CTAButtons';
 
 const adultOfferings = [
   { icon: HeartHandshake, title: 'Guardianship of the Person', description: 'Authority over care, residence, and medical decisions for an adult who can no longer make them.' },
@@ -52,6 +53,8 @@ export default function GuardianshipPage() {
         title="Guardianship in Illinois"
         subtitle="Guardianship of an adult who can no longer decide, or of a minor child — contested and uncontested. One firm for the petition, the physician’s report, the guardian ad litem, and the years of court reporting that follow appointment."
       />
+
+      <CTABand />
 
       {/* Overview + in-page nav */}
       <section className="py-16 lg:py-20 bg-white"><div className="container mx-auto px-4"><div className="max-w-[1140px] mx-auto">
@@ -133,6 +136,11 @@ export default function GuardianshipPage() {
           <p className="text-slate-500 text-sm mt-1">Flat, all court costs included.</p>
         </div>
       </div></div></section>
+
+      <CTABand
+        title="Talk through your guardianship options"
+        subtitle="Adult or minor, contested or uncontested, get started online or book a free consultation and we will tell you exactly what your matter needs and what it will cost."
+      />
 
       {/* CONTESTED GUARDIANSHIP + conversion policy */}
       <section id="contested" className="scroll-mt-24 py-16 lg:py-20 bg-white"><div className="container mx-auto px-4"><div className="max-w-[1140px] mx-auto">

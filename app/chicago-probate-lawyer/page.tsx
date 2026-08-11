@@ -3,6 +3,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CTABand } from '@/components/ui/CTAButtons';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Scale, AlertCircle, CheckCircle, Clock, DollarSign, FileWarning, UserX, ShieldAlert, Landmark } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
@@ -646,6 +647,11 @@ export default function ChicagoProbateLawyerPage() {
         </section>
 
         <FAQAccordion title="Contested Probate & Will Contests — Frequently Asked Questions" items={contestedProbateFAQs} />
+
+        <CTABand
+          title="Ready to move probate forward?"
+          subtitle="Get started online or book a free consultation, and we will walk you through Illinois probate with flat-fee clarity from day one."
+        />
 
         <section className="py-10 px-4 sm:px-5 bg-gray-50">
           <div className="max-w-[1140px] mx-auto">
