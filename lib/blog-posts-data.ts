@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'joint-tenancy-vs-tenancy-in-common-illinois',
+    title: 'Joint Tenancy vs. Tenancy in Common in Illinois: Which Is Right for You?',
+    url: '/blog/joint-tenancy-vs-tenancy-in-common-illinois/',
+    date: 'Aug 12, 2026',
+    summary:
+      "Comprehensive guide to joint tenancy and tenancy in common in Illinois — the four unities required for joint tenancy under 765 ILCS 1005, the right of survivorship, Illinois's default rule (tenancy in common when deed is silent), how each form of co-ownership interacts with revocable living trusts and wills, which structure is right for married couples vs. unmarried partners vs. co-investors, and how to convert between the two forms of ownership.",
+    excerpt:
+      'Joint tenancy and tenancy in common are not interchangeable. Learn how each works under Illinois law, which is right for your situation, and how property title affects your estate plan.',
+  },
+  {
     slug: 'illinois-estate-tax-cliff-explained',
     title: 'Illinois Estate Tax Cliff Explained: What It Is and How to Plan Around It',
     url: '/blog/illinois-estate-tax-cliff-explained/',
