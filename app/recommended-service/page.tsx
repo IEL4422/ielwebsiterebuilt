@@ -559,7 +559,15 @@ export default function RecommendedServicePage() {
   };
 
   const handleProceedToPurchase = () => {
-    window.location.href = 'https://portal.illinoisestatelaw.com/get-started';
+    if (!recommendation) return;
+
+    const query = new URLSearchParams({
+      service: recommendation.serviceId,
+      clientType: recommendation.clientType || 'individual',
+      source: 'service-finder'
+    });
+
+    window.location.href = `/start-online/?${query.toString()}`;
   };
 
   const handleClientInfoSubmit = (e: React.FormEvent) => {
@@ -1485,10 +1493,10 @@ export default function RecommendedServicePage() {
                   <CheckCircle2 className="w-10 h-10 text-green-600" />
                 </div>
                 <h2 className="font-['Plus_Jakarta_Sans'] text-[32px] lg:text-[40px] font-bold text-[#2d3e50] mb-4">
-                  Your Recommended Service
+                  Your starting recommendation
                 </h2>
                 <p className="font-['Plus_Jakarta_Sans'] text-lg text-gray-600">
-                  Based on your answers, here's the perfect package for you
+                  Based on your answers, this may be a good starting point. Review the scope, flat fee, and next steps before you enter the secure client portal.
                 </p>
               </div>
 
@@ -1502,6 +1510,17 @@ export default function RecommendedServicePage() {
                 <p className="font-['Plus_Jakarta_Sans'] text-base text-white/90 mb-6">
                   {recommendation.description}
                 </p>
+
+                <div className="grid gap-3 sm:grid-cols-2 mb-6">
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <p className="font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-wide text-white/65 mb-1">Why this may fit</p>
+                    <p className="font-['Plus_Jakarta_Sans'] text-sm text-white/90">This recommendation reflects the answers you shared in the service finder. You can compare options before moving forward.</p>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <p className="font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-wide text-white/65 mb-1">Before you start</p>
+                    <p className="font-['Plus_Jakarta_Sans'] text-sm text-white/90">You will review the service details and the applicable Client Service Agreement before substantive work begins.</p>
+                  </div>
+                </div>
 
                 <div className="bg-white/10 rounded-xl p-6 mb-6">
                   <h4 className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-white mb-4">
@@ -1576,28 +1595,48 @@ export default function RecommendedServicePage() {
                 )}
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    onClick={handleProceedToPurchase}
-                    className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100"
-                  >
-                    {recommendation.requiresConsultation ? 'Book Consultation' : 'Get Started'}
-                  </Button>
+                  {recommendation.requiresConsultation ? (
+                    <Link
+                      href="/book-consultation/"
+                      className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100 text-center flex items-center justify-center"
+                    >
+                      Book a free consultation
+                    </Link>
+                  ) : (
+                    <Button
+                      onClick={handleProceedToPurchase}
+                      className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100"
+                    >
+                      Review & start online
+                    </Button>
+                  )}
                   <Link
-                    href="/services-pricing"
+                    href="/services-pricing/"
                     className="flex-1 bg-white/10 text-white px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-semibold text-center hover:bg-white/20 transition-all border-2 border-white/30 flex items-center justify-center"
                   >
-                    View All Services
+                    Compare services
                   </Link>
                 </div>
+                {!recommendation.requiresConsultation && (
+                  <p className="mt-4 text-center font-['Plus_Jakarta_Sans'] text-xs text-white/70">
+                    No payment or appointment is required to review the online process.
+                  </p>
+                )}
               </div>
 
-              <div className="text-center">
+              <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:gap-6">
                 <button
                   onClick={resetQuiz}
                   className="text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold hover:underline"
                 >
-                  Take Quiz Again
+                  Take the service finder again
                 </button>
+                <Link
+                  href="/contact/"
+                  className="text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold hover:underline"
+                >
+                  Ask a process question
+                </Link>
               </div>
             </div>
           ) : showClientInfo ? (

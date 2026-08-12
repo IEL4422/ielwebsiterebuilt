@@ -10,7 +10,7 @@ export function TwoPathsSection() {
             Two ways to begin
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">
-            Start on your own online, no consultation required, or talk to us first. Your choice.
+Start online at your own pace, with the reassurance of clear pricing and a guided next step—or talk to us first. Your choice.
           </p>
         </div>
 
@@ -24,16 +24,16 @@ export function TwoPathsSection() {
               No consultation needed
             </span>
             <h3 className="text-xl sm:text-2xl font-extrabold text-[#33414E] mb-3">
-              Get Started Online
+              Find My Starting Package
             </h3>
             <p className="text-slate-500 leading-relaxed mb-6 flex-1">
-              Start the intake immediately, at your own pace. Your flat fee is shown before you commit, no surprises, no pressure.
+              Answer a few questions, see a recommended starting package and flat fee, then review the online process before you enter the secure client portal.
             </p>
             <Link
-              href="/get-started/"
+              href="/recommended-service/"
               className="inline-flex items-center justify-center gap-2 bg-[#33414E] hover:bg-[#232D36] text-white font-bold text-sm px-6 py-3.5 rounded-full transition-colors"
             >
-              Start online now
+              Find my package
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
