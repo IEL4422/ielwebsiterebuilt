@@ -1,4 +1,4 @@
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate';
+export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
 export type StandardizedServiceName =
   | 'Individual Trust Package'
@@ -46,13 +46,17 @@ export type StandardizedServiceName =
   | 'Trust Funding - A La Carte'
   | 'Residential Closing'
   | 'For Sale By Owner Representation'
-  | 'Trust Administration Consulting';
+  | 'Trust Administration Consulting'
+  | 'Adult Guardianship'
+  | 'Minor Guardianship'
+  | 'Annual Guardianship Compliance'
+  | 'Contested Guardianship';
 
 export interface Service {
   id: string;
   name: string;
   subtitle?: string;
-  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'real-estate';
+  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'real-estate' | 'guardianship';
   standardizedCaseType: StandardizedCaseType;
   standardizedServiceName: {
     individual: StandardizedServiceName;
@@ -618,10 +622,80 @@ export const trustAdministrationServices: Service[] = [
   }
 ];
 
+export const guardianshipServices: Service[] = [
+  {
+    id: 'adult-guardianship',
+    name: 'Adult Guardianship',
+    subtitle: 'Uncontested guardianship of the person and estate',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Adult Guardianship',
+    fixedPrice: 4500,
+    requiresConsultation: true,
+    description: 'For an adult who can no longer safely make personal, medical, or financial decisions. The firm evaluates the facts and handles the uncontested petition, physician-report coordination, guardian ad litem coordination, and hearing.',
+    includes: [
+      'Guardianship petition and required court filings',
+      'Physician-report and guardian ad litem coordination',
+      'Guidance through the hearing and appointment process'
+    ],
+    note: 'The guardian ad litem fee is a court-set pass-through cost disclosed separately.'
+  },
+  {
+    id: 'minor-guardianship',
+    name: 'Minor Guardianship',
+    subtitle: 'Uncontested guardianship for a child',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Minor Guardianship',
+    fixedPrice: 4500,
+    requiresConsultation: true,
+    description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
+    includes: [
+      'Guardianship petition and required court filings',
+      'Notice and hearing preparation',
+      'Guidance through appointment and letters of office'
+    ],
+    note: 'This service is for uncontested matters. A contested case requires a separate consultation.'
+  },
+  {
+    id: 'annual-guardianship-compliance',
+    name: 'Annual Guardianship Compliance',
+    subtitle: 'Annual report and accounting support',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Annual Guardianship Compliance',
+    fixedPrice: 2300,
+    requiresConsultation: true,
+    description: 'For appointed guardians who need support preparing and filing the annual report on the ward and estate accounting on the court schedule.',
+    includes: [
+      'Annual report on the ward',
+      'Annual estate accounting support',
+      'Court-deadline tracking and filing guidance'
+    ]
+  },
+  {
+    id: 'contested-guardianship',
+    name: 'Contested Guardianship',
+    subtitle: 'Objection, competing petition, or guardian-removal matter',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Contested Guardianship',
+    pricingLabel: '$5,000 retainer + hourly',
+    requiresConsultation: true,
+    description: 'For a guardianship matter involving an objection, a competing petition, or a challenge to an existing guardian. These matters require attorney review before engagement.',
+    includes: [
+      'Attorney review of the dispute and court posture',
+      'Clear explanation of retainer, hourly rates, and anticipated next steps'
+    ],
+    note: 'Court costs and guardian ad litem fees may be billed separately.'
+  }
+];
+
 export const allServices = [
   ...estatePlanningPackages,
   ...probatePackages,
   ...trustAdministrationServices,
   ...aLaCarteServices,
-  ...realEstateServices
+  ...realEstateServices,
+  ...guardianshipServices
 ];

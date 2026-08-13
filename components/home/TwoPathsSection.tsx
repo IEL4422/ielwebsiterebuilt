@@ -24,16 +24,16 @@ Start online at your own pace, with the reassurance of clear pricing and a guide
               No consultation needed
             </span>
             <h3 className="text-xl sm:text-2xl font-extrabold text-[#33414E] mb-3">
-              Find My Starting Package
+              Choose a Service Online
             </h3>
             <p className="text-slate-500 leading-relaxed mb-6 flex-1">
-              Answer a few questions, see a recommended starting package and flat fee, then review the online process before you enter the secure client portal.
+              Select the service you want directly, or use the service finder for guidance across every practice area before you continue.
             </p>
             <Link
-              href="/recommended-service/"
+              href="/get-started/"
               className="inline-flex items-center justify-center gap-2 bg-[#33414E] hover:bg-[#232D36] text-white font-bold text-sm px-6 py-3.5 rounded-full transition-colors"
             >
-              Find my package
+Choose a service
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

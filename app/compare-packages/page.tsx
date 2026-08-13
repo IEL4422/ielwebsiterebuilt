@@ -303,12 +303,12 @@ export default function ComparePackagesPage() {
         <Card className="mt-12 p-8 bg-slate-50 border-2 border-slate-200">
           <h2 className="text-2xl font-bold text-[#2d3e50] mb-4">Need Help Choosing?</h2>
           <p className="text-gray-700 mb-4">
-            Not sure which package is right for you? Use the short service finder to receive a starting recommendation, compare the options above, or choose a consultation if your situation needs a direct conversation.
+            Not sure which service is right for you? Select a service directly, use the short service finder for guidance, or choose a consultation if your situation needs a direct conversation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/recommended-service/">
               <Button className="bg-[#2d3e50] hover:bg-[#4a708b]">
-                Find My Starting Package
+                Use the Service Finder
               </Button>
             </Link>
             <Link href="/book-consultation/">
