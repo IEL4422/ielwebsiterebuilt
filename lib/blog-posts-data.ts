@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'estate-planning-for-unmarried-couples-illinois',
+    title: 'Estate Planning for Unmarried Couples in Illinois',
+    url: '/blog/estate-planning-for-unmarried-couples-illinois/',
+    date: 'Aug 19, 2026',
+    summary:
+      'Complete guide to estate planning for unmarried couples in Illinois — why Illinois law gives unmarried partners zero automatic inheritance or decision-making rights, the five risks of dying without a plan, and the essential documents (will or revocable living trust, financial and healthcare powers of attorney, advance directive, beneficiary designations, and joint tenancy) that protect each partner legally and financially.',
+    excerpt:
+      'Unmarried couples in Illinois have no automatic inheritance rights or medical decision-making authority. Learn the essential estate planning documents that protect your partner — and yourself.',
+  },
+  {
     slug: 'joint-tenancy-vs-tenancy-in-common-illinois',
     title: 'Joint Tenancy vs. Tenancy in Common in Illinois: Which Is Right for You?',
     url: '/blog/joint-tenancy-vs-tenancy-in-common-illinois/',
