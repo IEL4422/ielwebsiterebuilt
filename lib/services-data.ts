@@ -567,7 +567,7 @@ export const realEstateServices: Service[] = [
     standardizedCaseType: 'Real Estate',
     standardizedServiceName: 'Residential Closing',
     fixedPrice: 750,
-    description: 'Flat fee paid at the time of closing. Does not include closing costs. For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois.',
+    description: 'For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.',
     includes: [
       'Contract Review',
       'Title Review and Clearance',
@@ -585,7 +585,7 @@ export const realEstateServices: Service[] = [
     standardizedCaseType: 'Real Estate',
     standardizedServiceName: 'For Sale By Owner Representation',
     fixedPrice: 1500,
-    description: 'Full-service attorney representation for a For Sale By Owner (FSBO) residential real estate transaction in Illinois, where you are not represented by a real estate agent. Flat fee paid at closing (does not include closing costs).',
+    description: 'Full-service attorney representation for a For Sale By Owner (FSBO) residential real estate transaction in Illinois, where there is no listing agent. Because no agent is involved, the attorney also handles the coordination a listing agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.',
     includes: [
       'Purchase/Sale Contract Drafting or Review',
       'Title Review and Clearance',

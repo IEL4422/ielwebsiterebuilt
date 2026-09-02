@@ -502,7 +502,7 @@ export function CategorizedServices({
           name: 'Residential Closing (Buyer or Seller)',
           category: 'real-estate',
           fixedPrice: 750,
-          description: 'Flat fee paid at the time of closing. Does not include closing costs. Full-service attorney representation for residential real estate closings in Illinois.',
+          description: 'For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.',
           includes: [
             'Contract Review',
             'Title Review and Clearance',
@@ -510,6 +510,23 @@ export function CategorizedServices({
             'Document Preparation',
             'Settlement Statement Review',
             'Attorney Representation at Closing',
+            'Unlimited Attorney Consultations'
+          ]
+        },
+        {
+          id: 'fsbo-representation',
+          name: 'For Sale By Owner (FSBO) Representation',
+          category: 'real-estate',
+          fixedPrice: 1500,
+          description: 'For a For Sale By Owner sale where there is no listing agent, so the attorney also handles the coordination an agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.',
+          includes: [
+            'Purchase/Sale Contract Drafting or Review',
+            'Title Review and Clearance',
+            'Title Search',
+            'Document Preparation',
+            'Settlement Statement Review',
+            'Attorney Representation at Closing',
+            'Coordination normally handled by a real estate agent',
             'Unlimited Attorney Consultations'
           ]
         }

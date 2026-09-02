@@ -318,8 +318,10 @@ export function ServicesPricingModern() {
         <section id="realestate" className="scroll-mt-[150px] border-t border-[#E3EAF1] py-12">
           <CatHead kick="04" title="Real Estate &amp; Deeds" />
           <p className="mb-7 max-w-[760px] text-[16px] text-[#5f6b76]">
-            Residential closings and deed services for Illinois families protecting their property. Deed fees include
-            recording.
+            Residential closings and deed services for Illinois families protecting their property. On closing
+            representation the attorney fee is paid at closing, not in advance &mdash; for sellers it comes out of the
+            sale proceeds. For Sale By Owner sales are a separate engagement, because with no listing agent the attorney
+            carries work an agent would normally handle. Deed fees include recording.
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {realEstate.packages.map((s, i) => (
