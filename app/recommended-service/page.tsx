@@ -23,7 +23,7 @@ const getSupabaseClient = () => {
 
 interface QuizAnswers {
   needType: 'estate-planning' | 'trust-administration' | 'probate' | 'real-estate' | 'guardianship' | '';
-  realEstateRole: 'buyer' | 'seller' | '';
+  realEstateRole: 'buyer' | 'seller' | 'fsbo' | '';
   guardianshipNeed: 'adult' | 'minor' | 'annual-compliance' | 'contested' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
@@ -117,6 +117,7 @@ export default function RecommendedServicePage() {
   const getRecommendation = (): ServiceRecommendation | null => {
     const {
       needType,
+      realEstateRole,
       maritalStatus,
       ownsRealEstate,
       estateValue,
@@ -206,10 +207,37 @@ export default function RecommendedServicePage() {
     }
 
     if (needType === 'real-estate') {
+      if (realEstateRole === 'fsbo') {
+        return {
+          name: 'For Sale By Owner (FSBO) Representation',
+          price: '$1,500',
+          description: 'Full-service attorney representation for a For Sale By Owner sale in Illinois, where there is no listing agent. Because no agent is involved, the attorney also handles the coordination a listing agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance.',
+          includes: [
+            'Purchase/Sale Contract Drafting or Review',
+            'Title Review & Clearance',
+            'Title Search',
+            'Document Preparation',
+            'Settlement Statement Review',
+            'Attorney Representation at Closing',
+            'Coordination normally handled by a real estate agent',
+            'Unlimited Attorney Consultation'
+          ],
+          addOns: [],
+          serviceId: 'fsbo-representation',
+          requiresConsultation: false,
+          standardizedCaseType: 'Real Estate',
+          standardizedServiceName: 'For Sale By Owner Representation'
+        };
+      }
+
+      const isSeller = realEstateRole === 'seller';
+
       return {
-        name: 'Residential Closing (Buyer or Seller)',
+        name: isSeller ? 'Residential Closing (Seller)' : 'Residential Closing (Buyer)',
         price: '$750',
-        description: 'Full-service attorney representation for your Illinois residential real estate closing. Flat fee paid at closing.',
+        description: isSeller
+          ? 'Full-service attorney representation for your Illinois residential sale, where you are represented by a listing agent. The attorney fee is paid at closing out of the sale proceeds, not in advance.'
+          : 'Full-service attorney representation for your Illinois residential purchase, where you are represented by a real estate agent. The attorney fee is paid at closing, not in advance.',
         includes: [
           'Contract Review',
           'Title Review & Clearance',
@@ -938,8 +966,11 @@ export default function RecommendedServicePage() {
               {answers.needType === 'real-estate' && step === 2 && (
                 <div className="space-y-6">
                   <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
-                    Are you buying or selling?
+                    Are you buying, selling, or selling For Sale By Owner?
                   </h2>
+                  <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
+                    A For Sale By Owner sale has no listing agent, so the attorney carries work an agent would normally handle. It is a separate engagement from a standard closing.
+                  </p>
                   <div className="space-y-4">
                     <button
                       onClick={() => updateAnswer('realEstateRole', 'buyer')}
@@ -981,6 +1012,28 @@ export default function RecommendedServicePage() {
                           </div>
                         </div>
                         {answers.realEstateRole === 'seller' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => updateAnswer('realEstateRole', 'fsbo')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.realEstateRole === 'fsbo'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            I am selling For Sale By Owner (FSBO)
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            Selling without a listing agent, so the attorney also handles the coordination an agent would normally carry
+                          </div>
+                        </div>
+                        {answers.realEstateRole === 'fsbo' && (
                           <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
                         )}
                       </div>

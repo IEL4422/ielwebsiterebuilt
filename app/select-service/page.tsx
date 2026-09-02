@@ -62,7 +62,7 @@ function serviceGroups(): ServiceGroup[] {
     {
       id: 'real-estate',
       title: 'Real Estate & Deed Services',
-      description: 'Residential closings and common Illinois deed-transfer services.',
+      description: 'Residential closings, For Sale By Owner representation, and common Illinois deed-transfer services. On closing representation the attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds.',
       services: allServices.filter((service) => service.category === 'real-estate' || deedServiceIds.has(service.id)),
     },
     {

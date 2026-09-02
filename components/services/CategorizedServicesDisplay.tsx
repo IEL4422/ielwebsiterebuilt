@@ -348,7 +348,7 @@ export const serviceCategories: ServiceCategory[] = [
           'Attorney Representation at Closing',
           'Unlimited Attorney Consultations'
         ],
-        note: 'Flat fee paid at the time of closing. Does not include closing costs.'
+        note: 'For buyers or sellers represented by a real estate agent. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.'
       },
       {
         name: 'For Sale By Owner (FSBO) Representation',
@@ -363,7 +363,7 @@ export const serviceCategories: ServiceCategory[] = [
           'Coordination normally handled by a real estate agent',
           'Unlimited Attorney Consultations'
         ],
-        note: 'Full-service representation for a For Sale By Owner transaction where you are not represented by a real estate agent. Flat fee paid at closing.'
+        note: 'Full-service representation for a For Sale By Owner sale where there is no listing agent, so the attorney also handles the coordination an agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.'
       }
     ],
     aLaCarte: [],
