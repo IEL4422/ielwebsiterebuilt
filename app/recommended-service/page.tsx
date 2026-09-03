@@ -327,8 +327,7 @@ export default function RecommendedServicePage() {
             'Obtaining Estate EIN',
             'Asset & Debt Search',
             'Creditor Notification & Publication',
-            'Obtaining Tax Transcripts',
-            'Final Tax Returns (if required)',
+            'Requesting Tax Records & Transcripts',
             'Transfer of Real Estate via Deed, if necessary',
             'Unlimited Attorney Consultations'
           ],
@@ -353,8 +352,7 @@ export default function RecommendedServicePage() {
             'Obtaining Estate EIN',
             'Asset & Debt Search',
             'Creditor Notification & Publication',
-            'Obtaining Tax Transcripts',
-            'Final Tax Returns (if required)',
+            'Requesting Tax Records & Transcripts',
             'Transfer of Real Estate via Deed, if necessary',
             'Unlimited Attorney Consultations'
           ],

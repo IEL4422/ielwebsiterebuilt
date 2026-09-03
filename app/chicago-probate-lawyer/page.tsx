@@ -571,10 +571,6 @@ export default function ChicagoProbateLawyerPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#7E9CC0] text-xl">→</span>
-                      <span>Estate tax return preparation and filing</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-[#7E9CC0] text-xl">→</span>
                       <span>Will contest litigation and defense</span>
                     </li>
                     <li className="flex items-start gap-3">
