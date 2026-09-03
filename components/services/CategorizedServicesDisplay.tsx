@@ -30,8 +30,7 @@ const probateIncludes = [
   'Obtaining Estate EIN',
   'Asset & Debt Search',
   'Creditor Notification & Publication',
-  'Obtaining Tax Transcripts',
-  'Final Tax Returns (if required)',
+  'Requesting Tax Records & Transcripts',
   'Transfer of Real Estate via Deed, if necessary (includes all recording fees)',
   'Unlimited Attorney Consultations'
 ];
