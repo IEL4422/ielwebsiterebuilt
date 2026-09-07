@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Script from 'next/script';
 import { faqPageSchema } from '@/lib/seo';
 import { homeFAQs } from '@/lib/home-faqs';
@@ -15,6 +16,21 @@ import { FAQSection } from '@/components/home/FAQSection';
 import WhichServiceSection from '@/components/home/WhichServiceSection';
 import RecentArticlesStrip from '@/components/home/RecentArticlesStrip';
 import IllinoisCoverageSection from '@/components/home/IllinoisCoverageSection';
+import { SectionBoundary } from '@/components/home/SectionBoundary';
+
+/**
+ * Cache posture for "/".
+ *
+ * Declared explicitly rather than inferred from a `fetch(..., { next: { revalidate } })`
+ * buried in a child component - that inference is how a Google Places outage on
+ * 6 September 2026 ended up poisoning the ISR entry for this route and serving
+ * an empty 304 to every visitor for two and a half days.
+ *
+ * Every remaining data source on this page is either a compile-time constant or
+ * wrapped so it cannot throw or hang, so a failed revalidation can only produce
+ * a page with one optional section missing - never a blank one.
+ */
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
@@ -62,8 +78,8 @@ export default function Home() {
     <>
 
 
-      {/* Server-rendered (NOT next/script): AI crawlers — GPTBot, ClaudeBot,
-          PerplexityBot, CCBot — read raw HTML and do not execute JavaScript,
+      {/* Server-rendered (NOT next/script): AI crawlers - GPTBot, ClaudeBot,
+          PerplexityBot, CCBot - read raw HTML and do not execute JavaScript,
           so JSON-LD injected by next/script is invisible to them. Built from
           the same homeFAQs array the visible accordion renders. */}
       <script
@@ -108,9 +124,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <TwoPathsSection />
         <PracticeAreasSection />
         <WhichServiceSection />
-        <RecentArticlesStrip />
+
+        {/*
+          The only section on this page that touches a data source at render
+          time. Suspense lets everything above it flush to the browser first,
+          and SectionBoundary contains any render error to this subtree; the
+          component itself already returns null on any failure or timeout.
+          Three independent layers, because the cost of this page going dark is
+          a law firm's front door.
+        */}
+        <SectionBoundary name="RecentArticlesStrip">
+          <Suspense fallback={null}>
+            <RecentArticlesStrip />
+          </Suspense>
+        </SectionBoundary>
+
         <IllinoisCoverageSection />
-        <TestimonialsSection />
+
+        <SectionBoundary name="TestimonialsSection">
+          <TestimonialsSection />
+        </SectionBoundary>
+
         <ClientPortalSection />
         <ContactSection />
         <FAQSection />
