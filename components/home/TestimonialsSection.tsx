@@ -1,65 +1,30 @@
 import { TestimonialsCarousel } from './TestimonialsCarousel';
-import type { GoogleReview } from '@/app/api/google-reviews/route';
+import { OVERALL_RATING, TOTAL_RATINGS } from '@/lib/google-reviews-data';
 
-async function getGoogleReviews(): Promise<{
-  reviews: GoogleReview[];
-  overallRating: number;
-  totalRatings: number;
-  isLive: boolean;
-}> {
-  try {
-    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-    const placeId = process.env.GOOGLE_PLACE_ID;
-
-    // Keys not configured yet, use fallback silently
-    if (!apiKey || !placeId) {
-      return { reviews: [], overallRating: 5.0, totalRatings: 50, isLive: false };
-    }
-
-    const url =
-      `https://maps.googleapis.com/maps/api/place/details/json` +
-      `?place_id=${placeId}` +
-      `&fields=reviews,rating,user_ratings_total` +
-      `&reviews_sort=newest` +
-      `&key=${apiKey}`;
-
-    const res = await fetch(url, {
-      next: { revalidate: 86400 }, // cache for 24 hours via Next.js ISR
-    });
-
-    if (!res.ok) throw new Error('Places API error');
-
-    const data = await res.json();
-    if (data.status !== 'OK' || !data.result) {
-      throw new Error(`Places API status: ${data.status}`);
-    }
-
-    const { reviews = [], rating = 5, user_ratings_total = 0 } = data.result;
-    const filtered: GoogleReview[] = (reviews as GoogleReview[]).filter(
-      (r) => r.rating >= 4
-    );
-
-    return {
-      reviews: filtered,
-      overallRating: rating,
-      totalRatings: user_ratings_total,
-      isLive: filtered.length > 0,
-    };
-  } catch (err) {
-    console.error('Failed to fetch Google reviews:', err);
-    return { reviews: [], overallRating: 5.0, totalRatings: 50, isLive: false };
-  }
-}
-
-export async function TestimonialsSection() {
-  const { reviews, overallRating, totalRatings, isLive } = await getGoogleReviews();
+/**
+ * Reviews block on the homepage.
+ *
+ * This component deliberately performs NO network I/O and is not async. It used
+ * to fetch the Google Places API server-side with `next: { revalidate: 86400 }`;
+ * when Google started returning REQUEST_DENIED on 6 September 2026 that failure
+ * propagated into Next's response-cache machinery, poisoned the ISR entry for
+ * "/", and the homepage served an empty 304 to every visitor for ~2.5 days.
+ *
+ * The numbers now come from lib/google-reviews-data.ts, which is edited by hand
+ * a few times a year. See that file for how to refresh them. The testimonial
+ * text is the FALLBACK_REVIEWS list inside TestimonialsCarousel, which is what
+ * the site has actually been displaying ever since the API key stopped working.
+ */
+export function TestimonialsSection() {
+  const overallRating = Number.isFinite(OVERALL_RATING) ? OVERALL_RATING : 5;
+  const totalRatings = Number.isFinite(TOTAL_RATINGS) ? TOTAL_RATINGS : 0;
 
   return (
     <TestimonialsCarousel
-      initialReviews={reviews}
+      initialReviews={[]}
       overallRating={overallRating}
       totalRatings={totalRatings}
-      isLive={isLive}
+      isLive={false}
     />
   );
 }

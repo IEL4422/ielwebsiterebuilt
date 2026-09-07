@@ -20,8 +20,24 @@ export async function getDb(): Promise<Db> {
   }
 
   if (!global._mongo.connected) {
-    await global._mongo.client.connect();
-    global._mongo.connected = true;
+    try {
+      await global._mongo.client.connect();
+      global._mongo.connected = true;
+    } catch (err) {
+      // Drop the half-open client instead of caching it forever. Without this,
+      // one failed connect leaves a client on the global that every later
+      // request reuses and that can never succeed, so a transient database
+      // blip becomes a permanent one until the service is redeployed.
+      const stale = global._mongo;
+      global._mongo = undefined;
+      try {
+        await stale.client.close();
+      } catch {
+        // Closing a client that never connected can itself throw; ignore it,
+        // the original error is the one worth surfacing.
+      }
+      throw err;
+    }
   }
 
   return global._mongo.client.db(dbName);
