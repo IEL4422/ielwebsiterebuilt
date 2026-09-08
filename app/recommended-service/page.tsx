@@ -53,6 +53,8 @@ interface ServiceRecommendation {
     description: string;
     suggested?: boolean;
   }>;
+  /** Optional scope caveat shown under the description (e.g. "this is not a probate case"). */
+  note?: string;
   serviceId: string;
   clientType?: 'individual' | 'joint';
   requiresConsultation?: boolean;
@@ -1721,6 +1723,12 @@ export default function RecommendedServicePage() {
                 <p className="font-['Plus_Jakarta_Sans'] text-base text-white/90 mb-6">
                   {recommendation.description}
                 </p>
+
+                {recommendation.note && (
+                  <p className="font-['Plus_Jakarta_Sans'] text-sm text-white/80 border-l-4 border-white/40 pl-4 mb-6">
+                    {recommendation.note}
+                  </p>
+                )}
 
                 <div className="grid gap-3 sm:grid-cols-2 mb-6">
                   <div className="bg-white/10 rounded-xl p-4">
