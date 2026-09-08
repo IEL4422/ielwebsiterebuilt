@@ -88,6 +88,7 @@ export default function GuardianshipPage() {
         <div className="mt-12 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">How adult guardianship is billed</h3>
           <p>An uncontested adult guardianship of the person and estate is a <strong>flat {usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong> — all-inclusive of the firm’s work: the petition, the physician’s report, personal service on the respondent, coordinating the guardian ad litem, and the surety bond, inventory, and hearing. The one separate charge is the guardian ad litem (GAL) fee, a court-set pass-through we disclose to you up front — like the surety bond premium in probate — not a hidden add-on.</p>
+          <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_FLAT.adultUncontested)} flat fee is paid once. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, not part of the flat fee.</p>
           <p>A guardianship is billed hourly only when it is <strong>contested</strong> — the respondent objects, a competing petition is filed, or a sitting guardian is challenged. A contested guardianship is billed against a {usd(RETAINERS.contestedGuardianship)} retainer at {hourly(RATES.attorneyHourly)} attorney and {hourly(RATES.paralegalHourly)} paralegal, and costs — the GAL fee, filing fees, the process server — are billed to you as expenses.</p>
         </div>
         <div className="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl">
@@ -129,6 +130,7 @@ export default function GuardianshipPage() {
         <div className="mt-12 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">Flat-fee minor guardianship</h3>
           <p>An uncontested minor guardianship is a flat <strong>{usd(GUARDIANSHIP_FLAT.minorUncontested)}</strong>, and that fee is <strong>all-inclusive of court costs</strong> — there is nothing billed on top of it. Because Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, there is not even a court filing fee to pass through. It is a genuine flat fee: {usd(GUARDIANSHIP_FLAT.minorUncontested)} is the price, not {usd(GUARDIANSHIP_FLAT.minorUncontested)} plus filing plus service plus court costs.</p>
+          <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_FLAT.minorUncontested)} flat fee is paid once. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, not part of the flat fee.</p>
         </div>
         <div className="mt-8 max-w-md border-2 border-[#33414E] rounded-xl p-6 bg-white">
           <p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Minor Guardianship — uncontested</p>
@@ -162,7 +164,7 @@ export default function GuardianshipPage() {
         <div className="w-16 h-1 bg-[#4A708B] mb-8" />
         <div className="max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <p>Being appointed guardian is the beginning, not the end. Illinois requires ongoing court reporting for the life of the guardianship: a guardian of the person files an <strong>annual report on the ward</strong> (755 ILCS 5/11a-17(b)), and a guardian of the estate files an <strong>accounting</strong> within 30 days of the one-year anniversary of appointment and thereafter on the court’s schedule (755 ILCS 5/24-11). Missing these deadlines is one of the most common reasons a guardian gets into trouble with the court.</p>
-          <p>Our <strong>Guardianship Compliance Plan ({usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} per year)</strong> prepares and files both on the court’s schedule so you never miss a deadline.</p>
+          <p>The annual report on the ward is <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>, charged each year it is filed. Our <strong>Guardianship Compliance Plan ({usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} per year)</strong> prepares and files both the report and the estate accounting on the court’s schedule so you never miss a deadline.</p>
         </div>
       </div></div></section>
 

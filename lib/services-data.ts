@@ -629,7 +629,7 @@ export const guardianshipServices: Service[] = [
     category: 'guardianship',
     standardizedCaseType: 'Guardianship',
     standardizedServiceName: 'Adult Guardianship',
-    fixedPrice: 4500,
+    fixedPrice: 5000,
     requiresConsultation: true,
     description: 'For an adult who can no longer safely make personal, medical, or financial decisions. The firm evaluates the facts and handles the uncontested petition, physician-report coordination, guardian ad litem coordination, and hearing.',
     includes: [
@@ -637,7 +637,7 @@ export const guardianshipServices: Service[] = [
       'Physician-report and guardian ad litem coordination',
       'Guidance through the hearing and appointment process'
     ],
-    note: 'The guardian ad litem fee is a court-set pass-through cost disclosed separately.'
+    note: 'The guardian ad litem fee is a court-set pass-through cost disclosed separately. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed. That is a separate recurring fee and is not part of this flat fee.'
   },
   {
     id: 'minor-guardianship',
@@ -646,7 +646,7 @@ export const guardianshipServices: Service[] = [
     category: 'guardianship',
     standardizedCaseType: 'Guardianship',
     standardizedServiceName: 'Minor Guardianship',
-    fixedPrice: 4500,
+    fixedPrice: 5000,
     requiresConsultation: true,
     description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
     includes: [
@@ -654,7 +654,7 @@ export const guardianshipServices: Service[] = [
       'Notice and hearing preparation',
       'Guidance through appointment and letters of office'
     ],
-    note: 'This service is for uncontested matters. A contested case requires a separate consultation.'
+    note: 'This service is for uncontested matters. A contested case requires a separate consultation. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed. That is a separate recurring fee and is not part of this flat fee.'
   },
   {
     id: 'annual-guardianship-compliance',

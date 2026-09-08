@@ -8,13 +8,14 @@
  * or CSA may hardcode a dollar figure. They all import from this file.
  *
  * STATUS: LOCKED 2026-07-14; retainers standardized 2026-07-15; guardianship
- * moved to flat fees 2026-07-16. Approved by Mary Liberty. The model is now
+ * moved to flat fees 2026-07-16; uncontested guardianship set to a flat $5,000
+ * and the Annual Report on the Ward to $750 per year, per Mary 2026-09-08. Approved by Mary Liberty. The model is now
  * clean: ONLY contested matters carry a retainer. Every contested matter opens
  * on a UNIFORM $5,000 retainer ($450 attorney / $175 paralegal, costs billable):
  * contested probate, will contests, and contested guardianship. EVERYTHING
  * uncontested is a flat fee — including adult guardianship of the person and
  * estate, which moved from a $5,000 retainer to a flat fee. Both uncontested
- * guardianships (adult and minor) are the SAME flat $4,500 (all-inclusive of
+ * guardianships (adult and minor) are the SAME flat $5,000 (all-inclusive of
  * the firm's work; the GAL fee is a disclosed pass-through, like the probate
  * surety bond). There are no PENDING prices.
  *
@@ -92,20 +93,18 @@ export const RETAINER_FLOORS = {
  * Guardianship FLAT fees (flat_all_inclusive). LOCKED. ALL uncontested
  * guardianship is flat-fee'd — only a contest flips a matter to retainer+hourly.
  *
- *   - Adult guardianship of the person and estate: flat $4,500, all-inclusive of
+ *   - Adult guardianship of the person and estate: flat $5,000, all-inclusive of
  *     the firm's work (petition, physician's report coordination, personal
  *     service, GAL coordination, surety bond and inventory, hearing). The GAL fee
  *     itself is a court-set pass-through billed to the client — a carve-out, like
  *     the probate surety bond — not part of the flat fee. (Set to MATCH minor
- *     guardianship per Mary 2026-07-16; note this is well under the ~$6,275 labor
- *     break-even for an adult case — a deliberate loss-leader. Revisit if volume
- *     shifts.)
- *   - Minor guardianship: petition -> notice -> hearing -> letters. Same $4,500.
+ *     guardianship per Mary 2026-07-16; raised to $5,000 per Mary 2026-09-08.)
+ *   - Minor guardianship: petition -> notice -> hearing -> letters. Same $5,000.
  *   - Discrete interim petitions and uncontested termination.
  */
 export const GUARDIANSHIP_FLAT = {
-  adultUncontested: 4500,
-  minorUncontested: 4500,
+  adultUncontested: 5000,
+  minorUncontested: 5000,
   interimPetition: 1500,
   terminationUncontested: 2000,
 } as const;
@@ -115,13 +114,15 @@ export const GUARDIANSHIP_FLAT = {
  * line — mandatory, court-required, on a file the firm already holds, and the
  * client cannot opt out.
  *
- *   - Annual Report on the Ward: 755 ILCS 5/11a-17(b). Portal-templated; highest
- *     margin service in the firm.
+ *   - Annual Report on the Ward: 755 ILCS 5/11a-17(b). $750 per year, every year
+ *     the guardianship continues. Portal-templated; highest margin service in the
+ *     firm. This is a RECURRING charge and is NOT part of the flat fee — say so
+ *     wherever the uncontested guardianship flat fee is quoted.
  *   - Annual Estate Accounting: 755 ILCS 5/24-11. NOT automated — assembling the
  *     evidence for every disbursement is real paralegal time.
  */
 export const GUARDIANSHIP_COMPLIANCE = {
-  annualReportPerson: 850,
+  annualReportPerson: 750,
   annualAccountingEstate: 1800,
   compliancePlanBundled: 2300,
 } as const;
