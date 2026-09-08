@@ -146,7 +146,10 @@ export const GUARDIANSHIP_COSTS = {
 /** Probate flat fees (flat_all_inclusive). Carve-out: surety bond premium. */
 export const PROBATE = {
   bondInLieu: 1500,
-  smallEstate: 3500,
+  /** Small Estate Administration: small estate affidavit + attorney letter of
+   *  direction. Replaces the retired $3,500 'Small Estate Probate' package and
+   *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
+  smallEstateAdministration: 1000,
   standard: 6500,
   largeEstateBase: 6500,
   largeEstatePercent: 1,

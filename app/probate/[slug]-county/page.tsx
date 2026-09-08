@@ -55,7 +55,7 @@ export async function generateMetadata({
 
 const probateServices = [
   { icon: Gavel, title: 'Full Probate Representation', description: 'Complete legal representation from petition filing through final distribution of estate assets.' },
-  { icon: FileText, title: 'Small Estate Probate', description: 'Expedited probate for qualifying smaller estates, reducing time and costs significantly.' },
+  { icon: FileText, title: 'Small Estate Administration', description: 'For estates under $100,000 with no real estate — a Small Estate Affidavit and Attorney Letter of Direction instead of opening a probate case.' },
   { icon: Users, title: 'Executor / Administrator Support', description: 'Guidance and legal support for executors and administrators throughout the probate process.' },
   { icon: UserCheck, title: 'Heir & Beneficiary Representation', description: 'Protecting the interests and inheritance rights of heirs and beneficiaries during probate.' },
   { icon: CreditCard, title: 'Creditor Notification & Debt Settlement', description: 'Proper notification of creditors and negotiation of outstanding debts owed by the estate.' },
@@ -72,7 +72,7 @@ const probateServices = [
  */
 const probatePricing = [
   { name: 'Standard Probate', price: usd(PROBATE.standard) },
-  { name: 'Small Estate Probate', price: usd(PROBATE.smallEstate), featured: true },
+  { name: 'Small Estate Administration', price: usd(PROBATE.smallEstateAdministration), featured: true },
   { name: 'Partial Probate', price: `From ${usd(PROBATE.partialProbateFrom)}` },
   { name: 'Spousal Representation', price: usd(PROBATE.spousalRepresentation) },
   { name: 'Heir Representation', price: usd(PROBATE.heirRepresentation) },
@@ -86,7 +86,7 @@ function getCountyFAQs(county: string) {
     },
     {
       question: `How much does a probate lawyer cost in ${county}?`,
-      answer: `Illinois Estate Law handles uncontested probate on a flat fee: ${usd(PROBATE.standard)} for standard probate and ${usd(PROBATE.smallEstate)} for small estate probate. The flat fee is all-inclusive — court filing fees, creditor publication, and recording fees are covered by the fee rather than billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Contested probate — a will contest, a disputed accounting, or a fight over who serves as executor — is billed hourly against a retainer instead, because in a contested matter the opposing party drives the scope of the work and no honest fixed price can be quoted in advance. Payment plans are available for all services.`,
+      answer: `Illinois Estate Law handles uncontested probate on a flat fee: ${usd(PROBATE.standard)} for standard probate. An estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)} — a Small Estate Affidavit and Attorney Letter of Direction, with no probate case opened. The flat fee is all-inclusive — court filing fees, creditor publication, and recording fees are covered by the fee rather than billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Contested probate — a will contest, a disputed accounting, or a fight over who serves as executor — is billed hourly against a retainer instead, because in a contested matter the opposing party drives the scope of the work and no honest fixed price can be quoted in advance. Payment plans are available for all services.`,
     },
     {
       question: 'Can probate be avoided in Illinois?',

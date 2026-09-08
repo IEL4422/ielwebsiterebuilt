@@ -49,8 +49,9 @@ export default function FlatFeeVsHourlyProbatePage() {
             <h2>The short answer</h2>
             <p>
               At this firm, <strong>uncontested probate is a flat fee</strong> — {usd(PROBATE.standard)} for
-              a standard estate and {usd(PROBATE.smallEstate)} for a small estate — and that fee is
-              all-inclusive of court costs. <strong>Contested matters are billed hourly</strong> against
+              a standard estate — and that fee is all-inclusive of court costs. A small estate that
+              qualifies to skip probate entirely is handled as Small Estate Administration for{' '}
+              {usd(PROBATE.smallEstateAdministration)}. <strong>Contested matters are billed hourly</strong> against
               a {usd(RETAINERS.contestedProbate)} retainer. There is no third model and no sliding
               scale between them; what determines the fee structure is whether anyone has formally
               contested the estate.
@@ -69,7 +70,7 @@ export default function FlatFeeVsHourlyProbatePage() {
                 <tbody className="text-slate-700">
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">What you pay</th>
-                    <td className="border border-slate-200 px-4 py-3">{usd(PROBATE.standard)} standard estate; {usd(PROBATE.smallEstate)} small estate</td>
+                    <td className="border border-slate-200 px-4 py-3">{usd(PROBATE.standard)} standard estate; {usd(PROBATE.smallEstateAdministration)} small estate administration</td>
                     <td className="border border-slate-200 px-4 py-3">{usd(RETAINERS.contestedProbate)} retainer, then {hourly(RATES.attorneyHourly)} attorney / {hourly(RATES.paralegalHourly)} paralegal</td>
                   </tr>
                   <tr>

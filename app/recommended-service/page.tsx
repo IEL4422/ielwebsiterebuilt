@@ -317,25 +317,19 @@ export default function RecommendedServicePage() {
 
       if (decedentEstateValue === 'under-100k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
-          name: 'Small Estate Probate',
-          price: '$3,500',
-          description: 'For uncontested estates under $150,000 requiring Letters of Office. Flat fee from opening through closing.',
+          name: 'Small Estate Administration',
+          price: '$1,000',
+          description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
           includes: [
-            'All required filings with the Probate Court from opening through closing',
-            'Appearance and handling of all court hearings',
-            'Opening of Estate Bank Account',
-            'Obtaining Estate EIN',
-            'Asset & Debt Search',
-            'Creditor Notification & Publication',
-            'Requesting Tax Records & Transcripts',
-            'Transfer of Real Estate via Deed, if necessary',
-            'Unlimited Attorney Consultations'
+            'Small Estate Affidavit',
+            'Attorney Letter of Direction'
           ],
+          note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.',
           addOns: [],
-          serviceId: 'summary-probate',
+          serviceId: 'small-estate-administration',
           requiresConsultation: false,
           standardizedCaseType: 'Probate',
-          standardizedServiceName: 'Small Estate Probate'
+          standardizedServiceName: 'Small Estate Administration'
         };
       }
 
