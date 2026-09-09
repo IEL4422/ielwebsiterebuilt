@@ -29,11 +29,12 @@
 export const FEE_STRUCTURE_NOTE =
   'Flat fees on all standard matters, including uncontested probate and uncontested guardianship. ' +
   'Contested matters — will contests, contested probate, and contested guardianship — are billed ' +
-  'hourly against a retainer.';
+  'hourly against a $5,000 retainer.';
 
 /** Short form, for tight UI (badges, bars, cards). */
 export const FEE_STRUCTURE_NOTE_SHORT =
-  'Hourly only for contested matters — will contests, contested probate, contested guardianship.';
+  'Hourly only for contested matters — will contests, contested probate, contested guardianship — ' +
+  'billed against a $5,000 retainer.';
 
 /** Where the asterisk should link. */
 export const FEE_STRUCTURE_HREF = '/services-pricing/';

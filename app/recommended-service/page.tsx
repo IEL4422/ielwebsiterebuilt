@@ -159,9 +159,9 @@ export default function RecommendedServicePage() {
       const guardianshipRecommendations: Record<Exclude<QuizAnswers['guardianshipNeed'], ''>, ServiceRecommendation> = {
         adult: {
           name: 'Adult Guardianship',
-          price: '$4,500',
+          price: '$5,000',
           description: 'For an adult who can no longer safely make personal, medical, or financial decisions. A consultation lets the firm confirm the facts and scope before engagement.',
-          includes: ['Guardianship petition and required court filings', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process'],
+          includes: ['Guardianship petition and required court filings', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],
           serviceId: 'adult-guardianship',
           requiresConsultation: true,
@@ -170,9 +170,9 @@ export default function RecommendedServicePage() {
         },
         minor: {
           name: 'Minor Guardianship',
-          price: '$4,500',
+          price: '$5,000',
           description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
-          includes: ['Guardianship petition and required court filings', 'Notice and hearing preparation', 'Guidance through appointment and letters of office'],
+          includes: ['Guardianship petition and required court filings', 'Notice and hearing preparation', 'Guidance through appointment and letters of office', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],
           serviceId: 'minor-guardianship',
           requiresConsultation: true,
