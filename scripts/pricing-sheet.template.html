@@ -1,8 +1,3 @@
-<!-- GENERATED FILE - DO NOT EDIT.
-     Source: scripts/pricing-sheet.template.html + lib/pricing.ts
-     Regenerate with `npm run build:pricing-sheet` (runs automatically on prebuild).
-     Hand-editing a rate here is how the sheet came to advertise $450/hr while the
-     firm billed $350. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -291,9 +286,9 @@
         <tr>
           <td>
             <div class="service-name">Contested Probate</div>
-            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Applies when any probate matter becomes or is anticipated to be contested. Attorney: $425 / hour &bull; Paralegal/Administrative: $175 / hour. Evergreen retainer; costs (filing, process server, transcripts) billed to the client.</div>
+            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Applies when any probate matter becomes or is anticipated to be contested. Attorney: {{ATTORNEY_HOURLY}} &bull; Paralegal/Administrative: {{PARALEGAL_HOURLY}}. Evergreen retainer; costs (filing, process server, transcripts) billed to the client.</div>
           </td>
-          <td class="price">$5,000 retainer<span class="price-note">+ hourly billing</span></td>
+          <td class="price">{{CONTESTED_RETAINER}} retainer<span class="price-note">+ hourly billing</span></td>
         </tr>
       </tbody>
     </table>
@@ -327,9 +322,9 @@
         <tr>
           <td>
             <div class="service-name">Contested Guardianship</div>
-            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Objection, competing petition, or removal. Attorney: $425 / hour &bull; Paralegal: $175 / hour. Evergreen retainer; costs (incl. GAL) billed to the client.</div>
+            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Objection, competing petition, or removal. Attorney: {{ATTORNEY_HOURLY}} &bull; Paralegal: {{PARALEGAL_HOURLY}}. Evergreen retainer; costs (incl. GAL) billed to the client.</div>
           </td>
-          <td class="price">$5,000 retainer<span class="price-note">+ hourly billing</span></td>
+          <td class="price">{{CONTESTED_RETAINER}} retainer<span class="price-note">+ hourly billing</span></td>
         </tr>
         <tr>
           <td>

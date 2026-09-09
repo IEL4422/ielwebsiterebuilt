@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -194,7 +195,7 @@ export default function RecommendedServicePage() {
         },
         contested: {
           name: 'Contested Guardianship',
-          price: '$5,000 retainer + hourly',
+          price: `${usd(RETAINERS.contestedGuardianship)} retainer + hourly`,
           description: 'For an objection, competing petition, or challenge to an existing guardian. Attorney review is required before engagement.',
           includes: ['Attorney review of the dispute and court posture', 'Clear explanation of retainer, hourly rates, and anticipated next steps'],
           addOns: [],
@@ -301,12 +302,12 @@ export default function RecommendedServicePage() {
       if (issuesAmongHeirs === 'yes') {
         return {
           name: 'Contested Probate',
-          price: '$5,000 retainer + hourly',
-          description: 'For probate matters that are or are anticipated to be contested. NOT a flat fee — billed hourly with a $5,000 retainer. Attorney: $350/hr; Paralegal/Administrative: $125/hr.',
+          price: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
+          description: `For probate matters that are or are anticipated to be contested. NOT a flat fee — billed hourly with a ${usd(RETAINERS.contestedProbate)} retainer. Attorney: ${hourly(RATES.attorneyHourly)}; Paralegal/Administrative: ${hourly(RATES.paralegalHourly)}.`,
           includes: [
-            'Minimum $5,000 retainer required to commence representation',
-            'Attorney hourly rate: $350 / hour',
-            'Paralegal / Administrative hourly rate: $125 / hour',
+            `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
+            `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
+            `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
             'Retainer replenished as needed throughout the matter'
           ],
           addOns: [],
