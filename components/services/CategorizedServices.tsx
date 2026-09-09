@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 interface DisplayService {
   id: string;
@@ -415,12 +416,12 @@ export function CategorizedServices({
           name: 'Contested Probate',
           subtitle: 'NOT A FLAT FEE — Hourly Billing',
           category: 'probate',
-          pricingLabel: '$5,000 retainer + hourly',
-          description: 'Applies when any probate matter becomes or is anticipated to be contested. Attorney hourly rate: $350/hour. Paralegal/Administrative: $125/hour. Retainer replenished as needed.',
+          pricingLabel: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
+          description: `Applies when any probate matter becomes or is anticipated to be contested. Attorney hourly rate: ${hourly(RATES.attorneyHourly)}. Paralegal/Administrative: ${hourly(RATES.paralegalHourly)}. Retainer replenished as needed.`,
           includes: [
-            'Minimum $5,000 retainer required to commence representation',
-            'Attorney hourly rate: $350 / hour',
-            'Paralegal / Administrative hourly rate: $125 / hour',
+            `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
+            `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
+            `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
             'Retainer replenished as needed throughout the matter'
           ]
         }

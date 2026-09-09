@@ -1,3 +1,5 @@
+import { RATES, RETAINERS, usd, hourly } from './pricing';
+
 export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
 export type StandardizedServiceName =
@@ -401,12 +403,12 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Contested Probate',
-    pricingLabel: '$5,000 retainer + hourly',
-    description: 'Applies when any probate matter becomes or is anticipated to be contested. This is not a flat-fee service. Attorney hourly rate: $400/hour. Paralegal/Administrative hourly rate: $150/hour. Retainer replenished as needed throughout the matter.',
+    pricingLabel: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
+    description: `Applies when any probate matter becomes or is anticipated to be contested. This is not a flat-fee service. Attorney hourly rate: ${hourly(RATES.attorneyHourly)}. Paralegal/Administrative hourly rate: ${hourly(RATES.paralegalHourly)}. Retainer replenished as needed throughout the matter.`,
     includes: [
-      'Minimum $5,000 retainer required to commence representation',
-      'Attorney hourly rate: $350 / hour',
-      'Paralegal / Administrative hourly rate: $125 / hour',
+      `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
+      `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
+      `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
       'Retainer replenished as needed throughout the matter'
     ],
     addOns: []
@@ -682,7 +684,7 @@ export const guardianshipServices: Service[] = [
     category: 'guardianship',
     standardizedCaseType: 'Guardianship',
     standardizedServiceName: 'Contested Guardianship',
-    pricingLabel: '$5,000 retainer + hourly',
+    pricingLabel: `${usd(RETAINERS.contestedGuardianship)} retainer + hourly`,
     requiresConsultation: true,
     description: 'For a guardianship matter involving an objection, a competing petition, or a challenge to an existing guardian. These matters require attorney review before engagement.',
     includes: [

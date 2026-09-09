@@ -60,7 +60,15 @@ export const BILLING_MODEL_LABEL: Record<BillingModel, string> = {
  * evidentiary basis of the fee, not a billing convenience.
  */
 export const RATES = {
-  attorneyHourly: 450,
+  /**
+   * THE attorney hourly rate. Mary 2026-09-09: $425 for contested matters — and every
+   * matter this firm bills hourly IS contested (all three hourly services are
+   * contested-*, and the only flat->hourly route is a conversion that happens BECAUSE a
+   * matter became contested), so there is no second attorney rate to carry.
+   * Was $450 here, $400 in the portal catalog, $350 in the service finder.
+   */
+  attorneyHourly: 425,
+  /** Confirmed 2026-08-06 (StaffPortal PR #345) and unchanged. */
   paralegalHourly: 175,
 } as const;
 
