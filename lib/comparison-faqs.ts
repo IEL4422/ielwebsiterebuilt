@@ -28,7 +28,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'Is probate in Illinois billed hourly or as a flat fee?',
     answer:
-      `Both models are used in Illinois — probate fees are not standardized by statute, so it depends entirely on the firm you hire. This firm quotes a flat fee for uncontested probate (${usd(PROBATE.standard)} for a standard estate, ${usd(PROBATE.smallEstate)} for a small estate) and bills hourly only when a matter is actually contested. Many Illinois probate firms bill every matter hourly. Ask any firm you are considering which model applies to your case, and get the answer in writing before you engage them.`,
+      `Both models are used in Illinois — probate fees are not standardized by statute, so it depends entirely on the firm you hire. This firm quotes a flat fee for uncontested probate (${usd(PROBATE.standard)} for a standard estate; an estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)}) and bills hourly only when a matter is actually contested. Many Illinois probate firms bill every matter hourly. Ask any firm you are considering which model applies to your case, and get the answer in writing before you engage them.`,
   },
   {
     question: 'What does a flat probate fee include in Illinois?',

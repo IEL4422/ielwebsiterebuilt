@@ -198,11 +198,14 @@ export const serviceCategories: ServiceCategory[] = [
         note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
       },
       {
-        name: 'Small Estate Probate',
-        subtitle: 'For uncontested estates under $150,000 requiring Letters of Office',
-        fixedPrice: 3500,
-        includes: probateIncludes,
-        note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+        name: 'Small Estate Administration',
+        subtitle: 'Small Estate Affidavit and Attorney Letter of Direction — no probate case opened',
+        fixedPrice: 1000,
+        includes: [
+          'Small Estate Affidavit',
+          'Attorney Letter of Direction'
+        ],
+        note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.'
       },
       {
         name: 'Standard Probate',

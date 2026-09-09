@@ -32,7 +32,7 @@ export type StandardizedServiceName =
   | 'Probate (Tier 2)'
   | 'Probate (Tier 3)'
   | 'Probate (Tier 4)'
-  | 'Small Estate Probate'
+  | 'Small Estate Administration'
   | 'Bond in Lieu of Probate'
   | 'Standard Probate'
   | 'Large Estate Probate'
@@ -287,16 +287,19 @@ export const probatePackages: Service[] = [
     addOns: []
   },
   {
-    id: 'summary-probate',
-    name: 'Small Estate Probate',
-    subtitle: 'For uncontested estates under $150,000 requiring Letters of Office',
+    id: 'small-estate-administration',
+    name: 'Small Estate Administration',
+    subtitle: 'Small Estate Affidavit and Attorney Letter of Direction — no probate case opened',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Small Estate Probate',
-    fixedPrice: 3500,
-    description: 'Applies to estates under $150,000 where a bank will not accept a Small Estate Affidavit and Letters of Office are required. This is a standard (not summary) probate matter designed for smaller estates that do not qualify for the Small Estate Affidavit process. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
-    includes: probateIncludes,
-    note: probateNote,
+    standardizedServiceName: 'Small Estate Administration',
+    fixedPrice: 1000,
+    description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
+    includes: [
+      'Small Estate Affidavit',
+      'Attorney Letter of Direction'
+    ],
+    note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.',
     addOns: []
   },
   {
