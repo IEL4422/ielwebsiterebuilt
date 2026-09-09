@@ -2,9 +2,9 @@
  * Generate public/pricing-sheet.html from scripts/pricing-sheet.template.html,
  * substituting the figures that lib/pricing.ts owns.
  *
- * The sheet used to carry "Attorney: $450/hr" as hand-typed prose. It stayed at $450
- * while the firm's confirmed rate moved to $350 and then $425, because a number written
- * into a sentence is not where anyone looks when a rate changes. It is generated now.
+ * The sheet used to carry the attorney rate as hand-typed prose, and it stayed at the
+ * old figure through two rate changes, because a number written into a sentence is not
+ * where anyone looks when a rate changes. It is generated now.
  *
  * Deliberately dependency-free: pricing.ts is read as text and its numeric literals are
  * extracted, so this runs under plain `node` with nothing installed and cannot break the
@@ -40,8 +40,8 @@ const banner = [
   '<!-- GENERATED FILE - DO NOT EDIT.',
   '     Source: scripts/pricing-sheet.template.html + lib/pricing.ts',
   '     Regenerate with `npm run build:pricing-sheet` (runs automatically on prebuild).',
-  '     Hand-editing a rate here is how the sheet came to advertise $450/hr while the',
-  '     firm billed $350. -->',
+  '     Hand-editing a rate here is how this sheet came to advertise an hourly rate the',
+  '     firm had stopped charging. -->',
   '',
 ].join('\n');
 
