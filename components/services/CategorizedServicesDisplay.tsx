@@ -204,7 +204,8 @@ export const serviceCategories: ServiceCategory[] = [
         fixedPrice: 1000,
         includes: [
           'Small Estate Affidavit',
-          'Attorney Letter of Direction'
+          'Attorney Letter of Direction',
+          'Asset Search'
         ],
         note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.'
       },

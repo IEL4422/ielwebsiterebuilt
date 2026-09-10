@@ -299,7 +299,8 @@ export const probatePackages: Service[] = [
     description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
     includes: [
       'Small Estate Affidavit',
-      'Attorney Letter of Direction'
+      'Attorney Letter of Direction',
+      'Asset Search'
     ],
     note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.',
     addOns: []
