@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { PROBATE, RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -22,8 +23,9 @@ const getSupabaseClient = () => {
 };
 
 interface QuizAnswers {
-  needType: 'estate-planning' | 'probate' | 'real-estate' | '';
-  realEstateRole: 'buyer' | 'seller' | '';
+  needType: 'estate-planning' | 'trust-administration' | 'probate' | 'real-estate' | 'guardianship' | '';
+  realEstateRole: 'buyer' | 'seller' | 'fsbo' | '';
+  guardianshipNeed: 'adult' | 'minor' | 'annual-compliance' | 'contested' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
   estateValue: 'under-100k' | '100k-3.5m' | 'over-3.5m' | '';
@@ -36,9 +38,8 @@ interface QuizAnswers {
   allDebtsPaid: 'yes' | 'no' | '';
   isRepresentative: 'yes' | 'no' | '';
   needsNewAttorney: 'yes' | 'no' | '';
-  businessNeed: 'full-package' | 'llc-only' | 'trademark-only' | '';
+  businessNeed: 'full-package' | 'llc-only' | '';
   hasExistingBusiness: 'yes' | 'no' | '';
-  needsTrademark: 'yes' | 'no' | '';
 }
 
 interface ServiceRecommendation {
@@ -53,6 +54,8 @@ interface ServiceRecommendation {
     description: string;
     suggested?: boolean;
   }>;
+  /** Optional scope caveat shown under the description (e.g. "this is not a probate case"). */
+  note?: string;
   serviceId: string;
   clientType?: 'individual' | 'joint';
   requiresConsultation?: boolean;
@@ -77,6 +80,7 @@ export default function RecommendedServicePage() {
   const [answers, setAnswers] = useState<QuizAnswers>({
     needType: '',
     realEstateRole: '',
+    guardianshipNeed: '',
     maritalStatus: '',
     ownsRealEstate: '',
     estateValue: '',
@@ -91,7 +95,6 @@ export default function RecommendedServicePage() {
     needsNewAttorney: '',
     businessNeed: '',
     hasExistingBusiness: '',
-    needsTrademark: ''
   });
   const [showResult, setShowResult] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
@@ -117,6 +120,7 @@ export default function RecommendedServicePage() {
   const getRecommendation = (): ServiceRecommendation | null => {
     const {
       needType,
+      realEstateRole,
       maritalStatus,
       ownsRealEstate,
       estateValue,
@@ -129,16 +133,114 @@ export default function RecommendedServicePage() {
       allDebtsPaid,
       isRepresentative,
       needsNewAttorney,
+      guardianshipNeed,
       businessNeed,
       hasExistingBusiness,
-      needsTrademark
     } = answers;
 
-    if (needType === 'real-estate') {
+    if (needType === 'trust-administration') {
       return {
-        name: 'Residential Closing (Buyer or Seller)',
+        name: 'Trust Administration Consulting',
+        price: '$3,500 / Year',
+        description: 'Attorney guidance for individuals serving as trustee and navigating fiduciary duties, accounting, distributions, and beneficiary communication.',
+        includes: [
+          'Trust accounting review and preparation',
+          'Distribution review and guidance',
+          'Review of trust documentation and beneficiary rights',
+          'Guidance on trustee fiduciary duties',
+          'Unlimited attorney consultations throughout the year'
+        ],
+        addOns: [],
+        serviceId: 'trust-admin-consulting',
+        requiresConsultation: true,
+        standardizedCaseType: 'Trust Administration',
+        standardizedServiceName: 'Trust Administration Consulting'
+      };
+    }
+
+    if (needType === 'guardianship') {
+      const guardianshipRecommendations: Record<Exclude<QuizAnswers['guardianshipNeed'], ''>, ServiceRecommendation> = {
+        adult: {
+          name: 'Adult Guardianship',
+          price: usd(PROBATE.standard),
+          description: 'For an adult who can no longer safely make personal, medical, or financial decisions. A consultation lets the firm confirm the facts and scope before engagement.',
+          includes: ['Guardianship petition and required court filings', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
+          addOns: [],
+          serviceId: 'adult-guardianship',
+          requiresConsultation: true,
+          standardizedCaseType: 'Guardianship',
+          standardizedServiceName: 'Adult Guardianship'
+        },
+        minor: {
+          name: 'Minor Guardianship',
+          price: '$5,000',
+          description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
+          includes: ['Guardianship petition and required court filings', 'Notice and hearing preparation', 'Guidance through appointment and letters of office', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
+          addOns: [],
+          serviceId: 'minor-guardianship',
+          requiresConsultation: true,
+          standardizedCaseType: 'Guardianship',
+          standardizedServiceName: 'Minor Guardianship'
+        },
+        'annual-compliance': {
+          name: 'Annual Guardianship Compliance',
+          price: '$2,300 / Year',
+          description: 'For an appointed guardian who needs support preparing and filing required annual reports and accounting on the court schedule.',
+          includes: ['Annual report on the ward', 'Annual estate accounting support', 'Court-deadline tracking and filing guidance'],
+          addOns: [],
+          serviceId: 'annual-guardianship-compliance',
+          requiresConsultation: true,
+          standardizedCaseType: 'Guardianship',
+          standardizedServiceName: 'Annual Guardianship Compliance'
+        },
+        contested: {
+          name: 'Contested Guardianship',
+          price: `${usd(RETAINERS.contestedGuardianship)} retainer + hourly`,
+          description: 'For an objection, competing petition, or challenge to an existing guardian. Attorney review is required before engagement.',
+          includes: ['Attorney review of the dispute and court posture', 'Clear explanation of retainer, hourly rates, and anticipated next steps'],
+          addOns: [],
+          serviceId: 'contested-guardianship',
+          requiresConsultation: true,
+          standardizedCaseType: 'Guardianship',
+          standardizedServiceName: 'Contested Guardianship'
+        }
+      };
+
+      return guardianshipNeed ? guardianshipRecommendations[guardianshipNeed] : null;
+    }
+
+    if (needType === 'real-estate') {
+      if (realEstateRole === 'fsbo') {
+        return {
+          name: 'For Sale By Owner (FSBO) Representation',
+          price: '$1,500',
+          description: 'Full-service attorney representation for a For Sale By Owner sale in Illinois, where there is no listing agent. Because no agent is involved, the attorney also handles the coordination a listing agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance.',
+          includes: [
+            'Purchase/Sale Contract Drafting or Review',
+            'Title Review & Clearance',
+            'Title Search',
+            'Document Preparation',
+            'Settlement Statement Review',
+            'Attorney Representation at Closing',
+            'Coordination normally handled by a real estate agent',
+            'Unlimited Attorney Consultation'
+          ],
+          addOns: [],
+          serviceId: 'fsbo-representation',
+          requiresConsultation: false,
+          standardizedCaseType: 'Real Estate',
+          standardizedServiceName: 'For Sale By Owner Representation'
+        };
+      }
+
+      const isSeller = realEstateRole === 'seller';
+
+      return {
+        name: isSeller ? 'Residential Closing (Seller)' : 'Residential Closing (Buyer)',
         price: '$750',
-        description: 'Full-service attorney representation for your Illinois residential real estate closing. Flat fee paid at closing.',
+        description: isSeller
+          ? 'Full-service attorney representation for your Illinois residential sale, where you are represented by a listing agent. The attorney fee is paid at closing out of the sale proceeds, not in advance.'
+          : 'Full-service attorney representation for your Illinois residential purchase, where you are represented by a real estate agent. The attorney fee is paid at closing, not in advance.',
         includes: [
           'Contract Review',
           'Title Review & Clearance',
@@ -200,12 +302,12 @@ export default function RecommendedServicePage() {
       if (issuesAmongHeirs === 'yes') {
         return {
           name: 'Contested Probate',
-          price: '$5,000 retainer + hourly',
-          description: 'For probate matters that are or are anticipated to be contested. NOT a flat fee — billed hourly with a $5,000 retainer. Attorney: $350/hr; Paralegal/Administrative: $125/hr.',
+          price: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
+          description: `For probate matters that are or are anticipated to be contested. NOT a flat fee — billed hourly with a ${usd(RETAINERS.contestedProbate)} retainer. Attorney: ${hourly(RATES.attorneyHourly)}; Paralegal/Administrative: ${hourly(RATES.paralegalHourly)}.`,
           includes: [
-            'Minimum $5,000 retainer required to commence representation',
-            'Attorney hourly rate: $350 / hour',
-            'Paralegal / Administrative hourly rate: $125 / hour',
+            `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
+            `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
+            `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
             'Retainer replenished as needed throughout the matter'
           ],
           addOns: [],
@@ -218,26 +320,20 @@ export default function RecommendedServicePage() {
 
       if (decedentEstateValue === 'under-100k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
-          name: 'Small Estate Probate',
-          price: '$3,500',
-          description: 'For uncontested estates under $150,000 requiring Letters of Office. Flat fee from opening through closing.',
+          name: 'Small Estate Administration',
+          price: '$1,000',
+          description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
           includes: [
-            'All required filings with the Probate Court from opening through closing',
-            'Appearance and handling of all court hearings',
-            'Opening of Estate Bank Account',
-            'Obtaining Estate EIN',
-            'Asset & Debt Search',
-            'Creditor Notification & Publication',
-            'Obtaining Tax Transcripts',
-            'Final Tax Returns (if required)',
-            'Transfer of Real Estate via Deed, if necessary',
-            'Unlimited Attorney Consultations'
+            'Small Estate Affidavit',
+            'Attorney Letter of Direction',
+            'Asset Search'
           ],
+          note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.',
           addOns: [],
-          serviceId: 'summary-probate',
+          serviceId: 'small-estate-administration',
           requiresConsultation: false,
           standardizedCaseType: 'Probate',
-          standardizedServiceName: 'Small Estate Probate'
+          standardizedServiceName: 'Small Estate Administration'
         };
       }
 
@@ -254,8 +350,7 @@ export default function RecommendedServicePage() {
             'Obtaining Estate EIN',
             'Asset & Debt Search',
             'Creditor Notification & Publication',
-            'Obtaining Tax Transcripts',
-            'Final Tax Returns (if required)',
+            'Requesting Tax Records & Transcripts',
             'Transfer of Real Estate via Deed, if necessary',
             'Unlimited Attorney Consultations'
           ],
@@ -436,7 +531,10 @@ export default function RecommendedServicePage() {
   };
 
   const getMaxSteps = () => {
-    if (answers.needType === 'real-estate') {
+    if (answers.needType === 'trust-administration') {
+      return 1;
+    }
+    if (answers.needType === 'real-estate' || answers.needType === 'guardianship') {
       return 2;
     }
     if (answers.needType === 'probate') {
@@ -482,6 +580,7 @@ export default function RecommendedServicePage() {
         return answers.needType !== '';
       case 2:
         if (answers.needType === 'real-estate') return answers.realEstateRole !== '';
+        if (answers.needType === 'guardianship') return answers.guardianshipNeed !== '';
         if (answers.needType === 'probate') return answers.isRepresentative !== '';
         return answers.maritalStatus !== '';
       case 3:
@@ -512,6 +611,7 @@ export default function RecommendedServicePage() {
     setAnswers({
       needType: '',
       realEstateRole: '',
+      guardianshipNeed: '',
       maritalStatus: '',
       ownsRealEstate: '',
       estateValue: '',
@@ -526,7 +626,6 @@ export default function RecommendedServicePage() {
       needsNewAttorney: '',
       businessNeed: '',
       hasExistingBusiness: '',
-      needsTrademark: ''
     });
     setShowResult(false);
     setShowClientInfo(false);
@@ -563,7 +662,15 @@ export default function RecommendedServicePage() {
   };
 
   const handleProceedToPurchase = () => {
-    window.location.href = 'https://portal.illinoisestatelaw.com/get-started';
+    if (!recommendation) return;
+
+    const query = new URLSearchParams({
+      service: recommendation.serviceId,
+      clientType: recommendation.clientType || 'individual',
+      source: 'service-finder'
+    });
+
+    window.location.href = `/start-online/?${query.toString()}`;
   };
 
   const handleClientInfoSubmit = (e: React.FormEvent) => {
@@ -704,7 +811,7 @@ export default function RecommendedServicePage() {
 
   return (
     <main>
-      <InnerPageHero title="Find the Right Service for You" />
+      <InnerPageHero title="Find the Right Service for You" subtitle="Explore Estate Planning, Trust Administration, Probate, Real Estate, and Guardianship. You can also choose a service directly if you prefer." />
 
       <section className="py-16 lg:py-24 bg-white">
         <div className="mx-auto max-w-[900px] px-5 lg:px-8">
@@ -730,9 +837,12 @@ export default function RecommendedServicePage() {
               {/* Question 1: Need Type */}
               {step === 1 && (
                 <div className="space-y-6">
-                  <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
+                  <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-2">
                     What brings you here today?
                   </h2>
+                  <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600 mb-6">
+                    Already know what you need? <Link href="/select-service/" className="font-semibold text-[#4a708b] hover:underline">Select a service directly</Link> instead.
+                  </p>
                   <div className="space-y-4">
                     <button
                       onClick={() => updateAnswer('needType', 'estate-planning')}
@@ -757,6 +867,28 @@ export default function RecommendedServicePage() {
                       </div>
                     </button>
                     <button
+                      onClick={() => updateAnswer('needType', 'trust-administration')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.needType === 'trust-administration'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            Trust Administration
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            I am a trustee and need guidance administering a trust
+                          </div>
+                        </div>
+                        {answers.needType === 'trust-administration' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
                       onClick={() => updateAnswer('needType', 'probate')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
                         answers.needType === 'probate'
@@ -774,6 +906,28 @@ export default function RecommendedServicePage() {
                           </div>
                         </div>
                         {answers.needType === 'probate' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => updateAnswer('needType', 'guardianship')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.needType === 'guardianship'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            Guardianship
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            I need help with adult or minor guardianship, annual compliance, or a contested matter
+                          </div>
+                        </div>
+                        {answers.needType === 'guardianship' && (
                           <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
                         )}
                       </div>
@@ -808,8 +962,11 @@ export default function RecommendedServicePage() {
               {answers.needType === 'real-estate' && step === 2 && (
                 <div className="space-y-6">
                   <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
-                    Are you buying or selling?
+                    Are you buying, selling, or selling For Sale By Owner?
                   </h2>
+                  <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
+                    A For Sale By Owner sale has no listing agent, so the attorney carries work an agent would normally handle. It is a separate engagement from a standard closing.
+                  </p>
                   <div className="space-y-4">
                     <button
                       onClick={() => updateAnswer('realEstateRole', 'buyer')}
@@ -855,6 +1012,68 @@ export default function RecommendedServicePage() {
                         )}
                       </div>
                     </button>
+                    <button
+                      onClick={() => updateAnswer('realEstateRole', 'fsbo')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.realEstateRole === 'fsbo'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            I am selling For Sale By Owner (FSBO)
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            Selling without a listing agent, so the attorney also handles the coordination an agent would normally carry
+                          </div>
+                        </div>
+                        {answers.realEstateRole === 'fsbo' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Guardianship Path */}
+              {answers.needType === 'guardianship' && step === 2 && (
+                <div className="space-y-6">
+                  <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
+                    Which guardianship service best describes your situation?
+                  </h2>
+                  <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
+                    This helps identify the right next step. All guardianship services are reviewed with an attorney before engagement.
+                  </p>
+                  <div className="space-y-4">
+                    {[
+                      ['adult', 'Adult Guardianship', 'An adult cannot safely make personal, medical, or financial decisions.'],
+                      ['minor', 'Minor Guardianship', 'A child needs a guardian because a parent cannot provide care or consents to another adult.'],
+                      ['annual-compliance', 'Annual Guardianship Compliance', 'I am already appointed and need help with required annual court reporting.'],
+                      ['contested', 'Contested Guardianship', 'There is an objection, competing petition, or challenge to an existing guardian.'],
+                    ].map(([value, title, description]) => (
+                      <button
+                        key={value}
+                        onClick={() => updateAnswer('guardianshipNeed', value as QuizAnswers['guardianshipNeed'])}
+                        className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                          answers.guardianshipNeed === value
+                            ? 'border-[#547298] bg-[#4a708b]/10'
+                            : 'border-gray-300 hover:border-[#547298]/50'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">{title}</div>
+                            <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">{description}</div>
+                          </div>
+                          {answers.guardianshipNeed === value && (
+                            <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                          )}
+                        </div>
+                      </button>
+                    ))}
                   </div>
                 </div>
               )}
@@ -1489,10 +1708,10 @@ export default function RecommendedServicePage() {
                   <CheckCircle2 className="w-10 h-10 text-green-600" />
                 </div>
                 <h2 className="font-['Plus_Jakarta_Sans'] text-[32px] lg:text-[40px] font-bold text-[#2d3e50] mb-4">
-                  Your Recommended Service
+                  Your service suggestion
                 </h2>
                 <p className="font-['Plus_Jakarta_Sans'] text-lg text-gray-600">
-                  Based on your answers, here's the perfect package for you
+                  Based on your answers, this service may fit your situation. Review the scope, fee, and next steps before you enter the secure client portal.
                 </p>
               </div>
 
@@ -1506,6 +1725,23 @@ export default function RecommendedServicePage() {
                 <p className="font-['Plus_Jakarta_Sans'] text-base text-white/90 mb-6">
                   {recommendation.description}
                 </p>
+
+                {recommendation.note && (
+                  <p className="font-['Plus_Jakarta_Sans'] text-sm text-white/80 border-l-4 border-white/40 pl-4 mb-6">
+                    {recommendation.note}
+                  </p>
+                )}
+
+                <div className="grid gap-3 sm:grid-cols-2 mb-6">
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <p className="font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-wide text-white/65 mb-1">Why this may fit</p>
+                    <p className="font-['Plus_Jakarta_Sans'] text-sm text-white/90">This recommendation reflects the answers you shared in the service finder. You can compare options before moving forward.</p>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <p className="font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-wide text-white/65 mb-1">Before you start</p>
+                    <p className="font-['Plus_Jakarta_Sans'] text-sm text-white/90">You will review the service details and the applicable Client Service Agreement before substantive work begins.</p>
+                  </div>
+                </div>
 
                 <div className="bg-white/10 rounded-xl p-6 mb-6">
                   <h4 className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-white mb-4">
@@ -1580,28 +1816,48 @@ export default function RecommendedServicePage() {
                 )}
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    onClick={handleProceedToPurchase}
-                    className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100"
-                  >
-                    {recommendation.requiresConsultation ? 'Book Consultation' : 'Get Started'}
-                  </Button>
+                  {recommendation.requiresConsultation ? (
+                    <Link
+                      href="/book-consultation/"
+                      className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100 text-center flex items-center justify-center"
+                    >
+                      Book a free consultation
+                    </Link>
+                  ) : (
+                    <Button
+                      onClick={handleProceedToPurchase}
+                      className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100"
+                    >
+                      Review & start online
+                    </Button>
+                  )}
                   <Link
-                    href="/services-pricing"
+                    href="/services-pricing/"
                     className="flex-1 bg-white/10 text-white px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-semibold text-center hover:bg-white/20 transition-all border-2 border-white/30 flex items-center justify-center"
                   >
-                    View All Services
+                    Compare services
                   </Link>
                 </div>
+                {!recommendation.requiresConsultation && (
+                  <p className="mt-4 text-center font-['Plus_Jakarta_Sans'] text-xs text-white/70">
+                    No payment or appointment is required to review the online process.
+                  </p>
+                )}
               </div>
 
-              <div className="text-center">
+              <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:gap-6">
                 <button
                   onClick={resetQuiz}
                   className="text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold hover:underline"
                 >
-                  Take Quiz Again
+                  Take the service finder again
                 </button>
+                <Link
+                  href="/contact/"
+                  className="text-[#4a708b] font-['Plus_Jakarta_Sans'] font-semibold hover:underline"
+                >
+                  Ask a process question
+                </Link>
               </div>
             </div>
           ) : showClientInfo ? (

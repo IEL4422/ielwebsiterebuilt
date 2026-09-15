@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FileText, Shield, Heart, Scale, ScrollText } from 'lucide-react'
 import { InnerPageHero } from '@/components/layout/InnerPageHero'
+import { CTABand } from '@/components/ui/CTAButtons'
 
 export const metadata: Metadata = {
   title: 'Estate Planning Services',
@@ -57,6 +58,8 @@ export default function EstatePlanningPage() {
     <main>
       <InnerPageHero title="Estate Planning Services in Illinois" subtitle="Comprehensive, customized estate planning to protect your family, your assets, and your legacy under Illinois law." />
 
+      <CTABand />
+
       <section className="bg-white py-16 lg:py-24">
         <div className="container mx-auto px-4 max-w-[1140px]">
           <div className="max-w-3xl mx-auto text-center mb-12">
@@ -95,6 +98,11 @@ export default function EstatePlanningPage() {
           </div>
         </div>
       </section>
+
+      <CTABand
+        title="Not sure where to begin?"
+        subtitle="Start online in minutes or book a free consultation, and we will help you choose the right plan for your family and your budget."
+      />
 
       <section className="bg-[#f8f9fa] py-16 lg:py-20">
         <div className="container mx-auto px-4 max-w-[1140px]">

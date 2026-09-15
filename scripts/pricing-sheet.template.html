@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Illinois Estate Law — Fee Schedule</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 36px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 3px solid #2D3E50;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .header-left h1 {
+      font-size: 22pt;
+      color: #2D3E50;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .header-left p {
+      color: #4A708B;
+      font-size: 10pt;
+      margin-top: 3px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 9.5pt;
+      color: #555;
+      line-height: 1.6;
+    }
+    .header-right strong { color: #2D3E50; }
+
+    /* ── Notice ── */
+    .notice {
+      background: #f0f4f7;
+      border-left: 4px solid #4A708B;
+      padding: 10px 14px;
+      margin-bottom: 24px;
+      font-size: 9.5pt;
+      color: #2D3E50;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 28px;
+      page-break-inside: avoid;
+    }
+    .section-title {
+      background: #2D3E50;
+      color: #fff;
+      font-size: 11pt;
+      font-weight: 700;
+      padding: 7px 12px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+    }
+    th {
+      background: #f5f7f9;
+      color: #2D3E50;
+      font-weight: 600;
+      text-align: left;
+      padding: 7px 10px;
+      border-bottom: 1px solid #d0d8e0;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #e8ecef;
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafbfc; }
+
+    .service-name { font-weight: 600; color: #1a1a1a; }
+    .service-sub  { font-size: 8.5pt; color: #666; margin-top: 2px; font-weight: 400; }
+    .price        { font-weight: 700; color: #2D3E50; white-space: nowrap; text-align: right; }
+    .price-note   { font-size: 8pt; color: #888; font-weight: 400; display: block; }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 32px;
+      border-top: 2px solid #2D3E50;
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 8.5pt;
+      color: #555;
+    }
+    .footer-note { max-width: 520px; line-height: 1.5; }
+    .footer-contact { text-align: right; line-height: 1.7; }
+    .footer-contact strong { color: #2D3E50; font-size: 10pt; }
+
+    @media print {
+      body { padding: 20px 28px; }
+      .section { page-break-inside: avoid; }
+      .no-print { display: none; }
+    }
+
+    .print-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      background: #2D3E50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 10pt;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .print-btn:hover { background: #4A708B; }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">&#8595; Save as PDF (File &rarr; Print &rarr; Save as PDF)</button>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Illinois Estate Law</h1>
+      <p>Attorney Fee Schedule — Effective June 24, 2026</p>
+    </div>
+    <div class="header-right">
+      <strong>Mary Liberty, Esq.</strong><br>
+      illinoisestatelaw.com<br>
+      (312) 373-0731<br>
+      contact@illinoisestatelaw.com
+    </div>
+  </div>
+
+  <div class="notice">
+    Most fees are flat-rate. Payment plans available for all services. Surety bond premiums in probate (when required) are paid directly to the bond provider and are not included in any flat fee. <strong>Note:</strong> Illinois Estate Law does <strong>NOT</strong> serve as Trustee on client trusts — trustee services are not offered by this firm.
+  </div>
+
+  <!-- ═══════════════════════════════════════ ESTATE PLANNING PACKAGES -->
+  <div class="section">
+    <div class="section-title">Estate Planning Packages</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:22%;text-align:right">Individual</th>
+          <th style="width:23%;text-align:right">Joint (Couple)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Trust Package</div>
+            <div class="service-sub">Revocable Living Trust, Pour-Over Will, Power of Attorney for Healthcare, Power of Attorney for Property, Healthcare Directive, HIPAA Authorization, End of Life Planner, Personal Property Memorandum, 1 TODI of Real Estate to Trust, Trust Funding Guidance, Notarization, Portfolio, Portal, Unlimited Consultation</div>
+          </td>
+          <td class="price">$3,500</td>
+          <td class="price">{{STANDARD_PROBATE}}</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Probate Avoidance Package</div>
+            <div class="service-sub">Will, Power of Attorney for Healthcare, Power of Attorney for Property, Transfer on Death Instrument (TODI) for Real Estate, Healthcare Directive, HIPAA Authorization, End of Life Planner, Personal Property Memorandum, Notarization, Portfolio, Portal, Unlimited Consultation</div>
+          </td>
+          <td class="price">$1,750</td>
+          <td class="price">$2,250</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Will Package</div>
+            <div class="service-sub">Will, Power of Attorney for Healthcare, Power of Attorney for Property, Healthcare Directive, HIPAA Authorization, End of Life Planner, Personal Property Memorandum, Notarization, Portfolio, Portal, Unlimited Consultation</div>
+          </td>
+          <td class="price">$1,250</td>
+          <td class="price">$1,750</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">DIY Estate Plan Review</div>
+            <div class="service-sub">Comprehensive review and redlining of existing documents (up to 5) + 1-hour attorney session. Joint covers up to 5 documents per person.</div>
+          </td>
+          <td class="price">$500</td>
+          <td class="price">$750</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Estate Tax Planning Package</div>
+            <div class="service-sub">All documents in the Trust Package plus federal &amp; Illinois estate tax planning and any irrevocable trust(s) required to minimize or avoid estate tax. Base fee paid upfront; 1% of total estate value invoiced at document finalization.</div>
+          </td>
+          <td class="price">$10,000 + 1%<span class="price-note">of total estate value</span></td>
+          <td class="price">$15,000 + 1%<span class="price-note">of total estate value</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ PROBATE -->
+  <div class="section">
+    <div class="section-title">Probate</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Bond in Lieu of Probate</div>
+            <div class="service-sub">When the sole estate asset is real estate and all heirs agree. Includes: title transfer documentation, coordination with title company, unlimited attorney consultations. Surety bond premium paid directly to bond provider.</div>
+          </td>
+          <td class="price">$1,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Small Estate Administration</div>
+            <div class="service-sub">Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. Includes the Small Estate Affidavit, the Attorney Letter of Direction to the bank, brokerage, or transfer agent, and an asset search. Not a court proceeding — no probate estate is opened. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate, quoted separately.</div>
+          </td>
+          <td class="price">$1,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Standard Probate</div>
+            <div class="service-sub">Uncontested estates between $150,000 and $2,000,000. Includes: all court filings &amp; hearings, estate bank account, EIN, asset &amp; debt search, creditor notification &amp; publication, requesting tax records &amp; transcripts, transfer of real estate via deed, unlimited attorney consultations. Surety bond premium paid directly to bond provider.</div>
+          </td>
+          <td class="price">$5,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Large Estate Probate</div>
+            <div class="service-sub">Uncontested estates above $2,000,000. Includes same as Standard Probate. Base fee due at engagement; 1% of net estate value collected at time of administration. Surety bond premium paid directly to bond provider.</div>
+          </td>
+          <td class="price">$6,500 + 1%<span class="price-note">of net estate value</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Probate Reopening</div>
+            <div class="service-sub">Reopening a previously closed estate due to newly discovered assets. Includes: motion to reopen, all court hearings, reopening &amp; closing of estate, administration of newly discovered assets, notice to all heirs, unlimited attorney consultations.</div>
+          </td>
+          <td class="price">$2,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Partial Probate</div>
+            <div class="service-sub">Taking over representation in a probate matter already in progress. Final fee individually quoted based on case progress and complexity. Uncontested matters only.</div>
+          </td>
+          <td class="price">Starting at $3,500<span class="price-note">individually quoted</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Heir Representation</div>
+            <div class="service-sub">Representation of a non-executor heir throughout probate — review of all filings, advice on heir's rights, filing of claims, attendance at all hearings, unlimited attorney consultations.</div>
+          </td>
+          <td class="price">$2,500 / heir</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Spousal Representation</div>
+            <div class="service-sub">Representation of a surviving spouse throughout probate — advice on spousal rights, filing of claims including spousal claim for 50% of estate, attendance at all hearings, unlimited attorney consultations. Uncontested matters only.</div>
+          </td>
+          <td class="price">$3,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Contested Probate</div>
+            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Applies when any probate matter becomes or is anticipated to be contested. Attorney: {{ATTORNEY_HOURLY}} &bull; Paralegal/Administrative: {{PARALEGAL_HOURLY}}. Evergreen retainer; costs (filing, process server, transcripts) billed to the client.</div>
+          </td>
+          <td class="price">{{CONTESTED_RETAINER}} retainer<span class="price-note">+ hourly billing</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ GUARDIANSHIP -->
+  <div class="section">
+    <div class="section-title">Guardianship</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Minor Guardianship — Uncontested</div>
+            <div class="service-sub">Guardianship of a child under 18 where no parent objects. Flat fee is all-inclusive of court costs; Illinois eliminated minor-guardianship filing fees on Oct 1, 2025. If contested, converts to hourly against a retainer with the flat fee credited.</div>
+          </td>
+          <td class="price">$5,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Adult Guardianship of the Person and Estate — Uncontested</div>
+            <div class="service-sub">Flat fee, all-inclusive of the firm's work: petition, physician's report, personal service, GAL coordination, surety bond, inventory, and hearing. The guardian ad litem (GAL) fee is a court-set pass-through billed to the client (like the probate surety bond). If contested, converts to hourly against a retainer with the unearned flat fee credited.</div>
+          </td>
+          <td class="price">$5,000<span class="price-note">flat fee</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Contested Guardianship</div>
+            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Objection, competing petition, or removal. Attorney: {{ATTORNEY_HOURLY}} &bull; Paralegal: {{PARALEGAL_HOURLY}}. Evergreen retainer; costs (incl. GAL) billed to the client.</div>
+          </td>
+          <td class="price">{{CONTESTED_RETAINER}} retainer<span class="price-note">+ hourly billing</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Guardianship Compliance Plan (Annual)</div>
+            <div class="service-sub">Bundled annual filing of the Annual Report on the Ward (755 ILCS 5/11a-17(b)) and the estate accounting (755 ILCS 5/24-11). Also available separately: Annual Report on the Ward $750/yr; Annual Estate Accounting $1,800/yr.</div>
+          </td>
+          <td class="price">$2,300 / year</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Guardianship Interim Petition</div>
+            <div class="service-sub">Sale of the ward's real estate, extraordinary expenditure, or change of placement. Uncontested; per petition.</div>
+          </td>
+          <td class="price">$1,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Guardianship Termination / Restoration of Rights</div>
+            <div class="service-sub">Uncontested petition to end a guardianship and restore the ward's rights.</div>
+          </td>
+          <td class="price">$2,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ TRUST ADMINISTRATION -->
+  <div class="section">
+    <div class="section-title">Trust Administration</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Trust Administration Consulting</div>
+            <div class="service-sub">Attorney guidance for individuals serving as trustee — trust accounting review and preparation, distribution review, guidance on fiduciary duties under Illinois law, correspondence with beneficiaries, unlimited attorney consultation throughout the year. <em>Illinois Estate Law does NOT serve as Trustee. Trustee services are not offered by this firm.</em></div>
+          </td>
+          <td class="price">$3,500 / year</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ A LA CARTE -->
+  <div class="section">
+    <div class="section-title">&Agrave; La Carte Documents</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:22%;text-align:right">Individual</th>
+          <th style="width:23%;text-align:right">Joint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Revocable Living Trust</div>
+            <div class="service-sub">Includes 1 deed transfer to trust and online notarization</div>
+          </td>
+          <td class="price">$2,500</td>
+          <td class="price">$3,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Last Will &amp; Testament</div>
+            <div class="service-sub">Includes online notarization</div>
+          </td>
+          <td class="price">$750</td>
+          <td class="price">$1,250</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Powers of Attorney (Healthcare &amp; Property)</div>
+            <div class="service-sub">Includes both Power of Attorney for Healthcare and Power of Attorney for Property. Joint includes two of each document. Includes online notarization.</div>
+          </td>
+          <td class="price">$400</td>
+          <td class="price">$600</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Healthcare Directive (Living Will)</div>
+            <div class="service-sub">Includes online notarization</div>
+          </td>
+          <td class="price" colspan="2" style="text-align:center">$350</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Trust Restatement</div>
+            <div class="service-sub">Rewrites terms of existing trust. Includes review of all prior estate planning documents and online/mobile notarization.</div>
+          </td>
+          <td class="price">$2,000</td>
+          <td class="price">$3,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Will Amendment (Codicil)</div>
+            <div class="service-sub">Includes review of prior will and online notarization</div>
+          </td>
+          <td class="price">$500</td>
+          <td class="price">$750</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Trust Funding Guidance</div>
+            <div class="service-sub">Guidance for retitling up to 15 financial assets into your trust. We review the trust and walk you through each transfer; you complete them with your institutions. Does not include real estate / deed transfers.</div>
+          </td>
+          <td class="price" colspan="2" style="text-align:center">$1,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Special Needs Planning</div>
+            <div class="service-sub">Creation or amendment of Revocable Living Trust, or creation of Irrevocable Trust for special needs planning</div>
+          </td>
+          <td class="price" colspan="2" style="text-align:center">$3,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Estate Tax Planning (Add-On)</div>
+            <div class="service-sub">Can be added to any existing package or estate plan. Base fee paid upfront; 1% of total estate value invoiced at time of document finalization.</div>
+          </td>
+          <td class="price" colspan="2" style="text-align:center">$5,000 base + 1%<span class="price-note">of total estate value</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ DEED SERVICES -->
+  <div class="section">
+    <div class="section-title">Deed Services</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Additional Deed Transfer to Trust</div>
+            <div class="service-sub">For funding multiple properties into an existing or newly created trust. One deed transfer is included in the Trust Package and Trust Restatement.</div>
+          </td>
+          <td class="price">$500 / deed</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Quitclaim Deed</div></td>
+          <td class="price">$500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Transfer on Death Instrument (TODI)</div></td>
+          <td class="price">$500</td>
+        </tr>
+        <tr>
+          <td><div class="service-name">Life Estate Deed</div></td>
+          <td class="price">$500</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════ REAL ESTATE -->
+  <div class="section">
+    <div class="section-title">Real Estate</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:55%">Service</th>
+          <th style="width:45%;text-align:right">Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Residential Closing (Buyer or Seller)</div>
+            <div class="service-sub">Flat fee paid at closing. Does not include closing costs. Includes: contract review, title review &amp; clearance, title search, document preparation, settlement statement review, attorney representation at closing, unlimited attorney consultations.</div>
+          </td>
+          <td class="price">$750</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">
+      <strong>Notes:</strong> Most fees are flat-rate and due before work begins. Payment plans available (5% setup fee). Surety bond premiums in probate (when required) are paid directly to the bond provider and are not included above. Contested Probate is billed hourly with a $5,000 retainer. Illinois Estate Law does NOT serve as Trustee — trustee services are not offered by this firm.
+    </div>
+    <div class="footer-contact">
+      <strong>Illinois Estate Law</strong><br>
+      illinoisestatelaw.com<br>
+      (312) 373-0731<br>
+      contact@illinoisestatelaw.com
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,4 +1,6 @@
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate';
+import { PROBATE, RATES, RETAINERS, usd, hourly } from './pricing';
+
+export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
 export type StandardizedServiceName =
   | 'Individual Trust Package'
@@ -32,7 +34,7 @@ export type StandardizedServiceName =
   | 'Probate (Tier 2)'
   | 'Probate (Tier 3)'
   | 'Probate (Tier 4)'
-  | 'Small Estate Probate'
+  | 'Small Estate Administration'
   | 'Bond in Lieu of Probate'
   | 'Standard Probate'
   | 'Large Estate Probate'
@@ -46,13 +48,17 @@ export type StandardizedServiceName =
   | 'Trust Funding - A La Carte'
   | 'Residential Closing'
   | 'For Sale By Owner Representation'
-  | 'Trust Administration Consulting';
+  | 'Trust Administration Consulting'
+  | 'Adult Guardianship'
+  | 'Minor Guardianship'
+  | 'Annual Guardianship Compliance'
+  | 'Contested Guardianship';
 
 export interface Service {
   id: string;
   name: string;
   subtitle?: string;
-  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'real-estate';
+  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'real-estate' | 'guardianship';
   standardizedCaseType: StandardizedCaseType;
   standardizedServiceName: {
     individual: StandardizedServiceName;
@@ -257,8 +263,7 @@ const probateIncludes = [
   'Obtaining Estate EIN',
   'Asset & Debt Search',
   'Creditor Notification & Publication',
-  'Obtaining Tax Transcripts',
-  'Final Tax Returns (if required)',
+  'Requesting Tax Records & Transcripts',
   'Transfer of Real Estate via Deed, if necessary (includes all recording fees)',
   'Unlimited Attorney Consultations'
 ];
@@ -284,16 +289,20 @@ export const probatePackages: Service[] = [
     addOns: []
   },
   {
-    id: 'summary-probate',
-    name: 'Small Estate Probate',
-    subtitle: 'For uncontested estates under $150,000 requiring Letters of Office',
+    id: 'small-estate-administration',
+    name: 'Small Estate Administration',
+    subtitle: 'Small Estate Affidavit and Attorney Letter of Direction — no probate case opened',
     category: 'probate',
     standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Small Estate Probate',
-    fixedPrice: 3500,
-    description: 'Applies to estates under $150,000 where a bank will not accept a Small Estate Affidavit and Letters of Office are required. This is a standard (not summary) probate matter designed for smaller estates that do not qualify for the Small Estate Affidavit process. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
-    includes: probateIncludes,
-    note: probateNote,
+    standardizedServiceName: 'Small Estate Administration',
+    fixedPrice: 1000,
+    description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
+    includes: [
+      'Small Estate Affidavit',
+      'Attorney Letter of Direction',
+      'Asset Search'
+    ],
+    note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.',
     addOns: []
   },
   {
@@ -303,7 +312,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Standard Probate',
-    fixedPrice: 5000,
+    fixedPrice: PROBATE.standard,
     description: 'Applies to uncontested estates valued between $150,000 and $2,000,000. Flat-fee probate administration from opening through closing. If estate value exceeds $2,000,000, an additional 1% of net estate value is invoiced at the time of distribution. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
     includes: probateIncludes,
     note: probateNote,
@@ -395,12 +404,12 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Contested Probate',
-    pricingLabel: '$5,000 retainer + hourly',
-    description: 'Applies when any probate matter becomes or is anticipated to be contested. This is not a flat-fee service. Attorney hourly rate: $400/hour. Paralegal/Administrative hourly rate: $150/hour. Retainer replenished as needed throughout the matter.',
+    pricingLabel: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
+    description: `Applies when any probate matter becomes or is anticipated to be contested. This is not a flat-fee service. Attorney hourly rate: ${hourly(RATES.attorneyHourly)}. Paralegal/Administrative hourly rate: ${hourly(RATES.paralegalHourly)}. Retainer replenished as needed throughout the matter.`,
     includes: [
-      'Minimum $5,000 retainer required to commence representation',
-      'Attorney hourly rate: $350 / hour',
-      'Paralegal / Administrative hourly rate: $125 / hour',
+      `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
+      `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
+      `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
       'Retainer replenished as needed throughout the matter'
     ],
     addOns: []
@@ -563,7 +572,7 @@ export const realEstateServices: Service[] = [
     standardizedCaseType: 'Real Estate',
     standardizedServiceName: 'Residential Closing',
     fixedPrice: 750,
-    description: 'Flat fee paid at the time of closing. Does not include closing costs. For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois.',
+    description: 'For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.',
     includes: [
       'Contract Review',
       'Title Review and Clearance',
@@ -581,7 +590,7 @@ export const realEstateServices: Service[] = [
     standardizedCaseType: 'Real Estate',
     standardizedServiceName: 'For Sale By Owner Representation',
     fixedPrice: 1500,
-    description: 'Full-service attorney representation for a For Sale By Owner (FSBO) residential real estate transaction in Illinois, where you are not represented by a real estate agent. Flat fee paid at closing (does not include closing costs).',
+    description: 'Full-service attorney representation for a For Sale By Owner (FSBO) residential real estate transaction in Illinois, where there is no listing agent. Because no agent is involved, the attorney also handles the coordination a listing agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.',
     includes: [
       'Purchase/Sale Contract Drafting or Review',
       'Title Review and Clearance',
@@ -618,10 +627,80 @@ export const trustAdministrationServices: Service[] = [
   }
 ];
 
+export const guardianshipServices: Service[] = [
+  {
+    id: 'adult-guardianship',
+    name: 'Adult Guardianship',
+    subtitle: 'Uncontested guardianship of the person and estate',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Adult Guardianship',
+    fixedPrice: 5000,
+    requiresConsultation: true,
+    description: 'For an adult who can no longer safely make personal, medical, or financial decisions. The firm evaluates the facts and handles the uncontested petition, physician-report coordination, guardian ad litem coordination, and hearing.',
+    includes: [
+      'Guardianship petition and required court filings',
+      'Physician-report and guardian ad litem coordination',
+      'Guidance through the hearing and appointment process'
+    ],
+    note: 'The guardian ad litem fee is a court-set pass-through cost disclosed separately. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed. That is a separate recurring fee and is not part of this flat fee.'
+  },
+  {
+    id: 'minor-guardianship',
+    name: 'Minor Guardianship',
+    subtitle: 'Uncontested guardianship for a child',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Minor Guardianship',
+    fixedPrice: 5000,
+    requiresConsultation: true,
+    description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
+    includes: [
+      'Guardianship petition and required court filings',
+      'Notice and hearing preparation',
+      'Guidance through appointment and letters of office'
+    ],
+    note: 'This service is for uncontested matters. A contested case requires a separate consultation. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed. That is a separate recurring fee and is not part of this flat fee.'
+  },
+  {
+    id: 'annual-guardianship-compliance',
+    name: 'Annual Guardianship Compliance',
+    subtitle: 'Annual report and accounting support',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Annual Guardianship Compliance',
+    fixedPrice: 2300,
+    requiresConsultation: true,
+    description: 'For appointed guardians who need support preparing and filing the annual report on the ward and estate accounting on the court schedule.',
+    includes: [
+      'Annual report on the ward',
+      'Annual estate accounting support',
+      'Court-deadline tracking and filing guidance'
+    ]
+  },
+  {
+    id: 'contested-guardianship',
+    name: 'Contested Guardianship',
+    subtitle: 'Objection, competing petition, or guardian-removal matter',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Contested Guardianship',
+    pricingLabel: `${usd(RETAINERS.contestedGuardianship)} retainer + hourly`,
+    requiresConsultation: true,
+    description: 'For a guardianship matter involving an objection, a competing petition, or a challenge to an existing guardian. These matters require attorney review before engagement.',
+    includes: [
+      'Attorney review of the dispute and court posture',
+      'Clear explanation of retainer, hourly rates, and anticipated next steps'
+    ],
+    note: 'Court costs and guardian ad litem fees may be billed separately.'
+  }
+];
+
 export const allServices = [
   ...estatePlanningPackages,
   ...probatePackages,
   ...trustAdministrationServices,
   ...aLaCarteServices,
-  ...realEstateServices
+  ...realEstateServices,
+  ...guardianshipServices
 ];

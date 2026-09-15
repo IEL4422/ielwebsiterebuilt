@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: Homepage resilience tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      # vitest is installed with --no-save on purpose. Adding it to
+      # package.json would desynchronise package-lock.json, and Railway's build
+      # runs `npm ci`, which fails on a lockfile that does not match. The test
+      # tooling must not be able to break the production build.
+      - name: Install test runner
+        run: npm install --no-save --no-audit --no-fund vitest@1.6.1
+
+      - name: Run tests
+        run: npx vitest run
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: tsc --noEmit
+        run: npm run typecheck

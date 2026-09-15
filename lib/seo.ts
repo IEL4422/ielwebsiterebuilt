@@ -174,27 +174,21 @@ export const ATTORNEYS: AttorneyProfile[] = [
     ],
   },
   {
-    name: 'Victoria Lozano',
-    jobTitle: 'Senior Attorney',
-    email: 'victoria@illinoisestatelaw.com',
-    image: 'https://i0.wp.com/planforwardlegal.com/wp-content/uploads/2026/01/IMG_3670.jpg',
+    name: 'Anna M. Rafanelli',
+    jobTitle: 'Attorney',
+    email: 'anna@illinoisestatelaw.com',
+    image: 'https://www.illinoisestatelaw.com/attorneys/anna-rafanelli.jpg',
     description:
-      'Victoria Lozano is a senior attorney at Illinois Estate Law licensed in Illinois, with a practice spanning estate planning, trust administration, and probate. She earned her J.D. from Chicago-Kent College of Law in 2022.',
+      'Anna M. Rafanelli is an attorney at Illinois Estate Law focusing on probate and elder law, particularly adult guardianships. A civil litigator with over five years of experience, she is licensed in Illinois, Indiana, and the U.S. District Court for the Northern District of Illinois.',
     alumniOf: [
-      'Coastal Carolina University',
-      'Appalachian State University',
-      'Chicago-Kent College of Law',
+      'Valparaiso University',
+      'Loyola University Chicago School of Law',
     ],
     knowsAbout: [
-      'Illinois estate planning',
-      'Trust administration',
       'Illinois probate',
-      'LGBTQ+ estate planning',
-    ],
-    memberOf: [
-      'Chicago Bar Association',
-      'American Bar Association',
-      'Lesbian and Gay Bar Association of Chicago (LAGBAC)',
+      'Elder law',
+      'Adult guardianships',
+      'Civil litigation',
     ],
   },
 ];

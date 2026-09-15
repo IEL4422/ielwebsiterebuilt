@@ -1,4 +1,7 @@
+import { Suspense } from 'react';
 import Script from 'next/script';
+import { faqPageSchema } from '@/lib/seo';
+import { homeFAQs } from '@/lib/home-faqs';
 import { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
 import { QuickFactsBar } from '@/components/home/QuickFactsBar';
@@ -13,42 +16,42 @@ import { FAQSection } from '@/components/home/FAQSection';
 import WhichServiceSection from '@/components/home/WhichServiceSection';
 import RecentArticlesStrip from '@/components/home/RecentArticlesStrip';
 import IllinoisCoverageSection from '@/components/home/IllinoisCoverageSection';
+import { SectionBoundary } from '@/components/home/SectionBoundary';
+
+/**
+ * Cache posture for "/".
+ *
+ * This route reads MongoDB at render time (RecentArticlesStrip below), so it
+ * must never be served out of Next's incremental (ISR) response cache.
+ *
+ * It used to be `revalidate = 3600`. That made "/" the only route in this
+ * application that combined a render-time database read with the ISR cache.
+ * Every other database-backed route - /blog/[slug], /learning-center,
+ * /learning-center/[slug], and every API route that calls getDb - is already
+ * force-dynamic. "/" is also the only route that has ever gone dark: on
+ * 6 September 2026, and again on 9 September 2026, a background regeneration
+ * stored a bodyless entry for "/" and every visitor was served a 304 with no
+ * body until that entry was discarded.
+ *
+ * The guards further down this file - the 2.5s query timeout, the loader that
+ * cannot throw, the Suspense boundary, the client error boundary - all protect
+ * the *render*. None of them protects the *write*. Once a regeneration
+ * produces a bad artefact for any reason, Next stores it and then serves it to
+ * everyone. A failed operation must not be able to write a success-shaped
+ * artefact, and the only way to guarantee that here is for this route to stop
+ * producing a cache entry at all.
+ *
+ * Operationally, the fact that cost us two outages: the poisoned entry lives on
+ * the container's writable filesystem, so an in-place RESTART does not clear it.
+ * Only a REDEPLOY (fresh container) does.
+ *
+ * Pinned by test/homepage-cache-posture.test.ts.
+ */
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
   description: 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
-  keywords: [
-    'estate planning firm',
-    'trust and estate law firms',
-    'estate law firms',
-    'estate attorney chicago',
-    'estate planning chicago',
-    'chicago estate planning',
-    'estate planning chicago il',
-    'chicago estate attorney',
-    'estate lawyers chicago',
-    'chicago estate lawyer',
-    'estate lawyers in chicago',
-    'estate lawyer chicago',
-    'illinois estate planning attorney',
-    'chicago trust lawyer',
-    'trust attorney chicago',
-    'chicago trust attorneys',
-    'chicago trust attorney',
-    'estate tax planning attorneys',
-    'will attorney chicago',
-    'estate planning lawyer chicago',
-    'chicago estate planning attorneys',
-    'estate planning attorney chicago il',
-    'chicago estate planning lawyer',
-    'estate planning attorney chicago',
-    'chicago estate planning lawyers',
-    'chicago estate planning attorney',
-    'best estate planning attorneys chicago',
-    'power of attorney chicago',
-    'chicago power of attorney',
-    'chicago trusted attorneys'
-  ],
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/',
   },
@@ -85,104 +88,20 @@ export const metadata: Metadata = {
   },
 };
 
+const faqSchema = faqPageSchema(homeFAQs, '/');
+
 export default function Home() {
   return (
     <>
-      <Script
-        id="website-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Illinois Estate Law",
-            "alternateName": "Illinois Estate Law",
-            "description": "Top-rated Chicago estate planning and probate law firm offering flat-fee wills, trusts, powers of attorney, and probate administration across Illinois.",
-            "url": "https://www.illinoisestatelaw.com"
-          })
-        }}
-      />
 
-      <Script
-        id="organization-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LegalService",
-            "name": "Illinois Estate Law",
-            "alternateName": "Illinois Estate Law",
-            "url": "https://www.illinoisestatelaw.com",
-            "telephone": "+1-312-373-0731",
-            "email": "mary@illinoisestatelaw.com",
-            "description": "Top-rated Chicago estate planning and probate law firm offering flat-fee wills, trusts, powers of attorney, healthcare directives, and probate administration across Illinois.",
-            "priceRange": "$$",
-            "image": "https://www.illinoisestatelaw.com/herobackgoundimage.png",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "4422 N. Ravenswood Ave",
-              "addressLocality": "Chicago",
-              "addressRegion": "IL",
-              "postalCode": "60640",
-              "addressCountry": "US"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 41.9621,
-              "longitude": -87.6743
-            },
-            "areaServed": [
-              {
-                "@type": "State",
-                "name": "Illinois"
-              },
-              {
-                "@type": "City",
-                "name": "Chicago"
-              }
-            ],
-            "serviceType": [
-              "Estate Planning",
-              "Probate Administration",
-              "Wills and Trusts",
-              "Powers of Attorney",
-              "Healthcare Directives",
-              "Deed Transfers"
-            ],
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "09:00",
-                "closes": "17:00"
-              }
-            ],
-            "sameAs": [
-              "https://www.facebook.com/illinoisestatelaw",
-              "https://www.linkedin.com/company/illinois-estate-law"
-            ],
-            "founder": {
-              "@type": "Person",
-              "name": "Mary Liberty",
-              "jobTitle": "Attorney",
-              "url": "https://www.illinoisestatelaw.com/about/"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5.0",
-              "reviewCount": "50",
-              "bestRating": "5"
-            }
-          })
-        }}
-      />
 
-      <Script
-        id="faq-schema"
+      {/* Server-rendered (NOT next/script): AI crawlers - GPTBot, ClaudeBot,
+          PerplexityBot, CCBot - read raw HTML and do not execute JavaScript,
+          so JSON-LD injected by next/script is invisible to them. Built from
+          the same homeFAQs array the visible accordion renders. */}
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: `{"@context":"https://schema.org","@type":"FAQPage","name":"FAQ","mainEntity":[{"@type":"Question","name":"Why is estate planning important for everyone?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"Estate planning matters for people of all ages and backgrounds because it ensures that their wishes are respected and their loved ones are cared for. It helps avoid unnecessary legal complications and costly court delays. Having a plan in place gives peace of mind, knowing that your values and finances will be protected no matter what life brings."}},{"@type":"Question","name":"What benefits does estate planning provide for young adults?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"Even for young and healthy individuals, estate planning creates structure and security. It allows them to choose who can make medical or financial decisions if they become unable to do so. This foresight prevents confusion, protects loved ones, and avoids legal complications later in life."}},{"@type":"Question","name":"How does Illinois Estate Law make estate planning more convenient?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"Illinois Estate Law offers a modern, virtual process that eliminates the need for office visits or piles of paperwork. Clients can complete their estate planning securely online, from the comfort of home, and still have the option for in-person meetings if desired. This approach provides flexibility while maintaining confidentiality and professional guidance throughout the process."}},{"@type":"Question","name":"What makes Illinois Estate Law's pricing structure different?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"The firm uses an all-inclusive flat-fee system, so clients know exactly what they will pay from the start. There are no hourly rates, hidden costs, or surprise charges for asking questions. This clear and transparent approach allows clients to plan confidently and focus on protecting their families rather than worrying about unpredictable legal bills."}},{"@type":"Question","name":"What types of documents are typically included in an estate plan?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"An estate plan can include wills, trusts, and powers of attorney that meet Illinois legal requirements. It may also cover healthcare directives and HIPAA authorizations to ensure your medical wishes are honored. Together, these documents create a complete framework to manage your assets, healthcare, and decisions in the future."}},{"@type":"Question","name":"How does Illinois Estate Law handle probate cases?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"The firm assists families through the legal process of settling a loved one's estate after death. Whether it involves uncontested probate, managing creditor claims, or handling estates without a will, they focus on making each step clear and manageable. Their compassionate guidance helps families stay informed and supported throughout what can be an emotionally challenging time."}},{"@type":"Question","name":"What are partial probate services, and who might need them?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"Partial probate services are for clients who have already begun probate with another attorney but feel dissatisfied or stuck. Illinois Estate Law can take over the case, provide transparent communication, and finish the process efficiently. This option helps clients regain confidence and closure, avoiding further delays or confusion."}},{"@type":"Question","name":"Why is guardianship planning a crucial part of estate planning?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"Guardianship planning ensures that children, elderly parents, or incapacitated loved ones receive care from someone you trust. It allows you to make these important decisions proactively rather than leaving them to the courts. Establishing guardianship in advance brings clarity, protection, and peace of mind to your family's future."}},{"@type":"Question","name":"How can Illinois Estate Law help clients with estate planning and probate?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"At Illinois Estate Law, we guide individuals and families through every stage of estate planning and probate with care and clarity. Our team works closely with clients to create personalized wills, trusts, and healthcare directives that follow Illinois law. We also assist with probate cases, ensuring the process is smooth, transparent, and free of hidden costs. Our goal is to provide compassionate, client-first service that protects what matters most to you."}},{"@type":"Question","name":"How can someone contact Illinois Estate Law to get started?","answerCount":"1","acceptedAnswer":{"@type":"Answer","text":"You can contact Illinois Estate Law by calling (312) 373-0731 or booking a consultation online through the firm's website. We offer flexible virtual and in-person meetings to fit your schedule. Whether you're beginning your first estate plan or updating existing documents, our team is ready to help you take the next step with confidence and peace of mind."}}]}`
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <Script
@@ -222,9 +141,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <TwoPathsSection />
         <PracticeAreasSection />
         <WhichServiceSection />
-        <RecentArticlesStrip />
+
+        {/*
+          The only section on this page that touches a data source at render
+          time. Suspense lets everything above it flush to the browser first,
+          and SectionBoundary contains any render error to this subtree; the
+          component itself already returns null on any failure or timeout.
+          Three independent layers, because the cost of this page going dark is
+          a law firm's front door.
+        */}
+        <SectionBoundary name="RecentArticlesStrip">
+          <Suspense fallback={null}>
+            <RecentArticlesStrip />
+          </Suspense>
+        </SectionBoundary>
+
         <IllinoisCoverageSection />
-        <TestimonialsSection />
+
+        <SectionBoundary name="TestimonialsSection">
+          <TestimonialsSection />
+        </SectionBoundary>
+
         <ClientPortalSection />
         <ContactSection />
         <FAQSection />

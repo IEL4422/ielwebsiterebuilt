@@ -9,6 +9,46 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'estate-planning-for-unmarried-couples-illinois',
+    title: 'Estate Planning for Unmarried Couples in Illinois',
+    url: '/blog/estate-planning-for-unmarried-couples-illinois/',
+    date: 'Aug 19, 2026',
+    summary:
+      'Complete guide to estate planning for unmarried couples in Illinois — why Illinois law gives unmarried partners zero automatic inheritance or decision-making rights, the five risks of dying without a plan, and the essential documents (will or revocable living trust, financial and healthcare powers of attorney, advance directive, beneficiary designations, and joint tenancy) that protect each partner legally and financially.',
+    excerpt:
+      'Unmarried couples in Illinois have no automatic inheritance rights or medical decision-making authority. Learn the essential estate planning documents that protect your partner — and yourself.',
+  },
+  {
+    slug: 'joint-tenancy-vs-tenancy-in-common-illinois',
+    title: 'Joint Tenancy vs. Tenancy in Common in Illinois: Which Is Right for You?',
+    url: '/blog/joint-tenancy-vs-tenancy-in-common-illinois/',
+    date: 'Aug 12, 2026',
+    summary:
+      "Comprehensive guide to joint tenancy and tenancy in common in Illinois — the four unities required for joint tenancy under 765 ILCS 1005, the right of survivorship, Illinois's default rule (tenancy in common when deed is silent), how each form of co-ownership interacts with revocable living trusts and wills, which structure is right for married couples vs. unmarried partners vs. co-investors, and how to convert between the two forms of ownership.",
+    excerpt:
+      'Joint tenancy and tenancy in common are not interchangeable. Learn how each works under Illinois law, which is right for your situation, and how property title affects your estate plan.',
+  },
+  {
+    slug: 'illinois-estate-tax-cliff-explained',
+    title: 'Illinois Estate Tax Cliff Explained: What It Is and How to Plan Around It',
+    url: '/blog/illinois-estate-tax-cliff-explained/',
+    date: 'Aug 5, 2026',
+    summary:
+      "Comprehensive guide to the Illinois estate tax cliff — why estates just above the $4 million exemption can owe six-figure tax bills, how the graduated rate structure creates a disproportionate marginal tax burden, who is most at risk (Chicago homeowners, business owners, surviving spouses), and the planning strategies — bypass trusts, ILITs, lifetime gifting, and charitable planning — that reduce or eliminate Illinois estate tax exposure.",
+    excerpt:
+      "Illinois's estate tax cliff means crossing the $4M threshold triggers a six-figure tax bill on your entire estate — not just the excess. Learn what causes it, who it affects, and how to plan around it.",
+  },
+  {
+    slug: 'how-to-handle-deceased-persons-debt-illinois',
+    title: "How to Handle a Deceased Person's Debt in Illinois",
+    url: '/blog/how-to-handle-deceased-persons-debt-illinois/',
+    date: 'Jul 29, 2026',
+    summary:
+      "Comprehensive guide to handling a deceased person's debt in Illinois — which debts die with the person, which survive and must be addressed through probate, the statutory priority order for paying creditors under 755 ILCS 5/18-10, when heirs are and are not personally liable, how to handle mortgages, credit card debt, medical bills, and student loans, and the duties Illinois executors must fulfill to avoid personal liability.",
+    excerpt:
+      "When someone dies in Illinois, their debts don't simply disappear. Learn which must be paid from the estate, who is personally responsible, and how executors should handle creditors during probate.",
+  },
+  {
     slug: 'how-guardianship-works-in-illinois',
     title: 'How Guardianship Works in Illinois: The Complete 2026 Guide',
     url: '/blog/how-guardianship-works-in-illinois/',

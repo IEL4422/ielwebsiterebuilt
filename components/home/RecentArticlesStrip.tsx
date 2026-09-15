@@ -10,31 +10,79 @@ interface BlogPost {
   topic: string;
 }
 
-export default async function RecentArticlesStrip() {
-  let posts: BlogPost[] | null = null;
+/**
+ * Hard ceiling on how long the homepage will wait for the article list.
+ *
+ * A throw is not the only way a data source can take a page down: a hang is
+ * worse, because it holds the render open until something upstream gives up and
+ * the visitor gets nothing. This strip is a nice-to-have, so it gets a short
+ * leash. The service currently runs a single replica in europe-west4 while the
+ * database is elsewhere, which makes slow round trips a real possibility.
+ */
+const QUERY_TIMEOUT_MS = 2500;
 
+function withTimeout<T>(work: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(
+      () => reject(new Error(`${label} timed out after ${ms}ms`)),
+      ms
+    );
+    // Both handlers are attached, so the underlying promise can never surface as
+    // an unhandled rejection even when the timeout wins the race.
+    work.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (err) => {
+        clearTimeout(timer);
+        reject(err);
+      }
+    );
+  });
+}
+
+/**
+ * Loads the three most recent posts. Never throws, never hangs: on any failure
+ * it logs and returns an empty list, and the homepage renders without the strip.
+ *
+ * Nothing here may propagate into the render or into Next's caching machinery -
+ * a poisoned ISR entry for "/" is what blanked the site on 6 September 2026.
+ */
+async function loadRecentPosts(): Promise<BlogPost[]> {
   try {
-    const db = await getDb();
-    const docs = await db
-      .collection("blogPosts")
-      .find(
-        {},
-        { projection: { title: 1, slug: 1, metaDescription: 1, publishedDate: 1, topic: 1 } }
-      )
-      .sort({ publishedDate: -1 })
-      .limit(3)
-      .toArray();
+    const docs = await withTimeout(
+      (async () => {
+        const db = await getDb();
+        return db
+          .collection("blogPosts")
+          .find(
+            {},
+            { projection: { title: 1, slug: 1, metaDescription: 1, publishedDate: 1, topic: 1 } }
+          )
+          .sort({ publishedDate: -1 })
+          .limit(3)
+          .toArray();
+      })(),
+      QUERY_TIMEOUT_MS,
+      "RecentArticlesStrip blogPosts query"
+    );
 
-    if (!docs || docs.length === 0) {
-      return null;
-    }
-
-    posts = docs as unknown as BlogPost[];
-  } catch {
-    return null;
+    if (!Array.isArray(docs)) return [];
+    return docs as unknown as BlogPost[];
+  } catch (err) {
+    console.error(
+      "[homepage] RecentArticlesStrip unavailable, rendering the page without it:",
+      err
+    );
+    return [];
   }
+}
 
-  if (!posts || posts.length === 0) {
+export default async function RecentArticlesStrip() {
+  const posts = await loadRecentPosts();
+
+  if (posts.length === 0) {
     return null;
   }
 

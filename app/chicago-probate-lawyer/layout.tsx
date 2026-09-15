@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { breadcrumbSchema, serviceSchema, faqPageSchema } from '@/lib/seo';
-import { contestedProbateFAQs } from '@/lib/practice-faqs';
+import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 
 const TITLE = 'Chicago Probate Lawyer | Illinois Probate Attorney | Illinois Estate Law';
 const DESCRIPTION = 'Chicago probate lawyer guiding executors and families through Illinois probate and estate administration. Flat-fee probate in Cook County and statewide. Call (312) 373-0731.';
@@ -51,7 +51,12 @@ const contestedService = {
   '@id': `${URL}#service-contested`,
 };
 
-const contestedFaq = faqPageSchema(contestedProbateFAQs, PATH);
+// ONE FAQPage per URL. This page previously emitted two — this block plus a
+// second, separately maintained FAQPage inlined in page.tsx. Google uses only
+// one FAQPage per page and duplicates risk the markup being discarded, so the
+// general-probate and contested-probate questions are merged into a single
+// entity here. Both arrays are also what the visible accordions render.
+const faq = faqPageSchema([...probateFAQs, ...contestedProbateFAQs], PATH);
 
 export default function ChicagoProbateLawyerLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -59,7 +64,7 @@ export default function ChicagoProbateLawyerLayout({ children }: { children: Rea
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contestedService) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contestedFaq) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       {children}
     </>
   );

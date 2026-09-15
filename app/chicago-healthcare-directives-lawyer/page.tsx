@@ -3,6 +3,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CTABand } from '@/components/ui/CTAButtons';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Heart, AlertCircle, CheckCircle } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
@@ -600,6 +601,11 @@ export default function HealthcareDirectivesPage() {
             </div>
           </div>
         </section>
+
+        <CTABand
+          title="Ready to put your healthcare directives in place?"
+          subtitle="Get started online or book a free consultation, and we will make sure your medical wishes are documented and honored."
+        />
 
         <section className="py-10 px-4 sm:px-5 bg-gray-50">
           <div className="max-w-[1140px] mx-auto">

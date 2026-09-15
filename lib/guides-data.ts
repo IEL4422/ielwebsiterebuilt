@@ -285,108 +285,24 @@ export const staticGuides: StaticGuide[] = [
 </ul>
     `.trim(),
   },
-
-  {
-    id: 'static-trademark',
-    slug: 'trademark-registration-guide',
-    title: 'Trademark Registration: A Complete Guide for Business Owners',
-    description: 'Learn how trademark registration works, why it matters for your business, and the steps to register your brand with the USPTO.',
-    category: 'Business Law',
-    content: `
-<h2>What Is a Trademark?</h2>
-<p>A trademark is any word, phrase, symbol, design, or combination of these elements that identifies and distinguishes the source of goods or services. Your business name, logo, slogan, and even distinctive product packaging can function as trademarks.</p>
-<p>Trademark rights serve two purposes: they protect consumers by helping them identify the source of goods and services, and they protect businesses by preventing competitors from using confusingly similar marks.</p>
-
-<h2>Common Law vs. Registered Trademark Rights</h2>
-<p>In the United States, trademark rights arise from use — not registration. You acquire common law trademark rights simply by using a mark in commerce. However, common law rights are limited to the geographic area where you actually use the mark.</p>
-<p>Federal registration with the U.S. Patent and Trademark Office (USPTO) provides significantly stronger protection:</p>
-<ul>
-  <li><strong>Nationwide priority:</strong> A federal registration gives you priority over later users of a confusingly similar mark throughout the entire United States</li>
-  <li><strong>Legal presumption of ownership:</strong> Registration creates a legal presumption that you own the mark and have the exclusive right to use it</li>
-  <li><strong>Public notice:</strong> Registration puts the world on constructive notice of your claim</li>
-  <li><strong>Incontestability:</strong> After 5 years of continuous use, a registration can become "incontestable," making it much harder to challenge</li>
-  <li><strong>Border protection:</strong> You can record your trademark with U.S. Customs to block infringing imported goods</li>
-  <li><strong>Basis for foreign registration:</strong> U.S. registration can be used as the basis for registering in other countries</li>
-  <li><strong>® symbol:</strong> Only federally registered trademark owners may use the ® symbol</li>
-</ul>
-
-<h2>What Can Be Registered as a Trademark?</h2>
-<p>Not every mark qualifies for trademark registration. Marks are evaluated on a spectrum of distinctiveness:</p>
-<ul>
-  <li><strong>Fanciful marks:</strong> Invented words with no prior meaning (e.g., Xerox, Kodak). Strongest protection.</li>
-  <li><strong>Arbitrary marks:</strong> Common words used in an unrelated context (e.g., Apple for computers). Strong protection.</li>
-  <li><strong>Suggestive marks:</strong> Suggest a quality of the goods/services without describing them directly. Protectable.</li>
-  <li><strong>Descriptive marks:</strong> Directly describe the goods or services. Generally not protectable unless they have acquired distinctiveness through extensive use.</li>
-  <li><strong>Generic terms:</strong> The common name for the goods or services. Never protectable.</li>
-</ul>
-<p>Marks may also be refused if they are: likely to be confused with an existing registered mark, primarily merely a surname, geographically descriptive, or scandalous.</p>
-
-<h2>The Trademark Classes</h2>
-<p>The USPTO uses the International Classification of Goods and Services (the "Nice Classification") to organize trademarks into 45 classes — 34 covering goods and 11 covering services. You register your mark for specific classes relevant to your business.</p>
-<p>Each class requires a separate filing fee, so it is important to identify all relevant classes without over-filing.</p>
-
-<h2>Conducting a Trademark Search</h2>
-<p>Before filing, a thorough trademark search is essential. The USPTO's free TESS (Trademark Electronic Search System) database allows you to search registered marks and pending applications. However, a comprehensive search should also include:</p>
-<ul>
-  <li>State trademark registrations</li>
-  <li>Common law uses (websites, social media, business directories)</li>
-  <li>Similar-sounding marks (phonetic equivalents)</li>
-  <li>Visual similarities in logos</li>
-</ul>
-<p>Filing without searching risks receiving an office action rejection, wasting filing fees, and — worse — infringing an existing mark.</p>
-
-<h2>The USPTO Application Process</h2>
-
-<h3>Step 1: Choose Your Filing Basis</h3>
-<p>Federal trademark applications must be filed on one of two bases:</p>
-<ul>
-  <li><strong>Use in commerce (1(a)):</strong> The mark is already being used in interstate commerce. You must submit a specimen showing the mark in use.</li>
-  <li><strong>Intent to use (1(b)):</strong> You have a bona fide intention to use the mark in commerce. The mark need not be in use at the time of filing, but you must eventually show use before the registration issues.</li>
-</ul>
-
-<h3>Step 2: File the Application</h3>
-<p>Applications are filed through the USPTO's TEAS (Trademark Electronic Application System). The application includes:</p>
-<ul>
-  <li>The applicant's name and address</li>
-  <li>A clear representation of the mark</li>
-  <li>The goods or services covered, listed by international class</li>
-  <li>Filing basis (use in commerce or intent to use)</li>
-  <li>A specimen of use (for use-based applications)</li>
-  <li>Filing fee (currently $250–$350 per class, depending on form type)</li>
-</ul>
-
-<h3>Step 3: Examination by USPTO</h3>
-<p>A USPTO examining attorney reviews the application, typically within 8–12 months of filing. The examiner may:</p>
-<ul>
-  <li>Approve the mark for publication</li>
-  <li>Issue an office action raising objections (e.g., likelihood of confusion, descriptiveness)</li>
-</ul>
-<p>If an office action is issued, the applicant has 3 months to respond (extendable to 6 months for a fee).</p>
-
-<h3>Step 4: Publication for Opposition</h3>
-<p>Approved marks are published in the USPTO's Official Gazette for 30 days. During this period, third parties who believe they would be harmed by the registration can file an opposition proceeding.</p>
-
-<h3>Step 5: Registration or Notice of Allowance</h3>
-<p>For use-based applications, if no opposition is filed (or any opposition is resolved in the applicant's favor), the USPTO issues a Certificate of Registration.</p>
-<p>For intent-to-use applications, the USPTO issues a Notice of Allowance. The applicant then has 6 months (extendable up to 36 months total) to begin using the mark and submit a Statement of Use.</p>
-
-<h2>Maintaining Your Trademark Registration</h2>
-<p>A trademark registration does not last forever automatically. Maintenance filings are required:</p>
-<ul>
-  <li><strong>Between years 5 and 6:</strong> File a Section 8 Declaration of Continued Use</li>
-  <li><strong>Between years 9 and 10 (and every 10 years thereafter):</strong> File a combined Section 8 and Section 9 Renewal</li>
-</ul>
-<p>Missing these deadlines results in cancellation of the registration.</p>
-
-<h2>Enforcing Your Trademark</h2>
-<p>Registration alone does not enforce your rights — you must actively police your trademark. This includes monitoring new applications at the USPTO, watching for infringing uses in the marketplace, and sending cease and desist letters when infringement is discovered.</p>
-<p>Failure to police a trademark can result in "abandonment" or dilution of your rights over time.</p>
-
-<h2>State Trademark Registration</h2>
-<p>Illinois also offers state trademark registration through the Secretary of State's office. State registration is less expensive than federal registration but provides protection only within Illinois. It is generally appropriate for businesses operating exclusively within the state. Federal registration is recommended for any business with interstate commerce or growth aspirations.</p>
-    `.trim(),
-  },
 ];
+
+const HIDDEN_GUIDE_SLUGS = new Set<string>([
+  'trademark-registration-guide',
+  'what-is-a-prenuptial-agreement-illinois',
+  'how-to-create-prenuptial-agreement-illinois',
+  'prenuptial-agreement-checklist-illinois',
+]);
+
+const HIDDEN_GUIDE_CATEGORIES = new Set<string>([
+  'Prenuptial Agreements',
+]);
+
+export function isHiddenGuide(guide: { slug?: string; category?: string }): boolean {
+  if (guide.slug && HIDDEN_GUIDE_SLUGS.has(guide.slug)) return true;
+  if (guide.category && HIDDEN_GUIDE_CATEGORIES.has(guide.category)) return true;
+  return false;
+}
 
 export function getStaticGuide(slug: string): StaticGuide | undefined {
   return staticGuides.find(g => g.slug === slug);

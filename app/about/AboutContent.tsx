@@ -56,26 +56,19 @@ const attorneys: TeamMember[] = [
     barAdmissions: ['Illinois'],
   },
   {
-    name: 'Victoria Lozano',
-    title: 'Senior Attorney',
-    email: 'victoria@illinoisestatelaw.com',
-    photo: 'https://i0.wp.com/planforwardlegal.com/wp-content/uploads/2026/01/IMG_3670.jpg',
+    name: 'Anna M. Rafanelli',
+    title: 'Attorney',
+    email: 'anna@illinoisestatelaw.com',
+    photo: '/attorneys/anna-rafanelli.jpg',
     bio: [
-      "Victoria Lozano is a senior attorney at Illinois Estate Law with a practice spanning estate planning, trust administration, and probate. She is especially passionate about helping families of every background — including LGBTQ+ individuals and couples — put thoughtful, comprehensive plans in place to protect the people they love.",
-      "Before law school, Victoria built a career in academia, teaching English composition at both Coastal Carolina University and Appalachian State University, where she also served on the Women and Gender Studies Advisory Board. She later co-founded Blue Seven Content, a legal marketing firm serving attorneys nationwide. Victoria earned her J.D. from Chicago-Kent College of Law in 2022.",
-      "At Illinois Estate Law, Victoria brings the same precision and commitment to clear communication she developed in her academic career to every client matter. She approaches each estate plan with care and close attention to her clients' individual goals and needs.",
+      "Anna M. Rafanelli is a passionate advocate and litigator with over five years of civil practice experience. Her area of focus is Probate and Elder Law, particularly Adult Guardianships. She is licensed to practice in Illinois, Indiana, and Northern District of Illinois. Born in Chicago and raised in the area, she attended Valparaiso University in Indiana where she graduated magna cum laude with a Bachelor's Degree in Sociology and Psychology. She returned to Chicago where she graduated from Loyola University Chicago School of Law in 2021 and obtained a certification from Loyola's noted Trial Advocacy program.",
+      "Anna loves warm weather days spent by Lake Michigan and playing in sports leagues throughout the year including tennis, volleyball, and bowling. When she is not outside, she enjoys spending time with friends at book club and relaxing at home with her cat.",
     ],
     education: [
-      { school: 'Coastal Carolina University', degrees: ["Bachelor's Degree, English"] },
-      { school: 'Appalachian State University', degrees: ["Master's Degree, English"] },
-      { school: 'Chicago-Kent College of Law', degrees: ['Doctor of Law (J.D.), 2022'] },
+      { school: 'Valparaiso University', degrees: ["Bachelor's Degree, Sociology & Psychology, magna cum laude"] },
+      { school: 'Loyola University Chicago School of Law', degrees: ['Doctor of Law (J.D.), 2021', 'Certificate in Trial Advocacy'] },
     ],
-    barAdmissions: ['Illinois'],
-    memberships: [
-      'Chicago Bar Association',
-      'American Bar Association',
-      'Lesbian and Gay Bar Association of Chicago (LAGBAC)',
-    ],
+    barAdmissions: ['Illinois', 'Indiana', 'U.S. District Court, Northern District of Illinois'],
   },
 ];
 

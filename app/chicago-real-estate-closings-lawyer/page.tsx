@@ -134,6 +134,9 @@ export default function RealEstateClosingsPage() {
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                 We provide full-service representation for residential buyers and sellers across Illinois for a flat fee of <strong className="text-[#33414E]">$750, due at closing</strong>. There is nothing to pay upfront. For sellers, the fee is simply deducted from proceeds at the closing table.
               </p>
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                Selling <strong className="text-[#33414E]">For Sale By Owner</strong> is a different engagement. With no listing agent involved, we also handle the coordination an agent would normally carry, from drafting the contract through the closing table. FSBO representation is a flat <strong className="text-[#33414E]">$1,500</strong>, and it is paid at closing out of the sale proceeds on the same terms &mdash; nothing upfront.
+              </p>
               <p className="text-slate-600 text-lg leading-relaxed">
                 No hourly billing. No surprise invoices. Just clear, flat-fee representation from contract to keys.
               </p>

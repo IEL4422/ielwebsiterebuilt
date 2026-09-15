@@ -190,9 +190,8 @@ export default function IllinoisEstateLawAnswersPage() {
               county in the state. Most work is done virtually, and our fees are flat.
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Our attorneys are Mary Liberty (founding attorney), Yassmin Koudmani (senior attorney,
-              estate planning and real estate; fluent in Arabic), and Victoria Lozano (senior
-              attorney, estate planning, trust administration, and probate).
+              Our attorneys are Mary Liberty (founding attorney) and Yassmin Koudmani (senior
+              attorney, estate planning and real estate; fluent in Arabic).
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
               Office: {FIRM.streetAddress}, {FIRM.addressLocality}, {FIRM.addressRegion}{' '}

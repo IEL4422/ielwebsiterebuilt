@@ -3,6 +3,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CTABand } from '@/components/ui/CTAButtons';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Shield, AlertCircle, CheckCircle, DollarSign, Home } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
@@ -774,6 +775,11 @@ export default function PowersOfAttorneyPage() {
             </div>
           </div>
         </section>
+
+        <CTABand
+          title="Ready to put your powers of attorney in place?"
+          subtitle="Get started online or book a free consultation, and we will make sure the right people can act for you when it matters."
+        />
 
         <section className="py-10 px-4 sm:px-5 bg-gray-50">
           <div className="max-w-[1140px] mx-auto">

@@ -3,6 +3,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CTABand } from '@/components/ui/CTAButtons';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Lock, AlertCircle, CheckCircle, TrendingUp, Building } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
@@ -791,6 +792,11 @@ export default function ChicagoRevocableTrustsLawyerPage() {
             </div>
           </div>
         </section>
+
+        <CTABand
+          title="Ready to set up your living trust?"
+          subtitle="Get started online or book a free consultation, and we will help you protect your estate and keep it out of probate."
+        />
 
         <section className="py-10 px-4 sm:px-5 bg-gray-50">
           <div className="max-w-[1140px] mx-auto">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { PROBATE, RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 interface DisplayService {
   id: string;
@@ -341,7 +342,7 @@ export function CategorizedServices({
           name: 'Standard Probate',
           subtitle: 'Uncontested probate for estates between $150,000 and $2,000,000',
           category: 'probate',
-          fixedPrice: 5000,
+          fixedPrice: PROBATE.standard,
           description: 'Applies to uncontested estates valued between $150,000 and $2,000,000. Flat-fee from opening through closing. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
           includes: probateIncludes,
           note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
@@ -415,12 +416,12 @@ export function CategorizedServices({
           name: 'Contested Probate',
           subtitle: 'NOT A FLAT FEE — Hourly Billing',
           category: 'probate',
-          pricingLabel: '$5,000 retainer + hourly',
-          description: 'Applies when any probate matter becomes or is anticipated to be contested. Attorney hourly rate: $350/hour. Paralegal/Administrative: $125/hour. Retainer replenished as needed.',
+          pricingLabel: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
+          description: `Applies when any probate matter becomes or is anticipated to be contested. Attorney hourly rate: ${hourly(RATES.attorneyHourly)}. Paralegal/Administrative: ${hourly(RATES.paralegalHourly)}. Retainer replenished as needed.`,
           includes: [
-            'Minimum $5,000 retainer required to commence representation',
-            'Attorney hourly rate: $350 / hour',
-            'Paralegal / Administrative hourly rate: $125 / hour',
+            `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
+            `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
+            `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
             'Retainer replenished as needed throughout the matter'
           ]
         }
@@ -502,7 +503,7 @@ export function CategorizedServices({
           name: 'Residential Closing (Buyer or Seller)',
           category: 'real-estate',
           fixedPrice: 750,
-          description: 'Flat fee paid at the time of closing. Does not include closing costs. Full-service attorney representation for residential real estate closings in Illinois.',
+          description: 'For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.',
           includes: [
             'Contract Review',
             'Title Review and Clearance',
@@ -510,6 +511,23 @@ export function CategorizedServices({
             'Document Preparation',
             'Settlement Statement Review',
             'Attorney Representation at Closing',
+            'Unlimited Attorney Consultations'
+          ]
+        },
+        {
+          id: 'fsbo-representation',
+          name: 'For Sale By Owner (FSBO) Representation',
+          category: 'real-estate',
+          fixedPrice: 1500,
+          description: 'For a For Sale By Owner sale where there is no listing agent, so the attorney also handles the coordination an agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.',
+          includes: [
+            'Purchase/Sale Contract Drafting or Review',
+            'Title Review and Clearance',
+            'Title Search',
+            'Document Preparation',
+            'Settlement Statement Review',
+            'Attorney Representation at Closing',
+            'Coordination normally handled by a real estate agent',
             'Unlimited Attorney Consultations'
           ]
         }
