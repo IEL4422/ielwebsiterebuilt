@@ -340,22 +340,22 @@ export function CategorizedServices({
         {
           id: 'standard-probate',
           name: 'Standard Probate',
-          subtitle: 'Uncontested probate for estates between $150,000 and $2,000,000',
+          subtitle: 'Uncontested probate for estates valued below $1,000,000',
           category: 'probate',
           fixedPrice: PROBATE.standard,
-          description: 'Applies to uncontested estates valued between $150,000 and $2,000,000. Flat-fee from opening through closing. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+          description: 'Applies to uncontested estates valued below $1,000,000 that require probate. Flat-fee from opening through closing. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
           includes: probateIncludes,
           note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
         {
           id: 'large-estate-probate',
           name: 'Large Estate Probate',
-          subtitle: 'Uncontested probate for estates above $2,000,000',
+          subtitle: 'Uncontested probate for estates valued at $1,000,000 or more',
           category: 'probate',
-          pricingLabel: '$6,500 + 1% of Net Estate Value',
-          description: 'Applies to uncontested estates anticipated to be valued above $2,000,000. The 1% fee on net estate value is invoiced at the time of administration. Uncontested matters only.',
+          pricingLabel: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
+          description: `Applies to uncontested estates anticipated to be valued at $1,000,000 or more. If the estate is determined during administration to be valued at $1,000,000 or more, an additional ${PROBATE.largeEstatePercent}% of estate value is charged at that time due to the complexity of larger estates. Uncontested matters only.`,
           includes: probateIncludes,
-          note: 'The $6,500 base fee is due at engagement. The 1% fee on net estate value is collected at the time of administration. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+          note: `The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. The additional ${PROBATE.largeEstatePercent}% of estate value is charged during administration if the estate is valued at $1,000,000 or more. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the fee.`
         },
         {
           id: 'probate-reopening',

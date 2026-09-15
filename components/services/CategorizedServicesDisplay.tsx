@@ -211,17 +211,17 @@ export const serviceCategories: ServiceCategory[] = [
       },
       {
         name: 'Standard Probate',
-        subtitle: 'Uncontested probate for estates between $150,000 and $2,000,000',
+        subtitle: 'Uncontested probate for estates valued below $1,000,000',
         fixedPrice: PROBATE.standard,
         includes: probateIncludes,
         note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
       },
       {
         name: 'Large Estate Probate',
-        subtitle: 'Uncontested probate for estates above $2,000,000',
-        pricingLabel: '$6,500 + 1% of Net Estate Value',
+        subtitle: 'Uncontested probate for estates valued at $1,000,000 or more',
+        pricingLabel: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
         includes: probateIncludes,
-        note: 'The $6,500 base fee is due at engagement. The 1% fee on net estate value is collected at the time of administration. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+        note: `The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. The additional ${PROBATE.largeEstatePercent}% of estate value is charged during administration if the estate is valued at $1,000,000 or more due to the complexity of larger estates. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the fee.`
       },
       {
         name: 'Probate Reopening',

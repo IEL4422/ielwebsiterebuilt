@@ -244,16 +244,16 @@
         <tr>
           <td>
             <div class="service-name">Standard Probate</div>
-            <div class="service-sub">Uncontested estates between $150,000 and $2,000,000. Includes: all court filings &amp; hearings, estate bank account, EIN, asset &amp; debt search, creditor notification &amp; publication, requesting tax records &amp; transcripts, transfer of real estate via deed, unlimited attorney consultations. Surety bond premium paid directly to bond provider.</div>
+            <div class="service-sub">Uncontested estates valued below $1,000,000 that require probate. Includes: all court filings &amp; hearings, estate bank account, EIN, asset &amp; debt search, creditor notification &amp; publication, requesting tax records &amp; transcripts, transfer of real estate via deed, unlimited attorney consultations. Surety bond premium paid directly to bond provider.</div>
           </td>
           <td class="price">$5,000</td>
         </tr>
         <tr>
           <td>
             <div class="service-name">Large Estate Probate</div>
-            <div class="service-sub">Uncontested estates above $2,000,000. Includes same as Standard Probate. Base fee due at engagement; 1% of net estate value collected at time of administration. Surety bond premium paid directly to bond provider.</div>
+            <div class="service-sub">Uncontested estates valued at $1,000,000 or more. Includes same as Standard Probate. Base fee due at engagement; an additional {{LARGE_ESTATE_PERCENT}} of estate value is charged during administration if the estate is valued at $1,000,000 or more, due to the complexity of larger estates. Surety bond premium paid directly to bond provider.</div>
           </td>
-          <td class="price">$6,500 + 1%<span class="price-note">of net estate value</span></td>
+          <td class="price">{{LARGE_ESTATE_BASE}} + {{LARGE_ESTATE_PERCENT}}<span class="price-note">of estate value</span></td>
         </tr>
         <tr>
           <td>

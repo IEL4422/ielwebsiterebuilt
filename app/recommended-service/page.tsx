@@ -32,7 +32,7 @@ interface QuizAnswers {
   needsAncillary: 'yes' | 'no' | '';
   hasSpecialNeeds: 'yes' | 'no' | '';
   decedentCounty: string;
-  decedentEstateValue: 'under-100k' | 'over-100k' | '';
+  decedentEstateValue: 'under-100k' | '100k-under-1m' | '1m-plus' | '';
   decedentHasRealEstate: 'yes' | 'no' | '';
   issuesAmongHeirs: 'yes' | 'no' | '';
   allDebtsPaid: 'yes' | 'no' | '';
@@ -337,12 +337,37 @@ export default function RecommendedServicePage() {
         };
       }
 
-      const needsFullProbate = decedentEstateValue === 'over-100k' || decedentHasRealEstate === 'yes';
+      if (decedentEstateValue === '1m-plus' && issuesAmongHeirs === 'no') {
+        return {
+          name: 'Large Estate Probate',
+          price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
+          description: `Probate administration for uncontested estates valued at $1,000,000 or more. The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. An additional ${PROBATE.largeEstatePercent}% of estate value is charged during administration due to the complexity of larger estates.`,
+          includes: [
+            'All required filings with the Probate Court from opening through closing',
+            'Appearance and handling of all court hearings',
+            'Opening of Estate Bank Account',
+            'Obtaining Estate EIN',
+            'Asset & Debt Search',
+            'Creditor Notification & Publication',
+            'Requesting Tax Records & Transcripts',
+            'Transfer of Real Estate via Deed, if necessary',
+            'Unlimited Attorney Consultations'
+          ],
+          note: 'Surety bond premium, if required, is paid directly to the bond provider and is not included in the fee.',
+          addOns: [],
+          serviceId: 'large-estate-probate',
+          requiresConsultation: false,
+          standardizedCaseType: 'Probate',
+          standardizedServiceName: 'Large Estate Probate'
+        };
+      }
+
+      const needsFullProbate = decedentEstateValue === '100k-under-1m' || decedentHasRealEstate === 'yes';
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Standard Probate',
           price: '$5,000',
-          description: 'Flat-fee probate administration for uncontested estates between $150,000 and $2,000,000, with or without real estate.',
+          description: 'Flat-fee probate administration for uncontested estates valued below $1,000,000, with or without real estate.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',
@@ -1493,18 +1518,35 @@ export default function RecommendedServicePage() {
                           </div>
                         </button>
                         <button
-                          onClick={() => updateAnswer('decedentEstateValue', 'over-100k')}
+                          onClick={() => updateAnswer('decedentEstateValue', '100k-under-1m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.decedentEstateValue === 'over-100k'
+                            answers.decedentEstateValue === '100k-under-1m'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              $100,000 or more
+                              $100,000–$999,999
                             </span>
-                            {answers.decedentEstateValue === 'over-100k' && (
+                            {answers.decedentEstateValue === '100k-under-1m' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
+                            )}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() => updateAnswer('decedentEstateValue', '1m-plus')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.decedentEstateValue === '1m-plus'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
+                              $1,000,000 or more
+                            </span>
+                            {answers.decedentEstateValue === '1m-plus' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>

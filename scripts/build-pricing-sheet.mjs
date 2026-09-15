@@ -18,7 +18,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pricing = readFileSync(join(root, 'lib/pricing.ts'), 'utf8');
 
 function num(name) {
-  const m = pricing.match(new RegExp(`\\b${name}:\\s*(\\d+)`));
+  const m = pricing.match(new RegExp(`\\b${name}:\\s*(\\d+(?:\\.\\d+)?)`));
   if (!m) throw new Error(`build-pricing-sheet: ${name} not found in lib/pricing.ts`);
   return Number(m[1]);
 }
@@ -29,6 +29,8 @@ const TOKENS = {
   PARALEGAL_HOURLY: `${usd(num('paralegalHourly'))} / hour`,
   CONTESTED_RETAINER: usd(num('contestedProbate')),
   STANDARD_PROBATE: usd(num('standard')),
+  LARGE_ESTATE_BASE: usd(num('largeEstateBase')),
+  LARGE_ESTATE_PERCENT: `${num('largeEstatePercent')}%`,
 };
 
 let out = readFileSync(join(root, 'scripts/pricing-sheet.template.html'), 'utf8');
