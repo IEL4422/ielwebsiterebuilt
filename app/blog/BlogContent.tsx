@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Clock, ExternalLink, Search, X } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
@@ -16,6 +17,7 @@ export interface BlogPost {
   topic: string;
   externalUrl?: string;
   source?: string;
+  sourceLogo?: string;
 }
 
 function formatDate(dateString: string): string {
@@ -185,10 +187,22 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
                         </div>
                       </div>
 
-                      <div className="mb-3">
+                      <div className="mb-3 flex min-h-9 items-center justify-between gap-3">
                         <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-['Plus_Jakarta_Sans'] font-semibold bg-white/20 text-white rounded-full">
                           {post.source ? `Featured on ${post.source}` : post.topic}
                         </span>
+                        {post.sourceLogo && post.source && (
+                          <span className="shrink-0 rounded-md bg-white px-2 py-1 shadow-sm">
+                            <Image
+                              src={post.sourceLogo}
+                              alt={`${post.source} logo`}
+                              width={104}
+                              height={16}
+                              className="h-4 w-auto"
+                              unoptimized
+                            />
+                          </span>
+                        )}
                       </div>
 
                       <h2 className="font-['Plus_Jakarta_Sans'] text-[18px] sm:text-[20px] lg:text-[22px] leading-[24px] sm:leading-[26px] lg:leading-[28px] font-bold text-white mb-3 sm:mb-4 group-hover:text-white/90 transition-colors">

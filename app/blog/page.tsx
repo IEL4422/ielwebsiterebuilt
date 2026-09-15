@@ -37,6 +37,7 @@ export default async function BlogPage() {
     author: 'Mary Liberty',
     externalUrl: 'https://www.redfin.com/blog/what-can-go-wrong-at-closing/',
     source: 'Redfin',
+    sourceLogo: '/brands/redfin-blog.svg',
   });
 
   posts.sort((a, b) =>
