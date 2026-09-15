@@ -26,6 +26,19 @@ export default async function BlogPage() {
     author: 'Mary Liberty',
   }));
 
+  posts.push({
+    id: 'featured-redfin-closing-mishaps',
+    title: 'Mortgage Fell Through on Closing Day (And Other Mishaps): 6 Things That Can Go Wrong at Closing',
+    slug: 'featured-redfin-what-can-go-wrong-at-closing',
+    excerpt: 'Illinois Estate Law was featured by Redfin, with Mary Liberty sharing how title problems can surface late in a real estate transaction and delay closing.',
+    published_date: new Date('Sep 8, 2026').toISOString(),
+    topic: 'Real Estate',
+    featured_image: '',
+    author: 'Mary Liberty',
+    externalUrl: 'https://www.redfin.com/blog/what-can-go-wrong-at-closing/',
+    source: 'Redfin',
+  });
+
   posts.sort((a, b) =>
     new Date(b.published_date).getTime() - new Date(a.published_date).getTime()
   );

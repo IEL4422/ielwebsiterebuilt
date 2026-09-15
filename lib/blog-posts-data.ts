@@ -9,6 +9,36 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'what-is-an-irrevocable-life-insurance-trust-illinois',
+    title: 'What Is an Irrevocable Life Insurance Trust (ILIT) in Illinois?',
+    url: '/blog/what-is-an-irrevocable-life-insurance-trust-illinois/',
+    date: 'Sep 9, 2026',
+    summary:
+      'Complete guide to irrevocable life insurance trusts in Illinois — how an ILIT removes life insurance from a taxable estate, how Crummey notices work, who should consider one, and how to establish and maintain the trust.',
+    excerpt:
+      'Learn how an Illinois ILIT removes life insurance from your taxable estate, how Crummey notices work, who needs an ILIT, and how to establish one.',
+  },
+  {
+    slug: 'pet-trusts-illinois',
+    title: "Pet Trusts in Illinois: How to Protect Your Animals After You're Gone",
+    url: '/blog/pet-trusts-illinois/',
+    date: 'Sep 2, 2026',
+    summary:
+      'Complete guide to Illinois pet trusts under 760 ILCS 3/408 — how to choose a caretaker and trustee, fund the trust, create enforceable care instructions, and protect pets during incapacity or after death.',
+    excerpt:
+      'Learn how Illinois pet trusts work, how to fund and structure one, who enforces it, and why a will alone cannot protect your animals.',
+  },
+  {
+    slug: 'medicaid-planning-and-estate-planning-illinois',
+    title: 'Medicaid Planning and Estate Planning in Illinois: What You Need to Know',
+    url: '/blog/medicaid-planning-and-estate-planning-illinois/',
+    date: 'Aug 26, 2026',
+    summary:
+      'Complete guide to coordinating Medicaid planning and estate planning in Illinois — protecting a home and other assets, preparing for long-term care, and understanding eligibility and estate recovery rules.',
+    excerpt:
+      'Learn how Medicaid planning and estate planning work together in Illinois to protect your home, assets, and family while preparing for long-term care.',
+  },
+  {
     slug: 'estate-planning-for-unmarried-couples-illinois',
     title: 'Estate Planning for Unmarried Couples in Illinois',
     url: '/blog/estate-planning-for-unmarried-couples-illinois/',
@@ -47,6 +77,26 @@ export const blogPosts: BlogPost[] = [
       "Comprehensive guide to handling a deceased person's debt in Illinois — which debts die with the person, which survive and must be addressed through probate, the statutory priority order for paying creditors under 755 ILCS 5/18-10, when heirs are and are not personally liable, how to handle mortgages, credit card debt, medical bills, and student loans, and the duties Illinois executors must fulfill to avoid personal liability.",
     excerpt:
       "When someone dies in Illinois, their debts don't simply disappear. Learn which must be paid from the estate, who is personally responsible, and how executors should handle creditors during probate.",
+  },
+  {
+    slug: 'what-is-a-pour-over-will-illinois',
+    title: 'What Is a Pour-Over Will in Illinois?',
+    url: '/blog/what-is-a-pour-over-will-illinois/',
+    date: 'Jul 22, 2026',
+    summary:
+      'Complete guide to pour-over wills in Illinois — how they work with revocable living trusts, what happens to assets left outside a trust, why probate may still be required, and why every trust-based estate plan should include one.',
+    excerpt:
+      'Learn what a pour-over will does in Illinois, how it works alongside a revocable living trust, and why this key document is essential for your estate plan.',
+  },
+  {
+    slug: 'protecting-home-from-medicaid-estate-recovery-illinois',
+    title: 'Protecting Your Home from Medicaid Estate Recovery in Illinois',
+    url: '/blog/protecting-home-from-medicaid-estate-recovery-illinois/',
+    date: 'Jul 15, 2026',
+    summary:
+      'Complete guide to Illinois Medicaid estate recovery — when the state may seek repayment from an estate, how a family home can be affected, and planning strategies involving trusts, TODIs, and available exemptions.',
+    excerpt:
+      'Learn how Illinois Medicaid estate recovery works and what steps can help protect your family home, including trusts, TODIs, and advance planning.',
   },
   {
     slug: 'how-guardianship-works-in-illinois',
