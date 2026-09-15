@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Clock, Search, X } from 'lucide-react';
+import { Clock, ExternalLink, Search, X } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export interface BlogPost {
@@ -99,6 +99,35 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
     <main>
       {/* Hero Section */}
       <InnerPageHero title="Blog" />
+
+      {/* Media Feature */}
+      <section className="px-4 sm:px-5 pt-8 sm:pt-10">
+        <div className="max-w-[1140px] w-full mx-auto">
+          <a
+            href="https://www.redfin.com/blog/what-can-go-wrong-at-closing/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-[16px] border border-[#4A708B]/20 bg-[#F3F7FA] px-5 py-5 sm:px-7 sm:py-6 transition-all hover:border-[#4A708B]/40 hover:shadow-lg"
+            aria-label="Read our Redfin feature: What Can Go Wrong at Closing (opens in a new tab)"
+          >
+            <div>
+              <p className="mb-1 font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-[0.16em] text-[#4A708B]">
+                Featured on Redfin
+              </p>
+              <p className="font-['Plus_Jakarta_Sans'] text-lg sm:text-xl font-bold text-gray-900 group-hover:text-[#4A708B] transition-colors">
+                What Can Go Wrong at Closing?
+              </p>
+              <p className="mt-1 font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-gray-600">
+                Mary Liberty shares insights on title problems that can surface late in a real estate transaction.
+              </p>
+            </div>
+            <span className="inline-flex shrink-0 items-center gap-2 font-['Plus_Jakarta_Sans'] text-sm font-bold text-[#4A708B]">
+              Read on Redfin
+              <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+          </a>
+        </div>
+      </section>
 
       {/* Search and Filter Section */}
       <section className="py-6 sm:py-8 px-4 sm:px-5 bg-gray-50">

@@ -245,7 +245,7 @@ export default function RecommendedServicePage() {
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Standard Probate',
-          price: '$6,500',
+          price: '$5,000',
           description: 'Flat-fee probate administration for uncontested estates between $150,000 and $2,000,000, with or without real estate.',
           includes: [
             'All required filings with the Probate Court from opening through closing',

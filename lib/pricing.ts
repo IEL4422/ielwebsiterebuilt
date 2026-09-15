@@ -146,7 +146,7 @@ export const GUARDIANSHIP_COSTS = {
 export const PROBATE = {
   bondInLieu: 1500,
   smallEstate: 3500,
-  standard: 6500,
+  standard: 5000,
   largeEstateBase: 6500,
   largeEstatePercent: 1,
   reopening: 2500,

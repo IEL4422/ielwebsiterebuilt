@@ -267,7 +267,7 @@ export function CategorizedServicesDisplay() {
         {
           name: 'Standard Probate',
           subtitle: 'Uncontested probate for estates between $150,000 and $2,000,000',
-          fixedPrice: 6500,
+          fixedPrice: 5000,
           includes: probateIncludes,
           note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },

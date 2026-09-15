@@ -303,7 +303,7 @@ export const probatePackages: Service[] = [
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Standard Probate',
-    fixedPrice: 6500,
+    fixedPrice: 5000,
     description: 'Applies to uncontested estates valued between $150,000 and $2,000,000. Flat-fee probate administration from opening through closing. If estate value exceeds $2,000,000, an additional 1% of net estate value is invoiced at the time of distribution. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
     includes: probateIncludes,
     note: probateNote,
