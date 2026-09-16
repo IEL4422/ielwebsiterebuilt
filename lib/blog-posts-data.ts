@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-transfer-vehicle-after-death-illinois',
+    title: 'How to Transfer a Vehicle After Death in Illinois',
+    url: '/blog/how-to-transfer-vehicle-after-death-illinois/',
+    date: 'Sep 16, 2026',
+    summary:
+      'Complete guide to transferring a car title after a death in Illinois — when probate is required vs. avoidable, how to use the Affidavit of Heirship for Motor Vehicles (Form VSD 106), how joint tenancy and TOD designations work, the step-by-step Secretary of State title transfer process, and applicable fees and taxes.',
+    excerpt:
+      "Learn how to transfer a vehicle title after someone dies in Illinois — whether through probate, an Affidavit of Heirship, joint tenancy, or a TOD designation. Step-by-step guide.",
+  },
+  {
     slug: 'what-is-an-irrevocable-life-insurance-trust-illinois',
     title: 'What Is an Irrevocable Life Insurance Trust (ILIT) in Illinois?',
     url: '/blog/what-is-an-irrevocable-life-insurance-trust-illinois/',
