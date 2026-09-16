@@ -97,10 +97,10 @@ export default function DiyVsAttorneyEstatePlanningPage() {
                 simple.
               </strong>{' '}
               Specifically: no real estate held in your sole name, sole-name personal property
-              comfortably below the $100,000 threshold that triggers Illinois probate, everything
+              comfortably within the $150,000 small-estate-affidavit limit, everything
               passing outright to a spouse or to adult children in equal shares, no blended family,
               no beneficiary who cannot manage money, and no realistic Illinois estate tax exposure.
-              Where a personal estate is $100,000 or less and no real estate needs to transfer, an
+              Where a qualifying personal estate is $150,000 or less and no real estate needs to transfer, an
               Illinois small estate affidavit can often move the assets without any probate case at
               all.
             </p>

@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { PROBATE, RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
+import { A_LA_CARTE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, RATES, RETAINERS, TRUST_ADMIN, usd, hourly } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -28,11 +28,11 @@ interface QuizAnswers {
   guardianshipNeed: 'adult' | 'minor' | 'annual-compliance' | 'contested' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
-  estateValue: 'under-100k' | '100k-3.5m' | 'over-3.5m' | '';
+  estateValue: 'under-150k' | '150k-3.5m' | 'over-3.5m' | '';
   needsAncillary: 'yes' | 'no' | '';
   hasSpecialNeeds: 'yes' | 'no' | '';
   decedentCounty: string;
-  decedentEstateValue: 'under-100k' | '100k-under-1m' | '1m-plus' | '';
+  decedentEstateValue: 'under-150k' | '150k-under-1m' | '1m-plus' | '';
   decedentHasRealEstate: 'yes' | 'no' | '';
   issuesAmongHeirs: 'yes' | 'no' | '';
   allDebtsPaid: 'yes' | 'no' | '';
@@ -141,14 +141,14 @@ export default function RecommendedServicePage() {
     if (needType === 'trust-administration') {
       return {
         name: 'Trust Administration Consulting',
-        price: '$3,500 / Year',
-        description: 'Attorney guidance for individuals serving as trustee and navigating fiduciary duties, accounting, distributions, and beneficiary communication.',
+        price: `${usd(TRUST_ADMIN.consultingAnnual)} / Year`,
+        description: 'Annual attorney guidance for an individual trustee, including up to ten attorney hours for fiduciary duties, accounting, distributions, and beneficiary communication.',
         includes: [
           'Trust accounting review and preparation',
           'Distribution review and guidance',
           'Review of trust documentation and beneficiary rights',
           'Guidance on trustee fiduciary duties',
-          'Unlimited attorney consultations throughout the year'
+          'Up to ten attorney consultation hours during the year'
         ],
         addOns: [],
         serviceId: 'trust-admin-consulting',
@@ -162,7 +162,7 @@ export default function RecommendedServicePage() {
       const guardianshipRecommendations: Record<Exclude<QuizAnswers['guardianshipNeed'], ''>, ServiceRecommendation> = {
         adult: {
           name: 'Adult Guardianship',
-          price: usd(PROBATE.standard),
+          price: usd(GUARDIANSHIP_FLAT.adultUncontested),
           description: 'For an adult who can no longer safely make personal, medical, or financial decisions. A consultation lets the firm confirm the facts and scope before engagement.',
           includes: ['Guardianship petition and required court filings', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],
@@ -173,7 +173,7 @@ export default function RecommendedServicePage() {
         },
         minor: {
           name: 'Minor Guardianship',
-          price: '$5,000',
+          price: usd(GUARDIANSHIP_FLAT.minorUncontested),
           description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
           includes: ['Guardianship petition and required court filings', 'Notice and hearing preparation', 'Guidance through appointment and letters of office', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],
@@ -184,7 +184,7 @@ export default function RecommendedServicePage() {
         },
         'annual-compliance': {
           name: 'Annual Guardianship Compliance',
-          price: '$2,300 / Year',
+          price: `${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} / Year`,
           description: 'For an appointed guardian who needs support preparing and filing required annual reports and accounting on the court schedule.',
           includes: ['Annual report on the ward', 'Annual estate accounting support', 'Court-deadline tracking and filing guidance'],
           addOns: [],
@@ -223,7 +223,7 @@ export default function RecommendedServicePage() {
             'Settlement Statement Review',
             'Attorney Representation at Closing',
             'Coordination normally handled by a real estate agent',
-            'Unlimited Attorney Consultation'
+            'Attorney consultations related to the included transaction scope'
           ],
           addOns: [],
           serviceId: 'fsbo-representation',
@@ -248,7 +248,7 @@ export default function RecommendedServicePage() {
           'Document Preparation',
           'Settlement Statement Review',
           'Attorney Representation at Closing',
-          'Unlimited Attorney Consultation'
+          'Attorney consultations related to the included transaction scope'
         ],
         addOns: [],
         serviceId: 'residential-closing',
@@ -262,14 +262,14 @@ export default function RecommendedServicePage() {
       if (isRepresentative === 'no') {
         return {
           name: 'Heir Representation',
-          price: '$2,500',
+          price: usd(PROBATE.heirRepresentation),
           description: 'Representation of a non-executor heir throughout a probate matter.',
           includes: [
             'Review of all filings and court documentation',
             'Advice and guidance regarding the heir\'s interest and inheritance rights',
             'Filing of claims against the estate, if needed',
             'Attendance at all court hearings on behalf of the heir',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ],
           addOns: [],
           serviceId: 'heir-representation',
@@ -282,8 +282,8 @@ export default function RecommendedServicePage() {
       if (needsNewAttorney === 'yes') {
         return {
           name: 'Partial Probate',
-          price: 'Starting at $3,500',
-          description: 'For probate cases already in progress that need new legal representation. Final fee individually quoted based on case progress and complexity.',
+          price: usd(PROBATE.partialProbate),
+          description: 'Fixed-fee completion of an accepted uncontested probate case already in progress that needs substitute counsel.',
           includes: [
             'Scope of services determined based on the stage of the probate matter and what remains to be completed'
           ],
@@ -318,11 +318,11 @@ export default function RecommendedServicePage() {
         };
       }
 
-      if (decedentEstateValue === 'under-100k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
+      if (decedentEstateValue === 'under-150k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
           name: 'Small Estate Administration',
           price: '$1,000',
-          description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
+          description: 'Illinois permits qualifying personal estates of $150,000 or less, with no individually owned real estate, to be settled with a sworn affidavit instead of opening probate. This service prepares the affidavit and attorney letter of direction.',
           includes: [
             'Small Estate Affidavit',
             'Attorney Letter of Direction',
@@ -341,7 +341,7 @@ export default function RecommendedServicePage() {
         return {
           name: 'Large Estate Probate',
           price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
-          description: `Probate administration for uncontested estates valued at $1,000,000 or more. The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. An additional ${PROBATE.largeEstatePercent}% of estate value is charged during administration due to the complexity of larger estates.`,
+          description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $1,000,000, due to the complexity of larger estates.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',
@@ -351,7 +351,7 @@ export default function RecommendedServicePage() {
             'Creditor Notification & Publication',
             'Requesting Tax Records & Transcripts',
             'Transfer of Real Estate via Deed, if necessary',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ],
           note: 'Surety bond premium, if required, is paid directly to the bond provider and is not included in the fee.',
           addOns: [],
@@ -362,12 +362,12 @@ export default function RecommendedServicePage() {
         };
       }
 
-      const needsFullProbate = decedentEstateValue === '100k-under-1m' || decedentHasRealEstate === 'yes';
+      const needsFullProbate = decedentEstateValue === '150k-under-1m' || decedentHasRealEstate === 'yes';
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Standard Probate',
           price: '$5,000',
-          description: 'Flat-fee probate administration for uncontested estates valued below $1,000,000, with or without real estate.',
+          description: 'Full uncontested probate administration from opening through closing for estates valued at $1,000,000 or less. Contested issues are billed hourly against a separate retainer.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',
@@ -377,7 +377,7 @@ export default function RecommendedServicePage() {
             'Creditor Notification & Publication',
             'Requesting Tax Records & Transcripts',
             'Transfer of Real Estate via Deed, if necessary',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ],
           addOns: [],
           serviceId: 'standard-probate',
@@ -390,7 +390,7 @@ export default function RecommendedServicePage() {
       return null;
     }
 
-    const needsTrust = ownsRealEstate === 'yes' || estateValue === '100k-3.5m' || estateValue === 'over-3.5m';
+    const needsTrust = ownsRealEstate === 'yes' || estateValue === '150k-3.5m' || estateValue === 'over-3.5m';
     const needsTaxPlanning = estateValue === 'over-3.5m';
     const isMarried = maritalStatus === 'married';
 
@@ -401,8 +401,8 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'estate-tax-planning',
           name: 'Estate Tax Planning (Add-On)',
-          price: 5000,
-          description: '$5,000 base + 1% of total estate value — can be added to any package',
+          price: A_LA_CARTE.estateTaxPlanningAddOn,
+          description: 'Fixed-fee Federal and Illinois estate-tax planning with one advanced irrevocable trust',
           suggested: true
         });
       }
@@ -411,7 +411,7 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
-          price: 3500,
+          price: A_LA_CARTE.specialNeedsPlanning,
           description: 'Creation or amendment of trust for special needs planning',
           suggested: true
         });
@@ -434,7 +434,7 @@ export default function RecommendedServicePage() {
       return {
         name: isMarried ? 'Joint Trust Package' : 'Individual Trust Package',
         price: isMarried ? '$5,000' : '$3,500',
-        description: `Perfect for ${isMarried ? 'married couples' : 'individuals'} who own real estate or have estates over $100,000 and need comprehensive estate planning protection.`,
+        description: `For ${isMarried ? 'married couples' : 'individuals'} who own real estate or have estates over $150,000 and need comprehensive estate planning protection.`,
         includes: [
           'Revocable Living Trust',
           'Pour Over Will',
@@ -449,7 +449,7 @@ export default function RecommendedServicePage() {
           'Online or Mobile Notarization',
           'Physical & Digital Portfolio',
           'Client Portal Access',
-          'Unlimited Attorney Consultations'
+          'Attorney consultations related to the included scope'
         ],
         addOns,
         serviceId: 'trust-package',
@@ -464,8 +464,8 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'estate-tax-planning',
           name: 'Estate Tax Planning (Add-On)',
-          price: 5000,
-          description: '$5,000 base + 1% of total estate value — can be added to any package',
+          price: A_LA_CARTE.estateTaxPlanningAddOn,
+          description: 'Fixed-fee Federal and Illinois estate-tax planning with one advanced irrevocable trust',
           suggested: true
         });
       }
@@ -474,7 +474,7 @@ export default function RecommendedServicePage() {
         addOns.push({
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
-          price: 3500,
+          price: A_LA_CARTE.specialNeedsPlanning,
           description: 'Creation or amendment of trust for special needs planning',
           suggested: true
         });
@@ -503,11 +503,11 @@ export default function RecommendedServicePage() {
       };
     }
 
-    if (ownsRealEstate === 'yes' && estateValue === 'under-100k' && needsAncillary === 'yes') {
+    if (ownsRealEstate === 'yes' && estateValue === 'under-150k' && needsAncillary === 'yes') {
       return {
         name: `${isMarried ? 'Joint' : 'Individual'} Probate Avoidance Package`,
         price: isMarried ? '$2,250' : '$1,750',
-        description: `For ${isMarried ? 'married couples' : 'individuals'} who own real estate but have estates under $100,000 and want to avoid probate without a full trust.`,
+        description: `For ${isMarried ? 'married couples' : 'individuals'} who own real estate but have personal estates of $150,000 or less and want to avoid probate without a full trust.`,
         includes: [
           'Last Will & Testament',
           'Power of Attorney for Healthcare',
@@ -520,7 +520,7 @@ export default function RecommendedServicePage() {
           'Online or Mobile Notarization',
           'Physical & Digital Portfolio',
           'Client Portal Access',
-          'Unlimited Attorney Consultations'
+          'Attorney consultations related to the included scope'
         ],
         addOns: [],
         serviceId: 'probate-avoidance-package',
@@ -545,7 +545,7 @@ export default function RecommendedServicePage() {
         'Online or Mobile Notarization',
         'Physical & Digital Estate Planning Portfolio',
         'Client Portal Access',
-        'Unlimited Attorney Consultations'
+        'Attorney consultations related to the included scope'
       ],
       addOns: [],
       serviceId: 'will-package',
@@ -567,7 +567,7 @@ export default function RecommendedServicePage() {
       if (answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'yes') return 3;
       if (answers.decedentCounty === 'Other') return 4;
       if (answers.issuesAmongHeirs === 'yes') return 7;
-      if (answers.decedentEstateValue === 'under-100k' && answers.decedentHasRealEstate === 'no') return 8;
+      if (answers.decedentEstateValue === 'under-150k' && answers.decedentHasRealEstate === 'no') return 8;
       return 7;
     } else {
       return 6;
@@ -1207,35 +1207,35 @@ export default function RecommendedServicePage() {
                       </p>
                       <div className="space-y-4">
                         <button
-                          onClick={() => updateAnswer('estateValue', 'under-100k')}
+                          onClick={() => updateAnswer('estateValue', 'under-150k')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.estateValue === 'under-100k'
+                            answers.estateValue === 'under-150k'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              Under $100,000
+                              $150,000 or Less
                             </span>
-                            {answers.estateValue === 'under-100k' && (
+                            {answers.estateValue === 'under-150k' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>
                         </button>
                         <button
-                          onClick={() => updateAnswer('estateValue', '100k-3.5m')}
+                          onClick={() => updateAnswer('estateValue', '150k-3.5m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.estateValue === '100k-3.5m'
+                            answers.estateValue === '150k-3.5m'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              $100,000 - $3.5 Million
+                              $150,001 - $3.5 Million
                             </span>
-                            {answers.estateValue === '100k-3.5m' && (
+                            {answers.estateValue === '150k-3.5m' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>
@@ -1501,35 +1501,35 @@ export default function RecommendedServicePage() {
                       </h2>
                       <div className="space-y-4">
                         <button
-                          onClick={() => updateAnswer('decedentEstateValue', 'under-100k')}
+                          onClick={() => updateAnswer('decedentEstateValue', 'under-150k')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.decedentEstateValue === 'under-100k'
+                            answers.decedentEstateValue === 'under-150k'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              Under $100,000
+                              $150,000 or Less
                             </span>
-                            {answers.decedentEstateValue === 'under-100k' && (
+                            {answers.decedentEstateValue === 'under-150k' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>
                         </button>
                         <button
-                          onClick={() => updateAnswer('decedentEstateValue', '100k-under-1m')}
+                          onClick={() => updateAnswer('decedentEstateValue', '150k-under-1m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.decedentEstateValue === '100k-under-1m'
+                            answers.decedentEstateValue === '150k-under-1m'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              $100,000–$999,999
+                              $150,001–$1,000,000
                             </span>
-                            {answers.decedentEstateValue === '100k-under-1m' && (
+                            {answers.decedentEstateValue === '150k-under-1m' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>
@@ -1544,7 +1544,7 @@ export default function RecommendedServicePage() {
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              $1,000,000 or more
+                              Over $1,000,000
                             </span>
                             {answers.decedentEstateValue === '1m-plus' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
@@ -1643,7 +1643,7 @@ export default function RecommendedServicePage() {
                     </div>
                   )}
 
-                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== 'Other' && answers.decedentCounty !== '' && answers.decedentEstateValue === 'under-100k' && answers.decedentHasRealEstate === 'no' && step === 8 && (
+                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== 'Other' && answers.decedentCounty !== '' && answers.decedentEstateValue === 'under-150k' && answers.decedentHasRealEstate === 'no' && step === 8 && (
                     <div className="space-y-6">
                       <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
                         Have all of the decedent's debts been paid?

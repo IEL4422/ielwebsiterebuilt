@@ -11,7 +11,7 @@
  * moved to flat fees 2026-07-16; uncontested guardianship set to a flat $5,000
  * and the Annual Report on the Ward to $750 per year, per Mary 2026-09-08. Approved by Mary Liberty. The model is now
  * clean: ONLY contested matters carry a retainer. Every contested matter opens
- * on a UNIFORM $5,000 retainer ($450 attorney / $175 paralegal, costs billable):
+ * on a UNIFORM $5,000 initial retainer ($425 attorney / $175 paralegal, costs billable):
  * contested probate, will contests, and contested guardianship. EVERYTHING
  * uncontested is a flat fee — including adult guardianship of the person and
  * estate, which moved from a $5,000 retainer to a flat fee. Both uncontested
@@ -47,7 +47,7 @@
 export type BillingModel = 'flat_all_inclusive' | 'retainer_hourly' | 'flat_annual';
 
 export const BILLING_MODEL_LABEL: Record<BillingModel, string> = {
-  flat_all_inclusive: 'Flat fee (all costs included)',
+  flat_all_inclusive: 'Fixed legal fee (listed third-party costs excluded)',
   retainer_hourly: 'Retainer + hourly (costs billable)',
   flat_annual: 'Flat annual fee',
 };
@@ -131,8 +131,8 @@ export const GUARDIANSHIP_FLAT = {
  */
 export const GUARDIANSHIP_COMPLIANCE = {
   annualReportPerson: 750,
-  annualAccountingEstate: 1800,
-  compliancePlanBundled: 2300,
+  annualAccountingEstate: 2500,
+  compliancePlanBundled: 3000,
 } as const;
 
 /**
@@ -159,15 +159,13 @@ export const PROBATE = {
    *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
   smallEstateAdministration: 1000,
   standard: 5000,
-  /** Large Estate Probate: $5,000 at engagement, plus 0.5% of estate value
-   *  charged during administration when the estate is valued at $1,000,000 or more. */
+  /** Additional percentage charged during administration only when estate value exceeds $1,000,000. */
   largeEstateBase: 5000,
   largeEstatePercent: 0.5,
   reopening: 2500,
-  heirRepresentation: 2500,
-  spousalRepresentation: 3500,
-  partialProbateFrom: 3500,
-  partialProbateTo: 6500,
+  heirRepresentation: 3500,
+  spousalRepresentation: 4500,
+  partialProbate: 5000,
   documentReview: 500,
 } as const;
 
@@ -179,13 +177,12 @@ export const ESTATE_PLANNING = {
   probateAvoidanceJoint: 2250,
   willPackageIndividual: 1250,
   willPackageJoint: 1750,
-  diyReviewIndividual: 500,
-  diyReviewJoint: 750,
-  estateTaxPackageIndividualBase: 10000,
-  estateTaxPackageJointBase: 15000,
-  estateTaxPackagePercent: 1,
-  irrevocableTrust: 4500,
-  annualReviewMembership: 199,
+  diyReviewIndividual: 750,
+  diyReviewJoint: 1000,
+  estateTaxPackageIndividual: 15000,
+  estateTaxPackageJoint: 20000,
+  irrevocableTrust: 5500,
+  annualReviewMembership: 599,
 } as const;
 
 /** A la carte — unchanged. */
@@ -202,16 +199,21 @@ export const A_LA_CARTE = {
   willAmendmentIndividual: 500,
   willAmendmentJoint: 750,
   trustFundingGuidance: 1500,
-  specialNeedsPlanning: 3500,
-  estateTaxPlanningAddOnBase: 5000,
+  specialNeedsPlanning: 5500,
+  estateTaxPlanningAddOn: 10000,
   deed: 500,
 } as const;
 
 /** Trust administration — unchanged. */
-export const TRUST_ADMIN = { consultingAnnual: 3500 } as const;
+export const TRUST_ADMIN = { consultingAnnual: 5000 } as const;
 
 /** Real estate — unchanged. */
-export const REAL_ESTATE = { residentialClosing: 750, fsboRepresentation: 1500 } as const;
+export const REAL_ESTATE = {
+  residentialClosing: 750,
+  multiUnitOrInvestmentClosing: 950,
+  estateTrustOrNonstandardTitleClosing: 1250,
+  fsboRepresentation: 1500,
+} as const;
 
 /**
  * The conversion clause. Required in every uncontested guardianship engagement

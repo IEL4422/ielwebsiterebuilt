@@ -103,7 +103,7 @@ export default function RealEstateClosingsPage() {
                       'Negotiation &amp; Modification of Terms',
                       'Document Preparation &amp; Review',
                       'Closing Attendance (in-person or remote)',
-                      'Unlimited Attorney Consultation',
+                      'Attorney consultations related to the included transaction scope',
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#7E9CC0]" />

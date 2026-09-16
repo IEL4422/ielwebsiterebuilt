@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { PROBATE, RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
+import { A_LA_CARTE, ESTATE_PLANNING, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 interface DisplayService {
   id: string;
@@ -127,7 +127,7 @@ export function CategorizedServices({
     'Obtaining Tax Transcripts',
     'Final Tax Returns (if required)',
     'Transfer of Real Estate via Deed, if necessary (includes all recording fees)',
-    'Unlimited Attorney Consultations'
+    'Attorney consultations related to the included scope'
   ];
 
   const categories: ServiceCategory[] = [
@@ -156,7 +156,7 @@ export function CategorizedServices({
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
             'Client Portal Access',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ]
         },
         {
@@ -178,7 +178,7 @@ export function CategorizedServices({
             'Online or Mobile Notarization',
             'Physical & Digital Portfolio',
             'Client Portal Access',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ]
         },
         {
@@ -199,15 +199,15 @@ export function CategorizedServices({
             'Online or Mobile Notarization',
             'Physical & Digital Estate Planning Portfolio',
             'Client Portal Access',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ]
         },
         {
           id: 'diy-estate-plan-review',
           name: 'DIY Estate Plan Review',
           category: 'estate-planning',
-          individualPrice: 500,
-          jointPrice: 750,
+          individualPrice: ESTATE_PLANNING.diyReviewIndividual,
+          jointPrice: ESTATE_PLANNING.diyReviewJoint,
           description: 'Professional review of existing estate planning documents. Joint covers up to 5 documents per person.',
           includes: [
             'Comprehensive review and redlining of previously drafted estate planning documents (up to 5 documents)',
@@ -218,13 +218,27 @@ export function CategorizedServices({
           id: 'estate-tax-planning-package',
           name: 'Estate Tax Planning Package',
           category: 'estate-planning',
-          pricingLabel: 'Individual: $10,000 + 1% | Joint: $15,000 + 1%',
-          description: 'Individual: $10,000 base + 1% of total estate value. Joint: $15,000 base + 1% of total estate value. Base fee paid upfront; 1% of total estate value invoiced separately at time of document finalization.',
+          individualPrice: ESTATE_PLANNING.estateTaxPackageIndividual,
+          jointPrice: ESTATE_PLANNING.estateTaxPackageJoint,
+          description: `Fixed-fee Federal and Illinois estate-tax planning. Includes one advanced irrevocable trust; each additional advanced trust is ${usd(ESTATE_PLANNING.irrevocableTrust)}.`,
           includes: [
             'All documents included in the Trust Package',
             'Federal & Illinois Estate Tax Planning',
-            'Any necessary Irrevocable Trust(s) required to minimize or avoid estate tax (in addition to base Revocable Living Trust)'
+            'One advanced irrevocable trust selected for the approved planning strategy'
           ]
+        },
+        {
+          id: 'annual-review-membership',
+          name: 'Annual Review Membership',
+          category: 'estate-planning',
+          fixedPrice: ESTATE_PLANNING.annualReviewMembership,
+          description: 'One year of plan-maintenance support with a defined amendment allowance.',
+          includes: [
+            'Annual attorney review meeting',
+            'Up to two simple amendments to existing documents',
+            'Priority scheduling and document storage'
+          ],
+          note: 'New planning strategies or replacement documents require a separate fixed-fee service.'
         }
       ],
       aLaCarte: [
@@ -250,8 +264,8 @@ export function CategorizedServices({
           id: 'power-of-attorney',
           name: 'Powers of Attorney',
           category: 'a-la-carte',
-          individualPrice: 500,
-          jointPrice: 750,
+          individualPrice: 400,
+          jointPrice: 600,
           description: 'Includes Power of Attorney for Healthcare and Power of Attorney for Property. Joint includes two of each document. Includes online notarization.',
           includes: []
         },
@@ -288,6 +302,18 @@ export function CategorizedServices({
           fixedPrice: 1500,
           description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.',
           includes: []
+        },
+        {
+          id: 'irrevocable-trust',
+          name: 'Irrevocable Trust',
+          category: 'a-la-carte',
+          fixedPrice: ESTATE_PLANNING.irrevocableTrust,
+          description: 'One custom Gifting Trust, Special Needs Trust, ILIT, or Supplemental Needs Trust, with related planning guidance.',
+          includes: [
+            'One custom irrevocable trust',
+            'Coordination with the client’s existing estate plan',
+            'Attorney consultations related to the included scope'
+          ]
         }
       ],
       addOns: [
@@ -295,16 +321,16 @@ export function CategorizedServices({
           id: 'special-needs-planning',
           name: 'Special Needs Planning',
           category: 'a-la-carte',
-          fixedPrice: 3500,
-          description: 'Creation or amendment of Revocable Living Trust, or creation of Irrevocable Trust. Can be added to any package or purchased standalone.',
+          fixedPrice: A_LA_CARTE.specialNeedsPlanning,
+          description: 'One custom special needs or supplemental needs trust with coordination to the client’s existing plan. Available as an add-on or standalone service.',
           includes: []
         },
         {
           id: 'estate-tax-planning',
           name: 'Estate Tax Planning (Add-On)',
           category: 'a-la-carte',
-          pricingLabel: '$5,000 base + 1% of Total Estate Value',
-          description: 'Can be added to any existing package or estate plan. $5,000 base fee paid upfront; 1% of total estate value invoiced at time of document finalization.',
+          fixedPrice: A_LA_CARTE.estateTaxPlanningAddOn,
+          description: 'Can be added to an existing package or estate plan. Includes Federal and Illinois estate-tax planning and one advanced irrevocable trust.',
           includes: []
         }
       ]
@@ -323,39 +349,30 @@ export function CategorizedServices({
           includes: [
             'Title Transfer Documentation',
             'Coordination with Title Company for Out-of-Court Title Transfer',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ],
           note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
         {
-          id: 'summary-probate',
-          name: 'Small Estate Probate',
-          subtitle: 'For uncontested estates under $150,000 requiring Letters of Office',
-          category: 'probate',
-          fixedPrice: 3500,
-          description: 'Applies to estates under $150,000 where a bank will not accept a Small Estate Affidavit and Letters of Office are required. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
-          includes: probateIncludes,
-          note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
-        },
-        {
           id: 'standard-probate',
           name: 'Standard Probate',
-          subtitle: 'Uncontested probate for estates valued below $1,000,000',
+          subtitle: 'Uncontested estates valued at $1,000,000 or less',
           category: 'probate',
           fixedPrice: PROBATE.standard,
-          description: 'Applies to uncontested estates valued below $1,000,000 that require probate. Flat-fee from opening through closing. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+          description: 'Full uncontested probate administration from opening through closing for estates valued at $1,000,000 or less. Contested issues are billed hourly against a separate retainer.',
           includes: probateIncludes,
           note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
         {
           id: 'large-estate-probate',
           name: 'Large Estate Probate',
-          subtitle: 'Uncontested probate for estates valued at $1,000,000 or more',
+          subtitle: 'Uncontested estates exceeding $1,000,000',
           category: 'probate',
+          fixedPrice: PROBATE.largeEstateBase,
           pricingLabel: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
-          description: `Applies to uncontested estates anticipated to be valued at $1,000,000 or more. If the estate is determined during administration to be valued at $1,000,000 or more, an additional ${PROBATE.largeEstatePercent}% of estate value is charged at that time due to the complexity of larger estates. Uncontested matters only.`,
+          description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $1,000,000, due to the complexity of larger estates.',
           includes: probateIncludes,
-          note: `The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. The additional ${PROBATE.largeEstatePercent}% of estate value is charged during administration if the estate is valued at $1,000,000 or more. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the fee.`
+          note: 'The additional 0.5% is charged at the time of administration only if estate value exceeds $1,000,000. Surety bond premium, if required, is paid directly to the bond provider and is not included.'
         },
         {
           id: 'probate-reopening',
@@ -369,30 +386,30 @@ export function CategorizedServices({
             'Reopening and closing of the estate',
             'Assistance with administration of newly discovered assets',
             'Notice to all heirs',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ]
         },
         {
           id: 'heir-representation',
           name: 'Heir Representation',
           category: 'probate',
-          fixedPrice: 2500,
+          fixedPrice: PROBATE.heirRepresentation,
           description: 'Representation of a non-executor / non-administrator heir throughout a probate matter. Does not include contested hearings or motions to contest a will.',
           includes: [
             'Review of all filings and court documentation',
             'Advice and guidance regarding the heir\'s interest and inheritance rights',
             'Filing of claims against the estate, if needed',
             'Attendance at all court hearings on behalf of the heir',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ],
-          note: '$2,500 per heir'
+          note: `${usd(PROBATE.heirRepresentation)} per heir`
         },
         {
           id: 'partial-probate',
           name: 'Partial Probate',
           category: 'probate',
-          pricingLabel: 'Starting at $3,500 — individually quoted',
-          description: 'Applies when an estate has already been opened and the client is seeking new representation to replace prior counsel. Starting at $3,500; final fee individually quoted based on case progress and complexity (up to $6,500). Uncontested matters only.',
+          fixedPrice: PROBATE.partialProbate,
+          description: 'Fixed-fee completion of an accepted uncontested estate that has already been opened and requires substitute counsel.',
           includes: [
             'Scope of services determined based on the stage of the probate matter and what remains to be completed'
           ]
@@ -401,14 +418,14 @@ export function CategorizedServices({
           id: 'spousal-representation',
           name: 'Spousal Representation',
           category: 'probate',
-          fixedPrice: 3500,
+          fixedPrice: PROBATE.spousalRepresentation,
           description: 'Applies when representing a spouse who is not the executor or administrator of the estate. Uncontested matters only.',
           includes: [
             'Full legal representation of the spouse throughout probate proceedings',
             'Advice and consultation regarding spousal rights and interests',
             'Filing of claims against the estate, including spousal claim for 50% of the estate if not otherwise provided for in that amount in the will',
             'Attendance at all court hearings on behalf of the spouse',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included scope'
           ]
         },
         {
@@ -438,17 +455,17 @@ export function CategorizedServices({
           name: 'Trust Administration Consulting',
           subtitle: 'Attorney guidance for individuals serving as trustee',
           category: 'probate',
-          pricingLabel: '$3,500 / Year',
-          description: 'Comprehensive legal consulting for individuals named as trustee. Illinois Estate Law does NOT serve as Trustee — trustee services are not offered by this firm.',
+          pricingLabel: `${usd(TRUST_ADMIN.consultingAnnual)} / Year`,
+          description: 'Annual legal consulting for an individual trustee, including up to ten attorney hours. Illinois Estate Law does not serve as trustee.',
           includes: [
             'Trust Accounting Review and Preparation',
             'Distribution Review and Guidance',
             'Review of Trust Documentation and Beneficiary Rights',
             'Guidance on Trustee Fiduciary Duties under Illinois Law',
             'Correspondence with Beneficiaries of the Trust',
-            'Unlimited Attorney Consultations throughout the year'
+            'Up to ten attorney consultation hours during the year'
           ],
-          note: 'Flat annual fee of $3,500.'
+          note: `Flat annual fee of ${usd(TRUST_ADMIN.consultingAnnual)}. Work beyond ten attorney hours requires a separate written engagement.`
         }
       ],
       aLaCarte: [],
@@ -502,7 +519,7 @@ export function CategorizedServices({
           id: 'residential-closing',
           name: 'Residential Closing (Buyer or Seller)',
           category: 'real-estate',
-          fixedPrice: 750,
+          fixedPrice: REAL_ESTATE.residentialClosing,
           description: 'For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.',
           includes: [
             'Contract Review',
@@ -511,14 +528,40 @@ export function CategorizedServices({
             'Document Preparation',
             'Settlement Statement Review',
             'Attorney Representation at Closing',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included transaction scope'
+          ]
+        },
+        {
+          id: 'multi-unit-investment-closing',
+          name: 'Multi-Unit or Investment Closing',
+          category: 'real-estate',
+          fixedPrice: REAL_ESTATE.multiUnitOrInvestmentClosing,
+          description: 'Buyer or seller representation for a residential multi-unit or investment property. Closing costs and third-party charges are not included.',
+          includes: [
+            'Contract and attorney-review negotiation',
+            'Title, survey, and closing-document review',
+            'Settlement statement review and closing representation',
+            'Attorney consultations related to the included transaction scope'
+          ]
+        },
+        {
+          id: 'estate-trust-nonstandard-closing',
+          name: 'Estate, Trust, or Nonstandard Title Closing',
+          category: 'real-estate',
+          fixedPrice: REAL_ESTATE.estateTrustOrNonstandardTitleClosing,
+          description: 'Residential closing involving an estate, trust, power of attorney, or other nonstandard title authority. Closing costs and third-party charges are not included.',
+          includes: [
+            'Authority and governing-document review',
+            'Contract, title, survey, and closing-document review',
+            'Settlement statement review and closing representation',
+            'Attorney consultations related to the included transaction scope'
           ]
         },
         {
           id: 'fsbo-representation',
           name: 'For Sale By Owner (FSBO) Representation',
           category: 'real-estate',
-          fixedPrice: 1500,
+          fixedPrice: REAL_ESTATE.fsboRepresentation,
           description: 'For a For Sale By Owner sale where there is no listing agent, so the attorney also handles the coordination an agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.',
           includes: [
             'Purchase/Sale Contract Drafting or Review',
@@ -528,7 +571,7 @@ export function CategorizedServices({
             'Settlement Statement Review',
             'Attorney Representation at Closing',
             'Coordination normally handled by a real estate agent',
-            'Unlimited Attorney Consultations'
+            'Attorney consultations related to the included transaction scope'
           ]
         }
       ],

@@ -55,7 +55,7 @@ export async function generateMetadata({
 
 const probateServices = [
   { icon: Gavel, title: 'Full Probate Representation', description: 'Complete legal representation from petition filing through final distribution of estate assets.' },
-  { icon: FileText, title: 'Small Estate Administration', description: 'For estates under $100,000 with no real estate — a Small Estate Affidavit and Attorney Letter of Direction instead of opening a probate case.' },
+  { icon: FileText, title: 'Small Estate Administration', description: 'For qualifying personal estates of $150,000 or less with no individually owned real estate — a Small Estate Affidavit and Attorney Letter of Direction instead of opening probate.' },
   { icon: Users, title: 'Executor / Administrator Support', description: 'Guidance and legal support for executors and administrators throughout the probate process.' },
   { icon: UserCheck, title: 'Heir & Beneficiary Representation', description: 'Protecting the interests and inheritance rights of heirs and beneficiaries during probate.' },
   { icon: CreditCard, title: 'Creditor Notification & Debt Settlement', description: 'Proper notification of creditors and negotiation of outstanding debts owed by the estate.' },
@@ -73,7 +73,8 @@ const probateServices = [
 const probatePricing = [
   { name: 'Standard Probate', price: usd(PROBATE.standard) },
   { name: 'Small Estate Administration', price: usd(PROBATE.smallEstateAdministration), featured: true },
-  { name: 'Partial Probate', price: `From ${usd(PROBATE.partialProbateFrom)}` },
+  { name: 'Large Estate Probate', price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of estate value, charged during administration only if the estate exceeds $1,000,000` },
+  { name: 'Partial Probate', price: usd(PROBATE.partialProbate) },
   { name: 'Spousal Representation', price: usd(PROBATE.spousalRepresentation) },
   { name: 'Heir Representation', price: usd(PROBATE.heirRepresentation) },
 ];
@@ -277,7 +278,7 @@ export default function CountyProbatePage({
                 ))}
               </div>
               <p className="text-center text-slate-500 text-sm mt-8 max-w-3xl mx-auto leading-relaxed">
-                These flat fees are <strong className="text-slate-700">all-inclusive</strong> &mdash; court filing fees, creditor publication, and recording are covered by the fee, not billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Unlimited attorney consultation included. Payment plans available.
+                These fixed fees cover the written administration scope, court filing fees, creditor publication, and recording. A required surety-bond premium is paid directly to the bond provider. Attorney consultations related to the included scope and payment plans are available.
               </p>
               <div className="text-center mt-6">
                 <Link

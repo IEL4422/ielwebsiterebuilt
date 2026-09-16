@@ -184,8 +184,8 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
 /* ---------- always-included band ---------- */
 
 const included = [
-  ['Unlimited Consultations', 'Talk as many times as you like until your documents are final.'],
-  ['100% Flat-Fee*', 'Your price is shown before you commit. Hourly only for contested matters.'],
+  ['In-Scope Consultations', 'Attorney consultations reasonably needed to complete the written package scope.'],
+  ['Fixed Fees for Standard Matters*', 'Your price and written scope are shown before you commit. Hourly only for contested matters.'],
   ['Notarization Included', 'Online or mobile notarization included on all packages.'],
   ['Client Portal Access', 'Track status, message your attorney, and access documents 24/7.'],
   ['Physical & Digital Portfolio', 'Your finished plan delivered both ways.'],
@@ -227,7 +227,7 @@ export function ServicesPricingModern() {
           <CatHead kick="01" title="Estate Planning" />
           <p className="mb-7 max-w-[760px] text-[16px] text-[#5f6b76]">
             Wills, trusts, powers of attorney, and healthcare directives drafted to Illinois legal standards. Every
-            package includes unlimited attorney consultations, notarization, a physical &amp; digital portfolio, and
+            package includes attorney consultations related to the written scope, notarization, a physical &amp; digital portfolio, and
             client portal access.
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">

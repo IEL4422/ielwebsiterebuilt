@@ -383,10 +383,10 @@ export default function CookCountyProbatePage() {
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
                   <p className="mb-4">
-                    Illinois offers a simplified procedure for small estates valued at $100,000 or less. Instead of full probate, beneficiaries can file a Small Estate Affidavit with entities holding estate assets. This process avoids court proceedings entirely and can be completed in weeks rather than months.
+                    Illinois offers a simplified procedure for qualifying personal estates valued at $150,000 or less with no individually owned real estate. Beneficiaries can present a Small Estate Affidavit to entities holding estate assets without opening probate.
                   </p>
                   <p className="mb-4">
-                    To qualify for a Small Estate Affidavit in Cook County, certain conditions must be met: the estate value cannot exceed $100,000 (excluding certain exempt property), at least six months must have passed since death (or 30 days if no will), and all funeral and burial expenses must be paid. The affidavit must list all known estate assets and identify all heirs or beneficiaries.
+                    To qualify, the decedent’s personal estate covered by the affidavit cannot exceed $150,000, no probate petition may be pending or contemplated, and the affidavit must identify the assets, debts, heirs, and beneficiaries. Individually owned real estate cannot be transferred by this affidavit.
                   </p>
                   <p>
                     While this process is simpler than full probate, it still requires careful preparation. Banks, title companies, and other institutions scrutinize these affidavits closely before releasing assets. Any errors or omissions can cause delays or rejections. Many families find it beneficial to have an attorney prepare the Small Estate Affidavit to ensure it's completed correctly and accepted without issue.
@@ -537,7 +537,7 @@ export default function CookCountyProbatePage() {
                   Do all estates in Cook County require probate?
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  No, not all estates require full probate in Cook County. Assets that pass by beneficiary designation (life insurance, retirement accounts, TOD accounts), jointly owned property with survivorship rights, and property in a living trust typically avoid probate. Additionally, estates valued at $100,000 or less may qualify for the simplified Small Estate Affidavit procedure. However, even when probate isn't legally required, it may still be advisable in certain situations to properly clear title to assets or resolve disputes.
+                  No, not all estates require full probate in Cook County. Assets that pass by beneficiary designation, survivorship ownership, or living trust typically avoid probate. A qualifying personal estate of $150,000 or less with no individually owned real estate may use the Small Estate Affidavit procedure. Formal probate may still be advisable when title or disputes require court authority.
                 </p>
               </div>
 

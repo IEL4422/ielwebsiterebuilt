@@ -42,10 +42,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Do All Packages Really Include Unlimited Attorney Consultations?",
+      "name": "What Attorney Consultations Are Included?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! We can talk as many times as you would like to ensure you are happy with the service. The unlimited consultation period ends once you receive the finished product(s)."
+        "text": "Each fixed-fee package includes the attorney consultations reasonably needed to complete the written scope of that service. New work, contested issues, or work outside the package scope requires a separate written engagement before additional fees are charged."
       }
     },
     {
@@ -207,7 +207,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-[1180px] px-5 py-12 text-center font-['Plus_Jakarta_Sans']">
           <h1 className="text-[42px] font-bold text-[#33414E] sm:text-[30px]">Services &amp; Pricing</h1>
           <p className="mx-auto mt-3 max-w-[680px] text-[18px] text-[#5f6b76]">
-            Transparent, 100% flat-fee pricing across every practice area — shown before you commit. We are pleased to offer payment plans for all services.
+            Transparent fixed pricing for standard matters, shown before you commit. Contested litigation is billed hourly under a written engagement. Payment plans are available.
           </p>
           <p className="mt-2.5 text-[15px] font-semibold text-[#33414E]">
             Not sure which package is right?{' '}
@@ -254,13 +254,13 @@ export default function ServicesPage() {
 
           <details className="group border-b border-gray-200">
             <summary className="flex justify-between items-center cursor-pointer py-4 text-[#011627] font-['Plus_Jakarta_Sans'] font-semibold text-lg hover:text-[#4a708b] sm:text-base sm:py-3">
-              Do All Packages Really Include Unlimited Attorney Consultations?
+              What Attorney Consultations Are Included?
               <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes! We can talk as many times as you would like to ensure you are happy with the service. The unlimited consultation period ends once you receive the finished product(s).</p>
+              <p>Each fixed-fee package includes the attorney consultations reasonably needed to complete the written scope of that service. New work, contested issues, or work outside the package scope requires a separate written engagement before additional fees are charged.</p>
             </div>
           </details>
 

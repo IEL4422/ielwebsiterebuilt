@@ -184,7 +184,7 @@ export default function ChicagoProbateLawyerPage() {
                       <h4 className="font-bold text-amber-900 mb-2">Probate Is Generally Required When:</h4>
                       <ul className="text-amber-800 space-y-2">
                         <li>• The deceased owned real estate in their individual name</li>
-                        <li>• Assets exceed $100,000 in total value (Illinois small estate threshold)</li>
+                        <li>• Qualifying personal property exceeds the $150,000 small-estate-affidavit limit</li>
                         <li>• Property needs to be transferred and no other transfer mechanism exists</li>
                         <li>• There is a will that needs court validation</li>
                         <li>• There are disputes among heirs or concerns about the will's validity</li>
@@ -205,7 +205,7 @@ export default function ChicagoProbateLawyerPage() {
                         <li>• Property was owned jointly with right of survivorship</li>
                         <li>• All accounts had valid payable-on-death (POD) or transfer-on-death (TOD) beneficiary designations</li>
                         <li>• Real estate transferred via transfer-on-death instrument (TODI)</li>
-                        <li>• Estate qualifies for small estate affidavit (under $100,000 and no real estate)</li>
+                        <li>• Estate qualifies for a small estate affidavit ($150,000 or less in qualifying personal property and no individually owned real estate)</li>
                         <li>• All significant assets pass outside probate through beneficiary designations</li>
                       </ul>
                     </div>
@@ -514,7 +514,7 @@ export default function ChicagoProbateLawyerPage() {
                   <ul className="space-y-2 text-slate-700">
                     <li className="flex items-start gap-3">
                       <span className="text-green-600 text-xl">✓</span>
-                      <span>Total estate value is less than $100,000</span>
+                      <span>Qualifying personal property is $150,000 or less</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-600 text-xl">✓</span>

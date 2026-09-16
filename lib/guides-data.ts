@@ -116,7 +116,7 @@ export const staticGuides: StaticGuide[] = [
 <ul>
   <li>The decedent owned real estate solely in their name (not in joint tenancy or a trust)</li>
   <li>The decedent had financial accounts with no beneficiary designation or payable-on-death designation</li>
-  <li>The total value of probate assets exceeds $100,000</li>
+  <li>The qualifying personal estate exceeds $150,000</li>
 </ul>
 <p>Assets that typically pass outside of probate include: jointly held property with right of survivorship, accounts with payable-on-death or transfer-on-death designations, life insurance and retirement accounts with named beneficiaries, and assets held in a revocable living trust.</p>
 
@@ -128,7 +128,7 @@ export const staticGuides: StaticGuide[] = [
 </ul>
 
 <h2>Small Estate Affidavit</h2>
-<p>If the gross value of the estate does not exceed $100,000 and certain conditions are met, Illinois allows the use of a small estate affidavit to transfer assets without probate. The affidavit can be used to collect bank accounts, transfer personal property, and access other assets. It cannot be used to transfer real estate.</p>
+<p>If the qualifying personal estate does not exceed $150,000 and the statutory conditions are met, Illinois allows a small estate affidavit to collect personal property without opening probate. It cannot be used to transfer real estate.</p>
 
 <h2>The Illinois Probate Process: Step by Step</h2>
 

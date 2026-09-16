@@ -58,9 +58,9 @@ const answers: Answer[] = [
   {
     question: 'When is probate required in Illinois?',
     short:
-      'Probate is generally required in Illinois when the deceased person owned more than $100,000 of personal property in their sole name, or owned real estate in their sole name that has to be transferred.',
+      'Probate is generally required in Illinois when the deceased person owned more than $150,000 of qualifying personal property in their sole name, or owned real estate in their sole name that has to be transferred.',
     detail: [
-      'The $100,000 figure refers to assets that have no surviving joint owner and no beneficiary designation. Life insurance paid to a named beneficiary, retirement accounts with a beneficiary, payable-on-death bank accounts, and trust assets are not counted.',
+      'The $150,000 small-estate-affidavit limit concerns qualifying personal property without a surviving joint owner or beneficiary designation. Life insurance paid to a named beneficiary, retirement accounts with a beneficiary, payable-on-death accounts, and trust assets are generally outside the probate estate.',
       'Real estate is the common trigger. If title is in the deceased person’s name alone and there is no trust, no joint tenant, and no recorded transfer on death instrument, a probate proceeding is usually the only way to convey clear title to the heirs or a buyer.',
     ],
     links: [{ label: 'Illinois probate', href: '/chicago-probate-lawyer/' }],
@@ -68,7 +68,7 @@ const answers: Answer[] = [
   {
     question: 'What is the Illinois small estate affidavit?',
     short:
-      'The Illinois small estate affidavit is a sworn form that lets an heir or executor collect a deceased person’s personal property without opening a probate case, when the personal estate is $100,000 or less and no real estate needs to be transferred.',
+      'The Illinois small estate affidavit is a sworn form that lets an heir or executor collect a deceased person’s personal property without opening a probate case when the qualifying personal estate is $150,000 or less and no real estate needs to be transferred.',
     detail: [
       'The affidavit is authorized by Article XXV of the Illinois Probate Act. It is presented directly to the bank, brokerage, or other institution holding the asset, not filed with a court. The institution that relies on it in good faith is released from liability.',
       'The affidavit cannot be used to transfer real estate, and it cannot be used if a probate case has already been opened or if there is a dispute among heirs. The person signing it takes on personal responsibility for paying the estate’s claims in the statutory order of priority and for distributing what is left correctly.',

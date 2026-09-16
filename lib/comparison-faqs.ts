@@ -76,7 +76,7 @@ export const diyVsAttorneyFAQs: QA[] = [
   {
     question: 'When is do-it-yourself estate planning genuinely reasonable in Illinois?',
     answer:
-      'A do-it-yourself will can be a defensible choice when the estate is modest and the plan is simple: no real estate held in your sole name, total sole-name personal property comfortably under the $100,000 threshold that triggers probate, everything passing outright to a spouse or to adult children in equal shares, no blended-family or special-needs considerations, and no Illinois estate tax exposure. Add real estate, a business, a beneficiary who cannot manage money, a child from a prior relationship, or an estate approaching $4 million, and the cost of getting it wrong rises sharply.',
+      'A do-it-yourself will can be a defensible choice when the estate is modest and the plan is simple: no real estate held in your sole name, qualifying sole-name personal property comfortably within the $150,000 small-estate-affidavit limit, everything passing outright to a spouse or adult children, no blended-family or special-needs considerations, and no Illinois estate-tax exposure. Add real estate, a business, a beneficiary who cannot manage money, a child from a prior relationship, or an estate approaching $4 million, and the cost of getting it wrong rises sharply.',
   },
   {
     question: 'Is there a middle option between doing it yourself and full representation?',

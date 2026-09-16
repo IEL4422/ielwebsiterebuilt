@@ -395,7 +395,7 @@ export const blogPosts: BlogPost[] = [
     title: 'When Is Probate Required in Illinois? Complete 2026 Guide with Interactive Tools',
     url: '/blog/when-is-probate-required-in-illinois/',
     date: 'Feb 9, 2026',
-    summary: 'Comprehensive guide explaining when probate is required in Illinois, when it can be avoided, and what alternatives exist. Includes interactive estate value calculator, decision trees, and detailed explanations of the $100,000 threshold.',
+    summary: 'Comprehensive guide explaining when probate is required in Illinois, when it can be avoided, and what alternatives exist. Includes an estate-value calculator, decision trees, and the current $150,000 small-estate-affidavit limit.',
     excerpt: 'Understand when Illinois law requires probate and discover alternatives with our interactive estate calculator and comprehensive guide.',
   },
   {
@@ -411,7 +411,7 @@ export const blogPosts: BlogPost[] = [
     title: 'How to Complete a Small Estate Affidavit in Illinois: Complete 2026 Guide',
     url: '/blog/how-to-complete-a-small-estate-affidavit-in-illinois/',
     date: 'Jan 27, 2026',
-    summary: 'Learn how to complete a small estate affidavit in Illinois for estates under $100,000. This comprehensive guide covers eligibility requirements, step-by-step instructions, required documents, and common mistakes to avoid.',
+    summary: 'Learn how to complete an Illinois small estate affidavit for qualifying personal estates of $150,000 or less. This guide covers eligibility, required documents, steps, and common mistakes.',
     excerpt: 'Complete guide to filing a small estate affidavit in Illinois, including eligibility, forms, and step-by-step instructions.',
   },
   {

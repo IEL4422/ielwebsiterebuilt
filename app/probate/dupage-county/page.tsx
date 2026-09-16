@@ -338,10 +338,10 @@ export default function DuPageCountyProbatePage() {
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-700 pt-4">
                   <p className="mb-4">
-                    DuPage County estates valued at $100,000 or less may qualify for the Small Estate Affidavit procedure, which avoids formal probate entirely. This streamlined process allows beneficiaries to collect assets by presenting an affidavit to banks, investment firms, and other institutions holding estate property.
+                    A qualifying personal estate of $150,000 or less with no individually owned real estate may use the Small Estate Affidavit procedure. Beneficiaries present the affidavit to banks, investment firms, and other institutions holding personal property without opening probate.
                   </p>
                   <p className="mb-4">
-                    To use a Small Estate Affidavit in DuPage County, specific requirements must be met: the estate's total value cannot exceed $100,000 (excluding certain exempt property), either six months must have passed since death or 30 days if there's no will, and all funeral and burial expenses must be paid.
+                    To use the affidavit, the decedent’s personal estate covered by it cannot exceed $150,000, no probate petition may be pending or contemplated, and the affidavit must identify the assets, debts, heirs, and beneficiaries. Individually owned real estate cannot be transferred by this affidavit.
                   </p>
                   <p>
                     While simpler than full probate, Small Estate Affidavits must be prepared carefully. Errors can result in rejection by financial institutions or potential liability for those using the affidavit. Many families find it worthwhile to have an attorney prepare this document to ensure it's accepted and properly protects everyone involved.

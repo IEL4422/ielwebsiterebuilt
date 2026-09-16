@@ -195,7 +195,7 @@ export default function CityEstatePlanningPage({
                     </h3>
                     <p className="text-sm text-slate-500 text-center mb-4">Estate Planning Attorney</p>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      Mary Liberty is a graduate of Loyola University Chicago School of Law and a SuperLawyers Rising Star in 2025 and 2026. She operates on a 100% flat-fee model with no hourly billing, no hidden fees, and no surprises.
+                      Mary Liberty is a graduate of Loyola University Chicago School of Law and a SuperLawyers Rising Star in 2025 and 2026. She offers transparent fixed fees for standard matters, with hourly billing reserved for contested litigation.
                     </p>
                   </div>
                 </div>
@@ -265,7 +265,7 @@ export default function CityEstatePlanningPage({
                 ))}
               </div>
               <p className="text-center text-slate-500 text-sm mt-8">
-                All packages include unlimited attorney consultation. Payment plans available.
+                All packages include attorney consultations related to the written scope. Payment plans are available.
               </p>
               <div className="text-center mt-6">
                 <Link

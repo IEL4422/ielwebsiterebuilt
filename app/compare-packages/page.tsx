@@ -12,7 +12,7 @@ type FeatureKey = 'Revocable Living Trust' | 'Last Will & Testament' | 'Pour-Ove
   'Healthcare Directive (Living Will)' | 'Transfer-on-Death Instrument' |
   'Remembrance & Services Memorandum' | 'Personal Property Memorandum' |
   'Deed Transfer of Real Estate to Trust' | 'Trust Funding Guidance' | 'Online or Mobile Notarization' |
-  'Physical & Digital Portfolio' | 'Access to Client Portal' | 'Unlimited Attorney Consultation';
+  'Physical & Digital Portfolio' | 'Access to Client Portal' | 'In-Scope Attorney Consultation';
 
 type Features = {
   [key in FeatureKey]: boolean | string;
@@ -52,7 +52,7 @@ export default function ComparePackagesPage() {
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
-        'Unlimited Attorney Consultation': true,
+        'In-Scope Attorney Consultation': true,
       }
     },
     {
@@ -76,7 +76,7 @@ export default function ComparePackagesPage() {
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
-        'Unlimited Attorney Consultation': true,
+        'In-Scope Attorney Consultation': true,
       }
     },
     {
@@ -100,7 +100,7 @@ export default function ComparePackagesPage() {
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
-        'Unlimited Attorney Consultation': true,
+        'In-Scope Attorney Consultation': true,
       }
     },
     {
@@ -124,7 +124,7 @@ export default function ComparePackagesPage() {
         'Online or Mobile Notarization': true,
         'Physical & Digital Portfolio': true,
         'Access to Client Portal': true,
-        'Unlimited Attorney Consultation': true,
+        'In-Scope Attorney Consultation': true,
       }
     }
   ];
@@ -144,7 +144,7 @@ export default function ComparePackagesPage() {
     'Online or Mobile Notarization',
     'Physical & Digital Portfolio',
     'Access to Client Portal',
-    'Unlimited Attorney Consultation',
+    'In-Scope Attorney Consultation',
   ];
 
   return (

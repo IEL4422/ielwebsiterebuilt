@@ -1,4 +1,5 @@
 import type { QA } from '@/lib/seo';
+import { RETAINERS, usd } from '@/lib/pricing';
 
 /**
  * Homepage FAQ content — SINGLE SOURCE OF TRUTH.
@@ -32,7 +33,7 @@ export const homeFAQs: QA[] = [
   },
   {
     question: "What makes Illinois Estate Law's pricing structure different?",
-    answer: 'The firm uses an all-inclusive flat-fee system for standard matters — including uncontested probate and uncontested guardianship — so clients know exactly what they will pay from the start. There are no hidden costs or surprise charges for asking questions. Contested matters (will contests, contested probate, and contested guardianship) are the exception: they are billed hourly against a $5,000 retainer, because the opposing party, not the firm, drives how much work there is. This clear and transparent approach allows clients to plan confidently and focus on protecting their families rather than worrying about unpredictable legal bills.',
+    answer: `The firm uses fixed fees for standard matters, including uncontested probate and uncontested guardianship, so clients know the price and written scope before work begins. Contested matters are the exception: they are billed hourly against a ${usd(RETAINERS.contestedProbate)} retainer because the opposing party drives the scope.`,
   },
   {
     question: 'What types of documents are typically included in an estate plan?',

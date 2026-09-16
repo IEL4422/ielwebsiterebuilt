@@ -123,8 +123,8 @@ export default function EstatePlanningPage() {
               <div className="w-14 h-14 bg-[#4A708B]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-[#33414E] font-bold text-xl">&infin;</span>
               </div>
-              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">Unlimited Consultations</h3>
-              <p className="text-slate-600 text-sm">Talk to your attorney as many times as you need throughout the process.</p>
+              <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#33414E] mb-2">In-Scope Consultations</h3>
+              <p className="text-slate-600 text-sm">Attorney guidance reasonably needed to complete the written package scope.</p>
             </div>
             <div className="text-center">
               <div className="w-14 h-14 bg-[#4A708B]/10 rounded-full flex items-center justify-center mx-auto mb-4">
