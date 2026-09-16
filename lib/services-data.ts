@@ -1,4 +1,4 @@
-import { RATES, RETAINERS, usd, hourly } from './pricing';
+import { PROBATE, RATES, RETAINERS, usd, hourly } from './pricing';
 
 export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
@@ -299,7 +299,8 @@ export const probatePackages: Service[] = [
     description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
     includes: [
       'Small Estate Affidavit',
-      'Attorney Letter of Direction'
+      'Attorney Letter of Direction',
+      'Asset Search'
     ],
     note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.',
     addOns: []
@@ -307,12 +308,12 @@ export const probatePackages: Service[] = [
   {
     id: 'standard-probate',
     name: 'Standard Probate',
-    subtitle: 'Uncontested probate for estates between $150,000 and $2,000,000',
+    subtitle: 'Uncontested probate for estates valued below $1,000,000',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Standard Probate',
-    fixedPrice: 6500,
-    description: 'Applies to uncontested estates valued between $150,000 and $2,000,000. Flat-fee probate administration from opening through closing. If estate value exceeds $2,000,000, an additional 1% of net estate value is invoiced at the time of distribution. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+    fixedPrice: PROBATE.standard,
+    description: 'Applies to uncontested estates valued below $1,000,000 that require probate. Flat-fee probate administration from opening through closing. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
     includes: probateIncludes,
     note: probateNote,
     addOns: []
@@ -320,14 +321,14 @@ export const probatePackages: Service[] = [
   {
     id: 'large-estate-probate',
     name: 'Large Estate Probate',
-    subtitle: 'Uncontested probate for estates above $2,000,000',
+    subtitle: 'Uncontested probate for estates valued at $1,000,000 or more',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Large Estate Probate',
-    pricingLabel: '$6,500 + 1% of Net Estate Value',
-    description: 'Applies to uncontested estates anticipated to be valued above $2,000,000. $6,500 base fee; if net estate value (after attorney fees, expenses, funeral/memorial costs, and other probate-related expenses) exceeds $2,000,000, an additional 1% of net estate value is invoiced at the time of administration. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+    pricingLabel: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
+    description: `Applies to uncontested estates anticipated to be valued at $1,000,000 or more. The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. If the estate is determined during administration to be valued at $1,000,000 or more, an additional ${PROBATE.largeEstatePercent}% of estate value is charged at that time due to the complexity of larger estates. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.`,
     includes: probateIncludes,
-    note: 'The $6,500 base fee is due at engagement. The 1% fee on net estate value is collected at the time of administration. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
+    note: `The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. The additional ${PROBATE.largeEstatePercent}% of estate value is charged during administration if the estate is valued at $1,000,000 or more. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the fee.`,
     addOns: []
   },
   {

@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
+import { PROBATE, RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -32,7 +32,7 @@ interface QuizAnswers {
   needsAncillary: 'yes' | 'no' | '';
   hasSpecialNeeds: 'yes' | 'no' | '';
   decedentCounty: string;
-  decedentEstateValue: 'under-100k' | 'over-100k' | '';
+  decedentEstateValue: 'under-100k' | '100k-under-1m' | '1m-plus' | '';
   decedentHasRealEstate: 'yes' | 'no' | '';
   issuesAmongHeirs: 'yes' | 'no' | '';
   allDebtsPaid: 'yes' | 'no' | '';
@@ -162,7 +162,7 @@ export default function RecommendedServicePage() {
       const guardianshipRecommendations: Record<Exclude<QuizAnswers['guardianshipNeed'], ''>, ServiceRecommendation> = {
         adult: {
           name: 'Adult Guardianship',
-          price: '$5,000',
+          price: usd(PROBATE.standard),
           description: 'For an adult who can no longer safely make personal, medical, or financial decisions. A consultation lets the firm confirm the facts and scope before engagement.',
           includes: ['Guardianship petition and required court filings', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],
@@ -325,7 +325,8 @@ export default function RecommendedServicePage() {
           description: 'Illinois lets an estate under $100,000 with no real estate be settled with a sworn affidavit instead of opening a probate case. This service prepares that affidavit and the attorney letter of direction that goes with it to the bank, brokerage, or transfer agent holding the asset. It is not a court proceeding and no probate estate is opened.',
           includes: [
             'Small Estate Affidavit',
-            'Attorney Letter of Direction'
+            'Attorney Letter of Direction',
+            'Asset Search'
           ],
           note: 'This is not a probate court filing. If an institution refuses the affidavit and requires Letters of Office, the matter becomes a Standard Probate and is quoted separately.',
           addOns: [],
@@ -336,12 +337,37 @@ export default function RecommendedServicePage() {
         };
       }
 
-      const needsFullProbate = decedentEstateValue === 'over-100k' || decedentHasRealEstate === 'yes';
+      if (decedentEstateValue === '1m-plus' && issuesAmongHeirs === 'no') {
+        return {
+          name: 'Large Estate Probate',
+          price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
+          description: `Probate administration for uncontested estates valued at $1,000,000 or more. The ${usd(PROBATE.largeEstateBase)} base fee is due at engagement. An additional ${PROBATE.largeEstatePercent}% of estate value is charged during administration due to the complexity of larger estates.`,
+          includes: [
+            'All required filings with the Probate Court from opening through closing',
+            'Appearance and handling of all court hearings',
+            'Opening of Estate Bank Account',
+            'Obtaining Estate EIN',
+            'Asset & Debt Search',
+            'Creditor Notification & Publication',
+            'Requesting Tax Records & Transcripts',
+            'Transfer of Real Estate via Deed, if necessary',
+            'Unlimited Attorney Consultations'
+          ],
+          note: 'Surety bond premium, if required, is paid directly to the bond provider and is not included in the fee.',
+          addOns: [],
+          serviceId: 'large-estate-probate',
+          requiresConsultation: false,
+          standardizedCaseType: 'Probate',
+          standardizedServiceName: 'Large Estate Probate'
+        };
+      }
+
+      const needsFullProbate = decedentEstateValue === '100k-under-1m' || decedentHasRealEstate === 'yes';
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Standard Probate',
-          price: '$6,500',
-          description: 'Flat-fee probate administration for uncontested estates between $150,000 and $2,000,000, with or without real estate.',
+          price: '$5,000',
+          description: 'Flat-fee probate administration for uncontested estates valued below $1,000,000, with or without real estate.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',
@@ -1492,18 +1518,35 @@ export default function RecommendedServicePage() {
                           </div>
                         </button>
                         <button
-                          onClick={() => updateAnswer('decedentEstateValue', 'over-100k')}
+                          onClick={() => updateAnswer('decedentEstateValue', '100k-under-1m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.decedentEstateValue === 'over-100k'
+                            answers.decedentEstateValue === '100k-under-1m'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              $100,000 or more
+                              $100,000–$999,999
                             </span>
-                            {answers.decedentEstateValue === 'over-100k' && (
+                            {answers.decedentEstateValue === '100k-under-1m' && (
+                              <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
+                            )}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() => updateAnswer('decedentEstateValue', '1m-plus')}
+                          className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                            answers.decedentEstateValue === '1m-plus'
+                              ? 'border-[#547298] bg-[#4a708b]/10'
+                              : 'border-gray-300 hover:border-[#547298]/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
+                              $1,000,000 or more
+                            </span>
+                            {answers.decedentEstateValue === '1m-plus' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>

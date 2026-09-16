@@ -46,7 +46,7 @@ const CASE_OPTIONS: CaseOption[] = [
       'Special Needs Planning',
     ],
     bookWith: 'Our Estate Planning Team',
-    bookWithRole: 'Mary Liberty · Yassmin Koudmani · Victoria Lozano',
+    bookWithRole: 'Mary Liberty · Yassmin Koudmani',
   },
   {
     id: 'trust-administration',
@@ -60,7 +60,7 @@ const CASE_OPTIONS: CaseOption[] = [
       'Trustee Fiduciary Duties',
     ],
     bookWith: 'Our Trust Administration Team',
-    bookWithRole: 'Mary Liberty · Yassmin Koudmani · Victoria Lozano',
+    bookWithRole: 'Mary Liberty · Yassmin Koudmani',
   },
   {
     id: 'real-estate',
@@ -73,7 +73,7 @@ const CASE_OPTIONS: CaseOption[] = [
       'Title Issues',
       'Real Estate Transactions',
     ],
-    bookWith: 'Yassmin Koudmani or Victoria Lozano',
+    bookWith: 'Yassmin Koudmani',
     bookWithRole: 'Real Estate Attorneys',
   },
   {
@@ -87,7 +87,7 @@ const CASE_OPTIONS: CaseOption[] = [
       'Heir & Spousal Representation',
       'Asset Distribution',
     ],
-    bookWith: 'Victoria Lozano or Mary Liberty',
+    bookWith: 'Mary Liberty',
     bookWithRole: 'Probate Attorneys',
   },
   {

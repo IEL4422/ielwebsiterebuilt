@@ -32,7 +32,7 @@ const EXTS = ['.ts', '.tsx', '.html', '.txt', '.json'];
 /** "$425/hr", "$425 / hour", "Attorney: $425", "attorney_hourly: 425" ... */
 const RATE_LINE =
   /(attorney|paralegal|hourly|per hour|\/\s*hr)/i;
-// (?![\d,]) so estate-value thresholds like $150,000 and $2,000,000 are not rates.
+// (?![\d,]) so estate-value thresholds like $100,000 and $1,000,000 are not rates.
 const MONEY = /\$\s?(\d{3})(?![\d,])/gi;
 const RATE_VALUES = new Set(['350', '400', '425', '450', '125', '150', '175']);
 

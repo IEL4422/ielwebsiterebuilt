@@ -1,0 +1,175 @@
+# Is the public homepage actually serving a page?
+#
+# WHY THIS EXISTS
+#
+# On 2026-09-06 and again on 2026-09-09, https://www.illinoisestatelaw.com/
+# answered with NO BODY while every other route on the site served 200 normally.
+# Both times it was found by Mary, not by us. The second outage ran for roughly
+# four hours before anyone looked.
+#
+# WHAT IT CHECKS, AND WHY NOT JUST THE STATUS CODE
+#
+# The failure served HTTP 304 with an empty body, so "is it 200?" would have
+# reported the site healthy through both outages. A 200 with an empty body is
+# equally possible. So this asserts on CONTENT: the response must be 200 AND
+# must contain a marker string that only appears when the page really rendered.
+#
+# The marker is pinned by test/homepage-monitoring-marker.test.tsx, which fails
+# CI if it ever stops appearing in the rendered homepage. Change it in both
+# places in the same commit or this monitor goes quietly blind.
+#
+# NO CONDITIONAL REQUEST HEADERS ARE SENT. The bug is literally about a stored
+# 304, so a checker that could legitimately receive one is worthless. curl sends
+# no If-None-Match or If-Modified-Since unless told to, and we additionally send
+# Cache-Control/Pragma no-cache, so every check asks for a fresh response.
+#
+# Redirects are deliberately NOT followed. www is the canonical host (see the
+# host-canonicalisation rule in next.config.js), so this URL must answer 200 on
+# its own. If that ever changes, that is worth knowing about.
+#
+# IF THIS FAILS: REDEPLOY, DO NOT RESTART.
+# An in-place restart does NOT clear the bad cache entry - that was tried on
+# 2026-09-09 at 18:40:39Z and the homepage stayed dark. A redeploy at 18:44:44Z
+# fixed it immediately. The entry lives on the container's writable filesystem
+# and is discarded only by a fresh container.
+#
+# HONEST LIMITATIONS OF THIS MONITOR - please read before trusting it:
+#
+#   1. GitHub's scheduled runs are BEST EFFORT and are commonly delayed under
+#      load, sometimes by many minutes. This catches an outage within a window,
+#      not instantly. Treat the cron interval as a floor, not a guarantee.
+#   2. Scheduled workflows are DISABLED AUTOMATICALLY after 60 days with no
+#      repository activity. This repo is active daily so it is not a live risk
+#      today, but "the monitor silently stopped" is exactly the failure class
+#      this incident belongs to. If commits ever pause for two months, this
+#      stops running and says nothing.
+#   3. It cannot tell you the site is down if GitHub is down.
+#   4. It emails on a failed scheduled run. It does not page anyone at 3am.
+#      For always-on checking with escalation, use a real uptime service with
+#      the same keyword check. This is not a substitute for that.
+
+name: Homepage monitor
+
+on:
+  schedule:
+    # Every 15 minutes. GitHub cron is UTC. See limitation 1 above.
+    - cron: '*/15 * * * *'
+  # So it can be run on demand, and so it can be proven to work rather than
+  # merely existing. A workflow that has never executed is the monitoring
+  # equivalent of a test that never runs.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: homepage-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Homepage serves a real page
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      URL: https://www.illinoisestatelaw.com/
+      # Must stay identical to HOMEPAGE_MONITOR_MARKER in
+      # test/homepage-monitoring-marker.test.tsx
+      MARKER: id="form-field-message"
+
+    steps:
+      - name: Fetch the homepage and assert it rendered
+        run: |
+          set -uo pipefail
+
+          # Three attempts with backoff. A single transient network blip from a
+          # GitHub runner must not page anyone - a monitor that cries wolf gets
+          # muted, which is worse than no monitor at all.
+          attempt=0
+          max_attempts=3
+          status=""
+          body_file="$(mktemp)"
+
+          while [ "$attempt" -lt "$max_attempts" ]; do
+            attempt=$((attempt + 1))
+            echo "::group::Attempt $attempt of $max_attempts"
+
+            status="$(curl \
+              --silent \
+              --show-error \
+              --max-time 30 \
+              --output "$body_file" \
+              --write-out '%{http_code}' \
+              --header 'Cache-Control: no-cache' \
+              --header 'Pragma: no-cache' \
+              --user-agent 'IEL-homepage-monitor (GitHub Actions)' \
+              "$URL" || echo "000")"
+
+            bytes="$(wc -c < "$body_file" | tr -d ' ')"
+            echo "status=$status bytes=$bytes"
+
+            if [ "$status" = "200" ] && grep -qF -- "$MARKER" "$body_file"; then
+              echo "Homepage is serving a fully rendered page."
+              echo "::endgroup::"
+              exit 0
+            fi
+
+            echo "::endgroup::"
+            [ "$attempt" -lt "$max_attempts" ] && sleep $((attempt * 10))
+          done
+
+          # Every attempt failed. Work out which failure it was, because the two
+          # are diagnosed differently.
+          bytes="$(wc -c < "$body_file" | tr -d ' ')"
+
+          echo "::error title=Homepage is not serving a rendered page::illinoisestatelaw.com failed $max_attempts consecutive checks"
+          echo ""
+          echo "URL:          $URL"
+          echo "HTTP status:  $status"
+          echo "Body bytes:   $bytes"
+          echo "Marker found: no  ($MARKER)"
+          echo ""
+
+          if [ "$status" = "200" ] && [ "$bytes" -gt 0 ]; then
+            echo "The page returned 200 with a body, but the marker is missing."
+            echo "Two possibilities, in order of likelihood:"
+            echo "  1. The marker was removed or renamed by a code change and this"
+            echo "     monitor is now wrong. Check test/homepage-monitoring-marker.test.tsx"
+            echo "     - if that test is passing on main, the marker still renders and"
+            echo "     something else is serving a different page."
+            echo "  2. The page is rendering but truncated."
+          else
+            echo "This is the outage signature from 2026-09-06 and 2026-09-09."
+            echo ""
+            echo "FIX: REDEPLOY the 'ielwebsiterebuilt' service on Railway."
+            echo "DO NOT RESTART IT. An in-place restart does not clear the bad"
+            echo "cache entry; it was tried on 2026-09-09 and the site stayed down."
+            echo "Only a fresh container discards it."
+            echo ""
+            echo "Root cause was 'export const revalidate = 3600' on app/page.tsx"
+            echo "combined with a render-time MongoDB read, which let a failed"
+            echo "background regeneration store a bodyless 304. Fixed in PR #48 by"
+            echo "making the route force-dynamic. If you are reading this AFTER"
+            echo "that merge, the fix did not hold - that is significant. The"
+            echo "underlying bug is vercel/next.js#56018, a Next 13.5.x regression,"
+            echo "which makes upgrading off Next 13.5.1 the priority."
+          fi
+
+          exit 1
+
+      - name: Post to Slack if configured
+        # Skipped silently when no webhook secret is set, so the monitor works
+        # either way. Failing the job is the primary alert; GitHub emails the
+        # repository owner on a failed scheduled run.
+        if: failure() && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -uo pipefail
+          curl --silent --show-error --max-time 20 \
+            --header 'Content-Type: application/json' \
+            --data "$(printf '{"text":"%s"}' \
+              ":rotating_light: illinoisestatelaw.com homepage is not serving a rendered page. FIX = REDEPLOY the ielwebsiterebuilt service on Railway, NOT a restart - a restart does not clear the bad cache entry. Details: $RUN_URL")" \
+            "$SLACK_WEBHOOK_URL" || true

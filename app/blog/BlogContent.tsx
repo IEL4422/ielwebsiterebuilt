@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Clock, Search, X } from 'lucide-react';
+import { Clock, ExternalLink, Search, X } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export interface BlogPost {
@@ -14,6 +15,9 @@ export interface BlogPost {
   author?: string;
   published_date: string;
   topic: string;
+  externalUrl?: string;
+  source?: string;
+  sourceLogo?: string;
 }
 
 function formatDate(dateString: string): string {
@@ -169,8 +173,8 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
-              {filteredPosts.map((post, index) => (
-                <Link key={post.id} href={`/blog/${post.slug}/`} className="group">
+              {filteredPosts.map((post, index) => {
+                const card = (
                   <article className="relative rounded-[16px] sm:rounded-[20px] p-6 sm:p-8 h-full flex flex-col justify-between bg-gradient-to-br from-[#4A708B] via-[#5B8AAA] to-[#6BA3C9] hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
                     <div>
                       <div className="flex items-center justify-between mb-3 sm:mb-4">
@@ -183,10 +187,22 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
                         </div>
                       </div>
 
-                      <div className="mb-3">
+                      <div className="mb-3 flex min-h-9 items-center justify-between gap-3">
                         <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-['Plus_Jakarta_Sans'] font-semibold bg-white/20 text-white rounded-full">
-                          {post.topic}
+                          {post.source ? `Featured on ${post.source}` : post.topic}
                         </span>
+                        {post.sourceLogo && post.source && (
+                          <span className="shrink-0 rounded-md bg-white px-2 py-1 shadow-sm">
+                            <Image
+                              src={post.sourceLogo}
+                              alt={`${post.source} logo`}
+                              width={104}
+                              height={16}
+                              className="h-4 w-auto"
+                              unoptimized
+                            />
+                          </span>
+                        )}
                       </div>
 
                       <h2 className="font-['Plus_Jakarta_Sans'] text-[18px] sm:text-[20px] lg:text-[22px] leading-[24px] sm:leading-[26px] lg:leading-[28px] font-bold text-white mb-3 sm:mb-4 group-hover:text-white/90 transition-colors">
@@ -199,14 +215,35 @@ export default function BlogContent({ initialPosts }: { initialPosts: BlogPost[]
                     </div>
 
                     <div className="mt-5 sm:mt-6 flex items-center text-white font-['Plus_Jakarta_Sans'] font-semibold text-sm sm:text-base group-hover:gap-3 gap-2 transition-all">
-                      <span>Read More</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <span>{post.source ? `Read on ${post.source}` : 'Read More'}</span>
+                      {post.externalUrl ? (
+                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      ) : (
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      )}
                     </div>
                   </article>
-                </Link>
-              ))}
+                );
+
+                return post.externalUrl ? (
+                  <a
+                    key={post.id}
+                    href={post.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group"
+                    aria-label={`${post.title} on ${post.source} (opens in a new tab)`}
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  <Link key={post.id} href={`/blog/${post.slug}/`} className="group">
+                    {card}
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>

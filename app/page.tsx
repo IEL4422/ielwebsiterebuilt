@@ -21,16 +21,33 @@ import { SectionBoundary } from '@/components/home/SectionBoundary';
 /**
  * Cache posture for "/".
  *
- * Declared explicitly rather than inferred from a `fetch(..., { next: { revalidate } })`
- * buried in a child component - that inference is how a Google Places outage on
- * 6 September 2026 ended up poisoning the ISR entry for this route and serving
- * an empty 304 to every visitor for two and a half days.
+ * This route reads MongoDB at render time (RecentArticlesStrip below), so it
+ * must never be served out of Next's incremental (ISR) response cache.
  *
- * Every remaining data source on this page is either a compile-time constant or
- * wrapped so it cannot throw or hang, so a failed revalidation can only produce
- * a page with one optional section missing - never a blank one.
+ * It used to be `revalidate = 3600`. That made "/" the only route in this
+ * application that combined a render-time database read with the ISR cache.
+ * Every other database-backed route - /blog/[slug], /learning-center,
+ * /learning-center/[slug], and every API route that calls getDb - is already
+ * force-dynamic. "/" is also the only route that has ever gone dark: on
+ * 6 September 2026, and again on 9 September 2026, a background regeneration
+ * stored a bodyless entry for "/" and every visitor was served a 304 with no
+ * body until that entry was discarded.
+ *
+ * The guards further down this file - the 2.5s query timeout, the loader that
+ * cannot throw, the Suspense boundary, the client error boundary - all protect
+ * the *render*. None of them protects the *write*. Once a regeneration
+ * produces a bad artefact for any reason, Next stores it and then serves it to
+ * everyone. A failed operation must not be able to write a success-shaped
+ * artefact, and the only way to guarantee that here is for this route to stop
+ * producing a cache entry at all.
+ *
+ * Operationally, the fact that cost us two outages: the poisoned entry lives on
+ * the container's writable filesystem, so an in-place RESTART does not clear it.
+ * Only a REDEPLOY (fresh container) does.
+ *
+ * Pinned by test/homepage-cache-posture.test.ts.
  */
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',

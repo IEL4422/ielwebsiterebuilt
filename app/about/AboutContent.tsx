@@ -56,28 +56,6 @@ const attorneys: TeamMember[] = [
     barAdmissions: ['Illinois'],
   },
   {
-    name: 'Victoria Lozano',
-    title: 'Senior Attorney',
-    email: 'victoria@illinoisestatelaw.com',
-    photo: 'https://i0.wp.com/planforwardlegal.com/wp-content/uploads/2026/01/IMG_3670.jpg',
-    bio: [
-      "Victoria Lozano is a senior attorney at Illinois Estate Law with a practice spanning estate planning, trust administration, and probate. She is especially passionate about helping families of every background — including LGBTQ+ individuals and couples — put thoughtful, comprehensive plans in place to protect the people they love.",
-      "Before law school, Victoria built a career in academia, teaching English composition at both Coastal Carolina University and Appalachian State University, where she also served on the Women and Gender Studies Advisory Board. She later co-founded Blue Seven Content, a legal marketing firm serving attorneys nationwide. Victoria earned her J.D. from Chicago-Kent College of Law in 2022.",
-      "At Illinois Estate Law, Victoria brings the same precision and commitment to clear communication she developed in her academic career to every client matter. She approaches each estate plan with care and close attention to her clients' individual goals and needs.",
-    ],
-    education: [
-      { school: 'Coastal Carolina University', degrees: ["Bachelor's Degree, English"] },
-      { school: 'Appalachian State University', degrees: ["Master's Degree, English"] },
-      { school: 'Chicago-Kent College of Law', degrees: ['Doctor of Law (J.D.), 2022'] },
-    ],
-    barAdmissions: ['Illinois'],
-    memberships: [
-      'Chicago Bar Association',
-      'American Bar Association',
-      'Lesbian and Gay Bar Association of Chicago (LAGBAC)',
-    ],
-  },
-  {
     name: 'Anna M. Rafanelli',
     title: 'Attorney',
     email: 'anna@illinoisestatelaw.com',

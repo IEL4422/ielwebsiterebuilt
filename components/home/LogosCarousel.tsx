@@ -31,26 +31,49 @@ const logos = [
     src: 'https://i.imgur.com/H4tRliA.png',
     alt: 'Digital Journal',
   },
+  {
+    src: '/brands/redfin-blog.svg',
+    alt: 'Featured on Redfin Blog',
+    href: 'https://www.redfin.com/blog/what-can-go-wrong-at-closing/',
+  },
 ];
 
 export function LogosCarousel() {
   return (
     <section className="py-6 sm:py-[30px] overflow-hidden">
       <div className="flex animate-scroll gap-4 sm:gap-5 px-4">
-        {[...logos, ...logos].map((logo, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 flex items-center justify-center"
-          >
+        {[...logos, ...logos].map((logo, index) => {
+          const image = (
             <Image
               src={logo.src}
               alt={logo.alt}
               width={150}
               height={60}
               className="h-[50px] sm:h-[60px] w-[120px] sm:w-[150px] object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+              unoptimized={logo.src.endsWith('.svg')}
             />
-          </div>
-        ))}
+          );
+
+          return logo.href ? (
+            <a
+              key={index}
+              href={logo.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 flex items-center justify-center"
+              aria-label="Read the Illinois Estate Law feature on the Redfin Blog (opens in a new tab)"
+            >
+              {image}
+            </a>
+          ) : (
+            <div
+              key={index}
+              className="flex-shrink-0 flex items-center justify-center"
+            >
+              {image}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

@@ -158,9 +158,11 @@ export const PROBATE = {
    *  direction. Replaces the retired $3,500 'Small Estate Probate' package and
    *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
   smallEstateAdministration: 1000,
-  standard: 6500,
-  largeEstateBase: 6500,
-  largeEstatePercent: 1,
+  standard: 5000,
+  /** Large Estate Probate: $5,000 at engagement, plus 0.5% of estate value
+   *  charged during administration when the estate is valued at $1,000,000 or more. */
+  largeEstateBase: 5000,
+  largeEstatePercent: 0.5,
   reopening: 2500,
   heirRepresentation: 2500,
   spousalRepresentation: 3500,

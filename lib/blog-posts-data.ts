@@ -89,6 +89,26 @@ export const blogPosts: BlogPost[] = [
       "When someone dies in Illinois, their debts don't simply disappear. Learn which must be paid from the estate, who is personally responsible, and how executors should handle creditors during probate.",
   },
   {
+    slug: 'what-is-a-pour-over-will-illinois',
+    title: 'What Is a Pour-Over Will in Illinois?',
+    url: '/blog/what-is-a-pour-over-will-illinois/',
+    date: 'Jul 22, 2026',
+    summary:
+      'Complete guide to pour-over wills in Illinois — how they work with revocable living trusts, what happens to assets left outside a trust, why probate may still be required, and why every trust-based estate plan should include one.',
+    excerpt:
+      'Learn what a pour-over will does in Illinois, how it works alongside a revocable living trust, and why this key document is essential for your estate plan.',
+  },
+  {
+    slug: 'protecting-home-from-medicaid-estate-recovery-illinois',
+    title: 'Protecting Your Home from Medicaid Estate Recovery in Illinois',
+    url: '/blog/protecting-home-from-medicaid-estate-recovery-illinois/',
+    date: 'Jul 15, 2026',
+    summary:
+      'Complete guide to Illinois Medicaid estate recovery — when the state may seek repayment from an estate, how a family home can be affected, and planning strategies involving trusts, TODIs, and available exemptions.',
+    excerpt:
+      'Learn how Illinois Medicaid estate recovery works and what steps can help protect your family home, including trusts, TODIs, and advance planning.',
+  },
+  {
     slug: 'how-guardianship-works-in-illinois',
     title: 'How Guardianship Works in Illinois: The Complete 2026 Guide',
     url: '/blog/how-guardianship-works-in-illinois/',

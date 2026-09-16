@@ -8,6 +8,7 @@ import { ServiceCard } from '@/components/geo/ServiceCard';
 import { PricingCard } from '@/components/geo/PricingCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
+import { PROBATE, usd } from '@/lib/pricing';
 
 export async function generateStaticParams() {
   return cityLocations.map((loc) => ({
@@ -65,7 +66,7 @@ const pricingPackages = [
   { name: 'Joint Trust Package', price: '$5,000', featured: true },
   { name: 'Will Package — Joint', price: '$1,750' },
   { name: 'Will Package — Individual', price: '$1,250' },
-  { name: 'Probate Package', price: '$6,500' },
+  { name: 'Probate Package', price: usd(PROBATE.standard) },
 ];
 
 function getCityFAQs(city: string) {
