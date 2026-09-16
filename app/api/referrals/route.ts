@@ -1,27 +1,14 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { Resend } from 'resend';
+import { sendContactToSlack, slackContactText } from '@/lib/slack-contact';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const SLACK_CHANNEL_ID = 'C099QPC8PK4'; // #inquiries
-
 async function postToSlack(text: string) {
-  const token = process.env.SLACK_BOT_TOKEN;
-  if (!token) return;
-  await fetch('https://slack.com/api/chat.postMessage', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      channel: SLACK_CHANNEL_ID,
-      text,
-      unfurl_links: false,
-    }),
-  }).catch(console.error);
+  // The referral is already saved; notification failure must not encourage duplicate submissions.
+  await sendContactToSlack(slackContactText(text)).catch(() => console.error('Referral Slack notification failed'));
 }
 
 export async function POST(req: Request) {

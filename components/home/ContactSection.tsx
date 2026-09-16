@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import Link from 'next/link';
 import { Calendar } from 'lucide-react';
 import { trackLead } from '@/lib/fbpixel';
 import { trackGoogleConversion } from '@/lib/gtag';
 
 export function ContactSection() {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,6 +20,11 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const recaptchaToken = recaptchaRef.current?.getValue();
+    if (!recaptchaToken) {
+      alert('Please complete the reCAPTCHA verification.');
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -25,35 +32,32 @@ export function ContactSection() {
       const firstName = nameParts[0];
       const lastName = nameParts.slice(1).join(' ');
 
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-      const edgeFunctionUrl = `${supabaseUrl}/functions/v1/send-contact-form`;
-
-      const response = await fetch(edgeFunctionUrl, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabaseKey}`,
         },
         body: JSON.stringify({
           first_name: firstName,
           last_name: lastName,
           phone_number: formData.phone,
           email: formData.email,
-          message: formData.message
+          message: formData.message,
+          recaptcha_token: recaptchaToken,
+          source: 'homepage'
         })
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        console.error('Edge function response not OK:', response.status, errorData);
+        console.error('Contact submission failed:', response.status, errorData);
         throw new Error('Failed to send message');
       }
 
       // Google Ads conversion — "IEL — Contact Form Lead".
       trackGoogleConversion();
 
-      // Meta Lead — only after the edge function confirms success.
+      // Meta Lead — only after the server confirms delivery.
       trackLead('HOME_CONTACT_FORM', {
         userData: {
           email: formData.email,
@@ -68,6 +72,7 @@ export function ContactSection() {
       console.error('Error submitting form:', error);
       alert('There was an error submitting your message. Please try again or contact us directly.');
     } finally {
+      recaptchaRef.current?.reset();
       setIsSubmitting(false);
     }
   };
@@ -151,6 +156,7 @@ export function ContactSection() {
                   />
                 </div>
 
+                <ReCAPTCHA ref={recaptchaRef} sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!} />
                 <button
                   type="submit"
                   disabled={isSubmitting}

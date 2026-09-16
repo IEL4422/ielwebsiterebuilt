@@ -47,13 +47,14 @@ export default function ContactPage() {
             phone_number: data.phone,
             email: data.email,
             message: data.message,
-            recaptcha_token: recaptchaToken
+            recaptcha_token: recaptchaToken,
+            source: 'contact'
           })
         });
 
         if (!webhookResponse.ok) {
           const responseText = await webhookResponse.text();
-          console.error('Edge function failed:', webhookResponse.status, responseText);
+          console.error('Contact submission failed:', webhookResponse.status, responseText);
           throw new Error(`Form submission failed: ${webhookResponse.status}`);
         }
 
@@ -69,9 +70,9 @@ export default function ContactPage() {
             email: data.email,
             name: data.name
           })
-        });
+        }).catch(() => null);
 
-        if (!emailResponse.ok) {
+        if (emailResponse && !emailResponse.ok) {
           const emailError = await emailResponse.text();
           console.error('Email confirmation failed:', emailError);
         }

@@ -1,27 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { trackLead } from '@/lib/fbpixel';
 import { trackGoogleConversion } from '@/lib/gtag';
 
 export default function BlogContactForm() {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = async (data: any) => {
+    const recaptchaToken = recaptchaRef.current?.getValue();
+    if (!recaptchaToken) {
+      setSubmitMessage('Please complete the reCAPTCHA verification.');
+      return;
+    }
     setIsSubmitting(true);
     setSubmitMessage('');
 
     try {
-      // Send to edge function which proxies to Zapier
-      const edgeFunctionUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-contact-form`;
-      const webhookResponse = await fetch(edgeFunctionUrl, {
+      const webhookResponse = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -29,13 +33,15 @@ export default function BlogContactForm() {
           last_name: data.lastName,
           phone_number: data.phone,
           email: data.email,
-          message: data.message
+          message: data.message,
+          recaptcha_token: recaptchaToken,
+          source: 'blog'
         })
       });
 
       if (!webhookResponse.ok) {
         const responseText = await webhookResponse.text();
-        console.error('Edge function failed:', webhookResponse.status, responseText);
+        console.error('Contact submission failed:', webhookResponse.status, responseText);
         throw new Error(`Form submission failed: ${webhookResponse.status}`);
       }
 
@@ -51,9 +57,9 @@ export default function BlogContactForm() {
           email: data.email,
           name: `${data.firstName} ${data.lastName}`
         })
-      });
+      }).catch(() => null);
 
-      if (!emailResponse.ok) {
+      if (emailResponse && !emailResponse.ok) {
         const emailError = await emailResponse.text();
         console.error('Email confirmation failed:', emailError);
         // Don't throw error for confirmation email failure
@@ -78,6 +84,7 @@ export default function BlogContactForm() {
       console.error('Contact form error:', error);
       setSubmitMessage('There was an error submitting your form. Please try again or call us at (312) 373-0731.');
     } finally {
+      recaptchaRef.current?.reset();
       setIsSubmitting(false);
     }
   };
@@ -134,6 +141,7 @@ export default function BlogContactForm() {
           rows={4}
           className="w-full px-4 py-3 rounded bg-white text-gray-900 placeholder-gray-500"
         ></textarea>
+        <ReCAPTCHA ref={recaptchaRef} sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!} />
         <button
           type="submit"
           disabled={isSubmitting}

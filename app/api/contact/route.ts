@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/19553629/uqkwoqh/';
+import { sendContactToSlack, slackContactText } from '@/lib/slack-contact';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { first_name, last_name, phone_number, email, message, recaptcha_token } = body;
+    const { first_name, last_name, phone_number, email, message, recaptcha_token, source } = body;
+    const valid = (value: unknown, max: number) => typeof value === 'string' && value.trim().length > 0 && value.length <= max;
+    if (!valid(first_name, 100) || (last_name != null && (typeof last_name !== 'string' || last_name.length > 100)) ||
+        !valid(phone_number, 100) || !valid(email, 254) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+        !valid(message, 5000) || !valid(recaptcha_token, 4096)) {
+      return NextResponse.json({ error: 'Please complete all required fields and spam verification' }, { status: 400 });
+    }
 
     // Verify reCAPTCHA token
     const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
@@ -17,7 +23,8 @@ export async function POST(req: NextRequest) {
     const recaptchaRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${recaptchaSecret}&response=${recaptcha_token}`,
+      body: new URLSearchParams({ secret: recaptchaSecret, response: recaptcha_token }),
+      signal: AbortSignal.timeout(10000),
     });
 
     const recaptchaData = await recaptchaRes.json();
@@ -27,17 +34,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'reCAPTCHA verification failed' }, { status: 400 });
     }
 
-    // Forward to Zapier
-    const zapierResponse = await fetch(ZAPIER_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ first_name, last_name, phone_number, email, message }),
-    });
-
-    if (!zapierResponse.ok) {
-      console.error('Zapier webhook failed:', zapierResponse.status);
-      throw new Error(`Zapier webhook failed with status ${zapierResponse.status}`);
-    }
+    const formSource = source === 'homepage' ? 'Homepage' : source === 'blog' ? 'Blog' : 'Contact page';
+    await sendContactToSlack(
+      `New Website Contact — ${formSource}\n` +
+      `Name: ${slackContactText(first_name)} ${slackContactText(last_name)}\n` +
+      `Email: ${slackContactText(email)}\nPhone: ${slackContactText(phone_number)}\n` +
+      `Message:\n${slackContactText(message)}`
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {
