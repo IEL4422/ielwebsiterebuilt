@@ -494,9 +494,23 @@ export default function ServicesPage() {
       </div>
 
       <div className="container mx-auto px-5 max-w-[1240px] pb-[60px] sm:px-4">
-        <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[40px] text-[#2d3e50] mb-8 sm:text-[28px] sm:mb-6">
-          Book Consultation
-        </h2>
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-5 sm:mb-6">
+          <div>
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[40px] text-[#2d3e50] sm:text-[28px]">
+              Get Started or Book a Consultation
+            </h2>
+            <p className="mt-3 text-[#2d3e50]">
+              Ready to move forward? Choose your service and begin online without booking a consultation.
+              If you have questions, schedule a free consultation below.
+            </p>
+          </div>
+          <Link
+            href="/get-started/"
+            className="inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3 text-base font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] transition-colors hover:bg-[#33414E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#547298]"
+          >
+            Get Started
+          </Link>
+        </div>
 
         <LunacalBookingEmbed />
       </div>
