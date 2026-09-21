@@ -73,7 +73,7 @@ const probateServices = [
 const probatePricing = [
   { name: 'Standard Probate', price: usd(PROBATE.standard) },
   { name: 'Small Estate Administration', price: usd(PROBATE.smallEstateAdministration), featured: true },
-  { name: 'Large Estate Probate', price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of estate value, charged during administration only if the estate exceeds $1,000,000` },
+  { name: 'Large Estate Probate', price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of estate value, charged during administration only if the estate exceeds $4,000,000 due to estate-tax complexity` },
   { name: 'Partial Probate', price: usd(PROBATE.partialProbate) },
   { name: 'Spousal Representation', price: usd(PROBATE.spousalRepresentation) },
   { name: 'Heir Representation', price: usd(PROBATE.heirRepresentation) },

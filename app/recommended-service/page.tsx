@@ -32,7 +32,7 @@ interface QuizAnswers {
   needsAncillary: 'yes' | 'no' | '';
   hasSpecialNeeds: 'yes' | 'no' | '';
   decedentCounty: string;
-  decedentEstateValue: 'under-150k' | '150k-under-1m' | '1m-plus' | '';
+  decedentEstateValue: 'under-150k' | '150k-to-4m' | 'over-4m' | '';
   decedentHasRealEstate: 'yes' | 'no' | '';
   issuesAmongHeirs: 'yes' | 'no' | '';
   allDebtsPaid: 'yes' | 'no' | '';
@@ -337,11 +337,11 @@ export default function RecommendedServicePage() {
         };
       }
 
-      if (decedentEstateValue === '1m-plus' && issuesAmongHeirs === 'no') {
+      if (decedentEstateValue === 'over-4m' && issuesAmongHeirs === 'no') {
         return {
           name: 'Large Estate Probate',
           price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
-          description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $1,000,000, due to the complexity of larger estates.',
+          description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $4,000,000, due to estate-tax complexity.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',
@@ -362,12 +362,12 @@ export default function RecommendedServicePage() {
         };
       }
 
-      const needsFullProbate = decedentEstateValue === '150k-under-1m' || decedentHasRealEstate === 'yes';
+      const needsFullProbate = decedentEstateValue === '150k-to-4m' || decedentHasRealEstate === 'yes';
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Standard Probate',
           price: '$5,000',
-          description: 'Full uncontested probate administration from opening through closing for estates valued at $1,000,000 or less. Contested issues are billed hourly against a separate retainer.',
+          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested issues are billed hourly against a separate retainer.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',
@@ -1518,35 +1518,35 @@ export default function RecommendedServicePage() {
                           </div>
                         </button>
                         <button
-                          onClick={() => updateAnswer('decedentEstateValue', '150k-under-1m')}
+                          onClick={() => updateAnswer('decedentEstateValue', '150k-to-4m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.decedentEstateValue === '150k-under-1m'
+                            answers.decedentEstateValue === '150k-to-4m'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              $150,001–$1,000,000
+                              $150,001–$4,000,000
                             </span>
-                            {answers.decedentEstateValue === '150k-under-1m' && (
+                            {answers.decedentEstateValue === '150k-to-4m' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>
                         </button>
                         <button
-                          onClick={() => updateAnswer('decedentEstateValue', '1m-plus')}
+                          onClick={() => updateAnswer('decedentEstateValue', 'over-4m')}
                           className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                            answers.decedentEstateValue === '1m-plus'
+                            answers.decedentEstateValue === 'over-4m'
                               ? 'border-[#547298] bg-[#4a708b]/10'
                               : 'border-gray-300 hover:border-[#547298]/50'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50]">
-                              Over $1,000,000
+                              Over $4,000,000
                             </span>
-                            {answers.decedentEstateValue === '1m-plus' && (
+                            {answers.decedentEstateValue === 'over-4m' && (
                               <CheckCircle2 className="w-6 h-6 text-[#4a708b]" />
                             )}
                           </div>

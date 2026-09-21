@@ -159,9 +159,10 @@ export const PROBATE = {
    *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
   smallEstateAdministration: 1000,
   standard: 5000,
-  /** Additional percentage charged during administration only when estate value exceeds $1,000,000. */
+  /** Additional percentage charged during administration only when estate value exceeds $4,000,000 due to estate-tax complexity. */
   largeEstateBase: 5000,
   largeEstatePercent: 0.5,
+  largeEstateThreshold: 4000000,
   reopening: 2500,
   heirRepresentation: 3500,
   spousalRepresentation: 4500,

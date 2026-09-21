@@ -356,23 +356,23 @@ export function CategorizedServices({
         {
           id: 'standard-probate',
           name: 'Standard Probate',
-          subtitle: 'Uncontested estates valued at $1,000,000 or less',
+          subtitle: 'Uncontested estates valued at $4,000,000 or less',
           category: 'probate',
           fixedPrice: PROBATE.standard,
-          description: 'Full uncontested probate administration from opening through closing for estates valued at $1,000,000 or less. Contested issues are billed hourly against a separate retainer.',
+          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested issues are billed hourly against a separate retainer.',
           includes: probateIncludes,
           note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
         {
           id: 'large-estate-probate',
           name: 'Large Estate Probate',
-          subtitle: 'Uncontested estates exceeding $1,000,000',
+          subtitle: 'Uncontested estates exceeding $4,000,000',
           category: 'probate',
           fixedPrice: PROBATE.largeEstateBase,
           pricingLabel: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
-          description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $1,000,000, due to the complexity of larger estates.',
+          description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $4,000,000, due to estate-tax complexity.',
           includes: probateIncludes,
-          note: 'The additional 0.5% is charged at the time of administration only if estate value exceeds $1,000,000. Surety bond premium, if required, is paid directly to the bond provider and is not included.'
+          note: 'The additional 0.5% is charged at the time of administration only if estate value exceeds $4,000,000 due to estate-tax complexity. Surety bond premium, if required, is paid directly to the bond provider and is not included.'
         },
         {
           id: 'probate-reopening',

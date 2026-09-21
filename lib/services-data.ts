@@ -311,12 +311,12 @@ export const probatePackages: Service[] = [
   {
     id: 'standard-probate',
     name: 'Standard Probate',
-    subtitle: 'Uncontested estates valued at $1,000,000 or less',
+    subtitle: 'Uncontested estates valued at $4,000,000 or less',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Standard Probate',
     fixedPrice: PROBATE.standard,
-    description: 'Full uncontested probate administration from opening through closing for estates valued at $1,000,000 or less. Contested issues are billed hourly against a separate retainer.',
+    description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested issues are billed hourly against a separate retainer.',
     includes: probateIncludes,
     note: probateNote,
     addOns: []
@@ -324,13 +324,13 @@ export const probatePackages: Service[] = [
   {
     id: 'large-estate-probate',
     name: 'Large Estate Probate',
-    subtitle: 'Uncontested estates exceeding $1,000,000',
+    subtitle: 'Uncontested estates exceeding $4,000,000',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Large Estate Probate',
     fixedPrice: PROBATE.largeEstateBase,
     pricingLabel: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
-    description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $1,000,000, due to the complexity of larger estates.',
+    description: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $4,000,000, due to estate-tax complexity.',
     includes: probateIncludes,
     note: probateNote,
     addOns: []

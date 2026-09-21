@@ -222,18 +222,18 @@ export const serviceCategories: ServiceCategory[] = [
       },
       {
         name: 'Standard Probate',
-        subtitle: 'Uncontested estates valued at $1,000,000 or less',
+        subtitle: 'Uncontested estates valued at $4,000,000 or less',
         fixedPrice: PROBATE.standard,
         includes: probateIncludes,
         note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
       },
       {
         name: 'Large Estate Probate',
-        subtitle: 'Uncontested estates exceeding $1,000,000',
+        subtitle: 'Uncontested estates exceeding $4,000,000',
         fixedPrice: PROBATE.largeEstateBase,
         pricingLabel: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}% of Estate Value`,
         includes: probateIncludes,
-        note: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $1,000,000, due to the complexity of larger estates. Surety bond premium is excluded.'
+        note: 'Full uncontested probate administration from opening through closing. The additional 0.5% of estate value is charged at the time of administration only if the estate value exceeds $4,000,000, due to estate-tax complexity. Surety bond premium is excluded.'
       },
       {
         name: 'Probate Reopening',

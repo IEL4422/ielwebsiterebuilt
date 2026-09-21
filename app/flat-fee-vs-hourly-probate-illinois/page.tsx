@@ -54,7 +54,7 @@ export default function FlatFeeVsHourlyProbatePage() {
               {usd(PROBATE.smallEstateAdministration)}. <strong>Contested matters are billed hourly</strong> against
               a {usd(RETAINERS.contestedProbate)} initial retainer. Large Estate Probate is {usd(PROBATE.largeEstateBase)}
               plus {PROBATE.largeEstatePercent}% of estate value, charged during administration
-              only if the estate exceeds $1,000,000.
+              only if the estate exceeds $4,000,000 due to estate-tax complexity.
             </p>
 
             <h2>Flat fee vs. hourly, side by side</h2>
@@ -70,12 +70,12 @@ export default function FlatFeeVsHourlyProbatePage() {
                 <tbody className="text-slate-700">
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">What you pay</th>
-                    <td className="border border-slate-200 px-4 py-3">{usd(PROBATE.standard)} standard estate; {usd(PROBATE.largeEstateBase)} + {PROBATE.largeEstatePercent}% for estates exceeding $1,000,000; {usd(PROBATE.smallEstateAdministration)} small estate administration</td>
+                    <td className="border border-slate-200 px-4 py-3">{usd(PROBATE.standard)} standard estate; {usd(PROBATE.largeEstateBase)} + {PROBATE.largeEstatePercent}% for estates exceeding $4,000,000 due to estate-tax complexity; {usd(PROBATE.smallEstateAdministration)} small estate administration</td>
                     <td className="border border-slate-200 px-4 py-3">{usd(RETAINERS.contestedProbate)} retainer, then {hourly(RATES.attorneyHourly)} attorney / {hourly(RATES.paralegalHourly)} paralegal</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Known in advance?</th>
-                    <td className="border border-slate-200 px-4 py-3">Base fee and percentage formula disclosed before engagement; percentage charged during administration only if estate value exceeds $1,000,000</td>
+                    <td className="border border-slate-200 px-4 py-3">Base fee and percentage formula disclosed before engagement; percentage charged during administration only if estate value exceeds $4,000,000</td>
                     <td className="border border-slate-200 px-4 py-3">No — the opposing party drives the volume of work</td>
                   </tr>
                   <tr>
