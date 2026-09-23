@@ -5,6 +5,42 @@ import { useState } from 'react';
 import { Phone, CheckCircle, Shield, FileText, DollarSign, Home, Users } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { REAL_ESTATE, usd } from '@/lib/pricing';
+
+const closingPackages = [
+  {
+    id: 'residential-closing',
+    name: 'Standard Residential Closing',
+    audience: 'Buyer or seller represented by a real estate agent',
+    price: REAL_ESTATE.residentialClosing,
+    description: 'Full-service representation for a standard single-family home or condominium purchase or sale.',
+    includes: ['Attorney review and contract negotiation', 'Title, survey, and closing-document review', 'Closing representation'],
+  },
+  {
+    id: 'multi-unit-investment-closing',
+    name: 'Multi-Unit or Investment Closing',
+    audience: 'Buyer or seller of an investment property',
+    price: REAL_ESTATE.multiUnitOrInvestmentClosing,
+    description: 'Representation for a residential multi-unit building or other investment-property transaction.',
+    includes: ['Attorney review and contract negotiation', 'Investment-property title and document review', 'Closing representation'],
+  },
+  {
+    id: 'estate-trust-nonstandard-closing',
+    name: 'Estate, Trust, or Nonstandard Title Closing',
+    audience: 'Property held by an estate, trust, or under other authority',
+    price: REAL_ESTATE.estateTrustOrNonstandardTitleClosing,
+    description: 'For transactions requiring additional review of fiduciary authority or nonstandard ownership documents.',
+    includes: ['Authority and governing-document review', 'Contract, title, survey, and closing-document review', 'Closing representation'],
+  },
+  {
+    id: 'fsbo-representation',
+    name: 'For Sale By Owner (FSBO)',
+    audience: 'Seller without a listing agent',
+    price: REAL_ESTATE.fsboRepresentation,
+    description: 'Expanded seller representation that includes contract drafting and coordination normally handled by a listing agent.',
+    includes: ['Purchase contract drafting or review', 'Transaction and title coordination', 'Closing representation'],
+  },
+];
 
 export default function RealEstateClosingsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -15,12 +51,12 @@ export default function RealEstateClosingsPage() {
       a: 'While Illinois law does not require an attorney, it is strongly recommended and is standard practice. Most Illinois residential contracts include a 5-business-day attorney review period — having an attorney from the start means your interests are protected well before closing day.',
     },
     {
-      q: 'When is the $750 flat fee due?',
-      a: 'Our fee of $750 is due at closing — not upfront. You pay nothing out of pocket until the transaction is complete. For sellers, the fee is simply deducted from the closing proceeds.',
+      q: 'When is the real estate attorney fee due?',
+      a: 'The applicable flat fee is due at closing, not upfront. For sellers, the fee is generally deducted from the closing proceeds. The package price depends on whether the transaction is a standard residential closing, an investment or multi-unit property, an estate or trust closing, or a For Sale By Owner transaction.',
     },
     {
       q: 'Do you represent buyers, sellers, or both?',
-      a: 'We represent both buyers and sellers in residential real estate transactions throughout Illinois. The flat fee is the same regardless of which side of the transaction you are on.',
+      a: 'We represent both buyers and sellers in residential real estate transactions throughout Illinois. A standard agent-assisted residential purchase or sale is $750. Different concrete prices apply to multi-unit or investment properties, estate or trust transactions, nonstandard title, and For Sale By Owner sales.',
     },
     {
       q: 'What is the attorney review period in Illinois?',
@@ -46,7 +82,7 @@ export default function RealEstateClosingsPage() {
             '@type': 'LegalService',
             name: 'Illinois Estate Law — Real Estate Closing Representation',
             description:
-              'Flat-fee residential real estate closing representation for buyers and sellers in Illinois. $750 due at closing.',
+              'Flat-fee Illinois real estate closing representation for buyers, sellers, investment properties, estate and trust transactions, and For Sale By Owner sales.',
             url: 'https://www.illinoisestatelaw.com/chicago-real-estate-closings-lawyer/',
             telephone: '+1-312-373-0731',
             address: {
@@ -65,61 +101,96 @@ export default function RealEstateClosingsPage() {
       <main>
         <InnerPageHero
           title="Real Estate Closing Representation"
-          subtitle="Flat-fee attorney representation for buyers and sellers at closing — $750 due at closing, not upfront."
+          subtitle="Concrete flat-fee representation for Illinois buyers and sellers — from $750 to $1,500, due at closing rather than upfront."
         />
 
-        {/* Top CTA bar */}
-        <div className="bg-[#33414E] py-8 px-4">
+        {/* Included services and primary actions */}
+        <section className="bg-[#33414E] py-10 px-4">
           <div className="max-w-[1140px] mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/get-started/"
-                  className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
-                >
-                  Get Started Online
-                </Link>
-                <Link
-                  href="/book-consultation/"
-                  className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
-                >
-                  Schedule Consultation
-                </Link>
-                <Link
-                  href="tel:3123730731"
-                  className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  (312) 373-0731
-                </Link>
+            <div className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch">
+              <div className="rounded-2xl border border-white/15 bg-white/[0.07] p-6 sm:p-8">
+                <h2 className="text-2xl font-bold text-white mb-2">What Every Closing Package Includes</h2>
+                <p className="mb-6 text-white/70">The exact work is tailored to your transaction, but every package includes the core legal protection below.</p>
+                <ul className="grid gap-3 text-white/90 sm:grid-cols-2">
+                  {[
+                    'Contract and attorney-review guidance',
+                    'Title and document review',
+                    'Negotiation within the included scope',
+                    'Settlement statement review',
+                    'Closing attendance or representation',
+                    'Attorney consultations throughout the transaction',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#9DB8D4]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="hidden lg:block">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                  <h3 className="text-2xl font-bold text-white mb-4">What&apos;s Included</h3>
-                  <ul className="space-y-3 text-white/90">
-                    {[
-                      'Contract Review &amp; Attorney Review Period',
-                      'Title Review &amp; Issue Resolution',
-                      'Negotiation &amp; Modification of Terms',
-                      'Document Preparation &amp; Review',
-                      'Closing Attendance (in-person or remote)',
-                      'Attorney consultations related to the included transaction scope',
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#7E9CC0]" />
-                        <span dangerouslySetInnerHTML={{ __html: item }} />
+
+              <aside className="flex flex-col justify-center rounded-2xl bg-white p-6 sm:p-8">
+                <p className="text-sm font-bold uppercase tracking-wider text-[#547298]">Ready to move forward?</p>
+                <h2 className="mt-2 text-2xl font-extrabold text-[#33414E]">Start your closing</h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">Choose the appropriate transaction type below, or schedule a consultation if you are not sure which package applies.</p>
+                <div className="mt-6 flex flex-col gap-3">
+                  <Link
+                    href="/get-started/"
+                    className="inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#33414E]"
+                  >
+                    Get Started Online
+                  </Link>
+                  <Link
+                    href="/book-consultation/"
+                    className="inline-flex items-center justify-center rounded-full border-2 border-[#7E9CC0] px-6 py-3 font-bold text-[#33414E] transition-colors hover:bg-[#F6F9FC]"
+                  >
+                    Schedule Consultation
+                  </Link>
+                  <Link
+                    href="tel:3123730731"
+                    className="inline-flex items-center justify-center gap-2 py-2 font-bold text-[#547298] hover:text-[#33414E]"
+                  >
+                    <Phone className="h-5 w-5" />
+                    (312) 373-0731
+                  </Link>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing packages */}
+        <section className="bg-[#F6F9FC] py-16 lg:py-20">
+          <div className="mx-auto max-w-[1140px] px-4">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <p className="text-sm font-bold uppercase tracking-wider text-[#547298]">Flat-fee options</p>
+              <h2 className="mt-2 text-[32px] font-extrabold text-[#33414E] lg:text-[36px]">Choose Your Closing Representation</h2>
+              <p className="mt-3 text-lg text-slate-600">Each transaction type has a concrete price. Attorney fees are due at closing; closing costs and third-party charges are separate.</p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {closingPackages.map((pkg, index) => (
+                <article key={pkg.name} className={`flex flex-col rounded-2xl bg-white p-7 shadow-sm ${index === 0 ? 'border-2 border-[#547298]' : 'border border-slate-200'}`}>
+                  {index === 0 && <span className="mb-4 w-fit rounded-full bg-[#E8F1F8] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#547298]">Most common</span>}
+                  <h3 className="text-2xl font-extrabold text-[#33414E]">{pkg.name}</h3>
+                  <p className="mt-1 text-sm font-semibold text-[#547298]">{pkg.audience}</p>
+                  <p className="mt-5 text-4xl font-extrabold text-[#33414E]">{usd(pkg.price)}</p>
+                  <p className="text-sm text-slate-500">Flat attorney fee · due at closing</p>
+                  <p className="mt-4 leading-relaxed text-slate-600">{pkg.description}</p>
+                  <ul className="mt-5 flex-1 space-y-3">
+                    {pkg.includes.map((item) => (
+                      <li key={item} className="flex gap-3 text-sm text-slate-700">
+                        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#547298]" />
+                        {item}
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-6 pt-6 border-t border-white/20">
-                    <p className="text-white/70 text-sm">Flat Fee &mdash; Due at Closing</p>
-                    <p className="text-3xl font-bold text-white">$750</p>
-                  </div>
-                </div>
-              </div>
+                  <Link href={`/start-online/?service=${pkg.id}&clientType=individual&source=closing-pricing`} className="mt-7 inline-flex items-center justify-center rounded-full bg-[#33414E] px-6 py-3 font-bold text-white transition-colors hover:bg-[#547298]">
+                    Start This Closing
+                  </Link>
+                </article>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Intro */}
         <section className="bg-white py-16 lg:py-20">
@@ -132,10 +203,10 @@ export default function RealEstateClosingsPage() {
                 Buying or selling a home is one of the largest financial transactions of your life. In Illinois, residential contracts include an attorney review period — and having an attorney in your corner from day one means you are protected at every step, not just at the closing table.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                We provide full-service representation for residential buyers and sellers across Illinois for a flat fee of <strong className="text-[#33414E]">$750, due at closing</strong>. There is nothing to pay upfront. For sellers, the fee is simply deducted from proceeds at the closing table.
+                We provide full-service representation for residential buyers and sellers across Illinois. Standard agent-assisted representation is <strong className="text-[#33414E]">{usd(REAL_ESTATE.residentialClosing)}</strong>; multi-unit or investment closings are <strong className="text-[#33414E]">{usd(REAL_ESTATE.multiUnitOrInvestmentClosing)}</strong>; and estate, trust, or nonstandard-title closings are <strong className="text-[#33414E]">{usd(REAL_ESTATE.estateTrustOrNonstandardTitleClosing)}</strong>. Each fee is due at closing rather than upfront.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Selling <strong className="text-[#33414E]">For Sale By Owner</strong> is a different engagement. With no listing agent involved, we also handle the coordination an agent would normally carry, from drafting the contract through the closing table. FSBO representation is a flat <strong className="text-[#33414E]">$1,500</strong>, and it is paid at closing out of the sale proceeds on the same terms &mdash; nothing upfront.
+                Selling <strong className="text-[#33414E]">For Sale By Owner</strong> is a different engagement. With no listing agent involved, we also handle the coordination an agent would normally carry, from drafting the contract through the closing table. FSBO representation is a flat <strong className="text-[#33414E]">{usd(REAL_ESTATE.fsboRepresentation)}</strong>, paid at closing out of the sale proceeds.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed">
                 No hourly billing. No surprise invoices. Just clear, flat-fee representation from contract to keys.
@@ -198,14 +269,14 @@ export default function RealEstateClosingsPage() {
           </div>
         </section>
 
-        {/* Pricing callout */}
+        {/* Closing CTA */}
         <section className="bg-[#33414E] py-14 px-4">
           <div className="max-w-[1140px] mx-auto text-center">
             <h2 className="font-extrabold text-[28px] lg:text-[36px] text-white mb-4">
-              $750 Flat Fee &mdash; Due at Closing
+              Know Your Legal Fee Before the Transaction Begins
             </h2>
             <p className="text-white/80 text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-              Nothing due upfront. We handle everything from the moment you sign the contract through the day you close. Sellers can deduct the fee from proceeds at the closing table.
+              Every package has a concrete flat price, with nothing due upfront. Sellers can generally deduct the attorney fee from proceeds at the closing table.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
