@@ -18,16 +18,29 @@ type Category = {
 
 const categories: Category[] = [
   {
-    icon: Home,
+    icon: Building2,
     title: 'Real Estate',
-    description: 'Deed transfers and residential closings — practical legal support for Illinois families protecting their property.',
+    description: 'Attorney representation for Illinois home sales and purchases, from contract review through closing.',
     services: [
-      { name: 'Deed Transfers', href: '/chicago-deeds-lawyer/' },
-      { name: 'Residential Closings', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'Seller Representation', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'Buyer Representation', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'For Sale by Owner', href: '/chicago-real-estate-closings-lawyer/' },
     ],
-    ctaLabel: 'Explore Real Estate Services',
-    ctaHref: '/chicago-deeds-lawyer/',
+    ctaLabel: 'Explore Real Estate Representation',
+    ctaHref: '/chicago-real-estate-closings-lawyer/',
     featured: true,
+  },
+  {
+    icon: Home,
+    title: 'Deeds',
+    description: 'Attorney-prepared and recorded deeds for ownership changes, probate avoidance, and trust funding.',
+    services: [
+      { name: 'Quitclaim Deeds', href: '/chicago-deeds-lawyer/' },
+      { name: 'Transfer on Death Instruments', href: '/chicago-deeds-lawyer/' },
+      { name: 'Trust & Life Estate Deeds', href: '/chicago-deeds-lawyer/' },
+    ],
+    ctaLabel: 'Explore Deed Services',
+    ctaHref: '/chicago-deeds-lawyer/',
   },
   {
     icon: FileText,
@@ -70,12 +83,12 @@ const categories: Category[] = [
     title: 'Guardianship',
     description: 'Guardianship of an adult who can no longer decide, or of a minor child, contested and uncontested \u2014 with the annual court reporting that follows appointment.',
     services: [
-      { name: 'Guardianship of the Person', href: '/guardianship/' },
-      { name: 'Guardianship of the Estate', href: '/guardianship/' },
+      { name: 'Adult & Emergency Guardianship', href: '/adult-guardianship-lawyer/' },
+      { name: 'Guardianship of the Person & Estate', href: '/adult-guardianship-lawyer/' },
       { name: 'Annual Guardian Compliance', href: '/guardianship/#compliance' },
     ],
     ctaLabel: 'Explore Guardianship',
-    ctaHref: '/guardianship/',
+    ctaHref: '/adult-guardianship-lawyer/',
   },
 ];
 
