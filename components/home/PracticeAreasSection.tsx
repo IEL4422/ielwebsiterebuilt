@@ -47,6 +47,7 @@ const categories: Category[] = [
     title: 'Estate Planning',
     description: 'Wills, powers of attorney, and healthcare directives drafted to Illinois legal standards, so your wishes are clear and legally binding.',
     services: [
+      { name: 'Revocable Living Trusts', href: '/chicago-revocable-trusts-lawyer/' },
       { name: 'Wills', href: '/chicago-wills-lawyer/' },
       { name: 'Powers of Attorney', href: '/chicago-powers-of-attorney-lawyer/' },
       { name: 'Healthcare Directives', href: '/chicago-healthcare-directives-lawyer/' },

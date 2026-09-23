@@ -62,7 +62,7 @@ export function Header() {
                 alt="Illinois Estate Law"
                 width={240}
                 height={120}
-                className="h-14 w-auto"
+                className="h-16 w-auto"
                 priority
               />
             </Link>
@@ -150,7 +150,7 @@ export function Header() {
               alt="Illinois Estate Law"
               width={190}
               height={95}
-              className="h-11 w-auto"
+              className="h-12 w-auto"
               priority
             />
           </Link>
