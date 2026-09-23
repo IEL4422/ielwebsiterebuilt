@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'why-review-estate-plan-every-few-years',
+    title: 'Why You Should Review Your Illinois Estate Plan Every Few Years',
+    url: '/blog/why-review-estate-plan-every-few-years/',
+    date: 'Sep 23, 2026',
+    summary:
+      'Complete guide to reviewing and updating your Illinois estate plan — the life events that trigger an immediate review, financial and legal changes that require updates, how Illinois law handles divorce and death of named parties, and a practical checklist of everything to examine during a review.',
+    excerpt:
+      'Learn when and why to update your Illinois estate plan, what life events trigger an immediate review, and how outdated documents can leave your family unprotected.',
+  },
+  {
     slug: 'how-to-transfer-vehicle-after-death-illinois',
     title: 'How to Transfer a Vehicle After Death in Illinois',
     url: '/blog/how-to-transfer-vehicle-after-death-illinois/',
@@ -114,9 +124,9 @@ export const blogPosts: BlogPost[] = [
     url: '/blog/how-guardianship-works-in-illinois/',
     date: 'Jul 15, 2026',
     summary:
-      'Complete guide to how guardianship works in Illinois — what guardianship is under the Probate Act, who needs a guardian, the difference between guardianship of the person and of the estate, the step-by-step court process (petition, physician’s report, guardian ad litem, hearing, and Letters of Office), a guardian’s ongoing annual reporting and accounting duties, and the least-restrictive alternatives that can avoid guardianship altogether.',
+      'Complete guide to how guardianship works in Illinois — what guardianship is under the Probate Act, who needs a guardian, the difference between guardianship of the person and of the estate, the step-by-step court process (petition, physician\'s report, guardian ad litem, hearing, and Letters of Office), a guardian\'s ongoing annual reporting and accounting duties, and the least-restrictive alternatives that can avoid guardianship altogether.',
     excerpt:
-      'Learn how guardianship works in Illinois — who needs one, the step-by-step court process, a guardian’s duties after appointment, and the planning that can avoid it.',
+      'Learn how guardianship works in Illinois — who needs one, the step-by-step court process, a guardian\'s duties after appointment, and the planning that can avoid it.',
   },
   {
     slug: 'adult-vs-minor-guardianship-illinois',
@@ -124,7 +134,7 @@ export const blogPosts: BlogPost[] = [
     url: '/blog/adult-vs-minor-guardianship-illinois/',
     date: 'Jul 14, 2026',
     summary:
-      'Clear comparison of adult and minor guardianship in Illinois — two separate proceedings under different statutes and legal standards. Covers what they share, how adult guardianship (Article XIa, disability standard, physician’s report) differs from minor guardianship (Article XI, best-interest standard, parental consent), how the process and cost structure differ, and which one fits your situation.',
+      'Clear comparison of adult and minor guardianship in Illinois — two separate proceedings under different statutes and legal standards. Covers what they share, how adult guardianship (Article XIa, disability standard, physician\'s report) differs from minor guardianship (Article XI, best-interest standard, parental consent), how the process and cost structure differ, and which one fits your situation.',
     excerpt:
       'Adult and minor guardianship are two different proceedings in Illinois. Learn how the statutes, standards, process, and costs differ — and which one applies to you.',
   },
@@ -134,7 +144,7 @@ export const blogPosts: BlogPost[] = [
     url: '/blog/guardian-of-the-person-vs-estate-illinois/',
     date: 'Jul 13, 2026',
     summary:
-      'Illinois splits guardianship into two roles: a guardian of the person handles care, residence, and medical decisions, while a guardian of the estate manages money and property and must account to the court. This guide explains each role’s authority and duties, when you need both, limited vs. plenary guardianship, the estate accounting burden under 755 ILCS 5/24-11, and guardianship of a minor’s estate.',
+      'Illinois splits guardianship into two roles: a guardian of the person handles care, residence, and medical decisions, while a guardian of the estate manages money and property and must account to the court. This guide explains each role\'s authority and duties, when you need both, limited vs. plenary guardianship, the estate accounting burden under 755 ILCS 5/24-11, and guardianship of a minor\'s estate.',
     excerpt:
       'Learn the difference between a guardian of the person and a guardian of the estate in Illinois — the authority, the duties, the bond and accounting, and when you need both.',
   },
@@ -362,11 +372,11 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'what-is-a-surety-bond-in-illinois-probate',
-    title: 'What Is a Surety Bond in Illinois Probate? When It\'s Required & What It Costs',
+    title: "What Is a Surety Bond in Illinois Probate? When It's Required & What It Costs",
     url: '/blog/what-is-a-surety-bond-in-illinois-probate/',
     date: 'Mar 27, 2026',
-    summary: 'Complete guide to surety bonds in Illinois probate. Learn what a surety bond is, when Illinois courts require one, how much it costs, and how executors can avoid the requirement. Includes interactive bond cost calculator and real-world scenarios.',
-    excerpt: 'Understand surety bonds in Illinois probate: when they\'re required, what they cost, and how a bond waiver clause in your will can save your estate thousands.',
+    summary: "Complete guide to surety bonds in Illinois probate. Learn what a surety bond is, when Illinois courts require one, how much it costs, and how executors can avoid the requirement. Includes interactive bond cost calculator and real-world scenarios.",
+    excerpt: "Understand surety bonds in Illinois probate: when they're required, what they cost, and how a bond waiver clause in your will can save your estate thousands.",
   },
   {
     slug: 'how-much-does-probate-cost-in-illinois',
@@ -398,7 +408,7 @@ export const blogPosts: BlogPost[] = [
     url: '/blog/what-is-summary-probate-in-cook-county-illinois/',
     date: 'Mar 19, 2026',
     summary: 'Comprehensive guide to summary administration in Cook County. Learn the $100,000 threshold, required conditions, limitations, and how this streamlined probate process compares to formal probate and small estate affidavits.',
-    excerpt: 'Discover when summary probate (summary administration) is available in Cook County, Illinois, and whether it\'s the right choice for your estate.',
+    excerpt: "Discover when summary probate (summary administration) is available in Cook County, Illinois, and whether it's the right choice for your estate.",
   },
   {
     slug: 'when-is-probate-required-in-illinois',
@@ -410,7 +420,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'can-a-house-transfer-automatically-at-death-in-illinois-5-ways-it-can-and-3-ways-it-cant',
-    title: 'Can a House Transfer Automatically at Death in Illinois? 5 Ways It Can (and 3 Ways It Can\'t)',
+    title: "Can a House Transfer Automatically at Death in Illinois? 5 Ways It Can (and 3 Ways It Can't)",
     url: '/blog/can-a-house-transfer-automatically-at-death-in-illinois-5-ways-it-can-and-3-ways-it-cant/',
     date: 'Jan 27, 2026',
     summary: 'Comprehensive guide to automatic property transfer methods in Illinois. Learn which strategies avoid probate—joint tenancy, TODIs, living trusts, life estates—and which common approaches fail.',
@@ -477,7 +487,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Selecting a Trustee for Your Illinois Revocable Trust',
     url: '/blog/selecting-a-trustee-for-your-illinois-revocable-trust/',
     date: 'Oct 15, 2025',
-    summary: 'Choosing the right trustee is critical to your trust\'s success. This guide explains the trustee\'s role, essential qualities to look for, and common pitfalls to avoid.',
+    summary: "Choosing the right trustee is critical to your trust's success. This guide explains the trustee's role, essential qualities to look for, and common pitfalls to avoid.",
     excerpt: 'Learn how to choose a trustee who will manage your trust responsibly and honor your wishes.',
   },
   {
@@ -498,7 +508,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'trust-funding-check-list',
-    title: 'Trust Funding Checklist: Don\'t Let Your Trust Fail',
+    title: "Trust Funding Checklist: Don't Let Your Trust Fail",
     url: '/blog/trust-funding-check-list/',
     date: 'Sep 24, 2025',
     summary: 'A trust is only effective if properly funded. This checklist helps you transfer assets into your trust correctly to ensure it works when needed.',
@@ -549,7 +559,7 @@ export const blogPosts: BlogPost[] = [
     title: 'What Happens to Your Estate Plan When You Get Divorced?',
     url: '/blog/what-happens-to-your-estate-plan-when-you-get-divorced-and-why-you-should-update-it/',
     date: 'Aug 13, 2025',
-    summary: 'Divorce significantly impacts your estate plan, but Illinois law doesn\'t automatically update everything. This guide explains what changes automatically and what requires your action.',
+    summary: "Divorce significantly impacts your estate plan, but Illinois law doesn't automatically update everything. This guide explains what changes automatically and what requires your action.",
     excerpt: 'Understand how divorce affects your estate plan and why immediate updates are critical.',
   },
   {
@@ -573,8 +583,8 @@ export const blogPosts: BlogPost[] = [
     title: 'Ways to Protect Your Assets for the Future',
     url: '/blog/ways-to-protect-your-assets-for-the-future/',
     date: 'Jul 23, 2025',
-    summary: 'Asset protection strategies help shield your wealth from creditors, lawsuits, and estate taxes. This guide explores legal methods to protect what you\'ve worked hard to build.',
-    excerpt: 'Learn effective strategies to protect your assets and preserve wealth for future generations.',
+    summary: "Asset protection strategies help shield your wealth from creditors, lawsuits, and estate taxes. This guide explores legal methods to protect what you've worked hard to build.",
+    excerpt: "Learn effective strategies to protect your assets and preserve wealth for future generations.",
   },
   {
     slug: 'what-happens-if-you-become-incapacitated-without-a-plan-in-illinois',
@@ -589,7 +599,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Cook County Probate Paperwork: Every Form, One Bookmark',
     url: '/blog/cook-county-probate-paperwork-every-form-one-bookmark-illinois-estate-law/',
     date: 'Jul 9, 2025',
-    summary: 'Navigating Cook County probate requires numerous forms and strict procedures. This comprehensive resource provides access to every form you\'ll need in one convenient location.',
+    summary: "Navigating Cook County probate requires numerous forms and strict procedures. This comprehensive resource provides access to every form you'll need in one convenient location.",
     excerpt: 'Access all Cook County probate forms and requirements in one comprehensive guide.',
   },
 ];
