@@ -256,7 +256,7 @@ export default function Page() {
                 },
                 {
                   title: 'The total estate value exceeds the affidavit threshold',
-                  detail: "Illinois's Affidavit of Heirship for Motor Vehicles is available to estates where total assets do not exceed $100,000 (the state's small estate threshold under 755 ILCS 5/25-1). If the deceased's gross estate — all property combined, not just the vehicle — exceeds $100,000, the affidavit process may not be available, and formal probate may be necessary.",
+                  detail: "Current Illinois law gives qualifying motor vehicles special treatment. When an affidavit is used solely for a Secretary of State title transaction, qualifying motor vehicles can be transferred without counting their value toward the $150,000 personal-estate limit. Motor homes, commercial vehicles, buses, and certain other vehicle types are excluded from this special rule.",
                 },
                 {
                   title: 'There are disputes among heirs about who receives the vehicle',
@@ -299,7 +299,7 @@ export default function Page() {
                 },
                 {
                   title: 'Affidavit of Heirship',
-                  body: "For estates under $100,000 total value, Illinois allows close family members to claim a vehicle using Form VSD 106 — an Affidavit of Heirship — without opening a formal probate estate. This is the most common probate-avoidance tool for vehicle transfers.",
+                  body: "Illinois allows qualifying successors to request a vehicle title transfer using the Secretary of State's applicable affidavit process without opening a formal probate estate in some cases. Current law excludes qualifying motor vehicles from the $150,000 personal-estate calculation when the affidavit is used solely for the title transaction.",
                   color: 'blue',
                 },
                 {
@@ -348,7 +348,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              The affidavit process is authorized under Illinois law for estates that do not exceed $100,000 in total value. It is important to understand that this threshold applies to the <em>entire estate</em> — all of the deceased&apos;s property combined, not just the vehicle. If the gross estate exceeds $100,000, formal probate will generally be required regardless of the vehicle&apos;s individual value.
+              Current Illinois law gives qualifying motor vehicles special treatment. If the affidavit is used solely for a Secretary of State title transaction, the qualifying vehicle does not count toward the <em>$150,000 personal-estate limit</em>. This exception does not cover motor homes, commercial vehicles, buses, and certain other excluded vehicle types, and other estate assets may still require probate.
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 my-8">
@@ -422,7 +422,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              When probate is required — because the estate exceeds $100,000, there are disputes, or the family simply prefers formal administration — the vehicle becomes part of the probate estate. The executor or court-appointed administrator has authority to transfer the vehicle once they receive <strong>Letters of Office</strong> from the Circuit Court.
+              When probate is required because of other assets, individually owned real estate, disputes, or another legal complication, the vehicle may become part of the probate administration. The executor or court-appointed administrator has authority to transfer it once they receive <strong>Letters of Office</strong> from the Circuit Court.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">

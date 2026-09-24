@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Shield, AlertCircle, CheckCircle, DollarSign, Home } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { A_LA_CARTE, usd } from '@/lib/pricing';
 
 export default function PowersOfAttorneyPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -89,7 +90,7 @@ export default function PowersOfAttorneyPage() {
       />
 
       <main>
-        <InnerPageHero title="Powers of Attorney" subtitle="Protect your financial future with comprehensive powers of attorney tailored to Illinois law" />
+        <InnerPageHero title="Powers of Attorney" subtitle={`Illinois property and health care powers of attorney — ${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual or ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint.`} />
         <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -140,6 +141,55 @@ export default function PowersOfAttorneyPage() {
             </div>
           </div>
         </div>
+
+        <section className="border-b border-[#E3EAF1] bg-[#F6F9FC] px-4 py-8">
+          <div className="mx-auto flex max-w-[1140px] flex-col gap-5 rounded-2xl border border-[#D7E2EC] bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-3xl">
+              <h2 className="text-xl font-bold text-[#33414E]">Trying to get power of attorney over a loved one?</h2>
+              <p className="mt-2 leading-relaxed text-slate-600">
+                A POA must be knowingly and voluntarily signed by the person granting authority. If that is no longer possible, court guardianship may be the right path. Use our Illinois POA and guardianship guide to understand the difference.
+              </p>
+            </div>
+            <Link href="/power-of-attorney-and-guardianship/" className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#547298] px-6 py-3 text-sm font-bold text-white hover:bg-[#33414E] transition-colors">
+              POA or Guardianship?
+            </Link>
+          </div>
+        </section>
+
+        <section className="bg-white px-4 py-14 lg:py-16">
+          <div className="mx-auto max-w-[900px]">
+            <div className="text-center">
+              <p className="text-sm font-bold uppercase tracking-wider text-[#547298]">À la carte flat fees</p>
+              <h2 className="mt-2 text-3xl font-extrabold text-[#33414E]">Property and Health Care Powers of Attorney</h2>
+              <p className="mx-auto mt-3 max-w-2xl leading-relaxed text-slate-600">Each option includes both an Illinois Power of Attorney for Property and an Illinois Power of Attorney for Health Care, plus online notarization.</p>
+            </div>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {[
+                {
+                  label: 'Individual',
+                  price: A_LA_CARTE.powersOfAttorneyIndividual,
+                  detail: 'One property POA and one health care POA for one person.',
+                  href: '/start-online/?service=power-of-attorney&clientType=individual&source=poa-pricing',
+                },
+                {
+                  label: 'Joint',
+                  price: A_LA_CARTE.powersOfAttorneyJoint,
+                  detail: 'Two property POAs and two health care POAs for two people.',
+                  href: '/start-online/?service=power-of-attorney&clientType=joint&source=poa-pricing',
+                },
+              ].map((option) => (
+                <article key={option.label} className="flex flex-col rounded-2xl border-2 border-[#D7E2EC] bg-[#F6F9FC] p-7">
+                  <h3 className="text-xl font-bold text-[#33414E]">{option.label} POA Package</h3>
+                  <p className="mt-3 text-4xl font-extrabold text-[#33414E]">{usd(option.price)}</p>
+                  <p className="mt-3 flex-1 leading-relaxed text-slate-600">{option.detail}</p>
+                  <Link href={option.href} className="mt-6 inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3 font-bold text-white transition-colors hover:bg-[#33414E]">
+                    Get Started
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Introduction Section */}
         <section className="py-16 bg-white">

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { usd } from '@/lib/pricing';
+import { A_LA_CARTE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, RETAINERS, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import {
   serviceCategories,
@@ -179,6 +179,17 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
   { label: 'Probate & Administration', rows: probate.packages.map(toRow) },
   { label: 'Trust Administration', rows: trustAdmin.packages.map(toRow) },
   { label: 'Real Estate & Deeds', rows: [...realEstate.packages, ...deeds.aLaCarte].map(toRow) },
+  {
+    label: 'Powers of Attorney & Guardianship',
+    rows: [
+      { name: 'Powers of Attorney', individual: usd(A_LA_CARTE.powersOfAttorneyIndividual), joint: usd(A_LA_CARTE.powersOfAttorneyJoint), notes: 'Property and health care POAs prepared together.' },
+      { name: 'Adult Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.adultUncontested), joint: '', notes: 'All court filing fees included; bond premiums and guardian ad litem fees billed separately.' },
+      { name: 'Emergency + Full Adult Guardianship', individual: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn), joint: '', notes: `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full case. Filing fees included; bond premiums and GAL fees separate.` },
+      { name: 'Minor Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.minorUncontested), joint: '', notes: 'Flat fee.' },
+      { name: 'Contested Guardianship', individual: `${usd(RETAINERS.contestedGuardianship)} retainer + hourly`, joint: '', notes: 'For objections, competing petitions, and guardian-removal matters.' },
+      { name: 'Annual Guardianship Compliance', individual: `${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} / year`, joint: '', notes: 'Annual report and estate-accounting support.' },
+    ],
+  },
 ];
 
 /* ---------- always-included band ---------- */
@@ -207,7 +218,7 @@ export function ServicesPricingModern() {
             ['Trusts & Administration', '#trusts'],
             ['Probate & Administration', '#probate'],
             ['Real Estate & Deeds', '#realestate'],
-            ['Guardianship', '#guardianship'],
+            ['POA & Guardianship', '#guardianship'],
             ['Full Price List', '#table'],
           ].map(([label, href]) => (
             <a
@@ -360,38 +371,38 @@ export function ServicesPricingModern() {
           </div>
         </section>
 
-        {/* 05 Guardianship (descriptive — no published price on this page) */}
+        {/* 05 Powers of attorney and guardianship */}
         <section id="guardianship" className="scroll-mt-[150px] border-t border-[#E3EAF1] py-12">
-          <CatHead kick="05" title="Guardianship" />
+          <CatHead kick="05" title="Powers of Attorney & Guardianship" />
           <p className="mb-7 max-w-[820px] text-[16px] text-[#5f6b76]">
-            Guardianship of an adult who can no longer decide, or of a minor child — contested and uncontested — plus the
-            annual court reporting that follows appointment. Uncontested guardianship is handled flat-fee; contested
-            guardianship is billed hourly against a retainer.
+            These services solve different versions of the same problem: who can legally act for another person. A power of
+            attorney is voluntarily signed while the person can appoint an agent; guardianship is a court process used when
+            that authority is unavailable or inadequate.
           </p>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {[
-              ['Guardianship of the Person', 'For an adult who can no longer make decisions, or a minor child.'],
-              ['Guardianship of the Estate', 'Management of the financial affairs of the person under guardianship.'],
-              ['Annual Guardian Compliance', 'The annual court reporting and compliance that follows appointment.'],
-            ].map(([title, body]) => (
+              ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/', 'Explore POA Services'],
+              ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/', 'Explore Adult Guardianship'],
+              ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case.`, '/adult-guardianship-lawyer/#emergency', 'Review Emergency Service'],
+              ['Contested & Ongoing Matters', `${usd(RETAINERS.contestedGuardianship)} retainer or ${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)}/year`, 'Contested guardianship or annual guardian compliance.', '/guardianship/', 'See Guardianship Details'],
+            ].map(([title, price, body, href, label]) => (
               <div key={title} className="flex flex-col rounded-2xl border border-[#E3EAF1] bg-white p-6">
                 <h3 className="text-[18px] font-bold text-[#33414E] mb-2">{title}</h3>
+                <p className="mb-2 text-[18px] font-extrabold text-[#547298]">{price}</p>
                 <p className="mb-4 text-sm text-[#5f6b76]">{body}</p>
                 <Link
-                  href="/guardianship/"
+                  href={href}
                   className="mt-auto inline-flex w-fit items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-4 py-2 text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] hover:bg-[#F6F9FC] transition-colors"
                 >
-                  Explore Guardianship
+                  {label}
                 </Link>
               </div>
             ))}
           </div>
           <p className="mt-6 text-[15px] text-[#5f6b76]">
-            Guardianship matters are quoted based on the facts of your case.{' '}
-            <Link href={BOOK} className="text-[#547298] underline hover:text-[#33414E]">
-              Book a free consultation
-            </Link>{' '}
-            for exact flat-fee pricing.
+            Unsure which service applies?{' '}
+            <Link href="/power-of-attorney-and-guardianship/" className="text-[#547298] underline hover:text-[#33414E]">Compare power of attorney and guardianship</Link>
+            {' '}or <Link href={BOOK} className="text-[#547298] underline hover:text-[#33414E]">book a free consultation</Link>.
           </p>
         </section>
       </div>

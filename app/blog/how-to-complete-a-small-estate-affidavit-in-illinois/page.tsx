@@ -139,7 +139,7 @@ export default function Page() {
                 <FileText className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
                   <p className="mb-4 font-semibold text-lg">
-                    The Illinois Small Estate Affidavit provides a simplified way to transfer estate assets without full probate when the estate value is $100,000 or less.
+                    The Illinois Small Estate Affidavit provides a simplified way to transfer estate assets without full probate when the estate value is $150,000 or less.
                   </p>
                   <p className="mb-4">
                     This comprehensive guide walks you through every step of completing a small estate affidavit in Illinois, from determining eligibility to filing the completed affidavit. You'll learn the specific requirements under Illinois law, what information you need to gather, which assets qualify, and common mistakes that can delay or invalidate the process.
@@ -156,7 +156,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6">
-              A small estate affidavit is a legal document that allows the family or heirs of a deceased person to claim and distribute estate assets without going through formal probate court proceedings. Under Illinois law (755 ILCS 5/25-1), this simplified procedure is available when the total value of the estate is $100,000 or less, excluding certain exempt property and funeral expenses.
+              A small estate affidavit is a legal document that allows the family or heirs of a deceased person to claim and distribute estate assets without going through formal probate court proceedings. Under Illinois law (755 ILCS 5/25-1), this simplified procedure is available when the total value of the estate is $150,000 or less, excluding certain exempt property and funeral expenses.
             </p>
 
             <p className="mb-6">
@@ -201,11 +201,11 @@ export default function Page() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span>Only available for estates under $100,000</span>
+                    <span>Only available for estates under $150,000</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span>Must wait at least 6 months after death</span>
+                    <span>Must confirm no probate proceeding or letters of office are pending</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -282,13 +282,13 @@ export default function Page() {
                       <div className="border-l-4 border-blue-500 pl-4">
                         <h4 className="font-semibold mb-2">Estate Value Limit</h4>
                         <p className="text-gray-700 text-sm">
-                          The gross value of the entire estate, wherever located, must not exceed $100,000. This includes all personal property and real estate owned by the deceased, minus funeral expenses and amounts owed to the surviving spouse and minor children.
+                          The gross value of the entire estate, wherever located, must not exceed $150,000. This limit applies to qualifying personal property; an Illinois Small Estate Affidavit does not transfer individually owned real estate. Motor vehicles receive special treatment under current law.
                         </p>
                       </div>
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-semibold mb-2">Waiting Period</h4>
+                        <h4 className="font-semibold mb-2">No Pending Probate</h4>
                         <p className="text-gray-700 text-sm">
-                          At least 6 months must have passed since the date of death. This waiting period ensures creditors have time to file claims against the estate.
+                          No probate proceeding or letters of office may be pending. Illinois does not impose a six-month waiting period for using the Small Estate Affidavit.
                         </p>
                       </div>
                       <div className="border-l-4 border-blue-500 pl-4">
@@ -315,7 +315,7 @@ export default function Page() {
 
                 {activeTab === 'included' && (
                   <div>
-                    <h3 className="text-xl font-bold mb-4">Assets Counted Toward $100,000 Limit</h3>
+                    <h3 className="text-xl font-bold mb-4">Assets Counted Toward $150,000 Limit</h3>
                     <p className="mb-4 text-gray-700">These assets must be included when calculating the total estate value:</p>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-3">
@@ -367,7 +367,7 @@ export default function Page() {
                 {activeTab === 'excluded' && (
                   <div>
                     <h3 className="text-xl font-bold mb-4">Assets NOT Counted (Pass Outside Estate)</h3>
-                    <p className="mb-4 text-gray-700">These assets transfer automatically and don't count toward the $100,000 limit:</p>
+                    <p className="mb-4 text-gray-700">These assets transfer automatically and don't count toward the $150,000 limit:</p>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-3">
                         <Scale className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -435,12 +435,12 @@ export default function Page() {
                 {
                   step: 2,
                   title: 'Calculate Total Estate Value',
-                  content: 'Determine the gross value of all estate assets that count toward the $100,000 limit. Use fair market values as of the date of death. For real estate, you may need a professional appraisal or use the county assessor\'s records. For personal property, use reasonable fair market values (what items would sell for, not what they cost when new). For bank accounts and investments, use the balance as of the death date. Document your valuation methods and keep records of how you determined each value. Remember to subtract funeral expenses and amounts owed to spouse and minor children from the gross value. If the total exceeds $100,000 after these deductions, you cannot use the small estate affidavit.'
+                  content: 'Determine the gross value of qualifying personal property that counts toward the $150,000 limit. Use fair market values as of the date of death. Individually owned real estate cannot be transferred with this affidavit. Qualifying motor vehicles receive special treatment under current law. For other personal property, use reasonable fair market values; for bank accounts and investments, use the date-of-death balance. Document your valuation methods. If the qualifying personal estate exceeds $150,000, the affidavit is unavailable.'
                 },
                 {
                   step: 3,
                   title: 'Complete the Affidavit Form',
-                  content: 'Fill out the small estate affidavit form completely and accurately. The form requires specific information in each section. In the heading, enter the county where the decedent lived at death. In the body of the affidavit, state your relationship to the deceased, confirm that 6 months have passed since death, state that the estate value is under $100,000, list all known heirs and their addresses, describe all estate assets and their values, and list all known debts and funeral expenses. Sign the affidavit before a notary public. The notary will verify your identity and watch you sign. The affidavit must include a statement that you understand you are personally liable for estate debts up to the value of assets distributed.'
+                  content: 'Fill out the small estate affidavit form completely and accurately. State your relationship to the deceased, confirm that no probate proceeding or letters of office are pending, state that the qualifying personal estate does not exceed $150,000, list the required heirs and beneficiaries, describe the assets and values, and disclose known debts and funeral expenses. Sign the affidavit before a notary. The affidavit includes important duties and potential personal liability, so use the current statutory form.'
                 },
                 {
                   step: 4,
@@ -455,12 +455,12 @@ export default function Page() {
                 {
                   step: 6,
                   title: 'Present Affidavit to Asset Holders',
-                  content: 'Take the completed, notarized affidavit and certified death certificate to each institution or person holding estate assets. Banks typically have their own forms in addition to the affidavit. Bring photo identification proving you are the affiant. Some institutions may take several days or weeks to process the affidavit and release assets. Be patient and follow up if you don\'t hear back within two weeks. For vehicle titles, take the affidavit to the Illinois Secretary of State office. For real estate, record the affidavit with the county recorder\'s office where the property is located. Each county has its own recording fees and procedures.'
+                  content: 'Take the completed, notarized affidavit and certified death certificate to each institution or person holding qualifying personal property. Banks may have additional forms. Bring photo identification. For a vehicle-title transaction, follow the Illinois Secretary of State\'s current requirements. Do not record the Small Estate Affidavit as a method of transferring individually owned real estate; it does not convey that title.'
                 },
                 {
                   step: 7,
                   title: 'Distribute Assets to Heirs',
-                  content: 'After collecting all estate assets, pay legitimate debts and funeral expenses first. Then distribute remaining assets to heirs according to the will (if there is one) or Illinois intestacy laws (755 ILCS 5/2-1 if no will). Keep detailed records of all distributions including who received what assets, the date of distribution, and signed receipts from heirs acknowledging receipt. Consider having heirs sign a receipt and release document confirming they received their share and releasing you from further liability. This protects you if questions arise later. If significant time passes between collecting assets and distribution (for example, if you need to sell real estate first), keep the funds in a separate estate account, not commingled with your personal funds.'
+                  content: 'After collecting the qualifying personal property, address valid debts, statutory awards, and expenses in the order required by law before distributing the balance under the will or Illinois intestacy law. Keep detailed records and signed receipts. Never commingle collected estate funds with personal funds. If real estate or another nonqualifying asset must be administered, obtain advice about whether a probate estate is required.'
                 },
                 {
                   step: 8,
@@ -618,13 +618,13 @@ export default function Page() {
               <div className="bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                 <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
                   <AlertCircle className="w-5 h-5 text-red-600" />
-                  Filing Too Early
+                  Using the Affidavit While Probate Is Pending
                 </h3>
                 <p className="text-sm text-gray-700 mb-3">
-                  <span className="font-semibold">Mistake:</span> Filing the affidavit before 6 months have passed since death.
+                  <span className="font-semibold">Mistake:</span> Using the affidavit while a probate proceeding or letters of office are pending.
                 </p>
                 <p className="text-sm text-gray-700">
-                  <span className="font-semibold">Solution:</span> Wait the full 6 months. Mark your calendar and don't file early, even if you're anxious to complete the process. The law requires this waiting period to protect creditors' rights.
+                  <span className="font-semibold">Solution:</span> Confirm the statutory eligibility requirements before signing. Illinois does not impose a six-month waiting period for this affidavit.
                 </p>
               </div>
 
@@ -755,11 +755,11 @@ export default function Page() {
                     <div className="text-sm font-semibold text-green-600 whitespace-nowrap">$10-$25</div>
                   </li>
                   <li className="flex justify-between items-start gap-3">
-                    <div className="text-sm">Property appraisal (if needed)</div>
+                    <div className="text-sm">Personal-property appraisal (if needed)</div>
                     <div className="text-sm font-semibold text-green-600 whitespace-nowrap">$300-$500</div>
                   </li>
                   <li className="flex justify-between items-start gap-3">
-                    <div className="text-sm">Recording fees (if real estate involved)</div>
+                    <div className="text-sm">Certified records or institution fees (if required)</div>
                     <div className="text-sm font-semibold text-green-600 whitespace-nowrap">$25-$75</div>
                   </li>
                   <li className="flex justify-between items-start gap-3">
@@ -786,15 +786,15 @@ export default function Page() {
               {[
                 {
                   question: 'Can I use a small estate affidavit if there is a will?',
-                  answer: 'Yes, you can use a small estate affidavit even if the deceased had a will, as long as all other requirements are met (estate under $100,000, 6 months passed, no probate pending). The affidavit simply becomes the method for transferring assets to the beneficiaries named in the will. You must attach a copy of the will to the affidavit and distribute assets according to the will\'s terms, not according to intestacy laws. The will does not need to be admitted to probate if you use the small estate affidavit process.'
+                  answer: 'Yes, a will does not automatically prevent use of a Small Estate Affidavit if every statutory requirement is satisfied, including the $150,000 qualifying-personal-estate limit and the absence of a pending probate proceeding or letters of office. The will and statutory affidavit requirements control who receives the property. Use the current form and obtain advice if heirship or distribution is uncertain.'
                 },
                 {
                   question: 'What happens if I discover additional assets after filing the affidavit?',
-                  answer: 'If you discover additional assets that bring the total estate value over $100,000, you may need to open formal probate proceedings. If the additional assets keep the total under $100,000, you can file a supplemental affidavit for those assets. Be honest about this situation. Knowingly underreporting asset values or hiding assets can result in personal liability and potential fraud charges. If you\'re uncertain about whether to report discovered assets, consult with an estate planning attorney before proceeding.'
+                  answer: 'If you discover additional assets that bring the total estate value over $150,000, you may need to open formal probate proceedings. If the additional assets keep the total under $150,000, you can file a supplemental affidavit for those assets. Be honest about this situation. Knowingly underreporting asset values or hiding assets can result in personal liability and potential fraud charges. If you\'re uncertain about whether to report discovered assets, consult with an estate planning attorney before proceeding.'
                 },
                 {
                   question: 'Do I need an attorney to complete a small estate affidavit?',
-                  answer: 'Illinois law does not require you to hire an attorney to complete a small estate affidavit. Many people successfully complete the process without legal help, especially for straightforward estates with only bank accounts and personal property. However, you should consider hiring an attorney if: the estate is close to the $100,000 limit, there is real estate involved, there are disputes among heirs, you are uncertain about identifying all heirs, there are significant debts, or the estate includes business interests or complex assets. An attorney consultation (typically $500-$1,500) is much less expensive than making mistakes that require opening full probate later.'
+                  answer: 'Illinois law does not require an attorney to complete a Small Estate Affidavit. Consider legal advice if the estate is close to the $150,000 limit, includes real estate or a business interest, has disputed heirs or debts, or presents uncertainty about who is entitled to receive property.'
                 },
                 {
                   question: 'What if an heir disagrees with the distribution?',
@@ -806,7 +806,7 @@ export default function Page() {
                 },
                 {
                   question: 'How do I handle real estate with a small estate affidavit?',
-                  answer: 'Real estate can be transferred using a small estate affidavit, but the process is more complex than transferring personal property or bank accounts. First, ensure the property value (minus mortgage) plus all other estate assets totals less than $100,000. Get a professional appraisal or use the county assessor\'s valuation. Complete the affidavit including specific legal description of the property from the deed. Have the affidavit notarized. Record the affidavit with the Recorder of Deeds in the county where the property is located. Pay required recording fees (typically $50-75). Once recorded, the affidavit transfers title to the heirs named in the affidavit. The new owners can then decide to keep, sell, or otherwise deal with the property. If there is a mortgage, contact the lender about assuming or paying off the loan.'
+                  answer: 'No. An Illinois Small Estate Affidavit is for qualifying personal property and does not transfer individually owned real estate. Real estate may pass outside probate through another valid ownership or beneficiary arrangement, such as joint tenancy, a trust, or a recorded Transfer on Death Instrument. Otherwise, a probate proceeding may be required regardless of the property\'s value.'
                 }
               ].map((faq, index) => (
                 <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
@@ -846,7 +846,7 @@ export default function Page() {
               <ul className="space-y-2">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <span>The estate value is close to the $100,000 limit and you're uncertain about valuations</span>
+                  <span>The estate value is close to the $150,000 limit and you're uncertain about valuations</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />

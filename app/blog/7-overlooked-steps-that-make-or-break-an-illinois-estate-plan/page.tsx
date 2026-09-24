@@ -407,7 +407,7 @@ export default function Page() {
 
           <p>Estate planning requires more than signing documents. You need to fund trusts, update beneficiaries, create healthcare directives, and maintain organized records. Missing even one step can cost your family time, money, and unnecessary stress when they should be focused on grieving and moving forward.</p>
 
-          <p>Chicago estate planning attorney Mary Liberty at Illinois Estate Law helps families throughout Chicago and Illinois complete every step of the planning process. Our flat-fee pricing includes unlimited access to your attorney, so you can ask questions and get updates without watching the clock. We handle trust funding, beneficiary reviews, digital asset planning, and everything else your family needs for true peace of mind.</p>
+          <p>Chicago estate planning attorney Mary Liberty at Illinois Estate Law helps families throughout Chicago and Illinois complete every step of the planning process. Our fixed-fee packages include the attorney consultations reasonably needed to complete the written scope, so you can ask relevant questions and get updates without watching the clock. We provide trust-funding guidance, beneficiary reviews, digital-asset planning, and coordinated documents designed for your family&apos;s needs.</p>
 
           <p>Whether you're creating a new estate plan or fixing gaps in an existing one, we're here to help. Call Illinois Estate Law today at <a href="tel:3123730731" rel="nofollow">(312) 373-0731</a> for a free consultation. We review your current plan, identify missing steps, and create a roadmap for making your estate plan actually work when your family needs it most.</p>
         </div>

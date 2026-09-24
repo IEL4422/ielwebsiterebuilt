@@ -7,8 +7,19 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 async function postToSlack(text: string) {
-  // The referral is already saved; notification failure must not encourage duplicate submissions.
-  await sendContactToSlack(slackContactText(text)).catch(() => console.error('Referral Slack notification failed'));
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      await sendContactToSlack(slackContactText(text));
+      return;
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) {
+        await new Promise((resolve) => setTimeout(resolve, attempt * 300));
+      }
+    }
+  }
+  throw lastError;
 }
 
 export async function POST(req: Request) {
@@ -74,22 +85,37 @@ export async function POST(req: Request) {
         ipAddress: req.headers.get('x-forwarded-for') ?? 'unknown',
       },
       status: 'pending',
+      notifications: {
+        slack: { status: 'pending' },
+      },
       submittedAt: new Date(),
     });
 
     const referralId = result.insertedId.toString();
 
     // ── Slack notification ────────────────────────────────────
-    await postToSlack(
-      `:handshake: *New Attorney Referral Submitted*\n\n` +
-      `*Referring Attorney:* ${attorneyFirstName} ${attorneyLastName}${firmName ? ` — ${firmName}` : ''}\n` +
-      `*ARDC:* ${ardc} | *Email:* ${attorneyEmail} | *Phone:* ${attorneyPhone}\n\n` +
-      `*Client:* ${clientFirstName} ${clientLastName}\n` +
-      `*Matter:* ${legalMatter}${clientPhone ? ` | *Phone:* ${clientPhone}` : ''}${clientEmail ? ` | *Email:* ${clientEmail}` : ''}\n` +
-      `*Client Informed of Fee Arrangement:* ${clientInformed ? 'Yes ✅' : 'Not confirmed'}\n` +
-      `${notes ? `*Notes:* ${notes}\n` : ''}` +
-      `\n_Referral ID: ${referralId}_`
-    );
+    try {
+      await postToSlack(
+        `:handshake: *New Attorney Referral Submitted*\n\n` +
+        `*Referring Attorney:* ${attorneyFirstName} ${attorneyLastName}${firmName ? ` — ${firmName}` : ''}\n` +
+        `*ARDC:* ${ardc} | *Email:* ${attorneyEmail} | *Phone:* ${attorneyPhone}\n\n` +
+        `*Client:* ${clientFirstName} ${clientLastName}\n` +
+        `*Matter:* ${legalMatter}${clientPhone ? ` | *Phone:* ${clientPhone}` : ''}${clientEmail ? ` | *Email:* ${clientEmail}` : ''}\n` +
+        `*Client Informed of Fee Arrangement:* ${clientInformed ? 'Yes ✅' : 'Not confirmed'}\n` +
+        `${notes ? `*Notes:* ${notes}\n` : ''}` +
+        `\n_Referral ID: ${referralId}_`
+      );
+      await db.collection('referrals').updateOne(
+        { _id: result.insertedId },
+        { $set: { 'notifications.slack.status': 'delivered', 'notifications.slack.deliveredAt': new Date() } }
+      ).catch(() => console.error('Could not record successful referral Slack delivery'));
+    } catch (error) {
+      console.error('Referral Slack notification failed after three attempts', error);
+      await db.collection('referrals').updateOne(
+        { _id: result.insertedId },
+        { $set: { 'notifications.slack.status': 'failed', 'notifications.slack.failedAt': new Date() } }
+      ).catch(() => console.error('Could not record failed referral Slack delivery'));
+    }
 
     // ── Resend emails ─────────────────────────────────────────
     const apiKey = process.env.RESEND_API_KEY;

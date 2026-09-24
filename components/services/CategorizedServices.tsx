@@ -264,8 +264,8 @@ export function CategorizedServices({
           id: 'power-of-attorney',
           name: 'Powers of Attorney',
           category: 'a-la-carte',
-          individualPrice: 400,
-          jointPrice: 600,
+          individualPrice: A_LA_CARTE.powersOfAttorneyIndividual,
+          jointPrice: A_LA_CARTE.powersOfAttorneyJoint,
           description: 'Includes Power of Attorney for Healthcare and Power of Attorney for Property. Joint includes two of each document. Includes online notarization.',
           includes: []
         },

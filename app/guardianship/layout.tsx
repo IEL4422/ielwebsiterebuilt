@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import { breadcrumbSchema, serviceSchema, faqPageSchema } from '@/lib/seo';
 import { guardianshipFAQs } from '@/lib/practice-faqs';
 
-const TITLE =
-  'Guardianship Attorney Illinois | Adult & Minor, Contested & Uncontested | Illinois Estate Law';
+const TITLE = 'Illinois Guardianship Lawyer | Adult & Minor Cases';
 const DESCRIPTION =
-  'Illinois guardianship attorneys — adult guardianship of the person and estate, minor guardianship, contested and uncontested. Physician’s report, GAL coordination, annual accountings. Cook, DuPage, Lake, Will, Kane & McHenry. Call (312) 373-0731.';
+  'Illinois guardianship lawyer for adult and minor cases, including person, estate, contested and uncontested matters. Learn when guardianship may be needed.';
 const PATH = '/guardianship/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
 
@@ -25,7 +24,10 @@ export const metadata: Metadata = {
   twitter: { card: 'summary', title: TITLE, description: DESCRIPTION },
 };
 
-const breadcrumb = breadcrumbSchema([{ name: 'Guardianship', path: PATH }]);
+const breadcrumb = breadcrumbSchema([
+  { name: 'POA & Guardianship', path: '/power-of-attorney-and-guardianship/' },
+  { name: 'Guardianship', path: PATH },
+]);
 
 const adultService = serviceSchema({
   name: 'Illinois Adult Guardianship',

@@ -15,9 +15,9 @@
  * contested probate, will contests, and contested guardianship. EVERYTHING
  * uncontested is a flat fee — including adult guardianship of the person and
  * estate, which moved from a $5,000 retainer to a flat fee. Both uncontested
- * guardianships (adult and minor) are the SAME flat $5,000 (all-inclusive of
- * the firm's work; the GAL fee is a disclosed pass-through, like the probate
- * surety bond). There are no PENDING prices.
+ * guardianships (adult and minor) are the SAME flat $5,000. All court filing
+ * fees are included; court-appointed GAL fees and surety-bond premiums are
+ * disclosed third-party exclusions. There are no PENDING prices.
  *
  * ---------------------------------------------------------------------------
  * THE BILLING MODEL — fee structure is a property of MATTER POSTURE, not of the
@@ -36,8 +36,8 @@
  *
  * The named cost carve-outs, and there are only these:
  *   - Uncontested probate flat fee -> surety bond premium.
- *   - Adult guardianship flat fee -> guardian ad litem (GAL) fee, a court-set
- *     pass-through (like the probate surety bond).
+ *   - Adult guardianship flat fee -> guardian ad litem (GAL) fee and any
+ *     surety-bond premium, both third-party charges.
  *   - Trust funding -> one deed + recording included; additional deeds $500 ea.
  *   - Contested matters are retainer_hourly, so the GAL fee is simply a billable
  *     expense there, NOT a carve-out from a flat fee.
@@ -101,11 +101,11 @@ export const RETAINER_FLOORS = {
  * Guardianship FLAT fees (flat_all_inclusive). LOCKED. ALL uncontested
  * guardianship is flat-fee'd — only a contest flips a matter to retainer+hourly.
  *
- *   - Adult guardianship of the person and estate: flat $5,000, all-inclusive of
- *     the firm's work (petition, physician's report coordination, personal
- *     service, GAL coordination, surety bond and inventory, hearing). The GAL fee
- *     itself is a court-set pass-through billed to the client — a carve-out, like
- *     the probate surety bond — not part of the flat fee. (Set to MATCH minor
+ *   - Adult guardianship of the person and estate: flat $5,000, including the
+ *     firm's defined work and all court filing fees (petition, physician's
+ *     report coordination, personal service, GAL coordination, surety-bond and
+ *     inventory coordination, and hearing). The GAL fee and any surety-bond
+ *     premium are third-party charges and are not included. (Set to MATCH minor
  *     guardianship per Mary 2026-07-16; raised to $5,000 per Mary 2026-09-08.)
  *   - Minor guardianship: petition -> notice -> hearing -> letters. Same $5,000.
  *   - Discrete interim petitions and uncontested termination.
@@ -113,6 +113,8 @@ export const RETAINER_FLOORS = {
 export const GUARDIANSHIP_FLAT = {
   adultUncontested: 5000,
   minorUncontested: 5000,
+  /** Priority temporary-guardianship petition and hearing added to a full adult guardianship. */
+  emergencyTemporaryAddOn: 2500,
   interimPetition: 1500,
   terminationUncontested: 2000,
 } as const;
@@ -164,9 +166,9 @@ export const PROBATE = {
   largeEstatePercent: 0.5,
   largeEstateThreshold: 4000000,
   reopening: 2500,
-  heirRepresentation: 3500,
+  heirRepresentation: 2500,
   spousalRepresentation: 4500,
-  partialProbate: 5000,
+  partialProbate: 3500,
   documentReview: 500,
 } as const;
 
@@ -192,8 +194,8 @@ export const A_LA_CARTE = {
   revocableTrustJoint: 3500,
   willIndividual: 750,
   willJoint: 1250,
-  powersOfAttorneyIndividual: 400,
-  powersOfAttorneyJoint: 600,
+  powersOfAttorneyIndividual: 500,
+  powersOfAttorneyJoint: 750,
   healthcareDirective: 350,
   trustRestatementIndividual: 2000,
   trustRestatementJoint: 3000,

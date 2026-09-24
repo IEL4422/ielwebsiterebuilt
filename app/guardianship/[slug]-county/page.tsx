@@ -31,7 +31,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 const services = [
   { icon: Users, title: 'Minor Guardianship', description: 'For a grandparent, relative, or family friend seeking guardianship of a child under 18. Uncontested is a flat fee; if a parent objects it converts to hourly.' },
-  { icon: HeartHandshake, title: 'Adult Guardianship of the Person & Estate', description: 'Authority over care, medical decisions, money, and property for an adult who can no longer decide — dementia, developmental disability, or catastrophic injury.' },
+  { icon: HeartHandshake, title: 'Adult Guardianship of the Person & Estate', description: `Uncontested representation for ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate.` },
+  { icon: Scale, title: 'Emergency + Full Adult Guardianship', description: `Priority temporary-guardianship work plus the full uncontested case for ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. The court controls timing and whether relief is granted.` },
   { icon: Scale, title: 'Contested Guardianship', description: 'When the respondent objects, a sibling files a competing petition, or an existing guardian faces removal. Litigation, billed hourly against a retainer.' },
   { icon: ClipboardCheck, title: 'Annual Compliance', description: 'Illinois guardians must report to the court every year. We prepare and file the annual report on the ward and the estate accounting, on the court’s schedule.' },
   { icon: UserCheck, title: 'Guardian ad Litem Coordination', description: 'Cook County appoints a GAL in every estate guardianship. We coordinate with the GAL and respond to the GAL report.' },
@@ -40,7 +41,7 @@ const services = [
 
 function faqs(county: string, court: string) {
   return [
-    { question: `How much does a guardianship attorney cost in ${county}?`, answer: `Uncontested guardianship is a flat fee: a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship of the person and estate — each all-inclusive of the firm’s work. The guardian ad litem (GAL) fee is a court-set pass-through, disclosed and billed separately, like a surety bond in probate. Only a contested guardianship is billed hourly, against a ${usd(RETAINERS.contestedGuardianship)} retainer — because the opposing party, not the firm, drives how much work a contested case takes.` },
+    { question: `How much does a guardianship attorney cost in ${county}?`, answer: `An uncontested minor guardianship is a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)}, and an uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}. All court filing fees are included. Bond premiums and court-appointed guardian ad litem (GAL) fees are separate third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the combined emergency-and-full-case total ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. Only a contested guardianship is billed hourly, against a ${usd(RETAINERS.contestedGuardianship)} retainer.` },
     { question: `Where are guardianship cases heard in ${county}?`, answer: `Guardianship cases in ${county} are heard at the ${court} in ${'${loc.seat}'}. We appear remotely wherever the county permits.` },
     { question: 'What is the difference between guardianship of the person and of the estate?', answer: 'Guardianship of the person is authority over care, residence, and medical decisions. Guardianship of the estate is authority over money and property. Many adult guardianships involve both. Guardianship of the estate carries a duty to account to the court, and the guardian bears the burden of proving every disbursement was proper (755 ILCS 5/24-11).' },
     { question: 'Do I have to go to court in person?', answer: 'Usually not. Illinois probate courts conduct guardianship hearings by remote video appearance, and Illinois Estate Law handles matters virtually. Personal service on the respondent in an adult guardianship still requires a sheriff or special process server.' },
@@ -84,7 +85,7 @@ export default function CountyGuardianshipPage({ params }: { params: { slug: str
             <div className="w-16 h-1 bg-[#4A708B] mb-8" />
             <div className="space-y-4 text-slate-600 leading-relaxed max-w-4xl">
               <p>{loc.localNote}</p>
-              <p>Illinois Estate Law handles all four kinds of guardianship in {loc.county}: <strong>uncontested minor guardianship</strong> (a flat {usd(GUARDIANSHIP_FLAT.minorUncontested)}), <strong>uncontested adult guardianship of the person and estate</strong> (a flat {usd(GUARDIANSHIP_FLAT.adultUncontested)}), and <strong>contested guardianship</strong> of either an adult or a minor ({retainerLabel(RETAINERS.contestedGuardianship)}). We also carry the ongoing annual compliance work every guardianship requires.</p>
+              <p>Illinois Estate Law handles <strong>uncontested minor guardianship</strong> (a flat {usd(GUARDIANSHIP_FLAT.minorUncontested)}), <strong>uncontested adult guardianship of the person and estate</strong> (a flat {usd(GUARDIANSHIP_FLAT.adultUncontested)}), <strong>emergency plus full adult guardianship</strong> ({usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}), and <strong>contested guardianship</strong> of either an adult or a minor ({retainerLabel(RETAINERS.contestedGuardianship)}). All court filing fees are included in the flat-fee packages; bond premiums and court-appointed GAL fees are not. We also carry the ongoing annual compliance work every guardianship requires.</p>
               <p>{loc.divisionNote}</p>
             </div>
           </div></div>
@@ -101,7 +102,7 @@ export default function CountyGuardianshipPage({ params }: { params: { slug: str
           <div className="flex flex-wrap gap-3">
             {guardianshipCounties.filter((c) => c.slug !== loc.slug).map((c) => (<Link key={c.slug} href={`/guardianship/${c.slug}-county/`} className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">{c.county}</Link>))}
             <span className="text-slate-300">|</span>
-            <Link href="/guardianship/#adult" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Adult guardianship</Link>
+            <Link href="/adult-guardianship-lawyer/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Adult and emergency guardianship</Link>
             <span className="text-slate-300">|</span>
             <Link href="/guardianship/#minor" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Minor guardianship</Link>
           </div>

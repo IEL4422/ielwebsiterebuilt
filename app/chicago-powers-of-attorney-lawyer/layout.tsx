@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { breadcrumbSchema, serviceSchema } from '@/lib/seo';
 
-const TITLE = 'Illinois Power of Attorney Attorney | Illinois Estate Law';
-const DESCRIPTION = 'Illinois attorney drafting statutory powers of attorney for property and health care under the Illinois Power of Attorney Act. Flat fee, virtual signings. Call (312) 373-0731.';
+const TITLE = 'Illinois Power of Attorney Lawyer | Property & Health Care';
+const DESCRIPTION = 'Illinois power of attorney lawyer for property and health care POAs. Learn when a POA works, when guardianship may be needed, and see flat fees.';
 const PATH = '/chicago-powers-of-attorney-lawyer/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
 
@@ -26,7 +26,10 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumb = breadcrumbSchema([{ name: 'Chicago Powers of Attorney Lawyer', path: PATH }]);
+const breadcrumb = breadcrumbSchema([
+  { name: 'POA & Guardianship', path: '/power-of-attorney-and-guardianship/' },
+  { name: 'Powers of Attorney', path: PATH },
+]);
 
 const service = serviceSchema({
   name: 'Illinois Powers of Attorney',

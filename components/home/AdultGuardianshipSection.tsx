@@ -19,7 +19,7 @@ const features = [
   {
     icon: Users,
     title: 'Family Peace of Mind',
-    description: 'Proactive guardianship planning brings clarity and protection to your entire family, preventing disputes and uncertainty.',
+    description: 'Powers of attorney can provide authority in advance; when valid advance planning is unavailable or inadequate, a court guardianship may be necessary.',
   },
 ];
 
@@ -39,7 +39,7 @@ export function AdultGuardianshipSection() {
                 When a loved one can no longer make decisions for themselves due to illness, injury, or cognitive decline, adult guardianship provides a legal framework to protect their well-being. At Illinois Estate Law, we help families navigate this sensitive process with care and clarity.
               </p>
               <p>
-                Guardianship planning ensures that children, elderly parents, or incapacitated loved ones receive care from someone you trust. It allows you to make these important decisions proactively rather than leaving them to the courts. Establishing guardianship in advance brings clarity, protection, and peace of mind to your family's future.
+                Advance planning with powers of attorney can let a person choose who will help with property and health-care decisions. When that planning is no longer available or is inadequate, adult guardianship allows a court to grant only the authority needed to protect the person or estate.
               </p>
               <p>
                 Whether you need to establish guardianship of the person, guardianship of the estate, or both, our team will guide you through every step of the Illinois court process. We handle the legal complexities so you can focus on what matters most: caring for your loved one.
@@ -54,10 +54,10 @@ export function AdultGuardianshipSection() {
                 Call (312) 373-0731
               </a>
               <a
-                href="/contact/"
+                href="/adult-guardianship-lawyer/"
                 className="inline-flex items-center justify-center px-6 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
               >
-                Schedule a Consultation
+                Explore Adult Guardianship
               </a>
             </div>
           </div>

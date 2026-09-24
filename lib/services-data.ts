@@ -52,6 +52,7 @@ export type StandardizedServiceName =
   | 'For Sale By Owner Representation'
   | 'Trust Administration Consulting'
   | 'Adult Guardianship'
+  | 'Emergency Temporary Adult Guardianship'
   | 'Minor Guardianship'
   | 'Annual Guardianship Compliance'
   | 'Contested Guardianship';
@@ -462,8 +463,8 @@ export const aLaCarteServices: Service[] = [
     category: 'a-la-carte',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: { individual: 'Individual Power of Attorney - A La Carte', joint: 'Joint Power of Attorney - A La Carte' },
-    individualPrice: 400,
-    jointPrice: 600,
+    individualPrice: A_LA_CARTE.powersOfAttorneyIndividual,
+    jointPrice: A_LA_CARTE.powersOfAttorneyJoint,
     description: 'Powers of Attorney let you choose someone you trust to make financial and/or medical decisions for you if you can\'t. Includes Power of Attorney for Healthcare and Power of Attorney for Property. Joint package includes two of each document. Includes online notarization.',
     includes: []
   },
@@ -674,10 +675,30 @@ export const guardianshipServices: Service[] = [
     description: 'For an adult who can no longer safely make personal, medical, or financial decisions. The firm evaluates the facts and handles the uncontested petition, physician-report coordination, guardian ad litem coordination, and hearing.',
     includes: [
       'Guardianship petition and required court filings',
+      'All court filing fees',
       'Physician-report and guardian ad litem coordination',
       'Guidance through the hearing and appointment process'
     ],
-    note: 'The guardian ad litem fee is a court-set pass-through cost disclosed separately. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed. That is a separate recurring fee and is not part of this flat fee.'
+    note: 'All court filing fees are included. Bond premiums and guardian ad litem fees are not included and are disclosed separately. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed.'
+  },
+  {
+    id: 'emergency-temporary-adult-guardianship',
+    name: 'Emergency + Full Adult Guardianship',
+    subtitle: 'Temporary emergency petition plus the full uncontested guardianship case',
+    category: 'guardianship',
+    standardizedCaseType: 'Guardianship',
+    standardizedServiceName: 'Emergency Temporary Adult Guardianship',
+    fixedPrice: GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn,
+    requiresConsultation: true,
+    description: 'For an uncontested adult guardianship requiring immediate, court-ordered temporary authority while the full guardianship petition is pending. The court—not the firm—decides whether an emergency exists and when a hearing will occur.',
+    includes: [
+      'Everything in the full uncontested adult guardianship package',
+      'Priority preparation of the temporary-guardian petition and proposed order',
+      'Preparation for and appearance at one temporary-guardianship hearing',
+      'All court filing fees for the temporary and full guardianship petitions',
+      'Coordination of notice requirements and supporting documentation'
+    ],
+    note: `Concrete total: ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} (${usd(GUARDIANSHIP_FLAT.adultUncontested)} full guardianship + ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on). Bond premiums and guardian ad litem fees are not included. No appointment or hearing date is guaranteed. If the matter becomes contested, the contested-matter terms apply.`
   },
   {
     id: 'minor-guardianship',
@@ -691,10 +712,11 @@ export const guardianshipServices: Service[] = [
     description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
     includes: [
       'Guardianship petition and required court filings',
+      'All court filing fees',
       'Notice and hearing preparation',
       'Guidance through appointment and letters of office'
     ],
-    note: 'This service is for uncontested matters. A contested case requires a separate consultation. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed. That is a separate recurring fee and is not part of this flat fee.'
+    note: 'All court filing fees are included. Bond premiums and guardian ad litem fees, if required, are not included. This service is for uncontested matters. After appointment, the annual report on the ward is $750 each year it is filed.'
   },
   {
     id: 'annual-guardianship-compliance',

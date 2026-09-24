@@ -35,6 +35,7 @@ const adultOfferings = [
   { icon: UserCheck, title: 'GAL & Physician’s Report', description: 'We coordinate the court-appointed guardian ad litem and the physician’s report (CCP 0211 / CIC-2) required to establish disability.' },
   { icon: ClipboardCheck, title: 'Annual Compliance', description: 'The annual report on the ward and the estate accounting that Illinois requires for the life of the guardianship.' },
   { icon: FileText, title: 'Interim Petitions & Termination', description: 'Sale of real estate, extraordinary expenditures, change of placement, and restoration of the ward’s rights.' },
+  { icon: Clock, title: 'Emergency Temporary Guardianship', description: `Priority temporary-guardian petition and one emergency hearing added to the full uncontested case for ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} — ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total.` },
 ];
 
 const minorOfferings = [
@@ -56,6 +57,16 @@ export default function GuardianshipPage() {
 
       <CTABand />
 
+      <section className="border-b border-[#E3EAF1] bg-[#F6F9FC] px-4 py-8">
+        <div className="mx-auto flex max-w-[1140px] flex-col gap-5 rounded-2xl border border-[#D7E2EC] bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-bold text-[#33414E]">Not sure whether you need power of attorney or guardianship?</h2>
+            <p className="mt-2 leading-relaxed text-slate-600">If the person can still understand and voluntarily appoint an agent, a POA may be the less restrictive solution. If not, guardianship may be necessary. Start with our plain-language Illinois decision guide.</p>
+          </div>
+          <Link href="/power-of-attorney-and-guardianship/" className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#547298] px-6 py-3 text-sm font-bold text-white hover:bg-[#33414E] transition-colors">POA or Guardianship?</Link>
+        </div>
+      </section>
+
       {/* Overview + in-page nav */}
       <section className="py-16 lg:py-20 bg-white"><div className="container mx-auto px-4"><div className="max-w-[1140px] mx-auto">
         <h2 className="font-['Plus_Jakarta_Sans'] text-2xl md:text-3xl font-bold text-[#33414E] mb-6">Adult and minor guardianship, in one place</h2>
@@ -66,6 +77,7 @@ export default function GuardianshipPage() {
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href="#adult" className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-[#33414E] hover:border-[#33414E] hover:bg-slate-50 transition-colors">Adult guardianship</a>
+          <a href="#emergency" className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-[#33414E] hover:border-[#33414E] hover:bg-slate-50 transition-colors">Emergency guardianship</a>
           <a href="#person-vs-estate" className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-[#33414E] hover:border-[#33414E] hover:bg-slate-50 transition-colors">Person vs. estate</a>
           <a href="#minor" className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-[#33414E] hover:border-[#33414E] hover:bg-slate-50 transition-colors">Minor guardianship</a>
           <a href="#contested" className="inline-flex items-center rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-[#33414E] hover:border-[#33414E] hover:bg-slate-50 transition-colors">Contested guardianship</a>
@@ -87,16 +99,35 @@ export default function GuardianshipPage() {
         {/* Adult fees — all figures from lib/pricing.ts */}
         <div className="mt-12 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">How adult guardianship is billed</h3>
-          <p>An uncontested adult guardianship of the person and estate is a <strong>flat {usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong> — all-inclusive of the firm’s work: the petition, the physician’s report, personal service on the respondent, coordinating the guardian ad litem, and the surety bond, inventory, and hearing. The one separate charge is the guardian ad litem (GAL) fee, a court-set pass-through we disclose to you up front — like the surety bond premium in probate — not a hidden add-on.</p>
+          <p>An uncontested adult guardianship of the person and estate is a <strong>flat {usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong>. The firm’s work and <strong>all court filing fees are included</strong>: the petition, physician-report coordination, personal-service coordination, GAL coordination, inventory and surety-bond coordination, and hearing. <strong>Bond premiums and court-appointed guardian ad litem fees are not included</strong> because they are third-party charges.</p>
           <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_FLAT.adultUncontested)} flat fee is paid once. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, not part of the flat fee.</p>
           <p>A guardianship is billed hourly only when it is <strong>contested</strong> — the respondent objects, a competing petition is filed, or a sitting guardian is challenged. A contested guardianship is billed against a {usd(RETAINERS.contestedGuardianship)} retainer at {hourly(RATES.attorneyHourly)} attorney and {hourly(RATES.paralegalHourly)} paralegal, and costs — the GAL fee, filing fees, the process server — are billed to you as expenses.</p>
         </div>
         <div className="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl">
-          <div className="border-2 border-[#33414E] rounded-xl p-5"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Uncontested — person &amp; estate</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested)} flat</p><p className="text-slate-500 text-xs mt-1">All-inclusive of the firm’s work; GAL fee separate.</p></div>
+          <div className="border-2 border-[#33414E] rounded-xl p-5"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Uncontested — person &amp; estate</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested)} flat</p><p className="text-slate-500 text-xs mt-1">Filing fees included; bond premiums and GAL fees separate.</p></div>
           <div className="border border-slate-200 rounded-xl p-5 bg-white"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Contested</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{retainerLabel(RETAINERS.contestedGuardianship)}</p></div>
           <div className="border border-slate-200 rounded-xl p-5 bg-[#f0f7f4]"><p className="text-xs font-bold uppercase tracking-wider text-[#1d6a4f] mb-2">Annual Compliance Plan</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} / yr</p></div>
         </div>
         <p className="mt-6 max-w-4xl text-sm text-slate-500">Where fees are paid from the ward’s estate, Illinois law requires that they be reasonable and approved by the court (755 ILCS 5/27-2; 755 ILCS 5/11a-18).</p>
+      </div></div></section>
+
+      <section id="emergency" className="scroll-mt-24 bg-[#FFF8F7] py-16 lg:py-20"><div className="container mx-auto px-4"><div className="mx-auto max-w-[1140px]">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-wider text-[#9A3E38]">Immediate welfare or asset protection</p>
+            <h2 className="mt-2 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] md:text-3xl">Emergency Temporary Adult Guardianship</h2>
+            <p className="mt-4 leading-relaxed text-slate-600">When a decision cannot safely wait for the regular hearing, Illinois law allows the court to appoint a temporary guardian with specifically limited powers. The temporary petition must be filed with or after the full guardianship petition, and the court decides whether immediate protection is necessary.</p>
+            <p className="mt-4 leading-relaxed text-slate-600">Our emergency add-on is <strong>{usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong> in addition to the <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong> full uncontested adult guardianship, for a concrete total of <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong>. All court filing fees are included. Bond premiums and GAL fees are not included.</p>
+            <Link href="/adult-guardianship-lawyer/#emergency" className="mt-5 inline-flex items-center rounded-full bg-[#B44B43] px-6 py-3 text-sm font-bold text-white hover:bg-[#963C36]">Review Emergency Guardianship</Link>
+          </div>
+          <div className="rounded-2xl border border-[#F0C7C3] bg-white p-6 shadow-sm">
+            <p className="text-xs font-bold uppercase tracking-wide text-[#9A3E38]">Emergency + full case</p>
+            <p className="mt-2 text-4xl font-extrabold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</p>
+            <p className="mt-2 text-sm text-slate-500">{usd(GUARDIANSHIP_FLAT.adultUncontested)} full guardianship + {usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on</p>
+            <ul className="mt-5 space-y-2 text-sm text-slate-700"><li>• Priority temporary-petition preparation</li><li>• Proposed temporary order</li><li>• One temporary-guardianship hearing</li><li>• Full uncontested guardianship through regular appointment</li><li>• All court filing fees included</li></ul>
+            <p className="mt-4 text-xs leading-relaxed text-slate-500">No result or hearing date is guaranteed. If the matter becomes contested, contested-matter billing applies.</p>
+          </div>
+        </div>
       </div></div></section>
 
       {/* PERSON VS ESTATE */}
@@ -177,7 +208,9 @@ export default function GuardianshipPage() {
           <div className="flex flex-wrap items-center gap-3">
             <Link href="/chicago-probate-lawyer/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Probate &amp; estate administration</Link><span className="text-slate-300">|</span>
             <Link href="/chicago-probate-lawyer/#contested" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Contested probate &amp; will contests</Link><span className="text-slate-300">|</span>
-            <Link href="/blog/guardianship-vs-power-of-attorney-illinois/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Guardianship vs. power of attorney</Link><span className="text-slate-300">|</span>
+            <Link href="/power-of-attorney-and-guardianship/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Power of attorney or guardianship?</Link><span className="text-slate-300">|</span>
+            <Link href="/adult-guardianship-lawyer/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Adult &amp; emergency guardianship</Link><span className="text-slate-300">|</span>
+            <Link href="/blog/guardianship-vs-power-of-attorney-illinois/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Detailed POA vs. guardianship guide</Link><span className="text-slate-300">|</span>
             <Link href="/services-pricing/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">All services &amp; pricing</Link>
           </div>
         </div>

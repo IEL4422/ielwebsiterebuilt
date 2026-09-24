@@ -96,7 +96,7 @@ export default function Page() {
     },
     {
       question: 'What happens if the estate cannot afford probate costs?',
-      answer: 'If the estate lacks sufficient funds to cover probate costs, several options exist. First, check whether the estate qualifies for a small estate affidavit (estates under $100,000 with no real estate), which costs significantly less. Second, some attorneys accept payment from estate assets as they become available. Third, the executor may advance costs and be reimbursed from the estate. If the estate truly cannot cover costs, it may be considered insolvent, and a simplified process applies under Illinois law to distribute available assets to creditors in statutory priority order.',
+      answer: 'If the estate lacks sufficient funds to cover probate costs, several options exist. First, check whether the estate qualifies for a small estate affidavit (estates under $150,000 with no real estate), which costs significantly less. Second, some attorneys accept payment from estate assets as they become available. Third, the executor may advance costs and be reimbursed from the estate. If the estate truly cannot cover costs, it may be considered insolvent, and a simplified process applies under Illinois law to distribute available assets to creditors in statutory priority order.',
     },
   ];
 

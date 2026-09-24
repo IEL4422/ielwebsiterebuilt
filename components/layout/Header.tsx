@@ -24,7 +24,7 @@ const navItems = [
     children: [
       { label: 'Estate Planning', href: '/estate-planning/' },
       { label: 'Probate', href: '/chicago-probate-lawyer/' },
-      { label: 'Guardianship', href: '/guardianship/' },
+      { label: 'POA & Guardianship', href: '/power-of-attorney-and-guardianship/' },
       { label: 'Real Estate', href: '/chicago-real-estate-closings-lawyer/' },
       { label: 'Deeds', href: '/chicago-deeds-lawyer/' },
     ],

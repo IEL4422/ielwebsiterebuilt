@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FileText, Shield, Gavel, UserCheck, Heart, FileCheck, Home, Building2 } from 'lucide-react';
+import { FileText, Shield, Gavel, UserCheck, Heart, FileCheck, Home, Building2, Scale } from 'lucide-react';
 
 const ICON_MAP = {
   FileText,
@@ -10,6 +10,7 @@ const ICON_MAP = {
   FileCheck,
   Home,
   Building2,
+  Scale,
 };
 
 const SERVICES: Record<string, { name: string; href: string; icon: keyof typeof ICON_MAP; desc: string }> = {
@@ -37,6 +38,18 @@ const SERVICES: Record<string, { name: string; href: string; icon: keyof typeof 
     icon: 'UserCheck',
     desc: 'Authorize a trusted person to manage your finances or make legal decisions.',
   },
+  guardianship: {
+    name: 'Adult Guardianship',
+    href: '/adult-guardianship-lawyer/',
+    icon: 'Gavel',
+    desc: 'Standard and emergency court options when an adult cannot safely make personal or financial decisions.',
+  },
+  poaGuardianship: {
+    name: 'POA or Guardianship?',
+    href: '/power-of-attorney-and-guardianship/',
+    icon: 'Scale',
+    desc: 'Use our plain-language guide to identify which legal path may fit your family.',
+  },
   healthcare: {
     name: 'Healthcare Directives',
     href: '/chicago-healthcare-directives-lawyer/',
@@ -61,7 +74,7 @@ const RELATED: Record<string, string[]> = {
   wills:      ['trusts', 'poa', 'healthcare'],
   trusts:     ['wills', 'poa', 'healthcare'],
   probate:    ['wills', 'trusts', 'deeds'],
-  poa:        ['healthcare', 'wills', 'trusts'],
+  poa:        ['poaGuardianship', 'guardianship', 'healthcare'],
   healthcare: ['poa', 'wills', 'trusts'],
   deeds:      ['closing', 'probate', 'trusts'],
   closing:    ['deeds', 'probate', 'wills'],

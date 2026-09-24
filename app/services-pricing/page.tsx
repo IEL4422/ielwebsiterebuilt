@@ -4,11 +4,11 @@ import { ServicesPricingModern } from '@/components/services/ServicesPricingMode
 import { LunacalBookingEmbed } from '@/components/services/LunacalBookingEmbed'
 
 export const metadata: Metadata = {
-  title: 'Services & Pricing',
-  description: 'Get Clear Answers About Illinois Estate Planning. Learn More About Our Services and How Our Attorneys Can Help. Call Illinois Estate Law Today at (312) 373–0731.',
+  title: 'Illinois Estate Planning, POA & Probate Prices',
+  description: 'See concrete Illinois estate planning, power of attorney, guardianship, probate, trust, deed, and real estate prices. Get started or book a consultation.',
   openGraph: {
-    title: 'Services & Pricing | Illinois Estate Law',
-    description: 'Get Clear Answers About Illinois Estate Planning. Learn More About Our Services and How Our Attorneys Can Help. Call Illinois Estate Law Today at (312) 373–0731.',
+    title: 'Illinois Estate Planning & Probate Prices | Illinois Estate Law',
+    description: 'See concrete Illinois legal-service prices, compare packages, get started online, or book a free consultation.',
     url: 'https://www.illinoisestatelaw.com/services-pricing/',
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Services & Pricing | Illinois Estate Law',
-    description: 'Get Clear Answers About Illinois Estate Planning. Learn More About Our Services and How Our Attorneys Can Help. Call Illinois Estate Law Today at (312) 373–0731.',
+    title: 'Illinois Estate Planning & Probate Prices | Illinois Estate Law',
+    description: 'See concrete Illinois legal-service prices, compare packages, get started online, or book a free consultation.',
   },
   robots: {
     index: true,
@@ -53,7 +53,7 @@ const faqSchema = {
       "name": "What Are the Costs Associated With Your Services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our firm offers flat-fee, customizable packages for all our services. Once we can better understand your specific needs, we will provide you with a quote."
+        "text": "Concrete prices for standard services are published on this page. Each card identifies the included scope and any exclusions. Contested matters are billed hourly against the disclosed initial retainer."
       }
     },
     {
@@ -61,7 +61,7 @@ const faqSchema = {
       "name": "Does Your Flat-Fee Include Costs for Court Filings or Third-Party Expenses, Beyond the Recording of the First Deed?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our packages include most extraneous expenses, court fees, etc. For probate matters, this includes the creditor publication charge and the filing fee. The surety bond or the insurance policy for the estate would be directly paid by the client to the insurance provider. For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- trust funding guidance, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged."
+        "text": "Each service card identifies what is included and any separate third-party costs. Probate packages include filing and creditor-publication charges; a required surety-bond premium is paid separately to the bond provider. Trust packages include the listed funding guidance, notarization, and one deed; additional deeds are $500 each."
       }
     },
     {
@@ -149,7 +149,7 @@ const faqSchema = {
       "name": "Do You Have an Ongoing Maintenance Program or Subscription Service for Clients Who Want Regular Document Reviews and Legal Updates?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, once your estate planning documents are finalized, we offer a $199 per year maintenance subscription, which includes additional funding of new assets and/or amendments and modifications."
+        "text": "Yes. Our $599 annual review membership includes an annual attorney review meeting and up to two simple amendments each year. Work outside that scope is quoted separately."
       }
     },
     {
@@ -157,7 +157,7 @@ const faqSchema = {
       "name": "What Is the Estimated Timeline From Package Purchase to the Final Signing of My Documents?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The estate planning process usually takes between 1-3 months from start to finish, but is largely dependent on your schedule and availability. The probate process typically takes around 14 months due to deadlines and court dates set by the court."
+        "text": "Estate-planning timelines depend on the package, complexity, and how quickly information and approvals are provided. Same-week appointments are often available. Illinois probate commonly takes many months because of creditor periods, tax work, asset administration, and court scheduling."
       }
     },
     {
@@ -181,7 +181,7 @@ const faqSchema = {
       "name": "Should I Schedule a Consultation Before Purchasing a Package?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "That is entirely up to you! We offer a consultation prior to purchase and unlimited meetings and consultations once the package is purchased."
+        "text": "No. You may choose a service and get started online without a consultation, or schedule a free consultation first. Each fixed-fee package includes the attorney consultations reasonably needed to complete its written scope."
       }
     },
     {
@@ -272,7 +272,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Our firm offers flat-fee, customizable packages for all our services. Once we can better understand your specific needs, we will provide you with a quote.</p>
+              <p>Concrete prices for standard services are published on this page. Each card identifies the included scope and any exclusions. Contested matters are billed hourly against the disclosed initial retainer.</p>
             </div>
           </details>
 
@@ -284,8 +284,8 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p className="mb-4">Our packages include most extraneous expenses, court fees, etc. For probate matters, this includes the creditor publication charge and the filing fee. The surety bond or the insurance policy for the estate would be directly paid by the client to the insurance provider.</p>
-              <p>For our trust packages and trust services (including the Trust Package, A La Carte Revocable Living Trust, and A La Carte Irrevocable Trust), all fees are included -- trust funding guidance, notarization, recording costs, and one (1) deed transfer of real estate into the trust. Additional deeds beyond the first are $500 each. Please note that non-trust a la carte products are not all-inclusive, and additional extraneous fees may be charged.</p>
+              <p className="mb-4">Each service card identifies what is included and any separate third-party costs. Probate packages include filing and creditor-publication charges; a required surety-bond premium is paid separately to the bond provider.</p>
+              <p>Trust packages include the listed funding guidance, notarization, and one deed. Additional deeds are $500 each. Any other excluded cost is disclosed in the applicable service description or engagement agreement.</p>
             </div>
           </details>
 
@@ -427,7 +427,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes, once your estate planning documents are finalized, we offer a $199 per year maintenance subscription, which includes additional funding of new assets and/or amendments and modifications.</p>
+              <p>Yes. Our $599 annual review membership includes an annual attorney review meeting and up to two simple amendments each year. Work outside that scope is quoted separately.</p>
             </div>
           </details>
 
@@ -439,7 +439,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>The estate planning process usually takes between 1-3 months from start to finish, but is largely dependent on your schedule and availability. The probate process typically takes around 14 months due to deadlines and court dates set by the court.</p>
+              <p>Estate-planning timelines depend on the package, complexity, and how quickly information and approvals are provided. Same-week appointments are often available. Illinois probate commonly takes many months because of creditor periods, tax work, asset administration, and court scheduling.</p>
             </div>
           </details>
 
@@ -475,7 +475,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>That is entirely up to you! We offer a consultation prior to purchase and unlimited meetings and consultations once the package is purchased.</p>
+              <p>No. You may choose a service and get started online without a consultation, or schedule a free consultation first. Each fixed-fee package includes the attorney consultations reasonably needed to complete its written scope.</p>
             </div>
           </details>
 

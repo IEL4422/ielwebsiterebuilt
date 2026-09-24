@@ -159,7 +159,7 @@ export default function Page() {
                     Understanding when probate is required in Illinois can save families thousands of dollars and months of time after a loved one passes away.
                   </p>
                   <p className="mb-4">
-                    This comprehensive guide explains exactly when Illinois law requires probate, when it can be avoided, and what alternatives exist for smaller estates. We cover the critical $100,000 threshold, which assets require probate versus those that pass outside the probate process, and the specific circumstances that trigger probate requirements.
+                    This comprehensive guide explains exactly when Illinois law requires probate, when it can be avoided, and what alternatives exist for smaller estates. We cover the critical $150,000 threshold, which assets require probate versus those that pass outside the probate process, and the specific circumstances that trigger probate requirements.
                   </p>
                   <p className="mb-0">
                     You'll find interactive tools including an estate value calculator to determine if probate is necessary, decision trees for common scenarios, and detailed explanations of probate alternatives like small estate affidavits and transfer-on-death instruments. Whether you're planning your estate or handling affairs after a death, this guide provides the practical information you need to navigate Illinois probate requirements.
@@ -278,10 +278,10 @@ export default function Page() {
                       <div className="border-l-4 border-red-500 pl-4 bg-red-50 p-4 rounded-r">
                         <h4 className="font-semibold mb-2 flex items-center gap-2">
                           <Wallet className="w-5 h-5 text-red-600" />
-                          Bank Accounts Without Beneficiary Designations Over $100,000
+                          Bank Accounts Without Beneficiary Designations Over $150,000
                         </h4>
                         <p className="text-gray-700 text-sm mb-2">
-                          Bank accounts, investment accounts, or other financial assets solely in the deceased person's name that total more than $100,000 require formal probate. If the total is under $100,000, a small estate affidavit may be available.
+                          Bank accounts, investment accounts, or other financial assets solely in the deceased person's name that total more than $150,000 require formal probate. If the total is under $150,000, a small estate affidavit may be available.
                         </p>
                         <p className="text-xs text-gray-600 italic">
                           Example: Dad had $150,000 in a savings account with no POD designation. Full probate is required.
@@ -294,7 +294,7 @@ export default function Page() {
                           Disputes Among Heirs or Beneficiaries
                         </h4>
                         <p className="text-gray-700 text-sm mb-2">
-                          Even if the estate value is under $100,000, if heirs disagree about asset distribution, will validity, or who should serve as executor, probate court provides the legal forum to resolve these disputes.
+                          Even if the estate value is under $150,000, if heirs disagree about asset distribution, will validity, or who should serve as executor, probate court provides the legal forum to resolve these disputes.
                         </p>
                         <p className="text-xs text-gray-600 italic">
                           Example: Three siblings disagree about whether mom's handwritten will is valid. Court intervention through probate is necessary.
@@ -428,10 +428,10 @@ export default function Page() {
                       <div className="border-l-4 border-green-500 pl-4 bg-green-50 p-4 rounded-r">
                         <h4 className="font-semibold mb-2 flex items-center gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-600" />
-                          Small Estates Under $100,000
+                          Small Estates Under $150,000
                         </h4>
                         <p className="text-gray-700 text-sm mb-2">
-                          If the total probate estate (excluding joint tenancy property, beneficiary accounts, and trust assets) is $100,000 or less, and at least 6 months have passed since death, a small estate affidavit may be used instead of formal probate.
+                          If the total probate estate (excluding joint tenancy property, beneficiary accounts, and trust assets) is $150,000 or less, and no probate proceeding is pending, a small estate affidavit may be used instead of formal probate.
                         </p>
                         <p className="text-xs text-gray-600 italic">
                           Example: The deceased had $80,000 in a solely-owned bank account and $15,000 in personal property. A small estate affidavit can transfer these assets without probate.
@@ -448,10 +448,10 @@ export default function Page() {
                       <div className="border-l-4 border-amber-500 pl-4 bg-amber-50 p-4 rounded-r">
                         <h4 className="font-semibold mb-2 flex items-center gap-2">
                           <HelpCircle className="w-5 h-5 text-amber-600" />
-                          Estates Near the $100,000 Threshold
+                          Estates Near the $150,000 Threshold
                         </h4>
                         <p className="text-gray-700 text-sm mb-2">
-                          When the estate value is close to $100,000, careful valuation is critical. Overestimating might lead to unnecessary probate, while underestimating could create legal problems if the estate actually exceeds the limit.
+                          When the estate value is close to $150,000, careful valuation is critical. Overestimating might lead to unnecessary probate, while underestimating could create legal problems if the estate actually exceeds the limit.
                         </p>
                         <p className="text-xs text-gray-600 italic">
                           Professional appraisals and legal advice are recommended when estate value is between $90,000 and $110,000.
@@ -464,7 +464,7 @@ export default function Page() {
                           Tenancy in Common Property
                         </h4>
                         <p className="text-gray-700 text-sm mb-2">
-                          Real estate owned as "tenants in common" (not joint tenants with right of survivorship) requires probate to transfer the deceased co-owner's share. However, if combined with other probate assets the total is under $100,000, a small estate affidavit might work.
+                          Real estate owned as "tenants in common" (not joint tenants with right of survivorship) requires probate to transfer the deceased co-owner's share. A Small Estate Affidavit does not transfer individually owned real estate, regardless of value.
                         </p>
                         <p className="text-xs text-gray-600 italic">
                           The distinction between joint tenancy and tenancy in common significantly affects whether probate is required.
@@ -477,7 +477,7 @@ export default function Page() {
                           Beneficiary Designations Naming the Estate
                         </h4>
                         <p className="text-gray-700 text-sm mb-2">
-                          If retirement accounts, life insurance, or other beneficiary-designated assets name "my estate" as beneficiary, these assets flow into the probate estate and count toward the $100,000 limit.
+                          If retirement accounts, life insurance, or other beneficiary-designated assets name "my estate" as beneficiary, these assets flow into the probate estate and count toward the $150,000 limit.
                         </p>
                         <p className="text-xs text-gray-600 italic">
                           Review all beneficiary designations carefully. An inadvertent "estate" designation can trigger unnecessary probate.
@@ -516,7 +516,7 @@ export default function Page() {
                           Claims Against the Estate
                         </h4>
                         <p className="text-gray-700 text-sm mb-2">
-                          Even if the estate is under $100,000, if there are disputed claims, potential lawsuits, or complex creditor situations, formal probate may provide better protection for the estate representative and heirs.
+                          Even if the estate is under $150,000, if there are disputed claims, potential lawsuits, or complex creditor situations, formal probate may provide better protection for the estate representative and heirs.
                         </p>
                         <p className="text-xs text-gray-600 italic">
                           The small estate affidavit makes the affiant personally liable for debts. Probate provides more legal protection in complex debt situations.
@@ -569,7 +569,7 @@ export default function Page() {
                 <div className="bg-white p-4 rounded border border-green-200">
                   <h4 className="font-semibold mb-2 text-green-700">5. Small Estates</h4>
                   <p className="text-sm text-gray-700">
-                    Estates under $100,000 can use the simplified small estate affidavit process instead of formal probate.
+                    Estates under $150,000 can use the simplified small estate affidavit process instead of formal probate.
                   </p>
                 </div>
               </div>
@@ -580,7 +580,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6">
-              Use this calculator to estimate whether probate will be required for an estate. Enter values for all applicable asset categories to see if the probate estate exceeds the $100,000 small estate threshold.
+              Use this calculator to estimate whether probate will be required for an estate. Enter values for all applicable asset categories to see if the probate estate exceeds the $150,000 small estate threshold.
             </p>
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-6 my-8">
@@ -772,12 +772,12 @@ export default function Page() {
                     )}
                     {probateAssets > 0 && probateAssets <= 100000 && (
                       <p className="text-sm">
-                        The probate estate is under $100,000. After waiting 6 months from date of death, you may be able to use an Illinois Small Estate Affidavit instead of formal probate. This simplified process is faster and less expensive.
+                        The probate estate is under $150,000. After confirm no probate proceeding or letters of office are pending, you may be able to use an Illinois Small Estate Affidavit instead of formal probate. This simplified process is faster and less expensive.
                       </p>
                     )}
                     {probateAssets > 100000 && (
                       <p className="text-sm">
-                        The probate estate exceeds $100,000. Formal probate will likely be required to transfer these assets. Contact an estate planning attorney to discuss your options and begin the probate process.
+                        The probate estate exceeds $150,000. Formal probate will likely be required to transfer these assets. Contact an estate planning attorney to discuss your options and begin the probate process.
                       </p>
                     )}
                   </div>
@@ -803,13 +803,13 @@ export default function Page() {
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold">Estate Value Under $100,000:</span> The gross value of the entire probate estate must not exceed $100,000
+                    <span className="font-semibold">Qualifying Personal Estate of $150,000 or Less:</span> The affidavit applies to qualifying personal property; individually owned real estate is not transferred by the affidavit
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold">Six-Month Waiting Period:</span> At least 6 months must have passed since the date of death
+                    <span className="font-semibold">No Pending Probate:</span> No probate proceeding or letters of office may be pending; there is no statutory six-month waiting period
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -871,11 +871,11 @@ export default function Page() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-amber-600 font-bold">•</span>
-                    <span>Only available for estates under $100,000</span>
+                    <span>Only available for estates under $150,000</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-amber-600 font-bold">•</span>
-                    <span>Must wait full 6 months from date of death</span>
+                    <span>Cannot be used while a probate proceeding or letters of office are pending</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-amber-600 font-bold">•</span>
@@ -913,14 +913,14 @@ export default function Page() {
                 {
                   title: 'Scenario 2: House Solely Owned, Small Bank Account',
                   situation: 'Dad owned a condo worth $175,000 in his name only. He had a checking account with $8,000 and personal property worth $12,000. His will leaves everything to his three children equally.',
-                  analysis: 'The condo is titled solely in dad\'s name, making it a probate asset. Total probate estate: $195,000 (house + bank account + personal property). This exceeds the $100,000 small estate limit.',
+                  analysis: 'The condo is titled solely in dad\'s name, making it a probate asset. Total probate estate: $195,000 (house + bank account + personal property). This exceeds the $150,000 small estate limit.',
                   result: 'Formal probate REQUIRED',
                   resultColor: 'text-red-600'
                 },
                 {
-                  title: 'Scenario 3: Only Bank Accounts Under $100,000',
+                  title: 'Scenario 3: Only Bank Accounts Under $150,000',
                   situation: 'Aunt had three bank accounts totaling $87,000 in her name only with no beneficiary designations. She had no real estate or other significant assets. She died without a will.',
-                  analysis: 'The bank accounts are probate assets. Total probate estate: $87,000. This is under the $100,000 threshold, and at least 6 months have passed since death.',
+                  analysis: 'The bank accounts are probate assets. Total probate estate: $87,000. This is under the $150,000 threshold, and no probate proceeding is pending.',
                   result: 'Small Estate Affidavit available',
                   resultColor: 'text-blue-600'
                 },
@@ -934,14 +934,14 @@ export default function Page() {
                 {
                   title: 'Scenario 5: House with Transfer-on-Death Instrument',
                   situation: 'Uncle owned a house ($180,000) with a properly executed and recorded Transfer-on-Death Instrument naming his daughter as beneficiary. He had a checking account ($25,000) with no POD designation.',
-                  analysis: 'The house transfers directly to the daughter through the TODI without probate. The checking account is a probate asset. Total probate estate: $25,000 (under the $100,000 limit).',
+                  analysis: 'The house transfers directly to the daughter through the TODI without probate. The checking account is a probate asset. Total probate estate: $25,000 (under the $150,000 limit).',
                   result: 'Small Estate Affidavit available for bank account',
                   resultColor: 'text-blue-600'
                 },
                 {
                   title: 'Scenario 6: Blended Family with Complex Assets',
                   situation: 'Father had children from two marriages. He owned a house with his second wife as joint tenants ($400,000), had an IRA naming only his second wife ($300,000), and a separate investment account ($125,000) in his name only that he wanted split among all his children.',
-                  analysis: 'The house transfers to the wife through joint tenancy. The IRA goes to the wife as named beneficiary. The investment account is a probate asset: $125,000. Because this exceeds $100,000 and involves a blended family with potential disagreements, formal probate is advisable.',
+                  analysis: 'The house transfers to the wife through joint tenancy. The IRA goes to the wife as named beneficiary. The investment account is a probate asset: $125,000. Because this exceeds $150,000 and involves a blended family with potential disagreements, formal probate is advisable.',
                   result: 'Formal probate REQUIRED',
                   resultColor: 'text-red-600'
                 }
@@ -1152,15 +1152,15 @@ export default function Page() {
                 },
                 {
                   question: 'Can I handle probate myself without an attorney?',
-                  answer: 'Illinois law does not require you to hire an attorney for probate. However, the probate process involves complex legal procedures, court filings, deadlines, and potential liability issues. Most executors hire attorneys because: probate involves detailed legal forms and procedures, mistakes can result in personal liability, court rules are complex and strictly enforced, creditor claims must be properly handled, and disputes among heirs require legal expertise. For simple estates under $100,000, consider the small estate affidavit instead. For larger estates, the cost of attorney fees is usually justified by the protection and expertise provided.'
+                  answer: 'Illinois law does not require you to hire an attorney for probate. However, the probate process involves complex legal procedures, court filings, deadlines, and potential liability issues. Most executors hire attorneys because: probate involves detailed legal forms and procedures, mistakes can result in personal liability, court rules are complex and strictly enforced, creditor claims must be properly handled, and disputes among heirs require legal expertise. For simple estates under $150,000, consider the small estate affidavit instead. For larger estates, the cost of attorney fees is usually justified by the protection and expertise provided.'
                 },
                 {
                   question: 'What happens if someone dies without a will in Illinois?',
-                  answer: 'When someone dies without a will (called dying "intestate"), Illinois intestacy laws (755 ILCS 5/2-1) determine who inherits. The distribution depends on surviving family members: If survived by spouse and descendants (children/grandchildren), spouse receives 1/2 and descendants share 1/2. If survived by spouse but no descendants, spouse receives entire estate. If survived by descendants but no spouse, descendants share entire estate equally. If no spouse or descendants, estate goes to parents, then siblings, then more distant relatives in a specific order. Probate is still required for intestate estates exceeding $100,000. The court will appoint an administrator to handle the estate since no executor is named.'
+                  answer: 'When someone dies without a will (called dying "intestate"), Illinois intestacy laws (755 ILCS 5/2-1) determine who inherits. The distribution depends on surviving family members: If survived by spouse and descendants (children/grandchildren), spouse receives 1/2 and descendants share 1/2. If survived by spouse but no descendants, spouse receives entire estate. If survived by descendants but no spouse, descendants share entire estate equally. If no spouse or descendants, estate goes to parents, then siblings, then more distant relatives in a specific order. Probate is still required for intestate estates exceeding $150,000. The court will appoint an administrator to handle the estate since no executor is named.'
                 },
                 {
                   question: 'How long do you have to file probate after death in Illinois?',
-                  answer: 'Illinois law does not impose a strict deadline to file for probate. However, several practical considerations create informal deadlines: Creditors must be notified within reasonable time to protect the estate from liability. Estate tax returns have filing deadlines (9 months for federal, 9 months for Illinois). Interest and penalties accrue on unpaid debts and taxes. Real estate and other assets may deteriorate without proper management. For small estates under $100,000, you must wait at least 6 months before using a small estate affidavit. Most estates are opened within 1-3 months after death, though you can wait longer if there are valid reasons (searching for a will, locating heirs, etc.).'
+                  answer: 'Illinois law does not impose a strict deadline to file for probate. However, several practical considerations create informal deadlines: Creditors must be notified within reasonable time to protect the estate from liability. Estate tax returns have filing deadlines (9 months for federal and Illinois). Interest and penalties accrue on unpaid debts and taxes. Real estate and other assets may deteriorate without proper management. The Illinois Small Estate Affidavit does not impose a six-month waiting period, but it requires that no probate proceeding or letters of office be pending. Most estates are opened within 1-3 months after death, though timing depends on the circumstances.'
                 },
                 {
                   question: 'Can probate be reopened after it is closed?',
@@ -1212,7 +1212,7 @@ export default function Page() {
               <ul className="grid md:grid-cols-2 gap-x-8 gap-y-2">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">The estate value is close to $100,000 and you're uncertain about valuations</span>
+                  <span className="text-sm">The estate value is close to $150,000 and you're uncertain about valuations</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />

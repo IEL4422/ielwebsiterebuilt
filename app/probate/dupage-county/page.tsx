@@ -268,7 +268,7 @@ export default function DuPageCountyProbatePage() {
                             </tr>
                             <tr>
                               <td className="border border-slate-300 px-4 py-2 text-slate-700">Attorney Fees</td>
-                              <td className="border border-slate-300 px-4 py-2 text-slate-700">Varies by complexity</td>
+                              <td className="border border-slate-300 px-4 py-2 text-slate-700">$5,000 flat for standard uncontested probate</td>
                             </tr>
                           </tbody>
                         </table>

@@ -741,7 +741,7 @@ export default function Page() {
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              If the estate is modest — under $100,000 in total value, with no real estate and no disputes — Illinois offers a{' '}
+              If the qualifying personal estate is $150,000 or less, with no individually owned real estate and no disputes, Illinois offers a{' '}
               <Link href="/blog/how-to-complete-a-small-estate-affidavit-in-illinois/" className="text-[#4a708b] hover:underline font-medium font-['Plus_Jakarta_Sans']">
                 Small Estate Affidavit process
               </Link>{' '}

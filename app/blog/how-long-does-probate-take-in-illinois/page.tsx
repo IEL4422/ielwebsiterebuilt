@@ -548,7 +548,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
                   Small Estate Affidavit
                 </h3>
                 <p className="text-sm text-gray-700 font-['Plus_Jakarta_Sans'] leading-relaxed mb-3">
-                  Under 755 ILCS 5/25-1, if the total value of the probate estate (excluding non-probate assets) is <strong>$100,000 or less</strong>, a qualified heir can present a small estate affidavit directly to banks, financial institutions, and others holding assets — bypassing probate court entirely.
+                  Under 755 ILCS 5/25-1, if the total value of the probate estate (excluding non-probate assets) is <strong>$150,000 or less</strong>, a qualified heir can present a small estate affidavit directly to banks, financial institutions, and others holding assets — bypassing probate court entirely.
                 </p>
                 <p className="text-sm text-gray-700 font-['Plus_Jakarta_Sans'] leading-relaxed mb-3">
                   The heir must wait <strong>30 days</strong> after the decedent&apos;s death before presenting the affidavit. If the institution accepts it (most do for accounts under the threshold), the asset transfers in days, not months.
@@ -568,7 +568,7 @@ The final step is filing a "Proof of Closing" with the court, formally ending th
                   Summary Probate
                 </h3>
                 <p className="text-sm text-gray-700 font-['Plus_Jakarta_Sans'] leading-relaxed mb-3">
-                  Summary probate (755 ILCS 5/9-8) is available when the entire estate is <strong>valued at $100,000 or less</strong> and goes entirely to the surviving spouse. It is a simplified court proceeding — no full inventory, no creditor publication period, no formal accounting — that can close in as little as one to two months.
+                  Summary administration under 755 ILCS 5/9-8 is a court procedure for an Illinois estate subject to administration with a gross value of <strong>$100,000 or less</strong>. It has additional requirements concerning claims, taxes, statutory awards, notice, and written consents, so eligibility depends on more than value alone.
                 </p>
                 <p className="text-sm text-gray-700 font-['Plus_Jakarta_Sans'] leading-relaxed">
                   This process is only available when the estate qualifies by value and the distribution goes to the spouse. It is not available for estates with other beneficiaries, even if the estate is small.

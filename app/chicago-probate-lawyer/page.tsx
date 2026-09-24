@@ -13,6 +13,7 @@ import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 import { BOOKING_UNCONTESTED_PROBATE, BOOKING_CONTESTED_PROBATE } from '@/lib/booking';
+import { ProbateServicePaths } from '@/components/probate/ProbateServicePaths';
 
 // Contested probate / will contests, consolidated into this page. The former
 // standalone /contested-probate-lawyer/ page 301-redirects to #contested below.
@@ -36,16 +37,16 @@ export default function ChicagoProbateLawyerPage() {
     <>
 
       <main>
-        <InnerPageHero title="Probate Administration" subtitle="Compassionate, experienced guidance through Illinois probate administration" />
+        <InnerPageHero title="Illinois Probate Lawyer & Estate Administration" subtitle="Full uncontested probate for $5,000, with court filing fees, creditor publication, and applicable recording fees included." />
         <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/get-started/"
+                  href="/start-online/?service=standard-probate&clientType=individual&source=probate-hero"
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
-                  Get Started Online
+                  Start Probate Online
                 </Link>
                 <Link
                   href="/book-consultation/"
@@ -87,6 +88,8 @@ export default function ChicagoProbateLawyerPage() {
             </div>
           </div>
         </div>
+
+        <ProbateServicePaths />
 
         {/* Introduction Section */}
         <section className="py-16 bg-white">
@@ -242,17 +245,17 @@ export default function ChicagoProbateLawyerPage() {
                           <tr className="border-b border-slate-200">
                             <td className="px-6 py-4 font-medium text-slate-800">1. File Petition</td>
                             <td className="px-6 py-4 text-slate-600">Executor files petition with probate court along with original will and death certificate</td>
-                            <td className="px-6 py-4 text-slate-600">Within 30 days of death</td>
+                            <td className="px-6 py-4 text-slate-600">A named executor generally must act within 30 days after learning of the appointment; case timing otherwise depends on the facts</td>
                           </tr>
                           <tr className="border-b border-slate-200">
                             <td className="px-6 py-4 font-medium text-slate-800">2. Notice to Heirs</td>
                             <td className="px-6 py-4 text-slate-600">Provide formal notice to all beneficiaries, heirs, and interested parties</td>
-                            <td className="px-6 py-4 text-slate-600">Within 14 days of filing</td>
+                            <td className="px-6 py-4 text-slate-600">Generally within 14 days after the relevant court order</td>
                           </tr>
                           <tr className="border-b border-slate-200">
                             <td className="px-6 py-4 font-medium text-slate-800">3. Appointment</td>
                             <td className="px-6 py-4 text-slate-600">Court issues Letters of Office appointing executor/administrator</td>
-                            <td className="px-6 py-4 text-slate-600">2-4 weeks after filing</td>
+                            <td className="px-6 py-4 text-slate-600">Varies by county, notice requirements, and court calendar</td>
                           </tr>
                           <tr className="border-b border-slate-200">
                             <td className="px-6 py-4 font-medium text-slate-800">4. Publish Notice</td>
@@ -262,7 +265,7 @@ export default function ChicagoProbateLawyerPage() {
                           <tr className="border-b border-slate-200">
                             <td className="px-6 py-4 font-medium text-slate-800">5. Inventory Assets</td>
                             <td className="px-6 py-4 text-slate-600">Identify, locate, and value all estate assets; file inventory with court</td>
-                            <td className="px-6 py-4 text-slate-600">Within 60 days of appointment</td>
+                            <td className="px-6 py-4 text-slate-600">After appointment; filing requirements vary with the form of administration and court orders</td>
                           </tr>
                           <tr className="border-b border-slate-200">
                             <td className="px-6 py-4 font-medium text-slate-800">6. Claims Period</td>
@@ -287,7 +290,7 @@ export default function ChicagoProbateLawyerPage() {
                           <tr>
                             <td className="px-6 py-4 font-medium text-slate-800">10. Close Estate</td>
                             <td className="px-6 py-4 text-slate-600">File final accounting and petition to close estate with court approval</td>
-                            <td className="px-6 py-4 text-slate-600">6-18 months total (typical)</td>
+                            <td className="px-6 py-4 text-slate-600">Often 9-18 months total for an uncontested estate</td>
                           </tr>
                         </tbody>
                       </table>
@@ -522,7 +525,7 @@ export default function ChicagoProbateLawyerPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-600 text-xl">✓</span>
-                      <span>At least 6 months have passed since death</span>
+                      <span>No probate proceeding or letters of office are pending; no six-month wait is required</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-600 text-xl">✓</span>
@@ -667,7 +670,7 @@ export default function ChicagoProbateLawyerPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/get-started/"
+                  href="/start-online/?service=standard-probate&clientType=individual&source=probate-final-cta"
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
                   Get Started Online

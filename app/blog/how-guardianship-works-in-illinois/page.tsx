@@ -21,6 +21,7 @@ import BlogNavigation from '@/components/blog/BlogNavigation';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import BlogContactForm from '@/components/blog/BlogContactForm';
 import { getBlogPost, getAdjacentPosts, getRelatedPosts } from '@/lib/blog-posts-data';
+import { GUARDIANSHIP_FLAT, RETAINERS, usd } from '@/lib/pricing';
 
 const SLUG = 'how-guardianship-works-in-illinois';
 
@@ -63,7 +64,7 @@ export default function Page() {
     {
       question: 'How much does guardianship cost in Illinois?',
       answer:
-        'Cost depends on the type of case. At Illinois Estate Law, an uncontested guardianship — whether adult or minor — is handled for the same flat fee, so the family knows the price up front (an adult case involves more built-in work, but the firm charges one predictable flat fee for each). Only a contested guardianship is billed hourly against a retainer, because a dispute makes the amount of court work unpredictable. Separate costs — such as the court filing fee and the guardian ad litem’s fee — are billed on top of attorney fees. For current figures and to find out which structure applies to your situation, see our ' +
+        `Illinois Estate Law charges ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship and ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship. All court filing fees are included. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges. If temporary emergency authority is needed in addition to the full adult case, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, for a ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} combined total. A contested guardianship is billed hourly against a ${usd(RETAINERS.contestedGuardianship)} retainer because the dispute makes the amount of court work unpredictable. For details, see our ` +
         'guardianship page or book a consultation.',
     },
     {
@@ -108,7 +109,7 @@ export default function Page() {
       },
     },
     datePublished: '2026-07-15',
-    dateModified: '2026-07-15',
+    dateModified: '2026-09-22',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://www.illinoisestatelaw.com/blog/how-guardianship-works-in-illinois/',

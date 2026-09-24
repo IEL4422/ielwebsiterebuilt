@@ -48,8 +48,8 @@ export const homeFAQs: QA[] = [
     answer: 'Partial probate services are for clients who have already begun probate with another attorney but feel dissatisfied or stuck. Illinois Estate Law can take over the case, provide transparent communication, and finish the process efficiently. This option helps clients regain confidence and closure, avoiding further delays or confusion.',
   },
   {
-    question: 'Why is guardianship planning a crucial part of estate planning?',
-    answer: 'Guardianship planning ensures that children, elderly parents, or incapacitated loved ones receive care from someone you trust. It allows you to make these important decisions proactively rather than leaving them to the courts. Establishing guardianship in advance brings clarity, protection, and peace of mind to your family\'s future.',
+    question: 'How do powers of attorney and guardianship work together?',
+    answer: 'Powers of attorney are signed voluntarily in advance and may avoid the need for guardianship. If a person can no longer create valid authority and no adequate POA exists, a court may appoint a limited or plenary guardian to protect the person, the estate, or both.',
   },
   {
     question: 'How can Illinois Estate Law help clients with estate planning and probate?',

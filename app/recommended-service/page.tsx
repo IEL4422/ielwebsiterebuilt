@@ -25,7 +25,7 @@ const getSupabaseClient = () => {
 interface QuizAnswers {
   needType: 'estate-planning' | 'trust-administration' | 'probate' | 'real-estate' | 'guardianship' | '';
   realEstateRole: 'buyer' | 'seller' | 'fsbo' | '';
-  guardianshipNeed: 'adult' | 'minor' | 'annual-compliance' | 'contested' | '';
+  guardianshipNeed: 'adult' | 'emergency-adult' | 'minor' | 'annual-compliance' | 'contested' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
   estateValue: 'under-150k' | '150k-3.5m' | 'over-3.5m' | '';
@@ -164,12 +164,23 @@ export default function RecommendedServicePage() {
           name: 'Adult Guardianship',
           price: usd(GUARDIANSHIP_FLAT.adultUncontested),
           description: 'For an adult who can no longer safely make personal, medical, or financial decisions. A consultation lets the firm confirm the facts and scope before engagement.',
-          includes: ['Guardianship petition and required court filings', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
+          includes: ['Guardianship petition and all court filing fees', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process', 'Bond premiums and GAL fees are separate', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],
           serviceId: 'adult-guardianship',
           requiresConsultation: true,
           standardizedCaseType: 'Guardianship',
           standardizedServiceName: 'Adult Guardianship'
+        },
+        'emergency-adult': {
+          name: 'Emergency + Full Adult Guardianship',
+          price: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn),
+          description: 'For an uncontested adult guardianship requiring immediate temporary authority while the full guardianship case is pending. The court decides whether emergency relief is justified and when a hearing occurs.',
+          includes: ['Full uncontested adult guardianship', 'Priority temporary-petition and proposed-order preparation', 'One temporary-guardianship hearing', 'All court filing fees', 'Bond premiums and GAL fees are separate'],
+          addOns: [],
+          serviceId: 'emergency-temporary-adult-guardianship',
+          requiresConsultation: true,
+          standardizedCaseType: 'Guardianship',
+          standardizedServiceName: 'Emergency Temporary Adult Guardianship'
         },
         minor: {
           name: 'Minor Guardianship',
@@ -1075,6 +1086,7 @@ export default function RecommendedServicePage() {
                   <div className="space-y-4">
                     {[
                       ['adult', 'Adult Guardianship', 'An adult cannot safely make personal, medical, or financial decisions.'],
+                      ['emergency-adult', 'Emergency + Full Adult Guardianship', 'Immediate medical, safety, placement, exploitation, or asset-protection concerns may require temporary authority.'],
                       ['minor', 'Minor Guardianship', 'A child needs a guardian because a parent cannot provide care or consents to another adult.'],
                       ['annual-compliance', 'Annual Guardianship Compliance', 'I am already appointed and need help with required annual court reporting.'],
                       ['contested', 'Contested Guardianship', 'There is an objection, competing petition, or challenge to an existing guardian.'],
@@ -2009,7 +2021,8 @@ export default function RecommendedServicePage() {
                           <li><strong>Supervised Administration</strong> - $3,000 (court-supervised administration of the estate)</li>
                           <li><strong>Real Estate Attorney Representation</strong> - $3,000 (legal representation for real estate matters in the estate)</li>
                           <li><strong>Emergency Relief/Hearing</strong> - $2,500 (emergency motion to open estate, sell property, or avoid foreclosure)</li>
-                          <li><strong>Minor Child/Adult Guardianship Proceedings</strong> - $3,500 (establishment of guardianship for minors or adults)</li>
+                          <li><strong>Uncontested Adult or Minor Guardianship Proceedings</strong> - $5,000 (all court filing fees included; bond premiums and GAL fees excluded)</li>
+                          <li><strong>Emergency Temporary Adult Guardianship Add-On</strong> - $2,500 (added to the $5,000 full adult guardianship package; $7,500 combined total)</li>
                           <li><strong>Asset Coordination</strong> - $500 per asset (direct work with banks to transfer assets to estate bank account)</li>
                         </ul>
                         <p className="mt-3 text-sm font-semibold">Client understands that if any extraordinary circumstances listed in Exhibit A arise during the probate process, additional fees will be incurred beyond the base service price. These fees will be discussed with the Client before services are rendered and billed separately when these services become necessary.</p>

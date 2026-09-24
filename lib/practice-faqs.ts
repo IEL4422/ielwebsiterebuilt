@@ -89,12 +89,17 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'How much does adult guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship of the person and estate — all-inclusive of the firm’s work on the petition, the physician’s report, personal service on the respondent, coordinating the court-appointed guardian ad litem, and the surety bond, inventory, and hearing. The only separate charge is the guardian ad litem (GAL) fee, a court-set pass-through disclosed to you like a surety bond in probate. If the guardianship becomes contested — someone objects or files a competing petition — it converts to hourly billing against a ${usd(RETAINERS.contestedGuardianship)} retainer.`,
+      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship of the person and estate. The firm’s work and all court filing fees are included. Bond premiums and guardian ad litem (GAL) fees are not included because they are third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the combined total ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}.`,
+  },
+  {
+    question: 'How much does emergency adult guardianship cost in Illinois?',
+    answer:
+      `Illinois Estate Law charges a concrete ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency temporary-guardianship add-on to the ${usd(GUARDIANSHIP_FLAT.adultUncontested)} full uncontested adult-guardianship package, for a combined total of ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. The combined fee includes priority preparation, the temporary petition and proposed order, one temporary-guardianship hearing, the full guardianship case, and all court filing fees. Bond premiums and court-appointed GAL fees are not included. The court controls whether temporary guardianship is granted and when a hearing occurs.`,
   },
   {
     question: 'Is adult guardianship a flat fee?',
     answer:
-      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, so you know the price of the firm’s work up front — only the guardian ad litem’s court-set fee is separate, and it is disclosed to you as a pass-through cost. A guardianship is billed hourly (against a ${usd(RETAINERS.contestedGuardianship)} retainer) only when it is contested — the respondent objects, a competing petition is filed, or a sitting guardian is challenged. Contested matters cannot be flat-fee’d honestly because the opposing party, not the firm, drives how much work the case takes.`,
+      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. A guardianship is billed hourly against a ${usd(RETAINERS.contestedGuardianship)} retainer only when it is contested.`,
   },
   {
     question: 'What is the difference between guardianship of the person and guardianship of the estate?',

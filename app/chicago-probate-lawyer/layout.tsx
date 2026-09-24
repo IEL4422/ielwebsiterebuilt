@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { breadcrumbSchema, serviceSchema, faqPageSchema } from '@/lib/seo';
 import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 
-const TITLE = 'Chicago Probate Lawyer | Illinois Probate Attorney | Illinois Estate Law';
-const DESCRIPTION = 'Chicago probate lawyer guiding executors and families through Illinois probate and estate administration. Flat-fee probate in Cook County and statewide. Call (312) 373-0731.';
+const TITLE = 'Illinois Probate Lawyer | $5,000 Flat Fee';
+const DESCRIPTION = 'Illinois probate lawyer for executors, heirs, and spouses. Full uncontested probate is $5,000 with filing and publication fees included. Start online.';
 const PATH = '/chicago-probate-lawyer/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
 

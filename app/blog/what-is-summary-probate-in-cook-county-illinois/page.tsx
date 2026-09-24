@@ -40,7 +40,7 @@ export default function SummaryProbatePage() {
     },
     {
       question: "Can I use summary probate if the estate is worth $101,000?",
-      answer: "No. The $100,000 threshold is a hard limit set by Illinois law (755 ILCS 5/25-1). If the estate exceeds $100,000, you must use formal probate. However, certain assets don't count toward this limit, such as jointly owned property, assets with beneficiary designations, and property held in trust."
+      answer: "No. The $100,000 summary-administration threshold is set by 755 ILCS 5/9-8. This is separate from the $150,000 personal-estate limit for a Small Estate Affidavit under Section 25-1. Assets passing outside probate generally are not part of the estate subject to administration."
     },
     {
       question: "What happens if beneficiaries disagree during summary probate?",
@@ -56,7 +56,7 @@ export default function SummaryProbatePage() {
     },
     {
       question: "Can summary probate be used if there's no will?",
-      answer: "No. Summary probate in Illinois requires a valid will. If someone dies without a will (intestate), you cannot use summary probate, regardless of the estate size. You would need to use formal probate or, if the estate is small enough, a small estate affidavit."
+      answer: "No. Section 9-8 refers to admission of a will, if any, so a will is not categorically required. Summary administration has several other requirements, including the $100,000 cap, disclosure of claims and taxes, proper notice, and written consents."
     },
     {
       question: "How much does summary probate cost in Cook County?",
@@ -64,7 +64,7 @@ export default function SummaryProbatePage() {
     },
     {
       question: "What's the difference between summary probate and a small estate affidavit?",
-      answer: "Both are for estates under $100,000, but they have different requirements. Summary probate requires a will and court supervision, while a small estate affidavit doesn't require a will and avoids court entirely. However, a small estate affidavit requires waiting 6 months after death and has restrictions on collecting certain assets. Summary probate is faster and more comprehensive but requires court involvement."
+      answer: "They are different procedures with different limits. Court-based summary administration under Section 9-8 has a $100,000 cap and requires a petition, notice, consents, and a court order. A Small Estate Affidavit under Section 25-1 can cover up to $150,000 of qualifying personal property, avoids a court case, cannot transfer individually owned real estate, and cannot be used while probate or letters of office are pending."
     }
   ];
 
@@ -530,7 +530,7 @@ export default function SummaryProbatePage() {
                         Estate Size Limit
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        Under $100,000
+                        $100,000 or less in real and personal estate subject to administration
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
                         No limit
@@ -552,10 +552,10 @@ export default function SummaryProbatePage() {
                         Attorney Fees
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        $3,000-$6,000
+                        Depends on scope and engagement
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        $8,000-$15,000+
+                        See the firm&apos;s published probate pricing
                       </td>
                     </tr>
                     <tr>
@@ -566,7 +566,7 @@ export default function SummaryProbatePage() {
                         Minimal (1-2)
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        Multiple (3-5+)
+                        Depends on the estate and court schedule
                       </td>
                     </tr>
                     <tr>
@@ -574,7 +574,7 @@ export default function SummaryProbatePage() {
                         Will Required
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        Yes
+                        No; the statute applies whether or not there is a will
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
                         No (can be intestate)
@@ -620,10 +620,10 @@ export default function SummaryProbatePage() {
                         Estate Size Limit
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        Under $100,000
+                        $100,000 or less
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        Under $100,000
+                        $150,000 or less in qualifying personal property
                       </td>
                     </tr>
                     <tr>
@@ -645,7 +645,7 @@ export default function SummaryProbatePage() {
                         None required
                       </td>
                       <td className="px-6 py-4 font-['Plus_Jakarta_Sans'] text-gray-700">
-                        6 months after death
+                        No statutory six-month wait
                       </td>
                     </tr>
                     <tr>

@@ -1039,7 +1039,7 @@ export default function Page() {
                   </div>
                   <p className="text-3xl font-bold text-green-700 mb-2">1-2 months</p>
                   <p className="font-['Plus_Jakarta_Sans'] text-sm text-gray-700">
-                    For estates under $100,000 with no real estate. No probate required—just file affidavit and wait 6 months after death.
+                    For estates under $150,000 with no real estate. No probate required—just file affidavit and confirm no probate proceeding or letters of office are pending.
                   </p>
                 </div>
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6">

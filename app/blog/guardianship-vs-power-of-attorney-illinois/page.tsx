@@ -106,7 +106,7 @@ export default function Page() {
       },
     },
     datePublished: '2026-06-17',
-    dateModified: '2026-06-17',
+    dateModified: '2026-09-22',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://www.illinoisestatelaw.com/blog/guardianship-vs-power-of-attorney-illinois/',
@@ -176,6 +176,13 @@ export default function Page() {
             <h2 id="article-summary" className="text-2xl font-bold mt-8 mb-4 font-['Plus_Jakarta_Sans']">
               Article Summary
             </h2>
+
+            <p className="mb-6 font-['Plus_Jakarta_Sans']">
+              If you are here because you need authority to help someone now, start with our{' '}
+              <Link href="/power-of-attorney-and-guardianship/" className="font-semibold text-[#4a708b] hover:underline">
+                Illinois power of attorney or guardianship decision guide
+              </Link>. It explains which path may fit based on the person&apos;s present ability to understand and voluntarily appoint an agent.
+            </p>
 
             <div className="bg-blue-50 border-l-4 border-[#547298] p-6 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">

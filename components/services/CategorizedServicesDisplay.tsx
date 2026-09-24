@@ -146,8 +146,8 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: 'Powers of Attorney',
         note: 'Power of Attorney for Healthcare & Power of Attorney for Property. Joint includes two of each.',
-        individualPrice: 400,
-        jointPrice: 600,
+        individualPrice: A_LA_CARTE.powersOfAttorneyIndividual,
+        jointPrice: A_LA_CARTE.powersOfAttorneyJoint,
         includes: []
       },
       {

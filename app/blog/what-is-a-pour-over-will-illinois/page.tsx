@@ -64,7 +64,7 @@ export default function Page() {
     {
       question: 'What happens to assets in a pour-over will if the estate is large?',
       answer:
-        'If the assets passing through the pour-over will exceed the Illinois small estate affidavit threshold (currently $100,000 in total gross value), a full probate proceeding is required in the Circuit Court of the county where you lived. The executor opens the estate, handles creditor claims during the mandatory six-month notice period, and then distributes assets to the trust. Depending on the complexity of the assets involved, this can take 9–18 months or more in Cook County. The larger and more complex the assets flowing through the pour-over, the more time-consuming and expensive the probate process. This underscores why thorough trust funding — getting assets into the trust while you are alive — is so important.',
+        'If the assets passing through the pour-over will exceed the Illinois small estate affidavit threshold (currently $150,000 in total gross value), a full probate proceeding is required in the Circuit Court of the county where you lived. The executor opens the estate, handles creditor claims during the mandatory six-month notice period, and then distributes assets to the trust. Depending on the complexity of the assets involved, this can take 9–18 months or more in Cook County. The larger and more complex the assets flowing through the pour-over, the more time-consuming and expensive the probate process. This underscores why thorough trust funding — getting assets into the trust while you are alive — is so important.',
     },
     {
       question: 'Do I need both a pour-over will and a regular will in Illinois?',
