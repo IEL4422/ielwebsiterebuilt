@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Star, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { ESTATE_PLANNING, usd } from '@/lib/pricing';
 
 interface AccordionItemProps {
   title: string;
@@ -573,7 +574,9 @@ export default function ChicagoWillsContent() {
             isOpen={openAccordion4 === 6}
             onToggle={() => setOpenAccordion4(openAccordion4 === 6 ? null : 6)}
           >
-            <p>No hourly billing, no surprise charges. You'll know the total cost upfront. Most will packages range from $800 to $1,500 depending on complexity. Trust-based plans start at $2,500. Every package includes follow-up support and clear guidance on next steps.</p>
+            <p>
+              No hourly billing and no surprise charges for standard estate-planning packages. Individual will packages are {usd(ESTATE_PLANNING.willPackageIndividual)} and joint will packages are {usd(ESTATE_PLANNING.willPackageJoint)}. Individual trust packages are {usd(ESTATE_PLANNING.trustPackageIndividual)} and joint trust packages are {usd(ESTATE_PLANNING.trustPackageJoint)}. Every package includes follow-up support and clear guidance on next steps.
+            </p>
           </AccordionItem>
         </div>
       </div>

@@ -46,14 +46,10 @@ export function StructuredData() {
           'Healthcare directives',
           'Illinois real estate closings',
           'Illinois deeds and property transfers',
+          'Illinois adult and minor guardianship',
         ],
         parentOrganization: { '@id': `${SITE_URL}/#organization` },
         sameAs: FIRM.sameAs,
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '5.0',
-          reviewCount: '50',
-        },
         makesOffer: [
           'Estate planning',
           'Wills',
@@ -62,6 +58,7 @@ export function StructuredData() {
           'Healthcare directives',
           'Probate administration',
           'Trust administration',
+          'Adult and minor guardianship',
           'Residential real estate closings',
           'Deed preparation and transfers',
         ].map((s) => ({
@@ -112,14 +109,6 @@ export function StructuredData() {
         description: FIRM.description,
         publisher: { '@id': `${SITE_URL}/#organization` },
         inLanguage: 'en-US',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${SITE_URL}/learning-center/?q={search_term_string}`,
-          },
-          'query-input': 'required name=search_term_string',
-        },
       },
     ],
   };

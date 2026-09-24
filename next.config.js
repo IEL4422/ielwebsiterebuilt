@@ -76,6 +76,8 @@ const nextConfig = {
       { source: '/tax-calculator/', destination: '/illinois-estate-tax-calculator/', permanent: true },
       { source: '/consultation/', destination: '/book-consultation/', permanent: true },
       { source: '/services/', destination: '/services-pricing/', permanent: true },
+      { source: '/contact-us/', destination: '/contact/', permanent: true },
+      { source: '/getstarted/', destination: '/get-started/', permanent: true },
 
       // Practice-area consolidation (2026-07): contested probate folded into the
       // Probate hub; adult + minor guardianship folded into the Guardianship hub.

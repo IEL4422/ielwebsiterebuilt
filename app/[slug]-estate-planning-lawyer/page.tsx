@@ -77,7 +77,7 @@ function getCityFAQs(city: string) {
     },
     {
       question: `How much does estate planning cost in ${city}?`,
-      answer: `Illinois Estate Law uses transparent flat-fee pricing for all services. Individual will packages start at $1,250, joint will packages at $1,750, individual trust packages at $3,500, and joint trust packages at $5,000. There are no hourly rates or hidden fees, and payment plans are available.`,
+      answer: `Illinois Estate Law uses transparent flat-fee pricing for standard estate-planning services. Individual will packages are $1,250, joint will packages are $1,750, individual trust packages are $3,500, and joint trust packages are $5,000. Contested litigation is billed hourly under a written engagement agreement.`,
     },
     {
       question: 'How long does it take to complete an estate plan?',
@@ -178,7 +178,7 @@ export default function CityEstatePlanningPage({
                       {loc.localNote} Whether you need a simple will, a revocable living trust, powers of attorney, or healthcare directives, our firm offers a fully virtual process that allows you to complete your entire estate plan from the comfort of your home.
                     </p>
                     <p>
-                      Attorney Mary Liberty works directly with every client, offering clear communication, transparent pricing, and fast turnaround. There are no hourly bills, no hidden fees, and no surprises. {meetingText}
+                      Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested litigation is billed hourly under a written engagement agreement. {meetingText}
                     </p>
                     <p>
                       If you need probate assistance in {loc.county}, our firm also handles full probate administration, summary probate, and heir representation at the {loc.countyCourtName}. We serve all of Illinois and can help with estate matters in any county.
@@ -237,7 +237,7 @@ export default function CityEstatePlanningPage({
                   { icon: DollarSign, title: 'Flat-Fee Pricing', desc: 'Know the exact cost upfront. No hourly billing, no surprises.' },
                   { icon: Home, title: 'Fully Virtual', desc: 'Complete your entire estate plan from home. No office visits required.' },
                   { icon: Clock, title: 'Fast Turnaround', desc: 'Most estate plans completed within 1\u20132 weeks.' },
-                  { icon: User, title: 'Personal Attention', desc: 'Work directly with attorney Mary Liberty from start to finish.' },
+                  { icon: User, title: 'Attorney Attention', desc: 'Work directly with an Illinois attorney throughout your planning matter.' },
                 ].map((feature) => (
                   <div key={feature.title} className="text-center">
                     <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4">
