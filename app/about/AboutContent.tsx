@@ -74,6 +74,20 @@ const attorneys: TeamMember[] = [
 
 const staffMembers: TeamMember[] = [
   {
+    name: 'Gina Kondraros',
+    title: 'Law Clerk',
+    photo: '/attorneys/gina-kondraros.jpg',
+    bio: [
+      "Hi, I'm Gina Kondraros, a Law Clerk at Illinois Estate Law and currently a third-year law student at Loyola University Chicago School of Law. I was born and raised in the Chicagoland area and earned my undergraduate degree from Purdue University in Law & Society, with minors in English and Classical Studies.",
+      'I am passionate about helping people navigate challenging moments with clarity and empathy. I believe in giving clients all of the necessary tools and information they need to make well-informed decisions for themselves and their families. I look forward to developing my knowledge of estate law, collaborating with our team, and building my career here.',
+      "When I'm not studying or in the office, you can usually find me exploring coffee shops across the city, going on long walks, or spending time with my friends and family!",
+    ],
+    education: [
+      { school: 'Loyola University Chicago School of Law', degrees: ['Juris Doctor Candidate, Third-Year Law Student'] },
+      { school: 'Purdue University', degrees: ["Bachelor's Degree, Law & Society", 'Minors in English and Classical Studies'] },
+    ],
+  },
+  {
     name: 'Brittany Hardy',
     title: 'Lead Paralegal',
     email: 'brittany@illinoisestatelaw.com',
