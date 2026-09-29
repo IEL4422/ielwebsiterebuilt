@@ -1,4 +1,4 @@
-import { A_LA_CARTE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from './pricing';
+import { A_LA_CARTE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from './pricing';
 
 export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
