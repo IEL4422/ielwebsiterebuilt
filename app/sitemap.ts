@@ -85,7 +85,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((guide) => !isHiddenGuide(guide))
     .map((guide) => `/learning-center/${guide.slug}/`);
   const databaseGuidePaths = await getDatabaseGuidePaths();
-  const guides: MetadataRoute.Sitemap = [...new Set([...staticGuidePaths, ...databaseGuidePaths])]
+  const guides: MetadataRoute.Sitemap = Array.from(new Set([...staticGuidePaths, ...databaseGuidePaths]))
     .map((path) => ({ url: url(path) }));
 
   const cities: MetadataRoute.Sitemap = cityLocations.map((location) => ({
