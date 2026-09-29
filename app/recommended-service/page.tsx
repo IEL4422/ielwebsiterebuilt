@@ -377,7 +377,7 @@ export default function RecommendedServicePage() {
       if (needsFullProbate && issuesAmongHeirs === 'no') {
         return {
           name: 'Standard Probate',
-          price: '$5,000',
+          price: usd(PROBATE.standard),
           description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested issues are billed hourly against a separate retainer.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
