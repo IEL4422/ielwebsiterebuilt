@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-remove-executor-illinois-probate',
+    title: 'How to Remove an Executor in Illinois Probate: Grounds, Process, and What to Expect',
+    url: '/blog/how-to-remove-executor-illinois-probate/',
+    date: 'Sep 30, 2026',
+    summary:
+      'Complete guide to removing an executor in Illinois probate — the five statutory grounds under 755 ILCS 5/23-2, who has standing to file a removal petition, the step-by-step court process in Cook County, what happens after removal, and alternatives to formal proceedings.',
+    excerpt:
+      'Learn the legal grounds to remove an executor in Illinois, who can file a removal petition, how the court process works, and what happens once an executor is removed.',
+  },
+  {
     slug: 'why-review-estate-plan-every-few-years',
     title: 'Why You Should Review Your Illinois Estate Plan Every Few Years',
     url: '/blog/why-review-estate-plan-every-few-years/',
