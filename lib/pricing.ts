@@ -203,7 +203,7 @@ export const A_LA_CARTE = {
   willAmendmentJoint: 750,
   trustFundingGuidance: 1500,
   specialNeedsPlanning: 5500,
-  estateTaxPlanningAddOn: 10000,
+  estateTaxPlanningAddOn: 5000,
   deed: 500,
 } as const;
 

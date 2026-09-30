@@ -13,7 +13,7 @@
 import { describe, expect, it } from 'vitest';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { PROBATE, RATES, RETAINERS } from '../lib/pricing';
+import { A_LA_CARTE, PROBATE, RATES, RETAINERS } from '../lib/pricing';
 
 const ROOT = join(__dirname, '..');
 
@@ -55,6 +55,7 @@ describe('hourly rates live in exactly one place', () => {
     expect(RETAINERS.contestedProbate).toBe(5000);
     expect(RETAINERS.contestedGuardianship).toBe(5000);
     expect(PROBATE.standard).toBe(6500);
+    expect(A_LA_CARTE.estateTaxPlanningAddOn).toBe(5000);
   });
 
   it('no other file hardcodes an hourly rate', () => {
