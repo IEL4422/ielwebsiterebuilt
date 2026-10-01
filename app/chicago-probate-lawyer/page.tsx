@@ -10,7 +10,7 @@ import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
-import { RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
+import { PROBATE, RATES, RETAINERS, usd, hourly } from '@/lib/pricing';
 import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 import { BOOKING_UNCONTESTED_PROBATE, BOOKING_CONTESTED_PROBATE } from '@/lib/booking';
 import { ProbateServicePaths } from '@/components/probate/ProbateServicePaths';
@@ -37,7 +37,7 @@ export default function ChicagoProbateLawyerPage() {
     <>
 
       <main>
-        <InnerPageHero title="Illinois Probate Lawyer & Estate Administration" subtitle="Full uncontested probate for $5,000, with court filing fees, creditor publication, and applicable recording fees included." />
+        <InnerPageHero title="Illinois Probate Lawyer & Estate Administration" subtitle={`Full uncontested probate for ${usd(PROBATE.standard)}, with court filing fees, creditor publication, and applicable recording fees included.`} />
         <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">

@@ -1,9 +1,10 @@
+import { PROBATE, usd } from '@/lib/pricing';
 import type { Metadata } from 'next';
 import { breadcrumbSchema, serviceSchema, faqPageSchema } from '@/lib/seo';
 import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 
-const TITLE = 'Illinois Probate Lawyer | $5,000 Flat Fee';
-const DESCRIPTION = 'Illinois probate lawyer for executors, heirs, and spouses. Full uncontested probate is $5,000 with filing and publication fees included. Start online.';
+const TITLE = `Illinois Probate Lawyer | ${usd(PROBATE.standard)} Flat Fee`;
+const DESCRIPTION = `Illinois probate lawyer for executors, heirs, and spouses. Full uncontested probate is ${usd(PROBATE.standard)} with filing and publication fees included. Start online.`;
 const PATH = '/chicago-probate-lawyer/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
 

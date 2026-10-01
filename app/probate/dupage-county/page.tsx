@@ -1,3 +1,4 @@
+import { PROBATE, usd } from '@/lib/pricing';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -268,7 +269,7 @@ export default function DuPageCountyProbatePage() {
                             </tr>
                             <tr>
                               <td className="border border-slate-300 px-4 py-2 text-slate-700">Attorney Fees</td>
-                              <td className="border border-slate-300 px-4 py-2 text-slate-700">$5,000 flat for standard uncontested probate</td>
+                              <td className="border border-slate-300 px-4 py-2 text-slate-700">{usd(PROBATE.standard)} flat for standard uncontested probate</td>
                             </tr>
                           </tbody>
                         </table>
