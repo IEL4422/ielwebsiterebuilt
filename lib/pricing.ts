@@ -160,7 +160,7 @@ export const PROBATE = {
    *  direction. Replaces the retired $3,500 'Small Estate Probate' package and
    *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
   smallEstateAdministration: 1000,
-  standard: 6500,
+  standard: 5000,
   /** Additional percentage charged during administration only when estate value exceeds $4,000,000 due to estate-tax complexity. */
   largeEstateBase: 5000,
   largeEstatePercent: 0.5,

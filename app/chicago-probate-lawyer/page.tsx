@@ -37,7 +37,7 @@ export default function ChicagoProbateLawyerPage() {
     <>
 
       <main>
-        <InnerPageHero title="Illinois Probate Lawyer & Estate Administration" subtitle="Full uncontested probate for $6,500, with court filing fees, creditor publication, and applicable recording fees included." />
+        <InnerPageHero title="Illinois Probate Lawyer & Estate Administration" subtitle="Full uncontested probate for $5,000, with court filing fees, creditor publication, and applicable recording fees included." />
         <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
