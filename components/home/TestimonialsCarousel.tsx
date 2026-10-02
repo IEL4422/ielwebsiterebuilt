@@ -129,7 +129,7 @@ export function TestimonialsCarousel({ initialReviews, overallRating, totalRatin
           </div>
 
           <p className="text-xl lg:text-2xl font-bold text-white mb-3 font-['Plus_Jakarta_Sans']">
-            Stress-Free and Transparent Estate Planning Experience
+            What Illinois Families Say About Working With Us
           </p>
           <div className="w-12 h-1 bg-[#7E9CC0] mx-auto mb-8" />
 

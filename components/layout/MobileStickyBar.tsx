@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calendar, Phone } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 
 export function MobileStickyBar() {
   return (
@@ -7,20 +7,12 @@ export function MobileStickyBar() {
       {/* Safe-area padding for notched phones */}
       <div className="bg-white border-t border-gray-200 shadow-[0_-2px_12px_rgba(0,0,0,0.10)] grid grid-cols-2"
            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-        <Link
-          href="/book-consultation/"
-          className="flex items-center justify-center gap-2 py-4 bg-[#33414E] text-white font-['Plus_Jakarta_Sans'] font-bold text-[14px] uppercase tracking-wide hover:bg-[#3a4f63] active:bg-[#1e2d3b] transition-colors"
-        >
-          <Calendar className="w-4 h-4 shrink-0" />
-          Book Consultation
+        <Link href="/get-started/" className="flex items-center justify-center gap-2 bg-[#547298] py-4 font-['Plus_Jakarta_Sans'] text-[13px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#4A708B]">
+          Get Started <ArrowRight className="h-4 w-4 shrink-0" />
         </Link>
-        <a
-          href="tel:3123730731"
-          className="flex items-center justify-center gap-2 py-4 bg-[#4A708B] text-white font-['Plus_Jakarta_Sans'] font-bold text-[14px] uppercase tracking-wide hover:bg-[#3d5f78] active:bg-[#325068] transition-colors"
-        >
-          <Phone className="w-4 h-4 shrink-0" />
-          (312) 373-0731
-        </a>
+        <Link href="/book-consultation/" className="flex items-center justify-center gap-2 bg-[#33414E] py-4 font-['Plus_Jakarta_Sans'] text-[13px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#3a4f63]">
+          Book Consult <Calendar className="h-4 w-4 shrink-0" />
+        </Link>
       </div>
     </div>
   );

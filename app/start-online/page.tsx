@@ -113,6 +113,22 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
                       <p className="font-['Plus_Jakarta_Sans'] text-xs text-white/70">
                         {selectedService.pricingLabel ? 'See scope and pricing details below.' : 'Flat fee for the defined service scope.'}
                       </p>
+                      {selectedService.individualPrice && selectedService.jointPrice && (
+                        <div className="mt-3 inline-flex rounded-full border border-white/30 bg-white/10 p-1" aria-label="Choose individual or joint service">
+                          <Link
+                            href={`/start-online/?service=${selectedService.id}&clientType=individual&source=${searchParams.source || 'direct'}`}
+                            className={`rounded-full px-3 py-1.5 font-['Plus_Jakarta_Sans'] text-xs font-bold transition-colors ${clientType === 'individual' ? 'bg-white text-[#33414E]' : 'text-white hover:bg-white/10'}`}
+                          >
+                            Individual
+                          </Link>
+                          <Link
+                            href={`/start-online/?service=${selectedService.id}&clientType=joint&source=${searchParams.source || 'direct'}`}
+                            className={`rounded-full px-3 py-1.5 font-['Plus_Jakarta_Sans'] text-xs font-bold transition-colors ${clientType === 'joint' ? 'bg-white text-[#33414E]' : 'text-white hover:bg-white/10'}`}
+                          >
+                            Joint
+                          </Link>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

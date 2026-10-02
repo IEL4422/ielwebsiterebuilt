@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Script from 'next/script';
 import { ArrowLeft, Building2, ScrollText, Scale, Briefcase, Gavel, HeartHandshake } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { trackFunnelEvent } from '@/lib/gtag';
 
 type CaseType =
   | 'estate-planning'
@@ -128,6 +129,11 @@ export default function BookConsultationPage() {
   const selectedOption = CASE_OPTIONS.find((o) => o.id === selectedType);
   const activeEmbedId = selectedType ? TYPE_TO_EMBED[selectedType] : null;
 
+  const selectCaseType = (caseType: CaseType) => {
+    setSelectedType(caseType);
+    trackFunnelEvent('consultation_type_selected', { case_type: caseType });
+  };
+
   // Lunacal sizes its own inline iframe to the exact height of whatever step is
   // showing (calendar, attendee details, confirm/book) and re-sizes it as the
   // user advances — including the taller stacked layout on mobile. So the active
@@ -164,7 +170,7 @@ export default function BookConsultationPage() {
                 return (
                   <button
                     key={option.id}
-                    onClick={() => setSelectedType(option.id)}
+                    onClick={() => selectCaseType(option.id)}
                     className="text-left bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-[#547298] hover:shadow-lg transition-all duration-200 group"
                   >
                     <div className="flex items-start gap-4">
@@ -227,6 +233,18 @@ export default function BookConsultationPage() {
                 </div>
                 <div className="flex-shrink-0 bg-white/20 rounded-full px-5 py-2 text-sm font-bold whitespace-nowrap self-start sm:self-auto">
                   Free Consultation
+                </div>
+              </div>
+            )}
+            {selectedOption && (
+              <div className="mb-8 grid gap-4 rounded-xl border border-[#DCE5ED] bg-[#F4F8FC] p-5 sm:grid-cols-2">
+                <div>
+                  <p className="text-sm font-bold text-[#33414E]">Choose a time that works for you</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">Available appointment times are shown live in the calendar below. Virtual and in-person options appear when available.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-[#33414E]">Helpful to have ready</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">A short summary, names of the people involved, any deadlines or court dates, and relevant documents you already have.</p>
                 </div>
               </div>
             )}

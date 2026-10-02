@@ -6,6 +6,7 @@ import { CheckIcon } from '@/components/icons/CheckIcon';
 import Link from 'next/link';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { trackEvent, DEFAULT_PURCHASE_VALUE } from '@/lib/fbpixel';
+import { trackFunnelEvent } from '@/lib/gtag';
 
 export default function SuccessPage() {
   const searchParams = useSearchParams();
@@ -42,6 +43,11 @@ export default function SuccessPage() {
         content_category: 'legal_services',
         order_id: sessionId,
       },
+    });
+    trackFunnelEvent('service_purchase_complete', {
+      value,
+      currency: 'USD',
+      transaction_id: sessionId,
     });
   }, [isVerifying, sessionId, searchParams]);
 

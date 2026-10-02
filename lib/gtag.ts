@@ -35,3 +35,18 @@ export function trackGoogleConversion(
     console.warn('[gtag] conversion failed', err);
   }
 }
+
+/** Track a privacy-safe GA4 funnel event. Never include names, email addresses, or other PII. */
+export function trackFunnelEvent(
+  eventName: string,
+  parameters: Record<string, string | number | boolean> = {}
+): void {
+  if (typeof window === 'undefined') return;
+  try {
+    const gtag = (window as any).gtag;
+    if (typeof gtag !== 'function') return;
+    gtag('event', eventName, parameters);
+  } catch (err) {
+    console.warn('[gtag] funnel event failed', err);
+  }
+}

@@ -142,6 +142,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <PracticeAreasSection />
         <WhichServiceSection />
 
+        <SectionBoundary name="TestimonialsSection">
+          <TestimonialsSection />
+        </SectionBoundary>
+
+        <ContactSection />
+
         {/*
           The only section on this page that touches a data source at render
           time. Suspense lets everything above it flush to the browser first,
@@ -158,12 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <IllinoisCoverageSection />
 
-        <SectionBoundary name="TestimonialsSection">
-          <TestimonialsSection />
-        </SectionBoundary>
-
         <ClientPortalSection />
-        <ContactSection />
         <FAQSection />
       </main>
     </>

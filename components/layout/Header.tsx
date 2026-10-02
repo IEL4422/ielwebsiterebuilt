@@ -29,7 +29,7 @@ const navItems = [
       { label: 'Deeds', href: '/chicago-deeds-lawyer/' },
     ],
   },
-  { label: 'Services', href: '/services-pricing/' },
+  { label: 'Services & Pricing', href: '/services-pricing/' },
   {
     label: 'Resources',
     href: '/learning-center/',

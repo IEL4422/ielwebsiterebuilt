@@ -1,6 +1,7 @@
 'use client';
 
 import { trackLead, type LeadSource } from '@/lib/fbpixel';
+import { trackFunnelEvent } from '@/lib/gtag';
 
 type Props = {
   href: string;
@@ -24,6 +25,7 @@ export function TrackedLeadLink({ href, source, children, className, target, rel
       rel={rel}
       onClick={() => {
         trackLead(source, { params: { content_ids: [href] } });
+        trackFunnelEvent('secure_intake_started', { source });
       }}
     >
       {children}

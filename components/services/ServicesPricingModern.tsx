@@ -4,14 +4,53 @@ import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { A_LA_CARTE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, RETAINERS, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
+import { trackFunnelEvent } from '@/lib/gtag';
 import {
   serviceCategories,
   type Service,
   type ServiceCategory,
 } from './CategorizedServicesDisplay';
 
-const GET_STARTED = '/get-started/';
+const GET_STARTED = '/select-service/';
 const BOOK = '/book-consultation/';
+
+const SERVICE_IDS: Record<string, string> = {
+  'Trust Package': 'trust-package',
+  'Probate Avoidance Package': 'probate-avoidance-package',
+  'Will Package': 'will-package',
+  'DIY Estate Plan Review': 'diy-estate-plan-review',
+  'Estate Tax Planning Package': 'estate-tax-planning-package',
+  'Annual Review Membership': 'annual-review-membership',
+  'Revocable Living Trust': 'revocable-living-trust',
+  'Last Will and Testament': 'last-will-testament',
+  'Powers of Attorney': 'power-of-attorney',
+  'Healthcare Directive (Living Will)': 'healthcare-directive',
+  'Trust Restatement': 'trust-restatement',
+  'Will Amendment': 'will-amendment',
+  'Trust Funding Guidance': 'trust-funding-service',
+  'Irrevocable Trust': 'irrevocable-trust',
+  'Special Needs Planning': 'special-needs-planning',
+  'Estate Tax Planning (Add-On)': 'estate-tax-planning',
+  'Bond in Lieu of Probate': 'bond-in-lieu-of-probate',
+  'Small Estate Administration': 'small-estate-administration',
+  'Standard Probate': 'standard-probate',
+  'Large Estate Probate': 'large-estate-probate',
+  'Probate Reopening': 'probate-reopening',
+  'Heir Representation': 'heir-representation',
+  'Partial Probate': 'partial-probate',
+  'Spousal Representation': 'spousal-representation',
+  'Contested Probate': 'contested-probate',
+  'Trust Administration Consulting': 'trust-admin-consulting',
+  'Residential Closing (Buyer or Seller)': 'residential-closing',
+  'Multi-Unit or Investment Closing': 'multi-unit-investment-closing',
+  'Estate, Trust, or Nonstandard Title Closing': 'estate-trust-nonstandard-closing',
+  'For Sale By Owner (FSBO) Representation': 'fsbo-representation',
+};
+
+function serviceStartHref(serviceName: string) {
+  const id = SERVICE_IDS[serviceName];
+  return id ? `/start-online/?service=${id}&source=services-pricing` : GET_STARTED;
+}
 
 function byId(id: string): ServiceCategory {
   return serviceCategories.find((c) => c.id === id) as ServiceCategory;
@@ -61,14 +100,23 @@ const SERVICE_CTAS: Cta[] = [
   { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
 ];
 
-function CardCtas({ ctas }: { ctas: Cta[] }) {
+function ctasFor(serviceName: string): Cta[] {
+  return [
+    { label: 'Get Started', href: serviceStartHref(serviceName), variant: 'primary' },
+    { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
+  ];
+}
+
+function CardCtas({ ctas, serviceName }: { ctas: Cta[]; serviceName: string }) {
   return (
-    <div className="mt-auto grid grid-cols-1 gap-2.5 pt-2 sm:grid-cols-2">
+    <div className="mt-auto pt-2">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
       {ctas.map((c) =>
         c.variant === 'primary' ? (
           <Link
             key={c.label}
             href={c.href}
+            onClick={() => trackFunnelEvent('service_cta_click', { service_name: serviceName, action: 'get_started' })}
             className="inline-flex w-full items-center justify-center rounded-full bg-[#547298] px-4 py-2 text-center text-sm font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#33414E] transition-colors"
           >
             {c.label}
@@ -77,12 +125,17 @@ function CardCtas({ ctas }: { ctas: Cta[] }) {
           <Link
             key={c.label}
             href={c.href}
+            onClick={() => trackFunnelEvent('service_cta_click', { service_name: serviceName, action: 'book_consultation' })}
             className="inline-flex w-full items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-4 py-2 text-center text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] hover:bg-[#F6F9FC] transition-colors"
           >
             {c.label}
           </Link>
         )
       )}
+      </div>
+      <p className="mt-2 text-center text-[11px] leading-relaxed text-[#6b7782]">
+        Start online without a consultation, or talk with us first—free and no obligation.
+      </p>
     </div>
   );
 }
@@ -123,7 +176,7 @@ function PackageCard({
         </ul>
       )}
       {service.note && <p className="mb-4 text-xs leading-relaxed text-[#5f6b76]">{service.note}</p>}
-      <CardCtas ctas={ctas} />
+      <CardCtas ctas={ctas} serviceName={service.name} />
     </div>
   );
 }
@@ -144,7 +197,7 @@ function MiniCard({ service }: { service: Service }) {
         <span className="text-[11px] text-[#5f6b76]">Individual / Joint</span>
       )}
       {service.note && <span className="mt-1 block text-[11px] leading-snug text-[#5f6b76]">{service.note}</span>}
-      <CardCtas ctas={SERVICE_CTAS} />
+      <CardCtas ctas={ctasFor(service.name)} serviceName={service.name} />
     </div>
   );
 }
@@ -254,7 +307,7 @@ export function ServicesPricingModern() {
                 <PackageCard
                   key={i}
                   service={s}
-                  ctas={SERVICE_CTAS}
+                  ctas={ctasFor(s.name)}
                   feature={isTrust}
                   badge={isTrust ? 'Most Complete' : undefined}
                 />
@@ -284,7 +337,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={SERVICE_CTAS}
+                ctas={ctasFor(s.name)}
               />
             ))}
           </div>
@@ -303,7 +356,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={SERVICE_CTAS}
+                ctas={ctasFor(s.name)}
               />
             ))}
           </div>
@@ -336,7 +389,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={SERVICE_CTAS}
+                ctas={ctasFor(s.name)}
               />
             ))}
             <div className="flex flex-col rounded-2xl border border-[#E3EAF1] bg-white p-6">
@@ -361,7 +414,7 @@ export function ServicesPricingModern() {
                   Explore Deed Services
                 </Link>
               </div>
-              <CardCtas ctas={SERVICE_CTAS} />
+              <CardCtas ctas={SERVICE_CTAS} serviceName="Deed Services" />
             </div>
           </div>
         </section>
@@ -380,7 +433,13 @@ export function ServicesPricingModern() {
               ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/'],
               ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case.`, '/adult-guardianship-lawyer/#emergency'],
               ['Contested & Ongoing Matters', `${usd(RETAINERS.contestedGuardianship)} retainer or ${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)}/year`, 'Contested guardianship or annual guardian compliance.', '/guardianship/'],
-            ].map(([title, price, body, href]) => (
+            ].map(([title, price, body, href], index) => {
+              const serviceIds = ['power-of-attorney', 'adult-guardianship', 'emergency-temporary-adult-guardianship', 'contested-guardianship'];
+              const ctas: Cta[] = [
+                { label: 'Get Started', href: `/start-online/?service=${serviceIds[index]}&source=services-pricing`, variant: 'primary' },
+                { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
+              ];
+              return (
               <div key={title} className="flex flex-col rounded-2xl border border-[#E3EAF1] bg-white p-6">
                 <h3 className="text-[18px] font-bold text-[#33414E] mb-2">{title}</h3>
                 <p className="mb-2 text-[18px] font-extrabold text-[#547298]">{price}</p>
@@ -391,9 +450,10 @@ export function ServicesPricingModern() {
                 >
                   View service details
                 </Link>
-                <CardCtas ctas={SERVICE_CTAS} />
+                <CardCtas ctas={ctas} serviceName={title} />
               </div>
-            ))}
+              );
+            })}
           </div>
           <p className="mt-6 text-[15px] text-[#5f6b76]">
             Unsure which service applies?{' '}

@@ -525,11 +525,7 @@ export default function ChicagoProbateLawyerPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-600 text-xl">✓</span>
-                      <span>No probate proceeding or letters of office are pending; no six-month wait is required</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 text-xl">✓</span>
-                      <span>No probate proceedings have been filed</span>
+                      <span>No application for letters of office is pending or has been granted; no six-month wait is required</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-600 text-xl">✓</span>
