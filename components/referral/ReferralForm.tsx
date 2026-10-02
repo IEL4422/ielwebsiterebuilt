@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ChevronDown, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { trackGoogleConversion } from '@/lib/gtag';
 
 type FormData = {
   // Attorney
@@ -63,6 +64,8 @@ export function ReferralForm() {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || 'Submission failed');
+      // Google Ads conversion — only after the referral is accepted by the server.
+      trackGoogleConversion();
       setReferralId(json.referralId);
       setSubmitted(true);
     } catch (err: unknown) {

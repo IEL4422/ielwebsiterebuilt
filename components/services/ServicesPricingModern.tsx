@@ -56,15 +56,20 @@ function PriceBlock({ service }: { service: Service }) {
 
 type Cta = { label: string; href: string; variant: 'primary' | 'ghost' };
 
+const SERVICE_CTAS: Cta[] = [
+  { label: 'Get Started', href: GET_STARTED, variant: 'primary' },
+  { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
+];
+
 function CardCtas({ ctas }: { ctas: Cta[] }) {
   return (
-    <div className="mt-auto flex flex-wrap gap-2.5 pt-2">
+    <div className="mt-auto grid grid-cols-1 gap-2.5 pt-2 sm:grid-cols-2">
       {ctas.map((c) =>
         c.variant === 'primary' ? (
           <Link
             key={c.label}
             href={c.href}
-            className="inline-flex items-center justify-center rounded-full bg-[#547298] px-4 py-2 text-sm font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#33414E] transition-colors"
+            className="inline-flex w-full items-center justify-center rounded-full bg-[#547298] px-4 py-2 text-center text-sm font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#33414E] transition-colors"
           >
             {c.label}
           </Link>
@@ -72,7 +77,7 @@ function CardCtas({ ctas }: { ctas: Cta[] }) {
           <Link
             key={c.label}
             href={c.href}
-            className="inline-flex items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-4 py-2 text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] hover:bg-[#F6F9FC] transition-colors"
+            className="inline-flex w-full items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-4 py-2 text-center text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] hover:bg-[#F6F9FC] transition-colors"
           >
             {c.label}
           </Link>
@@ -125,7 +130,7 @@ function PackageCard({
 
 function MiniCard({ service }: { service: Service }) {
   return (
-    <div className="rounded-xl border border-[#E3EAF1] bg-[#F6F9FC] p-4">
+    <div className="flex h-full flex-col rounded-xl border border-[#E3EAF1] bg-[#F6F9FC] p-4">
       <b className="block text-[14.5px] font-bold text-[#33414E]">{service.name}</b>
       {service.subtitle && <span className="mt-0.5 block text-xs text-[#5f6b76]">{service.subtitle}</span>}
       <div className="mt-1.5 text-[16px] font-extrabold text-[#547298]">
@@ -139,6 +144,7 @@ function MiniCard({ service }: { service: Service }) {
         <span className="text-[11px] text-[#5f6b76]">Individual / Joint</span>
       )}
       {service.note && <span className="mt-1 block text-[11px] leading-snug text-[#5f6b76]">{service.note}</span>}
+      <CardCtas ctas={SERVICE_CTAS} />
     </div>
   );
 }
@@ -244,20 +250,11 @@ export function ServicesPricingModern() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {estatePlanning.packages.map((s, i) => {
               const isTrust = s.name === 'Trust Package';
-              const isTax = s.name.startsWith('Estate Tax');
-              const ctas: Cta[] = isTax
-                ? [{ label: 'Book a Consult', href: BOOK, variant: 'primary' }]
-                : isTrust
-                ? [
-                    { label: 'Get Started', href: GET_STARTED, variant: 'primary' },
-                    { label: 'Free Consult', href: BOOK, variant: 'ghost' },
-                  ]
-                : [{ label: 'Get Started', href: GET_STARTED, variant: 'primary' }];
               return (
                 <PackageCard
                   key={i}
                   service={s}
-                  ctas={ctas}
+                  ctas={SERVICE_CTAS}
                   feature={isTrust}
                   badge={isTrust ? 'Most Complete' : undefined}
                 />
@@ -287,7 +284,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={[{ label: 'Book a Free Consultation', href: BOOK, variant: 'primary' }]}
+                ctas={SERVICE_CTAS}
               />
             ))}
           </div>
@@ -306,7 +303,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={[{ label: 'Book a Consult', href: BOOK, variant: 'primary' }]}
+                ctas={SERVICE_CTAS}
               />
             ))}
           </div>
@@ -339,10 +336,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={[
-                  { label: 'Get Started', href: GET_STARTED, variant: 'primary' },
-                  { label: 'Free Consult', href: BOOK, variant: 'ghost' },
-                ]}
+                ctas={SERVICE_CTAS}
               />
             ))}
             <div className="flex flex-col rounded-2xl border border-[#E3EAF1] bg-white p-6">
@@ -359,14 +353,15 @@ export function ServicesPricingModern() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto">
+              <div className="mt-auto mb-2">
                 <Link
                   href="/chicago-deeds-lawyer/"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-4 py-2 text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] hover:bg-[#F6F9FC] transition-colors"
+                  className="text-sm font-bold text-[#547298] underline hover:text-[#33414E]"
                 >
                   Explore Deed Services
                 </Link>
               </div>
+              <CardCtas ctas={SERVICE_CTAS} />
             </div>
           </div>
         </section>
@@ -381,21 +376,22 @@ export function ServicesPricingModern() {
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {[
-              ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/', 'Explore POA Services'],
-              ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/', 'Explore Adult Guardianship'],
-              ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case.`, '/adult-guardianship-lawyer/#emergency', 'Review Emergency Service'],
-              ['Contested & Ongoing Matters', `${usd(RETAINERS.contestedGuardianship)} retainer or ${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)}/year`, 'Contested guardianship or annual guardian compliance.', '/guardianship/', 'See Guardianship Details'],
-            ].map(([title, price, body, href, label]) => (
+              ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/'],
+              ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/'],
+              ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case.`, '/adult-guardianship-lawyer/#emergency'],
+              ['Contested & Ongoing Matters', `${usd(RETAINERS.contestedGuardianship)} retainer or ${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)}/year`, 'Contested guardianship or annual guardian compliance.', '/guardianship/'],
+            ].map(([title, price, body, href]) => (
               <div key={title} className="flex flex-col rounded-2xl border border-[#E3EAF1] bg-white p-6">
                 <h3 className="text-[18px] font-bold text-[#33414E] mb-2">{title}</h3>
                 <p className="mb-2 text-[18px] font-extrabold text-[#547298]">{price}</p>
                 <p className="mb-4 text-sm text-[#5f6b76]">{body}</p>
                 <Link
                   href={href}
-                  className="mt-auto inline-flex w-fit items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-4 py-2 text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] hover:bg-[#F6F9FC] transition-colors"
+                  className="mt-auto mb-2 text-sm font-bold text-[#547298] underline hover:text-[#33414E]"
                 >
-                  {label}
+                  View service details
                 </Link>
+                <CardCtas ctas={SERVICE_CTAS} />
               </div>
             ))}
           </div>
