@@ -2,7 +2,51 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { FEE_STRUCTURE_NOTE, FEE_STRUCTURE_HREF } from '@/lib/fee-structure';
+
+const PRACTICE_AREAS = [
+  'Estate Planning',
+  'Probate',
+  'Trusts',
+  'Guardianship',
+  'Real Estate',
+  'Wills',
+  'Trust Administration',
+] as const;
+
+function RotatingPracticeArea() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionQuery.matches) return;
+
+    let fadeTimer: ReturnType<typeof setTimeout> | undefined;
+    const interval = window.setInterval(() => {
+      setVisible(false);
+      fadeTimer = setTimeout(() => {
+        setIndex((current) => (current + 1) % PRACTICE_AREAS.length);
+        setVisible(true);
+      }, 350);
+    }, 2400);
+
+    return () => {
+      window.clearInterval(interval);
+      if (fadeTimer) clearTimeout(fadeTimer);
+    };
+  }, []);
+
+  return (
+    <span
+      aria-hidden="true"
+      className={`block min-w-[20ch] text-[#9DB6D6] transition-opacity duration-300 sm:inline-block ${visible ? 'opacity-100' : 'opacity-0'}`}
+    >
+      {PRACTICE_AREAS[index]}
+    </span>
+  );
+}
 
 export function HeroSection() {
   return (
@@ -30,8 +74,12 @@ export function HeroSection() {
             Estate Planning &middot; Trusts &middot; Probate &middot; Real Estate
           </p>
 
-          <h1 className="text-[32px] sm:text-[50px] md:text-[62px] lg:text-[68px] font-extrabold text-white leading-[1.06] mb-6">
-            Illinois Estate Planning, Probate &amp; Guardianship Attorneys
+          <h1
+            aria-label="Illinois estate planning, probate, guardianship, and real estate attorneys"
+            className="text-[32px] sm:text-[50px] md:text-[62px] lg:text-[68px] font-extrabold text-white leading-[1.06] mb-6"
+          >
+            <span aria-hidden="true">We Help Illinois Families<br className="hidden sm:block" /> With{' '}</span>
+            <RotatingPracticeArea />
           </h1>
 
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl mb-3 leading-relaxed">
