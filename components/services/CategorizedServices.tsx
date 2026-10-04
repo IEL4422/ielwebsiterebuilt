@@ -340,20 +340,6 @@ export function CategorizedServices({
       name: 'Probate',
       packages: [
         {
-          id: 'bond-in-lieu-of-probate',
-          name: 'Bond in Lieu of Probate',
-          subtitle: 'When the sole estate asset is real estate',
-          category: 'probate',
-          fixedPrice: 1500,
-          description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition. Illinois law allows title transfer through a bond in lieu of probate, avoiding a full probate proceeding.',
-          includes: [
-            'Title Transfer Documentation',
-            'Coordination with Title Company for Out-of-Court Title Transfer',
-            'Attorney consultations related to the included scope'
-          ],
-          note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
-        },
-        {
           id: 'standard-probate',
           name: 'Standard Probate',
           subtitle: 'Uncontested estates valued at $4,000,000 or less',
@@ -515,6 +501,20 @@ export function CategorizedServices({
       id: 'real-estate',
       name: 'Real Estate',
       packages: [
+        {
+          id: 'bond-in-lieu-of-probate',
+          name: 'Bond in Lieu of Probate',
+          subtitle: 'When the sole estate asset is real estate',
+          category: 'real-estate',
+          fixedPrice: 1500,
+          description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition. Illinois law allows title transfer through a bond in lieu of probate, avoiding a full probate proceeding.',
+          includes: [
+            'Title Transfer Documentation',
+            'Coordination with Title Company for Out-of-Court Title Transfer',
+            'Attorney consultations related to the included scope'
+          ],
+          note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+        },
         {
           id: 'residential-closing',
           name: 'Residential Closing (Buyer or Seller)',

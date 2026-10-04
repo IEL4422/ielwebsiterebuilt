@@ -1,6 +1,6 @@
 import { A_LA_CARTE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from './pricing';
 
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
+export type StandardizedCaseType = 'Bond in Lieu of Probate' | 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
 export type StandardizedServiceName =
   | 'Individual Trust Package'
@@ -275,23 +275,6 @@ const probateIncludes = [
 const probateNote = 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.';
 
 export const probatePackages: Service[] = [
-  {
-    id: 'bond-in-lieu-of-probate',
-    name: 'Bond in Lieu of Probate',
-    subtitle: 'When the sole estate asset is real estate',
-    category: 'probate',
-    standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Bond in Lieu of Probate',
-    fixedPrice: 1500,
-    description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition of the property. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a full probate proceeding.',
-    includes: [
-      'Title Transfer Documentation',
-      'Coordination with Title Company for Out-of-Court Title Transfer',
-      'Attorney consultations related to the included scope'
-    ],
-    note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
-    addOns: []
-  },
   {
     id: 'small-estate-administration',
     name: 'Small Estate Administration',
@@ -570,6 +553,23 @@ export const aLaCarteServices: Service[] = [
 ];
 
 export const realEstateServices: Service[] = [
+  {
+    id: 'bond-in-lieu-of-probate',
+    name: 'Bond in Lieu of Probate',
+    subtitle: 'When the sole estate asset is real estate',
+    category: 'real-estate',
+    standardizedCaseType: 'Bond in Lieu of Probate',
+    standardizedServiceName: 'Bond in Lieu of Probate',
+    fixedPrice: 1500,
+    description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition of the property. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a full probate proceeding.',
+    includes: [
+      'Title Transfer Documentation',
+      'Coordination with Title Company for Out-of-Court Title Transfer',
+      'Attorney consultations related to the included scope'
+    ],
+    note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
+    addOns: []
+  },
   {
     id: 'residential-closing',
     name: 'Residential Closing (Buyer or Seller)',
