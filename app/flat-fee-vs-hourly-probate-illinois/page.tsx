@@ -176,8 +176,7 @@ export default function FlatFeeVsHourlyProbatePage() {
                 Find out which model applies to your matter
               </h2>
               <p className="text-slate-700 mb-4">
-                Consultations are free, and we will tell you before you engage us whether your
-                estate is a flat fee or a retainer.
+                Consultations are free, and we will tell you before you engage us the defined scope and exact fixed fee for your estate.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a

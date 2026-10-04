@@ -58,7 +58,7 @@ export default function Page() {
     {
       question: 'Does adult guardianship cost more than minor guardianship in Illinois?',
       answer:
-        'No — Illinois Estate Law charges the same flat fee for an uncontested adult guardianship and an uncontested minor guardianship, even though an adult case involves more built-in work. Adult guardianship is organized around a demanding question — whether an adult has truly lost capacity — so Illinois law requires a physician\'s report documenting the disability, personal service of the petition on the respondent, and usually a guardian ad litem who investigates and reports to the court. Because the scope of that work is known up front, both are handled for a single predictable flat fee, so the family knows the price before starting. Only a contested matter — adult or minor — is handled hourly against a retainer, because then the opposing party, not the firm, drives how much work the case takes. For current pricing on each type, see our guardianship page at /guardianship/.',
+        'Illinois Estate Law charges the same fixed fee for uncontested adult and minor guardianship. Adult cases require a physician report, personal service and usually a guardian ad litem investigation. Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
     },
     {
       question: 'Can the same person be guardian of both an adult and a minor?',
@@ -373,7 +373,7 @@ export default function Page() {
                       ['Who can object', 'The adult respondent (and interested parties)', 'A parent asserting superior rights'],
                       ['Typical petitioner', 'Adult child, spouse, sibling, or other relative', 'Grandparent, relative, or family friend'],
                       ['Duration', 'Continues while the disability lasts', 'Ends automatically at age 18'],
-                      ['Fee structure', 'Flat fee (uncontested); hourly if contested', 'Flat fee (uncontested); hourly if contested'],
+                      ['Fee structure', 'Fixed fee after screening', 'Fixed fee after screening'],
                     ].map(([factor, adult, minor], i) => (
                       <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className="py-3 px-6 font-medium text-gray-700">{factor}</td>
@@ -441,7 +441,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Cost follows directly from the work involved, so it makes sense to think about fee <em>structure</em> rather than a single number. The core distinction is simple: an uncontested matter is handled for a flat fee, while a contested matter — whose length depends on what the opposing party does — is handled hourly against a retainer. Uncontested adult and minor guardianship are handled for the <em>same</em> flat fee — an adult case carries more built-in work, but the firm charges one predictable price for each.
+              Uncontested adult and minor guardianship have the same fixed fee. A dispute requires review of the retained scope and an exact fixed quote for any additional work before acceptance.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -472,7 +472,7 @@ export default function Page() {
                     'Adult cases require a physician\'s report',
                     'Personal service on the respondent',
                     'Guardian ad litem investigation and report',
-                    'Any contested case — adult or minor — is hourly',
+                    'Contested cases require screening and an exact fixed quote',
                   ].map((row, i) => (
                     <div key={i} className="flex items-start gap-3 pb-2 border-b border-white/20 last:border-0">
                       <FileText className="w-4 h-4 mt-0.5 flex-shrink-0 text-white" />
@@ -484,7 +484,7 @@ export default function Page() {
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Even though an adult case involves more built-in work — the physician&apos;s report, personal service, and guardian ad litem investigation are part of every adult matter — Illinois Estate Law charges the <strong>same flat fee</strong> for an uncontested adult guardianship as for an uncontested minor one. Because the scope of that work is known up front, both are a flat, predictable fee. Only a <strong>contested</strong> matter of either kind is handled hourly against a retainer, because a dispute can extend the case in ways no flat fee could fairly capture. For current pricing on each type, visit our{' '}
+              Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored. For current pricing on each type, visit our{' '}
               <Link href="/guardianship/" className="text-[#4a708b] hover:underline font-medium font-['Plus_Jakarta_Sans']">
                 guardianship page
               </Link>{' '}
@@ -654,7 +654,7 @@ export default function Page() {
                 Speak With an Illinois Guardianship Attorney
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed font-['Plus_Jakarta_Sans']">
-                Illinois Estate Law helps Chicago-area families with both adult and minor guardianship — uncontested guardianship, adult and minor, on a flat fee, and contested matters handled transparently on an hourly basis against a retainer. Start with a free consultation so you know exactly which proceeding applies to your family.
+                Illinois Estate Law helps families with adult and minor guardianship through defined fixed-fee engagements. Start with a free consultation to identify the proceeding and scope that apply to your family.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link

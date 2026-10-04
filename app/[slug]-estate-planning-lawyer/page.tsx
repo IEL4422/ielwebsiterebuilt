@@ -77,7 +77,7 @@ function getCityFAQs(city: string) {
     },
     {
       question: `How much does estate planning cost in ${city}?`,
-      answer: `Illinois Estate Law uses transparent flat-fee pricing for standard estate-planning services. Individual will packages are $1,250, joint will packages are $1,750, individual trust packages are $3,500, and joint trust packages are $5,000. Contested litigation is billed hourly under a written engagement agreement.`,
+      answer: `Illinois Estate Law uses transparent flat-fee pricing for standard estate-planning services. Individual will packages are $1,250, joint will packages are $1,750, individual trust packages are $3,500, and joint trust packages are $5,000. Contested litigation requires screening and an exact fixed fee for the defined scope before acceptance. Complex cases receive one higher fixed quote upfront.`,
     },
     {
       question: 'How long does it take to complete an estate plan?',

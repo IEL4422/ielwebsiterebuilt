@@ -4,7 +4,7 @@ import { flatFeeVsHourlyFAQs } from '@/lib/comparison-faqs';
 
 const TITLE = 'Flat-Fee vs. Hourly Probate in Illinois: How Probate Attorneys Charge';
 const DESCRIPTION =
-  'How Illinois probate attorneys charge: flat fee vs. hourly, what an all-inclusive flat fee covers, why contested probate is billed hourly, and when a matter converts. Illinois-specific, with statutory citations.';
+  'How Illinois probate attorneys charge: flat fee vs. hourly, what an all-inclusive flat fee covers, how screened fixed fees apply to contested probate and additional scope. Illinois-specific, with statutory citations.';
 const PATH = '/flat-fee-vs-hourly-probate-illinois/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
 
@@ -32,7 +32,7 @@ const breadcrumb = breadcrumbSchema([
 const service = serviceSchema({
   name: 'Flat-Fee Illinois Probate Administration',
   description:
-    'Flat-fee representation of executors and administrators in uncontested Illinois probate, inclusive of court filing fees, creditor publication, and recording costs, with hourly billing reserved for contested matters.',
+    'Flat-fee representation of executors and administrators in uncontested Illinois probate, inclusive of court filing fees, creditor publication, and recording costs, with screened fixed fees for defined contested work.',
   path: PATH,
   serviceType: 'Probate and estate administration',
 });

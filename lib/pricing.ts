@@ -79,6 +79,7 @@ export const GUARDIANSHIP_FLAT = {
   minorUncontested: 5000,
   /** Priority temporary-guardianship petition and hearing added to a full adult guardianship. */
   emergencyTemporaryAddOn: approvedFeePolicy.fee_items.find(item => item.id === 'emergency-preservation')!.amount!,
+  // Historical discrete-petition reference; prospective extraordinary work uses the approved menu.
   interimPetition: 1500,
   terminationUncontested: approvedFeePolicy.fee_items.find(item => item.id === 'guardianship-modification')!.variants!.uncontested,
 } as const;
