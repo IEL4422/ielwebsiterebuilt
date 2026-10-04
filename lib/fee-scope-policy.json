@@ -1,0 +1,322 @@
+{
+  "version": "2026-10-04-approved-flat-fees",
+  "status": "approved",
+  "publication_approved": true,
+  "approved_by": "Mary",
+  "approved_at": "2026-10-04T22:06:00+00:00",
+  "effective_at": "2026-10-04T22:06:00+00:00",
+  "families": [
+    "probate",
+    "guardianship",
+    "trust_litigation"
+  ],
+  "routine_scope": "Ordinary uncontested opening, administration and closing, and expenses already included in the signed engagement, remain included. Work already covered by the retained scope is not billed again.",
+  "additional_scope": "Each additional service requires its own stated scope, exact fixed fee and explicit client acceptance of an addendum before any charge. Required court approval is separate. This policy acknowledgment does not authorize future charges or payment from estate or ward funds.",
+  "litigation_scope": "The agreed litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work, without stacking those charges, extra trial-day charges or conversion to hourly billing. Complex cases are screened and quoted one higher fixed fee upfront before acceptance.",
+  "supervision_scope": "The $3,500 supervised-administration supplement covers supervision through closing. Disclose it upfront when known at hiring; a later change requires a separately approved addendum. Included motions, appearances and approvals are not billed again.",
+  "refund_scope": "Settlement completes the defined retained work. If representation ends before that work is complete, any refund is based on work performed, subject to mandatory reasonableness, refund and court-review requirements. No term limits legally required refunds.",
+  "legacy_scope": "Existing signed engagements are honored. This prospective menu does not rewrite a prior agreement or authorize retroactive charges.",
+  "acknowledgment_text": "I have reviewed the fixed-fee scope and refund policy. I understand that work already included in my agreement will not be billed again and that each additional service requires my specific addendum acceptance before a charge.",
+  "fee_items": [
+    {
+      "id": "subpoena",
+      "label": "Subpoena",
+      "amount": 750,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true,
+      "unit": "per recipient"
+    },
+    {
+      "id": "citation-discover",
+      "label": "Discovery citation",
+      "amount": 3500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true,
+      "unit": "per respondent"
+    },
+    {
+      "id": "nonroutine-motion-unopposed",
+      "label": "Nonroutine unopposed motion",
+      "amount": 1250,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "nonroutine-motion-contested",
+      "label": "Contested non-evidentiary motion",
+      "amount": 3500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "motion-dismiss",
+      "label": "Motion to dismiss: preparation, response, briefing and argument",
+      "amount": 3500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "formal-proof",
+      "label": "Formal proof",
+      "amount": 5500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "copy-will-uncontested",
+      "label": "Uncontested admission of a copy will",
+      "amount": 6500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "will-contest-straightforward",
+      "label": "Standard will contest",
+      "amount": 50000,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "supervised-administration",
+      "label": "Supervised-administration supplement through closing",
+      "amount": 3500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "asset-recovery-title",
+      "label": "Standard asset recovery / title citation",
+      "amount": 20000,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "creditor-claim-contested",
+      "label": "Contested creditor claim",
+      "amount": 10000,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "heirship-contested",
+      "label": "Contested heirship",
+      "amount": 15000,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "fiduciary-removal-surcharge",
+      "label": "Fiduciary removal / surcharge",
+      "amount": 25000,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "accounting-contested",
+      "label": "Contested accounting",
+      "amount": 12500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "will-trust-construction",
+      "label": "Will / trust construction",
+      "amount": 12500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "emergency-preservation",
+      "label": "Emergency guardianship / asset preservation",
+      "amount": 5000,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "guardianship-contested",
+      "label": "Contested guardianship",
+      "amount": 25000,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": true,
+      "included_work_protection": true
+    },
+    {
+      "id": "guardianship-modification",
+      "label": "Guardianship modification, restoration or termination",
+      "amount": null,
+      "fee_mode": "variant_fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true,
+      "variants": {
+        "uncontested": 2500,
+        "contested": 12500
+      }
+    },
+    {
+      "id": "guardianship-extraordinary",
+      "label": "Extraordinary guardianship petition",
+      "amount": 3500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "mediation-standalone",
+      "label": "Standalone mediation",
+      "amount": 3500,
+      "fee_mode": "fixed",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    },
+    {
+      "id": "individually-quoted-litigation",
+      "label": "Trust validity contest, appeal or separate enforcement",
+      "amount": null,
+      "fee_mode": "custom_fixed_quote",
+      "families": [
+        "probate",
+        "guardianship",
+        "trust_litigation"
+      ],
+      "screening_required": true,
+      "litigation_package": false,
+      "included_work_protection": true
+    }
+  ]
+}

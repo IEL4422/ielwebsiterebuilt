@@ -251,7 +251,7 @@
         <tr>
           <td>
             <div class="service-name">Standard Probate</div>
-            <div class="service-sub">Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested issues are billed hourly against a separate retainer. Surety bond premium paid directly to bond provider.</div>
+            <div class="service-sub">Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested work requires a screened fixed-fee scope. Surety bond premium paid directly to bond provider.</div>
           </td>
           <td class="price">{{STANDARD_PROBATE}}</td>
         </tr>
@@ -293,9 +293,9 @@
         <tr>
           <td>
             <div class="service-name">Contested Probate</div>
-            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Applies when any probate matter becomes or is anticipated to be contested. Attorney: {{ATTORNEY_HOURLY}} &bull; Paralegal/Administrative: {{PARALEGAL_HOURLY}}. Evergreen retainer; costs (filing, process server, transcripts) billed to the client.</div>
+            <div class="service-sub">Attorney screening and an exact fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package.</div>
           </td>
-          <td class="price">{{CONTESTED_RETAINER}} retainer<span class="price-note">+ hourly billing</span></td>
+          <td class="price">Individually quoted fixed fee</td>
         </tr>
       </tbody>
     </table>
@@ -315,14 +315,14 @@
         <tr>
           <td>
             <div class="service-name">Minor Guardianship — Uncontested</div>
-            <div class="service-sub">Guardianship of a child under 18 where no parent objects. Flat fee is all-inclusive of court costs; Illinois eliminated minor-guardianship filing fees on Oct 1, 2025. If contested, converts to hourly against a retainer with the flat fee credited.</div>
+            <div class="service-sub">Guardianship of a child under 18 where no parent objects. Flat fee is all-inclusive of court costs; Illinois eliminated minor-guardianship filing fees on Oct 1, 2025. Additional contested work requires a separately approved fixed-fee addendum. Existing signed engagements are honored.</div>
           </td>
           <td class="price">$5,000</td>
         </tr>
         <tr>
           <td>
             <div class="service-name">Adult Guardianship of the Person and Estate — Uncontested</div>
-            <div class="service-sub">Flat fee includes the firm's work and all court filing fees: petition, physician-report coordination, personal-service coordination, GAL coordination, inventory, surety-bond coordination, and hearing. Bond premiums and court-appointed GAL fees are not included. If contested, converts to hourly against a retainer with the unearned flat fee credited.</div>
+            <div class="service-sub">Flat fee includes the firm's work and all court filing fees: petition, physician-report coordination, personal-service coordination, GAL coordination, inventory, surety-bond coordination, and hearing. Bond premiums and court-appointed GAL fees are not included. Additional contested work requires a separately approved fixed-fee addendum. Existing signed engagements are honored.</div>
           </td>
           <td class="price">{{ADULT_GUARDIANSHIP}}<span class="price-note">flat fee</span></td>
         </tr>
@@ -336,9 +336,9 @@
         <tr>
           <td>
             <div class="service-name">Contested Guardianship</div>
-            <div class="service-sub"><strong>NOT A FLAT FEE — Hourly Billing.</strong> Objection, competing petition, or removal. Attorney: {{ATTORNEY_HOURLY}} &bull; Paralegal: {{PARALEGAL_HOURLY}}. Evergreen retainer; costs (incl. GAL) billed to the client.</div>
+            <div class="service-sub">Standard contested guardianship after screening. Complex cases receive one higher fixed quote upfront; previously included expenses remain included.</div>
           </td>
-          <td class="price">{{CONTESTED_RETAINER}} retainer<span class="price-note">+ hourly billing</span></td>
+          <td class="price">$25,000 standard fixed fee</td>
         </tr>
         <tr>
           <td>
@@ -550,7 +550,7 @@
 
   <div class="footer">
     <div class="footer-note">
-      <strong>Notes:</strong> Most fees are flat-rate and due before work begins. Payment plans available (5% setup fee). Surety bond premiums in probate (when required) are paid directly to the bond provider and are not included above. Contested Probate is billed hourly with a {{CONTESTED_RETAINER}} retainer. Illinois Estate Law does NOT serve as Trustee — trustee services are not offered by this firm.
+      <strong>Notes:</strong> Most fees are flat-rate and due before work begins. Payment plans available (5% setup fee). Surety bond premiums in probate (when required) are paid directly to the bond provider and are not included above. Contested work uses approved fixed fees after screening; no hourly conversion or extra trial-day charges. Illinois Estate Law does NOT serve as Trustee — trustee services are not offered by this firm.
     </div>
     <div class="footer-contact">
       <strong>Illinois Estate Law</strong><br>
@@ -560,5 +560,6 @@
     </div>
   </div>
 
+{{APPROVED_FEE_MENU}}
 </body>
 </html>

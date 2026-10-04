@@ -112,7 +112,7 @@ export default function AdultGuardianshipLawyerPage() {
 
           <div className="mt-6 rounded-2xl border border-[#DCE5ED] bg-[#F6F9FC] p-6">
             <h3 className="text-lg font-bold text-[#33414E]">If the matter becomes contested</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">An objection, competing petition, or dispute over the proposed guardian changes the case into litigation billed hourly against a {usd(RETAINERS.contestedGuardianship)} retainer. The engagement agreement explains how any unearned flat-fee amount is credited.</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">Contested work requires attorney screening and an exact fixed-fee scope before engagement. Standard will contests are $50,000; standard contested guardianship is $25,000. Complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacked fees, extra trial-day charges or hourly conversion. Existing signed engagements and previously included expenses are honored.</p>
           </div>
         </div>
       </section>

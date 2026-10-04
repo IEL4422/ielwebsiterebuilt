@@ -108,7 +108,7 @@ export function QuickPriceList() {
               <p className="font-['Plus_Jakarta_Sans'] text-[12px] text-gray-500 mt-4 border-t border-gray-100 pt-3">
                 Prices are flat fees unless noted. Some matters (e.g. estate tax,
                 large estate, contested probate) include a base fee plus a
-                percentage or hourly component as shown. Third-party costs such as
+                percentage component where expressly stated in the selected service. Third-party costs such as
                 surety bonds are billed separately.
               </p>
             </div>

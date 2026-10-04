@@ -51,8 +51,7 @@ export default function FlatFeeVsHourlyProbatePage() {
               At this firm, <strong>uncontested probate is a flat fee</strong> — {usd(PROBATE.standard)} for
               a standard estate — and that fee is all-inclusive of court costs. A small estate that
               qualifies to skip probate entirely is handled as Small Estate Administration for{' '}
-              {usd(PROBATE.smallEstateAdministration)}. <strong>Contested matters are billed hourly</strong> against
-              a {usd(RETAINERS.contestedProbate)} initial retainer. Large Estate Probate is {usd(PROBATE.largeEstateBase)}
+              {usd(PROBATE.smallEstateAdministration)}. <strong>Contested work is screened and quoted as a defined fixed fee</strong> before engagement. Large Estate Probate is {usd(PROBATE.largeEstateBase)}
               plus {PROBATE.largeEstatePercent}% of estate value, charged during administration
               only if the estate exceeds $4,000,000 due to estate-tax complexity.
             </p>
@@ -64,34 +63,34 @@ export default function FlatFeeVsHourlyProbatePage() {
                   <tr className="bg-slate-50">
                     <th className="border border-slate-200 px-4 py-3 font-bold text-slate-800">&nbsp;</th>
                     <th className="border border-slate-200 px-4 py-3 font-bold text-slate-800">Flat fee (uncontested)</th>
-                    <th className="border border-slate-200 px-4 py-3 font-bold text-slate-800">Hourly + retainer (contested)</th>
+                    <th className="border border-slate-200 px-4 py-3 font-bold text-slate-800">Fixed-fee litigation (contested)</th>
                   </tr>
                 </thead>
                 <tbody className="text-slate-700">
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">What you pay</th>
                     <td className="border border-slate-200 px-4 py-3">{usd(PROBATE.standard)} standard estate; {usd(PROBATE.largeEstateBase)} + {PROBATE.largeEstatePercent}% for estates exceeding $4,000,000 due to estate-tax complexity; {usd(PROBATE.smallEstateAdministration)} small estate administration</td>
-                    <td className="border border-slate-200 px-4 py-3">{usd(RETAINERS.contestedProbate)} retainer, then {hourly(RATES.attorneyHourly)} attorney / {hourly(RATES.paralegalHourly)} paralegal</td>
+                    <td className="border border-slate-200 px-4 py-3">$50,000 standard will contest; other disputes use the approved service menu or an individual fixed quote</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Known in advance?</th>
                     <td className="border border-slate-200 px-4 py-3">Base fee and percentage formula disclosed before engagement; percentage charged during administration only if estate value exceeds $4,000,000</td>
-                    <td className="border border-slate-200 px-4 py-3">No — the opposing party drives the volume of work</td>
+                    <td className="border border-slate-200 px-4 py-3">Yes — complexity is screened and one exact fixed quote is approved upfront</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Court filing fees</th>
                     <td className="border border-slate-200 px-4 py-3">Included in the fee</td>
-                    <td className="border border-slate-200 px-4 py-3">Billed to the client as incurred</td>
+                    <td className="border border-slate-200 px-4 py-3">As stated in the signed scope; previously included expenses remain included</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Creditor publication</th>
                     <td className="border border-slate-200 px-4 py-3">Included in the fee</td>
-                    <td className="border border-slate-200 px-4 py-3">Billed to the client as incurred</td>
+                    <td className="border border-slate-200 px-4 py-3">As stated in the signed scope; previously included expenses remain included</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Recording fees</th>
                     <td className="border border-slate-200 px-4 py-3">Included in the fee</td>
-                    <td className="border border-slate-200 px-4 py-3">Billed to the client as incurred</td>
+                    <td className="border border-slate-200 px-4 py-3">As stated in the signed scope; previously included expenses remain included</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Paid separately</th>
@@ -129,33 +128,12 @@ export default function FlatFeeVsHourlyProbatePage() {
               flat {usd(PROBATE.bondInLieu)}.
             </p>
 
-            <h2>Why contested probate is not flat-fee&rsquo;d</h2>
-            <p>
-              <strong>
-                Because in a contested matter the other side decides how much work there is.
-              </strong>{' '}
-              An uncontested probate has a knowable sequence — open the estate, obtain letters of
-              office, publish notice, inventory the assets, wait out the six-month creditor claims
-              period, distribute, close. That can be priced. A will contest cannot: the number of
-              motions, the scope of discovery, and whether the matter settles or goes to trial are
-              all controlled by the opposing party.
-            </p>
-            <p>
-              Contested matters here open on a {usd(RETAINERS.contestedProbate)} retainer, billed at{' '}
-              {hourly(RATES.attorneyHourly)} for attorney time and {hourly(RATES.paralegalHourly)} for
-              paralegal time, replenished when the balance falls below {usd(RETAINER_FLOORS.contestedProbate)}.
-              You receive an itemized bill before any money moves.
-            </p>
-
-            <h2>When a flat-fee matter converts to hourly</h2>
-            <p>
-              <strong>Only a formal contest converts a matter — not mere difficulty.</strong> If someone
-              files an objection, an appearance in opposition, or a competing petition, the matter
-              becomes contested litigation and moves to hourly billing against a retainer, with the
-              flat fee already paid credited against that retainer. An estate that is simply slow,
-              disorganized, or tense does not convert. That distinction is in the engagement
-              agreement rather than left to judgment after the fact.
-            </p>
+            <h2>How contested probate is priced</h2>
+            <p>A standard will contest is $50,000 for the defined litigation through trial or settlement. Other disputes use the approved fixed-fee menu or an individual fixed quote. Complex matters are screened and quoted one higher fixed fee upfront before acceptance.</p>
+            <p>Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package. The firm does not stack those charges, add trial-day fees or convert the engagement to hourly billing.</p>
+            <h2>If an uncontested matter becomes contested</h2>
+            <p>Work already included in the signed engagement stays included. New litigation outside that scope requires a specific fixed-fee addendum and the client’s explicit acceptance before a charge. Existing signed engagements are honored.</p>
+            <p>Settlement completes the defined retained work. If representation ends before that work is complete, any refund is based on work performed, subject to mandatory reasonableness and refund requirements.</p>
 
             <h2>Court approval of probate fees in Illinois</h2>
             <p>

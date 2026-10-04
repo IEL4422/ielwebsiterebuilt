@@ -200,7 +200,7 @@ export default function Page() {
                 {[
                   { label: 'An objection, a competing petition, or a removal request', type: 'What Triggers It', color: 'amber' },
                   { label: 'Discovery, a guardian ad litem, and an evidentiary hearing', type: 'What It Becomes', color: 'blue' },
-                  { label: 'Hourly against a retainer — the opposing party drives the work', type: 'How Fees Work', color: 'green' },
+                  { label: 'One fixed fee for the defined litigation after screening', type: 'How Fees Work', color: 'green' },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -546,7 +546,7 @@ export default function Page() {
                 <div>
                   <p className="font-semibold text-green-800 mb-1 font-['Plus_Jakarta_Sans']">You are told the exact amount, in writing</p>
                   <p className="text-green-700 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
-                    When a flat fee converts, we notify you in writing of the exact unearned amount credited toward your retainer. That money sits in our client trust account and is applied only as fees are actually earned and billed. Nothing is moved out of trust before it is earned.
+                    If new contested work is outside your retained scope, we provide a specific fixed-fee addendum for your acceptance before charging. Existing signed engagements and included work remain protected. Settlement completes the defined work; any refund for unfinished representation reflects work performed and mandatory reasonableness and refund requirements.
                   </p>
                 </div>
               </div>

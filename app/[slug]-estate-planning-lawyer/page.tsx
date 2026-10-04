@@ -178,7 +178,7 @@ export default function CityEstatePlanningPage({
                       {loc.localNote} Whether you need a simple will, a revocable living trust, powers of attorney, or healthcare directives, our firm offers a fully virtual process that allows you to complete your entire estate plan from the comfort of your home.
                     </p>
                     <p>
-                      Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested litigation is billed hourly under a written engagement agreement. {meetingText}
+                      Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested litigation uses a screened fixed fee under a written engagement agreement. {meetingText}
                     </p>
                     <p>
                       If you need probate assistance in {loc.county}, our firm also handles full probate administration, summary probate, and heir representation at the {loc.countyCourtName}. We serve all of Illinois and can help with estate matters in any county.
@@ -195,7 +195,7 @@ export default function CityEstatePlanningPage({
                     </h3>
                     <p className="text-sm text-slate-500 text-center mb-4">Estate Planning Attorney</p>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      Mary Liberty is a graduate of Loyola University Chicago School of Law and a SuperLawyers Rising Star in 2025 and 2026. She offers transparent fixed fees for standard matters, with hourly billing reserved for contested litigation.
+                      Mary Liberty is a graduate of Loyola University Chicago School of Law and a SuperLawyers Rising Star in 2025 and 2026. She offers transparent fixed fees for standard matters, with screened fixed fees for contested litigation.
                     </p>
                   </div>
                 </div>

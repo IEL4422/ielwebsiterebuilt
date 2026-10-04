@@ -1,3 +1,4 @@
+import ApprovedFeeMenu from '@/components/services/ApprovedFeeMenu';
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ServicesPricingModern } from '@/components/services/ServicesPricingModern'
@@ -53,7 +54,7 @@ const faqSchema = {
       "name": "What Are the Costs Associated With Your Services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Concrete prices for standard services are published on this page. Each card identifies the included scope and any exclusions. Contested matters are billed hourly against the disclosed initial retainer."
+        "text": "Concrete prices for standard services are published on this page. Each card identifies the included scope and any exclusions. Contested matters use a defined fixed fee after attorney screening; complex cases receive one higher fixed quote upfront."
       }
     },
     {
@@ -207,7 +208,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-[1180px] px-5 py-12 text-center font-['Plus_Jakarta_Sans']">
           <h1 className="text-[42px] font-bold text-[#33414E] sm:text-[30px]">Services &amp; Pricing</h1>
           <p className="mx-auto mt-3 max-w-[680px] text-[18px] text-[#5f6b76]">
-            Transparent fixed pricing for standard matters, shown before you commit. Contested litigation is billed hourly under a written engagement. Payment plans are available.
+            Transparent fixed pricing for standard matters, shown before you commit. Contested litigation uses a screened, approved fixed fee under a written engagement. Payment plans are available.
           </p>
           <p className="mt-2.5 text-[15px] font-semibold text-[#33414E]">
             Not sure which package is right?{' '}
@@ -233,6 +234,7 @@ export default function ServicesPage() {
       </div>
 
       <ServicesPricingModern />
+      <ApprovedFeeMenu />
 
       <div className="container mx-auto px-5 max-w-[1240px] pb-[60px] sm:px-4">
         <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[40px] text-[#2d3e50] mb-8 sm:text-[28px] sm:mb-6">
@@ -272,7 +274,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Concrete prices for standard services are published on this page. Each card identifies the included scope and any exclusions. Contested matters are billed hourly against the disclosed initial retainer.</p>
+              <p>Concrete prices for standard services are published on this page. Each card identifies the included scope and any exclusions. Contested matters use a defined fixed fee after attorney screening; complex cases receive one higher fixed quote upfront.</p>
             </div>
           </details>
 
