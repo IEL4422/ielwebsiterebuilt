@@ -59,7 +59,7 @@ export default function Page() {
     {
       question: 'How much does a contested guardianship cost?',
       answer:
-        'Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
+        'Standard contested guardianship has a $5,000 base for opening, ordinary administration and closing plus a $25,000 litigation fee, totaling $30,000 with no offset. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
     },
     {
       question: 'What happens to my flat fee if my guardianship becomes contested?',
@@ -488,7 +488,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.
+              Standard contested guardianship has a $5,000 base for opening, ordinary administration and closing plus a $25,000 litigation fee, totaling $30,000 with no offset. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">

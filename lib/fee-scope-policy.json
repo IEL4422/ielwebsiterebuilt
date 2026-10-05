@@ -1,18 +1,18 @@
 {
-  "version": "2026-10-04-approved-flat-fees",
+  "version": "2026-10-05-approved-contested-base",
   "status": "approved",
   "publication_approved": true,
   "approved_by": "Mary",
-  "approved_at": "2026-10-04T22:06:00+00:00",
-  "effective_at": "2026-10-04T22:06:00+00:00",
+  "approved_at": "2026-10-05T15:45:00+00:00",
+  "effective_at": "2026-10-05T15:45:00+00:00",
   "families": [
     "probate",
     "guardianship",
     "trust_litigation"
   ],
-  "routine_scope": "Ordinary uncontested opening, administration and closing, and expenses already included in the signed engagement, remain included. Work already covered by the retained scope is not billed again.",
+  "routine_scope": "The $5,000 base fee for both contested probate and contested guardianship covers opening, ordinary administration and closing. Approved litigation or event fees are additional to the base fee, not credited against it. Ordinary work and expenses already included in the signed engagement remain included and are not billed again.",
   "additional_scope": "Each additional service requires its own stated scope, exact fixed fee and explicit client acceptance of an addendum before any charge. Required court approval is separate. This policy acknowledgment does not authorize future charges or payment from estate or ward funds.",
-  "litigation_scope": "The agreed litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work, without stacking those charges, extra trial-day charges or conversion to hourly billing. Complex cases are screened and quoted one higher fixed fee upfront before acceptance.",
+  "litigation_scope": "The $5,000 base is separate from the accepted litigation package: a standard $25,000 contested guardianship package plus the base totals $30,000; a standard $50,000 will-contest package plus the base totals $55,000. The litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of its defined work, without stacking those charges, extra trial-day charges or conversion to hourly billing. Complex cases are screened and quoted one higher fixed fee upfront before acceptance.",
   "supervision_scope": "The $3,500 supervised-administration supplement covers supervision through closing. Disclose it upfront when known at hiring; a later change requires a separately approved addendum. Included motions, appearances and approvals are not billed again.",
   "refund_scope": "Settlement completes the defined retained work. If representation ends before that work is complete, any refund is based on work performed, subject to mandatory reasonableness, refund and court-review requirements. No term limits legally required refunds.",
   "legacy_scope": "Existing signed engagements are honored. This prospective menu does not rewrite a prior agreement or authorize retroactive charges.",
@@ -260,7 +260,7 @@
     },
     {
       "id": "guardianship-modification",
-      "label": "Guardianship modification, restoration or termination",
+      "label": "Contested guardianship modification, restoration or termination",
       "amount": null,
       "fee_mode": "variant_fixed",
       "families": [
@@ -272,7 +272,6 @@
       "litigation_package": false,
       "included_work_protection": true,
       "variants": {
-        "uncontested": 2500,
         "contested": 12500
       }
     },
@@ -318,5 +317,8 @@
       "litigation_package": false,
       "included_work_protection": true
     }
-  ]
+  ],
+  "scope_projection_version": 3,
+  "contested_base_amount": 5000,
+  "ordinary_guardianship_scope": "For ordinary uncontested guardianship, annual reporting is the only additional firm fee. Routine administration, closing and termination within the retained scope are included. The Annual Report on the Ward costs $750 per year for preparation and filing. A later contested proceeding requires its own specifically accepted fixed-fee addendum."
 }

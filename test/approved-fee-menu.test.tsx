@@ -14,7 +14,7 @@ describe('Mary-approved prospective fee menu',()=>{
   const html=renderToStaticMarkup(<ApprovedFeeMenu/>);
   expect(policy.fee_items).toHaveLength(21);
   for(const item of policy.fee_items){expect(html).toContain(`service=fee-${item.id}`);}
-  for(const text of ['$750 per recipient','$3,500 per respondent','$50,000','$25,000','$2,500 uncontested / $12,500 contested','Individually quoted fixed fee','does not automatically retain'])expect(html).toContain(text);
+  for(const text of ['$750 per recipient','$3,500 per respondent','$50,000','$25,000','$12,500 for a separate contested proceeding','Individually quoted fixed fee','does not automatically retain'])expect(html).toContain(text);
   expect(html).toContain('without stacking those charges');expect(html).toContain('Existing signed engagements');
  });
  it('every menu selection goes through attorney review rather than a payment session',()=>{
@@ -33,7 +33,7 @@ describe('Mary-approved prospective fee menu',()=>{
   expect(html).toBe(before);
   expect(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn).toBe(5000);
   expect(html).toMatch(/Extraordinary Guardianship Petition[\s\S]*?price">\$3,500/);
-  expect(html).toMatch(/Guardianship Termination \/ Restoration of Rights[\s\S]*?price">\$2,500/);
+  expect(html).toMatch(/Guardianship Termination \/ Restoration of Rights[\s\S]*?price">\$12,500/);
   expect(html).toContain('$10,000<span class="price-note">$5,000 full case + $5,000 emergency add-on');
   for(const item of policy.fee_items)expect(html).toContain(item.label.replaceAll('&','&amp;'));
   expect(html).not.toContain('retainer + hourly');
@@ -57,7 +57,7 @@ it('renders every comparison-table cell consistently with defined-proceeding fix
      cell[1].replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').trim()));
  expect(rows).toEqual([
   ['', 'Flat fee (uncontested)', 'Fixed-fee litigation (contested)'],
-  ['What you pay', '$5,000 standard estate; $5,000 + 0.5% for estates exceeding $4,000,000 due to estate-tax complexity; $1,000 small estate administration', '$50,000 standard will contest; other disputes use the approved service menu or an individual fixed quote'],
+  ['What you pay', '$5,000 standard estate; $5,000 + 0.5% for estates exceeding $4,000,000 due to estate-tax complexity; $1,000 small estate administration', '$5,000 base + $50,000 standard will contest (total $55,000); other disputes add their approved service fee or an individual fixed quote'],
   ['Known in advance?', 'Base fee and percentage formula disclosed before engagement; percentage charged during administration only if estate value exceeds $4,000,000', 'Yes — complexity is screened and one exact fixed quote is approved upfront'],
   ['Court filing fees', 'Included in the fee', 'As stated in the signed scope; previously included expenses remain included'],
   ['Creditor publication', 'Included in the fee', 'As stated in the signed scope; previously included expenses remain included'],
@@ -117,11 +117,11 @@ it('renders catalog-derived restatement prices separately from approved guardian
   `$${A_LA_CARTE.trustRestatementIndividual.toLocaleString('en-US')}`,
   `$${A_LA_CARTE.trustRestatementJoint.toLocaleString('en-US')}`,
  ]);
- const guardianship=exactServiceRow('Guardianship Termination / Restoration of Rights');
+ const guardianship=exactServiceRow('Contested Guardianship Termination / Restoration of Rights');
  expect(guardianship).toHaveLength(1);
- expect(guardianship[0]).toContain('<td class="price">$2,500</td>');
- const variant=rows.find(row=>row.includes('<td>Guardianship modification, restoration or termination</td>'));
- expect(variant).toContain('$2,500 uncontested / $12,500 contested');
+ expect(guardianship[0]).toContain('<td class="price">$12,500</td>');
+ const variant=rows.find(row=>row.includes('<td>Contested guardianship modification, restoration or termination</td>'));
+ expect(variant).toContain('$12,500 for a separate contested proceeding');
  expect(restatement[0]).not.toContain('$2,500');
  expect(restatement[0]).not.toContain('$12,500');
 });
@@ -133,7 +133,7 @@ it('all rendered county guardianship pages and FAQ schemas qualify bond/GAL excl
  for(const county of guardianshipCounties){
   const html=renderToStaticMarkup(<CountyPage params={{slug:`${county.slug}-county`}}/>);
   const main=html.match(/<main>([\s\S]*?)<\/main>/)![1];
-  expect(main).toContain('$25,000 standard fixed fee');
+  expect(main).toContain('$5,000 base + $25,000 standard litigation fee');
   expect(main).toContain('Court filing fees are included in the uncontested packages.');
   expect(main).toContain('remain separate only where identified as exclusions in the written engagement.');
   expect(main).toContain('separate charges require disclosure and express agreement.');
@@ -155,7 +155,7 @@ it('machine-readable public policy regenerates all approved fees and scope witho
  const text=readFileSync('public/llms.txt','utf8');
  expect(text).toBe(before);
  for(const item of policy.fee_items){
-  const amount='variants' in item && item.variants ? '$2,500 uncontested / $12,500 contested' : item.amount==null ? 'Individually quoted fixed fee' : `$${item.amount.toLocaleString('en-US')}${'unit' in item && item.unit ? ` ${item.unit}` : ''}`;
+  const amount='variants' in item && item.variants ? '$12,500 for a separate contested proceeding' : item.amount==null ? 'Individually quoted fixed fee' : `$${item.amount.toLocaleString('en-US')}${'unit' in item && item.unit ? ` ${item.unit}` : ''}`;
   expect(text).toContain(`- ${item.label}: ${amount}`);
  }
  for(const key of ['routine_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'] as const)expect(text).toContain(policy[key]);
@@ -198,4 +198,15 @@ it('public text assets do not restore the removed prospective hourly-conversion 
  visit('public');
  expect(paths).toContain('public/llms.txt');expect(paths).toContain('public/blog/posts.json');
  for(const path of paths)expect(readFileSync(path,'utf8'),path).not.toMatch(/billed hourly against a retainer|a matter converts to hourly|no honest fixed price can be quoted|Costs and expenses are billable to the client in these matters|time is billed as worked/i);
+});
+
+
+it('publishes the additive base, protected ordinary scope and a versioned client PDF',()=>{
+ const html=renderToStaticMarkup(<ApprovedFeeMenu/>);
+ expect(policy.contested_base_amount).toBe(5000);
+ expect(policy.fee_items.find(item=>item.id==='guardianship-modification')?.variants).toEqual({contested:12500});
+ for(const text of ['$30,000','$55,000','not credited against','annual reporting is the only additional firm fee','$750 per year','ordinary subpoenas'])expect(html).toContain(text);
+ const pdfPath='public/downloads/probate-guardianship-additional-flat-fees-2026-10-05.pdf';
+ expect(readFileSync(pdfPath).subarray(0,5).toString()).toBe('%PDF-');
+ for(const text of [html,readFileSync('public/pricing-sheet.html','utf8'),readFileSync('public/llms.txt','utf8')])expect(text).toContain('/downloads/probate-guardianship-additional-flat-fees-2026-10-05.pdf');
 });

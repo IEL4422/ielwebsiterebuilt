@@ -112,7 +112,7 @@ export default function AdultGuardianshipLawyerPage() {
 
           <div className="mt-6 rounded-2xl border border-[#DCE5ED] bg-[#F6F9FC] p-6">
             <h3 className="text-lg font-bold text-[#33414E]">If the matter becomes contested</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">Contested work requires attorney screening and an exact fixed-fee scope before engagement. Standard will contests are $50,000; standard contested guardianship is $25,000. Complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacked fees, extra trial-day charges or hourly conversion. Existing signed engagements and previously included expenses are honored.</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacked fees, extra trial-day charges or hourly conversion. Existing signed engagements and previously included expenses are honored.</p>
           </div>
         </div>
       </section>
