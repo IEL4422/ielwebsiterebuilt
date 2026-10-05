@@ -59,3 +59,18 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run build
       - run: git diff --exit-code -- public/pricing-sheet.html
+
+      - name: Install browser regression tooling
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Verify responsive production header
+        run: |
+          PORT=3192 npm start > /tmp/header-next.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3192/flat-fee-vs-hourly-probate-illinois/ > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/verify-header-layout.cjs

@@ -53,7 +53,7 @@ export function Header() {
   return (
     <>
       {/* ===== Desktop header (modernized, shared across all pages) ===== */}
-      <header className="hidden lg:block sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
+      <header className="hidden xl:block sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
           <div className="flex items-center justify-between gap-6 h-[92px]">
             <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center shrink-0">
@@ -142,7 +142,7 @@ export function Header() {
       </header>
 
       {/* ===== Mobile header (modernized, shared across all pages) ===== */}
-      <header className="lg:hidden sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
+      <header className="xl:hidden sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
         <div className="px-5 h-20 flex items-center justify-between">
           <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center">
             <Image
