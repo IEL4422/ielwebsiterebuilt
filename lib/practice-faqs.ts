@@ -41,12 +41,12 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'How much does it cost to contest a will in Illinois?',
     answer:
-      'Contested probate is billed hourly against a retainer, not on a flat fee. This is deliberate. In a contested matter the amount of work is driven by the opposing party — how many motions they file, whether they agree to discovery, whether the case settles or goes to trial — so no attorney can honestly predict the total cost in advance. Any firm quoting you a fixed price for a court fight is guessing. We require a retainer to begin, bill against it at our hourly rate, and replenish it as the matter proceeds. You receive an itemized bill before any money moves.',
+      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
-    question: 'Why is contested probate not a flat fee when everything else at your firm is?',
+    question: 'How do you set a fixed fee for contested probate?',
     answer:
-      'Because we can only responsibly quote a flat fee for work whose scope we control. An uncontested probate has a knowable list of filings and hearings, so we can price it. A contested matter does not — the other side decides how hard to fight. Flat-fee litigation ends one of two ways: the firm loses money and starts cutting corners, or the client is quietly asked for more. We would rather tell you the truth up front and bill you honestly for the hours we actually work.',
+      'We screen the dispute before engagement and define the work in writing. A standard will contest is $50,000; complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial within the retained litigation package are included, without stacked charges, extra trial-day fees or hourly conversion. Work outside that scope requires a specific fixed-fee addendum and client acceptance before charging. Existing signed engagements are honored.',
   },
   {
     question: 'Do attorney fees in a contested Illinois probate need court approval?',
@@ -71,7 +71,7 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'What happens if my uncontested probate suddenly becomes contested?',
     answer:
-      `If someone files an objection or a competing petition in a matter we took on a flat fee, that matter converts to contested representation billed hourly against a ${usd(RETAINERS.contestedProbate)} retainer. The unearned portion of the flat fee you have already paid — the part we have not yet earned, as determined by the firm — is credited toward that retainer and held in our client trust account, drawn down only as fees are actually earned and billed. We notify you in writing of the exact amount credited. We tell you all of this before you engage us, and it is written into the engagement agreement. It is never a surprise.`,
+      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
     question: 'Which Illinois counties do you handle contested probate in?',
@@ -99,7 +99,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'Is adult guardianship a flat fee?',
     answer:
-      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. A guardianship is billed hourly against a ${usd(RETAINERS.contestedGuardianship)} retainer only when it is contested.`,
+      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
   },
   {
     question: 'What is the difference between guardianship of the person and guardianship of the estate?',
@@ -137,12 +137,12 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'How much does minor guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested — for example a parent objects or files a competing petition — the matter converts to hourly billing against a ${usd(RETAINERS.contestedGuardianship)} retainer, and the unearned portion of the flat fee you already paid is credited toward that retainer.`,
+      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
   },
   {
     question: 'What if a parent objects to the guardianship?',
     answer:
-      `If a parent objects or files a competing petition, the guardianship is contested and becomes litigation. A contested minor guardianship is billed hourly against a ${usd(RETAINERS.contestedGuardianship)} retainer. We tell you this before you engage us, and the conversion clause — crediting the unearned portion of your flat fee against the retainer — is written into the engagement agreement, so it is never a surprise.`,
+      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
     question: 'What is the difference between guardianship and adoption?',

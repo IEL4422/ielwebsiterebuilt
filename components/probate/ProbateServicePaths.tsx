@@ -86,8 +86,8 @@ export function ProbateServicePaths() {
           <div className="rounded-2xl bg-[#33414E] p-6 text-white">
             <h3 className="text-xl font-bold">Is there a dispute?</h3>
             <p className="mt-3 text-sm leading-relaxed text-white/80">A will contest, competing representative, removal request, or filed objection is contested probate—not a flat-fee administration.</p>
-            <p className="mt-4 text-lg font-bold">{usd(RETAINERS.contestedProbate)} retainer</p>
-            <p className="mt-1 text-sm text-white/75">{hourly(RATES.attorneyHourly)} attorney · {hourly(RATES.paralegalHourly)} paralegal</p>
+            <p className="mt-4 text-lg font-bold">Individually quoted fixed fee</p>
+            <p className="mt-1 text-sm text-white/75">Standard will contest: $50,000. Attorney screening and one exact quote upfront; ordinary litigation work included.</p>
             <Link href="/book-consultation/" className="mt-5 inline-flex items-center gap-2 font-bold text-white underline underline-offset-4">Discuss a contested estate<ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>

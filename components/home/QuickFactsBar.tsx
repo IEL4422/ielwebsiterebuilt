@@ -14,7 +14,7 @@ const facts = [
     // and the services page already said so. See lib/fee-structure.ts.
     icon: DollarSign,
     label: '100% Flat-Fee*',
-    sub: 'Hourly only for contested matters',
+    sub: 'Fixed fees after screening for contested matters',
     href: '/services-pricing/',
   },
   {

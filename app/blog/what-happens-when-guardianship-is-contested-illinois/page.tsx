@@ -59,12 +59,12 @@ export default function Page() {
     {
       question: 'How much does a contested guardianship cost?',
       answer:
-        'A contested guardianship is billed hourly against a retainer rather than at a flat fee, because the opposing party — not the attorney — drives how much work the case requires. Every objection, motion, deposition, and hearing date the other side pursues adds hours, so no responsible firm can promise a fixed price for litigation whose scope it does not control. Costs are billed separately from attorney fees; the largest of these is usually the guardian ad litem\'s fee, which the court sets and allocates. Because the total depends entirely on how hard the matter is fought, we discuss the retainer, the hourly structure, and cost expectations directly with you before we begin. You can review how contested guardianship fees are handled on our guardianship page.',
+        'Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
     },
     {
       question: 'What happens to my flat fee if my guardianship becomes contested?',
       answer:
-        'If a matter you engaged us for on a flat fee — such as an uncontested minor guardianship — later becomes contested, it converts to hourly billing against a retainer. The unearned portion of the flat fee you have already paid — the part we have not yet earned, as determined by the firm — is credited toward that retainer and held in our client trust account. It is drawn down only as fees are actually earned and billed, and we notify you in writing of the exact amount credited. None of this is a surprise: we explain the conversion up front and write it into the engagement agreement, so you know before signing exactly how a flat fee is handled if the case turns into litigation.',
+        'If new contested work falls outside the retained scope, we provide a specific fixed-fee addendum for your acceptance before charging. Work already included is not charged again. Existing signed terms are honored; refunds for unfinished representation reflect work performed, subject to mandatory reasonableness and refund requirements.',
     },
     {
       question: 'Can a guardian be removed in Illinois?',
@@ -185,7 +185,7 @@ export default function Page() {
                     Once that opposition is on file, the matter stops being a routine court appointment and becomes litigation. That means discovery, a guardian ad litem investigating and reporting to the judge, a physician&apos;s report, and an evidentiary hearing before the court rules.
                   </p>
                   <p className="mb-0 font-['Plus_Jakarta_Sans']">
-                    And because the opposing party — not the attorney — drives how much work the case requires, a contested guardianship is billed hourly against a retainer rather than at a flat fee. This guide walks through what triggers a contest, how the process moves, the standard the court applies, and how fees are handled from start to finish.
+                    A contested guardianship requires attorney screening and a defined fixed-fee scope before engagement. This guide explains what triggers a contest, how the process moves, the standard the court applies and how fees are handled.
                   </p>
                 </div>
               </div>
@@ -200,7 +200,7 @@ export default function Page() {
                 {[
                   { label: 'An objection, a competing petition, or a removal request', type: 'What Triggers It', color: 'amber' },
                   { label: 'Discovery, a guardian ad litem, and an evidentiary hearing', type: 'What It Becomes', color: 'blue' },
-                  { label: 'Hourly against a retainer — the opposing party drives the work', type: 'How Fees Work', color: 'green' },
+                  { label: 'One fixed fee for the defined litigation after screening', type: 'How Fees Work', color: 'green' },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -488,11 +488,11 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Uncontested matters lend themselves to flat-fee pricing because the work is predictable. A contested guardianship is different. Once someone is fighting the petition, the <strong>opposing party — not the attorney — drives the workload</strong>. Every objection, motion, deposition, and additional hearing date the other side pursues adds hours that no one can forecast at the outset. For that reason, a contested guardianship is <strong>billed hourly against a retainer</strong> rather than at a flat fee.
+              Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Just as important, <strong>costs are billed separately from attorney fees</strong>. The largest of these is usually the <strong>guardian ad litem&apos;s fee</strong>, which the court sets and allocates among the parties, but costs can also include filing fees, deposition transcripts, and any independent evaluation the court orders. Because the total depends entirely on how hard the case is fought, we talk through the retainer, the hourly structure, and realistic expectations with you before we begin.
+              Court-appointed guardian ad litem fees and other third-party expenses depend on the case and the signed agreement. We identify any separate expenses before engagement and honor expenses already included in the retained scope.
             </p>
 
             <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
@@ -500,7 +500,7 @@ export default function Page() {
                 Facing a Contested Guardianship?
               </h3>
               <p className="text-white/80 mb-5 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
-                Illinois Estate Law helps Chicago-area families navigate contested guardianships — from objections and competing petitions to removal and surcharge claims. We explain the retainer and hourly structure up front so you always understand how fees work before you commit.
+                Illinois Estate Law helps families navigate contested guardianships. We explain the defined scope and exact fixed fee before you commit.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
@@ -524,7 +524,7 @@ export default function Page() {
               <Link href="/guardianship/#contested" className="text-[#4a708b] hover:underline font-medium font-['Plus_Jakarta_Sans']">
                 contested guardianship page
               </Link>
-              . The important takeaway is that fee structure follows the nature of the work: predictable work can be quoted flat, but litigation controlled by the other side cannot.
+              . The written scope and screened fixed quote establish the fee before engagement.
             </p>
 
             {/* 8. Flat to Contested */}
@@ -533,11 +533,11 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              A common and understandable worry: &ldquo;I hired you for a flat-fee guardianship — what happens to my money if it turns into a fight?&rdquo; This comes up most often with matters that start out uncontested, such as a minor guardianship everyone expected to be routine. Here is exactly how we handle it, and why you do not need to worry about losing what you have already paid.
+              A guardianship that begins uncontested may later involve a dispute. Before additional work begins, we review the existing agreement and identify what is already covered.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              If a matter you engaged us for on a flat fee later becomes contested, it <strong>converts to hourly billing against a retainer</strong>, for the reasons described above. But the flat fee you already paid does not simply disappear. The <strong>unearned portion</strong> of that flat fee — the part we have not yet earned, as determined by the firm — is <strong>credited toward the retainer</strong> and held in <strong>our client trust account</strong>. It is drawn down only as fees are actually earned and billed, never before.
+              If new contested work falls outside the retained scope, we provide a specific fixed-fee addendum for your acceptance before charging. Work already included is not charged again. Existing signed terms are honored; refunds for unfinished representation reflect work performed, subject to mandatory reasonableness and refund requirements.
             </p>
 
             <div className="bg-green-50 border-l-4 border-green-500 p-5 my-8 rounded-r-lg">
@@ -546,14 +546,14 @@ export default function Page() {
                 <div>
                   <p className="font-semibold text-green-800 mb-1 font-['Plus_Jakarta_Sans']">You are told the exact amount, in writing</p>
                   <p className="text-green-700 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
-                    When a flat fee converts, we notify you in writing of the exact unearned amount credited toward your retainer. That money sits in our client trust account and is applied only as fees are actually earned and billed. Nothing is moved out of trust before it is earned.
+                    If new contested work is outside your retained scope, we provide a specific fixed-fee addendum for your acceptance before charging. Existing signed engagements and included work remain protected. Settlement completes the defined work; any refund for unfinished representation reflects work performed and mandatory reasonableness and refund requirements.
                   </p>
                 </div>
               </div>
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              None of this is a surprise, either. We explain the conversion <strong>up front</strong> and write it directly into the engagement agreement, so you know before you ever sign exactly how a flat fee will be treated if the matter becomes contested. The goal is simple: to make sure a change in the nature of your case never becomes a change you did not see coming.
+              We explain any proposed additional scope in writing before acceptance. A change in the case does not automatically authorize another charge.
             </p>
 
             {/* 9. Protecting Your Family */}
@@ -575,7 +575,7 @@ export default function Page() {
                     'Relatives can fight over who should serve',
                     'The process becomes public litigation',
                     'Discovery, a GAL, and a hearing all take time',
-                    'Legal fees are billed hourly as the fight drags on',
+                    'Litigation can delay decisions and increase emotional strain',
                     'Family relationships are strained for years',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">

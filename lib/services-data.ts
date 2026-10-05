@@ -1,8 +1,10 @@
+import feePolicy from './fee-scope-policy.json';
 import { A_LA_CARTE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from './pricing';
 
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
+export type StandardizedCaseType = 'Bond in Lieu of Probate' | 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
 export type StandardizedServiceName =
+  | (typeof feePolicy.fee_items[number])['label']
   | 'Individual Trust Package'
   | 'Joint Trust Package'
   | 'Individual Will Package'
@@ -276,23 +278,6 @@ const probateNote = 'Surety bond premium, if required, is paid directly to the b
 
 export const probatePackages: Service[] = [
   {
-    id: 'bond-in-lieu-of-probate',
-    name: 'Bond in Lieu of Probate',
-    subtitle: 'When the sole estate asset is real estate',
-    category: 'probate',
-    standardizedCaseType: 'Probate',
-    standardizedServiceName: 'Bond in Lieu of Probate',
-    fixedPrice: 1500,
-    description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition of the property. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a full probate proceeding.',
-    includes: [
-      'Title Transfer Documentation',
-      'Coordination with Title Company for Out-of-Court Title Transfer',
-      'Attorney consultations related to the included scope'
-    ],
-    note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
-    addOns: []
-  },
-  {
     id: 'small-estate-administration',
     name: 'Small Estate Administration',
     subtitle: 'Small Estate Affidavit and Attorney Letter of Direction — no probate case opened',
@@ -317,7 +302,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Standard Probate',
     fixedPrice: PROBATE.standard,
-    description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested issues are billed hourly against a separate retainer.',
+    description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested work requires a separately approved fixed-fee scope.',
     includes: probateIncludes,
     note: probateNote,
     addOns: []
@@ -343,7 +328,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate Reopening',
     fixedPrice: PROBATE.reopening,
-    description: 'Applies when a previously closed probate estate is reopened due to the discovery of additional assets requiring administration. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+    description: 'Applies when a previously closed probate estate is reopened due to the discovery of additional assets requiring administration. Uncontested matters only — any contested work requires a separately approved fixed fee.',
     includes: [
       'Motion to Reopen Probate',
       'Attendance at all required court hearings',
@@ -392,7 +377,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Spousal Representation',
     fixedPrice: PROBATE.spousalRepresentation,
-    description: 'Applies when representing a spouse who is not the executor or administrator of the estate. Uncontested matters only — any contested issues will be converted to an hourly rate with a retainer.',
+    description: 'Applies when representing a spouse who is not the executor or administrator of the estate. Uncontested matters only — any contested work requires a separately approved fixed fee.',
     includes: [
       'Full legal representation of the spouse throughout probate proceedings',
       'Advice and consultation regarding spousal rights and interests',
@@ -405,20 +390,15 @@ export const probatePackages: Service[] = [
   {
     id: 'contested-probate',
     name: 'Contested Probate',
-    subtitle: 'NOT A FLAT FEE — Hourly Billing',
+    subtitle: "Attorney screening before engagement",
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Contested Probate',
-    pricingLabel: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
-    description: `Applies when any probate matter becomes or is anticipated to be contested. This is not a flat-fee service. Attorney hourly rate: ${hourly(RATES.attorneyHourly)}. Paralegal/Administrative hourly rate: ${hourly(RATES.paralegalHourly)}. Retainer replenished as needed throughout the matter.`,
-    includes: [
-      `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
-      `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
-      `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
-      'Retainer replenished as needed throughout the matter'
-    ],
+    pricingLabel: "Individually quoted fixed fee",
+    description: "The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.",
+    includes: ["Attorney screening and exact written scope","The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.","Specific approval before any additional charge"],
     addOns: []
-  },
+  , requiresConsultation: true},
   {
     id: 'document-review',
     name: 'Document Review',
@@ -570,6 +550,23 @@ export const aLaCarteServices: Service[] = [
 ];
 
 export const realEstateServices: Service[] = [
+  {
+    id: 'bond-in-lieu-of-probate',
+    name: 'Bond in Lieu of Probate',
+    subtitle: 'When the sole estate asset is real estate',
+    category: 'real-estate',
+    standardizedCaseType: 'Bond in Lieu of Probate',
+    standardizedServiceName: 'Bond in Lieu of Probate',
+    fixedPrice: 1500,
+    description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition of the property. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a full probate proceeding.',
+    includes: [
+      'Title Transfer Documentation',
+      'Coordination with Title Company for Out-of-Court Title Transfer',
+      'Attorney consultations related to the included scope'
+    ],
+    note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
+    addOns: []
+  },
   {
     id: 'residential-closing',
     name: 'Residential Closing (Buyer or Seller)',
@@ -737,22 +734,31 @@ export const guardianshipServices: Service[] = [
   {
     id: 'contested-guardianship',
     name: 'Contested Guardianship',
-    subtitle: 'Objection, competing petition, or guardian-removal matter',
+    subtitle: "Attorney screening before engagement",
     category: 'guardianship',
     standardizedCaseType: 'Guardianship',
     standardizedServiceName: 'Contested Guardianship',
-    pricingLabel: `${usd(RETAINERS.contestedGuardianship)} retainer + hourly`,
+    pricingLabel: "$25,000 standard fixed fee",
     requiresConsultation: true,
-    description: 'For a guardianship matter involving an objection, a competing petition, or a challenge to an existing guardian. These matters require attorney review before engagement.',
-    includes: [
-      'Attorney review of the dispute and court posture',
-      'Clear explanation of retainer, hourly rates, and anticipated next steps'
-    ],
-    note: 'Court costs and guardian ad litem fees may be billed separately.'
+    description: "The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.",
+    includes: ["Attorney screening and exact written scope","The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.","Specific approval before any additional charge"],
+    note: "Existing signed engagements and previously included expenses are honored. Any required court approval is separate."
   }
 ];
 
+export const approvedAdditionalServices: Service[] = feePolicy.fee_items.map(item => ({
+  id: 'fee-' + item.id, name: item.label,
+  category: item.id.startsWith('guardianship-') ? 'guardianship' : 'probate',
+  standardizedCaseType: item.id.startsWith('guardianship-') ? 'Guardianship' : 'Probate',
+  standardizedServiceName: item.label, requiresConsultation: true,
+  pricingLabel: 'variants' in item && item.variants ? '$2,500 uncontested / $12,500 contested' : item.amount == null ? 'Individually quoted fixed fee' : `$${item.amount.toLocaleString()}${'unit' in item && item.unit ? ` ${item.unit}` : ''}`,
+  description: feePolicy.additional_scope + ' ' + feePolicy.litigation_scope,
+  includes: ['Attorney screening and exact written scope', 'Explicit service-specific acceptance before charging'],
+  note: feePolicy.routine_scope + ' ' + feePolicy.legacy_scope,
+}));
+
 export const allServices = [
+  ...approvedAdditionalServices,
   ...estatePlanningPackages,
   ...probatePackages,
   ...trustAdministrationServices,

@@ -206,9 +206,9 @@ export default function RecommendedServicePage() {
         },
         contested: {
           name: 'Contested Guardianship',
-          price: `${usd(RETAINERS.contestedGuardianship)} retainer + hourly`,
+          price: '$25,000 standard fixed fee',
           description: 'For an objection, competing petition, or challenge to an existing guardian. Attorney review is required before engagement.',
-          includes: ['Attorney review of the dispute and court posture', 'Clear explanation of retainer, hourly rates, and anticipated next steps'],
+          includes: ['Attorney review of the dispute and court posture', 'Exact fixed fee and scope after attorney screening'],
           addOns: [],
           serviceId: 'contested-guardianship',
           requiresConsultation: true,
@@ -313,13 +313,12 @@ export default function RecommendedServicePage() {
       if (issuesAmongHeirs === 'yes') {
         return {
           name: 'Contested Probate',
-          price: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
-          description: `For probate matters that are or are anticipated to be contested. NOT a flat fee — billed hourly with a ${usd(RETAINERS.contestedProbate)} retainer. Attorney: ${hourly(RATES.attorneyHourly)}; Paralegal/Administrative: ${hourly(RATES.paralegalHourly)}.`,
+          price: 'Individually quoted fixed fee',
+          description: 'Attorney screening and one fixed fee agreed upfront for the defined dispute. No hourly conversion or extra trial-day fees.',
           includes: [
-            `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
-            `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
-            `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
-            'Retainer replenished as needed throughout the matter'
+            'Attorney screening and a written fixed-fee scope',
+            'Ordinary subpoenas, discovery, motions, mediation and trial included in the retained package',
+            'Specific acceptance before additional charges'
           ],
           addOns: [],
           serviceId: 'contested-probate',
@@ -378,7 +377,7 @@ export default function RecommendedServicePage() {
         return {
           name: 'Standard Probate',
           price: usd(PROBATE.standard),
-          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested issues are billed hourly against a separate retainer.',
+          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested work requires a separately approved fixed-fee scope.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',

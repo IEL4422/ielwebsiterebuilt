@@ -281,14 +281,9 @@ export const serviceCategories: ServiceCategory[] = [
       },
       {
         name: 'Contested Probate',
-        subtitle: 'NOT A FLAT FEE — Hourly Billing',
-        pricingLabel: `${usd(RETAINERS.contestedProbate)} retainer + hourly`,
-        includes: [
-          `Minimum ${usd(RETAINERS.contestedProbate)} retainer required to commence representation`,
-          `Attorney hourly rate: ${hourly(RATES.attorneyHourly)}`,
-          `Paralegal / Administrative hourly rate: ${hourly(RATES.paralegalHourly)}`,
-          'Retainer replenished as needed throughout the matter'
-        ]
+        subtitle: "Attorney screening before engagement",
+        pricingLabel: "Individually quoted fixed fee",
+        includes: ["Attorney screening and exact written scope","The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.","Specific approval before any additional charge"]
       }
     ],
     aLaCarte: [],

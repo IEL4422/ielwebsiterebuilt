@@ -24,6 +24,10 @@ function num(name) {
 }
 const usd = (n) => `$${n.toLocaleString('en-US')}`;
 
+const policy = JSON.parse(readFileSync(join(root, 'lib/fee-scope-policy.json'), 'utf8'));
+const emergencyFee = policy.fee_items.find(item => item.id === 'emergency-preservation')?.amount;
+if (!Number.isFinite(emergencyFee) || emergencyFee <= 0) throw new Error('Missing approved emergency-preservation fee');
+
 const TOKENS = {
   ATTORNEY_HOURLY: `${usd(num('attorneyHourly'))} / hour`,
   PARALEGAL_HOURLY: `${usd(num('paralegalHourly'))} / hour`,
@@ -50,11 +54,16 @@ const TOKENS = {
   GUARDIANSHIP_COMPLIANCE: usd(num('compliancePlanBundled')),
   ADULT_GUARDIANSHIP: usd(num('adultUncontested')),
   MINOR_GUARDIANSHIP: usd(num('minorUncontested')),
-  EMERGENCY_GUARDIANSHIP_ADD_ON: usd(num('emergencyTemporaryAddOn')),
-  EMERGENCY_GUARDIANSHIP_TOTAL: usd(num('adultUncontested') + num('emergencyTemporaryAddOn')),
+  EXTRAORDINARY_GUARDIANSHIP: usd(policy.fee_items.find(item => item.id === 'guardianship-extraordinary').amount),
+  GUARDIANSHIP_TERMINATION: usd(policy.fee_items.find(item => item.id === 'guardianship-modification').variants.uncontested),
+  EMERGENCY_GUARDIANSHIP_ADD_ON: usd(emergencyFee),
+  EMERGENCY_GUARDIANSHIP_TOTAL: usd(num('adultUncontested') + emergencyFee),
   MULTI_UNIT_CLOSING: usd(num('multiUnitOrInvestmentClosing')),
   NONSTANDARD_TITLE_CLOSING: usd(num('estateTrustOrNonstandardTitleClosing')),
 };
+
+const html = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+TOKENS.APPROVED_FEE_MENU = '<section><h2>Additional and contested services</h2><table>' + policy.fee_items.map(item => '<tr><td>'+html(item.label)+'</td><td>'+html(item.variants ? '$2,500 uncontested / $12,500 contested' : item.amount == null ? 'Individually quoted fixed fee' : usd(item.amount)+(item.unit?' '+item.unit:''))+'</td></tr>').join('') + '</table>' + ['routine_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'].map(key=>'<p>'+html(policy[key])+'</p>').join('') + '</section>';
 
 let out = readFileSync(join(root, 'scripts/pricing-sheet.template.html'), 'utf8');
 for (const [k, v] of Object.entries(TOKENS)) out = out.split(`{{${k}}}`).join(v);
@@ -72,4 +81,4 @@ const banner = [
 ].join('\n');
 
 writeFileSync(join(root, 'public/pricing-sheet.html'), banner + out);
-console.log('pricing-sheet.html generated', TOKENS);
+console.log('pricing-sheet.html generated with approved 21-item fee menu');

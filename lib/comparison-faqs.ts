@@ -28,7 +28,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'Is probate in Illinois billed hourly or as a flat fee?',
     answer:
-      `Both models are used in Illinois — probate fees are not standardized by statute, so it depends entirely on the firm you hire. This firm quotes a flat fee for uncontested probate (${usd(PROBATE.standard)} for a standard estate; an estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)}) and bills hourly only when a matter is actually contested. Many Illinois probate firms bill every matter hourly. Ask any firm you are considering which model applies to your case, and get the answer in writing before you engage them.`,
+      `Both hourly and fixed-fee models are used in Illinois. Our prospective engagements use a defined fixed fee. Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
   },
   {
     question: 'What does a flat probate fee include in Illinois?',
@@ -36,9 +36,8 @@ export const flatFeeVsHourlyFAQs: QA[] = [
       `At this firm the flat probate fee is all-inclusive of the firm's work and the court costs: opening the estate, letters of office, notice and creditor publication, the inventory, routine court appearances, distributions, and closing the estate — plus the filing fees, publication charges, and recording fees, which are covered by the fee rather than billed on top of it. The single carve-out is the surety bond premium, if the court requires the representative to post a bond; that is paid directly to the bond provider. "All-inclusive" is not the industry norm, so confirm with any firm whether their quoted flat fee also absorbs court costs or merely covers attorney time.`,
   },
   {
-    question: 'Why is contested probate billed hourly instead of flat?',
-    answer:
-      `Because in a contested matter the opposing party, not the firm, controls how much work there is. How many motions get filed, whether discovery is agreed or fought, and whether the case settles or goes to trial are not knowable when the engagement starts, so no honest fixed price can be quoted. Flat-fee litigation resolves one of two ways: the firm loses money and starts economizing on your case, or you are quietly asked for more later. Contested probate, will contests, and estate litigation here open on a ${usd(RETAINERS.contestedProbate)} retainer billed at ${hourly(RATES.attorneyHourly)} for attorney time and ${hourly(RATES.paralegalHourly)} for paralegal time, replenished when the balance falls below ${usd(RETAINER_FLOORS.contestedProbate)}. Costs — filing fees, service, transcripts, guardian ad litem fees — are billable to the client in contested matters.`,
+    question: 'How is contested probate priced?',
+    answer: 'A standard will contest is $50,000 for the defined litigation through trial or settlement. Other disputes use the approved fixed-fee menu or one individual fixed quote. Complex cases are screened and quoted upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
   },
   {
     question: 'Is a flat fee cheaper than hourly for Illinois probate?',
@@ -46,9 +45,9 @@ export const flatFeeVsHourlyFAQs: QA[] = [
       'Not automatically, and anyone who tells you it always is, is selling. A flat fee and an hourly engagement can land in the same place on a simple estate. What a flat fee actually buys is predictability and a transfer of risk: if the estate turns out to be more work than expected, that is the firm’s problem rather than yours, and you are never charged for asking a question. Hourly can cost less on an unusually clean file and considerably more on a messy one. The honest comparison is not price against price, it is a known number against an unknown one.',
   },
   {
-    question: 'Can an Illinois probate start as a flat fee and become hourly?',
+    question: "What happens if a flat-fee probate becomes contested?",
     answer:
-      'Yes, and the trigger is a formal contest rather than mere difficulty. If someone files an objection, an appearance in opposition, or a competing petition, an uncontested matter becomes contested litigation and converts to hourly billing against a retainer. Under this firm’s engagement terms the flat fee already paid is credited against that retainer. An estate simply being complicated, slow, or contentious in tone does not convert it — only an actual filed contest does.',
+      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
     question: 'Do Illinois probate attorney fees have to be approved by the court?',

@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
     url: '/blog/what-happens-when-guardianship-is-contested-illinois/',
     date: 'Jul 12, 2026',
     summary:
-      'What to expect when an Illinois guardianship is contested — the three ways a matter becomes contested (the respondent objects, a competing petition, or a move to remove a guardian), how the litigation unfolds with a guardian ad litem and an evidentiary hearing, the clear-and-convincing standard of proof, how a guardian is removed or replaced, how fees work, what happens to a flat fee when a matter converts to hourly, and how advance planning reduces the risk.',
+      'What to expect when an Illinois guardianship is contested — the three ways a matter becomes contested (the respondent objects, a competing petition, or a move to remove a guardian), how the litigation unfolds with a guardian ad litem and an evidentiary hearing, the clear-and-convincing standard of proof, how a guardian is removed or replaced, how fees work, how a fixed-fee addendum handles new work outside the retained scope, and how advance planning reduces the risk.',
     excerpt:
       'When a family disagrees or the proposed ward objects, an Illinois guardianship becomes litigation. Learn how a contested guardianship unfolds, how it is decided, and what it costs.',
   },
