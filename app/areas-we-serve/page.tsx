@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 
 export const metadata: Metadata = {
-  title: 'Top Rated Estate Planning Services in Illinois',
+  title: 'Estate Planning & Probate Across All Illinois',
   description: 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/areas-we-serve/',
@@ -14,16 +14,16 @@ export const metadata: Metadata = {
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
     type: 'article',
-    title: 'Top Rated Estate Planning Services in Illinois',
+    title: 'Estate Planning & Probate Across All Illinois',
     description: 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
   },
   twitter: {
     card: 'summary',
-    title: 'Top Rated Estate Planning Services in Illinois',
+    title: 'Estate Planning & Probate Across All Illinois',
     description: 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
   },
   other: {
-    'dc:title': 'Top Rated Estate Planning Services in Illinois',
+    'dc:title': 'Estate Planning & Probate Across All Illinois',
     'dc:description': 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
     'dc:relation': 'https://www.illinoisestatelaw.com/areas-we-serve/',
     'dc:source': 'https://www.illinoisestatelaw.com/',
@@ -46,7 +46,7 @@ export default function AreasWeServePage() {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center">
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                Illinois Estate Law proudly serves clients <strong className="text-slate-800">statewide for estate planning</strong> and represents families in <strong className="text-slate-800">probate matters across eight key counties</strong>.
+                Illinois Estate Law proudly serves clients <strong className="text-slate-800">statewide for estate planning and probate</strong> and helps families in <strong className="text-slate-800">every Illinois county, including Chicago and Cook County</strong>.
               </p>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function AreasWeServePage() {
               </h2>
               <div className="w-20 h-1 bg-[#7E9CC0] mx-auto mb-6"></div>
               <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                Whether you live in Chicago, Springfield, Rockford, Peoria, or any other Illinois community, our virtual platform brings comprehensive estate planning directly to you. We meet by secure video, phone, or at one of our convenient office locations across the state.
+                Whether you live in Chicago, Springfield, Rockford, Peoria, or any other Illinois community, our virtual platform brings comprehensive estate planning directly to you. We meet by secure video or phone. Current clients can contact the firm to arrange an in-person meeting.
               </p>
             </div>
 
@@ -88,10 +88,10 @@ export default function AreasWeServePage() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-4">
-                  Multiple Office Locations
+                  Statewide Access
                 </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  With offices throughout Illinois, we're here when you need us. <a href="/locations/" className="text-[#7E9CC0] hover:text-[#5A9BC4] font-semibold underline">View our locations</a> to find an office near you.
+                  Our virtual services reach clients throughout Illinois. <a href="/locations/" className="text-[#7E9CC0] hover:text-[#5A9BC4] font-semibold underline">View our locations</a> for existing meeting-location information; contact the firm to confirm availability.
                 </p>
               </div>
             </div>
@@ -103,11 +103,11 @@ export default function AreasWeServePage() {
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                Probate Representation Counties
+                Illinois Probate: County Resources
               </h2>
               <div className="w-20 h-1 bg-[#7E9CC0] mx-auto mb-6"></div>
               <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                We currently accept probate and estate administration cases in the following counties:
+                We accept probate and estate administration matters throughout Illinois. The counties below are examples and local resources, not limits on our statewide coverage.
               </p>
             </div>
 
@@ -256,7 +256,7 @@ export default function AreasWeServePage() {
                 Ready to Get Started?
               </h2>
               <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                Our firm offers fully virtual services with physical offices throughout Illinois. In-person meetings are available for current clients.
+                Our firm offers virtual services throughout Illinois. Current clients can contact us to arrange in-person meetings.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

@@ -29,7 +29,7 @@ export const homeFAQs: QA[] = [
   },
   {
     question: 'How does Illinois Estate Law make estate planning more convenient?',
-    answer: 'Illinois Estate Law offers a modern, virtual process that eliminates the need for office visits or piles of paperwork. Clients can complete their estate planning securely online, from the comfort of home. This approach provides flexibility while maintaining confidentiality and professional guidance throughout the process. Current clients also have access to in-person meetings at our locations throughout Illinois.',
+    answer: 'Illinois Estate Law offers a modern, virtual process that eliminates the need for office visits or piles of paperwork. Clients can complete their estate planning securely online, from the comfort of home. This approach provides flexibility while maintaining confidentiality and professional guidance throughout the process. Current clients also have access to in-person meetings by arrangement with the firm.',
   },
   {
     question: "What makes Illinois Estate Law's pricing structure different?",
@@ -61,6 +61,6 @@ export const homeFAQs: QA[] = [
   },
   {
     question: 'Do you offer in-person consultations?',
-    answer: 'We do not offer in-person consultations for new clients. However, in-person meetings are included and available for all current clients at any of our convenient locations throughout Illinois.',
+    answer: 'We do not offer in-person consultations for new clients. However, in-person meetings are included and available for all current clients by arrangement with the firm.',
   },
 ];;

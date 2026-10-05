@@ -1,5 +1,6 @@
 'use client';
 
+import { AttorneyContext } from '@/components/content/AttorneyContext';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,7 +38,7 @@ export default function ChicagoProbateLawyerPage() {
     <>
 
       <main>
-        <InnerPageHero title="Illinois Probate Lawyer & Estate Administration" subtitle={`Full uncontested probate for ${usd(PROBATE.standard)}, with court filing fees, creditor publication, and applicable recording fees included.`} />
+        <InnerPageHero title="Chicago Probate Lawyer Serving All of Illinois" subtitle={`Full uncontested probate for ${usd(PROBATE.standard)}, with court filing fees, creditor publication, and applicable recording fees included.`} />
         <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -89,6 +90,15 @@ export default function ChicagoProbateLawyerPage() {
           </div>
         </div>
 
+        <section className="bg-slate-50 py-12"><div className="mx-auto max-w-[1140px] px-5 space-y-5 text-slate-600 leading-relaxed">
+          <h2 className="text-2xl font-bold text-[#33414E]">A practical starting point for an Illinois estate</h2>
+          <p>We represent families throughout Illinois, including Chicago and the rest of Cook County. Virtual consultations let you begin from home, including when you live outside Illinois but are handling an Illinois estate. The appropriate court and filing requirements depend on the estate, not on where the family happens to live.</p>
+          <p>For a Cook County matter, start with our <Link className="underline" href="/probate/cook-county/">Cook County probate guide</Link> and <Link className="underline" href="/blog/cook-county-probate-paperwork-every-form-one-bookmark-illinois-estate-law/">probate paperwork guide</Link>. Families elsewhere can explore <Link className="underline" href="/areas-we-serve/">statewide service coverage and county resources</Link>.</p>
+          <h3 className="text-xl font-bold text-[#33414E]">What to bring to your first consultation</h3>
+          <p>Gather the death certificate, any will or trust, the decedent’s county of residence, a preliminary asset and debt list, and any court papers or deadlines. Note how accounts and real estate are titled and whether beneficiaries are named. We can then discuss whether full probate, partial representation or a small-estate service fits the facts.</p>
+          <p>For deaths on or after August 15, 2025, the small-estate affidavit limit is $150,000 in qualifying personal property, excluding motor vehicles registered with the Illinois Secretary of State. Earlier deaths use the prior $100,000 limit. The affidavit does not transfer real estate and is subject to additional conditions. See <a className="underline" href="https://www.ilga.gov/legislation/PublicActs/View/104-0346">Public Act 104-0346</a> and discuss eligibility with your attorney.</p>
+          <p>Not every asset belongs in a probate estate. Read <Link className="underline" href="/blog/do-all-assets-go-through-probate-in-illinois/">which assets pass outside probate</Link> and, when there is no will, <Link className="underline" href="/blog/who-has-priority-to-serve-as-administrator-of-an-estate-in-illinois/">who has priority to serve as administrator</Link>. Before work begins, your agreement identifies the service, included work and applicable fixed fees.</p>
+        </div></section>
         <ProbateServicePaths />
 
         {/* Introduction Section */}
@@ -97,7 +107,7 @@ export default function ChicagoProbateLawyerPage() {
             <div className="max-w-[1140px] mx-auto">
               <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-[#7E9CC0] rounded-lg p-8 mb-12 shadow-sm">
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                  Navigate Illinois Probate with Experienced Legal Guidance
+                  Probate in Chicago, Cook County and throughout Illinois
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   The passing of a loved one is difficult enough without the added stress of probate court proceedings. At Illinois Estate Law, we provide compassionate, expert guidance through every step of the probate process in Cook County and throughout Illinois. Whether you're serving as an executor, administrator, or beneficiary, we help you fulfill your responsibilities and protect your rights during this challenging time.
@@ -688,6 +698,7 @@ export default function ChicagoProbateLawyerPage() {
             </div>
           </div>
         </section>
+        <AttorneyContext practice="probate" />
       </main>
     </>
   );

@@ -114,7 +114,7 @@ export function Footer() {
 
             <div className="lg:w-[25%] mt-0 lg:mt-0">
               <p className="text-[#FEFEFE] font-normal mb-3 sm:mb-4 text-sm sm:text-base">
-                We offer free initial consultations and fully virtual services. Our firm has physical offices throughout Illinois.{' '}
+                We offer free initial consultations and fully virtual services. We serve clients throughout Illinois.{' '}
                 <Link href="/locations/" className="underline hover:text-[#CCCCCC] transition-colors">
                   Click&nbsp;here
                 </Link>

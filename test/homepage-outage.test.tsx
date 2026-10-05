@@ -79,7 +79,8 @@ describe('homepage under total third-party failure', () => {
   it('renders the reviews block from constants, with no call to Google', async () => {
     const html = await renderHomepage();
 
-    expect(html).toContain('Based on 50 Google reviews');
+    expect(html).not.toContain('Based on 50 Google reviews');
+    expect(html).toContain('Read All Reviews on Google');
     // Assert an actual fallback testimonial, not a heading retired by the carousel redesign.
     expect(html).toContain('They handled my trust with care and explained every detail in plain language.');
   });

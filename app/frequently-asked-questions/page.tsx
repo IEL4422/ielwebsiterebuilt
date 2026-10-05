@@ -119,7 +119,7 @@ const faqs = [
   },
   {
     question: 'Do you offer in-person consultations?',
-    answer: 'We do not offer in-person consultations for new clients. However, in-person meetings are included and available for all current clients at any of our convenient locations throughout Illinois.',
+    answer: 'We do not offer in-person consultations for new clients. However, in-person meetings are included and available for all current clients by arrangement with the firm.',
   },
 ];
 

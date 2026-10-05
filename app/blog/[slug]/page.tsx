@@ -1,3 +1,4 @@
+import { correctedBlogContent, ASSETS_PROBATE_SLUG, ASSETS_CORRECTED_ON } from '@/lib/blog-content-corrections';
 import { getDb } from "@/lib/mongodb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -94,11 +95,11 @@ export default async function BlogPostPage({
     "headline": post.title,
     "description": post.metaDescription,
     "datePublished": post.publishedDate,
-    "dateModified": post.publishedDate,
+    ...(post.slug === ASSETS_PROBATE_SLUG ? { dateModified: ASSETS_CORRECTED_ON } : {}),
     "url": `https://www.illinoisestatelaw.com/blog/${post.slug}/`,
     "author": {
-      "@type": "Person",
-      "name": "Mary Liberty",
+      "@type": post.slug === ASSETS_PROBATE_SLUG ? "Person" : "Organization",
+      "name": post.slug === ASSETS_PROBATE_SLUG ? "Mary Liberty" : "Illinois Estate Law",
       "url": "https://www.illinoisestatelaw.com/about/"
     },
     "publisher": {
@@ -150,17 +151,15 @@ export default async function BlogPostPage({
                   {post.topic}
                 </span>
               )}
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                {post.title}
-              </h1>
               <time className="text-slate-600" dateTime={post.publishedDate as string}>
                 {formattedDate}
               </time>
             </div>
 
+            <p className="mb-5 text-sm text-slate-600">{post.slug === ASSETS_PROBATE_SLUG ? <>Original article by <Link className="underline" href="/about/">Mary Liberty</Link>.</> : <>Published by <Link className="underline" href="/about/">Illinois Estate Law — meet our attorneys</Link>.</>}{post.slug === ASSETS_PROBATE_SLUG && <> Small-estate information updated <time dateTime={ASSETS_CORRECTED_ON}>October 5, 2026</time>.</>}</p>
             <div
               className="prose prose-slate max-w-none prose-headings:font-bold prose-h2:text-3xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-2xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-700 prose-p:leading-relaxed prose-li:text-slate-700 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: correctedBlogContent(post.slug, post.content) }}
             />
 
             {post.internalLinks && post.internalLinks.length > 0 && (

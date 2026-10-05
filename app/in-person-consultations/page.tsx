@@ -16,7 +16,7 @@ export default function InPersonConsultationsPage() {
                   In-Person Meetings for Current Clients
                 </h2>
                 <p className="text-white/90 font-['Plus_Jakarta_Sans'] text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
-                  We do not offer in-person consultations for new clients. However, as a valued current client, in-person meetings are included and available to you at any of our convenient locations throughout Illinois.
+                  We do not offer in-person consultations for new clients. However, as a valued current client, in-person meetings are included and available to you by arrangement with the firm.
                 </p>
               </div>
 

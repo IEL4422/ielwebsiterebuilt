@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FEE_STRUCTURE_NOTE, FEE_STRUCTURE_HREF } from '@/lib/fee-structure';
 
@@ -52,20 +51,10 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[580px] md:min-h-[660px] lg:min-h-[700px] bg-[#232D36]">
       <div className="absolute inset-0">
-        <Image
-          src="https://i.imgur.com/UpbuKrM.png"
-          alt="Chicago Estate Planning"
-          fill
-          className="object-cover object-center lg:hidden opacity-20"
-          priority
-        />
-        <Image
-          src="/hero_option_1_hq.png"
-          alt="Chicago Estate Planning"
-          fill
-          className="hidden lg:block object-cover object-center opacity-20"
-          priority
-        />
+        <picture>
+          <source media="(min-width: 1024px)" srcSet="/hero-illinois-1024.webp 1024w, /hero-illinois-1584.webp 1584w" sizes="100vw" />
+          <img src="https://i.imgur.com/UpbuKrM.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center opacity-20" loading="eager" />
+        </picture>
       </div>
 
       <div className="relative mx-auto max-w-[1140px] px-4 sm:px-5 lg:px-0 flex flex-col justify-center min-h-[580px] md:min-h-[660px] lg:min-h-[700px] py-16 lg:py-24">

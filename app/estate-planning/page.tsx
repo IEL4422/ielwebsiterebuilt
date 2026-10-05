@@ -1,3 +1,6 @@
+import { AttorneyContext } from '@/components/content/AttorneyContext'
+import { estatePlanningPackages } from '@/lib/services-data'
+import { usd } from '@/lib/pricing'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FileText, Shield, Heart, Scale, ScrollText } from 'lucide-react'
@@ -5,11 +8,11 @@ import { InnerPageHero } from '@/components/layout/InnerPageHero'
 import { CTABand } from '@/components/ui/CTAButtons'
 
 export const metadata: Metadata = {
-  title: 'Estate Planning Services',
-  description: 'Comprehensive estate planning services in Illinois including wills, trusts, powers of attorney, healthcare directives, and more. Protect your family and assets with Illinois Estate Law.',
+  title: 'Chicago Estate Planning Attorney | Serving All Illinois',
+  description: 'Estate planning for Chicago, Cook County and all Illinois: wills, trusts, powers of attorney and flat-fee packages with virtual consultations. Protect your family and assets with Illinois Estate Law.',
   openGraph: {
-    title: 'Estate Planning Services | Illinois Estate Law',
-    description: 'Comprehensive estate planning services in Illinois including wills, trusts, powers of attorney, healthcare directives, and more.',
+    title: 'Chicago Estate Planning Attorney | Serving All Illinois',
+    description: 'Estate planning for Chicago, Cook County and all Illinois: wills, trusts, powers of attorney and flat-fee packages with virtual consultations.',
     url: 'https://www.illinoisestatelaw.com/estate-planning/',
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
@@ -29,7 +32,7 @@ const practiceAreas = [
   },
   {
     title: 'Trusts',
-    description: 'Revocable and irrevocable trusts allow you to protect your assets, avoid probate, and maintain control over how and when your beneficiaries receive their inheritance.',
+    description: 'A properly funded revocable trust can avoid probate for trust assets and guide distributions. Irrevocable trusts serve different planning goals and require an individual review of control, tax and eligibility consequences.',
     href: '/chicago-revocable-trusts-lawyer/',
     icon: Shield,
   },
@@ -56,7 +59,7 @@ const practiceAreas = [
 export default function EstatePlanningPage() {
   return (
     <main>
-      <InnerPageHero title="Estate Planning Services in Illinois" subtitle="Comprehensive, customized estate planning to protect your family, your assets, and your legacy under Illinois law." />
+      <InnerPageHero title="Estate Planning for Chicago and All Illinois" subtitle="Wills, trusts and powers of attorney for families in Chicago, Cook County and every Illinois county, with flat-fee packages and virtual consultations." />
 
       <CTABand />
 
@@ -98,6 +101,23 @@ export default function EstatePlanningPage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-slate-50 py-14"><div className="mx-auto max-w-[1140px] px-5 space-y-6 text-slate-600 leading-relaxed">
+        <h2 className="text-3xl font-bold text-[#33414E]">Choose a package around your family and assets</h2>
+        <p>Start with who should make decisions if you cannot, who should inherit, and how your home and accounts are owned. A Chicago condo, a family home elsewhere in Cook County, and property in another Illinois county all deserve coordinated planning. A will, beneficiary designation, deed and trust should work together; buying a document alone does not automatically transfer an asset.</p>
+        <div className="grid gap-6 md:grid-cols-3">{['will-package', 'probate-avoidance-package', 'trust-package'].map(id => {
+          const service = estatePlanningPackages.find(item => item.id === id)!;
+          return <div key={id} className="rounded-xl border bg-white p-6"><h3 className="text-xl font-bold text-[#33414E]">{service.name}</h3>
+            <p className="my-3 font-semibold">{usd(service.individualPrice!)} individual / {usd(service.jointPrice!)} joint</p>
+            <p>{service.description}</p><ul className="my-4 list-disc pl-5">{service.includes.slice(0, 5).map(item => <li key={item}>{item}</li>)}</ul>
+            <Link className="underline" href={`/start-online/?service=${service.id}&clientType=individual&source=estate-planning`}>Review the full package and next steps</Link></div>;
+        })}</div>
+        <p>Compare the complete inclusions, joint plans and available add-ons on our <Link className="underline" href="/services-pricing/">services and pricing page</Link>. Your written agreement controls the scope; attorney consultations relate to completing that included work.</p>
+        <h2 className="text-3xl font-bold text-[#33414E]">How planning works, wherever you live in Illinois</h2>
+        <ol className="list-decimal pl-6 space-y-3"><li><strong>Start online or ask questions first.</strong> Review a package online, or book a free consultation if you are unsure which plan fits. Have existing documents and a basic asset list available.</li><li><strong>Share your goals.</strong> Your intake and attorney discussion cover beneficiaries, decision-makers, minor children, property and any special circumstances. Bring questions about blended families, a beneficiary with disabilities or assets outside Illinois.</li><li><strong>Review and sign.</strong> The firm prepares the documents within your agreed scope and guides you through review and the applicable signing steps.</li><li><strong>Put the plan into use.</strong> Coordinate account beneficiaries and any needed property transfers. Trust funding guidance is part of the trust package; revisit the plan after significant family or financial changes.</li></ol>
+        <p>Our <Link className="underline" href="/areas-we-serve/">statewide service model</Link> includes Chicago and Cook County without requiring every client to travel to Chicago. If you are comparing a trust with a will, read <Link className="underline" href="/blog/advantages-and-disadvantages-of-revocable-living-trusts-in-illinois/">the practical benefits and limits of a revocable trust</Link>. For an estate after a death, see <Link className="underline" href="/probate/cook-county/">Cook County probate resources</Link> or our <Link className="underline" href="/chicago-probate-lawyer/">Illinois probate services</Link>.</p>
+      </div></section>
+      <AttorneyContext practice="planning" />
 
       <CTABand
         title="Not sure where to begin?"

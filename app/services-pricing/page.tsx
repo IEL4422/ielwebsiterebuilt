@@ -190,7 +190,7 @@ const faqSchema = {
       "name": "Can I Schedule an In-Person Meeting at One of Your Offices?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In-person meetings are available for current clients at our physical offices throughout Illinois. Please visit our office locations page to find the nearest office."
+        "text": "In-person meetings are available for current clients by arrangement with the firm. Please contact the firm to confirm a meeting location and availability."
       }
     }
   ]
@@ -489,7 +489,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>In-person meetings are available for current clients at our physical offices throughout Illinois. Please visit our office locations page to find the nearest office.</p>
+              <p>In-person meetings are available for current clients by arrangement with the firm. Please contact the firm to confirm a meeting location and availability.</p>
             </div>
           </details>
         </div>

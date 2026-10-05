@@ -10,8 +10,8 @@ import { OVERALL_RATING, TOTAL_RATINGS } from '@/lib/google-reviews-data';
  * propagated into Next's response-cache machinery, poisoned the ISR entry for
  * "/", and the homepage served an empty 304 to every visitor for ~2.5 days.
  *
- * The numbers now come from lib/google-reviews-data.ts, which is edited by hand
- * a few times a year. See that file for how to refresh them. The testimonial
+ * The verified rating comes from lib/google-reviews-data.ts; dynamic review
+ * counts are omitted rather than kept as an unsupported hardcoded claim. The testimonial
  * text is the FALLBACK_REVIEWS list inside TestimonialsCarousel, which is what
  * the site has actually been displaying ever since the API key stopped working.
  */

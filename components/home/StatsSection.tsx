@@ -15,8 +15,8 @@ const stats = [
     icon: Clock,
   },
   {
-    value: '5.0 · 50+ Reviews',
-    label: 'Google Rating',
+    value: 'Client Reviews',
+    label: 'Read Our Google Reviews',
     icon: Star,
   },
   {

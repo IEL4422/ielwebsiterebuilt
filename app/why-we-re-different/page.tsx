@@ -60,7 +60,7 @@ export default function WhyWereDifferentPage() {
           <p className="mb-4">&nbsp;</p>
 
           <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-[#011627] mb-4">4. In-Person Meetings for Current Clients</h3>
-          <p className="mb-4">For our current clients, we offer in-person meetings at multiple office locations across Illinois. This provides our clients with the flexibility and personal touch they need throughout their estate planning journey. Current clients can choose how they want to connect with us to ensure the process is as comfortable as possible.</p>
+          <p className="mb-4">For our current clients, we offer in-person meetings by arrangement with the firm. This provides our clients with the flexibility and personal touch they need throughout their estate planning journey. Current clients can choose how they want to connect with us to ensure the process is as comfortable as possible.</p>
 
           <p className="mb-4">&nbsp;</p>
 
