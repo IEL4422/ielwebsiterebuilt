@@ -33,7 +33,7 @@ const adultOfferings = [
   { icon: Landmark, title: 'Guardianship of the Estate', description: 'Authority over money, property, benefits, and income — with a duty to account to the court for every dollar.' },
   { icon: ShieldAlert, title: 'Contested Guardianship', description: `When the respondent objects, a sibling files a competing petition, or a guardian faces removal. Standard contested guardianship is a $5,000 base plus $25,000 for litigation (total $30,000) after screening; complex cases receive one higher fixed quote upfront.` },
   { icon: UserCheck, title: 'GAL & Physician’s Report', description: 'We coordinate the court-appointed guardian ad litem and the physician’s report (CCP 0211 / CIC-2) required to establish disability.' },
-  { icon: ClipboardCheck, title: 'Annual Compliance', description: 'The annual report on the ward and the estate accounting that Illinois requires for the life of the guardianship.' },
+  { icon: ClipboardCheck, title: 'Personal Annual Report', description: 'Preparation and filing of the personal annual report on the ward is $750 each year it is filed. Estate accounting is not included in this fee; applicable court reporting duties still apply.' },
   { icon: FileText, title: 'Interim Petitions & Termination', description: 'Sale of real estate, extraordinary expenditures, change of placement, and restoration of the ward’s rights.' },
   { icon: Clock, title: 'Emergency Temporary Guardianship', description: `Priority temporary-guardian petition and one emergency hearing added to the full uncontested case for ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} — ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total.` },
 ];
@@ -106,7 +106,7 @@ export default function GuardianshipPage() {
         <div className="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl">
           <div className="border-2 border-[#33414E] rounded-xl p-5"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Uncontested — person &amp; estate</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested)} flat</p><p className="text-slate-500 text-xs mt-1">Filing fees included; bond premiums and GAL fees separate.</p></div>
           <div className="border border-slate-200 rounded-xl p-5 bg-white"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Contested</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">$5,000 base + $25,000 standard litigation fee</p></div>
-          <div className="border border-slate-200 rounded-xl p-5 bg-[#f0f7f4]"><p className="text-xs font-bold uppercase tracking-wider text-[#1d6a4f] mb-2">Annual Compliance Plan</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} / yr</p></div>
+          <div className="border border-slate-200 rounded-xl p-5 bg-[#f0f7f4]"><p className="text-xs font-bold uppercase tracking-wider text-[#1d6a4f] mb-2">Personal Annual Report</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / yr</p></div>
         </div>
         <p className="mt-6 max-w-4xl text-sm text-slate-500">Where fees are paid from the ward’s estate, Illinois law requires that they be reasonable and approved by the court (755 ILCS 5/27-2; 755 ILCS 5/11a-18).</p>
       </div></div></section>
@@ -195,7 +195,7 @@ export default function GuardianshipPage() {
         <div className="w-16 h-1 bg-[#4A708B] mb-8" />
         <div className="max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <p>Being appointed guardian is the beginning, not the end. Illinois requires ongoing court reporting for the life of the guardianship: a guardian of the person files an <strong>annual report on the ward</strong> (755 ILCS 5/11a-17(b)), and a guardian of the estate files an <strong>accounting</strong> within 30 days of the one-year anniversary of appointment and thereafter on the court’s schedule (755 ILCS 5/24-11). Missing these deadlines is one of the most common reasons a guardian gets into trouble with the court.</p>
-          <p>The annual report on the ward is <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>, charged each year it is filed. Our <strong>Guardianship Compliance Plan ({usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} per year)</strong> prepares and files both the report and the estate accounting on the court’s schedule so you never miss a deadline.</p>
+          <p>The annual report on the ward is <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>, charged each year it is filed. This fee covers preparation and filing of the personal annual report only; it does not include estate accounting. The personal annual report is the only additional firm fee for ordinary uncontested guardianship; routine administration, closing and termination remain included. Existing signed engagements are honored.</p>
         </div>
       </div></div></section>
 

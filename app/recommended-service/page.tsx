@@ -194,15 +194,15 @@ export default function RecommendedServicePage() {
           standardizedServiceName: 'Minor Guardianship'
         },
         'annual-compliance': {
-          name: 'Annual Guardianship Compliance',
-          price: `${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} / Year`,
-          description: 'For an appointed guardian who needs support preparing and filing required annual reports and accounting on the court schedule.',
-          includes: ['Annual report on the ward', 'Annual estate accounting support', 'Court-deadline tracking and filing guidance'],
+          name: 'Annual Report on the Ward',
+          price: `${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / Year`,
+          description: 'Preparation and filing of the personal annual report on the ward, $750 each year it is filed. Estate accounting is not included in this annual-report fee.',
+          includes: ['Preparation of the personal annual report on the ward', 'Filing the personal annual report on the court schedule'],
           addOns: [],
-          serviceId: 'annual-guardianship-compliance',
+          serviceId: 'annual-report-ward',
           requiresConsultation: true,
           standardizedCaseType: 'Guardianship',
-          standardizedServiceName: 'Annual Guardianship Compliance'
+          standardizedServiceName: 'Annual Report on the Ward'
         },
         contested: {
           name: 'Contested Guardianship',
@@ -1087,7 +1087,7 @@ export default function RecommendedServicePage() {
                       ['adult', 'Adult Guardianship', 'An adult cannot safely make personal, medical, or financial decisions.'],
                       ['emergency-adult', 'Emergency + Full Adult Guardianship', 'Immediate medical, safety, placement, exploitation, or asset-protection concerns may require temporary authority.'],
                       ['minor', 'Minor Guardianship', 'A child needs a guardian because a parent cannot provide care or consents to another adult.'],
-                      ['annual-compliance', 'Annual Guardianship Compliance', 'I am already appointed and need help with required annual court reporting.'],
+                      ['annual-compliance', 'Annual Report on the Ward', 'I am already appointed and need help preparing and filing the personal annual report on the ward.'],
                       ['contested', 'Contested Guardianship', 'There is an objection, competing petition, or challenge to an existing guardian.'],
                     ].map(([value, title, description]) => (
                       <button

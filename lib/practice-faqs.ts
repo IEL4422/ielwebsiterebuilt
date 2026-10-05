@@ -114,7 +114,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'What are a guardian’s ongoing duties after appointment?',
     answer:
-      `Being appointed is the beginning, not the end. A guardian of the person must file an annual report on the ward (755 ILCS 5/11a-17(b)). A guardian of the estate must file an accounting within 30 days of the one-year anniversary of appointment, and thereafter every three years unless the court orders otherwise (755 ILCS 5/24-11). Illinois Estate Law offers a Guardianship Compliance Plan (${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} per year) that prepares and files both on the court’s schedule so you never miss a deadline.`,
+      `Being appointed is the beginning, not the end. A guardian of the person must file an annual report on the ward (755 ILCS 5/11a-17(b)). A guardian of the estate must file an accounting within 30 days of the one-year anniversary of appointment, and thereafter every three years unless the court orders otherwise (755 ILCS 5/24-11). Illinois Estate Law prepares and files the personal Annual Report on the Ward for ${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} each year it is filed. This fee does not include estate accounting. The personal annual report is the only additional firm fee for ordinary uncontested guardianship; routine administration, closing and termination remain included. Existing signed engagements are honored.`,
   },
   {
     question: 'Can a guardianship be ended or the ward’s rights restored?',

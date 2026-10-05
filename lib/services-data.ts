@@ -56,7 +56,7 @@ export type StandardizedServiceName =
   | 'Adult Guardianship'
   | 'Emergency Temporary Adult Guardianship'
   | 'Minor Guardianship'
-  | 'Annual Guardianship Compliance'
+  | 'Annual Report on the Ward'
   | 'Contested Guardianship';
 
 export interface Service {
@@ -716,19 +716,19 @@ export const guardianshipServices: Service[] = [
     note: 'All court filing fees are included. Bond premiums and guardian ad litem fees, if required, are not included. This service is for uncontested matters. After appointment, the annual report on the ward is $750 each year it is filed.'
   },
   {
-    id: 'annual-guardianship-compliance',
-    name: 'Annual Guardianship Compliance',
-    subtitle: 'Annual report and accounting support',
+    id: 'annual-report-ward',
+    name: 'Annual Report on the Ward',
+    subtitle: 'Personal annual report preparation and filing',
     category: 'guardianship',
     standardizedCaseType: 'Guardianship',
-    standardizedServiceName: 'Annual Guardianship Compliance',
-    fixedPrice: GUARDIANSHIP_COMPLIANCE.compliancePlanBundled,
+    standardizedServiceName: 'Annual Report on the Ward',
+    fixedPrice: GUARDIANSHIP_COMPLIANCE.annualReportPerson,
+    pricingLabel: `${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / year`,
     requiresConsultation: true,
-    description: 'For appointed guardians who need support preparing and filing the annual report on the ward and estate accounting on the court schedule.',
+    description: 'Preparation and filing of the personal annual report on the ward, $750 each year it is filed. Estate accounting is not included in this annual-report fee.',
     includes: [
-      'Annual report on the ward',
-      'Annual estate accounting support',
-      'Court-deadline tracking and filing guidance'
+      'Preparation of the personal annual report on the ward',
+      'Filing the personal annual report on the court schedule'
     ]
   },
   {
