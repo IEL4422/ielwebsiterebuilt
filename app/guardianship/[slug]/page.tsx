@@ -11,12 +11,14 @@ import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
 import { CourthouseCard } from '@/components/geo/CourthouseCard';
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  return guardianshipCounties.map((loc) => ({ slug: loc.slug }));
+  return guardianshipCounties.map((loc) => ({ slug: `${loc.slug}-county` }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const loc = getGuardianshipCounty(params.slug);
+  const loc = getGuardianshipCounty(params.slug.endsWith('-county') ? params.slug.slice(0, -7) : '');
   if (!loc) return { title: 'Not Found' };
   const title = `${loc.county} Guardianship Attorney | Adult & Minor Guardianship`;
   const description = `Guardianship attorney serving ${loc.county}, Illinois — adult and minor guardianship, contested and uncontested. Filed at ${loc.courthouseName} in ${loc.seat}. Free consultation.`;
@@ -52,7 +54,7 @@ function faqs(county: string, court: string) {
 }
 
 export default function CountyGuardianshipPage({ params }: { params: { slug: string } }) {
-  const loc = getGuardianshipCounty(params.slug);
+  const loc = getGuardianshipCounty(params.slug.endsWith('-county') ? params.slug.slice(0, -7) : '');
   if (!loc) notFound();
   const court = loc.courthouseName;
   const countyFaqs = faqs(loc.county, court).map((f) => ({ ...f, answer: f.answer.replace('${loc.seat}', loc.seat) }));

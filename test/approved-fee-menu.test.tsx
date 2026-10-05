@@ -127,11 +127,11 @@ it('renders catalog-derived restatement prices separately from approved guardian
 });
 
 it('all rendered county guardianship pages and FAQ schemas qualify bond/GAL exclusions by the agreed scope', async()=>{
- const {default: CountyPage}=await import('@/app/guardianship/[slug]-county/page');
+ const {default: CountyPage}=await import('@/app/guardianship/[slug]/page');
  const {guardianshipCounties}=await import('@/lib/guardianship-counties');
  expect(guardianshipCounties).toHaveLength(6);
  for(const county of guardianshipCounties){
-  const html=renderToStaticMarkup(<CountyPage params={{slug:county.slug}}/>);
+  const html=renderToStaticMarkup(<CountyPage params={{slug:`${county.slug}-county`}}/>);
   const main=html.match(/<main>([\s\S]*?)<\/main>/)![1];
   expect(main).toContain('$25,000 standard fixed fee');
   expect(main).toContain('Court filing fees are included in the uncontested packages.');

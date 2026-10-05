@@ -80,3 +80,4 @@ jobs:
             sleep 1
           done
           node scripts/verify-header-layout.cjs
+          node scripts/verify-guardianship-routes.cjs
