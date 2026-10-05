@@ -58,6 +58,9 @@ const TOKENS = {
   GUARDIANSHIP_TERMINATION: usd(policy.fee_items.find(item => item.id === 'guardianship-modification').variants.uncontested),
   EMERGENCY_GUARDIANSHIP_ADD_ON: usd(emergencyFee),
   EMERGENCY_GUARDIANSHIP_TOTAL: usd(num('adultUncontested') + emergencyFee),
+  TRUST_RESTATEMENT_INDIVIDUAL: usd(num('trustRestatementIndividual')),
+  TRUST_RESTATEMENT_JOINT: usd(num('trustRestatementJoint')),
+  FSBO_REPRESENTATION: usd(num('fsboRepresentation')),
   MULTI_UNIT_CLOSING: usd(num('multiUnitOrInvestmentClosing')),
   NONSTANDARD_TITLE_CLOSING: usd(num('estateTrustOrNonstandardTitleClosing')),
 };
@@ -82,3 +85,11 @@ const banner = [
 
 writeFileSync(join(root, 'public/pricing-sheet.html'), banner + out);
 console.log('pricing-sheet.html generated with approved 21-item fee menu');
+
+// Keep the public machine-readable fee policy on the same approved sources.
+TOKENS.APPROVED_SCOPE_TEXT = ['routine_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'].map(key => policy[key]).join('\n\n');
+TOKENS.APPROVED_FEE_MENU_TEXT = policy.fee_items.map(item => '- ' + item.label + ': ' + (item.variants ? usd(item.variants.uncontested) + ' uncontested / ' + usd(item.variants.contested) + ' contested' : item.amount == null ? 'Individually quoted fixed fee' : usd(item.amount) + (item.unit ? ' ' + item.unit : ''))).join('\n');
+let llms = readFileSync(join(root, 'scripts/llms.template.txt'), 'utf8');
+for (const [key, value] of Object.entries(TOKENS)) llms = llms.split(`{{${key}}}`).join(value);
+if (/\{\{[A-Z_]+\}\}/.test(llms)) throw new Error('build-pricing-sheet: unsubstituted llms.txt token');
+writeFileSync(join(root, 'public/llms.txt'), llms);

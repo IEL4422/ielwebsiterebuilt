@@ -109,7 +109,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'What is a guardian ad litem and do I have to pay for one?',
     answer:
-      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — always disclosed to you and billed separately: a carve-out from the flat fee in an uncontested matter, or a billable expense in a contested one. It is never firm revenue.`,
+      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — disclosed before engagement. In uncontested matters it is an identified third-party exclusion from the flat fee. In contested matters, separate payment applies only where disclosed and expressly agreed in the written scope; previously included expenses remain included. It is never firm revenue.`,
   },
   {
     question: 'What are a guardian’s ongoing duties after appointment?',

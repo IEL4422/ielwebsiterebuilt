@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { adultGuardianshipFAQs } from '@/lib/practice-faqs';
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from '@/lib/seo';
 
 const PATH = '/adult-guardianship-lawyer/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
-const TITLE = 'Illinois Adult Guardianship Lawyer | $5,000 Flat Fee';
-const DESCRIPTION = 'Illinois adult guardianship lawyer for dementia, disability, stroke, and emergencies. $5,000 standard flat fee; $7,500 with temporary guardianship.';
+const TITLE = `Illinois Adult Guardianship Lawyer | ${usd(GUARDIANSHIP_FLAT.adultUncontested)} Flat Fee`;
+const DESCRIPTION = `Illinois adult guardianship lawyer for dementia, disability, stroke, and emergencies. ${usd(GUARDIANSHIP_FLAT.adultUncontested)} standard flat fee; ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} with temporary guardianship.`;
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

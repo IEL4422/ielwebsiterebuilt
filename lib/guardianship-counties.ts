@@ -41,7 +41,7 @@ export const guardianshipCounties: GuardianshipCounty[] = [
     divisionNote:
       'Cook County hears adult and minor guardianship in the Probate Division at the Daley Center. Adult guardianship and minor guardianship are administered as separate calendars.',
     localNote:
-      'Cook County is the most procedurally demanding guardianship venue in Illinois. A guardian ad litem is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion (such as surgery or forced medication) or a denial of rights (such as involuntary placement, or where the respondent objects). Budget for the GAL fee from day one — it is a real cost and it is not part of our flat fee.',
+      'Cook County is the most procedurally demanding guardianship venue in Illinois. A guardian ad litem is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion (such as surgery or forced medication) or a denial of rights (such as involuntary placement, or where the respondent objects). Discuss the GAL fee before engagement. The written scope identifies whether it is included or separately payable; previously included expenses remain included.',
   },
   {
     county: 'DuPage County',

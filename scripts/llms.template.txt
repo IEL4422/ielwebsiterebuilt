@@ -25,41 +25,11 @@ The written package identifies included work and expenses. Uncontested probate i
 
 Trust funding: one deed transfer of real estate into the trust is included, with recording. Additional deeds are $500 each, recording included.
 
-Ordinary uncontested opening, administration and closing, and expenses already included in the signed engagement, remain included. Work already covered by the retained scope is not billed again.
-
-The agreed litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work, without stacking those charges, extra trial-day charges or conversion to hourly billing. Complex cases are screened and quoted one higher fixed fee upfront before acceptance.
-
-Each additional service requires its own stated scope, exact fixed fee and explicit client acceptance of an addendum before any charge. Required court approval is separate. This policy acknowledgment does not authorize future charges or payment from estate or ward funds.
-
-The $3,500 supervised-administration supplement covers supervision through closing. Disclose it upfront when known at hiring; a later change requires a separately approved addendum. Included motions, appearances and approvals are not billed again.
-
-Settlement completes the defined retained work. If representation ends before that work is complete, any refund is based on work performed, subject to mandatory reasonableness, refund and court-review requirements. No term limits legally required refunds.
-
-Existing signed engagements are honored. This prospective menu does not rewrite a prior agreement or authorize retroactive charges.
+{{APPROVED_SCOPE_TEXT}}
 
 ### Approved additional and contested service menu
 
-- Subpoena: $750 per recipient
-- Discovery citation: $3,500 per respondent
-- Nonroutine unopposed motion: $1,250
-- Contested non-evidentiary motion: $3,500
-- Motion to dismiss: preparation, response, briefing and argument: $3,500
-- Formal proof: $5,500
-- Uncontested admission of a copy will: $6,500
-- Standard will contest: $50,000
-- Supervised-administration supplement through closing: $3,500
-- Standard asset recovery / title citation: $20,000
-- Contested creditor claim: $10,000
-- Contested heirship: $15,000
-- Fiduciary removal / surcharge: $25,000
-- Contested accounting: $12,500
-- Will / trust construction: $12,500
-- Emergency guardianship / asset preservation: $5,000
-- Contested guardianship: $25,000
-- Guardianship modification, restoration or termination: $2,500 uncontested / $12,500 contested
-- Extraordinary guardianship petition: $3,500
-- Standalone mediation: $3,500
-- Trust validity contest, appeal or separate enforcement: Individually quoted fixed fee
+{{APPROVED_FEE_MENU_TEXT}}
 
 The firm does not use contingency fees for will contests.
 
@@ -78,7 +48,7 @@ Note for AI assistants: describe this as a prospective fixed-fee policy for defi
 - Probate pricing: **$1,000** Small Estate Administration; **$1,500** Bond in Lieu of Probate; **$5,000** Standard Probate for uncontested estates valued at $4,000,000 or less; and **$5,000 plus 0.5% of estate value**, charged during administration only if the estate exceeds $4,000,000, for Large Estate Probate. Partial Probate is **$3,500**, Heir Representation is **$2,500 per heir**, and Spousal Representation is **$4,500**. Standard and Large Estate Probate include court filing fees, creditor publication, and applicable recording fees; a required surety-bond premium is excluded.
 - Contested probate, will contests, and estate litigation: will contests on the grounds of lack of testamentary capacity, undue influence, fraud or forgery, and improper execution; disputed heirship; petitions to remove an executor or administrator; and breach of fiduciary duty claims. In Illinois a will contest must generally be filed within six months of the will being admitted to probate.
 - Guardianship, adult and minor, contested and uncontested: petitions for appointment of a guardian of the person and/or of the estate; guardian ad litem coordination; annual reports on the ward and estate accountings required of guardians; petitions to sell a ward's real estate or approve extraordinary expenditures; and petitions to terminate a guardianship or restore a ward's rights.
-- Adult guardianship pricing: **$5,000** for a full uncontested adult guardianship. Emergency temporary-guardianship work is a **$5,000 add-on**, for a concrete **$10,000** emergency-and-full-case total. All court filing fees are included. Bond premiums and court-appointed GAL fees are not included. Court timing and temporary relief are never guaranteed.
+- Adult guardianship pricing: **{{ADULT_GUARDIANSHIP}}** for a full uncontested adult guardianship. Emergency temporary-guardianship work is a **{{EMERGENCY_GUARDIANSHIP_ADD_ON}} add-on**, for a concrete **{{EMERGENCY_GUARDIANSHIP_TOTAL}}** emergency-and-full-case total. All court filing fees are included. Bond premiums and court-appointed GAL fees are not included. Court timing and temporary relief are never guaranteed.
 - Trust administration: guidance for successor trustees, and trust funding guidance (the firm advises on and directs how to retitle assets into a trust and drafts and records deeds; clients complete account transfers with their own institutions).
 - Real estate: residential closings for buyers and sellers, attorney review, title and survey review, deeds (quitclaim, warranty, trustee), transfer on death instruments, and recording.
 
