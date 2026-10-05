@@ -43,6 +43,6 @@ describe('Mary-approved prospective fee menu',()=>{
 
 // Covers visible copy as well as FAQ/schema and metadata source strings.
 it('prospective articles and location FAQs do not promise hourly conversion',()=>{
- const paths=['app/blog/what-happens-when-guardianship-is-contested-illinois/page.tsx','app/blog/adult-vs-minor-guardianship-illinois/page.tsx','app/chicago-probate-lawyer/page.tsx','app/probate/[slug]-county/page.tsx','app/[slug]-estate-planning-lawyer/page.tsx','app/flat-fee-vs-hourly-probate-illinois/layout.tsx','lib/blog-posts-data.ts'];
- for(const path of paths){const source=readFileSync(path,'utf8');expect(source).not.toMatch(/(?:billed|handled|converts? to) hourly|hourly (?:against|if contested|billing reserved)|no honest fixed price|why it is not a flat fee|credited toward (?:that|the) retainer/i);}
+ const paths=['lib/practice-faqs.ts','app/flat-fee-vs-hourly-probate-illinois/page.tsx','app/blog/what-happens-when-guardianship-is-contested-illinois/page.tsx','app/blog/adult-vs-minor-guardianship-illinois/page.tsx','app/chicago-probate-lawyer/page.tsx','app/probate/[slug]-county/page.tsx','app/[slug]-estate-planning-lawyer/page.tsx','app/flat-fee-vs-hourly-probate-illinois/layout.tsx','lib/blog-posts-data.ts'];
+ for(const path of paths){const source=readFileSync(path,'utf8');expect(source).not.toMatch(/(?:billed|handled|converts? to) hourly|hourly (?:against|if contested|billing reserved)|not an honest promise|hours we actually work|contested probate not a flat fee|no honest fixed price|why it is not a flat fee|credited toward (?:that|the) retainer/i);}
 });

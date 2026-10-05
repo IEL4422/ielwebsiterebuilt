@@ -44,9 +44,9 @@ export const contestedProbateFAQs: QA[] = [
       "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
-    question: 'Why is contested probate not a flat fee when everything else at your firm is?',
+    question: 'How do you set a fixed fee for contested probate?',
     answer:
-      'Because we can only responsibly quote a flat fee for work whose scope we control. An uncontested probate has a knowable list of filings and hearings, so we can price it. A contested matter does not — the other side decides how hard to fight. Flat-fee litigation ends one of two ways: the firm loses money and starts cutting corners, or the client is quietly asked for more. We would rather tell you the truth up front and bill you honestly for the hours we actually work.',
+      'We screen the dispute before engagement and define the work in writing. A standard will contest is $50,000; complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial within the retained litigation package are included, without stacked charges, extra trial-day fees or hourly conversion. Work outside that scope requires a specific fixed-fee addendum and client acceptance before charging. Existing signed engagements are honored.',
   },
   {
     question: 'Do attorney fees in a contested Illinois probate need court approval?',

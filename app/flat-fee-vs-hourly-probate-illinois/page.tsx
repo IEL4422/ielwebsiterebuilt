@@ -42,8 +42,8 @@ export default function FlatFeeVsHourlyProbatePage() {
               Which model you get depends entirely on the firm you hire, and the difference is
               not cosmetic — it decides who carries the risk when an estate turns out to be more
               work than anyone expected. This page explains both models, what an all-inclusive
-              flat fee does and does not cover, and why contested matters are the one place a
-              flat fee is not an honest promise.
+              flat fee covers, and how we screen contested matters and define their fixed-fee
+              litigation scope before engagement.
             </p>
 
             <h2>The short answer</h2>
