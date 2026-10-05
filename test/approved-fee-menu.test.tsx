@@ -103,3 +103,25 @@ it('public GAL FAQ does not automatically pass all contested expenses through to
  expect(answer).toContain('previously included expenses remain included');
  expect(answer).not.toContain('always disclosed to you and billed separately');
 });
+
+it('renders catalog-derived restatement prices separately from approved guardianship variants', async()=>{
+ const {A_LA_CARTE}=await import('@/lib/pricing');
+ execFileSync(process.execPath,['scripts/build-pricing-sheet.mjs']);
+ const html=readFileSync('public/pricing-sheet.html','utf8');
+ const rows=[...html.matchAll(/<tr\b[^>]*>[\s\S]*?<\/tr>/g)].map(match=>match[0]);
+ const exactServiceRow=(name:string)=>rows.filter(row=>row.includes(`<div class="service-name">${name}</div>`));
+ const restatement=exactServiceRow('Trust Restatement');
+ expect(restatement).toHaveLength(1);
+ expect([A_LA_CARTE.trustRestatementIndividual,A_LA_CARTE.trustRestatementJoint]).toEqual([2000,3000]);
+ expect([...restatement[0].matchAll(/<td class="price">([^<]+)<\/td>/g)].map(match=>match[1])).toEqual([
+  `$${A_LA_CARTE.trustRestatementIndividual.toLocaleString('en-US')}`,
+  `$${A_LA_CARTE.trustRestatementJoint.toLocaleString('en-US')}`,
+ ]);
+ const guardianship=exactServiceRow('Guardianship Termination / Restoration of Rights');
+ expect(guardianship).toHaveLength(1);
+ expect(guardianship[0]).toContain('<td class="price">$2,500</td>');
+ const variant=rows.find(row=>row.includes('<td>Guardianship modification, restoration or termination</td>'));
+ expect(variant).toContain('$2,500 uncontested / $12,500 contested');
+ expect(restatement[0]).not.toContain('$2,500');
+ expect(restatement[0]).not.toContain('$12,500');
+});

@@ -58,6 +58,8 @@ const TOKENS = {
   GUARDIANSHIP_TERMINATION: usd(policy.fee_items.find(item => item.id === 'guardianship-modification').variants.uncontested),
   EMERGENCY_GUARDIANSHIP_ADD_ON: usd(emergencyFee),
   EMERGENCY_GUARDIANSHIP_TOTAL: usd(num('adultUncontested') + emergencyFee),
+  TRUST_RESTATEMENT_INDIVIDUAL: usd(num('trustRestatementIndividual')),
+  TRUST_RESTATEMENT_JOINT: usd(num('trustRestatementJoint')),
   FSBO_REPRESENTATION: usd(num('fsboRepresentation')),
   MULTI_UNIT_CLOSING: usd(num('multiUnitOrInvestmentClosing')),
   NONSTANDARD_TITLE_CLOSING: usd(num('estateTrustOrNonstandardTitleClosing')),
