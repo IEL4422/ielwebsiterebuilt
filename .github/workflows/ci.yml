@@ -60,6 +60,11 @@ jobs:
       - run: npm run build
       - run: git diff --exit-code -- public/pricing-sheet.html
 
+      # Preserve the production Node 18 build above; current browser tooling
+      # needs Node 20 only for the read-only layout verification below.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - name: Install browser regression tooling
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.63.0
