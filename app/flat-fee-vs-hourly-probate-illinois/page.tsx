@@ -56,7 +56,7 @@ export default function FlatFeeVsHourlyProbatePage() {
               only if the estate exceeds $4,000,000 due to estate-tax complexity.
             </p>
 
-            <h2>Flat fee vs. hourly, side by side</h2>
+            <h2>Our fixed-fee services, side by side</h2>
             <div className="overflow-x-auto my-8">
               <table className="w-full text-left border-collapse">
                 <thead>
@@ -95,17 +95,17 @@ export default function FlatFeeVsHourlyProbatePage() {
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Paid separately</th>
                     <td className="border border-slate-200 px-4 py-3">Surety bond premium only, if the court requires a bond</td>
-                    <td className="border border-slate-200 px-4 py-3">All costs — bond, service, transcripts, guardian ad litem fees</td>
+                    <td className="border border-slate-200 px-4 py-3">Only exclusions expressly stated in the signed scope; previously included expenses remain included</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Charged for phone calls?</th>
                     <td className="border border-slate-200 px-4 py-3">No</td>
-                    <td className="border border-slate-200 px-4 py-3">Yes — time is billed as worked</td>
+                    <td className="border border-slate-200 px-4 py-3">No separate time-based charge for calls within the defined proceeding</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Who carries overrun risk</th>
                     <td className="border border-slate-200 px-4 py-3">The firm</td>
-                    <td className="border border-slate-200 px-4 py-3">The client</td>
+                    <td className="border border-slate-200 px-4 py-3">The firm within the defined proceeding; new work outside that scope requires a separately accepted fixed-fee addendum</td>
                   </tr>
                 </tbody>
               </table>
