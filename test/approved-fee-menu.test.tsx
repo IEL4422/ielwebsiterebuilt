@@ -125,3 +125,77 @@ it('renders catalog-derived restatement prices separately from approved guardian
  expect(restatement[0]).not.toContain('$2,500');
  expect(restatement[0]).not.toContain('$12,500');
 });
+
+it('all rendered county guardianship pages and FAQ schemas qualify bond/GAL exclusions by the agreed scope', async()=>{
+ const {default: CountyPage}=await import('@/app/guardianship/[slug]-county/page');
+ const {guardianshipCounties}=await import('@/lib/guardianship-counties');
+ expect(guardianshipCounties).toHaveLength(6);
+ for(const county of guardianshipCounties){
+  const html=renderToStaticMarkup(<CountyPage params={{slug:county.slug}}/>);
+  const main=html.match(/<main>([\s\S]*?)<\/main>/)![1];
+  expect(main).toContain('$25,000 standard fixed fee');
+  expect(main).toContain('Court filing fees are included in the uncontested packages.');
+  expect(main).toContain('remain separate only where identified as exclusions in the written engagement.');
+  expect(main).toContain('separate charges require disclosure and express agreement.');
+  expect(main).toContain('Previously included expenses remain included.');
+  expect(main).not.toContain('included in the flat-fee packages; bond premiums');
+  expect(main).not.toContain('it is not part of our flat fee');
+  const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
+  const faq=schemas.find(schema=>schema['@type']==='FAQPage');
+  const cost=faq.mainEntity.find((row:any)=>row.name.startsWith('How much does a guardianship attorney cost'));
+  expect(cost.acceptedAnswer.text).toContain('remain separate only where identified as exclusions in the written engagement.');
+  expect(cost.acceptedAnswer.text).toContain('For a defined contested proceeding, the agreed scope identifies included and separately payable expenses');
+  expect(cost.acceptedAnswer.text).toContain('Previously included expenses remain included.');
+ }
+});
+
+it('machine-readable public policy regenerates all approved fees and scope without stale hourly or emergency terms',()=>{
+ const before=readFileSync('public/llms.txt','utf8');
+ execFileSync(process.execPath,['scripts/build-pricing-sheet.mjs']);
+ const text=readFileSync('public/llms.txt','utf8');
+ expect(text).toBe(before);
+ for(const item of policy.fee_items){
+  const amount='variants' in item && item.variants ? '$2,500 uncontested / $12,500 contested' : item.amount==null ? 'Individually quoted fixed fee' : `$${item.amount.toLocaleString('en-US')}${'unit' in item && item.unit ? ` ${item.unit}` : ''}`;
+  expect(text).toContain(`- ${item.label}: ${amount}`);
+ }
+ for(const key of ['routine_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'] as const)expect(text).toContain(policy[key]);
+ expect(text).toContain('**$5,000 add-on**, for a concrete **$10,000** emergency-and-full-case total');
+ expect(text).toContain('separate charges require disclosure and express agreement');
+ expect(text).not.toMatch(/billed hourly against a retainer|which is replenished|no honest fixed price|converts to hourly against|\$7,500|\$2,500 add-on|\{\{[A-Z_]+\}\}/i);
+});
+
+it('adult guardianship description, OpenGraph, Twitter and service schema share the catalog-derived emergency total', async()=>{
+ const {default: Layout,metadata}=await import('@/app/adult-guardianship-lawyer/layout');
+ const expected=`Illinois adult guardianship lawyer for dementia, disability, stroke, and emergencies. $${GUARDIANSHIP_FLAT.adultUncontested.toLocaleString('en-US')} standard flat fee; $${(GUARDIANSHIP_FLAT.adultUncontested+GUARDIANSHIP_FLAT.emergencyTemporaryAddOn).toLocaleString('en-US')} with temporary guardianship.`;
+ expect(expected).toContain('$10,000 with temporary guardianship');
+ expect(metadata.description).toBe(expected);
+ expect(metadata.openGraph?.description).toBe(expected);
+ expect(metadata.twitter?.description).toBe(expected);
+ const html=renderToStaticMarkup(<Layout><div>Fixture child</div></Layout>);
+ const schemas=[...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
+ const service=schemas.find(schema=>schema.description===expected);
+ expect(service).toBeTruthy();
+ expect(html).not.toContain('$7,500');
+});
+
+it('printable Bond in Lieu belongs only to Real Estate with its exact existing price and scope',()=>{
+ const html=readFileSync('public/pricing-sheet.html','utf8');
+ const realEstate=html.split('<div class="section-title">Real Estate</div>')[1].split('</table>')[0];
+ const probate=html.split('<div class="section-title">Probate</div>')[1]?.split('</table>')[0];
+ const rows=[...realEstate.matchAll(/<tr\b[^>]*>[\s\S]*?<\/tr>/g)].map(match=>match[0]);
+ const bond=rows.find(row=>row.includes('<div class="service-name">Bond in Lieu of Probate</div>'));
+ expect(bond).toContain('<td class="price">$1,500</td>');
+ expect(bond).toContain('When the sole estate asset is real estate and all heirs agree. Includes title-transfer documentation, title-company coordination, and attorney consultations related to the included scope. Surety bond premium paid directly to bond provider.');
+ expect(probate).toBeDefined();
+ expect(probate).not.toContain('Bond in Lieu');
+ expect(html.match(/<div class="service-name">Bond in Lieu of Probate<\/div>/g)).toHaveLength(1);
+});
+
+it('public text assets do not restore the removed prospective hourly-conversion claims', async()=>{
+ const {readdirSync}=await import('node:fs');
+ const paths:string[]=[];
+ const visit=(dir:string)=>{for(const entry of readdirSync(dir,{withFileTypes:true})){const path=`${dir}/${entry.name}`;if(entry.isDirectory())visit(path);else if(/\.(?:txt|html|xml|json|md|csv)$/.test(path))paths.push(path);}};
+ visit('public');
+ expect(paths).toContain('public/llms.txt');expect(paths).toContain('public/blog/posts.json');
+ for(const path of paths)expect(readFileSync(path,'utf8'),path).not.toMatch(/billed hourly against a retainer|a matter converts to hourly|no honest fixed price can be quoted|Costs and expenses are billable to the client in these matters|time is billed as worked/i);
+});

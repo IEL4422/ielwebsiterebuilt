@@ -58,7 +58,8 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run build
-      - run: git diff --exit-code -- public/pricing-sheet.html
+      - run: git diff --exit-code -- public/pricing-sheet.html public/llms.txt
+      - run: node scripts/audit-public-fee-copy.cjs
 
       # Preserve the production Node 18 build above; current browser tooling
       # needs Node 20 only for the read-only layout verification below.
