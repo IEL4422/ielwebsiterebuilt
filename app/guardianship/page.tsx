@@ -31,7 +31,7 @@ import { CTABand } from '@/components/ui/CTAButtons';
 const adultOfferings = [
   { icon: HeartHandshake, title: 'Guardianship of the Person', description: 'Authority over care, residence, and medical decisions for an adult who can no longer make them.' },
   { icon: Landmark, title: 'Guardianship of the Estate', description: 'Authority over money, property, benefits, and income — with a duty to account to the court for every dollar.' },
-  { icon: ShieldAlert, title: 'Contested Guardianship', description: `When the respondent objects, a sibling files a competing petition, or a guardian faces removal. Standard contested guardianship is $25,000 after screening; complex cases receive one higher fixed quote upfront.` },
+  { icon: ShieldAlert, title: 'Contested Guardianship', description: `When the respondent objects, a sibling files a competing petition, or a guardian faces removal. Standard contested guardianship is a $5,000 base plus $25,000 for litigation (total $30,000) after screening; complex cases receive one higher fixed quote upfront.` },
   { icon: UserCheck, title: 'GAL & Physician’s Report', description: 'We coordinate the court-appointed guardian ad litem and the physician’s report (CCP 0211 / CIC-2) required to establish disability.' },
   { icon: ClipboardCheck, title: 'Annual Compliance', description: 'The annual report on the ward and the estate accounting that Illinois requires for the life of the guardianship.' },
   { icon: FileText, title: 'Interim Petitions & Termination', description: 'Sale of real estate, extraordinary expenditures, change of placement, and restoration of the ward’s rights.' },
