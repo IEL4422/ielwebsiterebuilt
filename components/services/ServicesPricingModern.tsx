@@ -246,7 +246,7 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
       { name: 'Adult Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.adultUncontested), joint: '', notes: 'All court filing fees included; bond premiums and guardian ad litem fees billed separately.' },
       { name: 'Emergency + Full Adult Guardianship', individual: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn), joint: '', notes: `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full case. Filing fees included; bond premiums and GAL fees separate.` },
       { name: 'Minor Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.minorUncontested), joint: '', notes: 'Flat fee.' },
-      { name: 'Contested Guardianship', individual: '$25,000 standard fixed fee', joint: '', notes: 'For objections, competing petitions, and guardian-removal matters.' },
+      { name: 'Contested Guardianship', individual: '$5,000 base + $25,000 standard litigation fee', joint: '', notes: 'For objections, competing petitions, and guardian-removal matters.' },
       { name: 'Annual Guardianship Compliance', individual: `${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)} / year`, joint: '', notes: 'Annual report and estate-accounting support.' },
     ],
   },
@@ -433,7 +433,7 @@ export function ServicesPricingModern() {
               ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/'],
               ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/'],
               ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case.`, '/adult-guardianship-lawyer/#emergency'],
-              ['Contested & Ongoing Matters', `$25,000 standard contested fee or ${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)}/year`, 'Contested guardianship or annual guardian compliance.', '/guardianship/'],
+              ['Contested & Ongoing Matters', `$5,000 base + $25,000 standard litigation fee, or ${usd(GUARDIANSHIP_COMPLIANCE.compliancePlanBundled)}/year`, 'Contested guardianship or annual guardian compliance.', '/guardianship/'],
             ].map(([title, price, body, href], index) => {
               const serviceIds = ['power-of-attorney', 'adult-guardianship', 'emergency-temporary-adult-guardianship', 'contested-guardianship'];
               const ctas: Cta[] = [

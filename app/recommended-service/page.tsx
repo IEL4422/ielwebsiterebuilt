@@ -206,7 +206,7 @@ export default function RecommendedServicePage() {
         },
         contested: {
           name: 'Contested Guardianship',
-          price: '$25,000 standard fixed fee',
+          price: '$5,000 base + $25,000 standard litigation fee',
           description: 'For an objection, competing petition, or challenge to an existing guardian. Attorney review is required before engagement.',
           includes: ['Attorney review of the dispute and court posture', 'Exact fixed fee and scope after attorney screening'],
           addOns: [],
@@ -313,7 +313,7 @@ export default function RecommendedServicePage() {
       if (issuesAmongHeirs === 'yes') {
         return {
           name: 'Contested Probate',
-          price: 'Individually quoted fixed fee',
+          price: '$5,000 base + approved litigation fees',
           description: 'Attorney screening and one fixed fee agreed upfront for the defined dispute. No hourly conversion or extra trial-day fees.',
           includes: [
             'Attorney screening and a written fixed-fee scope',

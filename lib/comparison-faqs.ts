@@ -28,7 +28,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'Is probate in Illinois billed hourly or as a flat fee?',
     answer:
-      `Both hourly and fixed-fee models are used in Illinois. Our prospective engagements use a defined fixed fee. Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
+      `Both hourly and fixed-fee models are used in Illinois. Our prospective engagements use a defined fixed fee. Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
   },
   {
     question: 'What does a flat probate fee include in Illinois?',
@@ -37,7 +37,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   },
   {
     question: 'How is contested probate priced?',
-    answer: 'A standard will contest is $50,000 for the defined litigation through trial or settlement. Other disputes use the approved fixed-fee menu or one individual fixed quote. Complex cases are screened and quoted upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
+    answer: 'A standard will contest has a $5,000 base for opening, ordinary administration and closing plus $50,000 for the defined litigation through trial or settlement, totaling $55,000 with no offset. Other disputes use the approved fixed-fee menu or one individual fixed quote. Complex cases are screened and quoted upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
   },
   {
     question: 'Is a flat fee cheaper than hourly for Illinois probate?',
@@ -47,7 +47,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: "What happens if a flat-fee probate becomes contested?",
     answer:
-      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
     question: 'Do Illinois probate attorney fees have to be approved by the court?',

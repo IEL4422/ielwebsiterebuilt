@@ -27,6 +27,8 @@ Trust funding: one deed transfer of real estate into the trust is included, with
 
 {{APPROVED_SCOPE_TEXT}}
 
+Client PDF: https://www.illinoisestatelaw.com/downloads/probate-guardianship-additional-flat-fees-2026-10-05.pdf
+
 ### Approved additional and contested service menu
 
 {{APPROVED_FEE_MENU_TEXT}}

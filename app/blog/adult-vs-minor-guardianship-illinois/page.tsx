@@ -58,7 +58,7 @@ export default function Page() {
     {
       question: 'Does adult guardianship cost more than minor guardianship in Illinois?',
       answer:
-        'Illinois Estate Law charges the same fixed fee for uncontested adult and minor guardianship. Adult cases require a physician report, personal service and usually a guardian ad litem investigation. Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
+        'Illinois Estate Law charges the same fixed fee for uncontested adult and minor guardianship. Adult cases require a physician report, personal service and usually a guardian ad litem investigation. Standard contested guardianship has a $5,000 base for opening, ordinary administration and closing plus a $25,000 litigation fee, totaling $30,000 with no offset. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
     },
     {
       question: 'Can the same person be guardian of both an adult and a minor?',
@@ -484,7 +484,7 @@ export default function Page() {
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Standard contested guardianship is a $25,000 fixed fee for the defined litigation scope. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored. For current pricing on each type, visit our{' '}
+              Standard contested guardianship has a $5,000 base for opening, ordinary administration and closing plus a $25,000 litigation fee, totaling $30,000 with no offset. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored. For current pricing on each type, visit our{' '}
               <Link href="/guardianship/" className="text-[#4a708b] hover:underline font-medium font-['Plus_Jakarta_Sans']">
                 guardianship page
               </Link>{' '}

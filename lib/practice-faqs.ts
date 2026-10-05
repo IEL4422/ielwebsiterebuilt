@@ -41,12 +41,12 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'How much does it cost to contest a will in Illinois?',
     answer:
-      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
     question: 'How do you set a fixed fee for contested probate?',
     answer:
-      'We screen the dispute before engagement and define the work in writing. A standard will contest is $50,000; complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial within the retained litigation package are included, without stacked charges, extra trial-day fees or hourly conversion. Work outside that scope requires a specific fixed-fee addendum and client acceptance before charging. Existing signed engagements are honored.',
+      'We screen the dispute before engagement and define the work in writing. A standard will contest adds $50,000 to the $5,000 base (total $55,000, with no offset); complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial within the retained litigation package are included, without stacked charges, extra trial-day fees or hourly conversion. Work outside that scope requires a specific fixed-fee addendum and client acceptance before charging. Existing signed engagements are honored.',
   },
   {
     question: 'Do attorney fees in a contested Illinois probate need court approval?',
@@ -71,7 +71,7 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'What happens if my uncontested probate suddenly becomes contested?',
     answer:
-      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
     question: 'Which Illinois counties do you handle contested probate in?',
@@ -99,7 +99,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'Is adult guardianship a flat fee?',
     answer:
-      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
+      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
   },
   {
     question: 'What is the difference between guardianship of the person and guardianship of the estate?',
@@ -137,12 +137,12 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'How much does minor guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
+      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
   },
   {
     question: 'What if a parent objects to the guardianship?',
     answer:
-      "Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
   },
   {
     question: 'What is the difference between guardianship and adoption?',

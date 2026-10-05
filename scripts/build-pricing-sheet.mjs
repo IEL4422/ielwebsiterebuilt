@@ -55,7 +55,7 @@ const TOKENS = {
   ADULT_GUARDIANSHIP: usd(num('adultUncontested')),
   MINOR_GUARDIANSHIP: usd(num('minorUncontested')),
   EXTRAORDINARY_GUARDIANSHIP: usd(policy.fee_items.find(item => item.id === 'guardianship-extraordinary').amount),
-  GUARDIANSHIP_TERMINATION: usd(policy.fee_items.find(item => item.id === 'guardianship-modification').variants.uncontested),
+  GUARDIANSHIP_TERMINATION: usd(policy.fee_items.find(item => item.id === 'guardianship-modification').variants.contested),
   EMERGENCY_GUARDIANSHIP_ADD_ON: usd(emergencyFee),
   EMERGENCY_GUARDIANSHIP_TOTAL: usd(num('adultUncontested') + emergencyFee),
   TRUST_RESTATEMENT_INDIVIDUAL: usd(num('trustRestatementIndividual')),
@@ -66,7 +66,7 @@ const TOKENS = {
 };
 
 const html = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-TOKENS.APPROVED_FEE_MENU = '<section><h2>Additional and contested services</h2><table>' + policy.fee_items.map(item => '<tr><td>'+html(item.label)+'</td><td>'+html(item.variants ? '$2,500 uncontested / $12,500 contested' : item.amount == null ? 'Individually quoted fixed fee' : usd(item.amount)+(item.unit?' '+item.unit:''))+'</td></tr>').join('') + '</table>' + ['routine_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'].map(key=>'<p>'+html(policy[key])+'</p>').join('') + '</section>';
+TOKENS.APPROVED_FEE_MENU = '<section><h2>Additional and contested services</h2><table>' + policy.fee_items.map(item => '<tr><td>'+html(item.label)+'</td><td>'+html(item.variants ? '$12,500 for a separate contested proceeding' : item.amount == null ? 'Individually quoted fixed fee' : usd(item.amount)+(item.unit?' '+item.unit:''))+'</td></tr>').join('') + '</table>' + ['routine_scope','ordinary_guardianship_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'].map(key=>'<p>'+html(policy[key])+'</p>').join('') + '</section>';
 
 let out = readFileSync(join(root, 'scripts/pricing-sheet.template.html'), 'utf8');
 for (const [k, v] of Object.entries(TOKENS)) out = out.split(`{{${k}}}`).join(v);
@@ -87,8 +87,8 @@ writeFileSync(join(root, 'public/pricing-sheet.html'), banner + out);
 console.log('pricing-sheet.html generated with approved 21-item fee menu');
 
 // Keep the public machine-readable fee policy on the same approved sources.
-TOKENS.APPROVED_SCOPE_TEXT = ['routine_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'].map(key => policy[key]).join('\n\n');
-TOKENS.APPROVED_FEE_MENU_TEXT = policy.fee_items.map(item => '- ' + item.label + ': ' + (item.variants ? usd(item.variants.uncontested) + ' uncontested / ' + usd(item.variants.contested) + ' contested' : item.amount == null ? 'Individually quoted fixed fee' : usd(item.amount) + (item.unit ? ' ' + item.unit : ''))).join('\n');
+TOKENS.APPROVED_SCOPE_TEXT = ['routine_scope','ordinary_guardianship_scope','litigation_scope','additional_scope','supervision_scope','refund_scope','legacy_scope'].map(key => policy[key]).join('\n\n');
+TOKENS.APPROVED_FEE_MENU_TEXT = policy.fee_items.map(item => '- ' + item.label + ': ' + (item.variants ? usd(item.variants.contested) + ' for a separate contested proceeding' : item.amount == null ? 'Individually quoted fixed fee' : usd(item.amount) + (item.unit ? ' ' + item.unit : ''))).join('\n');
 let llms = readFileSync(join(root, 'scripts/llms.template.txt'), 'utf8');
 for (const [key, value] of Object.entries(TOKENS)) llms = llms.split(`{{${key}}}`).join(value);
 if (/\{\{[A-Z_]+\}\}/.test(llms)) throw new Error('build-pricing-sheet: unsubstituted llms.txt token');

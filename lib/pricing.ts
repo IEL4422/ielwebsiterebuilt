@@ -81,7 +81,7 @@ export const GUARDIANSHIP_FLAT = {
   emergencyTemporaryAddOn: approvedFeePolicy.fee_items.find(item => item.id === 'emergency-preservation')!.amount!,
   // Historical discrete-petition reference; prospective extraordinary work uses the approved menu.
   interimPetition: 1500,
-  terminationUncontested: approvedFeePolicy.fee_items.find(item => item.id === 'guardianship-modification')!.variants!.uncontested,
+  terminationContested: approvedFeePolicy.fee_items.find(item => item.id === 'guardianship-modification')!.variants!.contested,
 } as const;
 
 /**

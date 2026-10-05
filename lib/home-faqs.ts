@@ -33,7 +33,7 @@ export const homeFAQs: QA[] = [
   },
   {
     question: "What makes Illinois Estate Law's pricing structure different?",
-    answer: `The firm uses fixed fees for standard matters, including uncontested probate and uncontested guardianship, so clients know the price and written scope before work begins. Contested work uses an approved fixed fee for a defined scope. A standard will contest is $50,000 and standard contested guardianship is $25,000. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
+    answer: `The firm uses fixed fees for standard matters, including uncontested probate and uncontested guardianship, so clients know the price and written scope before work begins. Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
   },
   {
     question: 'What types of documents are typically included in an estate plan?',

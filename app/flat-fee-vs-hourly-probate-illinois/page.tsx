@@ -70,7 +70,7 @@ export default function FlatFeeVsHourlyProbatePage() {
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">What you pay</th>
                     <td className="border border-slate-200 px-4 py-3">{usd(PROBATE.standard)} standard estate; {usd(PROBATE.largeEstateBase)} + {PROBATE.largeEstatePercent}% for estates exceeding $4,000,000 due to estate-tax complexity; {usd(PROBATE.smallEstateAdministration)} small estate administration</td>
-                    <td className="border border-slate-200 px-4 py-3">$50,000 standard will contest; other disputes use the approved service menu or an individual fixed quote</td>
+                    <td className="border border-slate-200 px-4 py-3">$5,000 base + $50,000 standard will contest (total $55,000); other disputes add their approved service fee or an individual fixed quote</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Known in advance?</th>
@@ -129,7 +129,7 @@ export default function FlatFeeVsHourlyProbatePage() {
             </p>
 
             <h2>How contested probate is priced</h2>
-            <p>A standard will contest is $50,000 for the defined litigation through trial or settlement. Other disputes use the approved fixed-fee menu or an individual fixed quote. Complex matters are screened and quoted one higher fixed fee upfront before acceptance.</p>
+            <p>A standard will contest has a $5,000 base for opening, ordinary administration and closing plus $50,000 for the defined litigation through trial or settlement, totaling $55,000 with no offset. Other disputes use the approved fixed-fee menu or an individual fixed quote. Complex matters are screened and quoted one higher fixed fee upfront before acceptance.</p>
             <p>Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package. The firm does not stack those charges, add trial-day fees or convert the engagement to hourly billing.</p>
             <h2>If an uncontested matter becomes contested</h2>
             <p>Work already included in the signed engagement stays included. New litigation outside that scope requires a specific fixed-fee addendum and the client’s explicit acceptance before a charge. Existing signed engagements are honored.</p>
