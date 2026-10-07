@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-update-estate-plan-after-divorce-illinois',
+    title: 'How to Update Your Estate Plan After Divorce in Illinois',
+    url: '/blog/how-to-update-estate-plan-after-divorce-illinois/',
+    date: 'Oct 7, 2026',
+    summary:
+      'Step-by-step guide to updating your estate plan after an Illinois divorce — what the revocation-by-divorce statute (755 ILCS 5/4-7) automatically changes in your will, what it does not touch (your revocable living trust, beneficiary designations, and powers of attorney), and how to update each document to protect your assets and family.',
+    excerpt:
+      'Illinois divorce law revokes some will provisions automatically — but your trust, beneficiary designations, and powers of attorney still need to be updated. Learn what to change and in what order.',
+  },
+  {
     slug: 'how-to-remove-executor-illinois-probate',
     title: 'How to Remove an Executor in Illinois Probate: Grounds, Process, and What to Expect',
     url: '/blog/how-to-remove-executor-illinois-probate/',
