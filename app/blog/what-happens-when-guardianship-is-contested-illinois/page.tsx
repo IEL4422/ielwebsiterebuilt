@@ -21,6 +21,7 @@ import BlogNavigation from '@/components/blog/BlogNavigation';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import BlogContactForm from '@/components/blog/BlogContactForm';
 import { getBlogPost, getAdjacentPosts, getRelatedPosts } from '@/lib/blog-posts-data';
+import { CONTESTED, usd } from '@/lib/pricing';
 
 const SLUG = 'what-happens-when-guardianship-is-contested-illinois';
 
@@ -59,12 +60,12 @@ export default function Page() {
     {
       question: 'How much does a contested guardianship cost?',
       answer:
-        'Standard contested guardianship has a $5,000 base for opening, ordinary administration and closing plus a $25,000 litigation fee, totaling $30,000 with no offset. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
+        `A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee covering a defined initial scope. If specified contested events occur — such as additional motions, discovery, hearings, or trial preparation — additional expenses may apply under the written engagement agreement. Those expenses are conditional and are explained before they are incurred. Third-party costs, including a guardian ad litem fee when applicable, remain separate.`,
     },
     {
       question: 'What happens to my flat fee if my guardianship becomes contested?',
       answer:
-        'If new contested work falls outside the retained scope, we provide a specific fixed-fee addendum for your acceptance before charging. Work already included is not charged again. Existing signed terms are honored; refunds for unfinished representation reflect work performed, subject to mandatory reasonableness and refund requirements.',
+        `If a matter accepted as uncontested later becomes contested, a separate contested flat-fee scope applies, starting at ${usd(CONTESTED.guardianshipInitialFlatFee)}. The firm explains in writing how the amount already paid applies. The engagement agreement also identifies defined contested events that may create additional expenses, so those expenses are not treated as automatically required.`,
     },
     {
       question: 'Can a guardian be removed in Illinois?',
@@ -185,7 +186,7 @@ export default function Page() {
                     Once that opposition is on file, the matter stops being a routine court appointment and becomes litigation. That means discovery, a guardian ad litem investigating and reporting to the judge, a physician&apos;s report, and an evidentiary hearing before the court rules.
                   </p>
                   <p className="mb-0 font-['Plus_Jakarta_Sans']">
-                    A contested guardianship requires attorney screening and a defined fixed-fee scope before engagement. This guide explains what triggers a contest, how the process moves, the standard the court applies and how fees are handled.
+                    A contested guardianship starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. Because the opposing party may expand the work, defined contested events can create additional expenses under the written engagement. This guide explains the process and fee structure from start to finish.
                   </p>
                 </div>
               </div>
@@ -200,7 +201,7 @@ export default function Page() {
                 {[
                   { label: 'An objection, a competing petition, or a removal request', type: 'What Triggers It', color: 'amber' },
                   { label: 'Discovery, a guardian ad litem, and an evidentiary hearing', type: 'What It Becomes', color: 'blue' },
-                  { label: 'One fixed fee for the defined litigation after screening', type: 'How Fees Work', color: 'green' },
+                  { label: `Starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined events may add expense`, type: 'How Fees Work', color: 'green' },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -488,11 +489,11 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Standard contested guardianship has a $5,000 base for opening, ordinary administration and closing plus a $25,000 litigation fee, totaling $30,000 with no offset. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included, without stacked charges, extra trial-day fees or hourly conversion. Existing signed engagements are honored.
+              Contested guardianship begins with a <strong>{usd(CONTESTED.guardianshipInitialFlatFee)} flat fee</strong> covering a defined initial scope. Because the opposing party may create additional work through motions, discovery, hearings, or trial preparation, the written engagement identifies events that may create additional expenses. Those expenses are conditional rather than automatically required.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Court-appointed guardian ad litem fees and other third-party expenses depend on the case and the signed agreement. We identify any separate expenses before engagement and honor expenses already included in the retained scope.
+              Third-party costs remain separate from the firm&apos;s fee. The largest is often the <strong>guardian ad litem&apos;s fee</strong>, which the court sets and allocates among the parties, but costs can also include filing fees, deposition transcripts, and an independent evaluation. The firm explains the applicable scope and possible event-based expenses before work begins.
             </p>
 
             <div className="bg-[#33414E] rounded-xl p-8 my-10 text-white">
@@ -500,7 +501,7 @@ export default function Page() {
                 Facing a Contested Guardianship?
               </h3>
               <p className="text-white/80 mb-5 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
-                Illinois Estate Law helps families navigate contested guardianships. We explain the defined scope and exact fixed fee before you commit.
+                Illinois Estate Law helps Chicago-area families navigate contested guardianships — from objections and competing petitions to removal and surcharge claims. We explain the initial flat-fee scope and any conditional event-based expenses before you commit.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
@@ -524,7 +525,7 @@ export default function Page() {
               <Link href="/guardianship/#contested" className="text-[#4a708b] hover:underline font-medium font-['Plus_Jakarta_Sans']">
                 contested guardianship page
               </Link>
-              . The written scope and screened fixed quote establish the fee before engagement.
+              . The important takeaway is that the initial flat fee covers a defined scope, while specified litigation events may create additional expenses under the written agreement.
             </p>
 
             {/* 8. Flat to Contested */}
@@ -533,27 +534,27 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              A guardianship that begins uncontested may later involve a dispute. Before additional work begins, we review the existing agreement and identify what is already covered.
+              A common and understandable worry: &ldquo;I hired you for a flat-fee guardianship — what happens to my money if it turns into a fight?&rdquo; This comes up most often with matters that start out uncontested, such as a minor guardianship everyone expected to be routine. Here is exactly how we handle it, and why you do not need to worry about losing what you have already paid.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              If new contested work falls outside the retained scope, we provide a specific fixed-fee addendum for your acceptance before charging. Work already included is not charged again. Existing signed terms are honored; refunds for unfinished representation reflect work performed, subject to mandatory reasonableness and refund requirements.
+              If a matter accepted as uncontested later becomes contested, the firm provides a <strong>separate contested flat-fee scope</strong>. It explains in writing how the amount already paid applies before contested representation begins. Defined contested events may create additional expenses under the engagement agreement, but those expenses are not automatically required.
             </p>
 
             <div className="bg-green-50 border-l-4 border-green-500 p-5 my-8 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <ShieldCheck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-green-800 mb-1 font-['Plus_Jakarta_Sans']">You are told the exact amount, in writing</p>
+                  <p className="font-semibold text-green-800 mb-1 font-['Plus_Jakarta_Sans']">The scope is explained in writing</p>
                   <p className="text-green-700 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
-                    If new contested work is outside your retained scope, we provide a specific fixed-fee addendum for your acceptance before charging. Existing signed engagements and included work remain protected. Settlement completes the defined work; any refund for unfinished representation reflects work performed and mandatory reasonableness and refund requirements.
+                    Before contested representation begins, the firm explains how the amount already paid applies, what the initial contested flat fee covers, and which defined events could create additional expenses.
                   </p>
                 </div>
               </div>
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              We explain any proposed additional scope in writing before acceptance. A change in the case does not automatically authorize another charge.
+              None of this is a surprise, either. We explain the conversion <strong>up front</strong> and write it directly into the engagement agreement, so you know before you ever sign exactly how a flat fee will be treated if the matter becomes contested. The goal is simple: to make sure a change in the nature of your case never becomes a change you did not see coming.
             </p>
 
             {/* 9. Protecting Your Family */}
@@ -575,7 +576,7 @@ export default function Page() {
                     'Relatives can fight over who should serve',
                     'The process becomes public litigation',
                     'Discovery, a GAL, and a hearing all take time',
-                    'Litigation can delay decisions and increase emotional strain',
+                    'Defined litigation events may create additional expenses',
                     'Family relationships are strained for years',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">

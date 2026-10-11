@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, BadgeDollarSign, Building2, CircleCheck, FileSearch, Scale, Users } from 'lucide-react';
-import { PROBATE, RATES, RETAINERS, hourly, usd } from '@/lib/pricing';
+import { CONTESTED, PROBATE, usd } from '@/lib/pricing';
 
 const paths = [
   {
@@ -85,9 +85,9 @@ export function ProbateServicePaths() {
 
           <div className="rounded-2xl bg-[#33414E] p-6 text-white">
             <h3 className="text-xl font-bold">Is there a dispute?</h3>
-            <p className="mt-3 text-sm leading-relaxed text-white/80">A will contest, competing representative, removal request, or filed objection is contested probate—not a flat-fee administration.</p>
-            <p className="mt-4 text-lg font-bold">$5,000 base + approved litigation fees</p>
-            <p className="mt-1 text-sm text-white/75">Standard will contest: $50,000 in addition to the $5,000 base (total $55,000). Attorney screening and one exact quote upfront; ordinary litigation work included.</p>
+            <p className="mt-3 text-sm leading-relaxed text-white/80">A will contest, competing representative, removal request, or filed objection is contested probate.</p>
+            <p className="mt-4 text-lg font-bold">Starts with a {usd(CONTESTED.probateInitialFlatFee)} flat fee</p>
+            <p className="mt-1 text-sm text-white/75">If defined contested events occur, additional expenses may apply under the written engagement agreement.</p>
             <Link href="/book-consultation/" className="mt-5 inline-flex items-center gap-2 font-bold text-white underline underline-offset-4">Discuss a contested estate<ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>

@@ -15,13 +15,11 @@ import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
 import {
-  RATES,
-  RETAINERS,
+  CONTESTED,
+  CONTESTED_FEE_NOTE,
   GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   usd,
-  hourly,
-  retainerLabel,
 } from '@/lib/pricing';
 import { BOOKING_GUARDIANSHIP } from '@/lib/booking';
 import { guardianshipCounties } from '@/lib/guardianship-counties';
@@ -31,18 +29,18 @@ import { CTABand } from '@/components/ui/CTAButtons';
 const adultOfferings = [
   { icon: HeartHandshake, title: 'Guardianship of the Person', description: 'Authority over care, residence, and medical decisions for an adult who can no longer make them.' },
   { icon: Landmark, title: 'Guardianship of the Estate', description: 'Authority over money, property, benefits, and income — with a duty to account to the court for every dollar.' },
-  { icon: ShieldAlert, title: 'Contested Guardianship', description: `When the respondent objects, a sibling files a competing petition, or a guardian faces removal. Standard contested guardianship is a $5,000 base plus $25,000 for litigation (total $30,000) after screening; complex cases receive one higher fixed quote upfront.` },
+  { icon: ShieldAlert, title: 'Contested Guardianship', description: `When the respondent objects, a sibling files a competing petition, or a guardian faces removal. Starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses.` },
   { icon: UserCheck, title: 'GAL & Physician’s Report', description: 'We coordinate the court-appointed guardian ad litem and the physician’s report (CCP 0211 / CIC-2) required to establish disability.' },
   { icon: ClipboardCheck, title: 'Personal Annual Report', description: 'Preparation and filing of the personal annual report on the ward is $750 each year it is filed. Estate accounting is not included in this fee; applicable court reporting duties still apply.' },
   { icon: FileText, title: 'Interim Petitions & Termination', description: 'Sale of real estate, extraordinary expenditures, change of placement, and restoration of the ward’s rights.' },
-  { icon: Clock, title: 'Emergency Temporary Guardianship', description: `Priority temporary-guardian petition and one emergency hearing added to the full uncontested case for ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} — ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total.` },
+  { icon: Clock, title: 'Emergency Temporary Guardianship', description: `Includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday, plus one emergency hearing and the full uncontested case. ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} add-on — ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total.` },
 ];
 
 const minorOfferings = [
   { icon: Users, title: 'Guardianship by a Relative', description: 'For a grandparent, aunt, uncle, or family friend stepping in to raise a child when the parents cannot.' },
   { icon: HeartHandshake, title: 'Parental Consent Guardianship', description: 'When a parent consents to another adult being appointed guardian — the most common and most straightforward path.' },
   { icon: Clock, title: 'Short-Term & Standby Guardianship', description: 'A parent planning ahead can designate a short-term or standby guardian that takes effect on a future event.' },
-  { icon: ShieldAlert, title: 'Contested Minor Guardianship', description: `When a parent objects or files a competing petition. The $5,000 base plus the standard $25,000 contested package totals $30,000 after attorney screening. Routine work already retained is not billed again.` },
+  { icon: ShieldAlert, title: 'Contested Minor Guardianship', description: `When a parent objects or files a competing petition. Starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses.` },
   { icon: FileText, title: 'Guardianship of the Minor’s Estate', description: 'Where a child has received money or property — an inheritance or settlement — that must be managed under court supervision.' },
   { icon: CircleCheck, title: 'Termination at Majority', description: 'A minor guardianship ends when the child turns 18; we handle the closing where an estate accounting is required.' },
 ];
@@ -101,11 +99,11 @@ export default function GuardianshipPage() {
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">How adult guardianship is billed</h3>
           <p>An uncontested adult guardianship of the person and estate is a <strong>flat {usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong>. The firm’s work and <strong>all court filing fees are included</strong>: the petition, physician-report coordination, personal-service coordination, GAL coordination, inventory and surety-bond coordination, and hearing. <strong>Bond premiums and court-appointed guardian ad litem fees are not included</strong> because they are third-party charges.</p>
           <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_FLAT.adultUncontested)} flat fee is paid once. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, not part of the flat fee.</p>
-          <p>Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacked fees, extra trial-day charges or hourly conversion. Existing signed engagements and previously included expenses are honored.</p>
+          <p>A guardianship becomes <strong>contested</strong> when the respondent objects, a competing petition is filed, or a sitting guardian is challenged. Contested representation starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. If defined contested events occur, additional expenses may apply under the written engagement agreement.</p>
         </div>
         <div className="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl">
           <div className="border-2 border-[#33414E] rounded-xl p-5"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Uncontested — person &amp; estate</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested)} flat</p><p className="text-slate-500 text-xs mt-1">Filing fees included; bond premiums and GAL fees separate.</p></div>
-          <div className="border border-slate-200 rounded-xl p-5 bg-white"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Contested</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">$5,000 base + $25,000 standard litigation fee</p></div>
+          <div className="border border-slate-200 rounded-xl p-5 bg-white"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Contested</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">Starts with {usd(CONTESTED.guardianshipInitialFlatFee)}</p></div>
           <div className="border border-slate-200 rounded-xl p-5 bg-[#f0f7f4]"><p className="text-xs font-bold uppercase tracking-wider text-[#1d6a4f] mb-2">Personal Annual Report</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / yr</p></div>
         </div>
         <p className="mt-6 max-w-4xl text-sm text-slate-500">Where fees are paid from the ward’s estate, Illinois law requires that they be reasonable and approved by the court (755 ILCS 5/27-2; 755 ILCS 5/11a-18).</p>
@@ -117,14 +115,14 @@ export default function GuardianshipPage() {
             <p className="text-sm font-bold uppercase tracking-wider text-[#9A3E38]">Immediate welfare or asset protection</p>
             <h2 className="mt-2 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] md:text-3xl">Emergency Temporary Adult Guardianship</h2>
             <p className="mt-4 leading-relaxed text-slate-600">When a decision cannot safely wait for the regular hearing, Illinois law allows the court to appoint a temporary guardian with specifically limited powers. The temporary petition must be filed with or after the full guardianship petition, and the court decides whether immediate protection is necessary.</p>
-            <p className="mt-4 leading-relaxed text-slate-600">Our emergency add-on is <strong>{usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong> in addition to the <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong> full uncontested adult guardianship, for a concrete total of <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong>. All court filing fees are included. Bond premiums and GAL fees are not included.</p>
+            <p className="mt-4 leading-relaxed text-slate-600">Our emergency add-on is <strong>{usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong> in addition to the <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong> full uncontested adult guardianship, for a concrete total of <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong>. It includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday. All court filing fees are included. Bond premiums and GAL fees are not included.</p>
             <Link href="/adult-guardianship-lawyer/#emergency" className="mt-5 inline-flex items-center rounded-full bg-[#B44B43] px-6 py-3 text-sm font-bold text-white hover:bg-[#963C36]">Review Emergency Guardianship</Link>
           </div>
           <div className="rounded-2xl border border-[#F0C7C3] bg-white p-6 shadow-sm">
             <p className="text-xs font-bold uppercase tracking-wide text-[#9A3E38]">Emergency + full case</p>
             <p className="mt-2 text-4xl font-extrabold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</p>
             <p className="mt-2 text-sm text-slate-500">{usd(GUARDIANSHIP_FLAT.adultUncontested)} full guardianship + {usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on</p>
-            <ul className="mt-5 space-y-2 text-sm text-slate-700"><li>• Priority temporary-petition preparation</li><li>• Proposed temporary order</li><li>• One temporary-guardianship hearing</li><li>• Full uncontested guardianship through regular appointment</li><li>• All court filing fees included</li></ul>
+            <ul className="mt-5 space-y-2 text-sm text-slate-700"><li>• Same-week filing of the emergency motion and temporary petition when purchased by Tuesday</li><li>• Proposed temporary order</li><li>• One temporary-guardianship hearing</li><li>• Full uncontested guardianship through regular appointment</li><li>• All court filing fees included</li></ul>
             <p className="mt-4 text-xs leading-relaxed text-slate-500">No result or hearing date is guaranteed. If the matter becomes contested, contested-matter billing applies.</p>
           </div>
         </div>
@@ -181,11 +179,11 @@ export default function GuardianshipPage() {
         <div className="w-16 h-1 bg-[#4A708B] mb-8" />
         <div className="max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <p>A guardianship becomes <strong>contested</strong> the moment someone formally opposes it — the respondent objects to being found disabled, a family member files a competing petition to be the guardian instead, or an existing guardian is challenged and faces removal. At that point the matter is litigation: discovery, evidence, and, if it does not settle, a hearing before the judge.</p>
-          <p>Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacked fees, extra trial-day charges or hourly conversion. Existing signed engagements and previously included expenses are honored.</p>
+          <p>A contested guardianship — adult or minor — <strong>starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee</strong>. {CONTESTED_FEE_NOTE} Third-party costs, including a guardian ad litem fee when applicable, remain separate.</p>
         </div>
         <div className="mt-8 max-w-4xl border-l-4 border-[#4A708B] bg-[#f8f9fa] p-6 rounded-r-lg">
           <p className="font-bold text-[#33414E] mb-2">If a flat-fee guardianship becomes contested</p>
-          <p className="text-slate-600 text-sm leading-relaxed">Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacked fees, extra trial-day charges or hourly conversion. Existing signed engagements and previously included expenses are honored.</p>
+          <p className="text-slate-600 text-sm leading-relaxed">Uncontested guardianship — adult or minor — is a flat fee. If a matter accepted as uncontested becomes contested, the initial contested flat-fee scope applies. The firm explains how the amount already paid applies and identifies any event-based additional expenses in writing before the contested engagement begins.</p>
         </div>
       </div></div></section>
 

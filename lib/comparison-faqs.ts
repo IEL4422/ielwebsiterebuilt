@@ -1,12 +1,9 @@
 import type { QA } from '@/lib/seo';
 import {
   PROBATE,
-  RATES,
-  RETAINERS,
-  RETAINER_FLOORS,
+  CONTESTED,
   ESTATE_PLANNING,
   usd,
-  hourly,
 } from '@/lib/pricing';
 
 /**
@@ -28,7 +25,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'Is probate in Illinois billed hourly or as a flat fee?',
     answer:
-      `Both hourly and fixed-fee models are used in Illinois. Our prospective engagements use a defined fixed fee. Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
+      `Both models are used in Illinois — probate fees are not standardized by statute, so it depends entirely on the firm you hire. This firm quotes a flat fee for uncontested probate (${usd(PROBATE.standard)} for a standard estate; an estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)}). Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee, with additional expenses only if defined events occur. Many Illinois firms bill hourly, so get the applicable model in writing before engaging counsel.`,
   },
   {
     question: 'What does a flat probate fee include in Illinois?',
@@ -37,7 +34,8 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   },
   {
     question: 'How is contested probate priced?',
-    answer: 'A standard will contest has a $5,000 base for opening, ordinary administration and closing plus $50,000 for the defined litigation through trial or settlement, totaling $55,000 with no offset. Other disputes use the approved fixed-fee menu or one individual fixed quote. Complex cases are screened and quoted upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.',
+    answer:
+      `Contested probate, will contests, and estate litigation start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee covering a defined initial scope. Because the opposing party may create additional work through motions, discovery, hearings, or trial preparation, the written engagement identifies events that may create additional expenses. Those expenses are conditional and are explained before they are incurred.`,
   },
   {
     question: 'Is a flat fee cheaper than hourly for Illinois probate?',
@@ -45,9 +43,9 @@ export const flatFeeVsHourlyFAQs: QA[] = [
       'Not automatically, and anyone who tells you it always is, is selling. A flat fee and an hourly engagement can land in the same place on a simple estate. What a flat fee actually buys is predictability and a transfer of risk: if the estate turns out to be more work than expected, that is the firm’s problem rather than yours, and you are never charged for asking a question. Hourly can cost less on an unusually clean file and considerably more on a messy one. The honest comparison is not price against price, it is a known number against an unknown one.',
   },
   {
-    question: "What happens if a flat-fee probate becomes contested?",
+    question: 'What happens if a flat-fee probate becomes contested?',
     answer:
-      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      'A formal objection, appearance in opposition, or competing petition changes the matter into contested litigation. The firm then provides the applicable contested flat-fee scope and explains in writing how the amount already paid applies. Defined contested events may create additional expenses, but those expenses are not automatically required.',
   },
   {
     question: 'Do Illinois probate attorney fees have to be approved by the court?',

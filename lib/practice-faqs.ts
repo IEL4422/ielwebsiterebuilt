@@ -3,7 +3,9 @@ import {
   PROBATE,
   GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
-  RETAINERS,
+  CONTESTED,
+  CONTESTED_FEE_NOTE,
+  EMERGENCY_GUARDIANSHIP_FILING_TIMELINE,
   usd,
 } from '@/lib/pricing';
 
@@ -41,12 +43,12 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'How much does it cost to contest a will in Illinois?',
     answer:
-      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      `Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee. Because motions, discovery, hearings, and trial preparation can expand the scope, defined events in the written engagement agreement may create additional expenses. Those expenses are conditional and are explained before they are incurred.`,
   },
   {
-    question: 'How do you set a fixed fee for contested probate?',
+    question: 'Why can a contested probate have additional expenses?',
     answer:
-      'We screen the dispute before engagement and define the work in writing. A standard will contest adds $50,000 to the $5,000 base (total $55,000, with no offset); complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial within the retained litigation package are included, without stacked charges, extra trial-day fees or hourly conversion. Work outside that scope requires a specific fixed-fee addendum and client acceptance before charging. Existing signed engagements are honored.',
+      'The initial flat fee covers a defined scope. A contested matter can expand if the opposing party files motions, disputes discovery, requires additional hearings, or proceeds toward trial. The engagement agreement identifies the events that may create additional expenses so they are not presented as automatically required.',
   },
   {
     question: 'Do attorney fees in a contested Illinois probate need court approval?',
@@ -71,7 +73,7 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'What happens if my uncontested probate suddenly becomes contested?',
     answer:
-      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      `If someone files an objection or a competing petition in a matter accepted as uncontested, the representation becomes contested. ${CONTESTED_FEE_NOTE} The firm explains in writing how the amount already paid applies before the contested engagement begins.`,
   },
   {
     question: 'Which Illinois counties do you handle contested probate in?',
@@ -89,17 +91,17 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'How much does adult guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship of the person and estate. The firm’s work and all court filing fees are included. Bond premiums and guardian ad litem (GAL) fees are not included because they are third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the combined total ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}.`,
+      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship of the person and estate. The firm’s work and all court filing fees are included. Bond premiums and guardian ad litem (GAL) fees are not included because they are third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the combined total ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`,
   },
   {
     question: 'How much does emergency adult guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a concrete ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency temporary-guardianship add-on to the ${usd(GUARDIANSHIP_FLAT.adultUncontested)} full uncontested adult-guardianship package, for a combined total of ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. The combined fee includes priority preparation, the temporary petition and proposed order, one temporary-guardianship hearing, the full guardianship case, and all court filing fees. Bond premiums and court-appointed GAL fees are not included. The court controls whether temporary guardianship is granted and when a hearing occurs.`,
+      `Illinois Estate Law charges a concrete ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency temporary-guardianship add-on to the ${usd(GUARDIANSHIP_FLAT.adultUncontested)} full uncontested adult-guardianship package, for a combined total of ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} The combined fee also includes priority preparation of the proposed order, one temporary-guardianship hearing, the full guardianship case, and all court filing fees. Bond premiums and court-appointed GAL fees are not included. The court controls whether temporary guardianship is granted and when a hearing occurs.`,
   },
   {
     question: 'Is adult guardianship a flat fee?',
     answer:
-      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
+      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses.`,
   },
   {
     question: 'What is the difference between guardianship of the person and guardianship of the estate?',
@@ -109,7 +111,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'What is a guardian ad litem and do I have to pay for one?',
     answer:
-      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — disclosed before engagement. In uncontested matters it is an identified third-party exclusion from the flat fee. In contested matters, separate payment applies only where disclosed and expressly agreed in the written scope; previously included expenses remain included. It is never firm revenue.`,
+      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — always disclosed to you and billed separately: a carve-out from the flat fee in an uncontested matter, or a billable expense in a contested one. It is never firm revenue.`,
   },
   {
     question: 'What are a guardian’s ongoing duties after appointment?',
@@ -137,12 +139,12 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'How much does minor guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.`,
+      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested, contested representation starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. Defined contested events may create additional expenses under the written engagement agreement.`,
   },
   {
     question: 'What if a parent objects to the guardianship?',
     answer:
-      "Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases are screened and quoted one higher fixed fee upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacking, extra trial-day fees or hourly conversion. Existing signed engagements are honored.",
+      `If a parent objects or files a competing petition, the guardianship is contested and becomes litigation. It starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. The written engagement identifies any events that may create additional expenses, and the firm explains how the amount already paid applies before contested representation begins.`,
   },
   {
     question: 'What is the difference between guardianship and adoption?',

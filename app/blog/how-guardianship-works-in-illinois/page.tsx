@@ -21,7 +21,7 @@ import BlogNavigation from '@/components/blog/BlogNavigation';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import BlogContactForm from '@/components/blog/BlogContactForm';
 import { getBlogPost, getAdjacentPosts, getRelatedPosts } from '@/lib/blog-posts-data';
-import { GUARDIANSHIP_FLAT, RETAINERS, usd } from '@/lib/pricing';
+import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 
 const SLUG = 'how-guardianship-works-in-illinois';
 
@@ -64,7 +64,7 @@ export default function Page() {
     {
       question: 'How much does guardianship cost in Illinois?',
       answer:
-        `Illinois Estate Law charges ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship and ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship. All court filing fees are included. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges. If temporary emergency authority is needed in addition to the full adult case, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, for a ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} combined total. A standard contested guardianship uses a $5,000 base plus a $25,000 litigation fee, totaling $30,000 after attorney screening. Complex matters receive one higher fixed quote upfront. The defined litigation includes ordinary discovery, motions, mediation and trial, without hourly conversion or extra trial-day charges. For details, see our ` +
+        `Illinois Estate Law charges ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship and ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship. All court filing fees are included. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges. If temporary emergency authority is needed in addition to the full adult case, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, for a ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} combined total. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement agreement. For details, see our ` +
         'guardianship page or book a consultation.',
     },
     {

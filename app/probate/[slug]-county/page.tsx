@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Gavel, FileText, Users, UserCheck, CreditCard, Search } from 'lucide-react';
 import { countyProbateLocations, CountyProbateLocation } from '@/lib/locations-data';
-import { PROBATE, usd } from '@/lib/pricing';
+import { CONTESTED, PROBATE, usd } from '@/lib/pricing';
 import { LocationHero } from '@/components/geo/LocationHero';
 import { ServiceCard } from '@/components/geo/ServiceCard';
 import { PricingCard } from '@/components/geo/PricingCard';
@@ -87,7 +87,7 @@ function getCountyFAQs(county: string) {
     },
     {
       question: `How much does a probate lawyer cost in ${county}?`,
-      answer: `Illinois Estate Law handles uncontested probate on a flat fee: ${usd(PROBATE.standard)} for standard probate. An estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)} — a Small Estate Affidavit and Attorney Letter of Direction, with no probate case opened. The flat fee is all-inclusive — court filing fees, creditor publication, and recording fees are covered by the fee rather than billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Contested probate requires screening and an exact fixed fee for the defined scope before acceptance. The $5,000 base covers opening, ordinary administration and closing; standard will contests add $50,000 (total $55,000), and other disputes add their approved menu fee or an individual fixed quote. Complex cases receive one higher fixed quote upfront. Payment plans are available for all services.`,
+      answer: `Illinois Estate Law handles uncontested probate on a flat fee: ${usd(PROBATE.standard)} for standard probate. An estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)} — a Small Estate Affidavit and Attorney Letter of Direction, with no probate case opened. The flat fee is all-inclusive — court filing fees, creditor publication, and recording fees are covered by the fee rather than billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement agreement. Payment plans are available for all services.`,
     },
     {
       question: 'Can probate be avoided in Illinois?',
@@ -197,7 +197,7 @@ export default function CountyProbatePage({
                   Probate cases in {loc.county} are filed at the {countyCourtName} located at {loc.courthouseAddress}. {loc.filingSystems} Our firm has extensive experience navigating {loc.county}&apos;s probate system and can guide you through every step.
                 </p>
                 <p>
-                  Whether you are an executor named in a will, an heir seeking representation, or a family member trying to understand the process, Illinois Estate Law offers transparent flat-fee pricing on uncontested probate. Contested matters require attorney screening and a defined fixed-fee scope before engagement. We serve all of {loc.county} from {loc.seat} and every community in the county.
+                  Whether you are an executor named in a will, an heir seeking representation, or a family member trying to understand the process, Illinois Estate Law offers transparent flat-fee pricing. Contested matters &mdash; will contests and estate litigation &mdash; start with a {usd(CONTESTED.probateInitialFlatFee)} flat fee; defined contested events may create additional expenses. We serve all of {loc.county} from {loc.seat} and every community in the county.
                 </p>
               </div>
             </div>

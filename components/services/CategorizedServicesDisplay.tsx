@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { A_LA_CARTE, ESTATE_PLANNING, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
@@ -281,9 +281,14 @@ export const serviceCategories: ServiceCategory[] = [
       },
       {
         name: 'Contested Probate',
-        subtitle: "Attorney screening before engagement",
-        pricingLabel: "Individually quoted fixed fee",
-        includes: ["Attorney screening and exact written scope","The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.","Specific approval before any additional charge"]
+        subtitle: 'Starts with a flat fee',
+        pricingLabel: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
+        includes: [
+          `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
+          'Written scope for the initial contested work',
+          'Additional expenses only if defined contested events occur'
+        ],
+        note: CONTESTED_FEE_NOTE
       }
     ],
     aLaCarte: [],

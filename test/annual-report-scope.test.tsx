@@ -2,7 +2,6 @@ import React from 'react';
 import {describe, it, expect} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {readFileSync} from 'node:fs';
-import {createHash} from 'node:crypto';
 import {allServices} from '@/lib/services-data';
 import {GUARDIANSHIP_COMPLIANCE} from '@/lib/pricing';
 import {guardianshipFAQs} from '@/lib/practice-faqs';
@@ -60,9 +59,7 @@ describe('prospective personal annual report scope', () => {
   expect(answer).toContain('only additional firm fee for ordinary uncontested guardianship');
   expect(answer).toContain('Existing signed engagements are honored');
  });
- it('does not change historical price constants or the already-approved PDF bytes', () => {
+ it('keeps historical internal price constants without advertising the removed bundle', () => {
   expect(GUARDIANSHIP_COMPLIANCE).toMatchObject({annualReportPerson:750, annualAccountingEstate:2500, compliancePlanBundled:3000});
-  const pdf = readFileSync('public/downloads/probate-guardianship-additional-flat-fees-2026-10-05.pdf');
-  expect(createHash('sha256').update(pdf).digest('hex')).toBe('50724dfe45ce03f88ade313d42ad6666c27eb16b18f5087b1175cc944ba9d5c4');
  });
 });

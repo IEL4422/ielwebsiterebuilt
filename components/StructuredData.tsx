@@ -1,4 +1,17 @@
-import { FIRM, SITE_URL, postalAddress, OPENING_HOURS } from '@/lib/seo';
+import { ATTORNEYS, FIRM, SITE_URL, postalAddress, OPENING_HOURS } from '@/lib/seo';
+
+const practiceOfferings = [
+  { name: 'Estate planning', path: '/estate-planning/' },
+  { name: 'Wills', path: '/chicago-wills-lawyer/' },
+  { name: 'Revocable living trusts', path: '/chicago-revocable-trusts-lawyer/' },
+  { name: 'Powers of attorney', path: '/chicago-powers-of-attorney-lawyer/' },
+  { name: 'Healthcare directives', path: '/chicago-healthcare-directives-lawyer/' },
+  { name: 'Probate and estate administration', path: '/chicago-probate-lawyer/' },
+  { name: 'Trust administration', path: '/services-pricing/#trusts' },
+  { name: 'Adult and minor guardianship', path: '/guardianship/' },
+  { name: 'Residential real estate closings', path: '/chicago-real-estate-closings-lawyer/' },
+  { name: 'Deed preparation and transfers', path: '/chicago-deeds-lawyer/' },
+] as const;
 
 /**
  * Site-wide JSON-LD graph: the firm (LegalService / Attorney / LocalBusiness),
@@ -50,21 +63,26 @@ export function StructuredData() {
         ],
         parentOrganization: { '@id': `${SITE_URL}/#organization` },
         sameAs: FIRM.sameAs,
-        makesOffer: [
-          'Estate planning',
-          'Wills',
-          'Revocable living trusts',
-          'Powers of attorney',
-          'Healthcare directives',
-          'Probate administration',
-          'Trust administration',
-          'Adult and minor guardianship',
-          'Residential real estate closings',
-          'Deed preparation and transfers',
-        ].map((s) => ({
+        makesOffer: practiceOfferings.map((service) => ({
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: s, areaServed: { '@type': 'State', name: 'Illinois' } },
+          url: `${SITE_URL}${service.path}`,
+          itemOffered: {
+            '@type': 'Service',
+            name: service.name,
+            url: `${SITE_URL}${service.path}`,
+            provider: { '@id': `${SITE_URL}/#legalservice` },
+            areaServed: { '@type': 'State', name: 'Illinois' },
+          },
         })),
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Illinois Estate Law services',
+          itemListElement: practiceOfferings.map((service) => ({
+            '@type': 'Offer',
+            url: `${SITE_URL}${service.path}`,
+            itemOffered: { '@type': 'Service', name: service.name },
+          })),
+        },
         potentialAction: {
           '@type': 'ReserveAction',
           name: 'Book a free consultation',
@@ -100,6 +118,19 @@ export function StructuredData() {
             availableLanguage: ['English', 'Arabic'],
           },
         ],
+        founder: {
+          '@type': 'Person',
+          '@id': `${SITE_URL}/about/#mary-liberty`,
+          name: 'Mary Liberty',
+          jobTitle: 'Founding Attorney & Owner',
+        },
+        employee: ATTORNEYS.map((attorney) => ({
+          '@type': 'Person',
+          '@id': `${SITE_URL}/about/#${attorney.name.toLowerCase().replace(/[^a-z]+/g, '-')}`,
+          name: attorney.name,
+          jobTitle: attorney.jobTitle,
+          knowsAbout: attorney.knowsAbout,
+        })),
       },
       {
         '@type': 'WebSite',

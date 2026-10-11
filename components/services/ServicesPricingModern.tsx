@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { A_LA_CARTE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, RETAINERS, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
 import {
@@ -101,7 +101,6 @@ const SERVICE_CTAS: Cta[] = [
 ];
 
 function ctasFor(serviceName: string): Cta[] {
-  if (/contested|will contest/i.test(serviceName)) return [{label:'Request attorney screening',href:BOOK,variant:'primary'}];
   return [
     { label: 'Get Started', href: serviceStartHref(serviceName), variant: 'primary' },
     { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
@@ -135,7 +134,7 @@ function CardCtas({ ctas, serviceName }: { ctas: Cta[]; serviceName: string }) {
       )}
       </div>
       <p className="mt-2 text-center text-[11px] leading-relaxed text-[#6b7782]">
-        {/contested|will contest/i.test(serviceName) ? 'Attorney screening and a fixed quote are required before engagement.' : 'Start online without a consultation, or talk with us first—free and no obligation.'}
+        Start online without a consultation, or talk with us first—free and no obligation.
       </p>
     </div>
   );
@@ -244,9 +243,9 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
     rows: [
       { name: 'Powers of Attorney', individual: usd(A_LA_CARTE.powersOfAttorneyIndividual), joint: usd(A_LA_CARTE.powersOfAttorneyJoint), notes: 'Property and health care POAs prepared together.' },
       { name: 'Adult Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.adultUncontested), joint: '', notes: 'All court filing fees included; bond premiums and guardian ad litem fees billed separately.' },
-      { name: 'Emergency + Full Adult Guardianship', individual: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn), joint: '', notes: `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full case. Filing fees included; bond premiums and GAL fees separate.` },
+      { name: 'Emergency + Full Adult Guardianship', individual: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn), joint: '', notes: `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full case. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Filing fees included; bond premiums and GAL fees separate.` },
       { name: 'Minor Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.minorUncontested), joint: '', notes: 'Flat fee.' },
-      { name: 'Contested Guardianship', individual: '$5,000 base + $25,000 standard litigation fee', joint: '', notes: 'For objections, competing petitions, and guardian-removal matters.' },
+      { name: 'Contested Guardianship', individual: `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, joint: '', notes: 'Defined contested events may create additional expenses under the written engagement agreement.' },
       { name: 'Annual Report on the Ward', individual: `${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / year`, joint: '', notes: 'Personal annual report preparation and filing. Estate accounting is not included in this fee.' },
     ],
   },
@@ -256,7 +255,7 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
 
 const included = [
   ['In-Scope Consultations', 'Attorney consultations reasonably needed to complete the written package scope.'],
-  ['Fixed Fees for Standard Matters*', 'Your price and written scope are shown before you commit. Contested matters require screening and an upfront fixed quote.'],
+  ['Clear Written Fees', `Standard matters have concrete flat fees. Contested matters start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee, with additional expenses only if defined contested events occur.`],
   ['Notarization Included', 'Online or mobile notarization included on all packages.'],
   ['Client Portal Access', 'Track status, message your attorney, and access documents 24/7.'],
   ['Physical & Digital Portfolio', 'Your finished plan delivered both ways.'],
@@ -349,7 +348,7 @@ export function ServicesPricingModern() {
           <CatHead kick="03" title="Probate &amp; Administration" />
           <p className="mb-7 max-w-[820px] text-[16px] text-[#5f6b76]">
             Flat-fee guidance for executors and families through Illinois probate — from opening through closing.
-            Uncontested and contested matters use defined fixed fees. Complex cases require one upfront fixed quote. Surety bond
+            Uncontested matters are flat-fee. Contested matters start with a {usd(CONTESTED.probateInitialFlatFee)} flat fee; defined contested events may create additional expenses. Surety bond
             premiums, if required, are paid directly to the bond provider and are not included.
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -432,8 +431,8 @@ export function ServicesPricingModern() {
             {[
               ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/'],
               ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/'],
-              ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case.`, '/adult-guardianship-lawyer/#emergency'],
-              ['Contested Guardianship', '$5,000 base + $25,000 standard litigation fee', 'Standard contested guardianship after attorney screening; $30,000 total.', '/guardianship/'],
+              ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`, '/adult-guardianship-lawyer/#emergency'],
+              ['Contested Guardianship', `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, 'If defined contested events occur, additional expenses may apply under the written engagement agreement.', '/guardianship/#contested'],
             ].map(([title, price, body, href], index) => {
               const serviceIds = ['power-of-attorney', 'adult-guardianship', 'emergency-temporary-adult-guardianship', 'contested-guardianship'];
               const ctas: Cta[] = [

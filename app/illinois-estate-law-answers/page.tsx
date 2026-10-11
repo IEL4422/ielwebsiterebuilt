@@ -5,9 +5,9 @@ import { breadcrumbSchema, faqPageSchema, FIRM } from '@/lib/seo';
 
 const PATH = '/illinois-estate-law-answers/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
-const TITLE = 'Illinois Estate Law Answers: Wills, Probate, Trusts, Deeds & Closings';
+const TITLE = 'Illinois Estate Law Answers | Probate, Wills & Trusts';
 const DESCRIPTION =
-  'Direct answers to common Illinois estate law questions: whether you need a will, how long probate takes, the Illinois small estate affidavit, the Illinois estate tax, deeds, and whether Illinois requires a lawyer for a real estate closing.';
+  'Direct answers about Illinois probate, wills, trusts, guardianship, powers of attorney, estate tax, deeds, and real estate closings.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -138,6 +138,34 @@ const answers: Answer[] = [
     ],
   },
   {
+    question: 'Do I need a power of attorney or guardianship in Illinois?',
+    short:
+      'A power of attorney is usually the right tool when an adult still has legal capacity and can voluntarily name an agent. Guardianship may be needed when the person can no longer make or communicate responsible decisions and no adequate power of attorney is available.',
+    detail: [
+      'A property or health care power of attorney is signed by the person granting authority. A court is not involved, and the person can define the agent’s powers. An agent cannot create a valid power of attorney after the person has lost the capacity required to sign it.',
+      'Guardianship is a court proceeding. The petitioner must prove that the adult has a qualifying disability and needs a guardian, or that a minor needs a non-parent guardian. The court may appoint a guardian of the person, a guardian of the estate, or both, and it can limit the guardian’s authority to what is necessary.',
+      'Because guardianship removes or restricts decision-making rights, Illinois courts consider less restrictive alternatives first. An existing power of attorney may avoid guardianship, but it may not be sufficient if the agent is unavailable, abusing authority, or lacks the power needed for the immediate problem.',
+    ],
+    links: [
+      { label: 'Power of attorney or guardianship guide', href: '/power-of-attorney-and-guardianship/' },
+      { label: 'Illinois guardianship representation', href: '/guardianship/' },
+    ],
+  },
+  {
+    question: 'How much does adult guardianship cost at Illinois Estate Law?',
+    short:
+      'A full uncontested adult guardianship is $5,000. The emergency temporary-guardianship add-on is $2,500, making the emergency-and-full-case package $7,500.',
+    detail: [
+      'The uncontested package includes the firm’s defined work and all court filing fees. Surety-bond premiums and court-appointed guardian ad litem fees are third-party expenses and are not included.',
+      'The emergency package includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday. The court—not the firm—controls the hearing date and decides whether temporary relief is granted.',
+      'A contested adult or minor guardianship starts with a $5,000 flat fee. If defined contested events occur, additional expenses may apply under the written engagement agreement and are explained before they are incurred.',
+    ],
+    links: [
+      { label: 'Adult and emergency guardianship', href: '/adult-guardianship-lawyer/' },
+      { label: 'Guardianship pricing', href: '/services-pricing/#guardianship' },
+    ],
+  },
+  {
     question: 'What happens if you die without a will in Illinois?',
     short:
       'Your estate passes under the Illinois intestacy statute. A spouse and descendants split the estate one-half to the spouse and one-half among the descendants. A spouse with no descendants takes everything; descendants with no spouse take everything.',
@@ -185,13 +213,15 @@ export default function IllinoisEstateLawAnswersPage() {
               Illinois Estate Law is an Illinois law firm. We handle estate planning (wills,
               revocable living trusts, powers of attorney, and healthcare directives), probate and
               estate administration, trust administration, deeds and property transfers, and
-              residential real estate closings. Our attorneys are licensed in
+              guardianship, residential real estate closings, and deeds and property transfers. Our attorneys are licensed in
               Illinois, and we serve clients in Chicago, Cook County, the collar counties, and every
-              county in the state. Most work is done virtually, and our fees are flat.
+              county in the state. Most work is done virtually. Standard matters use concrete flat fees,
+              and contested matters begin with a written flat-fee scope.
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Our attorneys are Mary Liberty (founding attorney) and Yassmin Koudmani (senior
-              attorney, estate planning and real estate; fluent in Arabic).
+              Our attorneys are Mary Liberty (founding attorney), Yassmin Koudmani (senior
+              attorney, estate planning and real estate; fluent in Arabic), and Anna M. Rafanelli
+              (probate, elder law, and adult guardianship).
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
               Office: {FIRM.streetAddress}, {FIRM.addressLocality}, {FIRM.addressRegion}{' '}

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, BadgeCheck, Brain, Building2, CircleAlert, CircleCheck, Clock3, FileCheck2, HeartPulse, Scale, ShieldCheck, UserRound } from 'lucide-react';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { GUARDIANSHIP_FLAT, RETAINERS, usd } from '@/lib/pricing';
+import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { adultGuardianshipFAQs } from '@/lib/practice-faqs';
 
 const standardFee = GUARDIANSHIP_FLAT.adultUncontested;
@@ -99,7 +99,8 @@ export default function AdultGuardianshipLawyerPage() {
               <ul className="mt-6 space-y-3">
                 {[
                   'Everything included in the full adult-guardianship package',
-                  'Priority preparation of the temporary petition and proposed order',
+                  EMERGENCY_GUARDIANSHIP_FILING_TIMELINE,
+                  'Priority preparation of the proposed temporary order',
                   'One temporary-guardianship hearing',
                   'Notice and supporting-document coordination',
                   'Continued representation through the uncontested permanent-guardianship hearing',
@@ -112,7 +113,7 @@ export default function AdultGuardianshipLawyerPage() {
 
           <div className="mt-6 rounded-2xl border border-[#DCE5ED] bg-[#F6F9FC] p-6">
             <h3 className="text-lg font-bold text-[#33414E]">If the matter becomes contested</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">Both contested probate and contested guardianship have a $5,000 base fee for opening, ordinary administration and closing, plus specifically approved litigation fees. A standard will contest adds $50,000 (total $55,000); standard contested guardianship adds $25,000 (total $30,000). The base is not an offset. Attorney screening and a written scope are required. Complex cases receive one higher fixed quote upfront. Ordinary subpoenas, discovery, motions, mediation and trial are included in the retained litigation package, without stacked fees, extra trial-day charges or hourly conversion. Existing signed engagements and previously included expenses are honored.</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">An objection, competing petition, or dispute over the proposed guardian changes the case into contested litigation. Contested representation starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. Defined contested events may create additional expenses under the written engagement agreement.</p>
           </div>
         </div>
       </section>

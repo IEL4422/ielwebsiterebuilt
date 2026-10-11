@@ -51,7 +51,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
-  description: 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
+  description: 'Flat-fee Illinois estate planning, probate, trusts, guardianship, wills, powers of attorney, and real estate representation. Start online or book a free consultation.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/',
   },
@@ -62,16 +62,16 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
     title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
-    description: 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
+    description: 'Flat-fee Illinois estate planning, probate, trusts, guardianship, wills, powers of attorney, and real estate representation. Start online or book a free consultation.',
   },
   twitter: {
     card: 'summary',
     title: 'Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
-    description: 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
+    description: 'Flat-fee Illinois estate planning, probate, trusts, guardianship, wills, powers of attorney, and real estate representation. Start online or book a free consultation.',
   },
   other: {
     'dc:title': 'Top-Rated Chicago Estate Planning & Probate Attorney | Illinois Estate Law',
-    'dc:description': 'Ready to Protect Your Future? Contact Illinois Estate Law at 312-373-0731 for an Estate Planning or Probate Consultation That Fits Your Goals and Needs.',
+    'dc:description': 'Flat-fee Illinois estate planning, probate, trusts, guardianship, wills, powers of attorney, and real estate representation. Start online or book a free consultation.',
     'dc:relation': 'https://www.illinoisestatelaw.com/',
     'dc:source': 'https://www.illinoisestatelaw.com/',
     'dc:language': 'en_US',

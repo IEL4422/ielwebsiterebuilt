@@ -23,6 +23,7 @@ const corePaths = [
   '/chicago-real-estate-closings-lawyer/',
   '/chicago-revocable-trusts-lawyer/',
   '/chicago-wills-lawyer/',
+  '/client-portal/',
   '/compare-packages/',
   '/contact/',
   '/diy-vs-attorney-estate-planning-illinois/',

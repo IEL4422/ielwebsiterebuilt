@@ -1,23 +1,56 @@
-import approvedFeePolicy from './fee-scope-policy.json';
-
-// Prospective additional-service fees: Mary approved 2026-10-04.
-// Legacy hourly constants below remain only for historical/reference consumers;
-// they do not govern new engagements or overwrite signed agreements.
-
-/** Existing base-service fees and legacy billing references.
- * The approved prospective menu lives in fee-scope-policy.json. No automatic
- * hourly conversion applies to new engagements; existing signed terms control.
+/**
+ * ============================================================================
+ * CANONICAL PRICING SOURCE OF TRUTH — Illinois Estate Law
+ * ============================================================================
+ *
+ * EVERY price the firm charges lives HERE and ONLY here. No page, component,
+ * schema block, llms.txt entry, county page, comparison table, portal surface,
+ * or CSA may hardcode a dollar figure. They all import from this file.
+ *
+ * STATUS: LOCKED 2026-07-14; retainers standardized 2026-07-15; guardianship
+ * moved to flat fees 2026-07-16; uncontested guardianship set to a flat $5,000
+ * and the Annual Report on the Ward to $750 per year, per Mary 2026-09-08. Approved by Mary Liberty. The model is now
+ * clean: every contested matter begins with a UNIFORM $5,000 flat fee:
+ * contested probate, will contests, and contested guardianship. Defined events
+ * in the engagement may create additional expenses, but they are not automatic. EVERYTHING
+ * uncontested is a flat fee — including adult guardianship of the person and
+ * estate, which moved from a $5,000 retainer to a flat fee. Both uncontested
+ * guardianships (adult and minor) are the SAME flat $5,000. All court filing
+ * fees are included; court-appointed GAL fees and surety-bond premiums are
+ * disclosed third-party exclusions. There are no PENDING prices.
+ *
+ * ---------------------------------------------------------------------------
+ * THE BILLING MODEL — fee structure is a property of MATTER POSTURE, not of the
+ * practice area. There are three models:
+ *
+ *   'flat_all_inclusive'  Uncontested, knowable scope — INCLUDING all uncontested
+ *                         guardianship (adult and minor). The flat fee covers ALL
+ *                         of the firm's work and court costs except the named
+ *                         carve-outs below.
+ *   'flat_staged'         CONTESTED matters. Starts with a $5,000 flat fee.
+ *                         Defined events may create additional expenses under
+ *                         the written engagement agreement.
+ *   'flat_annual'         Recurring court-required compliance work.
+ *
+ * The named cost carve-outs, and there are only these:
+ *   - Uncontested probate flat fee -> surety bond premium.
+ *   - Adult guardianship flat fee -> guardian ad litem (GAL) fee and any
+ *     surety-bond premium, both third-party charges.
+ *   - Trust funding -> one deed + recording included; additional deeds $500 ea.
+ *   - Contested matters may also incur disclosed third-party costs.
+ * ============================================================================
  */
-export type BillingModel = 'flat_all_inclusive' | 'retainer_hourly' | 'flat_annual';
+
+export type BillingModel = 'flat_all_inclusive' | 'flat_staged' | 'flat_annual';
 
 export const BILLING_MODEL_LABEL: Record<BillingModel, string> = {
   flat_all_inclusive: 'Fixed legal fee (listed third-party costs excluded)',
-  retainer_hourly: 'Retainer + hourly (costs billable)',
+  flat_staged: 'Starts with a flat fee (additional event-based expenses may apply)',
   flat_annual: 'Flat annual fee',
 };
 
 /**
- * Historical hourly rates for previously signed engagements.
+ * Legacy internal hourly-rate references. These are not public package prices.
  *
  * 755 ILCS 5/27-2: where fees are paid from a ward's or decedent's estate the
  * COURT determines reasonable compensation. Contemporaneous time records are the
@@ -25,11 +58,8 @@ export const BILLING_MODEL_LABEL: Record<BillingModel, string> = {
  */
 export const RATES = {
   /**
-   * THE attorney hourly rate. Mary 2026-09-09: $425 for contested matters — and every
-   * matter this firm bills hourly IS contested (all three hourly services are
-   * contested-*, and the only flat->hourly route is a conversion that happens BECAUSE a
-   * matter became contested), so there is no second attorney rate to carry.
-   * Was $450 here, $400 in the portal catalog, $350 in the service finder.
+   * Retained for historical compatibility with internal code and tests. Public
+   * contested-package copy must use CONTESTED and CONTESTED_FEE_NOTE below.
    */
   attorneyHourly: 425,
   /** Confirmed 2026-08-06 (StaffPortal PR #345) and unchanged. */
@@ -37,16 +67,8 @@ export const RATES = {
 } as const;
 
 /**
- * Legacy retainer references; not prospective menu prices.
- *
- * Every contested matter opens on the SAME $5,000 initial retainer, EVERGREEN:
- * the client replenishes to the full amount when the balance falls below the
- * floor. See RETAINER_FLOORS.
- *
- * An unearned retainer is CLIENT MONEY (RPC 1.15): it belongs in the client
- * trust account, ledgered per client, drawn only as earned and billed. Do not
- * put IOLTA language in public marketing copy, and do not accept a retainer
- * until the trust account and per-client ledger are live.
+ * Legacy compatibility aliases. Do not use these values in public package copy;
+ * use CONTESTED below, which reflects the firm's staged flat-fee model.
  */
 export const RETAINERS = {
   /** Contested guardianship — competing petition, objection, removal. */
@@ -55,7 +77,16 @@ export const RETAINERS = {
   contestedProbate: 5000,
 } as const;
 
-/** Evergreen replenishment floors. Balance below floor -> top back up to full. */
+/** Public contested-matter pricing. Kept separate from legacy retainer constants. */
+export const CONTESTED = {
+  probateInitialFlatFee: 5000,
+  guardianshipInitialFlatFee: 5000,
+} as const;
+
+export const CONTESTED_FEE_NOTE =
+  'Starts with a $5,000 flat fee. If defined contested events occur, additional expenses may apply under the written engagement agreement. Any additional amount is explained before it is incurred.';
+
+/** Legacy compatibility values. Not part of the public contested-package offer. */
 export const RETAINER_FLOORS = {
   contestedGuardianship: 2500,
   contestedProbate: 2500,
@@ -63,7 +94,7 @@ export const RETAINER_FLOORS = {
 
 /**
  * Guardianship FLAT fees (flat_all_inclusive). LOCKED. ALL uncontested
- * guardianship uses its written scope; contested work uses the approved fixed-fee menu.
+ * guardianship is flat-fee'd. Contested matters use the staged flat-fee model.
  *
  *   - Adult guardianship of the person and estate: flat $5,000, including the
  *     firm's defined work and all court filing fees (petition, physician's
@@ -78,11 +109,14 @@ export const GUARDIANSHIP_FLAT = {
   adultUncontested: 5000,
   minorUncontested: 5000,
   /** Priority temporary-guardianship petition and hearing added to a full adult guardianship. */
-  emergencyTemporaryAddOn: approvedFeePolicy.fee_items.find(item => item.id === 'emergency-preservation')!.amount!,
-  // Historical discrete-petition reference; prospective extraordinary work uses the approved menu.
+  emergencyTemporaryAddOn: 2500,
   interimPetition: 1500,
-  terminationContested: approvedFeePolicy.fee_items.find(item => item.id === 'guardianship-modification')!.variants!.contested,
+  terminationUncontested: 2000,
 } as const;
+
+/** Public timing promise for the emergency/rush adult-guardianship package. */
+export const EMERGENCY_GUARDIANSHIP_FILING_TIMELINE =
+  'Includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday.';
 
 /**
  * Annual guardianship compliance (flat_annual). LOCKED. The recurring-revenue
@@ -104,7 +138,7 @@ export const GUARDIANSHIP_COMPLIANCE = {
 
 /**
  * Third-party pass-through / billable costs. NOT firm revenue.
- * In retainer_hourly matters these are billed to the client. Disclose always.
+ * These may be separate third-party costs when applicable. Disclose always.
  */
 export const GUARDIANSHIP_COSTS = {
   galFeeLow: 1500,
@@ -185,14 +219,17 @@ export const REAL_ESTATE = {
 
 /**
  * The conversion clause. Required in every uncontested guardianship engagement
- * (adult and minor, now both flat-fee). If anyone objects, the matter converts
- * to hourly against a retainer and the UNEARNED portion of the flat fee is
- * credited toward that retainer, held in the client trust account until earned.
+ * (adult and minor, now both flat-fee). If anyone objects, the matter moves to
+ * a separate contested-matter scope beginning with the contested flat fee.
  *
  * NOTE: this protects against a FORMAL objection or competing petition — the
- * event that flips an uncontested flat-fee matter into contested litigation.
+ * event that moves an uncontested matter into contested litigation.
  */
-export const CONVERSION_CLAUSE = 'Work outside the retained scope requires a specific fixed-fee addendum and explicit client acceptance before charging. Ordinary work in the retained litigation package is included; no hourly conversion or extra trial-day charges. Existing signed engagements are honored.';
+export const CONVERSION_CLAUSE =
+  'This flat fee covers an uncontested proceeding. If any person files an objection, ' +
+  'an appearance in opposition, or a competing petition, the matter becomes contested. ' +
+  'Contested representation starts with a $5,000 flat fee. If defined contested events occur, ' +
+  'additional expenses may apply under the written engagement agreement and will be explained before they are incurred.';
 
 /** Court-approval disclosure. 755 ILCS 5/27-2; ISBA Ethics Op. 13-01. */
 export const COURT_APPROVAL_DISCLOSURE =
@@ -216,14 +253,13 @@ export function usdRange(low: number, high: number): string {
 }
 /** Standard contested-matter pricing label. */
 export function retainerLabel(retainer: number): string {
-  return `${usd(retainer)} retainer + hourly`;
+  return `Starts with a ${usd(retainer)} flat fee`;
 }
 
 /**
- * PAYMENT ROUTING. An unearned retainer is client money (RPC 1.15) and must be
- * collected into the client trust account via LawPay — never Stripe. Flat,
- * earned-on-completion fees stay on Stripe. Never wire Stripe checkout for a
- * retainer_hourly service; route it to LawPay/trust.
+ * PAYMENT ROUTING. Standard flat-fee matters use Stripe. Staged contested
+ * matters retain the firm's existing LawPay routing until the intake and
+ * accounting policy is updated separately.
  */
 export const PAYMENT_METHOD = {
   lawpay_trust: 'Paid via LawPay (client trust)',
@@ -231,14 +267,15 @@ export const PAYMENT_METHOD = {
 } as const;
 export type PaymentMethod = keyof typeof PAYMENT_METHOD;
 
-/** retainer_hourly -> LawPay/trust; every flat model -> Stripe. */
+/** Staged contested matter -> LawPay; other flat models -> Stripe. */
 export function paymentMethodFor(billingModel: BillingModel): PaymentMethod {
-  return billingModel === 'retainer_hourly' ? 'lawpay_trust' : 'stripe';
+  return billingModel === 'flat_staged' ? 'lawpay_trust' : 'stripe';
 }
 
 export const PRICING = {
   RATES,
   RETAINERS,
+  CONTESTED,
   RETAINER_FLOORS,
   GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,

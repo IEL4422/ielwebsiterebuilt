@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, CircleCheck, FileSignature, Gavel, HelpCircle, ShieldCheck } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { CTABand } from '@/components/ui/CTAButtons';
-import { A_LA_CARTE, GUARDIANSHIP_FLAT, RETAINERS, usd } from '@/lib/pricing';
+import { A_LA_CARTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from '@/lib/seo';
 
 const PATH = '/power-of-attorney-and-guardianship/';
@@ -161,7 +161,7 @@ export default function PowerOfAttorneyAndGuardianshipPage() {
                 <tr className="bg-[#F9FBFD]"><th className="p-4 font-bold text-[#33414E]">When is it available?</th><td className="p-4">While the principal can understand and voluntarily sign.</td><td className="p-4">When statutory requirements are met and the court finds guardianship necessary.</td></tr>
                 <tr><th className="p-4 font-bold text-[#33414E]">What can it cover?</th><td className="p-4">Property/financial matters and health care through separate documents.</td><td className="p-4">Personal decisions, financial matters, or both, as ordered by the court.</td></tr>
                 <tr className="bg-[#F9FBFD]"><th className="p-4 font-bold text-[#33414E]">Court oversight</th><td className="p-4">Usually no court case or annual court reporting.</td><td className="p-4">Court appointment plus ongoing reports and, when applicable, accountings.</td></tr>
-                <tr><th className="p-4 font-bold text-[#33414E]">Firm&apos;s standard price</th><td className="p-4">{usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / {usd(A_LA_CARTE.powersOfAttorneyJoint)} joint</td><td className="p-4">{usd(GUARDIANSHIP_FLAT.adultUncontested)} uncontested; {usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} with the emergency add-on. Filing fees included; bond premiums and GAL fees separate.</td></tr>
+                <tr><th className="p-4 font-bold text-[#33414E]">Firm&apos;s standard price</th><td className="p-4">{usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / {usd(A_LA_CARTE.powersOfAttorneyJoint)} joint</td><td className="p-4">{usd(GUARDIANSHIP_FLAT.adultUncontested)} uncontested; {usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} with the emergency add-on. {EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Filing fees included; bond premiums and GAL fees separate.</td></tr>
               </tbody>
             </table>
           </div>

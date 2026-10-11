@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { A_LA_CARTE, ESTATE_PLANNING, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 interface DisplayService {
   id: string;
@@ -340,12 +340,26 @@ export function CategorizedServices({
       name: 'Probate',
       packages: [
         {
+          id: 'bond-in-lieu-of-probate',
+          name: 'Bond in Lieu of Probate',
+          subtitle: 'When the sole estate asset is real estate',
+          category: 'probate',
+          fixedPrice: 1500,
+          description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition. Illinois law allows title transfer through a bond in lieu of probate, avoiding a full probate proceeding.',
+          includes: [
+            'Title Transfer Documentation',
+            'Coordination with Title Company for Out-of-Court Title Transfer',
+            'Attorney consultations related to the included scope'
+          ],
+          note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+        },
+        {
           id: 'standard-probate',
           name: 'Standard Probate',
           subtitle: 'Uncontested estates valued at $4,000,000 or less',
           category: 'probate',
           fixedPrice: PROBATE.standard,
-          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested work requires a separately approved fixed-fee scope.',
+          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. A separate written contested-matter scope applies if a dispute arises.',
           includes: probateIncludes,
           note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
         },
@@ -417,11 +431,15 @@ export function CategorizedServices({
         {
           id: 'contested-probate',
           name: 'Contested Probate',
-          subtitle: "Attorney screening before engagement",
+          subtitle: 'Starts with a flat fee',
           category: 'probate',
-          pricingLabel: "Individually quoted fixed fee",
-          description: "The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.",
-          includes: ["Attorney screening and exact written scope","The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.","Specific approval before any additional charge"]
+          pricingLabel: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
+          description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_FEE_NOTE}`,
+          includes: [
+            `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
+            'Written scope for the initial contested work',
+            'Additional expenses only if defined contested events occur'
+          ]
         }
       ],
       aLaCarte: [],
@@ -496,20 +514,6 @@ export function CategorizedServices({
       id: 'real-estate',
       name: 'Real Estate',
       packages: [
-        {
-          id: 'bond-in-lieu-of-probate',
-          name: 'Bond in Lieu of Probate',
-          subtitle: 'When the sole estate asset is real estate',
-          category: 'real-estate',
-          fixedPrice: 1500,
-          description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition. Illinois law allows title transfer through a bond in lieu of probate, avoiding a full probate proceeding.',
-          includes: [
-            'Title Transfer Documentation',
-            'Coordination with Title Company for Out-of-Court Title Transfer',
-            'Attorney consultations related to the included scope'
-          ],
-          note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
-        },
         {
           id: 'residential-closing',
           name: 'Residential Closing (Buyer or Seller)',

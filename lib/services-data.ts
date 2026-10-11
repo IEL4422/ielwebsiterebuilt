@@ -1,10 +1,8 @@
-import feePolicy from './fee-scope-policy.json';
-import { A_LA_CARTE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, RATES, REAL_ESTATE, RETAINERS, TRUST_ADMIN, usd, hourly } from './pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
 
-export type StandardizedCaseType = 'Bond in Lieu of Probate' | 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
+export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
 export type StandardizedServiceName =
-  | (typeof feePolicy.fee_items[number])['label']
   | 'Individual Trust Package'
   | 'Joint Trust Package'
   | 'Individual Will Package'
@@ -278,6 +276,23 @@ const probateNote = 'Surety bond premium, if required, is paid directly to the b
 
 export const probatePackages: Service[] = [
   {
+    id: 'bond-in-lieu-of-probate',
+    name: 'Bond in Lieu of Probate',
+    subtitle: 'When the sole estate asset is real estate',
+    category: 'probate',
+    standardizedCaseType: 'Probate',
+    standardizedServiceName: 'Bond in Lieu of Probate',
+    fixedPrice: 1500,
+    description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition of the property. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a full probate proceeding.',
+    includes: [
+      'Title Transfer Documentation',
+      'Coordination with Title Company for Out-of-Court Title Transfer',
+      'Attorney consultations related to the included scope'
+    ],
+    note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
+    addOns: []
+  },
+  {
     id: 'small-estate-administration',
     name: 'Small Estate Administration',
     subtitle: 'Small Estate Affidavit and Attorney Letter of Direction — no probate case opened',
@@ -302,7 +317,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Standard Probate',
     fixedPrice: PROBATE.standard,
-    description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested work requires a separately approved fixed-fee scope.',
+    description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. If the matter becomes contested, a separate written contested-matter scope applies.',
     includes: probateIncludes,
     note: probateNote,
     addOns: []
@@ -328,7 +343,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate Reopening',
     fixedPrice: PROBATE.reopening,
-    description: 'Applies when a previously closed probate estate is reopened due to the discovery of additional assets requiring administration. Uncontested matters only — any contested work requires a separately approved fixed fee.',
+    description: 'Applies when a previously closed probate estate is reopened due to the discovery of additional assets requiring administration. Uncontested matters only; a separate written contested-matter scope applies if a dispute arises.',
     includes: [
       'Motion to Reopen Probate',
       'Attendance at all required court hearings',
@@ -377,7 +392,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Spousal Representation',
     fixedPrice: PROBATE.spousalRepresentation,
-    description: 'Applies when representing a spouse who is not the executor or administrator of the estate. Uncontested matters only — any contested work requires a separately approved fixed fee.',
+    description: 'Applies when representing a spouse who is not the executor or administrator of the estate. Uncontested matters only; a separate written contested-matter scope applies if a dispute arises.',
     includes: [
       'Full legal representation of the spouse throughout probate proceedings',
       'Advice and consultation regarding spousal rights and interests',
@@ -390,15 +405,20 @@ export const probatePackages: Service[] = [
   {
     id: 'contested-probate',
     name: 'Contested Probate',
-    subtitle: "Attorney screening before engagement",
+    subtitle: 'Starts with a flat fee',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Contested Probate',
-    pricingLabel: "$5,000 base + approved litigation fees",
-    description: "The $5,000 base covers opening, ordinary administration and closing; accepted litigation fees are additional with no offset. The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.",
-    includes: ["Attorney screening and exact written scope","The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.","Specific approval before any additional charge"],
+    pricingLabel: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
+    description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_FEE_NOTE}`,
+    includes: [
+      `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
+      'Written scope for the initial contested work',
+      'Additional expenses apply only if defined contested events occur',
+      'Any additional amount is explained before it is incurred'
+    ],
     addOns: []
-  , requiresConsultation: true},
+  },
   {
     id: 'document-review',
     name: 'Document Review',
@@ -551,23 +571,6 @@ export const aLaCarteServices: Service[] = [
 
 export const realEstateServices: Service[] = [
   {
-    id: 'bond-in-lieu-of-probate',
-    name: 'Bond in Lieu of Probate',
-    subtitle: 'When the sole estate asset is real estate',
-    category: 'real-estate',
-    standardizedCaseType: 'Bond in Lieu of Probate',
-    standardizedServiceName: 'Bond in Lieu of Probate',
-    fixedPrice: 1500,
-    description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition of the property. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a full probate proceeding.',
-    includes: [
-      'Title Transfer Documentation',
-      'Coordination with Title Company for Out-of-Court Title Transfer',
-      'Attorney consultations related to the included scope'
-    ],
-    note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
-    addOns: []
-  },
-  {
     id: 'residential-closing',
     name: 'Residential Closing (Buyer or Seller)',
     category: 'real-estate',
@@ -681,21 +684,22 @@ export const guardianshipServices: Service[] = [
   {
     id: 'emergency-temporary-adult-guardianship',
     name: 'Emergency + Full Adult Guardianship',
-    subtitle: 'Temporary emergency petition plus the full uncontested guardianship case',
+    subtitle: 'Same-week emergency-motion filing when purchased by Tuesday, plus the full uncontested guardianship case',
     category: 'guardianship',
     standardizedCaseType: 'Guardianship',
     standardizedServiceName: 'Emergency Temporary Adult Guardianship',
     fixedPrice: GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn,
     requiresConsultation: true,
-    description: 'For an uncontested adult guardianship requiring immediate, court-ordered temporary authority while the full guardianship petition is pending. The court—not the firm—decides whether an emergency exists and when a hearing will occur.',
+    description: `For an uncontested adult guardianship requiring immediate, court-ordered temporary authority while the full guardianship petition is pending. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} The court—not the firm—decides whether an emergency exists and when a hearing will occur.`,
     includes: [
       'Everything in the full uncontested adult guardianship package',
-      'Priority preparation of the temporary-guardian petition and proposed order',
+      EMERGENCY_GUARDIANSHIP_FILING_TIMELINE,
+      'Priority preparation of the proposed temporary order',
       'Preparation for and appearance at one temporary-guardianship hearing',
       'All court filing fees for the temporary and full guardianship petitions',
       'Coordination of notice requirements and supporting documentation'
     ],
-    note: `Concrete total: ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} (${usd(GUARDIANSHIP_FLAT.adultUncontested)} full guardianship + ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on). Bond premiums and guardian ad litem fees are not included. No appointment or hearing date is guaranteed. If the matter becomes contested, the contested-matter terms apply.`
+    note: `Concrete total: ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} (${usd(GUARDIANSHIP_FLAT.adultUncontested)} full guardianship + ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on). ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Bond premiums and guardian ad litem fees are not included. The court controls the hearing date and whether relief is granted. If the matter becomes contested, the contested-matter terms apply.`
   },
   {
     id: 'minor-guardianship',
@@ -734,31 +738,22 @@ export const guardianshipServices: Service[] = [
   {
     id: 'contested-guardianship',
     name: 'Contested Guardianship',
-    subtitle: "Attorney screening before engagement",
+    subtitle: 'Objection, competing petition, or guardian-removal matter',
     category: 'guardianship',
     standardizedCaseType: 'Guardianship',
     standardizedServiceName: 'Contested Guardianship',
-    pricingLabel: "$5,000 base + $25,000 standard litigation fee",
+    pricingLabel: `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`,
     requiresConsultation: true,
-    description: "The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.",
-    includes: ["Attorney screening and exact written scope","The retained litigation package includes ordinary subpoenas, discovery, motions, mediation and trial through settlement or completion of the defined work. No stacked charges, extra trial-day fees or hourly conversion. Complex cases receive one higher fixed quote upfront.","Specific approval before any additional charge"],
-    note: "Existing signed engagements and previously included expenses are honored. Any required court approval is separate."
+    description: 'For a guardianship matter involving an objection, a competing petition, or a challenge to an existing guardian. These matters require attorney review before engagement.',
+    includes: [
+      'Attorney review of the dispute and court posture',
+      'Clear explanation of the initial flat-fee scope and anticipated next steps'
+    ],
+    note: `${CONTESTED_FEE_NOTE} Court costs and guardian ad litem fees may be billed separately.`
   }
 ];
 
-export const approvedAdditionalServices: Service[] = feePolicy.fee_items.map(item => ({
-  id: 'fee-' + item.id, name: item.label,
-  category: item.id.startsWith('guardianship-') ? 'guardianship' : 'probate',
-  standardizedCaseType: item.id.startsWith('guardianship-') ? 'Guardianship' : 'Probate',
-  standardizedServiceName: item.label, requiresConsultation: true,
-  pricingLabel: 'variants' in item && item.variants ? '$12,500 for a separate contested proceeding' : item.amount == null ? 'Individually quoted fixed fee' : `$${item.amount.toLocaleString()}${'unit' in item && item.unit ? ` ${item.unit}` : ''}`,
-  description: feePolicy.additional_scope + ' ' + feePolicy.litigation_scope,
-  includes: ['Attorney screening and exact written scope', 'Explicit service-specific acceptance before charging'],
-  note: feePolicy.routine_scope + ' ' + feePolicy.legacy_scope,
-}));
-
 export const allServices = [
-  ...approvedAdditionalServices,
   ...estatePlanningPackages,
   ...probatePackages,
   ...trustAdministrationServices,

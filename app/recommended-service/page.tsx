@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { A_LA_CARTE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, RATES, RETAINERS, TRUST_ADMIN, usd, hourly } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -175,7 +175,7 @@ export default function RecommendedServicePage() {
           name: 'Emergency + Full Adult Guardianship',
           price: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn),
           description: 'For an uncontested adult guardianship requiring immediate temporary authority while the full guardianship case is pending. The court decides whether emergency relief is justified and when a hearing occurs.',
-          includes: ['Full uncontested adult guardianship', 'Priority temporary-petition and proposed-order preparation', 'One temporary-guardianship hearing', 'All court filing fees', 'Bond premiums and GAL fees are separate'],
+          includes: ['Full uncontested adult guardianship', EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, 'Priority proposed-order preparation', 'One temporary-guardianship hearing', 'All court filing fees', 'Bond premiums and GAL fees are separate'],
           addOns: [],
           serviceId: 'emergency-temporary-adult-guardianship',
           requiresConsultation: true,
@@ -206,9 +206,9 @@ export default function RecommendedServicePage() {
         },
         contested: {
           name: 'Contested Guardianship',
-          price: '$5,000 base + $25,000 standard litigation fee',
+          price: `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`,
           description: 'For an objection, competing petition, or challenge to an existing guardian. Attorney review is required before engagement.',
-          includes: ['Attorney review of the dispute and court posture', 'Exact fixed fee and scope after attorney screening'],
+          includes: ['Attorney review of the dispute and court posture', 'Clear explanation of the initial flat-fee scope and anticipated next steps'],
           addOns: [],
           serviceId: 'contested-guardianship',
           requiresConsultation: true,
@@ -313,12 +313,13 @@ export default function RecommendedServicePage() {
       if (issuesAmongHeirs === 'yes') {
         return {
           name: 'Contested Probate',
-          price: '$5,000 base + approved litigation fees',
-          description: 'Attorney screening and one fixed fee agreed upfront for the defined dispute. No hourly conversion or extra trial-day fees.',
+          price: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
+          description: `For probate matters that are or are anticipated to be contested. ${CONTESTED_FEE_NOTE}`,
           includes: [
-            'Attorney screening and a written fixed-fee scope',
-            'Ordinary subpoenas, discovery, motions, mediation and trial included in the retained package',
-            'Specific acceptance before additional charges'
+            `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
+            'Written scope for the initial contested work',
+            'Additional expenses only if defined contested events occur',
+            'Any additional amount is explained before it is incurred'
           ],
           addOns: [],
           serviceId: 'contested-probate',
@@ -377,7 +378,7 @@ export default function RecommendedServicePage() {
         return {
           name: 'Standard Probate',
           price: usd(PROBATE.standard),
-          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. Contested work requires a separately approved fixed-fee scope.',
+          description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. If the matter becomes contested, a separate written contested-matter scope applies.',
           includes: [
             'All required filings with the Probate Court from opening through closing',
             'Appearance and handling of all court hearings',
@@ -2008,23 +2009,19 @@ export default function RecommendedServicePage() {
 
                   {answers.needType === 'probate' && (
                     <>
-                      <p className="mb-3"><strong>2.8 Probate Services Base Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands that the price paid represents a base price for standard, uncontested probate administration services. If extraordinary circumstances arise (such as contested issues, complex asset recovery, or other situations detailed in Exhibit A below), additional charges will be incurred for services beyond the base package scope.</p>
+                      <p className="mb-3"><strong>2.8 Probate Services Base Pricing.</strong> For clients who have purchased probate services, Client acknowledges and understands that the price paid covers the written scope for standard, uncontested probate administration. If a defined contested event arises, the Firm will explain the work and provide a separate written contested-matter scope before any additional expense is incurred.</p>
 
                       <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4 my-4">
-                        <h4 className="font-bold text-md mb-3">EXHIBIT A: Extraordinary Probate Services & Additional Fees</h4>
-                        <p className="mb-2 text-sm">The following extraordinary services are NOT included in the base probate service pricing and will incur additional charges if required during the administration of the estate:</p>
+                        <h4 className="font-bold text-md mb-3">EXHIBIT A: Events Outside the Uncontested Probate Scope</h4>
+                        <p className="mb-2 text-sm">Contested probate representation starts with a {usd(CONTESTED.probateInitialFlatFee)} flat fee. Additional expenses are not automatic. They may apply only if defined contested events occur and are addressed in a separate written engagement scope. Examples of those events may include:</p>
                         <ul className="list-disc ml-6 space-y-1 text-sm">
-                          <li><strong>Will Contest Hearing</strong> - $5,000 (when someone disputes whether the will is valid, or defends the will against that challenge)</li>
-                          <li><strong>Citation to Recover Assets</strong> - $4,000 (when estate property appears to be held by someone else and must be returned to the estate)</li>
-                          <li><strong>Creditor Claim Objection</strong> - $1,500 per claim (when a creditor files a claim and the estate contests all or part of that claim)</li>
-                          <li><strong>Supervised Administration</strong> - $3,000 (court-supervised administration of the estate)</li>
-                          <li><strong>Real Estate Attorney Representation</strong> - $3,000 (legal representation for real estate matters in the estate)</li>
-                          <li><strong>Emergency Relief/Hearing</strong> - $2,500 (emergency motion to open estate, sell property, or avoid foreclosure)</li>
-                          <li><strong>Uncontested Adult or Minor Guardianship Proceedings</strong> - $5,000 (all court filing fees included; bond premiums and GAL fees excluded)</li>
-                          <li><strong>Emergency Temporary Adult Guardianship Add-On</strong> - $2,500 (added to the $5,000 full adult guardianship package; $7,500 combined total)</li>
-                          <li><strong>Asset Coordination</strong> - $500 per asset (direct work with banks to transfer assets to estate bank account)</li>
+                          <li><strong>Will contest or defense</strong> when someone disputes whether a will is valid</li>
+                          <li><strong>Citation or asset-recovery proceeding</strong> when estate property is disputed or held by another person</li>
+                          <li><strong>Creditor-claim objection</strong> when the estate disputes all or part of a claim</li>
+                          <li><strong>Disputed heirship, fiduciary conduct, or removal issues</strong></li>
+                          <li><strong>Emergency or contested court proceedings</strong> requiring work beyond the uncontested administration scope</li>
                         </ul>
-                        <p className="mt-3 text-sm font-semibold">Client understands that if any extraordinary circumstances listed in Exhibit A arise during the probate process, additional fees will be incurred beyond the base service price. These fees will be discussed with the Client before services are rendered and billed separately when these services become necessary.</p>
+                        <p className="mt-3 text-sm font-semibold">If one of these events occurs, additional expenses may be incurred for the contested portion. The Firm will explain the proposed work and any additional amount before that work begins.</p>
                       </div>
                     </>
                   )}
@@ -2134,7 +2131,7 @@ export default function RecommendedServicePage() {
                         onCheckedChange={(checked) => setProbateAcknowledgment(checked as boolean)}
                       />
                       <Label htmlFor="probate-extraordinary-acknowledgment" className="cursor-pointer leading-tight text-sm">
-                        <strong>I understand and acknowledge</strong> that if extraordinary services (i.e., contested issues arise) as detailed in Exhibit A of the Client Service Agreement are required, I will incur additional fees beyond the base service price.
+                        <strong>I understand and acknowledge</strong> that if a defined contested event described in Exhibit A arises, additional expenses may apply under a separate written scope. The Firm will explain any additional amount before the contested work begins.
                       </Label>
                     </div>
                   </div>

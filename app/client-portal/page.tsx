@@ -2,22 +2,23 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Shield, Clock, FileText, MessageCircle, Bell, Lock } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { ClientPortalPreview } from '@/components/portal/ClientPortalPreview';
 
 export const metadata: Metadata = {
   title: 'Client Portal | Illinois Estate Law',
-  description: 'Access your secure client portal to track your case, communicate with your attorney, and manage your estate planning documents.',
+  description: 'Preview the Illinois Estate Law client portal for secure matter updates, documents, attorney messages, and next steps from any device.',
   openGraph: {
     title: 'Client Portal | Illinois Estate Law',
-    description: 'Access your secure client portal to track your case, communicate with your attorney, and manage your estate planning documents.',
+    description: 'Preview the Illinois Estate Law client portal for secure matter updates, documents, attorney messages, and next steps from any device.',
     url: 'https://www.illinoisestatelaw.com/client-portal/',
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
-    type: 'article',
+    type: 'website',
   },
   twitter: {
     card: 'summary',
     title: 'Client Portal | Illinois Estate Law',
-    description: 'Access your secure client portal to track your case, communicate with your attorney, and manage your estate planning documents.',
+    description: 'Preview the Illinois Estate Law client portal for secure matter updates, documents, attorney messages, and next steps from any device.',
   },
   robots: {
     index: true,
@@ -42,6 +43,10 @@ export default function ClientPortalPage() {
             <p className="font-['Plus_Jakarta_Sans'] text-[18px] text-[#2d3e50] leading-relaxed sm:text-[16px]">
               Our secure client portal puts you in control of your estate planning process. Track your case progress, communicate with your attorney, and access your important documents anytime, anywhere.
             </p>
+          </div>
+
+          <div className="mb-12">
+            <ClientPortalPreview />
           </div>
 
           <div className="bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] rounded-xl p-8 mb-12 sm:p-6">
@@ -220,6 +225,14 @@ export default function ClientPortalPage() {
               Access to our client portal is included with all Trust Packages, Probate Avoidance Packages, Will Packages, and Probate Administration services at no additional cost.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://portal.illinoisestatelaw.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-[#33414E] text-white font-['Plus_Jakarta_Sans'] font-semibold rounded-lg hover:bg-[#1a2834] transition-colors text-center"
+              >
+                Open Secure Portal
+              </a>
               <Link
                 href="/services-pricing/"
                 className="inline-block px-8 py-4 bg-[#7E9CC0] text-white font-['Plus_Jakarta_Sans'] font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors text-center"
@@ -228,7 +241,7 @@ export default function ClientPortalPage() {
               </Link>
               <Link
                 href="/book-consultation/"
-                className="inline-block px-8 py-4 bg-[#2d3e50] text-white font-['Plus_Jakarta_Sans'] font-semibold rounded-lg hover:bg-[#1a2834] transition-colors text-center"
+                className="inline-block px-8 py-4 border border-[#33414E] bg-white text-[#33414E] font-['Plus_Jakarta_Sans'] font-semibold rounded-lg hover:bg-[#F4F8FC] transition-colors text-center"
               >
                 Schedule Consultation
               </Link>
