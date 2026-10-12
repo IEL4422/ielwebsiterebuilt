@@ -15,4 +15,8 @@ describe('ElevenLabs website chatbot', () => {
     expect(widget).toContain('strategy="afterInteractive"');
     expect(layout.match(/<ElevenLabsChatbot \/>/g)).toHaveLength(1);
   });
+
+  it('does not compete with the former bottom-right consultation button', () => {
+    expect(layout).not.toContain('FloatingConsultButton');
+  });
 });

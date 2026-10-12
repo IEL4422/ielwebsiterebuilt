@@ -4,7 +4,6 @@ import Script from 'next/script';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MobileStickyBar } from '@/components/layout/MobileStickyBar';
-import FloatingConsultButton from '@/components/ui/FloatingConsultButton';
 import { StructuredData } from '@/components/StructuredData';
 import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { ElevenLabsChatbot } from '@/components/integrations/ElevenLabsChatbot';
@@ -73,7 +72,6 @@ export default function RootLayout({
           </div>
           <Footer />
           <MobileStickyBar />
-          <FloatingConsultButton />
           <ElevenLabsChatbot />
       </body>
     </html>
