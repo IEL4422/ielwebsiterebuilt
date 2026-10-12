@@ -7,6 +7,7 @@ import { MobileStickyBar } from '@/components/layout/MobileStickyBar';
 import FloatingConsultButton from '@/components/ui/FloatingConsultButton';
 import { StructuredData } from '@/components/StructuredData';
 import { MetaPixel } from '@/components/analytics/MetaPixel';
+import { ElevenLabsChatbot } from '@/components/integrations/ElevenLabsChatbot';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.illinoisestatelaw.com'),
@@ -73,6 +74,7 @@ export default function RootLayout({
           <Footer />
           <MobileStickyBar />
           <FloatingConsultButton />
+          <ElevenLabsChatbot />
       </body>
     </html>
   );
