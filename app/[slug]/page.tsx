@@ -13,12 +13,15 @@ import { PROBATE, usd } from '@/lib/pricing';
 
 export async function generateStaticParams() {
   return cityLocations.map((loc) => ({
-    slug: loc.slug,
+    slug: `${loc.slug}-estate-planning-lawyer`,
   }));
 }
 
 function getLocation(slug: string): CityLocation | undefined {
-  return cityLocations.find((loc) => loc.slug === slug);
+  const citySlug = slug.endsWith('-estate-planning-lawyer')
+    ? slug.slice(0, -'-estate-planning-lawyer'.length)
+    : '';
+  return cityLocations.find((loc) => loc.slug === citySlug);
 }
 
 export async function generateMetadata({

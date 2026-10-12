@@ -14,12 +14,13 @@ import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide'
 
 export async function generateStaticParams() {
   return countyProbateLocations.map((loc) => ({
-    slug: loc.slug,
+    slug: `${loc.slug}-county`,
   }));
 }
 
 function getLocation(slug: string): CountyProbateLocation | undefined {
-  return countyProbateLocations.find((loc) => loc.slug === slug);
+  const countySlug = slug.endsWith('-county') ? slug.slice(0, -'-county'.length) : '';
+  return countyProbateLocations.find((loc) => loc.slug === countySlug);
 }
 
 export async function generateMetadata({
