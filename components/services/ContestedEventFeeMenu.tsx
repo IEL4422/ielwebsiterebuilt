@@ -8,7 +8,8 @@ export function ContestedEventFeeMenu() {
         <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#547298]">Event-based contested fees</p>
         <h2 className="mt-2 text-3xl font-bold text-[#33414E] md:text-4xl">Additional contested-matter flat fees</h2>
         <p className="mt-4 max-w-4xl text-base leading-relaxed text-[#5f6b76]">
-          A contested case does not automatically incur every fee below. The initial $5,000 flat fee covers a defined
+          Contested cases may incur additional flat fees, but a contested case does not automatically incur every fee
+          below. The initial $5,000 flat fee covers a defined
           opening scope—not the entire contest. An additional flat fee applies only when the listed event actually
           occurs, after the work and fee are explained in writing. Fees are shown from least expensive to most expensive.
         </p>

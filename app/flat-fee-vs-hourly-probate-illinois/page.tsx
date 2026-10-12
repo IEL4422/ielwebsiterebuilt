@@ -93,7 +93,7 @@ export default function FlatFeeVsHourlyProbatePage() {
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Paid separately</th>
                     <td className="border border-slate-200 px-4 py-3">Surety bond premium only, if the court requires a bond</td>
-                    <td className="border border-slate-200 px-4 py-3">All costs — bond, service, transcripts, guardian ad litem fees</td>
+                    <td className="border border-slate-200 px-4 py-3">Applicable third-party charges, such as a bond premium, service, transcripts, experts, mediators, or guardian ad litem fees</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Charged for phone calls?</th>
