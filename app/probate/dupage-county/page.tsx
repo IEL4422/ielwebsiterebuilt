@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 export const metadata: Metadata = {
   title: 'DuPage County Probate Lawyer | Wheaton Estate Administration Attorney',
@@ -446,6 +447,12 @@ export default function DuPageCountyProbatePage() {
             </div>
           </div>
         </section>
+
+        <LegalServiceDepthGuide
+          kind="probate"
+          locationName="DuPage County, Illinois"
+          courtName="DuPage County Circuit Court"
+        />
 
         {/* Related Services */}
         <section className="bg-slate-50 py-16">

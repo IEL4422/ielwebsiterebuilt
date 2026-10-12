@@ -10,6 +10,7 @@
     "prebuild": "node scripts/build-pricing-sheet.mjs",
     "build": "next build",
     "build:pricing-sheet": "node scripts/build-pricing-sheet.mjs",
+    "audit:service-content": "node scripts/audit-legal-service-depth.mjs",
     "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",

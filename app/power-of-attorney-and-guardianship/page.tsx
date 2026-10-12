@@ -5,6 +5,7 @@ import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { CTABand } from '@/components/ui/CTAButtons';
 import { A_LA_CARTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from '@/lib/seo';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 const PATH = '/power-of-attorney-and-guardianship/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
@@ -204,6 +205,8 @@ export default function PowerOfAttorneyAndGuardianshipPage() {
           </div>
         </div>
       </section>
+
+      <LegalServiceDepthGuide kind="poa-guardianship" locationName="Illinois" />
 
       <CTABand
         title="Not sure which one you need?"

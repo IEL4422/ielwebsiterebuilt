@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { FileText, Shield, Heart, Scale, ScrollText } from 'lucide-react'
 import { InnerPageHero } from '@/components/layout/InnerPageHero'
 import { CTABand } from '@/components/ui/CTAButtons'
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide'
 
 export const metadata: Metadata = {
   title: 'Estate Planning Services',
@@ -136,6 +137,8 @@ export default function EstatePlanningPage() {
           </div>
         </div>
       </section>
+
+      <LegalServiceDepthGuide kind="estate-planning" locationName="Illinois" />
 
       <section className="bg-gradient-to-r from-[#33414E] to-[#4A708B] py-14">
         <div className="container mx-auto px-4 max-w-[1140px] text-center">

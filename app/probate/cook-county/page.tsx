@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 export const metadata: Metadata = {
   title: 'Cook County Probate Lawyer | Expert Estate Administration in Chicago',
@@ -562,6 +563,12 @@ export default function CookCountyProbatePage() {
             </div>
           </div>
         </section>
+
+        <LegalServiceDepthGuide
+          kind="probate"
+          locationName="Cook County, Illinois"
+          courtName="Circuit Court of Cook County, Probate Division"
+        />
 
         {/* Related Services */}
         <section className="bg-white py-16">

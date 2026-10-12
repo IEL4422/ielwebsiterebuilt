@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, BadgeCheck, Brain, Building2, CircleAlert, CircleCheck, Clock3, FileCheck2, HeartPulse, Scale, ShieldCheck, UserRound } from 'lucide-react';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { adultGuardianshipFAQs } from '@/lib/practice-faqs';
@@ -176,6 +177,8 @@ export default function AdultGuardianshipLawyerPage() {
       </section>
 
       <FAQAccordion title="Illinois Adult Guardianship — Frequently Asked Questions" items={adultGuardianshipFAQs} />
+
+      <LegalServiceDepthGuide kind="guardianship" locationName="Illinois" />
 
       <section className="bg-[#33414E] py-14 text-center">
         <div className="mx-auto max-w-3xl px-5">

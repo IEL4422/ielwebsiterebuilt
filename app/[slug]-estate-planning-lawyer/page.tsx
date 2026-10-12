@@ -8,6 +8,7 @@ import { ServiceCard } from '@/components/geo/ServiceCard';
 import { PricingCard } from '@/components/geo/PricingCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 import { PROBATE, usd } from '@/lib/pricing';
 
 export async function generateStaticParams() {
@@ -278,6 +279,12 @@ export default function CityEstatePlanningPage({
             </div>
           </div>
         </section>
+
+        <LegalServiceDepthGuide
+          kind="estate-planning"
+          locationName={`${loc.city}, ${loc.county}`}
+          courtName={loc.countyCourtName}
+        />
 
         {/* Local Section */}
         <section className="py-16 lg:py-20 bg-[#f8f9fa]">

@@ -6,6 +6,7 @@ import { Phone, CheckCircle, Shield, FileText, DollarSign, Home, Users } from 'l
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { REAL_ESTATE, usd } from '@/lib/pricing';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 const closingPackages = [
   {
@@ -326,6 +327,8 @@ export default function RealEstateClosingsPage() {
             </div>
           </div>
         </section>
+
+        <LegalServiceDepthGuide kind="real-estate" locationName="Chicago and Illinois" />
 
         {/* Related services */}
         <section className="py-10 px-4 sm:px-5 bg-[#F6F9FC]">

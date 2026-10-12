@@ -10,6 +10,7 @@ import { PricingCard } from '@/components/geo/PricingCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
 import { CourthouseCard } from '@/components/geo/CourthouseCard';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 export async function generateStaticParams() {
   return countyProbateLocations.map((loc) => ({
@@ -291,6 +292,12 @@ export default function CountyProbatePage({
             </div>
           </div>
         </section>
+
+        <LegalServiceDepthGuide
+          kind="probate"
+          locationName={loc.county}
+          courtName={countyCourtName}
+        />
 
         <CTABanner
           title="Ready to Navigate Probate with Confidence?"

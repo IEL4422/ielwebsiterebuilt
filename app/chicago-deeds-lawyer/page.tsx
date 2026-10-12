@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Phone, CheckCircle, FileText, Home, Shield, Users, RefreshCw, AlertCircle } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 export default function ChicagoDeedsLawyerPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -262,6 +263,8 @@ export default function ChicagoDeedsLawyerPage() {
             </div>
           </div>
         </section>
+
+        <LegalServiceDepthGuide kind="deeds" locationName="Chicago and Illinois" />
 
         {/* Related services */}
         <section className="py-10 px-4 sm:px-5 bg-[#F6F9FC]">

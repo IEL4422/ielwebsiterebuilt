@@ -10,6 +10,7 @@ import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
 import { CourthouseCard } from '@/components/geo/CourthouseCard';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 export const dynamicParams = false;
 
@@ -99,6 +100,7 @@ export default function CountyGuardianshipPage({ params }: { params: { slug: str
           </div></div>
         </section>
         <CourthouseCard county={loc.county} address={loc.courthouseAddress} phone={loc.courthousePhone} filingSystems={loc.divisionNote} />
+        <LegalServiceDepthGuide kind="guardianship" locationName={loc.county} courtName={court} />
         <section className="py-12 bg-white"><div className="container mx-auto px-4"><div className="max-w-[1140px] mx-auto">
           <h2 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E] mb-6">Guardianship in nearby counties</h2>
           <div className="flex flex-wrap gap-3">

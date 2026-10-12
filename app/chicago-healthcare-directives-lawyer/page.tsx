@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Heart, AlertCircle, CheckCircle } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 export default function HealthcareDirectivesPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -601,6 +602,8 @@ export default function HealthcareDirectivesPage() {
             </div>
           </div>
         </section>
+
+        <LegalServiceDepthGuide kind="estate-planning" locationName="Chicago and Illinois" />
 
         <CTABand
           title="Ready to put your healthcare directives in place?"
