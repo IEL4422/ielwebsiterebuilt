@@ -245,7 +245,7 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
       { name: 'Adult Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.adultUncontested), joint: '', notes: 'All court filing fees included; bond premiums and guardian ad litem fees billed separately.' },
       { name: 'Emergency + Full Adult Guardianship', individual: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn), joint: '', notes: `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full case. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Filing fees included; bond premiums and GAL fees separate.` },
       { name: 'Minor Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.minorUncontested), joint: '', notes: 'Flat fee.' },
-      { name: 'Contested Guardianship', individual: `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, joint: '', notes: 'Defined contested events may create additional expenses under the written engagement agreement.' },
+      { name: 'Contested Guardianship', individual: `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, joint: '', notes: 'Initial scope only. Contested cases may incur additional flat fees when listed litigation events actually occur.' },
       { name: 'Annual Report on the Ward', individual: `${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / year`, joint: '', notes: 'Personal annual report preparation and filing. Estate accounting is not included in this fee.' },
     ],
   },
@@ -255,7 +255,7 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
 
 const included = [
   ['In-Scope Consultations', 'Attorney consultations reasonably needed to complete the written package scope.'],
-  ['Clear Written Fees', `Standard matters have concrete flat fees. Contested matters start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee, with additional expenses only if defined contested events occur.`],
+  ['Clear Written Fees', `Standard matters have concrete flat fees. Contested matters start with a ${usd(CONTESTED.probateInitialFlatFee)} initial flat fee and may incur additional event-based flat fees.`],
   ['Notarization Included', 'Online or mobile notarization included on all packages.'],
   ['Client Portal Access', 'Track status, message your attorney, and access documents 24/7.'],
   ['Physical & Digital Portfolio', 'Your finished plan delivered both ways.'],
@@ -276,6 +276,7 @@ export function ServicesPricingModern() {
             ['Estate Planning', '#estate-planning'],
             ['Trusts & Administration', '#trusts'],
             ['Probate & Administration', '#probate'],
+            ['Contested Fees', '#contested-event-fees'],
             ['Real Estate & Deeds', '#realestate'],
             ['POA & Guardianship', '#guardianship'],
             ['Full Price List', '#table'],
@@ -348,7 +349,7 @@ export function ServicesPricingModern() {
           <CatHead kick="03" title="Probate &amp; Administration" />
           <p className="mb-7 max-w-[820px] text-[16px] text-[#5f6b76]">
             Flat-fee guidance for executors and families through Illinois probate — from opening through closing.
-            Uncontested matters are flat-fee. Contested matters start with a {usd(CONTESTED.probateInitialFlatFee)} flat fee; defined contested events may create additional expenses. Surety bond
+            Uncontested matters are flat-fee. Contested matters start with a {usd(CONTESTED.probateInitialFlatFee)} flat fee for the initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur. Surety bond
             premiums, if required, are paid directly to the bond provider and are not included.
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -360,6 +361,13 @@ export function ServicesPricingModern() {
               />
             ))}
           </div>
+          <p className="mt-5 text-sm text-[#5f6b76]">
+            Review the complete{' '}
+            <Link href="#contested-event-fees" className="font-bold text-[#547298] underline hover:text-[#33414E]">
+              contested-matter event fee list
+            </Link>{' '}
+            for the specific motions, discovery, depositions, hearings, will-contest phases, and trial work that may create an additional flat fee.
+          </p>
           <div className="mt-6 rounded-xl border border-[#E3EAF1] bg-[#F6F9FC] p-5">
             <p className="text-[15px] text-[#33414E]">
               <strong>Wrongful Death Cases:</strong> Ask us about our special wrongful death attorney referral pricing.{' '}
@@ -432,7 +440,7 @@ export function ServicesPricingModern() {
               ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/'],
               ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/'],
               ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`, '/adult-guardianship-lawyer/#emergency'],
-              ['Contested Guardianship', `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, 'If defined contested events occur, additional expenses may apply under the written engagement agreement.', '/guardianship/#contested'],
+              ['Contested Guardianship', `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, 'Initial scope only. Additional flat fees apply when listed litigation events actually occur.', '/guardianship/#contested'],
             ].map(([title, price, body, href], index) => {
               const serviceIds = ['power-of-attorney', 'adult-guardianship', 'emergency-temporary-adult-guardianship', 'contested-guardianship'];
               const ctas: Cta[] = [

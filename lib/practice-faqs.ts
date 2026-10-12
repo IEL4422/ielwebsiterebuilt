@@ -43,12 +43,12 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'How much does it cost to contest a will in Illinois?',
     answer:
-      `Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee. Because motions, discovery, hearings, and trial preparation can expand the scope, defined events in the written engagement agreement may create additional expenses. Those expenses are conditional and are explained before they are incurred.`,
+      `Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur, including motions, discovery, depositions, hearings, and trial preparation. Each additional scope and fee is explained in writing before it is incurred.`,
   },
   {
-    question: 'Why can a contested probate have additional expenses?',
+    question: 'Why can a contested probate have additional flat fees?',
     answer:
-      'The initial flat fee covers a defined scope. A contested matter can expand if the opposing party files motions, disputes discovery, requires additional hearings, or proceeds toward trial. The engagement agreement identifies the events that may create additional expenses so they are not presented as automatically required.',
+      'The initial $5,000 flat fee covers a defined opening scope, not the entire contest. A separate additional flat fee applies only when a listed litigation event actually occurs, such as a deposition, contested motion, evidentiary hearing, full will-contest pretrial phase, or trial. Component fees are not charged again for work already included in an accepted broader phase.',
   },
   {
     question: 'Do attorney fees in a contested Illinois probate need court approval?',
@@ -101,7 +101,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'Is adult guardianship a flat fee?',
     answer:
-      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses.`,
+      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope and may incur additional flat fees only when listed litigation events actually occur.`,
   },
   {
     question: 'What is the difference between guardianship of the person and guardianship of the estate?',
@@ -139,12 +139,12 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'How much does minor guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested, contested representation starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. Defined contested events may create additional expenses under the written engagement agreement.`,
+      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested, representation starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope. Additional flat fees apply only when listed litigation events actually occur.`,
   },
   {
     question: 'What if a parent objects to the guardianship?',
     answer:
-      `If a parent objects or files a competing petition, the guardianship is contested and becomes litigation. It starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. The written engagement identifies any events that may create additional expenses, and the firm explains how the amount already paid applies before contested representation begins.`,
+      `If a parent objects or files a competing petition, the guardianship is contested and becomes litigation. It starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur, and the firm explains how the amount already paid applies before contested representation begins.`,
   },
   {
     question: 'What is the difference between guardianship and adoption?',

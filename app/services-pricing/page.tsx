@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ServicesPricingModern } from '@/components/services/ServicesPricingModern'
+import { ContestedEventFeeMenu } from '@/components/services/ContestedEventFeeMenu'
 import { LunacalBookingEmbed } from '@/components/services/LunacalBookingEmbed'
-import { CONTESTED, usd } from '@/lib/pricing'
+import { CONTESTED, CONTESTED_EVENT_FEES, usd } from '@/lib/pricing'
 
 export const metadata: Metadata = {
   title: 'Illinois Estate Planning, POA & Probate Prices',
@@ -54,7 +55,7 @@ const faqSchema = {
       "name": "What Are the Costs Associated With Your Services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": `Concrete prices are published on this page. Contested matters start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement agreement.`
+        "text": `Concrete prices are published on this page. Contested matters start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur and after the additional scope and fee are explained in writing.`
       }
     },
     {
@@ -196,6 +197,27 @@ const faqSchema = {
   ]
 }
 
+const contestedFeeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Illinois Estate Law contested-matter event-based flat fees',
+  description: 'Additional flat fees that apply only when the listed litigation event actually occurs.',
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  numberOfItems: CONTESTED_EVENT_FEES.length,
+  itemListElement: CONTESTED_EVENT_FEES.map((fee, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Offer',
+      name: fee.label,
+      description: fee.trigger,
+      price: fee.amount,
+      priceCurrency: 'USD',
+      url: `https://www.illinoisestatelaw.com/services-pricing/#contested-event-fees`,
+    },
+  })),
+}
+
 export default function ServicesPage() {
   return (
     <>
@@ -203,12 +225,16 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contestedFeeSchema) }}
+      />
       {/* Modernized services & pricing hero */}
       <div className="bg-gradient-to-b from-[#F6F9FC] to-white">
         <div className="mx-auto max-w-[1180px] px-5 py-12 text-center font-['Plus_Jakarta_Sans']">
           <h1 className="text-[42px] font-bold text-[#33414E] sm:text-[30px]">Services &amp; Pricing</h1>
           <p className="mx-auto mt-3 max-w-[680px] text-[18px] text-[#5f6b76]">
-            Transparent pricing shown before you commit. Contested litigation starts with a {usd(CONTESTED.probateInitialFlatFee)} flat fee, with conditional event-based expenses identified in the written engagement. Payment plans are available.
+            Transparent pricing shown before you commit. Contested litigation starts with a {usd(CONTESTED.probateInitialFlatFee)} flat fee for the initial scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur. Payment plans are available.
           </p>
           <p className="mt-2.5 text-[15px] font-semibold text-[#33414E]">
             Not sure which package is right?{' '}
@@ -234,6 +260,8 @@ export default function ServicesPage() {
       </div>
 
       <ServicesPricingModern />
+
+      <ContestedEventFeeMenu />
 
       <div className="container mx-auto px-5 max-w-[1240px] pb-[60px] sm:px-4">
         <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[40px] text-[#2d3e50] mb-8 sm:text-[28px] sm:mb-6">
@@ -273,7 +301,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Concrete prices are published on this page. Contested matters start with a {usd(CONTESTED.probateInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement agreement.</p>
+              <p>Concrete prices are published on this page. Contested matters start with a {usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Contested cases may incur additional flat fees only when a listed litigation event actually occurs. Each additional scope and fee is explained in writing before it is incurred. See the event-based fee list above.</p>
             </div>
           </details>
 

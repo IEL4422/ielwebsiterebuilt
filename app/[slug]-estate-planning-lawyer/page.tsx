@@ -77,7 +77,7 @@ function getCityFAQs(city: string) {
     },
     {
       question: `How much does estate planning cost in ${city}?`,
-      answer: `Illinois Estate Law uses transparent flat-fee pricing. Individual will packages are $1,250, joint will packages are $1,750, individual trust packages are $3,500, and joint trust packages are $5,000. Contested litigation starts with a $5,000 flat fee; defined contested events may create additional expenses under the written engagement agreement.`,
+      answer: `Illinois Estate Law uses transparent flat-fee pricing. Individual will packages are $1,250, joint will packages are $1,750, individual trust packages are $3,500, and joint trust packages are $5,000. Contested litigation starts with a $5,000 flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur.`,
     },
     {
       question: 'How long does it take to complete an estate plan?',
@@ -178,7 +178,7 @@ export default function CityEstatePlanningPage({
                       {loc.localNote} Whether you need a simple will, a revocable living trust, powers of attorney, or healthcare directives, our firm offers a fully virtual process that allows you to complete your entire estate plan from the comfort of your home.
                     </p>
                     <p>
-                      Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested litigation starts with a $5,000 flat fee and may have additional expenses only if defined events occur. {meetingText}
+                      Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested litigation starts with a $5,000 flat fee for a defined initial scope and may incur additional flat fees only when listed litigation events actually occur. {meetingText}
                     </p>
                     <p>
                       If you need probate assistance in {loc.county}, our firm also handles full probate administration, summary probate, and heir representation at the {loc.countyCourtName}. We serve all of Illinois and can help with estate matters in any county.

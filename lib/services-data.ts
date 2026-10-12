@@ -410,11 +410,11 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Contested Probate',
     pricingLabel: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
-    description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_FEE_NOTE}`,
+    description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_FEE_NOTE} The public event-fee list is available on the Services & Pricing page.`,
     includes: [
       `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
       'Written scope for the initial contested work',
-      'Additional expenses apply only if defined contested events occur',
+      'Additional flat fees apply only when listed litigation events actually occur',
       'Any additional amount is explained before it is incurred'
     ],
     addOns: []

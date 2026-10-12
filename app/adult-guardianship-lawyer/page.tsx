@@ -113,7 +113,7 @@ export default function AdultGuardianshipLawyerPage() {
 
           <div className="mt-6 rounded-2xl border border-[#DCE5ED] bg-[#F6F9FC] p-6">
             <h3 className="text-lg font-bold text-[#33414E]">If the matter becomes contested</h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">An objection, competing petition, or dispute over the proposed guardian changes the case into contested litigation. Contested representation starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee. Defined contested events may create additional expenses under the written engagement agreement.</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">An objection, competing petition, or dispute over the proposed guardian changes the case into contested litigation. Contested representation starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur.</p>
           </div>
         </div>
       </section>

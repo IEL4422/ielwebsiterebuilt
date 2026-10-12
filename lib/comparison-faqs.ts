@@ -25,7 +25,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'Is probate in Illinois billed hourly or as a flat fee?',
     answer:
-      `Both models are used in Illinois — probate fees are not standardized by statute, so it depends entirely on the firm you hire. This firm quotes a flat fee for uncontested probate (${usd(PROBATE.standard)} for a standard estate; an estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)}). Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee, with additional expenses only if defined events occur. Many Illinois firms bill hourly, so get the applicable model in writing before engaging counsel.`,
+      `Both models are used in Illinois — probate fees are not standardized by statute, so it depends entirely on the firm you hire. This firm quotes a flat fee for uncontested probate (${usd(PROBATE.standard)} for a standard estate; an estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)}). Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope. Additional flat fees apply only when listed litigation events actually occur. Many Illinois firms bill hourly, so get the applicable model in writing before engaging counsel.`,
   },
   {
     question: 'What does a flat probate fee include in Illinois?',
@@ -35,7 +35,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'How is contested probate priced?',
     answer:
-      `Contested probate, will contests, and estate litigation start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee covering a defined initial scope. Because the opposing party may create additional work through motions, discovery, hearings, or trial preparation, the written engagement identifies events that may create additional expenses. Those expenses are conditional and are explained before they are incurred.`,
+      `Contested probate, will contests, and estate litigation start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee covering a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur, such as motions, discovery, depositions, hearings, or trial preparation. Each additional scope and fee is explained in writing before it is incurred.`,
   },
   {
     question: 'Is a flat fee cheaper than hourly for Illinois probate?',
@@ -45,7 +45,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'What happens if a flat-fee probate becomes contested?',
     answer:
-      'A formal objection, appearance in opposition, or competing petition changes the matter into contested litigation. The firm then provides the applicable contested flat-fee scope and explains in writing how the amount already paid applies. Defined contested events may create additional expenses, but those expenses are not automatically required.',
+      'A formal objection, appearance in opposition, or competing petition changes the matter into contested litigation. The firm then provides the applicable initial contested flat-fee scope and explains in writing how the amount already paid applies. Additional flat fees apply only when listed litigation events actually occur; they are not automatically required merely because the matter is contested.',
   },
   {
     question: 'Do Illinois probate attorney fees have to be approved by the court?',

@@ -158,7 +158,7 @@ const answers: Answer[] = [
     detail: [
       'The uncontested package includes the firm’s defined work and all court filing fees. Surety-bond premiums and court-appointed guardian ad litem fees are third-party expenses and are not included.',
       'The emergency package includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday. The court—not the firm—controls the hearing date and decides whether temporary relief is granted.',
-      'A contested adult or minor guardianship starts with a $5,000 flat fee. If defined contested events occur, additional expenses may apply under the written engagement agreement and are explained before they are incurred.',
+      'A contested adult or minor guardianship starts with a $5,000 flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur and are explained in writing before they are incurred.',
     ],
     links: [
       { label: 'Adult and emergency guardianship', href: '/adult-guardianship-lawyer/' },

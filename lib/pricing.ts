@@ -10,9 +10,9 @@
  * STATUS: LOCKED 2026-07-14; retainers standardized 2026-07-15; guardianship
  * moved to flat fees 2026-07-16; uncontested guardianship set to a flat $5,000
  * and the Annual Report on the Ward to $750 per year, per Mary 2026-09-08. Approved by Mary Liberty. The model is now
- * clean: every contested matter begins with a UNIFORM $5,000 flat fee:
- * contested probate, will contests, and contested guardianship. Defined events
- * in the engagement may create additional expenses, but they are not automatic. EVERYTHING
+ * clean: every contested matter begins with a UNIFORM $5,000 flat fee for a
+ * defined initial scope. Listed litigation events may trigger additional flat
+ * fees, but they are not automatic. EVERYTHING
  * uncontested is a flat fee — including adult guardianship of the person and
  * estate, which moved from a $5,000 retainer to a flat fee. Both uncontested
  * guardianships (adult and minor) are the SAME flat $5,000. All court filing
@@ -27,9 +27,9 @@
  *                         guardianship (adult and minor). The flat fee covers ALL
  *                         of the firm's work and court costs except the named
  *                         carve-outs below.
- *   'flat_staged'         CONTESTED matters. Starts with a $5,000 flat fee.
- *                         Defined events may create additional expenses under
- *                         the written engagement agreement.
+ *   'flat_staged'         CONTESTED matters. Starts with a $5,000 flat fee for
+ *                         the initial scope. Listed litigation events may
+ *                         trigger additional flat fees.
  *   'flat_annual'         Recurring court-required compliance work.
  *
  * The named cost carve-outs, and there are only these:
@@ -45,7 +45,7 @@ export type BillingModel = 'flat_all_inclusive' | 'flat_staged' | 'flat_annual';
 
 export const BILLING_MODEL_LABEL: Record<BillingModel, string> = {
   flat_all_inclusive: 'Fixed legal fee (listed third-party costs excluded)',
-  flat_staged: 'Starts with a flat fee (additional event-based expenses may apply)',
+  flat_staged: 'Starts with a flat fee (additional event-based flat fees may apply)',
   flat_annual: 'Flat annual fee',
 };
 
@@ -83,8 +83,52 @@ export const CONTESTED = {
   guardianshipInitialFlatFee: 5000,
 } as const;
 
+export type ContestedEventFee = {
+  id: string;
+  label: string;
+  amount: number;
+  unit?: string;
+  trigger: string;
+};
+
+/**
+ * Public additional flat fees for contested matters, ordered from least to most
+ * expensive. A listed fee is triggered by the event described; it is not charged
+ * merely because a case is contested and is not stacked on work already included
+ * in a broader accepted phase.
+ */
+export const CONTESTED_EVENT_FEES: readonly ContestedEventFee[] = [
+  { id: 'subpoena', label: 'Subpoena', amount: 750, unit: 'per recipient', trigger: 'A subpoena is prepared and issued.' },
+  { id: 'nonroutine-unopposed-motion', label: 'Nonroutine Unopposed Motion', amount: 1250, trigger: 'A substantive motion is required and no party opposes it.' },
+  { id: 'discovery-citation', label: 'Discovery Citation', amount: 3500, unit: 'per respondent', trigger: 'A citation proceeding is initiated against a person or institution.' },
+  { id: 'deposition', label: 'Deposition', amount: 3500, unit: 'per deposition', trigger: 'Preparation and attendance for one deposition lasting up to four hours.' },
+  { id: 'contested-motion', label: 'Contested Motion', amount: 3500, trigger: 'Briefing and argument are required on a contested, non-dispositive motion.' },
+  { id: 'mediation', label: 'Mediation', amount: 3500, trigger: 'Preparation for and attendance at one mediation session; mediator fees are separate.' },
+  { id: 'initial-contested-scope', label: 'Initial Contested Matter Scope', amount: 5000, trigger: 'Contested representation begins. Covers initial review, appearance, strategy, and case planning—not the entire contest.' },
+  { id: 'written-discovery', label: 'Written Discovery Phase', amount: 5000, trigger: 'Interrogatories, document requests, or requests to admit are served or answered.' },
+  { id: 'extended-expert-deposition', label: 'Extended or Expert Deposition', amount: 5000, unit: 'per deposition', trigger: 'A deposition exceeds four hours or involves an expert witness; expert fees are separate.' },
+  { id: 'dispositive-motion', label: 'Dispositive Motion', amount: 5000, trigger: 'A motion to dismiss, summary judgment motion, or comparable case-dispositive motion is prepared or defended.' },
+  { id: 'evidentiary-hearing', label: 'Evidentiary Hearing', amount: 5000, unit: 'per hearing day', trigger: 'Witness testimony or evidence is presented outside the final trial.' },
+  { id: 'additional-trial-day', label: 'Additional Will Contest Trial Day', amount: 5000, unit: 'per day', trigger: 'A will-contest trial continues beyond the first three trial days included in the trial phase.' },
+  { id: 'formal-proof-will', label: 'Formal Proof of Will', amount: 5500, trigger: 'An interested person demands formal proof of the will.' },
+  { id: 'contested-creditor-claim', label: 'Contested Creditor Claim', amount: 10000, trigger: 'A creditor claim requires an evidentiary dispute or trial.' },
+  { id: 'contested-accounting', label: 'Contested Accounting', amount: 12500, trigger: 'An estate or trust accounting is formally challenged.' },
+  { id: 'will-trust-construction', label: 'Will or Trust Construction', amount: 12500, trigger: 'Court interpretation of a will or trust becomes necessary.' },
+  { id: 'contested-heirship', label: 'Contested Heirship', amount: 15000, trigger: 'Competing or disputed heirship claims require litigation.' },
+  { id: 'asset-recovery-title-citation', label: 'Asset Recovery or Title Citation', amount: 20000, trigger: 'Litigation is required to recover estate property or determine title.' },
+  { id: 'full-will-contest-pretrial', label: 'Full Will Contest — Pretrial Litigation', amount: 25000, trigger: 'A will contest proceeds beyond initial pleadings into full pretrial litigation. Covers pleadings, case management, standard written discovery, and pretrial conferences; depositions, experts, mediation, and trial are separate.' },
+  { id: 'will-contest-trial', label: 'Will Contest Trial Preparation and Trial', amount: 25000, trigger: 'The court sets the will contest for trial. Covers motions in limine, witness and exhibit preparation, pretrial submissions, and the first three trial days.' },
+  { id: 'fiduciary-removal-surcharge', label: 'Fiduciary Removal or Surcharge', amount: 25000, trigger: 'Removal, breach-of-duty, or surcharge litigation begins.' },
+] as const;
+
+export const CONTESTED_CUSTOM_FEE = {
+  label: 'Appeal',
+  price: 'Individually quoted flat fee',
+  trigger: 'A notice of appeal is filed or appellate representation is requested.',
+} as const;
+
 export const CONTESTED_FEE_NOTE =
-  'Starts with a $5,000 flat fee. If defined contested events occur, additional expenses may apply under the written engagement agreement. Any additional amount is explained before it is incurred.';
+  'Starts with a $5,000 flat fee for the initial contested scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur. Each additional scope and fee is explained in writing before it is incurred.';
 
 /** Legacy compatibility values. Not part of the public contested-package offer. */
 export const RETAINER_FLOORS = {
@@ -228,8 +272,8 @@ export const REAL_ESTATE = {
 export const CONVERSION_CLAUSE =
   'This flat fee covers an uncontested proceeding. If any person files an objection, ' +
   'an appearance in opposition, or a competing petition, the matter becomes contested. ' +
-  'Contested representation starts with a $5,000 flat fee. If defined contested events occur, ' +
-  'additional expenses may apply under the written engagement agreement and will be explained before they are incurred.';
+  'Contested representation starts with a $5,000 flat fee for a defined initial scope. If listed litigation events occur, ' +
+  'additional flat fees may apply under the written engagement agreement and will be explained before they are incurred.';
 
 /** Court-approval disclosure. 755 ILCS 5/27-2; ISBA Ethics Op. 13-01. */
 export const COURT_APPROVAL_DISCLOSURE =

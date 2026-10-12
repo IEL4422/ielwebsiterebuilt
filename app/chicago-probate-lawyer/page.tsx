@@ -608,7 +608,7 @@ export default function ChicagoProbateLawyerPage() {
 
               <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E] mt-12 mb-6">How we price contested matters</h3>
               <div className="max-w-4xl space-y-4 text-slate-600 leading-relaxed">
-                <p>Contested probate starts with a defined flat-fee scope. Because the other side may create additional work through motions, discovery, hearings, or trial preparation, the written engagement agreement identifies events that may create additional expenses. Those expenses are conditional, not automatically required.</p>
+                <p>Contested probate starts with a defined initial flat-fee scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur, such as motions, discovery, depositions, hearings, or trial preparation. Each additional scope and fee is explained in writing before it is incurred.</p>
               </div>
               <div className="mt-8 grid md:grid-cols-2 gap-6 max-w-4xl">
                 <div className="border-2 border-[#33414E] rounded-xl p-6"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Initial flat fee</p><p className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E] mb-2">{usd(CONTESTED.probateInitialFlatFee)}</p><p className="text-slate-600 text-sm">The written agreement identifies the work covered by the initial fee.</p></div>

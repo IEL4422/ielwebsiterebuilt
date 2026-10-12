@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -318,7 +318,7 @@ export default function RecommendedServicePage() {
           includes: [
             `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
             'Written scope for the initial contested work',
-            'Additional expenses only if defined contested events occur',
+            'Additional flat fees only when listed litigation events actually occur',
             'Any additional amount is explained before it is incurred'
           ],
           addOns: [],
@@ -2013,15 +2013,16 @@ export default function RecommendedServicePage() {
 
                       <div className="bg-amber-50 border-2 border-amber-300 rounded-lg p-4 my-4">
                         <h4 className="font-bold text-md mb-3">EXHIBIT A: Events Outside the Uncontested Probate Scope</h4>
-                        <p className="mb-2 text-sm">Contested probate representation starts with a {usd(CONTESTED.probateInitialFlatFee)} flat fee. Additional expenses are not automatic. They may apply only if defined contested events occur and are addressed in a separate written engagement scope. Examples of those events may include:</p>
-                        <ul className="list-disc ml-6 space-y-1 text-sm">
-                          <li><strong>Will contest or defense</strong> when someone disputes whether a will is valid</li>
-                          <li><strong>Citation or asset-recovery proceeding</strong> when estate property is disputed or held by another person</li>
-                          <li><strong>Creditor-claim objection</strong> when the estate disputes all or part of a claim</li>
-                          <li><strong>Disputed heirship, fiduciary conduct, or removal issues</strong></li>
-                          <li><strong>Emergency or contested court proceedings</strong> requiring work beyond the uncontested administration scope</li>
+                        <p className="mb-2 text-sm">Contested probate representation starts with a {usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Contested cases may incur the following additional flat fees only when the listed litigation event actually occurs:</p>
+                        <ul className="ml-5 space-y-1.5 text-sm">
+                          {CONTESTED_EVENT_FEES.map((fee) => (
+                            <li key={fee.id}>
+                              <strong>{fee.label}: {usd(fee.amount)}{fee.unit ? ` ${fee.unit}` : ''}</strong> — {fee.trigger}
+                            </li>
+                          ))}
+                          <li><strong>{CONTESTED_CUSTOM_FEE.label}: {CONTESTED_CUSTOM_FEE.price}</strong> — {CONTESTED_CUSTOM_FEE.trigger}</li>
                         </ul>
-                        <p className="mt-3 text-sm font-semibold">If one of these events occurs, additional expenses may be incurred for the contested portion. The Firm will explain the proposed work and any additional amount before that work begins.</p>
+                        <p className="mt-3 text-sm font-semibold">Each additional event requires a written scope before the work begins. Component fees are not charged again for work already included in an accepted broader litigation phase.</p>
                       </div>
                     </>
                   )}
@@ -2131,7 +2132,7 @@ export default function RecommendedServicePage() {
                         onCheckedChange={(checked) => setProbateAcknowledgment(checked as boolean)}
                       />
                       <Label htmlFor="probate-extraordinary-acknowledgment" className="cursor-pointer leading-tight text-sm">
-                        <strong>I understand and acknowledge</strong> that if a defined contested event described in Exhibit A arises, additional expenses may apply under a separate written scope. The Firm will explain any additional amount before the contested work begins.
+                        <strong>I understand and acknowledge</strong> that if a listed litigation event described in Exhibit A actually occurs, an additional flat fee may apply under a separate written scope. The Firm will explain the additional scope and flat fee before the contested work begins.
                       </Label>
                     </div>
                   </div>

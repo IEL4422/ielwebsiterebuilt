@@ -49,7 +49,7 @@ export default function FlatFeeVsHourlyProbatePage() {
               a standard estate — and that fee is all-inclusive of court costs. A small estate that
               qualifies to skip probate entirely is handled as Small Estate Administration for{' '}
               {usd(PROBATE.smallEstateAdministration)}. <strong>Contested matters start with a flat fee</strong> of{' '}
-              {usd(CONTESTED.probateInitialFlatFee)}. Defined contested events may create additional expenses. Large Estate Probate is {usd(PROBATE.largeEstateBase)}
+              {usd(CONTESTED.probateInitialFlatFee)} for a defined initial scope. Contested cases may incur additional event-based flat fees. Large Estate Probate is {usd(PROBATE.largeEstateBase)}
               plus {PROBATE.largeEstatePercent}% of estate value, charged during administration
               only if the estate exceeds $4,000,000 due to estate-tax complexity.
             </p>
@@ -68,7 +68,7 @@ export default function FlatFeeVsHourlyProbatePage() {
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">What you pay</th>
                     <td className="border border-slate-200 px-4 py-3">{usd(PROBATE.standard)} standard estate; {usd(PROBATE.largeEstateBase)} + {PROBATE.largeEstatePercent}% for estates exceeding $4,000,000 due to estate-tax complexity; {usd(PROBATE.smallEstateAdministration)} small estate administration</td>
-                    <td className="border border-slate-200 px-4 py-3">Starts with {usd(CONTESTED.probateInitialFlatFee)}; additional expenses only if defined contested events occur</td>
+                    <td className="border border-slate-200 px-4 py-3">Starts with {usd(CONTESTED.probateInitialFlatFee)} for the initial scope; additional flat fees only when listed litigation events occur</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Known in advance?</th>
@@ -133,12 +133,14 @@ export default function FlatFeeVsHourlyProbatePage() {
               </strong>{' '}
               The initial agreement identifies the work covered by the starting fee. The opposing
               party may later create additional work through motions, discovery, hearings, or trial
-              preparation, so the agreement also identifies events that may create additional expenses.
+              preparation, so the agreement also identifies events that may trigger additional flat fees.
             </p>
             <p>
               Contested matters here start with a {usd(CONTESTED.probateInitialFlatFee)} flat fee.
-              Additional expenses are not automatically required; they apply only when a defined
-              contested event occurs and are explained under the written engagement before being incurred.
+              That fee covers a defined initial scope—not the entire contest. Contested cases may incur
+              additional flat fees only when a listed litigation event actually occurs. Each additional
+              scope and fee is explained in writing before it is incurred. Review the{' '}
+              <Link href="/services-pricing/#contested-event-fees">event-based contested-matter fee list</Link>.
             </p>
 
             <h2>When an uncontested matter becomes contested</h2>

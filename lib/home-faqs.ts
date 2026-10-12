@@ -33,7 +33,7 @@ export const homeFAQs: QA[] = [
   },
   {
     question: "What makes Illinois Estate Law's pricing structure different?",
-    answer: `The firm uses fixed fees so clients know the price and written scope before work begins. Contested probate and guardianship start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee. If defined contested events occur, additional expenses may apply under the written engagement agreement.`,
+    answer: `The firm uses fixed fees so clients know the price and written scope before work begins. Contested probate and guardianship start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur.`,
   },
   {
     question: 'What types of documents are typically included in an estate plan?',
