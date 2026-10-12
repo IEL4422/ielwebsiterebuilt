@@ -86,7 +86,7 @@ function getCityFAQs(city: string) {
     },
     {
       question: 'How long does it take to complete an estate plan?',
-      answer: 'Most estate plans are completed within 1-2 weeks from the initial consultation. More complex plans involving trusts and multiple property transfers may take slightly longer, but attorney Mary Liberty prioritizes fast turnaround for all clients.',
+      answer: 'Timing depends on the documents involved, the client’s decisions, asset and title information, and whether deeds or trust funding are part of the engagement. The firm confirms the anticipated schedule after reviewing the scope and provides clear next steps throughout the process.',
     },
     {
       question: 'What is the difference between a will and a trust in Illinois?',
@@ -165,13 +165,8 @@ export default function CityEstatePlanningPage({
     '@type': 'WebPage',
     name: `${loc.city} Estate Planning Lawyer`,
     url: pageUrl,
-    dateModified: '2026-10-11',
+    dateModified: '2026-10-12',
     about: { '@type': 'Thing', name: 'Illinois estate planning' },
-    reviewedBy: {
-      '@type': 'Person',
-      name: 'Mary Liberty',
-      url: 'https://www.illinoisestatelaw.com/about/',
-    },
     areaServed: [
       { '@type': 'City', name: loc.city },
       { '@type': 'AdministrativeArea', name: loc.county },
@@ -279,7 +274,7 @@ export default function CityEstatePlanningPage({
                 {[
                   { icon: DollarSign, title: 'Flat-Fee Pricing', desc: 'Know the exact cost upfront. No hourly billing, no surprises.' },
                   { icon: Home, title: 'Fully Virtual', desc: 'Complete your entire estate plan from home. No office visits required.' },
-                  { icon: Clock, title: 'Fast Turnaround', desc: 'Most estate plans completed within 1\u20132 weeks.' },
+                  { icon: Clock, title: 'Clear Process', desc: 'Know what information is needed, what happens next, and what completes the engagement.' },
                   { icon: User, title: 'Attorney Attention', desc: 'Work directly with an Illinois attorney throughout your planning matter.' },
                 ].map((feature) => (
                   <div key={feature.title} className="text-center">
@@ -338,7 +333,7 @@ export default function CityEstatePlanningPage({
                 Serving {loc.city} and {loc.county}
               </h2>
               <p className="text-slate-600 leading-relaxed max-w-3xl mx-auto text-center mb-10">
-                {loc.city} is part of {loc.county}, where probate and estate matters are handled by the {loc.countyCourtName}. Illinois Estate Law has deep experience working with {loc.county} courts and serves the entire community through our fully virtual practice. We proudly serve all of Illinois.
+                {loc.city} is associated with {loc.county}, where many local probate and estate matters are handled by the {loc.countyCourtName}. Court venue depends on the facts, so the controlling residence or property address is confirmed before filing. Estate-planning services are available throughout Illinois through our virtual practice.
               </p>
 
               {loc.meetingAddress ? (

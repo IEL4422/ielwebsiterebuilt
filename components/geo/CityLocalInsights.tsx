@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Building2, CheckCircle2, MapPin, Scale, UserRoundCheck } from 'lucide-react';
+import { Building2, CheckCircle2, FileCheck2, MapPin, Scale } from 'lucide-react';
 import { cityLocations, type CityLocation } from '@/lib/locations-data';
 
 const countyRoutes: Record<string, { probate: string; guardianship: string }> = {
@@ -21,8 +21,8 @@ export function CityLocalInsights({ location }: { location: CityLocation }) {
         <div className="container mx-auto max-w-[1140px] px-4">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#547298]">Local planning considerations</p>
-            <h2 id="local-planning-title" className="mt-3 font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E]">
-              Questions we help {location.city} families resolve
+            <h2 id="local-planning-title" className="mt-3 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] md:text-3xl">
+              Questions We Help {location.city} Families Resolve
             </h2>
             <p className="mx-auto mt-4 max-w-3xl leading-relaxed text-slate-600">
               {location.localNote} These considerations are starting points—not assumptions about any particular family.
@@ -46,14 +46,15 @@ export function CityLocalInsights({ location }: { location: CityLocation }) {
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#B9CCE2]">City service, county procedure</p>
-              <h2 id="local-legal-path-title" className="mt-3 font-['Plus_Jakarta_Sans'] text-3xl font-bold text-white">
-                How location affects an Illinois legal matter
+              <h2 id="local-legal-path-title" className="mt-3 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-white md:text-3xl">
+                How Location Affects an Illinois Legal Matter
               </h2>
               <div className="mt-5 space-y-4 leading-relaxed text-white/80">
                 <p>
                   Estate-planning documents use Illinois law and can usually be prepared through the firm&apos;s virtual process.
-                  A court case is different: probate venue generally follows the decedent&apos;s residence, guardianship venue depends
-                  on the respondent&apos;s circumstances, and deeds are recorded in the county where the property is located.
+                  A court case is different: probate venue ordinarily begins with the decedent&apos;s Illinois residence at death,
+                  guardianship venue depends on facts including where the respondent resides or is present, and deeds are recorded
+                  in the county where the property is located. Exceptions can apply, so the address and facts must be confirmed.
                 </p>
                 <p>
                   Most {location.city} matters connected to {location.county} are handled through the {location.countyCourtName}.
@@ -75,16 +76,16 @@ export function CityLocalInsights({ location }: { location: CityLocation }) {
             </div>
 
             <aside className="rounded-2xl border border-white/15 bg-white/[0.07] p-7">
-              <UserRoundCheck className="h-9 w-9 text-[#B9CCE2]" aria-hidden="true" />
-              <h3 className="mt-4 text-xl font-bold text-white">Attorney reviewed</h3>
+              <FileCheck2 className="h-9 w-9 text-[#B9CCE2]" aria-hidden="true" />
+              <h3 className="mt-4 font-['Plus_Jakarta_Sans'] text-xl font-bold text-white">Legal Information and Scope</h3>
               <p className="mt-3 leading-relaxed text-white/80">
-                This page was reviewed by Illinois attorney Mary Liberty for service accuracy and local routing. Legal information is
-                educational; the correct strategy depends on the client&apos;s documents, assets, family circumstances, and objectives.
+                This page provides general educational information, not legal advice. The correct strategy and filing location depend
+                on the client&apos;s documents, assets, addresses, family circumstances, and objectives.
               </p>
               <Link href="/about/" className="mt-5 inline-flex font-bold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white">
                 Meet Mary and the legal team
               </Link>
-              <p className="mt-4 text-xs text-white/60">Last reviewed October 2026</p>
+              <p className="mt-4 text-xs text-white/60">Content updated October 2026</p>
             </aside>
           </div>
         </div>
@@ -98,7 +99,7 @@ export function CityLocalInsights({ location }: { location: CityLocation }) {
                 <div className="flex items-center gap-2 text-[#547298]">
                   <MapPin className="h-5 w-5" aria-hidden="true" />
                   <h2 id="nearby-service-areas-title" className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">
-                    Nearby communities we serve
+                    Nearby Communities We Serve
                   </h2>
                 </div>
                 <p className="mt-2 text-sm text-slate-600">Explore locally relevant planning information for nearby Illinois communities.</p>

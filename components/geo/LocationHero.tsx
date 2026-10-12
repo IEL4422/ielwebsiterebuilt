@@ -10,7 +10,7 @@ const trustBadges = [
   'Free Initial Consultation',
   'Flat-Fee Pricing',
   'Fully Virtual Service',
-  'Same-Week Appointments',
+  'Attorney-Led Guidance',
 ];
 
 export function LocationHero({ title, subtitle }: LocationHeroProps) {
@@ -18,7 +18,7 @@ export function LocationHero({ title, subtitle }: LocationHeroProps) {
     <section className="relative bg-[#33414E] py-16 md:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-[1140px] mx-auto text-center">
-          <h1 className="font-extrabold text-[40px] md:text-[55px] lg:text-[65px] font-normal text-white leading-tight mb-5">
+          <h1 className="font-['Plus_Jakarta_Sans'] text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl mb-5">
             {title}
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
