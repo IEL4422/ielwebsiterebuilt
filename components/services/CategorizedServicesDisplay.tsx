@@ -199,17 +199,6 @@ export const serviceCategories: ServiceCategory[] = [
     name: 'Probate',
     packages: [
       {
-        name: 'Bond in Lieu of Probate',
-        subtitle: 'When the sole estate asset is real estate',
-        fixedPrice: 1500,
-        includes: [
-          'Title Transfer Documentation',
-          'Coordination with Title Company for Out-of-Court Title Transfer',
-          'Attorney consultations related to the included scope'
-        ],
-        note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
-      },
-      {
         name: 'Small Estate Administration',
         subtitle: 'Small Estate Affidavit and Attorney Letter of Direction — no probate case opened',
         fixedPrice: 1000,
@@ -352,6 +341,17 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'real-estate',
     name: 'Real Estate',
     packages: [
+      {
+        name: 'Bond in Lieu of Probate',
+        subtitle: 'When the sole estate asset is real estate',
+        fixedPrice: 1500,
+        includes: [
+          'Title Transfer Documentation',
+          'Coordination with Title Company for Out-of-Court Title Transfer',
+          'Attorney consultations related to the included scope'
+        ],
+        note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+      },
       {
         name: 'Residential Closing (Buyer or Seller)',
         fixedPrice: REAL_ESTATE.residentialClosing,
