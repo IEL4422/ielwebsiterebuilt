@@ -1,280 +1,161 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { Building2, CheckCircle2, MapPin, Scale, UserRoundCheck } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { CTABand } from '@/components/ui/CTAButtons';
+import { cityLocations } from '@/lib/locations-data';
+import { guardianshipCounties } from '@/lib/guardianship-counties';
+
+const canonical = 'https://www.illinoisestatelaw.com/areas-we-serve/';
 
 export const metadata: Metadata = {
-  title: 'Top Rated Estate Planning Services in Illinois',
-  description: 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
-  alternates: {
-    canonical: 'https://www.illinoisestatelaw.com/areas-we-serve/',
-  },
+  title: 'Illinois Estate Planning Service Areas | Cities & Counties',
+  description: 'Explore Illinois Estate Law service areas for virtual estate planning and county-specific probate and guardianship representation across Illinois.',
+  alternates: { canonical },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
-    url: 'https://www.illinoisestatelaw.com/areas-we-serve/',
+    url: canonical,
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
-    type: 'article',
-    title: 'Top Rated Estate Planning Services in Illinois',
-    description: 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
+    type: 'website',
+    title: 'Illinois Estate Planning Service Areas | Cities & Counties',
+    description: 'Find local estate-planning information and county-specific probate and guardianship resources from Illinois Estate Law.',
   },
   twitter: {
     card: 'summary',
-    title: 'Top Rated Estate Planning Services in Illinois',
-    description: 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
+    title: 'Illinois Estate Planning Service Areas | Cities & Counties',
+    description: 'Local estate-planning information and county-specific probate and guardianship resources across Illinois.',
   },
-  other: {
-    'dc:title': 'Top Rated Estate Planning Services in Illinois',
-    'dc:description': 'Illinois Estate Law serves clients across Chicago, Springfield, Rockford, Peoria, and beyond. Call (312) 373-0731 to schedule your consultation today.',
-    'dc:relation': 'https://www.illinoisestatelaw.com/areas-we-serve/',
-    'dc:source': 'https://www.illinoisestatelaw.com/',
-    'dc:language': 'en_US',
+};
+
+const cityItems = cityLocations.map((location, index) => ({
+  '@type': 'ListItem',
+  position: index + 1,
+  name: `${location.city} Estate Planning Lawyer`,
+  url: `https://www.illinoisestatelaw.com/${location.slug}-estate-planning-lawyer/`,
+}));
+
+const countyItems = guardianshipCounties.map((location, index) => ({
+  '@type': 'ListItem',
+  position: index + 1,
+  name: `${location.county} Probate and Guardianship`,
+  url: `https://www.illinoisestatelaw.com/probate/${location.slug}-county/`,
+}));
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Illinois Estate Law Service Areas',
+  url: canonical,
+  dateModified: '2026-10-11',
+  mainEntity: [
+    { '@type': 'ItemList', name: 'Illinois city estate-planning guides', itemListElement: cityItems },
+    { '@type': 'ItemList', name: 'Illinois county court guides', itemListElement: countyItems },
+  ],
+  reviewedBy: {
+    '@type': 'Person',
+    name: 'Mary Liberty',
+    url: 'https://www.illinoisestatelaw.com/about/',
   },
-  verification: {
-    google: 'UQ33juRONgyBt2yOx3hbWYuGIe6uW2Q9bI-nB2cFtD4',
-  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.illinoisestatelaw.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Areas We Serve', item: canonical },
+  ],
 };
 
 export default function AreasWeServePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <main>
-        {/* Hero Section */}
-        <InnerPageHero title="Estate Planning & Probate Services Across Illinois" />
+        <InnerPageHero
+          title="Estate Planning, Probate & Guardianship Across Illinois"
+          subtitle="Statewide virtual estate planning, plus county-specific court guidance for the communities we serve most often."
+        />
 
-        {/* Introduction Section */}
-        <section className="bg-white py-8 lg:py-12">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <div className="text-center">
-              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                Illinois Estate Law proudly serves clients <strong className="text-slate-800">statewide for estate planning</strong> and represents families in <strong className="text-slate-800">probate matters across eight key counties</strong>.
-              </p>
+        <section className="bg-white py-14 lg:py-20">
+          <div className="container mx-auto grid max-w-[1140px] gap-10 px-4 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#547298]">One Illinois firm, the right local pathway</p>
+              <h2 className="mt-3 font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E]">Start with your legal need—not a list of generic locations</h2>
+              <div className="mt-5 space-y-4 leading-7 text-slate-600">
+                <p>Illinois Estate Law prepares wills, trusts, powers of attorney, and related estate-planning documents for clients throughout Illinois through a convenient virtual process. Most planning work does not require a trip to a courthouse or an office.</p>
+                <p>Probate, guardianship, and deed matters are location-sensitive. The correct county can depend on the decedent&apos;s residence, the respondent&apos;s circumstances, or where real estate is located. City and mailing boundaries do not always match county lines, so we confirm the controlling address before choosing a court, recorder, or filing route.</p>
+              </div>
+            </div>
+
+            <aside className="rounded-2xl border border-[#D9E3EC] bg-[#F6F9FC] p-7">
+              <UserRoundCheck className="h-9 w-9 text-[#547298]" aria-hidden="true" />
+              <h2 className="mt-4 text-xl font-bold text-[#33414E]">Clear service-area information</h2>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+                <li className="flex gap-3"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#547298]" /> City pages contain practical local planning considerations.</li>
+                <li className="flex gap-3"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#547298]" /> County pages explain the court venue and available services.</li>
+                <li className="flex gap-3"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#547298]" /> Meeting locations are available to current clients by appointment; they are not represented as separately staffed law offices.</li>
+              </ul>
+              <p className="mt-5 text-xs text-slate-500">Attorney reviewed by Mary Liberty · Last reviewed October 2026</p>
+            </aside>
+          </div>
+        </section>
+
+        <section className="bg-[#F8FAFC] py-16 lg:py-20" aria-labelledby="city-guides-title">
+          <div className="container mx-auto max-w-[1140px] px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="flex items-center justify-center gap-2 text-[#547298]"><MapPin className="h-5 w-5" aria-hidden="true" /><span className="text-sm font-bold uppercase tracking-[0.16em]">City planning guides</span></div>
+              <h2 id="city-guides-title" className="mt-3 font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E]">Estate planning in your community</h2>
+              <p className="mt-4 leading-7 text-slate-600">Each guide combines Illinois-wide planning principles with property, family, and county-routing issues that commonly matter in that community.</p>
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {cityLocations.map((location) => (
+                <Link key={location.slug} href={`/${location.slug}-estate-planning-lawyer/`} className="group rounded-xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#7E9CC0] hover:shadow-md">
+                  <h3 className="text-lg font-bold text-[#33414E] group-hover:text-[#547298]">{location.city} Estate Planning</h3>
+                  <p className="mt-1 text-sm text-slate-500">{location.county}</p>
+                  <p className="mt-3 text-sm font-bold text-[#547298]">View local guide <span aria-hidden="true">→</span></p>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Statewide Estate Planning Section */}
-        <section className="bg-slate-50 py-16 lg:py-24">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                Statewide Estate Planning Services
-              </h2>
-              <div className="w-20 h-1 bg-[#7E9CC0] mx-auto mb-6"></div>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                Whether you live in Chicago, Springfield, Rockford, Peoria, or any other Illinois community, our virtual platform brings comprehensive estate planning directly to you. We meet by secure video, phone, or at one of our convenient office locations across the state.
-              </p>
+        <section className="bg-white py-16 lg:py-20" aria-labelledby="county-guides-title">
+          <div className="container mx-auto max-w-[1140px] px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="flex items-center justify-center gap-2 text-[#547298]"><Building2 className="h-5 w-5" aria-hidden="true" /><span className="text-sm font-bold uppercase tracking-[0.16em]">County court guides</span></div>
+              <h2 id="county-guides-title" className="mt-3 font-['Plus_Jakarta_Sans'] text-3xl font-bold text-[#33414E]">Probate and guardianship by county</h2>
+              <p className="mt-4 leading-7 text-slate-600">These county pages explain the relevant courthouse, local filing context, services, pricing, and what to expect next. We also serve clients elsewhere in Illinois after confirming that the matter is a fit.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mt-12">
-              <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-[#7E9CC0] rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4">
-                  Virtual Consultations Available
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Plan your estate from the comfort of your home with secure video consultations, phone calls, and digital document signing. No travel required.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-[#7E9CC0] rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4">
-                  Multiple Office Locations
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  With offices throughout Illinois, we're here when you need us. <a href="/locations/" className="text-[#7E9CC0] hover:text-[#5A9BC4] font-semibold underline">View our locations</a> to find an office near you.
-                </p>
-              </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {guardianshipCounties.map((county) => (
+                <article key={county.slug} className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6">
+                  <h3 className="text-xl font-bold text-[#33414E]">{county.county}</h3>
+                  <p className="mt-1 text-sm text-slate-500">Court in {county.seat}</p>
+                  <div className="mt-5 flex flex-col gap-3">
+                    <Link href={`/probate/${county.slug}-county/`} className="inline-flex items-center gap-2 font-bold text-[#547298] hover:text-[#33414E]"><Scale className="h-4 w-4" aria-hidden="true" /> Probate in {county.county} <span aria-hidden="true">→</span></Link>
+                    <Link href={`/guardianship/${county.slug}-county/`} className="inline-flex items-center gap-2 font-bold text-[#547298] hover:text-[#33414E]"><Building2 className="h-4 w-4" aria-hidden="true" /> Guardianship in {county.county} <span aria-hidden="true">→</span></Link>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Probate Representation Section */}
-        <section className="bg-white py-16 lg:py-24">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                Probate Representation Counties
-              </h2>
-              <div className="w-20 h-1 bg-[#7E9CC0] mx-auto mb-6"></div>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                We currently accept probate and estate administration cases in the following counties:
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-              {/* Cook County */}
-              <Link href="/probate/cook-county/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#7E9CC0] group-hover:bg-white rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#7E9CC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
-                      Cook County
-                    </h3>
-                    <p className="text-sm text-slate-600 group-hover:text-white/90 transition-colors">
-                      Chicago & Surrounding Areas
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* DuPage County */}
-              <Link href="/probate/dupage-county/" className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-8 transition-all duration-300 shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#7E9CC0] group-hover:bg-white rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#7E9CC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
-                      DuPage County
-                    </h3>
-                    <p className="text-sm text-slate-600 group-hover:text-white/90 transition-colors">
-                      Western Suburbs
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Kane County */}
-              <div className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-8 transition-all duration-300 cursor-default shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#7E9CC0] group-hover:bg-white rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#7E9CC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
-                      Kane County
-                    </h3>
-                    <p className="text-sm text-slate-600 group-hover:text-white/90 transition-colors">
-                      Fox Valley Region
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Kendall County */}
-              <div className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-8 transition-all duration-300 cursor-default shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#7E9CC0] group-hover:bg-white rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#7E9CC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
-                      Kendall County
-                    </h3>
-                    <p className="text-sm text-slate-600 group-hover:text-white/90 transition-colors">
-                      Southwest Region
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Lake County */}
-              <div className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-8 transition-all duration-300 cursor-default shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#7E9CC0] group-hover:bg-white rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#7E9CC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
-                      Lake County
-                    </h3>
-                    <p className="text-sm text-slate-600 group-hover:text-white/90 transition-colors">
-                      Northern Suburbs
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* McHenry County */}
-              <div className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-8 transition-all duration-300 cursor-default shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#7E9CC0] group-hover:bg-white rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#7E9CC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
-                      McHenry County
-                    </h3>
-                    <p className="text-sm text-slate-600 group-hover:text-white/90 transition-colors">
-                      Northwest Region
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Will County */}
-              <div className="group bg-slate-50 hover:bg-[#7E9CC0] rounded-xl p-8 transition-all duration-300 cursor-default shadow-sm hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#7E9CC0] group-hover:bg-white rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#7E9CC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 group-hover:text-white transition-colors mb-2">
-                      Will County
-                    </h3>
-                    <p className="text-sm text-slate-600 group-hover:text-white/90 transition-colors">
-                      South Suburbs
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <section className="bg-[#33414E] py-14">
+          <div className="container mx-auto max-w-4xl px-4 text-center">
+            <h2 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-white">Do not see your city or county?</h2>
+            <p className="mx-auto mt-4 max-w-3xl leading-7 text-white/80">You can still contact us. Estate planning is available statewide, and we will confirm whether we can accept a court matter in your county before you engage the firm.</p>
+            <Link href="/contact/" className="mt-6 inline-flex rounded-full border border-white/50 px-6 py-3 text-sm font-bold text-white hover:bg-white/10">Ask about your location</Link>
           </div>
         </section>
 
-        {/* Call to Action Section */}
-        <section className="bg-slate-50 py-16 lg:py-20">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="bg-slate-800 rounded-2xl p-8 lg:p-12 text-center">
-              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-                Ready to Get Started?
-              </h2>
-              <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                Our firm offers fully virtual services with physical offices throughout Illinois. In-person meetings are available for current clients.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="tel:3123730731"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors"
-                >
-                  Call (312) 373-0731
-                </a>
-                <a
-                  href="/locations/"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-slate-800 font-semibold rounded-lg hover:bg-slate-100 transition-colors"
-                >
-                  View Our Locations
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CTABand title="Choose the next step that works for you" subtitle="Start online now or book a free consultation to discuss your Illinois estate matter." />
       </main>
     </>
   );

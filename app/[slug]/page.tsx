@@ -9,6 +9,7 @@ import { PricingCard } from '@/components/geo/PricingCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
+import { CityLocalInsights } from '@/components/geo/CityLocalInsights';
 import { PROBATE, usd } from '@/lib/pricing';
 
 export async function generateStaticParams() {
@@ -107,8 +108,10 @@ export default function CityEstatePlanningPage({
   if (!loc) notFound();
 
   const meetingText = loc.meetingAddress
-    ? `In-person meetings are also available for current clients at our ${loc.city} location at ${loc.meetingAddress}.`
-    : `While our service is fully virtual, in-person meetings are available for current clients at our ${loc.nearbyCity}-area office locations.`;
+    ? `In-person meetings are also available for current clients by appointment at our ${loc.city} meeting location at ${loc.meetingAddress}.`
+    : `While our service is fully virtual, in-person meetings may be available for current clients by appointment at a Chicago-area meeting location.`;
+
+  const pageUrl = `https://www.illinoisestatelaw.com/${loc.slug}-estate-planning-lawyer/`;
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -125,7 +128,7 @@ export default function CityEstatePlanningPage({
     '@type': 'LegalService',
     name: `Illinois Estate Law - ${loc.city} Estate Planning`,
     description: `Flat-fee estate planning services for ${loc.city}, ${loc.county} residents`,
-    url: `https://www.illinoisestatelaw.com/${loc.slug}-estate-planning-lawyer/`,
+    url: pageUrl,
     telephone: '+1-312-373-0731',
     address: {
       '@type': 'PostalAddress',
@@ -147,6 +150,34 @@ export default function CityEstatePlanningPage({
     ],
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.illinoisestatelaw.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Areas We Serve', item: 'https://www.illinoisestatelaw.com/areas-we-serve/' },
+      { '@type': 'ListItem', position: 3, name: `${loc.city} Estate Planning Lawyer`, item: pageUrl },
+    ],
+  };
+
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${loc.city} Estate Planning Lawyer`,
+    url: pageUrl,
+    dateModified: '2026-10-11',
+    about: { '@type': 'Thing', name: 'Illinois estate planning' },
+    reviewedBy: {
+      '@type': 'Person',
+      name: 'Mary Liberty',
+      url: 'https://www.illinoisestatelaw.com/about/',
+    },
+    areaServed: [
+      { '@type': 'City', name: loc.city },
+      { '@type': 'AdministrativeArea', name: loc.county },
+    ],
+  };
+
   return (
     <>
       <script
@@ -156,6 +187,14 @@ export default function CityEstatePlanningPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
 
       <main>
@@ -179,7 +218,7 @@ export default function CityEstatePlanningPage({
                       Illinois Estate Law provides comprehensive, flat-fee estate planning services to residents of {loc.city} and the surrounding {loc.county} area. Located {loc.distanceFromChicago}, {loc.city} (population {loc.population}) is a community we are proud to serve.
                     </p>
                     <p>
-                      {loc.localNote} Whether you need a simple will, a revocable living trust, powers of attorney, or healthcare directives, our firm offers a fully virtual process that allows you to complete your entire estate plan from the comfort of your home.
+                      Whether you need a simple will, a revocable living trust, powers of attorney, or healthcare directives, our firm offers a fully virtual process that allows you to complete your entire estate plan from the comfort of your home.
                     </p>
                     <p>
                       Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested litigation starts with a $5,000 flat fee for a defined initial scope and may incur additional flat fees only when listed litigation events actually occur. {meetingText}
@@ -282,6 +321,8 @@ export default function CityEstatePlanningPage({
             </div>
           </div>
         </section>
+
+        <CityLocalInsights location={loc} />
 
         <LegalServiceDepthGuide
           kind="estate-planning"
