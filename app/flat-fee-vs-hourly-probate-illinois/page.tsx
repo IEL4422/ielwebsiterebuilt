@@ -78,22 +78,22 @@ export default function FlatFeeVsHourlyProbatePage() {
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Court filing fees</th>
                     <td className="border border-slate-200 px-4 py-3">Included in the fee</td>
-                    <td className="border border-slate-200 px-4 py-3">Billed to the client as incurred</td>
+                    <td className="border border-slate-200 px-4 py-3">Included costs are identified in the written scope; any additional expense is disclosed before it is incurred</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Creditor publication</th>
                     <td className="border border-slate-200 px-4 py-3">Included in the fee</td>
-                    <td className="border border-slate-200 px-4 py-3">Billed to the client as incurred</td>
+                    <td className="border border-slate-200 px-4 py-3">Included costs are identified in the written scope; any additional expense is disclosed before it is incurred</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Recording fees</th>
                     <td className="border border-slate-200 px-4 py-3">Included in the fee</td>
-                    <td className="border border-slate-200 px-4 py-3">Billed to the client as incurred</td>
+                    <td className="border border-slate-200 px-4 py-3">Included costs are identified in the written scope; any additional expense is disclosed before it is incurred</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Paid separately</th>
                     <td className="border border-slate-200 px-4 py-3">Surety bond premium only, if the court requires a bond</td>
-                    <td className="border border-slate-200 px-4 py-3">All costs — bond, service, transcripts, guardian ad litem fees</td>
+                    <td className="border border-slate-200 px-4 py-3">Disclosed third-party costs and additional expenses for defined contested events, as specified in the written engagement</td>
                   </tr>
                   <tr>
                     <th className="border border-slate-200 px-4 py-3 text-left font-semibold">Charged for phone calls?</th>
