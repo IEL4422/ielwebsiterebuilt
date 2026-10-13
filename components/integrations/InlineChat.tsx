@@ -1,315 +1,207 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Send, MessageCircle, RotateCcw } from 'lucide-react';
+import { useEffect, useId, useRef, useState } from 'react';
+import { MessageCircle, RotateCcw, Send } from 'lucide-react';
 import { ELEVENLABS_AGENT_ID } from '@/components/integrations/elevenlabs-config';
 
-/**
- * Inline (stationary) chat box for the Contact page and homepage contact section.
- *
- * Talks to the same ElevenLabs agent as the floating widget, in text-only mode,
- * over ElevenLabs' public conversation WebSocket. No extra npm packages.
- * The connection opens only when the visitor sends their first message.
- */
-
-const GREETING = 'Thank you for reaching Illinois Estate Law. How can we help you today?';
-const WS_URL = `wss://api.elevenlabs.io/v1/convai/conversation?agent_id=${ELEVENLABS_AGENT_ID}`;
-const LINK_HOSTS = ['illinoisestatelaw.com', 'www.illinoisestatelaw.com', 'schedule.illinoisestatelaw.com', 'portal.illinoisestatelaw.com'];
-
-type ChatMessage = { id: number; role: 'agent' | 'user'; text: string };
+type Message = { id: number; role: 'agent' | 'user'; text: string };
 type Status = 'idle' | 'connecting' | 'open' | 'ended' | 'error';
+const WS_URL = `wss://api.elevenlabs.io/v1/convai/conversation?agent_id=${ELEVENLABS_AGENT_ID}`;
 
-function escapeHtml(s: string) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+// React escapes message text. Only firm HTTPS links become clickable.
+function MessageText({ text }: { text: string }) {
+  return <>{text.split(/(https:\/\/[^\s<>]+)/g).map((part, index) => {
+    try {
+      const url = new URL(part);
+      if (url.protocol === 'https:' && (url.hostname === 'illinoisestatelaw.com' || url.hostname.endsWith('.illinoisestatelaw.com'))) {
+        return <a key={index} href={url.href} target="_blank" rel="noopener noreferrer" className="underline font-semibold">{part}</a>;
+      }
+    } catch { /* Ordinary message text. */ }
+    return part;
+  })}</>;
 }
 
-function safeLink(url: string, label: string) {
-  try {
-    const u = new URL(url);
-    if (u.protocol !== 'https:' || !LINK_HOSTS.includes(u.hostname)) return label;
-    return `<a href="${escapeHtml(u.toString())}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${label}</a>`;
-  } catch {
-    return label;
-  }
-}
-
-/** Minimal, safe formatter: escapes HTML, then supports **bold**, [links](https://...), bare firm links, and line breaks. */
-function formatMessage(raw: string) {
-  let html = escapeHtml(raw.trim());
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (_m, label, url) => safeLink(url.replace(/&amp;/g, '&'), label));
-  html = html.replace(/(^|[\s(])(https:\/\/[^\s<)]+)/g, (_m, pre, url) => pre + safeLink(url.replace(/&amp;/g, '&'), url));
-  html = html.replace(/^[-•]\s+/gm, '• ');
-  return html.replace(/\n/g, '<br />');
-}
-
-type InlineChatProps = {
-  /** 'dark' sits on the blue/dark contact cards; 'light' on white backgrounds. */
-  tone?: 'dark' | 'light';
-  className?: string;
-};
-
-export function InlineChat({ tone = 'dark', className = '' }: InlineChatProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>([{ id: 0, role: 'agent', text: GREETING }]);
+/** A stationary text chat; connects only when the visitor sends a message. */
+export function InlineChat({ inputId: providedInputId }: { inputId?: string }) {
+  const generatedInputId = useId();
+  const inputId = providedInputId ?? generatedInputId;
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const [waiting, setWaiting] = useState(false);
-
   const wsRef = useRef<WebSocket | null>(null);
-  const idRef = useRef(1);
-  const queueRef = useRef<string[]>([]);
-  const skipGreetingRef = useRef(true);
-  const streamingIdRef = useRef<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const busyRef = useRef(false);
+  const idRef = useRef(0);
+  const responseIds = useRef(new Set<string>());
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  const nextId = () => idRef.current++;
-
+  function clearTimer() {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = null;
+  }
+  useEffect(() => () => {
+    clearTimer();
+    const ws = wsRef.current;
+    wsRef.current = null;
+    ws?.close();
+  }, []);
   useEffect(() => {
-    const el = scrollRef.current;
-    if (el) el.scrollTop = el.scrollHeight;
+    const log = scrollRef.current;
+    if (log) log.scrollTop = log.scrollHeight;
   }, [messages, waiting]);
 
-  useEffect(() => () => wsRef.current?.close(), []);
-
-  const upsertStreaming = useCallback((text: string, final: boolean) => {
-    setMessages((prev) => {
-      const sid = streamingIdRef.current;
-      if (sid !== null && prev.some((m) => m.id === sid)) {
-        return prev.map((m) => (m.id === sid ? { ...m, text } : m));
-      }
-      const id = nextId();
-      if (!final) streamingIdRef.current = id;
-      return [...prev, { id, role: 'agent', text }];
-    });
-    if (final) streamingIdRef.current = null;
-  }, []);
-
-  const connect = useCallback(() => {
-    if (wsRef.current && (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING)) return;
+  function fail(ws: WebSocket) {
+    if (wsRef.current !== ws) return;
+    clearTimer();
+    wsRef.current = null;
+    ws.close();
+    busyRef.current = false;
+    setWaiting(false);
+    setStatus('error');
+  }
+  function armTimeout(ws: WebSocket, delay: number) {
+    clearTimer();
+    timerRef.current = setTimeout(() => fail(ws), delay);
+  }
+  function send() {
+    const text = input.trim();
+    if (!text || busyRef.current || status === 'error' || status === 'ended') return;
+    busyRef.current = true;
+    setInput('');
+    setWaiting(true);
+    setMessages(prev => [...prev, { id: idRef.current++, role: 'user', text }]);
+    const existing = wsRef.current;
+    if (existing?.readyState === WebSocket.OPEN && status === 'open') {
+      try {
+        existing.send(JSON.stringify({ type: 'user_message', text }));
+        armTimeout(existing, 60000);
+      } catch { fail(existing); }
+      return;
+    }
     setStatus('connecting');
-    skipGreetingRef.current = true;
-    streamingIdRef.current = null;
-    let partial = '';
-
-    const ws = new WebSocket(WS_URL);
+    let ws: WebSocket;
+    try { ws = new WebSocket(WS_URL); } catch {
+      busyRef.current = false;
+      setWaiting(false);
+      setStatus('error');
+      return;
+    }
     wsRef.current = ws;
-
+    armTimeout(ws, 20000);
+    let ready = false;
     ws.onopen = () => {
+      if (wsRef.current !== ws) return;
       ws.send(JSON.stringify({
         type: 'conversation_initiation_client_data',
         conversation_config_override: { conversation: { text_only: true } },
       }));
     };
-
-    ws.onmessage = (event) => {
-      let data: any;
+    ws.onmessage = event => {
+      if (wsRef.current !== ws) return;
+      let data;
       try { data = JSON.parse(event.data); } catch { return; }
-
-      switch (data.type) {
-        case 'conversation_initiation_metadata': {
-          setStatus('open');
-          // Send anything the visitor typed while we were connecting.
-          for (const text of queueRef.current.splice(0)) {
-            ws.send(JSON.stringify({ type: 'user_message', text }));
-          }
-          break;
-        }
-        case 'ping': {
-          ws.send(JSON.stringify({ type: 'pong', event_id: data.ping_event?.event_id }));
-          break;
-        }
-        case 'agent_chat_response_part': {
-          const part = data.text_response_part || {};
-          if (skipGreetingRef.current) break; // ignore the server's copy of the greeting
-          if (part.type === 'start') partial = '';
-          if (typeof part.text === 'string') partial += part.text;
-          if (partial.trim()) {
-            setWaiting(false);
-            upsertStreaming(partial, part.type === 'stop');
-          }
-          break;
-        }
-        case 'agent_response': {
-          const text: string = data.agent_response_event?.agent_response || '';
-          if (skipGreetingRef.current) {
-            // The first agent message is the greeting we already show locally.
-            skipGreetingRef.current = false;
-            break;
-          }
-          if (text.trim()) {
-            setWaiting(false);
-            upsertStreaming(text, true);
-          }
-          partial = '';
-          break;
-        }
-        case 'agent_response_correction': {
-          const text: string = data.agent_response_correction_event?.corrected_agent_response || '';
-          if (!text.trim()) break;
-          setMessages((prev) => {
-            const lastAgent = [...prev].reverse().find((m) => m.role === 'agent');
-            return lastAgent ? prev.map((m) => (m.id === lastAgent.id ? { ...m, text } : m)) : prev;
-          });
-          break;
-        }
-        default:
-          break;
+      if (data.type === 'conversation_initiation_metadata' && !ready) {
+        ready = true;
+        setStatus('open');
+        ws.send(JSON.stringify({ type: 'user_message', text }));
+        armTimeout(ws, 60000);
+      } else if (data.type === 'ping') {
+        ws.send(JSON.stringify({ type: 'pong', event_id: data.ping_event?.event_id }));
+      } else if (data.type === 'agent_response') {
+        const response = data.agent_response_event;
+        if (typeof response?.agent_response !== 'string' || !response.agent_response.trim()) return;
+        const responseId = response.response_id ?? response.event_id;
+        if (responseId != null && responseIds.current.has(String(responseId))) return;
+        if (responseId != null) responseIds.current.add(String(responseId));
+        // Never drop the first reply: the agent may not send a separate greeting.
+        setMessages(prev => [...prev, { id: idRef.current++, role: 'agent', text: response.agent_response }]);
+        clearTimer();
+        busyRef.current = false;
+        setWaiting(false);
+      } else if (data.type === 'agent_response_correction') {
+        const correction = data.agent_response_correction_event?.corrected_agent_response;
+        if (typeof correction !== 'string') return;
+        setMessages(prev => {
+          const last = [...prev].reverse().find(message => message.role === 'agent');
+          return prev.map(message => message.id === last?.id ? { ...message, text: correction } : message);
+        });
+      } else if (data.type === 'error' || data.type === 'client_error') {
+        fail(ws);
       }
     };
-
-    ws.onerror = () => {
-      setStatus('error');
-      setWaiting(false);
-    };
-
+    ws.onerror = () => fail(ws);
     ws.onclose = () => {
+      if (wsRef.current !== ws) return;
+      clearTimer();
       wsRef.current = null;
+      setStatus(busyRef.current ? 'error' : 'ended');
+      busyRef.current = false;
       setWaiting(false);
-      setStatus((s) => (s === 'error' ? 'error' : 'ended'));
     };
-  }, [upsertStreaming]);
-
-  const send = useCallback(() => {
-    const text = input.trim();
-    if (!text) return;
-    setInput('');
-    setMessages((prev) => [...prev, { id: nextId(), role: 'user', text }]);
-    setWaiting(true);
-
+  }
+  function restart() {
+    clearTimer();
     const ws = wsRef.current;
-    if (ws && ws.readyState === WebSocket.OPEN && status === 'open') {
-      ws.send(JSON.stringify({ type: 'user_message', text }));
-    } else {
-      queueRef.current.push(text);
-      connect();
-    }
-  }, [input, status, connect]);
-
-  const restart = useCallback(() => {
-    wsRef.current?.close();
     wsRef.current = null;
-    queueRef.current = [];
-    setMessages([{ id: nextId(), role: 'agent', text: GREETING }]);
-    setInput('');
+    ws?.close();
+    responseIds.current.clear();
+    busyRef.current = false;
+    setMessages([]);
     setStatus('idle');
     setWaiting(false);
-  }, []);
-
-  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      send();
-    }
-  };
-
-  const dark = tone === 'dark';
-  const ended = status === 'ended' || status === 'error';
-  const started = messages.some((m) => m.role === 'user');
-
-  // Before the first message: just a text box with a "Start chat" button.
-  if (!started) {
-    return (
-      <div className={`${className}`} role="region" aria-label="Start a chat with Illinois Estate Law">
-        <label htmlFor="iel-inline-chat-start" className={`block text-lg font-semibold mb-3 ${dark ? 'text-white' : 'text-slate-800'}`}>
-          How can we help you today?
-        </label>
-        <div className={`flex flex-col sm:flex-row gap-3 rounded-xl p-2 ${dark ? 'bg-white' : 'bg-white border border-slate-300'} shadow-sm`}>
-          <textarea
-            id="iel-inline-chat-start"
-            rows={2}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={onKeyDown}
-            placeholder="Type your question, e.g. “My mother passed away and I think I need probate.”"
-            className="flex-1 resize-none rounded-lg px-3 py-2.5 text-[15px] text-slate-800 placeholder-slate-400 focus:outline-none"
-          />
-          <button
-            type="button"
-            onClick={send}
-            disabled={!input.trim()}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#4a708b] text-white font-semibold px-5 py-3 disabled:opacity-40 hover:bg-[#3d5f77] transition-colors"
-          >
-            <Send className="w-4 h-4" aria-hidden="true" /> Start chat
-          </button>
-        </div>
-        <p className={`mt-3 text-[11px] leading-snug ${dark ? 'text-white/70' : 'text-slate-500'}`}>
-          Free consultations · Replies right away, day or night. By chatting, you agree this conversation may be stored and shared with our
-          team and service providers so we can respond. Please don&apos;t share Social Security, account numbers, or passwords. This chat
-          isn&apos;t legal advice and doesn&apos;t create an attorney-client relationship.
-        </p>
-      </div>
-    );
+    setInput('');
+    requestAnimationFrame(() => inputRef.current?.focus());
   }
-
+  const ended = status === 'error' || status === 'ended';
   return (
-    <div
-      className={`flex flex-col rounded-xl overflow-hidden ${dark ? 'bg-white/95' : 'bg-white border border-slate-200'} shadow-sm ${className}`}
-      aria-label="Chat with Illinois Estate Law"
-      role="region"
-    >
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-200 bg-slate-50">
-        <MessageCircle className="w-5 h-5 text-[#4a708b]" aria-hidden="true" />
-        <p className="font-semibold text-slate-800 text-sm">Chatting with Illinois Estate Law</p>
-        {status === 'connecting' && <span className="ml-auto text-xs text-slate-500">Connecting…</span>}
-        {ended && (
-          <button type="button" onClick={restart} className="ml-auto inline-flex items-center gap-1 text-xs text-[#4a708b] hover:underline">
-            <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" /> New chat
-          </button>
-        )}
-      </div>
-
-      <div ref={scrollRef} className="h-[380px] overflow-y-auto px-4 py-4 space-y-3" aria-live="polite">
-        {messages.map((m) => (
-          <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div
-              className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-[15px] leading-relaxed ${
-                m.role === 'user' ? 'bg-[#4a708b] text-white rounded-br-sm' : 'bg-slate-100 text-slate-800 rounded-bl-sm'
-              }`}
-              dangerouslySetInnerHTML={{ __html: formatMessage(m.text) }}
-            />
-          </div>
-        ))}
-        {waiting && (
-          <div className="flex justify-start">
-            <div className="bg-slate-100 text-slate-500 rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm">Typing…</div>
-          </div>
-        )}
-        {ended && (
-          <p className="text-center text-xs text-slate-500 pt-2">
-            {status === 'error'
-              ? 'Sorry, the chat is having trouble connecting. Please call us at (312) 373-0731 or use the message form.'
-              : 'This chat has ended. Send a new message to start again.'}
-          </p>
-        )}
-      </div>
-
-      <div className="border-t border-slate-200 p-3">
-        <div className="flex items-end gap-2">
-          <label htmlFor="iel-inline-chat-input" className="sr-only">Type your message</label>
-          <textarea
-            id="iel-inline-chat-input"
-            rows={1}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={onKeyDown}
-            placeholder="Type your message"
-            className="flex-1 resize-none rounded-lg border border-slate-300 px-3 py-2.5 text-[15px] text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7E9CC0] max-h-32"
-          />
-          <button
-            type="button"
-            onClick={send}
-            disabled={!input.trim()}
-            className="inline-flex items-center justify-center rounded-lg bg-[#4a708b] text-white px-4 py-2.5 disabled:opacity-40 hover:bg-[#3d5f77] transition-colors"
-            aria-label="Send message"
-          >
-            <Send className="w-4 h-4" aria-hidden="true" />
-          </button>
+    <div role="region" aria-label="AI chat with Illinois Estate Law" className="min-w-0">
+      <p className="text-white/90 mb-4">Ask a question about our services or tell our AI assistant how we can help.</p>
+      <div className="rounded-xl overflow-hidden bg-white shadow-sm">
+        <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3">
+          <MessageCircle className="w-5 h-5 shrink-0 text-[#4a708b]" aria-hidden="true" />
+          <p className="text-sm font-semibold text-slate-800">Illinois Estate Law AI Assistant</p>
         </div>
-        <p className="mt-2 text-[11px] leading-snug text-slate-500">
-          By chatting, you agree this conversation may be stored and shared with our team and service providers so we can respond.
-          Please don&apos;t share Social Security, account numbers, or passwords. This chat isn&apos;t legal advice and doesn&apos;t create an attorney-client relationship.
-        </p>
+        {messages.length > 0 && (
+          <div ref={scrollRef} role="log" aria-label="Chat messages" aria-live="polite" className="max-h-[380px] overflow-y-auto p-4 space-y-3">
+            {messages.map(message => (
+              <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`max-w-[90%] rounded-2xl px-4 py-3 text-base whitespace-pre-wrap [overflow-wrap:anywhere] ${message.role === 'user' ? 'bg-[#4a708b] text-white' : 'bg-slate-100 text-slate-800'}`}>
+                  <span className="sr-only">{message.role === 'user' ? 'You: ' : 'AI assistant: '}</span>
+                  <MessageText text={message.text} />
+                </div>
+              </div>
+            ))}
+            {waiting && <p role="status" className="text-sm text-slate-600">{status === 'connecting' ? 'Connecting…' : 'Waiting for a reply…'}</p>}
+          </div>
+        )}
+        {ended && (
+          <div role="status" className="px-4 py-3 text-sm text-slate-700 bg-slate-50">
+            <p>{status === 'error' ? 'The chat could not connect or receive a reply. Please try a new chat or ' : 'This chat has ended. Start a new chat or '}<a href="tel:3123730731" className="underline">call (312) 373-0731</a>.</p>
+            <button type="button" onClick={restart} className="mt-2 inline-flex items-center gap-2 min-h-[44px] text-[#4a708b] font-semibold underline">
+              <RotateCcw className="w-4 h-4" aria-hidden="true" /> Start a new chat
+            </button>
+          </div>
+        )}
+        <form onSubmit={event => { event.preventDefault(); send(); }} className="border-t border-slate-200 p-3">
+          <label htmlFor={inputId} className="block text-sm font-semibold text-slate-800 mb-2">How can we help you?</label>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <textarea ref={inputRef} id={inputId} rows={3} maxLength={5000} value={input} disabled={ended}
+              onChange={event => setInput(event.target.value)}
+              onKeyDown={event => {
+                if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send(); }
+              }}
+              placeholder="Type your question here…"
+              className="min-w-0 flex-1 resize-y rounded-lg border border-slate-300 p-3 text-base text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#7E9CC0]"
+            />
+            <button type="submit" disabled={!input.trim() || waiting || ended} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#4a708b] px-5 py-3 text-white font-semibold disabled:opacity-50 hover:bg-[#3d5f77] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a708b]">
+              <Send className="w-4 h-4" aria-hidden="true" /> {messages.length ? 'Send' : 'Start chat'}
+            </button>
+          </div>
+        </form>
       </div>
+      <p className="mt-3 text-xs leading-relaxed text-white/80">By chatting, you agree this conversation may be stored and shared with our team and service providers so we can respond. Please don&apos;t share Social Security numbers, account numbers, or passwords. This AI chat isn&apos;t legal advice and doesn&apos;t create an attorney-client relationship.</p>
     </div>
   );
 }
