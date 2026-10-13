@@ -3,77 +3,17 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-
-// ── Illinois estate tax ────────────────────────────────────────────────────────
-// Illinois imposes its own estate tax using the former federal "state death tax
-// credit" table (IRC § 2011, pre-EGTRRA) since Illinois decoupled in 2003.
-// Exemption/threshold: $4,000,000 (Form 700).  Top rate: 16%.
-const IL_THRESHOLD = 4_000_000;
-
-const IL_CREDIT_TABLE = [
-  { atLeast: 0,        lessThan: 40000,     base: 0,       rate: 0.000, excessOver: 0 },
-  { atLeast: 40000,    lessThan: 90000,     base: 0,       rate: 0.008, excessOver: 40000 },
-  { atLeast: 90000,    lessThan: 140000,    base: 400,     rate: 0.016, excessOver: 90000 },
-  { atLeast: 140000,   lessThan: 240000,    base: 1200,    rate: 0.024, excessOver: 140000 },
-  { atLeast: 240000,   lessThan: 440000,    base: 3600,    rate: 0.032, excessOver: 240000 },
-  { atLeast: 440000,   lessThan: 640000,    base: 10000,   rate: 0.040, excessOver: 440000 },
-  { atLeast: 640000,   lessThan: 840000,    base: 18000,   rate: 0.048, excessOver: 640000 },
-  { atLeast: 840000,   lessThan: 1040000,   base: 27600,   rate: 0.056, excessOver: 840000 },
-  { atLeast: 1040000,  lessThan: 1540000,   base: 38800,   rate: 0.064, excessOver: 1040000 },
-  { atLeast: 1540000,  lessThan: 2040000,   base: 70800,   rate: 0.072, excessOver: 1540000 },
-  { atLeast: 2040000,  lessThan: 2540000,   base: 106800,  rate: 0.080, excessOver: 2040000 },
-  { atLeast: 2540000,  lessThan: 3040000,   base: 146800,  rate: 0.088, excessOver: 2540000 },
-  { atLeast: 3040000,  lessThan: 3540000,   base: 190800,  rate: 0.096, excessOver: 3040000 },
-  { atLeast: 3540000,  lessThan: 4040000,   base: 238800,  rate: 0.104, excessOver: 3540000 },
-  { atLeast: 4040000,  lessThan: 5040000,   base: 290800,  rate: 0.112, excessOver: 4040000 },
-  { atLeast: 5040000,  lessThan: 6040000,   base: 402800,  rate: 0.120, excessOver: 5040000 },
-  { atLeast: 6040000,  lessThan: 7040000,   base: 522800,  rate: 0.128, excessOver: 6040000 },
-  { atLeast: 7040000,  lessThan: 8040000,   base: 650800,  rate: 0.136, excessOver: 7040000 },
-  { atLeast: 8040000,  lessThan: 9040000,   base: 786800,  rate: 0.144, excessOver: 8040000 },
-  { atLeast: 9040000,  lessThan: 10040000,  base: 930800,  rate: 0.152, excessOver: 9040000 },
-  { atLeast: 10040000, lessThan: 9.999e13,  base: 1082800, rate: 0.160, excessOver: 10040000 },
-];
-
-// ── Federal estate tax ─────────────────────────────────────────────────────────
-// Federal unified rate schedule — 26 U.S.C. § 2001(c).
-// Net federal tax = tentativeTax(gross + gifts) − tentativeTax(exemption).
-// Federal exemption: $15,000,000 per person (2026), per the "One Big Beautiful Bill"
-// signed into law in 2025, which extended and increased the TCJA exemption.
-// Users may adjust the exemption field if the amount changes.
-const FED_RATE_TABLE = [
-  { atLeast: 0,        lessThan: 10000,    base: 0,       rate: 0.18, excessOver: 0 },
-  { atLeast: 10000,    lessThan: 20000,    base: 1800,    rate: 0.20, excessOver: 10000 },
-  { atLeast: 20000,    lessThan: 40000,    base: 3800,    rate: 0.22, excessOver: 20000 },
-  { atLeast: 40000,    lessThan: 60000,    base: 8200,    rate: 0.24, excessOver: 40000 },
-  { atLeast: 60000,    lessThan: 80000,    base: 13000,   rate: 0.26, excessOver: 60000 },
-  { atLeast: 80000,    lessThan: 100000,   base: 18200,   rate: 0.28, excessOver: 80000 },
-  { atLeast: 100000,   lessThan: 150000,   base: 23800,   rate: 0.30, excessOver: 100000 },
-  { atLeast: 150000,   lessThan: 250000,   base: 38800,   rate: 0.32, excessOver: 150000 },
-  { atLeast: 250000,   lessThan: 500000,   base: 70800,   rate: 0.34, excessOver: 250000 },
-  { atLeast: 500000,   lessThan: 750000,   base: 155800,  rate: 0.37, excessOver: 500000 },
-  { atLeast: 750000,   lessThan: 1000000,  base: 248300,  rate: 0.39, excessOver: 750000 },
-  { atLeast: 1000000,  lessThan: 9.999e13, base: 345800,  rate: 0.40, excessOver: 1000000 },
-];
-
-type RateRow = { atLeast: number; lessThan: number; base: number; rate: number; excessOver: number };
-
-function tentativeTax(table: RateRow[], amount: number): number {
-  if (amount <= 0) return 0;
-  const row = table.find(r => amount >= r.atLeast && amount < r.lessThan);
-  if (!row) return 0;
-  return row.base + row.rate * (amount - row.excessOver);
-}
+import { calculateIllinoisEstateTax, estimateFederalEstateTax, parseTaxInput } from '@/lib/estate-tax';
+import { EstateTaxExplanation } from '@/components/EstateTaxExplanation';
 
 interface CalcResults {
   gross: number;
   ate: number;
   ilPreliminaryTax: number;
   ilApportionedTax: number;
-  ilRow: RateRow | null;
+  federalUnavailable: boolean;
   situsPct: number;
   fedExemptionUsed: number;
-  fedTentativeTax: number;
-  fedUnifiedCredit: number;
   fedTax: number;
   totalTax: number;
   details: string;
@@ -81,8 +21,8 @@ interface CalcResults {
 }
 
 const EMPTY: CalcResults = {
-  gross: 0, ate: 0, ilPreliminaryTax: 0, ilApportionedTax: 0, ilRow: null, situsPct: 100,
-  fedExemptionUsed: 0, fedTentativeTax: 0, fedUnifiedCredit: 0, fedTax: 0,
+  gross: 0, ate: 0, ilPreliminaryTax: 0, ilApportionedTax: 0, federalUnavailable: false, situsPct: 100,
+  fedExemptionUsed: 0, fedTax: 0,
   totalTax: 0, details: '', hasError: false,
 };
 
@@ -95,31 +35,25 @@ export default function EstateTaxCalculatorPage() {
   const [results, setResults]           = useState<CalcResults>(EMPTY);
 
   function parseMoney(value: string): number {
-    if (!value) return 0;
-    const num = Number(String(value).replace(/[^0-9.\-]/g, ''));
-    return Number.isFinite(num) ? num : NaN;
+    return parseTaxInput(value);
   }
 
   function fmt(n: number): string {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
   }
 
-  function clamp(n: number, min: number, max: number): number {
-    return Math.min(Math.max(n, min), max);
-  }
-
   function calculate() {
     const gross = parseMoney(grossEstate);
-    const gifts = parseMoney(taxableGifts);
-    let situsPct = parseMoney(ilSitusPct);
-    let fedEx = parseMoney(fedExemption);
+    const gifts = parseTaxInput(taxableGifts, true);
+    const situsPct = parseMoney(ilSitusPct);
+    const fedEx = parseMoney(fedExemption);
 
     const errors: string[] = [];
-    if (!Number.isFinite(gross) || gross < 0) errors.push('Gross estate must be a valid non-negative number.');
+    if (!Number.isFinite(gross) || gross < 0) errors.push('Tentative taxable estate must be a valid non-negative number.');
     if (!Number.isFinite(gifts) || gifts < 0) errors.push('Adjusted taxable gifts must be a valid non-negative number.');
-    if (!Number.isFinite(situsPct)) situsPct = 100;
-    if (!Number.isFinite(fedEx) || fedEx < 0) fedEx = 15_000_000;
-    situsPct = clamp(situsPct, 0, 100);
+    if (!Number.isFinite(situsPct) || situsPct < 0 || situsPct > 100) errors.push('Illinois allocation must be between 0 and 100.');
+    if (!Number.isFinite(fedEx) || fedEx < 1_000_000) errors.push('Enter a federal exemption of at least $1,000,000 for this simplified estimate.');
+    if (Number.isFinite(gross) && Number.isFinite(gifts) && !Number.isSafeInteger(Math.ceil(gross + gifts))) errors.push('Combined estate and gifts exceed the supported calculation range.');
 
     if (errors.length) {
       setResults({ ...EMPTY, details: errors.map(e => `<p>${e}</p>`).join(''), hasError: true });
@@ -129,45 +63,22 @@ export default function EstateTaxCalculatorPage() {
 
     const ate = gross + gifts;
 
-    // ── Illinois ──────────────────────────────────────────────────────────────
-    let ilPreliminaryTax = 0;
-    let ilRow: RateRow | null = null;
-
-    if (ate > IL_THRESHOLD) {
-      const row = IL_CREDIT_TABLE.find(r => ate >= r.atLeast && ate < r.lessThan) ?? null;
-      if (row) {
-        ilPreliminaryTax = Math.max(0, row.base + row.rate * (ate - row.excessOver));
-        ilRow = row;
-      }
-    }
-    const ilApportionedTax = ilPreliminaryTax * (situsPct / 100);
-
-    // ── Federal ───────────────────────────────────────────────────────────────
-    const fedTentativeTax  = tentativeTax(FED_RATE_TABLE, ate);
-    const fedUnifiedCredit = tentativeTax(FED_RATE_TABLE, fedEx);
-    const fedTax           = Math.max(0, fedTentativeTax - fedUnifiedCredit);
-
+    const il = calculateIllinoisEstateTax(gross, gifts, situsPct);
+    const ilPreliminaryTax = il.fullTax;
+    const ilApportionedTax = il.tax;
+    const federalUnavailable = gifts > fedEx;
+    const fedBase = Math.max(0, gross - ilApportionedTax) + gifts;
+    // The federal estimate assumes no prior gift tax payable or other credits.
+    const fedTax = federalUnavailable ? 0 : estimateFederalEstateTax(gross, gifts, ilApportionedTax, fedEx);
     const totalTax = ilApportionedTax + fedTax;
-
-    // ── Detail copy ───────────────────────────────────────────────────────────
-    const ilDetail = ate <= IL_THRESHOLD
-      ? `<p><strong>Illinois:</strong> ${fmt(ate)} is at or below the $4,000,000 Illinois threshold — estimated IL estate tax is $0.</p>`
-      : `<p><strong>Illinois:</strong> Bracket: ${fmt(ilRow!.atLeast)} to &lt; ${fmt(ilRow!.lessThan)} — base ${fmt(ilRow!.base)} + ${(ilRow!.rate * 100).toFixed(1)}% of excess over ${fmt(ilRow!.excessOver)}. Preliminary IL tax: ${fmt(ilPreliminaryTax)}. After ${situsPct.toFixed(2)}% IL-situs apportionment: <strong>${fmt(ilApportionedTax)}</strong>.</p>`;
-
-    const fedDetail = ate <= fedEx
-      ? `<p><strong>Federal:</strong> ${fmt(ate)} is at or below the ${fmt(fedEx)} federal exemption — estimated federal estate tax is $0.</p>`
-      : `<p><strong>Federal:</strong> Tentative tax on ${fmt(ate)}: ${fmt(fedTentativeTax)}. Unified credit (tentative tax on ${fmt(fedEx)} exemption): ${fmt(fedUnifiedCredit)}. Net federal tax: <strong>${fmt(fedTax)}</strong> (effective rate on gross estate: ${gross > 0 ? ((fedTax / gross) * 100).toFixed(2) : '0'}%).</p>`;
-
     const details = `
-      <p><strong>Inputs:</strong> Gross estate ${fmt(gross)}, adjusted taxable gifts ${fmt(gifts)}, adjusted taxable estate (ATE) ${fmt(ate)}. Federal exemption: ${fmt(fedEx)}.</p>
-      ${ilDetail}
-      ${fedDetail}
-      <p style="margin-top:8px;font-size:12px;color:#888;">
-        This estimate does not account for marital deductions, charitable deductions, debts, mortgages, administrative expenses, QTIP elections, or other adjustments that may significantly reduce your taxable estate. Consult an estate planning attorney for a complete analysis.
-      </p>
+      <p><strong>Inputs:</strong> Tentative taxable estate ${fmt(gross)}, adjusted taxable gifts ${fmt(gifts)}, Illinois allocation ${situsPct}%. Federal exemption ${fmt(fedEx)}.</p>
+      <p><strong>Illinois:</strong> The credit-table calculation subtracts the $60,000 adjustment and solves for the Illinois tax deduction and tax together: ${fmt(il.creditAfterDeduction)}. Gifts affect the exclusion limit, not the credit-table estate base.</p>
+      <p>The Illinois exclusion limit is 40% × (estate + gifts − $4,000,000) ÷ 1.40, no less than zero: ${fmt(il.exclusionLimit)}. The smaller result is ${fmt(ilPreliminaryTax)}. Multiplying by ${situsPct}% gives <strong>${fmt(ilApportionedTax)}</strong>. The 40% comparison is part of Illinois's calculation, not an additional federal tax.</p>
+      <p><strong>Federal:</strong> ${federalUnavailable ? 'Not estimated: gifts exceed the selected exemption and historical gift-tax calculations are required.' : `After deducting the estimated Illinois tax, the estate plus gifts is ${fmt(fedBase)}. The simplified estimate is 40% of any excess over ${fmt(fedEx)}: ${fmt(fedTax)}.`}</p>
+      <p>This assumes the same tentative estate for Illinois and federal purposes, no prior gift tax payable, no other state death taxes or credits, and a U.S. citizen or resident. Illinois-only QTIP adjustments require a separate federal calculation. Filing may be required even when estimated tax is zero.</p>
     `;
-
-    setResults({ gross, ate, ilPreliminaryTax, ilApportionedTax, ilRow, situsPct, fedExemptionUsed: fedEx, fedTentativeTax, fedUnifiedCredit, fedTax, totalTax, details, hasError: false });
+    setResults({ gross, ate, ilPreliminaryTax, ilApportionedTax, federalUnavailable, situsPct, fedExemptionUsed: fedEx, fedTax, totalTax, details, hasError: false });
     setShowResults(true);
   }
 
@@ -217,74 +128,78 @@ export default function EstateTaxCalculatorPage() {
               Enter Your Estate Details
             </h2>
             <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-              For informational purposes only — not legal or tax advice. Results do not account for marital deductions, debts, or other adjustments.
+              Planning estimate, not a tax return. Enter the tentative taxable estate after allowable deductions but before the state estate tax deduction. Figures are rounded to the nearest dollar.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Gross estate */}
               <div>
-                <label className="block text-sm font-semibold text-[#33414E] mb-2">
-                  Gross estate value
+                <label htmlFor="tax-estate" className="block text-sm font-semibold text-[#33414E] mb-2">
+                  Illinois tentative taxable estate ($)
                 </label>
                 <div className="relative">
                   <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">$</span>
                   <input
+                    id="tax-estate"
                     value={grossEstate}
-                    onChange={e => setGrossEstate(e.target.value)}
+                    onChange={e => { setGrossEstate(e.target.value); setShowResults(false); }}
                     inputMode="decimal"
                     placeholder="5,000,000"
                     className={`${inputClass} pl-7 pr-4`}
                   />
                 </div>
-                <p className="text-xs text-gray-400 mt-1.5">Total approximate gross value before deductions</p>
+                <p className="text-xs text-gray-400 mt-1.5">Form 700, Schedule A or B, line 3: after allowable marital, charitable, debt and expense deductions and Illinois QTIP adjustments. Do not subtract Illinois estate tax yourself.</p>
               </div>
 
               {/* Taxable gifts */}
               <div>
-                <label className="block text-sm font-semibold text-[#33414E] mb-2">
+                <label htmlFor="tax-gifts" className="block text-sm font-semibold text-[#33414E] mb-2">
                   Adjusted taxable gifts
                 </label>
                 <div className="relative">
                   <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">$</span>
                   <input
+                    id="tax-gifts"
                     value={taxableGifts}
-                    onChange={e => setTaxableGifts(e.target.value)}
+                    onChange={e => { setTaxableGifts(e.target.value); setShowResults(false); }}
                     inputMode="decimal"
                     placeholder="0"
                     className={`${inputClass} pl-7 pr-4`}
                   />
                 </div>
-                <p className="text-xs text-gray-400 mt-1.5">Post-1976 taxable gifts — enter 0 if none</p>
+                <p className="text-xs text-gray-400 mt-1.5">Form 700, line 4: adjusted taxable gifts, not all lifetime gifts. Leave blank for zero.</p>
               </div>
 
               {/* IL situs % */}
               <div>
-                <label className="block text-sm font-semibold text-[#33414E] mb-2">
+                <label htmlFor="tax-situs" className="block text-sm font-semibold text-[#33414E] mb-2">
                   Illinois situs %
                 </label>
                 <div className="relative">
                   <input
+                    id="tax-situs"
                     value={ilSitusPct}
-                    onChange={e => setIlSitusPct(e.target.value)}
+                    onChange={e => { setIlSitusPct(e.target.value); setShowResults(false); }}
                     inputMode="decimal"
                     placeholder="100"
                     className={`${inputClass} pl-4 pr-8`}
                   />
                   <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">%</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-1.5">100 for IL residents · Non-residents: % of assets in Illinois</p>
+                <p className="text-xs text-gray-400 mt-1.5">Form 700, line 9: Illinois-situs gross assets ÷ total gross assets. Residents may also have out-of-state real or tangible property; 100% is not automatic.</p>
               </div>
 
               {/* Federal exemption */}
               <div>
-                <label className="block text-sm font-semibold text-[#33414E] mb-2">
+                <label htmlFor="tax-exemption" className="block text-sm font-semibold text-[#33414E] mb-2">
                   Federal exemption <span className="font-normal text-gray-400">(per person)</span>
                 </label>
                 <div className="relative">
                   <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-sm pointer-events-none">$</span>
                   <input
+                    id="tax-exemption"
                     value={fedExemption}
-                    onChange={e => setFedExemption(e.target.value)}
+                    onChange={e => { setFedExemption(e.target.value); setShowResults(false); }}
                     inputMode="decimal"
                     placeholder="15,000,000"
                     className={`${inputClass} pl-7 pr-4`}
@@ -316,7 +231,7 @@ export default function EstateTaxCalculatorPage() {
 
           {/* ── Error state ─────────────────────────────────────────────── */}
           {showResults && results.hasError && (
-            <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6">
+            <div role="alert" className="bg-orange-50 border border-orange-200 rounded-2xl p-6">
               <p className="text-orange-800 font-semibold mb-1">Please fix the following:</p>
               <div
                 className="text-orange-700 text-sm leading-relaxed"
@@ -329,9 +244,9 @@ export default function EstateTaxCalculatorPage() {
           {showResults && !results.hasError && (
             <>
               {/* Visual breakdown bar */}
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7">
+              {!results.federalUnavailable && <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7">
                 <h3 className="font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">
-                  Estate Tax Breakdown
+                  Simplified Estate Tax Breakdown
                 </h3>
 
                 {/* Stacked bar */}
@@ -362,11 +277,11 @@ export default function EstateTaxCalculatorPage() {
                   <span className="flex items-center gap-2 text-sm text-gray-600">
                     <span className="w-3 h-3 rounded-sm bg-gray-200 flex-shrink-0 border border-gray-300" />
                     {results.gross > 0
-                      ? `Passes to heirs — ${(100 - totalPct).toFixed(2)}% of estate`
-                      : 'Passes to heirs'}
+                      ? `After estimated tax — ${(100 - totalPct).toFixed(2)}% of estate`
+                      : 'After estimated tax'}
                   </span>
                 </div>
-              </div>
+              </div>}
 
               {/* IL + Federal detail cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -382,7 +297,7 @@ export default function EstateTaxCalculatorPage() {
 
                   <div className="space-y-0 divide-y divide-gray-50">
                     <div className="flex justify-between items-center py-2.5">
-                      <span className="text-sm text-gray-500">Adjusted taxable estate</span>
+                      <span className="text-sm text-gray-500">Tentative estate + gifts</span>
                       <span className="font-semibold text-[#33414E] text-sm">{fmt(results.ate)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
@@ -390,8 +305,8 @@ export default function EstateTaxCalculatorPage() {
                       <span className="font-semibold text-[#33414E] text-sm">{fmt(results.ilPreliminaryTax)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
-                      <span className="text-sm text-gray-500">IL tax ({results.situsPct.toFixed(0)}% situs)</span>
-                      <span className="font-bold text-[#33414E] text-lg">{fmt(results.ilApportionedTax)}</span>
+                      <span className="text-sm text-gray-500">IL tax ({results.situsPct}% situs)</span>
+                      <span data-testid="illinois-tax" className="font-bold text-[#33414E] text-lg">{fmt(results.ilApportionedTax)}</span>
                     </div>
                   </div>
 
@@ -403,8 +318,8 @@ export default function EstateTaxCalculatorPage() {
                   ) : (
                     <div className="mt-4 bg-gray-50 rounded-xl px-4 py-3">
                       <p className="text-xs text-gray-400 leading-relaxed">
-                        Below the $4M Illinois threshold — no IL estate tax.{' '}
-                        <span className="text-amber-600">Note: Illinois has a &ldquo;cliff&rdquo; — estates just over $4M owe tax on the full value.</span>
+                        No Illinois tax estimated from these inputs.{' '}
+                        <span className="text-amber-600">A return may still be required based on gross estate plus gifts. The exclusion limit prevents an automatic six-figure tax just above $4 million.</span>
                       </p>
                     </div>
                   )}
@@ -415,22 +330,22 @@ export default function EstateTaxCalculatorPage() {
                   <div className="flex items-center gap-2 mb-5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#4A708B]" />
                     <span className="text-xs font-bold uppercase tracking-widest text-[#4A708B]/70">
-                      Federal Estate Tax
+                      Simplified Federal Estate Tax
                     </span>
                   </div>
 
                   <div className="space-y-0 divide-y divide-gray-50">
                     <div className="flex justify-between items-center py-2.5">
-                      <span className="text-sm text-gray-500">Tentative federal tax</span>
-                      <span className="font-semibold text-[#33414E] text-sm">{fmt(results.fedTentativeTax)}</span>
+                      <span className="text-sm text-gray-500">Federal taxable estate + gifts</span>
+                      <span className="font-semibold text-[#33414E] text-sm">{fmt(Math.max(0, results.gross - results.ilApportionedTax) + (results.ate - results.gross))}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
-                      <span className="text-sm text-gray-500">Unified credit ({fmt(results.fedExemptionUsed)})</span>
-                      <span className="font-semibold text-[#33414E] text-sm">− {fmt(results.fedUnifiedCredit)}</span>
+                      <span className="text-sm text-gray-500">Federal exemption</span>
+                      <span className="font-semibold text-[#33414E] text-sm">{fmt(results.fedExemptionUsed)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2.5">
                       <span className="text-sm text-gray-500">Net federal tax</span>
-                      <span className="font-bold text-[#33414E] text-lg">{fmt(results.fedTax)}</span>
+                      <span data-testid="federal-tax" className="font-bold text-[#33414E] text-lg">{results.federalUnavailable ? "Review required" : fmt(results.fedTax)}</span>
                     </div>
                   </div>
 
@@ -442,13 +357,13 @@ export default function EstateTaxCalculatorPage() {
                   ) : (
                     <div className="mt-4 bg-gray-50 rounded-xl px-4 py-3">
                       <p className="text-xs text-gray-400 leading-relaxed">
-                        Below the {fmt(results.fedExemptionUsed)} federal exemption — no federal estate tax.
+                        {results.federalUnavailable ? "Federal tax is not estimated because gifts exceed the exemption and historical gift-tax calculations are needed." : "No federal tax estimated under the assumptions below."}
                       </p>
                     </div>
                   )}
 
                   <p className="mt-3 text-xs text-blue-700 bg-blue-50 rounded-lg px-3 py-2.5 leading-relaxed">
-                    ℹ️ The federal exemption is $15,000,000 per person in 2026 per current law. Married couples can shelter up to $30M combined with portability. Adjust the field above if the amount changes.
+                    Simplified estimate: deducts Illinois tax and assumes no prior gift tax payable, no other state taxes or credits, and the same tentative estate for both taxes. Illinois-only QTIP adjustments require a separate federal calculation. Federal portability requires a valid election and is not automatic.
                   </p>
                 </div>
               </div>
@@ -458,32 +373,32 @@ export default function EstateTaxCalculatorPage() {
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
                   <div>
                     <div className="text-white/55 text-xs font-bold uppercase tracking-widest mb-2">
-                      Total Estimated Estate Tax (IL + Federal)
+                      Combined Planning Estimate (IL + Federal)
                     </div>
-                    <div className="text-white text-5xl font-black tracking-tight leading-none">
-                      {fmt(results.totalTax)}
+                    <div data-testid="combined-tax" className="text-white text-4xl break-words font-black tracking-tight leading-none">
+                      {results.federalUnavailable ? "Review required" : fmt(results.totalTax)}
                     </div>
-                    {results.totalTax > 0 && results.gross > 0 ? (
+                    {!results.federalUnavailable && results.totalTax > 0 && results.gross > 0 ? (
                       <div className="text-white/65 text-sm mt-2">
-                        ≈ {totalPct.toFixed(2)}% effective rate on gross estate
+                        ≈ {totalPct.toFixed(2)}% effective rate on tentative taxable estate
                       </div>
                     ) : (
                       <div className="text-white/65 text-sm mt-2">
-                        No estate tax estimated at this value
+                        {results.federalUnavailable ? "Combined estimate unavailable; see federal explanation." : "No estate tax estimated from these inputs"}
                       </div>
                     )}
                   </div>
 
-                  {results.totalTax > 0 && results.gross > 0 && (
+                  {!results.federalUnavailable && results.totalTax > 0 && results.gross > 0 && (
                     <div className="bg-white/10 rounded-xl px-6 py-4 text-right flex-shrink-0">
                       <div className="text-white/55 text-xs font-bold uppercase tracking-wider mb-1">
-                        Estimated heirs receive
+                        Tentative estate less tax
                       </div>
                       <div className="text-white text-2xl font-bold">
                         {fmt(results.gross - results.totalTax)}
                       </div>
                       <div className="text-white/55 text-xs mt-0.5">
-                        {(100 - totalPct).toFixed(1)}% of gross estate
+                        {(100 - totalPct).toFixed(1)}% of tentative taxable estate
                       </div>
                     </div>
                   )}
@@ -521,9 +436,11 @@ export default function EstateTaxCalculatorPage() {
             </>
           )}
 
+          <EstateTaxExplanation />
+
           {/* Disclaimer */}
           <p className="text-center text-xs text-gray-400 leading-relaxed max-w-2xl mx-auto pb-2">
-            This calculator provides estimates only and does not constitute legal or tax advice. Results do not account for marital deductions, charitable deductions, debts, mortgages, QTIP elections, or other adjustments that may reduce the taxable estate. Consult a licensed estate planning attorney for a complete analysis.
+            This calculator provides planning estimates, not legal or tax advice or a return. You must account for allowable deductions and Illinois QTIP adjustments in your input. The federal estimate has separate limitations shown above. Tax filings may be required even when the estimated tax is zero. Have a qualified attorney or tax professional confirm the inputs and final liability.
           </p>
         </div>
       </section>

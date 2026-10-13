@@ -104,9 +104,9 @@ export const blogPosts: BlogPost[] = [
     url: '/blog/illinois-estate-tax-cliff-explained/',
     date: 'Aug 5, 2026',
     summary:
-      "Comprehensive guide to the Illinois estate tax cliff — why estates just above the $4 million exemption can owe six-figure tax bills, how the graduated rate structure creates a disproportionate marginal tax burden, who is most at risk (Chicago homeowners, business owners, surviving spouses), and the planning strategies — bypass trusts, ILITs, lifetime gifting, and charitable planning — that reduce or eliminate Illinois estate tax exposure.",
+      "Guide to Illinois's $4 million estate tax exclusion, the interrelated calculation, and source-backed examples. Learn why a $6 million tentative taxable estate produces approximately $456,071 with no taxable gifts and all property allocated to Illinois, and explore planning options for your family.",
     excerpt:
-      "Illinois's estate tax cliff means crossing the $4M threshold triggers a six-figure tax bill on your entire estate — not just the excess. Learn what causes it, who it affects, and how to plan around it.",
+      "Understand Illinois's $4 million estate tax exclusion, how the interrelated calculation works, and why crossing the threshold does not automatically create a six-figure tax bill.",
   },
   {
     slug: 'how-to-handle-deceased-persons-debt-illinois',
