@@ -1,171 +1,19 @@
-'use client';
-
-import { useState, useRef } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import Link from 'next/link';
 import { Calendar } from 'lucide-react';
-import { trackLead } from '@/lib/fbpixel';
-import { trackGoogleConversion } from '@/lib/gtag';
+import { InlineChat } from '@/components/integrations/InlineChat';
 
 export function ContactSection() {
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const recaptchaToken = recaptchaRef.current?.getValue();
-    if (!recaptchaToken) {
-      alert('Please complete the reCAPTCHA verification.');
-      return;
-    }
-    setIsSubmitting(true);
-
-    try {
-      const nameParts = formData.name.split(' ');
-      const firstName = nameParts[0];
-      const lastName = nameParts.slice(1).join(' ');
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          phone_number: formData.phone,
-          email: formData.email,
-          message: formData.message,
-          recaptcha_token: recaptchaToken,
-          source: 'homepage'
-        })
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('Contact submission failed:', response.status, errorData);
-        throw new Error('Failed to send message');
-      }
-
-      // Google Ads conversion — "IEL — Contact Form Lead".
-      trackGoogleConversion();
-
-      // Meta Lead — only after the server confirms delivery.
-      trackLead('HOME_CONTACT_FORM', {
-        userData: {
-          email: formData.email,
-          phone: formData.phone,
-          firstName: firstName,
-          lastName: lastName,
-        },
-      });
-
-      setSubmitted(true);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error submitting your message. Please try again or contact us directly.');
-    } finally {
-      recaptchaRef.current?.reset();
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
   return (
     <section className="py-16 lg:py-24 bg-slate-800">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">
-              Send Us a Message
+              Chat with Our AI Assistant
             </h2>
 
-            {submitted ? (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
-                <p className="text-green-800 text-lg font-medium">Thank you for your message. We will be in touch shortly.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6" aria-label="Virtual Appointments Form" name="Virtual Appointments Form">
-                <div>
-                  <label htmlFor="form-field-name" className="sr-only">Name</label>
-                  <input
-                    type="text"
-                    id="form-field-name"
-                    name="name"
-                    placeholder="First and Last Name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="form-field-email" className="sr-only">Email</label>
-                  <input
-                    type="email"
-                    id="form-field-email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="form-field-phone" className="sr-only">Phone number</label>
-                  <input
-                    type="tel"
-                    id="form-field-phone"
-                    name="phone"
-                    placeholder="Phone number"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    title="Only numbers and phone characters (#, -, *, etc) are accepted."
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="form-field-message" className="sr-only">Message</label>
-                  <textarea
-                    id="form-field-message"
-                    name="message"
-                    placeholder="Message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#7E9CC0] focus:border-[#7E9CC0] outline-none transition-colors bg-white text-slate-800 placeholder-slate-400 resize-none"
-                  />
-                </div>
-
-                <ReCAPTCHA ref={recaptchaRef} sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!} />
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="px-8 py-3 bg-[#7E9CC0] text-white font-semibold rounded-lg hover:bg-[#5A9BC4] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit'}
-                </button>
-              </form>
-            )}
+            {/* Preserve the message field marker used by the homepage uptime monitor. */}
+            <InlineChat inputId="form-field-message" />
           </div>
 
           <div className="flex flex-col justify-center items-center text-center">

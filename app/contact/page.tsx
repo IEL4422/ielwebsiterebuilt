@@ -1,109 +1,9 @@
-'use client';
-
-import { useState, useRef } from 'react';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
 import { CalendarCheck } from 'lucide-react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { trackLead } from '@/lib/fbpixel';
-import { trackGoogleConversion } from '@/lib/gtag';
+import { InlineChat } from '@/components/integrations/InlineChat';
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
-  const onSubmit = async (data: any) => {
-    const recaptchaToken = recaptchaRef.current?.getValue();
-    if (!recaptchaToken) {
-      setSubmitMessage('Please complete the reCAPTCHA verification.');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitMessage('');
-
-    let formSubmitted = false;
-
-    const submitForm = async () => {
-      if (formSubmitted) return;
-      formSubmitted = true;
-
-      try {
-
-        const nameParts = data.name.split(' ');
-        const firstName = nameParts[0];
-        const lastName = nameParts.slice(1).join(' ');
-
-        const webhookResponse = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            first_name: firstName,
-            last_name: lastName,
-            phone_number: data.phone,
-            email: data.email,
-            message: data.message,
-            recaptcha_token: recaptchaToken,
-            source: 'contact'
-          })
-        });
-
-        if (!webhookResponse.ok) {
-          const responseText = await webhookResponse.text();
-          console.error('Contact submission failed:', webhookResponse.status, responseText);
-          throw new Error(`Form submission failed: ${webhookResponse.status}`);
-        }
-
-        // Send confirmation email
-        const emailApiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-inquiry-confirmation`;
-        const emailResponse = await fetch(emailApiUrl, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: data.email,
-            name: data.name
-          })
-        }).catch(() => null);
-
-        if (emailResponse && !emailResponse.ok) {
-          const emailError = await emailResponse.text();
-          console.error('Email confirmation failed:', emailError);
-        }
-
-        // Google Ads conversion — "IEL — Contact Form Lead".
-        trackGoogleConversion();
-
-        // Meta Lead — only on a confirmed successful submission.
-        trackLead('CONTACT_FORM', {
-          userData: {
-            email: data.email,
-            phone: data.phone,
-            firstName: firstName,
-            lastName: lastName,
-          },
-        });
-
-        setSubmitMessage('Thank you for your message. We will get back to you soon!');
-        reset();
-        recaptchaRef.current?.reset();
-      } catch (error) {
-        console.error('Contact form error:', error);
-        setSubmitMessage('There was an error submitting your form. Please try again or call us at (312) 373-0731.');
-      } finally {
-        setIsSubmitting(false);
-      }
-    };
-
-    await submitForm();
-  };
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -121,109 +21,13 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Contact Form */}
-            <div className="bg-[#4a708b] backdrop-blur-sm rounded-[14px] p-8 lg:p-10">
+            {/* AI chat */}
+            <div className="min-w-0 bg-[#4a708b] backdrop-blur-sm rounded-[14px] p-5 sm:p-8 lg:p-10">
               <h2 className="font-['Plus_Jakarta_Sans'] text-[32px] lg:text-[40px] font-bold leading-[37px] lg:leading-[44px] text-white mb-6">
-                Send Us a Message
+                Chat with Our AI Assistant
               </h2>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Name Field */}
-                <div>
-                  <label htmlFor="name" className="sr-only">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    {...register('name', { required: 'Name is required' })}
-                    placeholder="First and Last Name"
-                    className="w-full bg-transparent border-b border-white text-white placeholder-[#9cb4c4] px-0 py-3 focus:outline-none focus:border-white/80"
-                  />
-                  {errors.name && (
-                    <p className="text-red-300 text-sm mt-1">{errors.name.message as string}</p>
-                  )}
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label htmlFor="email" className="sr-only">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    {...register('email', {
-                      required: 'Email is required',
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address'
-                      }
-                    })}
-                    placeholder="Email"
-                    className="w-full bg-transparent border-b border-white text-white placeholder-[#9cb4c4] px-0 py-3 focus:outline-none focus:border-white/80"
-                  />
-                  {errors.email && (
-                    <p className="text-red-300 text-sm mt-1">{errors.email.message as string}</p>
-                  )}
-                </div>
-
-                {/* Phone Field */}
-                <div>
-                  <label htmlFor="phone" className="sr-only">Phone number</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    {...register('phone', {
-                      required: 'Phone number is required',
-                      pattern: {
-                        value: /^[0-9()#&+*\-=.]+$/,
-                        message: 'Invalid phone number'
-                      }
-                    })}
-                    placeholder="Phone number"
-                    className="w-full bg-transparent border-b border-white text-white placeholder-[#9cb4c4] px-0 py-3 focus:outline-none focus:border-white/80"
-                  />
-                  {errors.phone && (
-                    <p className="text-red-300 text-sm mt-1">{errors.phone.message as string}</p>
-                  )}
-                </div>
-
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="sr-only">Message</label>
-                  <textarea
-                    id="message"
-                    {...register('message', { required: 'Message is required' })}
-                    rows={4}
-                    placeholder="Message"
-                    className="w-full bg-transparent border-b border-white text-white placeholder-[#9cb4c4] px-0 py-3 focus:outline-none focus:border-white/80 resize-vertical"
-                  ></textarea>
-                  {errors.message && (
-                    <p className="text-red-300 text-sm mt-1">{errors.message.message as string}</p>
-                  )}
-                </div>
-
-                {/* reCAPTCHA */}
-                <div>
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-white text-[#2d3e50] font-['Plus_Jakarta_Sans'] font-bold text-base uppercase py-4 px-6 rounded-[32px] hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit'}
-                </button>
-
-                {/* Submit Message */}
-                {submitMessage && (
-                  <p className={`text-center ${submitMessage.includes('error') ? 'text-red-300' : 'text-green-300'}`}>
-                    {submitMessage}
-                  </p>
-                )}
-              </form>
+              <InlineChat />
             </div>
 
             {/* Book a Consultation CTA */}

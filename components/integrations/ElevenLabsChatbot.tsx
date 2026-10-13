@@ -1,11 +1,11 @@
 import { createElement } from 'react';
 import Script from 'next/script';
+import { ELEVENLABS_AGENT_ID } from '@/components/integrations/elevenlabs-config';
 
-const ELEVENLABS_AGENT_ID = 'agent_4201m4s2kqjsfmhs00anhnn0pt29';
 const ELEVENLABS_WIDGET_SRC = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
 
 /**
- * Global ElevenLabs conversational widget.
+ * Global ElevenLabs conversational widget (agent_4201m4s2kqjsfmhs00anhnn0pt29).
  *
  * `createElement` is used because the vendor exposes a browser custom element,
  * not a React component. Loading after hydration keeps the third-party script
