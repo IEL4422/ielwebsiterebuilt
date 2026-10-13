@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Calendar } from 'lucide-react';
 import { trackLead } from '@/lib/fbpixel';
 import { trackGoogleConversion } from '@/lib/gtag';
+import { ContactChatTabs } from '@/components/integrations/ContactChatTabs';
 
 export function ContactSection() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -90,9 +91,10 @@ export function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">
-              Send Us a Message
+              Get in Touch
             </h2>
 
+            <ContactChatTabs>
             {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
                 <p className="text-green-800 text-lg font-medium">Thank you for your message. We will be in touch shortly.</p>
@@ -166,6 +168,7 @@ export function ContactSection() {
                 </button>
               </form>
             )}
+            </ContactChatTabs>
           </div>
 
           <div className="flex flex-col justify-center items-center text-center">

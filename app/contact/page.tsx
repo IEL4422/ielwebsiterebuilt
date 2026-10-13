@@ -8,6 +8,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { trackLead } from '@/lib/fbpixel';
 import { trackGoogleConversion } from '@/lib/gtag';
+import { ContactChatTabs } from '@/components/integrations/ContactChatTabs';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -124,9 +125,10 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="bg-[#4a708b] backdrop-blur-sm rounded-[14px] p-8 lg:p-10">
               <h2 className="font-['Plus_Jakarta_Sans'] text-[32px] lg:text-[40px] font-bold leading-[37px] lg:leading-[44px] text-white mb-6">
-                Send Us a Message
+                Get in Touch
               </h2>
 
+              <ContactChatTabs>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Name Field */}
                 <div>
@@ -224,6 +226,7 @@ export default function ContactPage() {
                   </p>
                 )}
               </form>
+              </ContactChatTabs>
             </div>
 
             {/* Book a Consultation CTA */}
