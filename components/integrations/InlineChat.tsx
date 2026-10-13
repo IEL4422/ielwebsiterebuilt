@@ -190,6 +190,7 @@ export function InlineChat({ tone = 'dark', className = '' }: InlineChatProps) {
     wsRef.current = null;
     queueRef.current = [];
     setMessages([{ id: nextId(), role: 'agent', text: GREETING }]);
+    setInput('');
     setStatus('idle');
     setWaiting(false);
   }, []);
@@ -203,6 +204,42 @@ export function InlineChat({ tone = 'dark', className = '' }: InlineChatProps) {
 
   const dark = tone === 'dark';
   const ended = status === 'ended' || status === 'error';
+  const started = messages.some((m) => m.role === 'user');
+
+  // Before the first message: just a text box with a "Start chat" button.
+  if (!started) {
+    return (
+      <div className={`${className}`} role="region" aria-label="Start a chat with Illinois Estate Law">
+        <label htmlFor="iel-inline-chat-start" className={`block text-lg font-semibold mb-3 ${dark ? 'text-white' : 'text-slate-800'}`}>
+          How can we help you today?
+        </label>
+        <div className={`flex flex-col sm:flex-row gap-3 rounded-xl p-2 ${dark ? 'bg-white' : 'bg-white border border-slate-300'} shadow-sm`}>
+          <textarea
+            id="iel-inline-chat-start"
+            rows={2}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={onKeyDown}
+            placeholder="Type your question, e.g. “My mother passed away and I think I need probate.”"
+            className="flex-1 resize-none rounded-lg px-3 py-2.5 text-[15px] text-slate-800 placeholder-slate-400 focus:outline-none"
+          />
+          <button
+            type="button"
+            onClick={send}
+            disabled={!input.trim()}
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#4a708b] text-white font-semibold px-5 py-3 disabled:opacity-40 hover:bg-[#3d5f77] transition-colors"
+          >
+            <Send className="w-4 h-4" aria-hidden="true" /> Start chat
+          </button>
+        </div>
+        <p className={`mt-3 text-[11px] leading-snug ${dark ? 'text-white/70' : 'text-slate-500'}`}>
+          Free consultations · Replies right away, day or night. By chatting, you agree this conversation may be stored and shared with our
+          team and service providers so we can respond. Please don&apos;t share Social Security, account numbers, or passwords. This chat
+          isn&apos;t legal advice and doesn&apos;t create an attorney-client relationship.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div
