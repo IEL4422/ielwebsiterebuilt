@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { calculateIllinoisEstateTax } from '@/lib/estate-tax';
+import { EstateTaxExplanation } from '@/components/EstateTaxExplanation';
 import {
   ArrowRight,
   ChevronDown,
@@ -56,12 +58,12 @@ export default function Page() {
     {
       question: 'What is the Illinois estate tax exemption in 2026?',
       answer:
-        'The Illinois estate tax exemption is $4 million per person as of 2026. Estates with a total taxable value at or below $4 million owe no Illinois estate tax. Estates above that threshold are taxed on the full value of the estate — not just the amount above $4 million — which is what creates the cliff effect. The Illinois exemption has been set at $4 million since 2012 and has not been indexed for inflation, unlike the federal exemption.',
+        'Illinois uses a $4 million exclusion, not a simple deduction from every estate. Tax depends on the tentative taxable estate, adjusted taxable gifts, the interrelated tax deduction and Illinois allocation. With no taxable gifts and all property allocated to Illinois, a $4 million tentative estate has no Illinois tax, while $4.1 million produces approximately $28,571. Crossing the threshold does not automatically create a six-figure tax.',
     },
     {
       question: 'Is the Illinois estate tax on top of the federal estate tax?',
       answer:
-        'Yes. Illinois estate tax and federal estate tax are entirely separate obligations. However, the federal estate tax exemption in 2026 is approximately $13.99 million per person — far higher than Illinois\'s $4 million threshold. As a result, many Illinois estates owe Illinois estate tax but owe nothing at the federal level. Estates above the federal exemption owe both taxes, and the taxes are not deductible against each other in the traditional sense. Planning must account for both layers.',
+        'Yes. Illinois estate tax and federal estate tax are entirely separate obligations. However, the federal estate tax exemption in 2026 is approximately $15 million per person — far higher than Illinois\'s $4 million threshold. As a result, many Illinois estates owe Illinois estate tax but owe nothing at the federal level. Estates may owe both taxes, but qualifying state death taxes are deductible when calculating the federal taxable estate. Planning must account for both layers.',
     },
     {
       question: "Does Illinois estate tax apply to a surviving spouse's inheritance?",
@@ -110,14 +112,14 @@ export default function Page() {
     {
       num: '4',
       title: 'Lifetime Gifting to Reduce the Taxable Estate',
-      body: 'Every dollar given away during your lifetime is a dollar that will not be in your estate at death. Illinois does not have a gift tax, and federal gift tax rules allow each person to give up to $18,000 per recipient per year (2026 annual exclusion) without any gift tax consequence. Larger gifts reduce the taxable estate but may consume some of the federal lifetime exemption. For estates just above the $4 million cliff, targeted gifting over several years can bring the estate below the threshold and eliminate Illinois estate tax entirely.',
+      body: 'Every dollar given away during your lifetime is a dollar that will not be in your estate at death. Illinois does not have a gift tax, and federal gift tax rules allow each person to give up to $19,000 per recipient per year (2026 annual exclusion) without any gift tax consequence. Larger gifts can consume federal exemption and remain relevant as adjusted taxable gifts in the Illinois calculation; moving assets out of the estate does not automatically remove a filing obligation. For estates just above the $4 million cliff, targeted gifting over several years can bring the estate below the threshold and eliminate Illinois estate tax entirely.',
       link: '/book-consultation/',
       linkLabel: 'Book a consultation to discuss your gifting strategy',
     },
     {
       num: '5',
       title: 'Charitable Bequests and Charitable Trusts',
-      body: 'Charitable bequests reduce the taxable estate dollar for dollar. For estates just above $4 million, a carefully sized charitable bequest can bring the estate below the exemption threshold — potentially saving far more in estate taxes than the value of the bequest itself. Charitable remainder trusts (CRTs) and charitable lead trusts (CLTs) allow you to provide for family members and a charity simultaneously while reducing the estate tax burden. These tools require careful design by an attorney familiar with both estate and tax planning.',
+      body: 'Charitable bequests reduce the taxable estate dollar for dollar. For estates just above $4 million, a carefully sized charitable bequest can bring the estate below the exemption threshold — reducing Illinois estate tax while supporting the intended charity. Charitable remainder trusts (CRTs) and charitable lead trusts (CLTs) allow you to provide for family members and a charity simultaneously while reducing the estate tax burden. These tools require careful design by an attorney familiar with both estate and tax planning.',
       link: '/services-pricing/',
       linkLabel: 'Learn about our estate planning services',
     },
@@ -143,7 +145,7 @@ export default function Page() {
       },
     },
     datePublished: '2026-08-05',
-    dateModified: '2026-08-05',
+    dateModified: '2026-10-13',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://www.illinoisestatelaw.com/blog/illinois-estate-tax-cliff-explained/',
@@ -219,10 +221,10 @@ export default function Page() {
                 <TrendingUp className="w-6 h-6 text-[#4a708b] flex-shrink-0 mt-1" />
                 <div>
                   <p className="mb-4 font-semibold text-lg font-['Plus_Jakarta_Sans']">
-                    Illinois imposes a separate state estate tax on estates above $4 million. Unlike the federal estate tax, which only applies to estates above roughly $14 million in 2026, the Illinois tax catches many families who consider themselves &ldquo;comfortable&rdquo; but not ultra-wealthy.
+                    Illinois uses a $4 million estate tax exclusion, while the federal basic exclusion is $15 million per person in 2026. Taxable gifts and deductions also affect the calculation, so some families may owe Illinois estate tax without owing federal estate tax.
                   </p>
                   <p className="mb-4 font-['Plus_Jakarta_Sans']">
-                    The &ldquo;cliff&rdquo; refers to the way the Illinois estate tax is calculated: once an estate exceeds $4 million, the entire estate is taxed — not just the amount over the threshold. This means crossing the $4 million line can trigger a tax bill of $100,000 or more on just a modest overage, making the effective marginal tax rate on dollars just above $4 million extraordinarily high.
+                    Illinois uses a $4 million exclusion rather than a simple deduction from every estate. Its interrelated calculation includes a state-tax deduction and an exclusion limit. With no taxable gifts and 100% Illinois allocation, a $4.1 million tentative taxable estate produces approximately $28,571 in tax, not an automatic six-figure bill.
                   </p>
                   <p className="mb-0 font-['Plus_Jakarta_Sans']">
                     This guide explains how the Illinois estate tax cliff works, walks through a concrete example, and outlines the planning strategies Illinois families use to reduce or eliminate their exposure.
@@ -279,11 +281,11 @@ export default function Page() {
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              As of 2026, the Illinois estate tax exemption is <strong>$4 million per person</strong>. This means that if the total value of all assets in your estate — including your home, retirement accounts, business interests, investment accounts, and life insurance proceeds payable to your estate — exceeds $4 million at death, Illinois estate tax will be owed on the full value of the estate.
+              As of 2026, the Illinois estate tax exemption is <strong>$4 million per person</strong>. A gross estate plus adjusted taxable gifts above $4 million generally requires an Illinois return. Tax owed is a separate question: allowable deductions, QTIP elections, taxable gifts, the interrelated calculation and allocation to Illinois all affect the result.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              The critical difference from the federal estate tax is the exemption amount. In 2026, the federal estate tax exemption is approximately <strong>$13.99 million per person</strong> — more than three times the Illinois threshold. This means many Illinois families owe Illinois estate tax but owe nothing at the federal level. They may have never even thought about estate tax as a concern, only to discover their estate is squarely in the Illinois taxable zone.
+              The critical difference from the federal estate tax is the exemption amount. In 2026, the federal estate tax exemption is approximately <strong>$15 million per person</strong> — more than three times the Illinois threshold. This means many Illinois families owe Illinois estate tax but owe nothing at the federal level. They may have never even thought about estate tax as a concern, only to discover their estate is squarely in the Illinois taxable zone.
             </p>
 
             <div className="bg-amber-50 border-l-4 border-amber-500 p-5 my-8 rounded-r-lg">
@@ -292,7 +294,7 @@ export default function Page() {
                 <div>
                   <p className="font-semibold text-amber-800 mb-1 font-['Plus_Jakarta_Sans']">Illinois exemption has not kept pace with inflation</p>
                   <p className="text-amber-700 text-sm font-['Plus_Jakarta_Sans']">
-                    The Illinois $4 million exemption has been fixed since 2012. It is not indexed to inflation. Meanwhile, home values, retirement accounts, and business values have all increased substantially. Many Illinois families who did not expect to have an estate tax problem now find themselves above the threshold simply because their assets have appreciated. This makes regular estate plan reviews essential — what was below the threshold a decade ago may no longer be.
+                    The Illinois $4 million exemption has been fixed since 2013. It is not indexed to inflation. Meanwhile, home values, retirement accounts, and business values have all increased substantially. Many Illinois families who did not expect to have an estate tax problem now find themselves above the threshold simply because their assets have appreciated. This makes regular estate plan reviews essential — what was below the threshold a decade ago may no longer be.
                   </p>
                 </div>
               </div>
@@ -304,15 +306,15 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              The term &ldquo;cliff&rdquo; describes the dramatic jump in Illinois estate tax liability that occurs the moment an estate crosses the $4 million exemption threshold. Unlike some tax structures where only the amount above a threshold is taxed, Illinois estate tax applies to the <strong>entire taxable estate</strong> once the threshold is crossed — not just the excess.
+              The term &ldquo;cliff&rdquo; is often used because the $4 million exclusion is not simply subtracted from every taxable estate. However, describing it as an immediate large tax jump is misleading. The credit table, $60,000 table adjustment, interrelated state-tax deduction and exclusion limit must be considered together.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Here is why this matters: an estate worth exactly $4,000,000 owes zero Illinois estate tax. An estate worth $4,000,001 — one dollar more — triggers an Illinois estate tax computation on the full $4,000,001. Because the tax table is graduated and the effective rate on amounts just above $4 million is relatively steep, that single dollar above the threshold can result in a tax liability of roughly $100,000 or more. The effective marginal tax rate on the dollars just above $4 million can exceed 100% — meaning the heir pays more in taxes on those marginal dollars than those dollars are actually worth.
+              For example, with no adjusted taxable gifts and 100% Illinois allocation, a tentative taxable estate of $4,000,000 has no Illinois tax. Increasing it to $4,100,000 gives approximately $28,571. Near this threshold, the exclusion limit and tax deduction together produce tax of approximately 28.57% of the excess, until the credit-table calculation becomes the smaller result. One extra dollar does not create a $100,000 tax.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              This is not a quirk or an oversight — it is a structural feature of how the Illinois estate tax is calculated using graduated rate tables that apply to the full estate value. But for families who do not understand it in advance, the cliff can produce a shocking and, in many cases, unnecessary tax bill.
+              A rate-table shortcut alone is not enough to estimate liability. Families should compare the same taxable-estate inputs and assumptions, then use the Illinois Attorney General’s interrelated calculation before making planning decisions.
             </p>
 
             <div className="bg-blue-50 border-l-4 border-[#547298] p-5 my-8 rounded-r-lg">
@@ -321,7 +323,7 @@ export default function Page() {
                 <div>
                   <p className="font-semibold text-[#33414E] mb-1 font-['Plus_Jakarta_Sans']">Why it&apos;s called a &ldquo;cliff&rdquo;</p>
                   <p className="text-gray-700 text-sm font-['Plus_Jakarta_Sans']">
-                    Imagine walking along a flat path (no tax below $4 million) and then suddenly stepping off the edge of a cliff (a large tax bill the moment you cross $4 million). The tax does not gradually increase as the estate grows above $4 million — it jumps sharply the moment the threshold is crossed. Estates that are $50,000 or $100,000 above $4 million often face the same approximate tax bill as estates that are $300,000 or $400,000 above $4 million, because the lower brackets are consumed all at once.
+                    The label can obscure how the calculation actually works. Under the no-gifts, all-Illinois assumptions, estates $50,000 and $100,000 above the threshold have estimated taxes of $14,286 and $28,571 respectively. They do not have the same liability as estates several hundred thousand dollars above the threshold.
                   </p>
                 </div>
               </div>
@@ -333,7 +335,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Consider two Illinois residents who pass away in 2026. Both have similar estates, with one key difference:
+              Consider two Illinois residents who pass away in 2026. For this illustration, assume no taxable gifts, no deductions other than the interrelated state-tax deduction, and all assets allocated to Illinois:
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -371,21 +373,21 @@ export default function Page() {
                   Other assets: $300,000
                 </p>
                 <div className="bg-white rounded-lg p-4 border border-red-200">
-                  <p className="text-2xl font-bold text-red-700 font-['Plus_Jakarta_Sans']">~$128,800</p>
+                  <p className="text-2xl font-bold text-red-700 font-['Plus_Jakarta_Sans']">~$57,143</p>
                   <p className="text-sm text-gray-600 font-['Plus_Jakarta_Sans']">Estimated Illinois estate tax owed</p>
                 </div>
                 <p className="text-xs text-gray-500 font-['Plus_Jakarta_Sans'] mt-3">
-                  $250,000 over the threshold triggers a six-figure tax bill on the entire estate.
+                  $200,000 above the threshold produces approximately $57,143 in Illinois tax under these assumptions.
                 </p>
               </div>
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              The two estates are separated by $250,000 in total value — roughly the appreciation of a home over a few years, or a strong year in the stock market. Yet Estate A pays no Illinois estate tax while Estate B pays roughly $128,800. The heirs of Estate B receive $128,800 less than expected — not because the family was significantly wealthier, but because they happened to be above the threshold.
+              The two estates are separated by $250,000 in total value — roughly the appreciation of a home over a few years, or a strong year in the stock market. Yet Estate A pays no Illinois estate tax while Estate B pays roughly $57,143. The heirs of Estate B receive $57,143 less than expected — not because the family was significantly wealthier, but because they happened to be above the threshold.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Now consider Estate B&apos;s situation more carefully. They crossed the $4 million threshold by $200,000. The Illinois estate tax on that $200,000 &ldquo;extra&rdquo; is the entire ~$128,800 — an effective marginal rate of over 64% on just the marginal dollars. For families even closer to the cliff (say, $50,000 over the threshold), the effective marginal rate on those excess dollars can be even more extreme.
+              Estate B is $200,000 above the threshold. The exclusion-limit calculation is $200,000 × 40% ÷ 1.40, or approximately $57,143. This is about 28.57% of the excess, not more than 64%. Other deductions, gifts or out-of-state property can change the result.
             </p>
 
             {/* 5. Illinois Rates */}
@@ -394,7 +396,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Illinois estate tax rates are graduated, starting at 0.8% on the first bracket of taxable estate value and rising to a top rate of 16% on estates above $10.04 million. However, because the tax applies to the <strong>entire estate</strong> once the threshold is crossed, the effective rate and the cliff effect are more nuanced than a simple bracket analysis suggests.
+              The former federal state-death-tax credit table has graduated rates up to 16%. Its brackets apply after the $60,000 adjustment and interrelated state-tax deduction, not directly to gross estate value. The Illinois exclusion limit can further reduce the preliminary result. The following estimates use the same calculation as our calculator.
             </p>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden my-8">
@@ -413,16 +415,13 @@ export default function Page() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
-                    {[
-                      ['$3,999,999 or less', '$0', '0%'],
-                      ['$4,100,000', '~$103,200', '~2.5%'],
-                      ['$4,500,000', '~$153,000', '~3.4%'],
-                      ['$5,000,000', '~$182,000', '~3.6%'],
-                      ['$6,000,000', '~$302,000', '~5.0%'],
-                      ['$8,000,000', '~$622,000', '~7.8%'],
-                      ['$10,000,000', '~$941,600', '~9.4%'],
-                      ['$15,000,000', '~$1,741,600', '~11.6%'],
-                    ].map(([estate, tax, rate], i) => (
+                    {[4_000_000, 4_100_000, 4_500_000, 5_000_000, 6_000_000, 8_000_000, 10_000_000, 15_000_000].map((value, i) => {
+                      const estimate = calculateIllinoisEstateTax(value).tax;
+                      const money = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+                      const estate = money(value);
+                      const tax = money(estimate);
+                      const rate = `${(estimate / value * 100).toFixed(2)}%`;
+                      return (
                       <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className={`py-3 px-6 font-medium ${i === 0 ? 'text-green-700' : 'text-gray-700'}`}>
                           {estate}
@@ -432,18 +431,20 @@ export default function Page() {
                         </td>
                         <td className={`py-3 px-4 ${i === 0 ? 'text-green-700' : 'text-gray-600'}`}>{rate}</td>
                       </tr>
-                    ))}
+                    ); })}
                   </tbody>
                 </table>
               </div>
               <p className="text-xs text-gray-500 font-['Plus_Jakarta_Sans'] px-6 py-3">
-                * Estimates based on the Illinois estate tax rate tables. Actual tax depends on deductions, the marital deduction, charitable bequests, and other factors. Consult an attorney for a precise calculation.
+                * Tentative taxable estate after other deductions but before state estate tax, no adjusted taxable gifts, and 100% Illinois allocation. Includes the interrelated calculation. Rounded to the nearest dollar.
               </p>
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Notice the jump from $0 for an estate at $3,999,999 to approximately $103,200 for an estate at $4,100,000 — an increase of just $100,100 in estate value, but a tax bill of $103,200. That is the cliff in action. The marginal rate on the first $100,000 over the threshold is effectively over 100%.
+              The estimate rises from $0 at $4 million to approximately $28,571 at $4.1 million under these assumptions. This is an important planning cost, but not a tax exceeding the increase in estate value.
             </p>
+
+            <EstateTaxExplanation />
 
             {/* 6. Who Is Affected */}
             <h2 id="who-is-affected" className="text-2xl font-bold mt-12 mb-4 font-['Plus_Jakarta_Sans']">
@@ -539,11 +540,11 @@ export default function Page() {
             </h3>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Illinois does not impose a gift tax. Every dollar you give away during your lifetime is a dollar that will not be in your estate at death. The federal annual gift tax exclusion allows each person to give up to <strong>$18,000 per recipient per year</strong> (2026 amount) without any gift tax consequence or reduction in the federal lifetime exemption. A couple can give $36,000 per recipient per year.
+              Illinois does not impose a gift tax. Every dollar you give away during your lifetime is a dollar that will not be in your estate at death. The federal annual gift tax exclusion allows each person to give up to <strong>$19,000 per recipient per year</strong> (2026 amount) without any gift tax consequence or reduction in the federal lifetime exemption. A couple may give $38,000 per recipient per year if each spouse qualifies for the annual exclusion. Gift splitting can require gift tax returns. See the <a href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-gift-taxes" className="underline text-[#4a708b]">IRS gift tax guidance</a>.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              For families whose estate sits just above the $4 million cliff — say, $4.5 million — a structured multi-year gifting program can bring the estate below the threshold and eliminate the Illinois estate tax entirely. Gifts to fund 529 college savings plans, pay medical or tuition expenses directly, or contribute to charitable causes are also effective in reducing the taxable estate.
+              For families whose estate sits just above the $4 million cliff — say, $4.5 million — a properly designed gifting program may reduce Illinois estate tax. Adjusted taxable gifts still affect the Illinois calculation and filing threshold, so giving away the amount above $4 million does not automatically eliminate tax. Gifts to fund 529 college savings plans, pay medical or tuition expenses directly, or contribute to charitable causes are also effective in reducing the taxable estate.
             </p>
 
             <h3 id="charitable" className="text-xl font-bold mt-8 mb-3 font-['Plus_Jakarta_Sans']">
@@ -551,7 +552,7 @@ export default function Page() {
             </h3>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Charitable bequests reduce the taxable estate dollar for dollar. For an estate just above the $4 million threshold, a charitable bequest of the right size can pull the estate below the cliff — potentially saving far more in estate taxes than the value of the bequest itself. For example, a $150,000 charitable bequest that brings a $4.15 million estate to $4 million could save the estate $103,000 or more in Illinois estate tax.
+              Charitable bequests reduce the taxable estate dollar for dollar. For an estate just above the $4 million threshold, a charitable bequest of the right size can pull the estate below the cliff — reducing Illinois estate tax while supporting the intended charity. For example, a $150,000 charitable bequest that brings a $4.15 million estate to $4 million would reduce estimated Illinois tax by about $42,857, assuming no adjusted taxable gifts and 100% Illinois allocation.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
