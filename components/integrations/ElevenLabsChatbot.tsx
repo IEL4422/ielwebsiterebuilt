@@ -14,7 +14,10 @@ const ELEVENLABS_WIDGET_SRC = 'https://unpkg.com/@elevenlabs/convai-widget-embed
 export function ElevenLabsChatbot() {
   return (
     <>
-      {createElement('elevenlabs-convai', { 'agent-id': ELEVENLABS_AGENT_ID })}
+      {createElement('elevenlabs-convai', {
+        'agent-id': ELEVENLABS_AGENT_ID,
+        'override-text-only': 'true',
+      })}
       <Script
         id="elevenlabs-convai-widget"
         src={ELEVENLABS_WIDGET_SRC}

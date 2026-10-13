@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { MobileStickyBar } from '@/components/layout/MobileStickyBar';
 import { StructuredData } from '@/components/StructuredData';
 import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { ElevenLabsChatbot } from '@/components/integrations/ElevenLabsChatbot';
@@ -67,11 +66,10 @@ export default function RootLayout({
           `}
         </Script>
         <Header />
-          <div className="pb-[62px] md:pb-0">
+          <div>
             {children}
           </div>
           <Footer />
-          <MobileStickyBar />
           <ElevenLabsChatbot />
       </body>
     </html>

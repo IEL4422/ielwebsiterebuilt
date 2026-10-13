@@ -9,6 +9,7 @@ describe('ElevenLabs website chatbot', () => {
     expect(widget).toContain('agent_4201m4s2kqjsfmhs00anhnn0pt29');
     expect(widget).toContain('https://unpkg.com/@elevenlabs/convai-widget-embed');
     expect(widget).toContain('elevenlabs-convai');
+    expect(widget).toContain("'override-text-only': 'true'");
   });
 
   it('loads after the page is interactive and mounts once globally', () => {
@@ -18,5 +19,6 @@ describe('ElevenLabs website chatbot', () => {
 
   it('does not compete with the former bottom-right consultation button', () => {
     expect(layout).not.toContain('FloatingConsultButton');
+    expect(layout).not.toContain('MobileStickyBar');
   });
 });
