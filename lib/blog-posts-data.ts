@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'illinois-small-estate-affidavit-avoid-probate',
+    title: 'Illinois Small Estate Affidavit: How to Avoid Probate on Small Estates',
+    url: '/blog/illinois-small-estate-affidavit-avoid-probate/',
+    date: 'Oct 14, 2026',
+    summary:
+      'Complete guide to the Illinois Small Estate Affidavit under 755 ILCS 5/25-1 — who qualifies, the $150,000 asset threshold, the 30-day waiting period, what assets can and cannot be collected, the step-by-step process, and the personal liability risks every heir must understand.',
+    excerpt:
+      'Learn when the Illinois Small Estate Affidavit lets heirs collect assets without probate, who qualifies, what assets it covers, and the personal liability risks involved.',
+  },
+  {
     slug: 'how-to-update-estate-plan-after-divorce-illinois',
     title: 'How to Update Your Estate Plan After Divorce in Illinois',
     url: '/blog/how-to-update-estate-plan-after-divorce-illinois/',
