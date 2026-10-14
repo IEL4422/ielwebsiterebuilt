@@ -17,6 +17,8 @@ export function ElevenLabsChatbot() {
       {createElement('elevenlabs-convai', {
         'agent-id': ELEVENLABS_AGENT_ID,
         'override-text-only': 'true',
+        // Phone calls greet as Sherry; the website chat greets as the firm.
+        'override-first-message': 'Hi! How can we help you today?',
       })}
       <Script
         id="elevenlabs-convai-widget"
