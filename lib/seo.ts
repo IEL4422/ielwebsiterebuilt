@@ -161,7 +161,7 @@ export const ATTORNEYS: AttorneyProfile[] = [
     email: 'yassmin@illinoisestatelaw.com',
     image: 'https://i.imgur.com/awwM5UZ.jpeg',
     description:
-      'Yassmin Koudmani is a senior attorney at Illinois Estate Law licensed in Illinois. She handles estate planning and residential and investment real estate matters, including closings, for clients across the Chicago area. She is fluent in Arabic.',
+      'Yassmin Koudmani is a senior attorney at Illinois Estate Law licensed in Illinois. She handles estate planning and seller-side residential real estate matters, including represented sales and For Sale By Owner closings, for clients across the Chicago area. She is fluent in Arabic.',
     alumniOf: [
       'Columbia University in the City of New York',
       'DePaul University College of Law',

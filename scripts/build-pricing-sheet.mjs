@@ -49,8 +49,6 @@ const TOKENS = {
   MINOR_GUARDIANSHIP: usd(num('minorUncontested')),
   EMERGENCY_GUARDIANSHIP_ADD_ON: usd(num('emergencyTemporaryAddOn')),
   EMERGENCY_GUARDIANSHIP_TOTAL: usd(num('adultUncontested') + num('emergencyTemporaryAddOn')),
-  MULTI_UNIT_CLOSING: usd(num('multiUnitOrInvestmentClosing')),
-  NONSTANDARD_TITLE_CLOSING: usd(num('estateTrustOrNonstandardTitleClosing')),
 };
 
 let out = readFileSync(join(root, 'scripts/pricing-sheet.template.html'), 'utf8');

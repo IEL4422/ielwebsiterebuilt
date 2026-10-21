@@ -253,12 +253,11 @@ export const A_LA_CARTE = {
 /** Trust administration — unchanged. */
 export const TRUST_ADMIN = { consultingAnnual: 5000 } as const;
 
-/** Real estate — unchanged. */
+/** Real estate — three public flat-fee structures. */
 export const REAL_ESTATE = {
-  residentialClosing: 750,
-  multiUnitOrInvestmentClosing: 950,
-  estateTrustOrNonstandardTitleClosing: 1250,
+  saleRepresentation: 750,
   fsboRepresentation: 1500,
+  bondInLieuOfProbate: 1500,
 } as const;
 
 /**

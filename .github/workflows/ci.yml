@@ -83,3 +83,4 @@ jobs:
           node scripts/verify-guardianship-routes.cjs
           node scripts/verify-inline-chat.cjs
           node scripts/verify-estate-tax-calculator.cjs
+          node scripts/verify-real-estate-pricing.cjs

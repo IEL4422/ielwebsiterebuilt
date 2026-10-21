@@ -220,7 +220,7 @@ export default function Page() {
             </div>
 
             <h2 id="next-steps" className="text-2xl font-bold mt-12 mb-4">Next Steps</h2>
-            <p className="mb-6">Whether you are buying your first home, selling a property, or navigating a more complex transaction, Illinois Estate Law provides flat-fee real estate closing representation for buyers and sellers throughout Cook County and the Chicago suburbs. We handle the legal side of your transaction so you can close with confidence.</p>
+            <p className="mb-6">Illinois Estate Law offers three real-estate fee structures: $750 Sale Representation for a residential seller with a listing agent, $1,500 FSBO representation for a seller without a listing agent, and $1,500 Bond in Lieu of Probate for a qualifying estate real-estate matter. Buyer representation is not included in these packages.</p>
             <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Real Estate Closing Representation in Illinois</h3>
               <p className="text-white/90 mb-6">Flat-fee buyer and seller representation for residential real estate closings in Cook County and the Chicago area. Contact us to discuss your transaction.</p>

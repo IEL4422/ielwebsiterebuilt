@@ -20,11 +20,11 @@ const categories: Category[] = [
   {
     icon: Building2,
     title: 'Real Estate',
-    description: 'Attorney representation for Illinois home sales and purchases, from contract review through closing.',
+    description: 'Flat-fee attorney representation for Illinois residential sellers and qualifying estate real estate.',
     services: [
-      { name: 'Seller Representation', href: '/chicago-real-estate-closings-lawyer/' },
-      { name: 'Buyer Representation', href: '/chicago-real-estate-closings-lawyer/' },
-      { name: 'For Sale by Owner', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'Sale Representation — $750', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'For Sale by Owner — $1,500', href: '/chicago-real-estate-closings-lawyer/' },
+      { name: 'Bond in Lieu of Probate — $1,500', href: '/chicago-real-estate-closings-lawyer/' },
     ],
     ctaLabel: 'Explore Real Estate Representation',
     ctaHref: '/chicago-real-estate-closings-lawyer/',

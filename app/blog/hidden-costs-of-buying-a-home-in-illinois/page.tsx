@@ -124,7 +124,7 @@ export default function Page() {
                 </tbody>
               </table>
             </div>
-            <p className="mb-6">At Illinois Estate Law, we represent buyers for a flat attorney fee — no hourly billing surprises. Our fee covers the attorney review period, contract negotiation, title commitment review, and full representation at closing.</p>
+            <p className="mb-6">This buyer-cost guide is educational. Illinois Estate Law’s current real-estate packages are seller-side Sale Representation, seller-side FSBO representation, and qualifying Bond in Lieu of Probate matters; buyer representation is not included in those packages.</p>
 
             <h2 id="title-costs" className="text-2xl font-bold mt-12 mb-4">Title Insurance and Transfer Taxes</h2>
             <p className="mb-6">Title costs in Illinois include both title insurance premiums and transfer taxes — three separate layers of transfer tax in Chicago specifically.</p>
@@ -268,7 +268,7 @@ export default function Page() {
 
             <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Get a Precise Closing Cost Estimate for Your Transaction</h3>
-              <p className="text-white/90 mb-6">Illinois Estate Law provides flat-fee real estate representation for buyers throughout Chicago and Cook County. We review your Closing Disclosure line by line to ensure every number is correct before you sign.</p>
+              <p className="text-white/90 mb-6">Use this guide to understand common buyer costs. Illinois Estate Law’s current real-estate offerings are the three seller-side and estate real-estate services listed on our pricing page.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/book-consultation" className="inline-flex items-center gap-2 bg-white text-[#4A708B] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-lg">Schedule a Consultation<ArrowRight className="w-5 h-5" /></Link>
                 <a href="tel:3123730731" className="inline-flex items-center gap-2 bg-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-colors border-2 border-white/30">Call (312) 373-0731</a>

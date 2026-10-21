@@ -41,9 +41,7 @@ const SERVICE_IDS: Record<string, string> = {
   'Spousal Representation': 'spousal-representation',
   'Contested Probate': 'contested-probate',
   'Trust Administration Consulting': 'trust-admin-consulting',
-  'Residential Closing (Buyer or Seller)': 'residential-closing',
-  'Multi-Unit or Investment Closing': 'multi-unit-investment-closing',
-  'Estate, Trust, or Nonstandard Title Closing': 'estate-trust-nonstandard-closing',
+  'Sale Representation': 'residential-closing',
   'For Sale By Owner (FSBO) Representation': 'fsbo-representation',
 };
 
@@ -387,10 +385,11 @@ export function ServicesPricingModern() {
         <section id="realestate" className="scroll-mt-[150px] border-t border-[#E3EAF1] py-12">
           <CatHead kick="04" title="Real Estate &amp; Deeds" />
           <p className="mb-7 max-w-[760px] text-[16px] text-[#5f6b76]">
-            Residential closings and deed services for Illinois families protecting their property. On closing
-            representation the attorney fee is paid at closing, not in advance &mdash; for sellers it comes out of the
-            sale proceeds. For Sale By Owner sales are a separate engagement, because with no listing agent the attorney
-            carries work an agent would normally handle. Deed fees include recording.
+            The firm offers three real-estate fee structures: Sale Representation, FSBO, and Bond in Lieu of Probate.
+            Seller representation fees are paid at closing from sale proceeds. FSBO includes added coordination because
+            there is no listing agent. Bond in Lieu is a limited qualifying estate process, not full probate. Third-party
+            closing costs and surety premiums are separate. Deed preparation remains a separate à la carte category, with
+            recording included in the listed deed fee.
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {realEstate.packages.map((s, i) => (
