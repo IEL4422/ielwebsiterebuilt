@@ -11,35 +11,27 @@ import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide'
 const closingPackages = [
   {
     id: 'residential-closing',
-    name: 'Standard Residential Closing',
-    audience: 'Buyer or seller represented by a real estate agent',
-    price: REAL_ESTATE.residentialClosing,
-    description: 'Full-service representation for a standard single-family home or condominium purchase or sale.',
-    includes: ['Attorney review and contract negotiation', 'Title, survey, and closing-document review', 'Closing representation'],
-  },
-  {
-    id: 'multi-unit-investment-closing',
-    name: 'Multi-Unit or Investment Closing',
-    audience: 'Buyer or seller of an investment property',
-    price: REAL_ESTATE.multiUnitOrInvestmentClosing,
-    description: 'Representation for a residential multi-unit building or other investment-property transaction.',
-    includes: ['Attorney review and contract negotiation', 'Investment-property title and document review', 'Closing representation'],
-  },
-  {
-    id: 'estate-trust-nonstandard-closing',
-    name: 'Estate, Trust, or Nonstandard Title Closing',
-    audience: 'Property held by an estate, trust, or under other authority',
-    price: REAL_ESTATE.estateTrustOrNonstandardTitleClosing,
-    description: 'For transactions requiring additional review of fiduciary authority or nonstandard ownership documents.',
-    includes: ['Authority and governing-document review', 'Contract, title, survey, and closing-document review', 'Closing representation'],
+    name: 'Sale Representation',
+    audience: 'Residential seller represented by a licensed listing agent',
+    price: REAL_ESTATE.saleRepresentation,
+    description: 'Legal representation for an Illinois residential seller from attorney review through closing. Buyer representation and brokerage services are not included.',
+    includes: ['Sale-contract review and negotiation', 'Title review and ordinary clearance coordination', 'Customary seller closing documents', 'Settlement-statement review', 'Closing coordination and representation'],
   },
   {
     id: 'fsbo-representation',
     name: 'For Sale By Owner (FSBO)',
     audience: 'Seller without a listing agent',
     price: REAL_ESTATE.fsboRepresentation,
-    description: 'Expanded seller representation that includes contract drafting and coordination normally handled by a listing agent.',
-    includes: ['Purchase contract drafting or review', 'Transaction and title coordination', 'Closing representation'],
+    description: 'Expanded legal representation for a residential seller without a listing agent. We do not market the property, show it, find a buyer, or provide brokerage or pricing services.',
+    includes: ['Sale-contract preparation or review', 'Attorney-review negotiation', 'Title review and ordinary clearance coordination', 'Customary seller closing documents', 'Settlement-statement review', 'Additional transaction and closing coordination'],
+  },
+  {
+    id: 'bond-in-lieu-of-probate',
+    name: 'Bond in Lieu of Probate',
+    audience: 'The estate’s only asset requiring administration is Illinois real estate',
+    price: REAL_ESTATE.bondInLieuOfProbate,
+    description: 'A limited probate-alternative title-transfer service when all heirs agree and the title company and surety approve the process. It is not a full probate case.',
+    includes: ['Eligibility, ownership, and heir review', 'Affidavits and title-transfer documents', 'Title-company and surety coordination', 'Attorney guidance through the approved transfer or sale'],
   },
 ];
 
@@ -53,11 +45,11 @@ export default function RealEstateClosingsPage() {
     },
     {
       q: 'When is the real estate attorney fee due?',
-      a: 'The applicable flat fee is due at closing, not upfront. For sellers, the fee is generally deducted from the closing proceeds. The package price depends on whether the transaction is a standard residential closing, an investment or multi-unit property, an estate or trust closing, or a For Sale By Owner transaction.',
+      a: 'The $750 Sale Representation fee and $1,500 FSBO fee are due at closing and generally deducted from the seller’s proceeds. The $1,500 Bond in Lieu of Probate fee follows the written engagement terms. Third-party closing costs and any required surety bond premium are separate.',
     },
     {
-      q: 'Do you represent buyers, sellers, or both?',
-      a: 'We represent both buyers and sellers in residential real estate transactions throughout Illinois. A standard agent-assisted residential purchase or sale is $750. Different concrete prices apply to multi-unit or investment properties, estate or trust transactions, nonstandard title, and For Sale By Owner sales.',
+      q: 'Do these prices include buyer representation?',
+      a: 'No. The three listed services are seller-side Sale Representation, seller-side For Sale By Owner representation, and Bond in Lieu of Probate. Buyer representation is not included in these packages.',
     },
     {
       q: 'What is the attorney review period in Illinois?',
@@ -69,7 +61,7 @@ export default function RealEstateClosingsPage() {
     },
     {
       q: 'What areas of Illinois do you serve?',
-      a: 'We represent buyers and sellers throughout Illinois, including Cook County, DuPage County, Lake County, Will County, Kane County, and surrounding areas.',
+      a: 'We provide the listed seller-side and bond-in-lieu services throughout Illinois, including Cook, DuPage, Lake, Will, Kane, McHenry, and surrounding counties.',
     },
   ];
 
@@ -83,7 +75,7 @@ export default function RealEstateClosingsPage() {
             '@type': 'LegalService',
             name: 'Illinois Estate Law — Real Estate Closing Representation',
             description:
-              'Flat-fee Illinois real estate closing representation for buyers, sellers, investment properties, estate and trust transactions, and For Sale By Owner sales.',
+              'Three flat-fee Illinois real estate services: seller Sale Representation for $750, For Sale By Owner representation for $1,500, and Bond in Lieu of Probate for $1,500.',
             url: 'https://www.illinoisestatelaw.com/chicago-real-estate-closings-lawyer/',
             telephone: '+1-312-373-0731',
             address: {
@@ -102,7 +94,7 @@ export default function RealEstateClosingsPage() {
       <main>
         <InnerPageHero
           title="Real Estate Closing Representation"
-          subtitle="Concrete flat-fee representation for Illinois buyers and sellers — from $750 to $1,500, due at closing rather than upfront."
+          subtitle="Three concrete flat-fee services for Illinois sellers and qualifying estate real estate: $750 Sale Representation, $1,500 FSBO, and $1,500 Bond in Lieu of Probate."
         />
 
         {/* Included services and primary actions */}
@@ -110,11 +102,11 @@ export default function RealEstateClosingsPage() {
           <div className="max-w-[1140px] mx-auto">
             <div className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch">
               <div className="rounded-2xl border border-white/15 bg-white/[0.07] p-6 sm:p-8">
-                <h2 className="text-2xl font-bold text-white mb-2">What Every Closing Package Includes</h2>
-                <p className="mb-6 text-white/70">The exact work is tailored to your transaction, but every package includes the core legal protection below.</p>
+                <h2 className="text-2xl font-bold text-white mb-2">What Our Seller Representation Covers</h2>
+                <p className="mb-6 text-white/70">Sale Representation and FSBO both provide legal support from contract through closing. The FSBO package also includes contract preparation or review and added coordination because there is no listing agent.</p>
                 <ul className="grid gap-3 text-white/90 sm:grid-cols-2">
                   {[
-                    'Contract and attorney-review guidance',
+                    'Sale-contract and attorney-review guidance',
                     'Title and document review',
                     'Negotiation within the included scope',
                     'Settlement statement review',
@@ -165,16 +157,16 @@ export default function RealEstateClosingsPage() {
             <div className="mx-auto mb-10 max-w-3xl text-center">
               <p className="text-sm font-bold uppercase tracking-wider text-[#547298]">Flat-fee options</p>
               <h2 className="mt-2 text-[32px] font-extrabold text-[#33414E] lg:text-[36px]">Choose Your Closing Representation</h2>
-              <p className="mt-3 text-lg text-slate-600">Each transaction type has a concrete price. Attorney fees are due at closing; closing costs and third-party charges are separate.</p>
+              <p className="mt-3 text-lg text-slate-600">These are the only three real-estate pricing structures offered. Third-party closing costs and required surety premiums are separate.</p>
             </div>
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 lg:grid-cols-3">
               {closingPackages.map((pkg, index) => (
                 <article key={pkg.name} className={`flex flex-col rounded-2xl bg-white p-7 shadow-sm ${index === 0 ? 'border-2 border-[#547298]' : 'border border-slate-200'}`}>
                   {index === 0 && <span className="mb-4 w-fit rounded-full bg-[#E8F1F8] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#547298]">Most common</span>}
                   <h3 className="text-2xl font-extrabold text-[#33414E]">{pkg.name}</h3>
                   <p className="mt-1 text-sm font-semibold text-[#547298]">{pkg.audience}</p>
                   <p className="mt-5 text-4xl font-extrabold text-[#33414E]">{usd(pkg.price)}</p>
-                  <p className="text-sm text-slate-500">Flat attorney fee · due at closing</p>
+                  <p className="text-sm text-slate-500">Flat attorney fee</p>
                   <p className="mt-4 leading-relaxed text-slate-600">{pkg.description}</p>
                   <ul className="mt-5 flex-1 space-y-3">
                     {pkg.includes.map((item) => (
@@ -185,7 +177,7 @@ export default function RealEstateClosingsPage() {
                     ))}
                   </ul>
                   <Link href={`/start-online/?service=${pkg.id}&clientType=individual&source=closing-pricing`} className="mt-7 inline-flex items-center justify-center rounded-full bg-[#33414E] px-6 py-3 font-bold text-white transition-colors hover:bg-[#547298]">
-                    Start This Closing
+                    Start This Service
                   </Link>
                 </article>
               ))}
@@ -198,16 +190,19 @@ export default function RealEstateClosingsPage() {
           <div className="max-w-[1140px] mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="font-extrabold text-[32px] lg:text-[36px] text-[#33414E] mb-6">
-                Your Attorney From Contract to Keys
+                Clear Seller-Side Representation From Contract to Closing
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Buying or selling a home is one of the largest financial transactions of your life. In Illinois, residential contracts include an attorney review period — and having an attorney in your corner from day one means you are protected at every step, not just at the closing table.
+                Selling a home is one of the largest financial transactions of your life. Illinois residential contracts commonly include an attorney review period, and seller-side legal work continues through title clearance, document preparation, settlement-statement review, and closing.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                We provide full-service representation for residential buyers and sellers across Illinois. Standard agent-assisted representation is <strong className="text-[#33414E]">{usd(REAL_ESTATE.residentialClosing)}</strong>; multi-unit or investment closings are <strong className="text-[#33414E]">{usd(REAL_ESTATE.multiUnitOrInvestmentClosing)}</strong>; and estate, trust, or nonstandard-title closings are <strong className="text-[#33414E]">{usd(REAL_ESTATE.estateTrustOrNonstandardTitleClosing)}</strong>. Each fee is due at closing rather than upfront.
+                <strong className="text-[#33414E]">Sale Representation is {usd(REAL_ESTATE.saleRepresentation)}</strong> for a residential seller who already has a licensed listing agent. It covers the customary attorney work from contract review through closing. The fee is paid at closing from sale proceeds.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                 Selling <strong className="text-[#33414E]">For Sale By Owner</strong> is a different engagement. With no listing agent involved, we also handle the coordination an agent would normally carry, from drafting the contract through the closing table. FSBO representation is a flat <strong className="text-[#33414E]">{usd(REAL_ESTATE.fsboRepresentation)}</strong>, paid at closing out of the sale proceeds.
+              </p>
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                <strong className="text-[#33414E]">Bond in Lieu of Probate is {usd(REAL_ESTATE.bondInLieuOfProbate)}</strong> for a qualifying estate whose only asset requiring administration is Illinois real estate. All heirs must agree, and the title company and surety must accept the process. A required surety premium and third-party charges are separate.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed">
                 No hourly billing. No surprise invoices. Just clear, flat-fee representation from contract to keys.
@@ -230,7 +225,7 @@ export default function RealEstateClosingsPage() {
                 {
                   icon: FileText,
                   title: 'Contract Review',
-                  body: 'We review your purchase or sale contract in detail during the attorney review period, flagging unfavorable terms and negotiating modifications to protect your position.',
+                  body: 'We review the sale contract during the attorney review period, flag unfavorable terms, and negotiate modifications to protect the seller’s position.',
                 },
                 {
                   icon: Shield,
@@ -344,7 +339,7 @@ export default function RealEstateClosingsPage() {
               Ready to Move Forward?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Get started online in minutes or book a free consultation. We represent buyers and sellers throughout Illinois.
+              Get started online in minutes or book a free consultation for Sale Representation, FSBO, or a qualifying Bond in Lieu of Probate matter.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

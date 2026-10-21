@@ -46,9 +46,7 @@ export type StandardizedServiceName =
   | 'Document Review'
   | 'Annual Review Membership'
   | 'Trust Funding - A La Carte'
-  | 'Residential Closing'
-  | 'Multi-Unit or Investment Closing'
-  | 'Estate, Trust, or Nonstandard Title Closing'
+  | 'Sale Representation'
   | 'For Sale By Owner Representation'
   | 'Trust Administration Consulting'
   | 'Adult Guardianship'
@@ -560,63 +558,35 @@ export const realEstateServices: Service[] = [
     category: 'real-estate',
     standardizedCaseType: 'Bond in Lieu of Probate',
     standardizedServiceName: 'Bond in Lieu of Probate',
-    fixedPrice: 1500,
-    description: 'Applies when the sole estate asset is real estate and all heirs agree on disposition of the property. Illinois law allows transfer of title through a bond in lieu of probate, avoiding a full probate proceeding.',
+    fixedPrice: REAL_ESTATE.bondInLieuOfProbate,
+    description: 'A limited probate-alternative service for an Illinois estate whose only asset requiring administration is real estate, when all heirs agree on the property’s sale or transfer and the title company and surety approve the bond-in-lieu process. This is not a full probate case.',
     includes: [
-      'Title Transfer Documentation',
-      'Coordination with Title Company for Out-of-Court Title Transfer',
-      'Attorney consultations related to the included scope'
+      'Review of the deed, ownership, heirs, and estate facts for eligibility',
+      'Preparation of the affidavits and title-transfer documents required for the approved bond-in-lieu process',
+      'Coordination with the title company and surety provider through the transfer or sale',
+      'Attorney consultations related to this limited scope'
     ],
-    note: 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.',
+    note: 'The surety bond premium, title-company charges, recording charges imposed by third parties, and contested work are NOT included in the $1,500 fee. If the estate has other assets requiring probate, the heirs disagree, or the title company will not accept this process, a probate engagement may be required.',
     addOns: []
   },
   {
     id: 'residential-closing',
-    name: 'Residential Closing (Buyer or Seller)',
+    name: 'Sale Representation',
+    subtitle: 'Seller represented by a licensed real estate agent',
     category: 'real-estate',
     standardizedCaseType: 'Real Estate',
-    standardizedServiceName: 'Residential Closing',
-    fixedPrice: REAL_ESTATE.residentialClosing,
-    description: 'For buyers or sellers who are represented by a real estate agent. Full-service attorney representation for residential real estate closings in Illinois. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.',
+    standardizedServiceName: 'Sale Representation',
+    fixedPrice: REAL_ESTATE.saleRepresentation,
+    description: 'Attorney representation for an Illinois residential seller who already has a licensed listing agent and a signed or proposed sale contract. The attorney fee is paid at closing from the seller’s proceeds. This service does not include buyer representation, brokerage services, marketing, or third-party closing costs.',
     includes: [
-      'Contract Review',
-      'Title Review and Clearance',
-      'Title Search',
-      'Document Preparation',
-      'Settlement Statement Review',
-      'Attorney Representation at Closing',
-      'Attorney consultations related to the included transaction scope'
-    ]
-  },
-  {
-    id: 'multi-unit-investment-closing',
-    name: 'Multi-Unit or Investment Closing',
-    category: 'real-estate',
-    standardizedCaseType: 'Real Estate',
-    standardizedServiceName: 'Multi-Unit or Investment Closing',
-    fixedPrice: REAL_ESTATE.multiUnitOrInvestmentClosing,
-    description: 'Buyer or seller representation for a residential multi-unit or investment property. Closing costs and third-party charges are not included.',
-    includes: [
-      'Contract and attorney-review negotiation',
-      'Title, survey, and closing-document review',
-      'Settlement statement review and closing representation',
-      'Attorney consultations related to the included transaction scope'
-    ]
-  },
-  {
-    id: 'estate-trust-nonstandard-closing',
-    name: 'Estate, Trust, or Nonstandard Title Closing',
-    category: 'real-estate',
-    standardizedCaseType: 'Real Estate',
-    standardizedServiceName: 'Estate, Trust, or Nonstandard Title Closing',
-    fixedPrice: REAL_ESTATE.estateTrustOrNonstandardTitleClosing,
-    description: 'Residential closing involving an estate, trust, power of attorney, or other nonstandard title authority. Closing costs and third-party charges are not included.',
-    includes: [
-      'Authority and governing-document review',
-      'Contract, title, survey, and closing-document review',
-      'Settlement statement review and closing representation',
-      'Attorney consultations related to the included transaction scope'
-    ]
+      'Attorney review and negotiation of the sale contract',
+      'Title review and ordinary title-clearance coordination',
+      'Preparation and review of customary seller closing documents',
+      'Review of the settlement statement and seller charges',
+      'Closing coordination and attorney representation through closing',
+      'Attorney consultations related to the included sale scope'
+    ],
+    note: 'The $750 fee does not include buyer representation, brokerage services, title-company charges, transfer taxes, recording charges, surveys, inspections, or other third-party closing costs.'
   },
   {
     id: 'fsbo-representation',
@@ -625,17 +595,19 @@ export const realEstateServices: Service[] = [
     standardizedCaseType: 'Real Estate',
     standardizedServiceName: 'For Sale By Owner Representation',
     fixedPrice: REAL_ESTATE.fsboRepresentation,
-    description: 'Full-service attorney representation for a For Sale By Owner (FSBO) residential real estate transaction in Illinois, where there is no listing agent. Because no agent is involved, the attorney also handles the coordination a listing agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.',
+    subtitle: 'Seller has no listing agent',
+    description: 'Expanded attorney representation for an Illinois residential seller who is selling without a listing agent. It includes the legal work in Sale Representation plus preparation or review of the purchase contract and additional transaction coordination. The fee is paid at closing from the seller’s proceeds. The firm does not act as a broker, list or market the property, show the property, locate a buyer, or provide pricing advice.',
     includes: [
-      'Purchase/Sale Contract Drafting or Review',
-      'Title Review and Clearance',
-      'Title Search',
-      'Document Preparation',
-      'Settlement Statement Review',
-      'Attorney Representation at Closing',
-      'Coordination normally handled by a real estate agent',
-      'Attorney consultations related to the included transaction scope'
-    ]
+      'Preparation or legal review of the residential sale contract',
+      'Attorney-review negotiation with the buyer or buyer’s attorney',
+      'Title review and ordinary title-clearance coordination',
+      'Preparation and review of customary seller closing documents',
+      'Review of the settlement statement and seller charges',
+      'Closing coordination and attorney representation through closing',
+      'Additional transaction coordination ordinarily handled by a listing agent',
+      'Attorney consultations related to the included FSBO scope'
+    ],
+    note: 'Does not include brokerage, marketing, showings, property valuation, inspections, surveys, title-company charges, transfer taxes, recording charges, or other third-party closing costs.'
   }
 ];
 

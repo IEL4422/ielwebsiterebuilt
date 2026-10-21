@@ -24,7 +24,7 @@ const getSupabaseClient = () => {
 
 interface QuizAnswers {
   needType: 'estate-planning' | 'trust-administration' | 'probate' | 'real-estate' | 'guardianship' | '';
-  realEstateRole: 'buyer' | 'seller' | 'fsbo' | '';
+  realEstateRole: 'seller' | 'fsbo' | 'bond' | '';
   guardianshipNeed: 'adult' | 'emergency-adult' | 'minor' | 'annual-compliance' | 'contested' | '';
   maritalStatus: 'single' | 'married' | '';
   ownsRealEstate: 'yes' | 'no' | '';
@@ -225,16 +225,15 @@ export default function RecommendedServicePage() {
         return {
           name: 'For Sale By Owner (FSBO) Representation',
           price: '$1,500',
-          description: 'Full-service attorney representation for a For Sale By Owner sale in Illinois, where there is no listing agent. Because no agent is involved, the attorney also handles the coordination a listing agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance.',
+          description: 'Expanded attorney representation for an Illinois residential seller without a listing agent. It includes contract preparation or review and additional transaction coordination, but not brokerage, marketing, showings, buyer placement, or pricing advice. The fee is paid at closing from sale proceeds.',
           includes: [
-            'Purchase/Sale Contract Drafting or Review',
-            'Title Review & Clearance',
-            'Title Search',
-            'Document Preparation',
-            'Settlement Statement Review',
-            'Attorney Representation at Closing',
-            'Coordination normally handled by a real estate agent',
-            'Attorney consultations related to the included transaction scope'
+            'Residential sale-contract preparation or review',
+            'Attorney-review negotiation',
+            'Title review and ordinary clearance coordination',
+            'Customary seller closing documents',
+            'Settlement-statement and seller-charge review',
+            'Closing coordination and representation',
+            'Additional transaction coordination ordinarily handled by a listing agent'
           ],
           addOns: [],
           serviceId: 'fsbo-representation',
@@ -244,28 +243,42 @@ export default function RecommendedServicePage() {
         };
       }
 
-      const isSeller = realEstateRole === 'seller';
+      if (realEstateRole === 'bond') {
+        return {
+          name: 'Bond in Lieu of Probate',
+          price: '$1,500',
+          description: 'A limited probate-alternative title-transfer service for an estate whose only asset requiring administration is Illinois real estate, when all heirs agree and the title company and surety approve the process. This is not a full probate case.',
+          includes: [
+            'Eligibility, ownership, and heir review',
+            'Affidavits and title-transfer documents for the approved process',
+            'Title-company and surety coordination',
+            'Attorney guidance through the approved transfer or sale'
+          ],
+          note: 'Surety premiums, title-company charges, recording charges imposed by third parties, and contested work are separate. A probate engagement may be required if the estate does not qualify.',
+          addOns: [],
+          serviceId: 'bond-in-lieu-of-probate',
+          requiresConsultation: false,
+          standardizedCaseType: 'Bond in Lieu of Probate',
+          standardizedServiceName: 'Bond in Lieu of Probate'
+        };
+      }
 
       return {
-        name: isSeller ? 'Residential Closing (Seller)' : 'Residential Closing (Buyer)',
+        name: 'Sale Representation',
         price: '$750',
-        description: isSeller
-          ? 'Full-service attorney representation for your Illinois residential sale, where you are represented by a listing agent. The attorney fee is paid at closing out of the sale proceeds, not in advance.'
-          : 'Full-service attorney representation for your Illinois residential purchase, where you are represented by a real estate agent. The attorney fee is paid at closing, not in advance.',
+        description: 'Attorney representation for an Illinois residential seller who already has a licensed listing agent. The fee is paid at closing from sale proceeds. Buyer representation, brokerage services, and third-party closing costs are not included.',
         includes: [
-          'Contract Review',
-          'Title Review & Clearance',
-          'Title Search',
-          'Document Preparation',
-          'Settlement Statement Review',
-          'Attorney Representation at Closing',
-          'Attorney consultations related to the included transaction scope'
+          'Sale-contract review and attorney-review negotiation',
+          'Title review and ordinary clearance coordination',
+          'Customary seller closing documents',
+          'Settlement-statement and seller-charge review',
+          'Closing coordination and representation'
         ],
         addOns: [],
         serviceId: 'residential-closing',
         requiresConsultation: false,
         standardizedCaseType: 'Real Estate',
-        standardizedServiceName: 'Residential Closing'
+        standardizedServiceName: 'Sale Representation'
       };
     }
 
@@ -998,34 +1011,12 @@ export default function RecommendedServicePage() {
               {answers.needType === 'real-estate' && step === 2 && (
                 <div className="space-y-6">
                   <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
-                    Are you buying, selling, or selling For Sale By Owner?
+                    Which real-estate service do you need?
                   </h2>
                   <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-600 mb-6">
-                    A For Sale By Owner sale has no listing agent, so the attorney carries work an agent would normally handle. It is a separate engagement from a standard closing.
+                    Choose the service that matches your matter. Sale Representation assumes a listing agent; FSBO does not. Bond in Lieu is a limited estate real-estate process, not a full probate.
                   </p>
                   <div className="space-y-4">
-                    <button
-                      onClick={() => updateAnswer('realEstateRole', 'buyer')}
-                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
-                        answers.realEstateRole === 'buyer'
-                          ? 'border-[#547298] bg-[#4a708b]/10'
-                          : 'border-gray-300 hover:border-[#547298]/50'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                            I am the Buyer
-                          </div>
-                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                            Purchasing a residential property in Illinois
-                          </div>
-                        </div>
-                        {answers.realEstateRole === 'buyer' && (
-                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
-                        )}
-                      </div>
-                    </button>
                     <button
                       onClick={() => updateAnswer('realEstateRole', 'seller')}
                       className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
@@ -1037,10 +1028,10 @@ export default function RecommendedServicePage() {
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                            I am the Seller
+                            Sale Representation — $750
                           </div>
                           <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
-                            Selling a residential property in Illinois
+                            I am selling residential property with a licensed listing agent
                           </div>
                         </div>
                         {answers.realEstateRole === 'seller' && (
@@ -1059,13 +1050,35 @@ export default function RecommendedServicePage() {
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
-                            I am selling For Sale By Owner (FSBO)
+                            For Sale By Owner (FSBO) — $1,500
                           </div>
                           <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
                             Selling without a listing agent, so the attorney also handles the coordination an agent would normally carry
                           </div>
                         </div>
                         {answers.realEstateRole === 'fsbo' && (
+                          <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
+                        )}
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => updateAnswer('realEstateRole', 'bond')}
+                      className={`w-full p-6 rounded-xl border-2 transition-all text-left ${
+                        answers.realEstateRole === 'bond'
+                          ? 'border-[#547298] bg-[#4a708b]/10'
+                          : 'border-gray-300 hover:border-[#547298]/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-lg font-semibold text-[#2d3e50] mb-1">
+                            Bond in Lieu of Probate — $1,500
+                          </div>
+                          <div className="font-['Plus_Jakarta_Sans'] text-sm text-gray-600">
+                            The estate’s only asset requiring administration is Illinois real estate and all heirs agree
+                          </div>
+                        </div>
+                        {answers.realEstateRole === 'bond' && (
                           <CheckCircle2 className="w-6 h-6 text-[#4a708b] flex-shrink-0 ml-4" />
                         )}
                       </div>

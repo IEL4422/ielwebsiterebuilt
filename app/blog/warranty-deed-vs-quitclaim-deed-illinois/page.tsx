@@ -223,7 +223,7 @@ export default function Page() {
 
             <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Make Sure You Get the Right Deed</h3>
-              <p className="text-white/90 mb-6">Whether you are buying, selling, or transferring property in Illinois, the deed type matters. Illinois Estate Law represents buyers and sellers throughout Cook County and advises on deed selection for all types of real estate transactions.</p>
+              <p className="text-white/90 mb-6">Whether property is being sold or transferred, the deed type matters. Illinois Estate Law provides seller-side Sale Representation and FSBO services, qualifying Bond in Lieu of Probate work, and separate deed-preparation services.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/book-consultation" className="inline-flex items-center gap-2 bg-white text-[#4A708B] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-lg">Schedule a Consultation<ArrowRight className="w-5 h-5" /></Link>
                 <a href="tel:3123730731" className="inline-flex items-center gap-2 bg-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-colors border-2 border-white/30">Call (312) 373-0731</a>

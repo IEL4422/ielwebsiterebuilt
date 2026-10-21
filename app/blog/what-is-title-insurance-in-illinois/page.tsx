@@ -222,7 +222,7 @@ export default function Page() {
 
             <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Questions About Your Title Insurance Coverage?</h3>
-              <p className="text-white/90 mb-6">Illinois Estate Law reviews title commitments for buyers and sellers — including Schedule B exceptions — to ensure you understand exactly what your title insurance will and will not cover before you close.</p>
+              <p className="text-white/90 mb-6">For seller-side Sale Representation and FSBO matters, Illinois Estate Law reviews the title commitment and coordinates ordinary title clearance required for the sale.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/book-consultation" className="inline-flex items-center gap-2 bg-white text-[#4A708B] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-lg">Schedule a Consultation<ArrowRight className="w-5 h-5" /></Link>
                 <a href="tel:3123730731" className="inline-flex items-center gap-2 bg-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-colors border-2 border-white/30">Call (312) 373-0731</a>

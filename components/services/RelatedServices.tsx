@@ -63,10 +63,10 @@ const SERVICES: Record<string, { name: string; href: string; icon: keyof typeof 
     desc: 'Transfer real property quickly and correctly with attorney-prepared deeds.',
   },
   closing: {
-    name: 'Real Estate Closings',
+    name: 'Real Estate Sale Representation',
     href: '/chicago-real-estate-closings-lawyer/',
     icon: 'Building2',
-    desc: 'Attorney representation at your residential real estate closing.',
+    desc: 'Flat-fee seller representation, FSBO service, and qualifying bond-in-lieu transfers.',
   },
 };
 

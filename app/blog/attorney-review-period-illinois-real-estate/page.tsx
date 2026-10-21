@@ -196,7 +196,7 @@ export default function Page() {
 
             <div className="bg-[#33414E] rounded-xl p-8 my-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Have an Attorney Review Your Contract Today</h3>
-              <p className="text-white/90 mb-6">The 5-day attorney review window moves fast. Illinois Estate Law provides flat-fee real estate contract review and represents buyers and sellers throughout Cook County and the Chicago area. Do not let the deadline pass without protecting yourself.</p>
+              <p className="text-white/90 mb-6">The attorney review window moves fast. Illinois Estate Law provides seller-side contract review and closing representation through our $750 Sale Representation and $1,500 FSBO packages.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/book-consultation" className="inline-flex items-center gap-2 bg-white text-[#4A708B] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-lg">Schedule a Consultation<ArrowRight className="w-5 h-5" /></Link>
                 <a href="tel:3123730731" className="inline-flex items-center gap-2 bg-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-colors border-2 border-white/30">Call (312) 373-0731</a>

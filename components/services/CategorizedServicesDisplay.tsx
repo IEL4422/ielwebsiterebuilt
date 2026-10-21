@@ -344,64 +344,44 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: 'Bond in Lieu of Probate',
         subtitle: 'When the sole estate asset is real estate',
-        fixedPrice: 1500,
+        fixedPrice: REAL_ESTATE.bondInLieuOfProbate,
         includes: [
-          'Title Transfer Documentation',
-          'Coordination with Title Company for Out-of-Court Title Transfer',
-          'Attorney consultations related to the included scope'
+          'Eligibility, ownership, and heir review',
+          'Affidavits and title-transfer documents for the approved process',
+          'Title-company and surety coordination',
+          'Attorney consultations for this limited scope'
         ],
-        note: 'Available when all heirs agree on disposition. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+        note: 'For an estate whose only asset requiring administration is Illinois real estate, when all heirs agree and the title company and surety approve the process. Not a full probate. The surety premium, third-party charges, and contested work are not included.'
       },
       {
-        name: 'Residential Closing (Buyer or Seller)',
-        fixedPrice: REAL_ESTATE.residentialClosing,
+        name: 'Sale Representation',
+        subtitle: 'Seller represented by a licensed real estate agent',
+        fixedPrice: REAL_ESTATE.saleRepresentation,
         includes: [
-          'Contract Review',
-          'Title Review and Clearance',
-          'Title Search',
-          'Document Preparation',
-          'Settlement Statement Review',
-          'Attorney Representation at Closing',
-          'Attorney consultations related to the included transaction scope'
+          'Sale-contract review and attorney-review negotiation',
+          'Title review and ordinary clearance coordination',
+          'Customary seller closing documents',
+          'Settlement-statement and seller-charge review',
+          'Closing coordination and representation',
+          'Attorney consultations for the included sale scope'
         ],
-        note: 'For buyers or sellers represented by a real estate agent. The attorney fee is paid at closing, not in advance; for sellers it comes out of the sale proceeds. Does not include closing costs.'
-      },
-      {
-        name: 'Multi-Unit or Investment Closing',
-        fixedPrice: REAL_ESTATE.multiUnitOrInvestmentClosing,
-        includes: [
-          'Contract and attorney-review negotiation',
-          'Title, survey, and closing-document review',
-          'Settlement statement review and closing representation',
-          'Attorney consultations related to the included transaction scope'
-        ],
-        note: 'For a residential multi-unit or investment property. Closing costs and third-party charges are not included.'
-      },
-      {
-        name: 'Estate, Trust, or Nonstandard Title Closing',
-        fixedPrice: REAL_ESTATE.estateTrustOrNonstandardTitleClosing,
-        includes: [
-          'Authority and governing-document review',
-          'Contract, title, survey, and closing-document review',
-          'Settlement statement review and closing representation',
-          'Attorney consultations related to the included transaction scope'
-        ],
-        note: 'For a residential closing involving an estate, trust, power of attorney, or other nonstandard title authority.'
+        note: 'For an Illinois residential seller who already has a listing agent. The $750 attorney fee is paid at closing from sale proceeds. Buyer representation, brokerage services, and third-party closing costs are not included.'
       },
       {
         name: 'For Sale By Owner (FSBO) Representation',
+        subtitle: 'Seller has no listing agent',
         fixedPrice: REAL_ESTATE.fsboRepresentation,
         includes: [
-          'Purchase/Sale Contract Drafting or Review',
-          'Title Review and Clearance',
-          'Title Search',
-          'Document Preparation',
-          'Settlement Statement Review',
-          'Attorney Representation at Closing',
-          'Coordination normally handled by a real estate agent',
-          'Attorney consultations related to the included transaction scope'
+          'Residential sale-contract preparation or review',
+          'Attorney-review negotiation',
+          'Title review and ordinary clearance coordination',
+          'Customary seller closing documents',
+          'Settlement-statement and seller-charge review',
+          'Closing coordination and representation',
+          'Additional transaction coordination ordinarily handled by a listing agent',
+          'Attorney consultations for the included FSBO scope'
         ],
-        note: 'Full-service representation for a For Sale By Owner sale where there is no listing agent, so the attorney also handles the coordination an agent would normally carry. The attorney fee is paid at closing out of the sale proceeds, not in advance. Does not include closing costs.'
+        note: 'The $1,500 attorney fee is paid at closing from sale proceeds. We do not act as a broker, market or show the property, find a buyer, or set the sale price. Third-party closing costs are not included.'
       }
     ],
     aLaCarte: [],

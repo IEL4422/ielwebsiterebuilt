@@ -96,7 +96,7 @@ export const staticGuides: StaticGuide[] = [
 </ul>
 
 <h2>Why Attorney Representation Matters</h2>
-<p>Illinois real estate transactions involve complex legal documents with lasting financial and legal consequences. An experienced real estate attorney reviews every contract and document, negotiates on your behalf, resolves title issues, and ensures the transaction closes correctly. At Illinois Estate Law, we represent buyers and sellers in residential real estate closings throughout Illinois for a flat fee of $750.</p>
+<p>Illinois real estate transactions involve complex legal documents with lasting financial and legal consequences. An experienced real estate attorney reviews every contract and document, negotiates on your behalf, resolves title issues, and ensures the transaction closes correctly. At Illinois Estate Law, our $750 Sale Representation service is for residential sellers who already have a licensed listing agent. Our seller-side FSBO service and qualifying Bond in Lieu of Probate matters are each $1,500.</p>
     `.trim(),
   },
 
