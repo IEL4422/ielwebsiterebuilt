@@ -8,6 +8,19 @@ type Message = { id: number; role: 'agent' | 'user'; text: string };
 type Status = 'idle' | 'connecting' | 'open' | 'ended' | 'error';
 const WS_URL = `wss://api.elevenlabs.io/v1/convai/conversation?agent_id=${ELEVENLABS_AGENT_ID}`;
 
+// Sent once per chat so the first reply opens with a short hello and answers right away.
+const FIRST_REPLY_CONTEXT =
+  'CHANNEL: website chat box on the Contact page. The visitor has NOT been greeted yet. ' +
+  'Open your first reply with a short, friendly hello (for example: "Hi, thanks for reaching out to Illinois Estate Law!") ' +
+  'and then answer or respond to their message in the same reply. Do not send a separate greeting, and do not use the name Sherry.';
+
+// Stand-alone greetings (phone or chat opener) are never shown as their own bubble.
+const GREETING_ONLY = /^(thank you for (calling|reaching( out to)?) illinois estate law|hi[,!]? (illinois estate law|how can we help)|hello[,!]? how can (we|i) help)/i;
+function isStandaloneGreeting(text: string) {
+  const t = text.trim();
+  return t.length < 140 && GREETING_ONLY.test(t) && /how can (we|i) help( you)?( today)?\??\.?$/i.test(t);
+}
+
 // React escapes message text. Only firm HTTPS links become clickable.
 function MessageText({ text }: { text: string }) {
   return <>{text.split(/(https:\/\/[^\s<>]+)/g).map((part, index) => {
@@ -95,7 +108,8 @@ export function InlineChat({ inputId: providedInputId }: { inputId?: string }) {
       if (wsRef.current !== ws) return;
       ws.send(JSON.stringify({
         type: 'conversation_initiation_client_data',
-        conversation_config_override: { conversation: { text_only: true } },
+        // No automatic opening greeting here: the first reply greets the visitor and answers in one message.
+        conversation_config_override: { agent: { first_message: '' }, conversation: { text_only: true } },
       }));
     };
     ws.onmessage = event => {
@@ -105,6 +119,7 @@ export function InlineChat({ inputId: providedInputId }: { inputId?: string }) {
       if (data.type === 'conversation_initiation_metadata' && !ready) {
         ready = true;
         setStatus('open');
+        ws.send(JSON.stringify({ type: 'contextual_update', text: FIRST_REPLY_CONTEXT }));
         ws.send(JSON.stringify({ type: 'user_message', text }));
         armTimeout(ws, 60000);
       } else if (data.type === 'ping') {
@@ -112,10 +127,10 @@ export function InlineChat({ inputId: providedInputId }: { inputId?: string }) {
       } else if (data.type === 'agent_response') {
         const response = data.agent_response_event;
         if (typeof response?.agent_response !== 'string' || !response.agent_response.trim()) return;
+        if (isStandaloneGreeting(response.agent_response)) return;
         const responseId = response.response_id ?? response.event_id;
         if (responseId != null && responseIds.current.has(String(responseId))) return;
         if (responseId != null) responseIds.current.add(String(responseId));
-        // Never drop the first reply: the agent may not send a separate greeting.
         setMessages(prev => [...prev, { id: idRef.current++, role: 'agent', text: response.agent_response }]);
         clearTimer();
         busyRef.current = false;
