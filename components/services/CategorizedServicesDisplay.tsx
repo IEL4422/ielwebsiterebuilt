@@ -174,11 +174,32 @@ export const serviceCategories: ServiceCategory[] = [
         includes: []
       },
       {
-        name: 'Irrevocable Trust',
-        subtitle: 'Gifting Trust, Life Insurance Trust (ILIT), or Supplemental Needs Trust',
-        fixedPrice: ESTATE_PLANNING.irrevocableTrust,
-        includes: [],
-        note: 'A custom-drafted irrevocable trust tailored to your goals. Includes trust funding guidance.'
+        name: 'Medicaid Asset Protection Trust',
+        subtitle: 'Standalone long-term-care asset-protection planning',
+        fixedPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+        includes: [
+          'Five-year look-back, asset, family, and long-term-care planning review',
+          'Custom Illinois Medicaid Asset Protection Trust',
+          'Trustee, beneficiary, retained-rights, and distribution design',
+          'Written trust-funding plan',
+          'One Illinois deed to the trust, including recording fees',
+          'Coordination with financial and tax professionals as needed'
+        ],
+        note: 'Standalone service; no base estate plan is required. Medicaid applications, crisis planning for care expected within five years, tax returns, appraisals, financial advice, and additional deeds are separate.'
+      },
+      {
+        name: 'Irrevocable Life Insurance Trust (ILIT)',
+        subtitle: 'Standalone life-insurance and estate-tax planning trust',
+        fixedPrice: ESTATE_PLANNING.irrevocableLifeInsuranceTrust,
+        includes: [
+          'Estate-tax, policy, ownership, beneficiary, and family-goal review',
+          'Custom Illinois Irrevocable Life Insurance Trust',
+          'Trustee, beneficiary, distribution, and withdrawal-right provisions',
+          'Policy assignment or new-policy ownership guidance',
+          'Crummey withdrawal-notice forms and first-year administration guidance',
+          'Coordination with insurance and tax professionals as needed'
+        ],
+        note: 'Standalone service; no base estate plan is required. Insurance products and premiums, trustee services, ongoing annual notices or administration, valuations, and tax returns are separate.'
       }
     ],
     addOns: [

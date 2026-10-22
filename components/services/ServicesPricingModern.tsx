@@ -28,7 +28,8 @@ const SERVICE_IDS: Record<string, string> = {
   'Trust Restatement': 'trust-restatement',
   'Will Amendment': 'will-amendment',
   'Trust Funding Guidance': 'trust-funding-service',
-  'Irrevocable Trust': 'irrevocable-trust',
+  'Medicaid Asset Protection Trust': 'medicaid-asset-protection-trust',
+  'Irrevocable Life Insurance Trust (ILIT)': 'irrevocable-life-insurance-trust',
   'Special Needs Planning': 'special-needs-planning',
   'Estate Tax Planning (Add-On)': 'estate-tax-planning',
   'Bond in Lieu of Probate': 'bond-in-lieu-of-probate',
@@ -194,6 +195,16 @@ function MiniCard({ service }: { service: Service }) {
       {service.individualPrice != null && service.jointPrice != null && (
         <span className="text-[11px] text-[#5f6b76]">Individual / Joint</span>
       )}
+      {service.includes.length > 0 && (
+        <ul className="mt-3 flex flex-col gap-1.5">
+          {service.includes.map((item) => (
+            <li key={item} className="flex gap-1.5 text-[11px] leading-snug text-[#2b3742]">
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#547298]" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )}
       {service.note && <span className="mt-1 block text-[11px] leading-snug text-[#5f6b76]">{service.note}</span>}
       <CardCtas ctas={ctasFor(service.name)} serviceName={service.name} />
     </div>
@@ -315,7 +326,7 @@ export function ServicesPricingModern() {
           </div>
 
           <h3 id="a-la-carte" className="scroll-mt-[150px] mb-4 mt-10 text-[22px] font-bold text-[#33414E]">
-            À La Carte &amp; Add-Ons
+            Standalone Services &amp; Add-Ons
           </h3>
           <div className="grid grid-cols-2 gap-3.5 md:grid-cols-3 lg:grid-cols-4">
             {[...estatePlanning.aLaCarte, ...estatePlanning.addOns].map((s, i) => (
