@@ -227,6 +227,10 @@ export const ESTATE_PLANNING = {
   diyReviewJoint: 1000,
   estateTaxPackageIndividual: 15000,
   estateTaxPackageJoint: 20000,
+  /** Standalone advanced-trust services. */
+  medicaidAssetProtectionTrust: 6500,
+  irrevocableLifeInsuranceTrust: 5500,
+  /** Legacy compatibility value for other advanced irrevocable-trust references. */
   irrevocableTrust: 5500,
   annualReviewMembership: 599,
 } as const;

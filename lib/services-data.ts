@@ -28,7 +28,8 @@ export type StandardizedServiceName =
   | 'Individual Will Amendment - A La Carte'
   | 'Joint Will Amendment - A La Carte'
   | 'Special Needs Planning - Add-On'
-  | 'Irrevocable Trust - A La Carte'
+  | 'Medicaid Asset Protection Trust'
+  | 'Irrevocable Life Insurance Trust'
   | 'Estate Tax Planning - Add-On'
   | 'Probate (Tier 1)'
   | 'Probate (Tier 2)'
@@ -220,25 +221,50 @@ export const estatePlanningPackages: Service[] = [
     addOns: []
   },
   {
-    id: 'irrevocable-trust',
-    name: 'Irrevocable Trust',
-    subtitle: 'Gifting Trust, Special Needs Trust, Life Insurance Trust (ILIT), or Supplemental Needs Trust',
+    id: 'medicaid-asset-protection-trust',
+    name: 'Medicaid Asset Protection Trust',
+    subtitle: 'Standalone long-term-care asset-protection planning',
     category: 'estate-planning',
     standardizedCaseType: 'Estate Planning',
-    standardizedServiceName: 'Irrevocable Trust - A La Carte',
-    fixedPrice: ESTATE_PLANNING.irrevocableTrust,
-    description: 'A custom-drafted irrevocable trust tailored to your goals — whether you need a Gifting Trust to reduce your taxable estate, a Special Needs or Supplemental Needs Trust to protect a loved one\'s government benefits, or an Irrevocable Life Insurance Trust (ILIT) to keep life insurance proceeds out of your estate.',
+    standardizedServiceName: 'Medicaid Asset Protection Trust',
+    fixedPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+    description: 'A standalone Illinois Medicaid Asset Protection Trust (MAPT) engagement for advance long-term-care planning. The strategy is designed around Medicaid transfer rules and the five-year look-back period; it is not a crisis Medicaid application or a promise of eligibility.',
     includes: [
-      'Attorney consultation to determine the right trust type (Gifting, Special Needs, ILIT, or Supplemental Needs)',
-      'Custom irrevocable trust drafting tailored to your specific goals',
-      'Asset protection and tax planning guidance',
-      'Coordination with financial advisors or insurance agents as needed',
+      'Long-term-care goals, asset, family, and five-year look-back review',
+      'Custom Illinois Medicaid Asset Protection Trust',
+      'Trustee, beneficiary, retained-rights, and distribution design',
+      'Written funding plan for appropriate assets',
+      'One Illinois deed transferring real estate to the trust, including recording fees',
+      'Coordination with the client’s financial and tax professionals as needed',
       'Online or Mobile Notarization',
       'Client Portal Access',
       'Attorney consultations related to the included scope'
     ],
-    note: `Includes one Gifting Trust, Special Needs Trust, Life Insurance Trust (ILIT), or Supplemental Needs Trust. Each additional irrevocable trust is ${usd(ESTATE_PLANNING.irrevocableTrust)}.`,
-    addOns: estatePlanningAddOns
+    note: 'Standalone service; no other estate-planning package is required. Medicaid applications, crisis planning for care expected within five years, tax returns, appraisals, financial advice, and additional deeds are separate. Medicaid eligibility depends on timing, transfers, assets, income, and then-current law.',
+    addOns: []
+  },
+  {
+    id: 'irrevocable-life-insurance-trust',
+    name: 'Irrevocable Life Insurance Trust (ILIT)',
+    subtitle: 'Standalone life-insurance and estate-tax planning trust',
+    category: 'estate-planning',
+    standardizedCaseType: 'Estate Planning',
+    standardizedServiceName: 'Irrevocable Life Insurance Trust',
+    fixedPrice: ESTATE_PLANNING.irrevocableLifeInsuranceTrust,
+    description: 'A standalone Irrevocable Life Insurance Trust engagement for clients who want a properly structured trust to own life insurance and coordinate death-benefit administration with their estate plan. No base estate-planning package is required.',
+    includes: [
+      'Estate-tax, policy, ownership, beneficiary, and family-goal review',
+      'Custom Illinois Irrevocable Life Insurance Trust',
+      'Trustee, beneficiary, distribution, and withdrawal-right provisions',
+      'Coordination with the client’s insurance and tax professionals as needed',
+      'Policy assignment or new-policy ownership guidance',
+      'Crummey withdrawal-notice forms and first-year administration guidance',
+      'Online or Mobile Notarization',
+      'Client Portal Access',
+      'Attorney consultations related to the included scope'
+    ],
+    note: 'Standalone service; no other estate-planning package is required. Insurance premiums and products, trustee services, ongoing annual notices or administration, valuations, and gift- or income-tax returns are not included.',
+    addOns: []
   },
   {
     id: 'annual-review-membership',

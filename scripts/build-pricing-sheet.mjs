@@ -39,6 +39,8 @@ const TOKENS = {
   ESTATE_TAX_JOINT: usd(num('estateTaxPackageJoint')),
   SPECIAL_NEEDS: usd(num('specialNeedsPlanning')),
   ESTATE_TAX_ADD_ON: usd(num('estateTaxPlanningAddOn')),
+  MEDICAID_ASSET_PROTECTION_TRUST: usd(num('medicaidAssetProtectionTrust')),
+  IRREVOCABLE_LIFE_INSURANCE_TRUST: usd(num('irrevocableLifeInsuranceTrust')),
   IRREVOCABLE_TRUST: usd(num('irrevocableTrust')),
   ANNUAL_REVIEW_MEMBERSHIP: usd(num('annualReviewMembership')),
   POA_INDIVIDUAL: usd(num('powersOfAttorneyIndividual')),

@@ -304,14 +304,30 @@ export function CategorizedServices({
           includes: []
         },
         {
-          id: 'irrevocable-trust',
-          name: 'Irrevocable Trust',
+          id: 'medicaid-asset-protection-trust',
+          name: 'Medicaid Asset Protection Trust',
           category: 'a-la-carte',
-          fixedPrice: ESTATE_PLANNING.irrevocableTrust,
-          description: 'One custom Gifting Trust, Special Needs Trust, ILIT, or Supplemental Needs Trust, with related planning guidance.',
+          fixedPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+          description: 'Standalone advance long-term-care planning with a custom Illinois Medicaid Asset Protection Trust, five-year look-back analysis, a written funding plan, and one recorded Illinois deed.',
           includes: [
-            'One custom irrevocable trust',
-            'Coordination with the client’s existing estate plan',
+            'Custom Illinois Medicaid Asset Protection Trust',
+            'Five-year look-back, asset, and family review',
+            'One Illinois deed to the trust, including recording fees',
+            'Written trust-funding plan',
+            'Attorney consultations related to the included scope'
+          ]
+        },
+        {
+          id: 'irrevocable-life-insurance-trust',
+          name: 'Irrevocable Life Insurance Trust (ILIT)',
+          category: 'a-la-carte',
+          fixedPrice: ESTATE_PLANNING.irrevocableLifeInsuranceTrust,
+          description: 'Standalone life-insurance and estate-tax planning trust with policy-ownership guidance and first-year Crummey-notice administration guidance.',
+          includes: [
+            'Custom Illinois Irrevocable Life Insurance Trust',
+            'Policy ownership and beneficiary review',
+            'Policy assignment or new-policy ownership guidance',
+            'Crummey notice forms and first-year administration guidance',
             'Attorney consultations related to the included scope'
           ]
         }
