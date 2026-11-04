@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'estate-planning-for-young-families-illinois',
+    title: 'Estate Planning for Young Families in Illinois: A Complete Guide for New Parents',
+    url: '/blog/estate-planning-for-young-families-illinois/',
+    date: 'Nov 4, 2026',
+    summary:
+      'Complete guide to estate planning for young Illinois families — why parents need a will and guardian designation, how a revocable living trust protects children, what powers of attorney cover during incapacity, how to handle life insurance beneficiary designations, and how to protect inherited assets for minor children.',
+    excerpt:
+      'Illinois parents: learn what documents you need, how to name a guardian for your children, how to protect inherited assets for minors, and how to get started with an estate plan.',
+  },
+  {
     slug: 'illinois-small-estate-affidavit-avoid-probate',
     title: 'Illinois Small Estate Affidavit: How to Avoid Probate on Small Estates',
     url: '/blog/illinois-small-estate-affidavit-avoid-probate/',
