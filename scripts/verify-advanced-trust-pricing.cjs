@@ -5,7 +5,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:3192';
 const services = [
   {
     name: 'Medicaid Asset Protection Trust',
-    price: '$6,500',
+    price: '$4,500',
     id: 'medicaid-asset-protection-trust',
     scope: /five-year look-back/i,
   },

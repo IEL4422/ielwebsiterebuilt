@@ -228,7 +228,7 @@ export const ESTATE_PLANNING = {
   estateTaxPackageIndividual: 15000,
   estateTaxPackageJoint: 20000,
   /** Standalone advanced-trust services. */
-  medicaidAssetProtectionTrust: 6500,
+  medicaidAssetProtectionTrust: 4500,
   irrevocableLifeInsuranceTrust: 5500,
   /** Legacy compatibility value for other advanced irrevocable-trust references. */
   irrevocableTrust: 5500,
