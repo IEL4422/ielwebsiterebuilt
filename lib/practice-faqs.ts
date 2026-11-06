@@ -1,7 +1,7 @@
 import type { QA } from '@/lib/seo';
 import {
   PROBATE,
-  GUARDIANSHIP_FLAT,
+  GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   CONTESTED,
   CONTESTED_FEE_NOTE,
@@ -91,17 +91,17 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'How much does adult guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship of the person and estate. The firm’s work and all court filing fees are included. Bond premiums and guardian ad litem (GAL) fees are not included because they are third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the combined total ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`,
+      `Illinois Estate Law charges a ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing for an uncontested adult guardianship of the person and estate. ${GUARDIANSHIP_HOURLY_NOTE} Legal work is billed hourly against the retainer; all court filing fees are included. Bond premiums and guardian ad litem (GAL) fees are not included because they are third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the initial retainer plus add-on (not a fixed total fee) ${usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`,
   },
   {
     question: 'How much does emergency adult guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a concrete ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency temporary-guardianship add-on to the ${usd(GUARDIANSHIP_FLAT.adultUncontested)} full uncontested adult-guardianship package, for a combined total of ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} The combined fee also includes priority preparation of the proposed order, one temporary-guardianship hearing, the full guardianship case, and all court filing fees. Bond premiums and court-appointed GAL fees are not included. The court controls whether temporary guardianship is granted and when a hearing occurs.`,
+      `Illinois Estate Law charges a concrete ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency temporary-guardianship add-on to the ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer for hourly uncontested adult-guardianship work, for an initial retainer plus add-on (not a fixed total fee) of ${usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} The engagement covers priority preparation of the proposed order, one temporary-guardianship hearing, the full guardianship case, and all court filing fees. Bond premiums and court-appointed GAL fees are not included. The court controls whether temporary guardianship is granted and when a hearing occurs.`,
   },
   {
     question: 'Is adult guardianship a flat fee?',
     answer:
-      `Yes. An uncontested adult guardianship of the person and estate is a flat ${usd(GUARDIANSHIP_FLAT.adultUncontested)}, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope and may incur additional flat fees only when listed litigation events actually occur.`,
+      `No. An uncontested adult guardianship of the person and estate is a ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing, including all court filing fees. Bond premiums and court-appointed GAL fees are separate third-party charges. A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope and may incur additional flat fees only when listed litigation events actually occur.`,
   },
   {
     question: 'What is the difference between guardianship of the person and guardianship of the estate?',
@@ -111,12 +111,12 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'What is a guardian ad litem and do I have to pay for one?',
     answer:
-      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — always disclosed to you and billed separately: a carve-out from the flat fee in an uncontested matter, or a billable expense in a contested one. It is never firm revenue.`,
+      `A guardian ad litem (GAL) is a lawyer the court appoints to investigate and report on what is in the respondent’s best interest. In Cook County a GAL is appointed in every estate guardianship, and in any person-guardianship that could result in a physical intrusion or a denial of rights. The GAL fee is a court-set third-party cost — typically ${usd(1500)}–${usd(2500)} — always disclosed to you and billed separately: an exclusion from the retainer in an uncontested matter, or a billable expense in a contested one. It is never firm revenue.`,
   },
   {
     question: 'What are a guardian’s ongoing duties after appointment?',
     answer:
-      `Being appointed is the beginning, not the end. A guardian of the person must file an annual report on the ward (755 ILCS 5/11a-17(b)). A guardian of the estate must file an accounting within 30 days of the one-year anniversary of appointment, and thereafter every three years unless the court orders otherwise (755 ILCS 5/24-11). Illinois Estate Law prepares and files the personal Annual Report on the Ward for ${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} each year it is filed. This fee does not include estate accounting. The personal annual report is the only additional firm fee for ordinary uncontested guardianship; routine administration, closing and termination remain included. Existing signed engagements are honored.`,
+      `Being appointed is the beginning, not the end. A guardian of the person must file an annual report on the ward (755 ILCS 5/11a-17(b)). A guardian of the estate must file an accounting within 30 days of the one-year anniversary of appointment, and thereafter every three years unless the court orders otherwise (755 ILCS 5/24-11). Illinois Estate Law prepares and files the personal Annual Report on the Ward for ${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} each year it is filed. This fee does not include estate accounting. Other legal work is billed hourly under the written engagement. Existing signed engagements are honored.`,
   },
   {
     question: 'Can a guardianship be ended or the ward’s rights restored?',
@@ -139,7 +139,7 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'How much does minor guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a flat ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship, and that fee is all-inclusive of court costs. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested, representation starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope. Additional flat fees apply only when listed litigation events actually occur.`,
+      `Illinois Estate Law charges a ${usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer with hourly billing for an uncontested minor guardianship. ${GUARDIANSHIP_HOURLY_NOTE} This engagement comes with court filing fees included. The retainer is not a fixed total fee. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested, representation starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope. Additional flat fees apply only when listed litigation events actually occur.`,
   },
   {
     question: 'What if a parent objects to the guardianship?',
@@ -159,7 +159,7 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'Does the child need a guardian ad litem?',
     answer:
-      'In a minor guardianship, a guardian ad litem is appointed at the court’s discretion rather than automatically. Where one is appointed, the GAL investigates and reports to the court on the child’s best interest. In an uncontested matter our flat fee covers our work; a GAL fee, if the court appoints one, is a separate court-set cost.',
+      'In a minor guardianship, a guardian ad litem is appointed at the court’s discretion rather than automatically. Where one is appointed, the GAL investigates and reports to the court on the child’s best interest. In an uncontested matter our work is billed hourly against a retainer; a GAL fee, if the court appoints one, is a separate court-set cost.',
   },
   {
     question: 'Which Illinois counties do you handle minor guardianship in?',

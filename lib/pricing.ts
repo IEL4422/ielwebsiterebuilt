@@ -7,38 +7,12 @@
  * schema block, llms.txt entry, county page, comparison table, portal surface,
  * or CSA may hardcode a dollar figure. They all import from this file.
  *
- * STATUS: LOCKED 2026-07-14; retainers standardized 2026-07-15; guardianship
- * moved to flat fees 2026-07-16; uncontested guardianship set to a flat $5,000
- * and the Annual Report on the Ward to $750 per year, per Mary 2026-09-08. Approved by Mary Liberty. The model is now
- * clean: every contested matter begins with a UNIFORM $5,000 flat fee for a
- * defined initial scope. Listed litigation events may trigger additional flat
- * fees, but they are not automatic. EVERYTHING
- * uncontested is a flat fee — including adult guardianship of the person and
- * estate, which moved from a $5,000 retainer to a flat fee. Both uncontested
- * guardianships (adult and minor) are the SAME flat $5,000. All court filing
- * fees are included; court-appointed GAL fees and surety-bond premiums are
- * disclosed third-party exclusions. There are no PENDING prices.
- *
- * ---------------------------------------------------------------------------
- * THE BILLING MODEL — fee structure is a property of MATTER POSTURE, not of the
- * practice area. There are three models:
- *
- *   'flat_all_inclusive'  Uncontested, knowable scope — INCLUDING all uncontested
- *                         guardianship (adult and minor). The flat fee covers ALL
- *                         of the firm's work and court costs except the named
- *                         carve-outs below.
- *   'flat_staged'         CONTESTED matters. Starts with a $5,000 flat fee for
- *                         the initial scope. Listed litigation events may
- *                         trigger additional flat fees.
- *   'flat_annual'         Recurring court-required compliance work.
- *
- * The named cost carve-outs, and there are only these:
- *   - Uncontested probate flat fee -> surety bond premium.
- *   - Adult guardianship flat fee -> guardian ad litem (GAL) fee and any
- *     surety-bond premium, both third-party charges.
- *   - Trust funding -> one deed + recording included; additional deeds $500 ea.
- *   - Contested matters may also incur disclosed third-party costs.
- * ============================================================================
+ * Current requested pricing: adult and minor guardianship use a $5,000 retainer
+ * with hourly billing. Standard probate and the large-estate base are $6,500.
+ * Trust Administration Consulting is $3,500 per year. Existing contested event
+ * fees and discrete service prices are unchanged pending scope confirmation.
+ * The retainer is not a fixed total fee. Rates and replenishment terms belong
+ * in the written engagement; no statewide hourly-billing mandate is asserted.
  */
 
 export type BillingModel = 'flat_all_inclusive' | 'flat_staged' | 'flat_annual';
@@ -136,22 +110,23 @@ export const RETAINER_FLOORS = {
   contestedProbate: 2500,
 } as const;
 
-/**
- * Guardianship FLAT fees (flat_all_inclusive). LOCKED. ALL uncontested
- * guardianship is flat-fee'd. Contested matters use the staged flat-fee model.
- *
- *   - Adult guardianship of the person and estate: flat $5,000, including the
- *     firm's defined work and all court filing fees (petition, physician's
- *     report coordination, personal service, GAL coordination, surety-bond and
- *     inventory coordination, and hearing). The GAL fee and any surety-bond
- *     premium are third-party charges and are not included. (Set to MATCH minor
- *     guardianship per Mary 2026-07-16; raised to $5,000 per Mary 2026-09-08.)
- *   - Minor guardianship: petition -> notice -> hearing -> letters. Same $5,000.
- *   - Discrete interim petitions and uncontested termination.
- */
-export const GUARDIANSHIP_FLAT = {
+/** Adult and minor guardianship retainers; hourly billing, not fixed total fees. */
+export const GUARDIANSHIP_RETAINER = {
   adultUncontested: 5000,
   minorUncontested: 5000,
+} as const;
+
+/** Approved rates for new hourly adult and minor guardianship engagements only. */
+export const GUARDIANSHIP_RATES = {
+  guardianshipAttorneyHourly: 325,
+  guardianshipParalegalHourly: 150,
+} as const;
+
+export const GUARDIANSHIP_HOURLY_NOTE =
+  `New hourly adult and minor guardianship engagements are billed at ${usd(GUARDIANSHIP_RATES.guardianshipAttorneyHourly)} per attorney hour and ${usd(GUARDIANSHIP_RATES.guardianshipParalegalHourly)} per paralegal hour. Existing signed engagements are honored.`;
+
+/** Existing discrete guardianship fees; emergency add-on policy needs review. */
+export const GUARDIANSHIP_FLAT = {
   /** Priority temporary-guardianship petition and hearing added to a full adult guardianship. */
   emergencyTemporaryAddOn: 2500,
   interimPetition: 1500,
@@ -169,8 +144,8 @@ export const EMERGENCY_GUARDIANSHIP_FILING_TIMELINE =
  *
  *   - Annual Report on the Ward: 755 ILCS 5/11a-17(b). $750 per year, every year
  *     the guardianship continues. Portal-templated; highest margin service in the
- *     firm. This is a RECURRING charge and is NOT part of the flat fee — say so
- *     wherever the uncontested guardianship flat fee is quoted.
+ *     firm. This is a RECURRING charge and is billed separately from hourly legal work — say so
+ *     wherever the uncontested guardianship retainer is quoted.
  *   - Annual Estate Accounting: 755 ILCS 5/24-11. NOT automated — assembling the
  *     evidence for every disbursement is real paralegal time.
  */
@@ -203,9 +178,9 @@ export const PROBATE = {
    *  direction. Replaces the retired $3,500 'Small Estate Probate' package and
    *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
   smallEstateAdministration: 1000,
-  standard: 5000,
+  standard: 6500,
   /** Additional percentage charged during administration only when estate value exceeds $4,000,000 due to estate-tax complexity. */
-  largeEstateBase: 5000,
+  largeEstateBase: 6500,
   largeEstatePercent: 0.5,
   largeEstateThreshold: 4000000,
   reopening: 2500,
@@ -254,8 +229,8 @@ export const A_LA_CARTE = {
   deed: 500,
 } as const;
 
-/** Trust administration — unchanged. */
-export const TRUST_ADMIN = { consultingAnnual: 5000 } as const;
+/** Annual consulting; existing ten-hour scope retained. */
+export const TRUST_ADMIN = { consultingAnnual: 3500 } as const;
 
 /** Real estate — three public flat-fee structures. */
 export const REAL_ESTATE = {
@@ -266,14 +241,14 @@ export const REAL_ESTATE = {
 
 /**
  * The conversion clause. Required in every uncontested guardianship engagement
- * (adult and minor, now both flat-fee). If anyone objects, the matter moves to
+ * (adult and minor, billed hourly). If anyone objects, the matter moves to
  * a separate contested-matter scope beginning with the contested flat fee.
  *
  * NOTE: this protects against a FORMAL objection or competing petition — the
  * event that moves an uncontested matter into contested litigation.
  */
 export const CONVERSION_CLAUSE =
-  'This flat fee covers an uncontested proceeding. If any person files an objection, ' +
+  'This hourly engagement covers an uncontested proceeding. If any person files an objection, ' +
   'an appearance in opposition, or a competing petition, the matter becomes contested. ' +
   'Contested representation starts with a $5,000 flat fee for a defined initial scope. If listed litigation events occur, ' +
   'additional flat fees may apply under the written engagement agreement and will be explained before they are incurred.';
@@ -324,6 +299,8 @@ export const PRICING = {
   RETAINERS,
   CONTESTED,
   RETAINER_FLOORS,
+  GUARDIANSHIP_RETAINER,
+  GUARDIANSHIP_RATES,
   GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   GUARDIANSHIP_COSTS,

@@ -154,9 +154,9 @@ const answers: Answer[] = [
   {
     question: 'How much does adult guardianship cost at Illinois Estate Law?',
     short:
-      'A full uncontested adult guardianship is $5,000. The emergency temporary-guardianship add-on is $2,500, making the emergency-and-full-case package $7,500.',
+      'Uncontested adult and minor guardianship require a $5,000 retainer with hourly billing. The existing emergency temporary-guardianship add-on is $2,500, for $7,500 initially, not a fixed total fee.',
     detail: [
-      'The uncontested package includes the firm’s defined work and all court filing fees. Surety-bond premiums and court-appointed guardian ad litem fees are third-party expenses and are not included.',
+      'Legal work is billed hourly against the retainer; court filing fees are included. Surety-bond premiums and court-appointed guardian ad litem fees are third-party expenses and are not included.',
       'The emergency package includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday. The court—not the firm—controls the hearing date and decides whether temporary relief is granted.',
       'A contested adult or minor guardianship starts with a $5,000 flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur and are explained in writing before they are incurred.',
     ],
@@ -215,7 +215,7 @@ export default function IllinoisEstateLawAnswersPage() {
               estate administration, trust administration, deeds and property transfers, and
               guardianship, residential real estate closings, and deeds and property transfers. Our attorneys are licensed in
               Illinois, and we serve clients in Chicago, Cook County, the collar counties, and every
-              county in the state. Most work is done virtually. Standard matters use concrete flat fees,
+              county in the state. Most work is done virtually. Estate planning and uncontested probate use flat fees; uncontested guardianship uses a retainer with hourly billing,
               and contested matters begin with a written flat-fee scope.
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">

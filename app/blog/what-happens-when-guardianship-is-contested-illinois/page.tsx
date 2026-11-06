@@ -40,7 +40,7 @@ export default function Page() {
     { id: 'standard-of-proof', title: 'The Standard of Proof', level: 2, numeration: '5' },
     { id: 'removing-a-guardian', title: 'Removing or Replacing a Guardian', level: 2, numeration: '6' },
     { id: 'how-fees-work', title: 'How Fees Work in a Contested Guardianship', level: 2, numeration: '7' },
-    { id: 'flat-to-contested', title: 'When a Flat-Fee Guardianship Becomes Contested', level: 2, numeration: '8' },
+    { id: 'flat-to-contested', title: 'When an Uncontested Guardianship Becomes Contested', level: 2, numeration: '8' },
     { id: 'protecting-your-family', title: 'How to Reduce the Risk of a Contested Guardianship', level: 2, numeration: '9' },
     { id: 'faq', title: 'Frequently Asked Questions', level: 2, numeration: '10' },
     { id: 'next-steps', title: 'Next Steps', level: 2, numeration: '11' },
@@ -63,7 +63,7 @@ export default function Page() {
         `A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee covering a defined initial scope. If specified contested events occur — such as additional motions, discovery, hearings, or trial preparation — additional expenses may apply under the written engagement agreement. Those expenses are conditional and are explained before they are incurred. Third-party costs, including a guardian ad litem fee when applicable, remain separate.`,
     },
     {
-      question: 'What happens to my flat fee if my guardianship becomes contested?',
+      question: 'What happens to my retainer if my guardianship becomes contested?',
       answer:
         `If a matter accepted as uncontested later becomes contested, a separate contested flat-fee scope applies, starting at ${usd(CONTESTED.guardianshipInitialFlatFee)}. The firm explains in writing how the amount already paid applies. The engagement agreement also identifies defined contested events that may create additional expenses, so those expenses are not treated as automatically required.`,
     },
@@ -530,11 +530,11 @@ export default function Page() {
 
             {/* 8. Flat to Contested */}
             <h2 id="flat-to-contested" className="text-2xl font-bold mt-12 mb-4 font-['Plus_Jakarta_Sans']">
-              When a Flat-Fee Guardianship Becomes Contested
+              When an Uncontested Guardianship Becomes Contested
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              A common and understandable worry: &ldquo;I hired you for a flat-fee guardianship — what happens to my money if it turns into a fight?&rdquo; This comes up most often with matters that start out uncontested, such as a minor guardianship everyone expected to be routine. Here is exactly how we handle it, and why you do not need to worry about losing what you have already paid.
+              A common and understandable worry: &ldquo;I paid a retainer for hourly guardianship representation — what happens to my money if it turns into a fight?&rdquo; This comes up most often with matters that start out uncontested, such as a minor guardianship everyone expected to be routine. Here is exactly how we handle it, and why you do not need to worry about losing what you have already paid.
             </p>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
@@ -797,7 +797,7 @@ export default function Page() {
                     Mary Liberty is a Chicago-based estate planning and probate attorney dedicated to making legal planning accessible, affordable, and stress-free. Through her modern virtual law practice, she helps families and individuals across Illinois create clear, effective plans that protect their assets and their loved ones.
                   </p>
                   <p className="mb-0 text-gray-700 font-['Plus_Jakarta_Sans']">
-                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a 100% flat-fee model so clients always know exactly what to expect.
+                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a transparent pricing model so clients always know exactly what to expect.
                   </p>
                 </div>
               </div>

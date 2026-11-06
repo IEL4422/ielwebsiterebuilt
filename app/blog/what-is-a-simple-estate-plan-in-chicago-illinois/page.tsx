@@ -470,7 +470,7 @@ export default function SimpleEstatePlanPage() {
                     Mary Liberty is a Chicago-based estate planning and probate attorney dedicated to making legal planning accessible, affordable, and stress-free. Through her modern virtual law practice, she helps families and individuals across Illinois create clear, effective plans for their futures without the traditional barriers of cost or complexity. Her approachable style and commitment to transparency set her apart in a field that often feels overwhelming.
                   </p>
                   <p className="mb-0">
-                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service, which helps clients transition their existing plans smoothly when communication or costs have become an issue. Known for her precision, empathy, and plain-language guidance, she operates on a 100% flat-fee model, so clients always know exactly what to expect.
+                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service, which helps clients transition their existing plans smoothly when communication or costs have become an issue. Known for her precision, empathy, and plain-language guidance, she operates on a transparent pricing model, so clients always know exactly what to expect.
                   </p>
                 </div>
               </div>

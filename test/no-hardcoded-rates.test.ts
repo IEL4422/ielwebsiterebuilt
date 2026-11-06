@@ -13,7 +13,7 @@
 import { describe, expect, it } from 'vitest';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { A_LA_CARTE, PROBATE, RATES, RETAINERS } from '../lib/pricing';
+import { A_LA_CARTE, PROBATE, RATES, RETAINERS, GUARDIANSHIP_RATES } from '../lib/pricing';
 
 const ROOT = join(__dirname, '..');
 
@@ -34,7 +34,7 @@ const RATE_LINE =
   /(attorney|paralegal|hourly|per hour|\/\s*hr)/i;
 // (?![\d,]) so estate-value thresholds like $100,000 and $1,000,000 are not rates.
 const MONEY = /\$\s?(\d{3})(?![\d,])/gi;
-const RATE_VALUES = new Set(['350', '400', '425', '450', '125', '150', '175']);
+const RATE_VALUES = new Set(['325', '350', '400', '425', '450', '125', '150', '175']);
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -51,10 +51,12 @@ describe('hourly rates live in exactly one place', () => {
   it('lib/pricing.ts holds the confirmed figures', () => {
     // Mary 2026-09-09 ($425) and StaffPortal PR #345 2026-08-06 ($175).
     expect(RATES.attorneyHourly).toBe(425);
+    expect(GUARDIANSHIP_RATES.guardianshipAttorneyHourly).toBe(325);
+    expect(GUARDIANSHIP_RATES.guardianshipParalegalHourly).toBe(150);
     expect(RATES.paralegalHourly).toBe(175);
     expect(RETAINERS.contestedProbate).toBe(5000);
     expect(RETAINERS.contestedGuardianship).toBe(5000);
-    expect(PROBATE.standard).toBe(5000);
+    expect(PROBATE.standard).toBe(6500);
     expect(A_LA_CARTE.estateTaxPlanningAddOn).toBe(5000);
   });
 

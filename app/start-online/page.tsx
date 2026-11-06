@@ -13,7 +13,7 @@ type SearchParams = {
 
 export const metadata: Metadata = {
   title: 'Start Online with Confidence',
-  description: 'Review your service details, flat fee, and next steps before beginning a secure Illinois Estate Law intake online.',
+  description: 'Review your service details, pricing, and next steps before beginning a secure Illinois Estate Law intake online.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/start-online/',
   },
@@ -39,7 +39,7 @@ function priceLabel(service: Service, clientType: 'individual' | 'joint') {
 
 function confidenceItems(service?: Service) {
   const items = [
-    'Your flat fee and the scope of your selected service are shown before you proceed.',
+    'Your pricing and the scope of your selected service are shown before you proceed.',
     'The firm will present the applicable Client Service Agreement before substantive work begins.',
     service?.requiresConsultation
       ? 'This service begins with an attorney review so the firm can confirm the relevant facts, scope, and next steps.'
@@ -107,7 +107,7 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
                         {selectedService.description}
                       </p>
                     </div>
-                    <div className="shrink-0 sm:text-right">
+                    <div className="min-w-0 sm:max-w-sm sm:text-right">
                       <p className="font-['Plus_Jakarta_Sans'] text-sm font-medium text-[#B7CBE0]">Your fee</p>
                       <p className="font-['Plus_Jakarta_Sans'] text-3xl font-bold text-white">{selectedPrice}</p>
                       <p className="font-['Plus_Jakarta_Sans'] text-xs text-white/70">
@@ -182,7 +182,7 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
               <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
                 <FileText className="h-6 w-6 text-[#4A708B]" aria-hidden="true" />
                 <h2 className="mt-4 font-['Plus_Jakarta_Sans'] text-base font-bold text-[#33414E]">1. Review</h2>
-                <p className="mt-2 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-600">Confirm the service, flat fee, inclusions, and any important service notes.</p>
+                <p className="mt-2 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-600">Confirm the service, pricing, inclusions, and any important service notes.</p>
               </div>
               <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
                 <LockKeyhole className="h-6 w-6 text-[#4A708B]" aria-hidden="true" />

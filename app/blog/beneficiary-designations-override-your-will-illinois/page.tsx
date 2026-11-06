@@ -803,7 +803,7 @@ export default function Page() {
                   <p className="mb-0 text-gray-700 font-['Plus_Jakarta_Sans']">
                     Mary focuses on estate planning, uncontested probate, and her signature partial probate
                     service. Known for her precision, empathy, and plain-language guidance, she operates on a
-                    100% flat-fee model so clients always know exactly what to expect.
+                    transparent pricing model so clients always know exactly what to expect.
                   </p>
                 </div>
               </div>

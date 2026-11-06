@@ -59,7 +59,7 @@ export default function Page() {
     {
       question: 'Does adult guardianship cost more than minor guardianship in Illinois?',
       answer:
-        `No — Illinois Estate Law charges the same flat fee for an uncontested adult guardianship and an uncontested minor guardianship, even though an adult case involves more built-in work. Adult guardianship requires a physician's report, personal service, and usually a guardian ad litem investigation. Because that scope is known up front, both are handled for one predictable flat fee. A contested matter starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement.`,
+        `No — Illinois Estate Law charges the same $5,000 retainer with hourly billing for an uncontested adult guardianship and an uncontested minor guardianship, even though an adult case involves more built-in work. Adult guardianship requires a physician's report, personal service, and usually a guardian ad litem investigation. Because that scope is known up front, both are handled for a retainer applied to hourly legal work, not a fixed total fee. A contested matter starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement.`,
     },
     {
       question: 'Can the same person be guardian of both an adult and a minor?',
@@ -374,7 +374,7 @@ export default function Page() {
                       ['Who can object', 'The adult respondent (and interested parties)', 'A parent asserting superior rights'],
                       ['Typical petitioner', 'Adult child, spouse, sibling, or other relative', 'Grandparent, relative, or family friend'],
                       ['Duration', 'Continues while the disability lasts', 'Ends automatically at age 18'],
-                      ['Fee structure', `Flat fee; contested matters start with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, `Flat fee; contested matters start with ${usd(CONTESTED.guardianshipInitialFlatFee)}`],
+                      ['Fee structure', `Retainer with hourly billing; contested matters start with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, `Retainer with hourly billing; contested matters start with ${usd(CONTESTED.guardianshipInitialFlatFee)}`],
                     ].map(([factor, adult, minor], i) => (
                       <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className="py-3 px-6 font-medium text-gray-700">{factor}</td>
@@ -442,7 +442,7 @@ export default function Page() {
             </h2>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Cost follows directly from the work involved. Uncontested adult and minor guardianship are handled for the <em>same</em> flat fee. A contested matter starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined events such as additional motions, discovery, hearings, or trial preparation may create additional expenses under the written engagement.
+              Cost follows directly from the work involved. Uncontested adult and minor guardianship are handled for the <em>same</em> $5,000 retainer with hourly billing. A contested matter starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined events such as additional motions, discovery, hearings, or trial preparation may create additional expenses under the written engagement.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -451,7 +451,7 @@ export default function Page() {
                 <h3 className="font-bold text-lg mb-4 font-['Plus_Jakarta_Sans']">Uncontested Minor Guardianship</h3>
                 <div className="space-y-3 text-sm font-['Plus_Jakarta_Sans']">
                   {[
-                    'Handled on a flat-fee basis',
+                    'Retainer with hourly billing',
                     'Predictable scope when a parent consents',
                     'No physician\'s report required',
                     'Streamlined petition and appearance',
@@ -469,7 +469,7 @@ export default function Page() {
                 <h3 className="font-bold text-lg mb-4 font-['Plus_Jakarta_Sans']">Uncontested Adult Guardianship</h3>
                 <div className="space-y-3 text-sm font-['Plus_Jakarta_Sans']">
                   {[
-                    'Handled on a flat fee — the same flat fee as a minor case',
+                    'Handled with the same $5,000 retainer with hourly billing as a minor case',
                     'Adult cases require a physician\'s report',
                     'Personal service on the respondent',
                     'Guardian ad litem investigation and report',
@@ -485,7 +485,7 @@ export default function Page() {
             </div>
 
             <p className="mb-6 font-['Plus_Jakarta_Sans']">
-              Even though an adult case involves more built-in work — the physician&apos;s report, personal service, and guardian ad litem investigation are part of every adult matter — Illinois Estate Law charges the <strong>same flat fee</strong> for an uncontested adult guardianship as for an uncontested minor one. A <strong>contested</strong> matter starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee, with conditional event-based expenses identified in the written engagement. For current pricing on each type, visit our{' '}
+              Even though an adult case involves more built-in work — the physician&apos;s report, personal service, and guardian ad litem investigation are part of every adult matter — Illinois Estate Law charges the <strong>same $5,000 retainer with hourly billing</strong> for an uncontested adult guardianship as for an uncontested minor one. A <strong>contested</strong> matter starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee, with conditional event-based expenses identified in the written engagement. For current pricing on each type, visit our{' '}
               <Link href="/guardianship/" className="text-[#4a708b] hover:underline font-medium font-['Plus_Jakarta_Sans']">
                 guardianship page
               </Link>{' '}
@@ -502,7 +502,7 @@ export default function Page() {
                 Not Sure Which Type of Guardianship You Need?
               </h3>
               <p className="text-white/80 mb-5 text-sm font-['Plus_Jakarta_Sans'] leading-relaxed">
-                Illinois Estate Law helps Chicago-area families navigate both adult and minor guardianship — from an uncontested flat-fee petition to a fully contested case. We&apos;ll tell you which proceeding applies and exactly how our fee structure works before you commit.
+                Illinois Estate Law helps Chicago-area families navigate both adult and minor guardianship — from an uncontested hourly engagement to a fully contested case. We&apos;ll tell you which proceeding applies and exactly how our fee structure works before you commit.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
@@ -655,7 +655,7 @@ export default function Page() {
                 Speak With an Illinois Guardianship Attorney
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed font-['Plus_Jakarta_Sans']">
-                Illinois Estate Law helps Chicago-area families with both adult and minor guardianship. Uncontested matters use a defined flat fee, while contested matters start with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee and may have additional expenses only if defined events occur. Start with a free consultation so you know which proceeding applies.
+                Illinois Estate Law helps Chicago-area families with both adult and minor guardianship. Uncontested matters use a retainer with hourly billing, while contested matters start with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee and may have additional expenses only if defined events occur. Start with a free consultation so you know which proceeding applies.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -745,7 +745,7 @@ export default function Page() {
                     Mary Liberty is a Chicago-based estate planning and probate attorney dedicated to making legal planning accessible, affordable, and stress-free. Through her modern virtual law practice, she helps families and individuals across Illinois create clear, effective plans that protect their assets and their loved ones.
                   </p>
                   <p className="mb-0 text-gray-700 font-['Plus_Jakarta_Sans']">
-                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a 100% flat-fee model so clients always know exactly what to expect.
+                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a transparent pricing model so clients always know exactly what to expect.
                   </p>
                 </div>
               </div>

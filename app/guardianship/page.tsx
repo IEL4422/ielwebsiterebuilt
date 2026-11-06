@@ -17,7 +17,7 @@ import { CTABanner } from '@/components/geo/CTABanner';
 import {
   CONTESTED,
   CONTESTED_FEE_NOTE,
-  GUARDIANSHIP_FLAT,
+  GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   usd,
 } from '@/lib/pricing';
@@ -33,7 +33,7 @@ const adultOfferings = [
   { icon: UserCheck, title: 'GAL & Physician’s Report', description: 'We coordinate the court-appointed guardian ad litem and the physician’s report (CCP 0211 / CIC-2) required to establish disability.' },
   { icon: ClipboardCheck, title: 'Personal Annual Report', description: 'Preparation and filing of the personal annual report on the ward is $750 each year it is filed. Estate accounting is not included in this fee; applicable court reporting duties still apply.' },
   { icon: FileText, title: 'Interim Petitions & Termination', description: 'Sale of real estate, extraordinary expenditures, change of placement, and restoration of the ward’s rights.' },
-  { icon: Clock, title: 'Emergency Temporary Guardianship', description: `Includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday, plus one emergency hearing and the full uncontested case. ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} add-on — ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total.` },
+  { icon: Clock, title: 'Emergency Temporary Guardianship', description: `Includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday, plus one emergency hearing and the full uncontested case. ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} add-on — ${usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total.` },
 ];
 
 const minorOfferings = [
@@ -97,12 +97,13 @@ export default function GuardianshipPage() {
         {/* Adult fees — all figures from lib/pricing.ts */}
         <div className="mt-12 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">How adult guardianship is billed</h3>
-          <p>An uncontested adult guardianship of the person and estate is a <strong>flat {usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong>. The firm’s work and <strong>all court filing fees are included</strong>: the petition, physician-report coordination, personal-service coordination, GAL coordination, inventory and surety-bond coordination, and hearing. <strong>Bond premiums and court-appointed guardian ad litem fees are not included</strong> because they are third-party charges.</p>
-          <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_FLAT.adultUncontested)} flat fee is paid once. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, not part of the flat fee.</p>
+          <p>{GUARDIANSHIP_HOURLY_NOTE}</p>
+          <p>An uncontested adult guardianship of the person and estate is a <strong>{usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing</strong>. Legal work is billed hourly against the retainer. <strong>All court filing fees are included</strong>. Representation covers: the petition, physician-report coordination, personal-service coordination, GAL coordination, inventory and surety-bond coordination, and hearing. <strong>Bond premiums and court-appointed guardian ad litem fees are not included</strong> because they are third-party charges.</p>
+          <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer is applied to hourly work, not a fixed total fee. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, billed separately from hourly legal work.</p>
           <p>A guardianship becomes <strong>contested</strong> when the respondent objects, a competing petition is filed, or a sitting guardian is challenged. Contested representation starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur.</p>
         </div>
         <div className="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl">
-          <div className="border-2 border-[#33414E] rounded-xl p-5"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Uncontested — person &amp; estate</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested)} flat</p><p className="text-slate-500 text-xs mt-1">Filing fees included; bond premiums and GAL fees separate.</p></div>
+          <div className="border-2 border-[#33414E] rounded-xl p-5"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Uncontested — person &amp; estate</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer; hourly billing</p><p className="text-slate-500 text-xs mt-1">Filing fees included; bond premiums and GAL fees separate.</p></div>
           <div className="border border-slate-200 rounded-xl p-5 bg-white"><p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Contested</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">Starts with {usd(CONTESTED.guardianshipInitialFlatFee)}</p></div>
           <div className="border border-slate-200 rounded-xl p-5 bg-[#f0f7f4]"><p className="text-xs font-bold uppercase tracking-wider text-[#1d6a4f] mb-2">Personal Annual Report</p><p className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / yr</p></div>
         </div>
@@ -115,13 +116,13 @@ export default function GuardianshipPage() {
             <p className="text-sm font-bold uppercase tracking-wider text-[#9A3E38]">Immediate welfare or asset protection</p>
             <h2 className="mt-2 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] md:text-3xl">Emergency Temporary Adult Guardianship</h2>
             <p className="mt-4 leading-relaxed text-slate-600">When a decision cannot safely wait for the regular hearing, Illinois law allows the court to appoint a temporary guardian with specifically limited powers. The temporary petition must be filed with or after the full guardianship petition, and the court decides whether immediate protection is necessary.</p>
-            <p className="mt-4 leading-relaxed text-slate-600">Our emergency add-on is <strong>{usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong> in addition to the <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested)}</strong> full uncontested adult guardianship, for a concrete total of <strong>{usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong>. It includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday. All court filing fees are included. Bond premiums and GAL fees are not included.</p>
+            <p className="mt-4 leading-relaxed text-slate-600">Our emergency add-on is <strong>{usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong> in addition to the <strong>{usd(GUARDIANSHIP_RETAINER.adultUncontested)}</strong> retainer for hourly uncontested adult guardianship work, for an initial retainer plus add-on of <strong>{usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</strong>, not a fixed total fee. It includes filing of the emergency motion and temporary-guardianship petition during the same calendar week when purchased by Tuesday. All court filing fees are included. Bond premiums and GAL fees are not included.</p>
             <Link href="/adult-guardianship-lawyer/#emergency" className="mt-5 inline-flex items-center rounded-full bg-[#B44B43] px-6 py-3 text-sm font-bold text-white hover:bg-[#963C36]">Review Emergency Guardianship</Link>
           </div>
           <div className="rounded-2xl border border-[#F0C7C3] bg-white p-6 shadow-sm">
             <p className="text-xs font-bold uppercase tracking-wide text-[#9A3E38]">Emergency + full case</p>
-            <p className="mt-2 text-4xl font-extrabold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</p>
-            <p className="mt-2 text-sm text-slate-500">{usd(GUARDIANSHIP_FLAT.adultUncontested)} full guardianship + {usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on</p>
+            <p className="mt-2 text-4xl font-extrabold text-[#33414E]">{usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}</p>
+            <p className="mt-2 text-sm text-slate-500">{usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer (hourly billing) + {usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on</p>
             <ul className="mt-5 space-y-2 text-sm text-slate-700"><li>• Same-week filing of the emergency motion and temporary petition when purchased by Tuesday</li><li>• Proposed temporary order</li><li>• One temporary-guardianship hearing</li><li>• Full uncontested guardianship through regular appointment</li><li>• All court filing fees included</li></ul>
             <p className="mt-4 text-xs leading-relaxed text-slate-500">No result or hearing date is guaranteed. If the matter becomes contested, contested-matter billing applies.</p>
           </div>
@@ -157,14 +158,15 @@ export default function GuardianshipPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">{minorOfferings.map((o) => (<ServiceCard key={o.title} icon={o.icon} title={o.title} description={o.description} />))}</div>
 
         <div className="mt-12 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
-          <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">Flat-fee minor guardianship</h3>
-          <p>An uncontested minor guardianship is a flat <strong>{usd(GUARDIANSHIP_FLAT.minorUncontested)}</strong>, and that fee is <strong>all-inclusive of court costs</strong> — there is nothing billed on top of it. Because Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, there is not even a court filing fee to pass through. It is a genuine flat fee: {usd(GUARDIANSHIP_FLAT.minorUncontested)} is the price, not {usd(GUARDIANSHIP_FLAT.minorUncontested)} plus filing plus service plus court costs.</p>
-          <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_FLAT.minorUncontested)} flat fee is paid once. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, not part of the flat fee.</p>
+          <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">Minor guardianship with hourly billing</h3>
+          <p>{GUARDIANSHIP_HOURLY_NOTE}</p>
+          <p>An uncontested minor guardianship requires a <strong>{usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer with hourly billing</strong>. The retainer is applied to legal work and is not a fixed total fee. Court filing fees are included; bond premiums and court-appointed GAL fees, if required, are separate.</p>
+          <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer is applied to hourly work, not a fixed total fee. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, billed separately from hourly legal work.</p>
         </div>
         <div className="mt-8 max-w-md border-2 border-[#33414E] rounded-xl p-6 bg-white">
           <p className="text-xs font-bold uppercase tracking-wider text-[#4A708B] mb-2">Minor Guardianship — uncontested</p>
-          <p className="font-['Plus_Jakarta_Sans'] text-4xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_FLAT.minorUncontested)}</p>
-          <p className="text-slate-500 text-sm mt-1">Flat, all court costs included.</p>
+          <p className="font-['Plus_Jakarta_Sans'] text-4xl font-bold text-[#33414E]">{usd(GUARDIANSHIP_RETAINER.minorUncontested)}</p>
+          <p className="text-slate-500 text-sm mt-1">Retainer with hourly billing. Court filing fees included.</p>
         </div>
       </div></div></section>
 
@@ -182,8 +184,8 @@ export default function GuardianshipPage() {
           <p>A contested guardianship — adult or minor — <strong>starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee</strong>. {CONTESTED_FEE_NOTE} Third-party costs, including a guardian ad litem fee when applicable, remain separate.</p>
         </div>
         <div className="mt-8 max-w-4xl border-l-4 border-[#4A708B] bg-[#f8f9fa] p-6 rounded-r-lg">
-          <p className="font-bold text-[#33414E] mb-2">If a flat-fee guardianship becomes contested</p>
-          <p className="text-slate-600 text-sm leading-relaxed">Uncontested guardianship — adult or minor — is a flat fee. If a matter accepted as uncontested becomes contested, the initial contested flat-fee scope applies. The firm explains how the amount already paid applies and identifies any event-based additional flat fees in writing before the contested engagement begins.</p>
+          <p className="font-bold text-[#33414E] mb-2">If an uncontested guardianship becomes contested</p>
+          <p className="text-slate-600 text-sm leading-relaxed">Uncontested guardianship — adult or minor — uses a retainer with hourly billing. If a matter accepted as uncontested becomes contested, the initial contested flat-fee scope applies. The firm explains how the amount already paid applies and identifies any event-based additional flat fees in writing before the contested engagement begins.</p>
         </div>
       </div></div></section>
 
@@ -193,7 +195,7 @@ export default function GuardianshipPage() {
         <div className="w-16 h-1 bg-[#4A708B] mb-8" />
         <div className="max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <p>Being appointed guardian is the beginning, not the end. Illinois requires ongoing court reporting for the life of the guardianship: a guardian of the person files an <strong>annual report on the ward</strong> (755 ILCS 5/11a-17(b)), and a guardian of the estate files an <strong>accounting</strong> within 30 days of the one-year anniversary of appointment and thereafter on the court’s schedule (755 ILCS 5/24-11). Missing these deadlines is one of the most common reasons a guardian gets into trouble with the court.</p>
-          <p>The annual report on the ward is <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>, charged each year it is filed. This fee covers preparation and filing of the personal annual report only; it does not include estate accounting. The personal annual report is the only additional firm fee for ordinary uncontested guardianship; routine administration, closing and termination remain included. Existing signed engagements are honored.</p>
+          <p>The annual report on the ward is <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>, charged each year it is filed. This fee covers preparation and filing of the personal annual report only; it does not include estate accounting. Other legal work is billed hourly under the written engagement. Existing signed engagements are honored.</p>
         </div>
       </div></div></section>
 

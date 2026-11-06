@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
 import {
@@ -251,9 +251,9 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
     label: 'Powers of Attorney & Guardianship',
     rows: [
       { name: 'Powers of Attorney', individual: usd(A_LA_CARTE.powersOfAttorneyIndividual), joint: usd(A_LA_CARTE.powersOfAttorneyJoint), notes: 'Property and health care POAs prepared together.' },
-      { name: 'Adult Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.adultUncontested), joint: '', notes: 'All court filing fees included; bond premiums and guardian ad litem fees billed separately.' },
-      { name: 'Emergency + Full Adult Guardianship', individual: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn), joint: '', notes: `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full case. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Filing fees included; bond premiums and GAL fees separate.` },
-      { name: 'Minor Guardianship — Uncontested', individual: usd(GUARDIANSHIP_FLAT.minorUncontested), joint: '', notes: 'Flat fee.' },
+      { name: 'Adult Guardianship — Uncontested', individual: `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer; hourly billing`, joint: '', notes: 'All court filing fees included; bond premiums and guardian ad litem fees billed separately.' },
+      { name: 'Emergency + Full Adult Guardianship', individual: `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer + ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} add-on`, joint: '', notes: `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on; the full case is billed hourly against the retainer. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Filing fees included; bond premiums and GAL fees separate.` },
+      { name: 'Minor Guardianship — Uncontested', individual: `${usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer; hourly billing`, joint: '', notes: 'Rates and anticipated costs are explained before representation begins.' },
       { name: 'Contested Guardianship', individual: `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, joint: '', notes: 'Initial scope only. Contested cases may incur additional flat fees when listed litigation events actually occur.' },
       { name: 'Annual Report on the Ward', individual: `${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / year`, joint: '', notes: 'Personal annual report preparation and filing. Estate accounting is not included in this fee.' },
     ],
@@ -264,7 +264,7 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
 
 const included = [
   ['In-Scope Consultations', 'Attorney consultations reasonably needed to complete the written package scope.'],
-  ['Clear Written Fees', `Standard matters have concrete flat fees. Contested matters start with a ${usd(CONTESTED.probateInitialFlatFee)} initial flat fee and may incur additional event-based flat fees.`],
+  ['Clear Written Fees', `Uncontested probate and estate planning have flat fees. Uncontested guardianship uses a retainer with hourly billing. Contested matters start with a ${usd(CONTESTED.probateInitialFlatFee)} initial flat fee and may incur additional event-based flat fees.`],
   ['Notarization Included', 'Online or mobile notarization included on all packages.'],
   ['Client Portal Access', 'Track status, message your attorney, and access documents 24/7.'],
   ['Physical & Digital Portfolio', 'Your finished plan delivered both ways.'],
@@ -448,8 +448,8 @@ export function ServicesPricingModern() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {[
               ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/'],
-              ['Uncontested Guardianship', `${usd(GUARDIANSHIP_FLAT.adultUncontested)} flat`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/'],
-              ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} total`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on plus the full uncontested case. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`, '/adult-guardianship-lawyer/#emergency'],
+              ['Uncontested Guardianship', `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer; hourly billing`, `${GUARDIANSHIP_HOURLY_NOTE} All filing fees included. Bond premiums and GAL fees are separate.`, '/adult-guardianship-lawyer/'],
+              ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer + ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} add-on`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on; the full case is billed hourly against the retainer. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`, '/adult-guardianship-lawyer/#emergency'],
               ['Contested Guardianship', `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, 'Initial scope only. Additional flat fees apply when listed litigation events actually occur.', '/guardianship/#contested'],
             ].map(([title, price, body, href], index) => {
               const serviceIds = ['power-of-attorney', 'adult-guardianship', 'emergency-temporary-adult-guardianship', 'contested-guardianship'];
@@ -506,7 +506,7 @@ export function ServicesPricingModern() {
           <span className="text-[13px] font-bold uppercase tracking-wide text-[#547298]">At a glance</span>
           <h2 className="mt-1 text-[30px] font-bold text-[#33414E] sm:text-[24px]">Full Price List</h2>
           <p className="mb-6 mt-2 max-w-[720px] text-[16px] text-[#5f6b76]">
-            Every service and its exact flat fee, in one place. Individual / Joint pricing shown where applicable.
+            Every service and its pricing terms, in one place. Individual / Joint pricing shown where applicable.
           </p>
           <div className="overflow-x-auto rounded-2xl border border-[#E3EAF1]">
             <table className="w-full min-w-[640px] border-collapse text-[14px]">
@@ -528,7 +528,7 @@ export function ServicesPricingModern() {
                   ...group.rows.map((r, i) => (
                     <tr key={group.label + '-' + i} className="hover:bg-[#fbfdff]">
                       <td className="border-b border-[#E3EAF1] px-4 py-3 font-bold text-[#33414E]">{r.name}</td>
-                      <td className="whitespace-nowrap border-b border-[#E3EAF1] px-4 py-3 font-extrabold text-[#547298]">{r.individual}</td>
+                      <td className="border-b border-[#E3EAF1] px-4 py-3 font-extrabold text-[#547298]">{r.individual}</td>
                       <td className="whitespace-nowrap border-b border-[#E3EAF1] px-4 py-3 font-extrabold text-[#547298]">{r.joint || '—'}</td>
                       <td className="border-b border-[#E3EAF1] px-4 py-3 text-[#5f6b76]">{r.notes}</td>
                     </tr>

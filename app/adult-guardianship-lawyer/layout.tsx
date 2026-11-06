@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
+import { GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { adultGuardianshipFAQs } from '@/lib/practice-faqs';
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from '@/lib/seo';
 
 const PATH = '/adult-guardianship-lawyer/';
 const URL = `https://www.illinoisestatelaw.com${PATH}`;
-const TITLE = `Illinois Adult Guardianship Lawyer | ${usd(GUARDIANSHIP_FLAT.adultUncontested)} Flat Fee`;
-const DESCRIPTION = `Illinois adult guardianship lawyer for dementia, disability, stroke, and emergencies. ${usd(GUARDIANSHIP_FLAT.adultUncontested)} standard flat fee; ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} with temporary guardianship.`;
+const TITLE = `Illinois Adult Guardianship Lawyer | ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} Retainer | Hourly Billing`;
+const DESCRIPTION = `Illinois adult guardianship lawyer for dementia, disability, stroke, and emergencies. ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing; ${usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} initial retainer plus emergency add-on, not a fixed total fee.`;
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

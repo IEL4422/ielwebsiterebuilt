@@ -48,6 +48,8 @@ const TOKENS = {
   TRUST_ADMIN_ANNUAL: usd(num('consultingAnnual')),
   GUARDIANSHIP_PERSONAL_REPORT: usd(num('annualReportPerson')),
   ADULT_GUARDIANSHIP: usd(num('adultUncontested')),
+  GUARDIANSHIP_ATTORNEY_HOURLY: usd(num('guardianshipAttorneyHourly')),
+  GUARDIANSHIP_PARALEGAL_HOURLY: usd(num('guardianshipParalegalHourly')),
   MINOR_GUARDIANSHIP: usd(num('minorUncontested')),
   EMERGENCY_GUARDIANSHIP_ADD_ON: usd(num('emergencyTemporaryAddOn')),
   EMERGENCY_GUARDIANSHIP_TOTAL: usd(num('adultUncontested') + num('emergencyTemporaryAddOn')),

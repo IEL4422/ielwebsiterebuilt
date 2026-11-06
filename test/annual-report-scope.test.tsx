@@ -56,7 +56,7 @@ describe('prospective personal annual report scope', () => {
   expect(answer).toContain('$750 each year it is filed');
   expect(answer).toContain('guardian of the estate must file an accounting');
   expect(answer).toContain('This fee does not include estate accounting');
-  expect(answer).toContain('only additional firm fee for ordinary uncontested guardianship');
+  expect(answer).toContain('Other legal work is billed hourly under the written engagement');
   expect(answer).toContain('Existing signed engagements are honored');
  });
  it('keeps historical internal price constants without advertising the removed bundle', () => {
