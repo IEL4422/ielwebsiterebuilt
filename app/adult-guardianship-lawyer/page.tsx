@@ -4,7 +4,7 @@ import { ArrowRight, BadgeCheck, Brain, Building2, CircleAlert, CircleCheck, Clo
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
+import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { adultGuardianshipFAQs } from '@/lib/practice-faqs';
 
 const standardFee = GUARDIANSHIP_RETAINER.adultUncontested;
@@ -75,6 +75,7 @@ export default function AdultGuardianshipLawyerPage() {
         <div className="mx-auto max-w-[1140px] px-5">
           <div className="max-w-3xl">
             <span className="text-sm font-bold uppercase tracking-wider text-[#547298]">Concrete pricing</span>
+            <p className="mt-3 leading-relaxed text-slate-600">{GUARDIANSHIP_HOURLY_NOTE}</p>
             <h2 className="mt-2 text-3xl font-extrabold text-[#33414E]">Choose the level of court intervention the facts require</h2>
             <p className="mt-3 leading-relaxed text-slate-600">Uncontested guardianship includes all court filing fees. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges and are not included.</p>
           </div>

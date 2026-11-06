@@ -17,7 +17,7 @@ import { CTABanner } from '@/components/geo/CTABanner';
 import {
   CONTESTED,
   CONTESTED_FEE_NOTE,
-  GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT,
+  GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   usd,
 } from '@/lib/pricing';
@@ -97,6 +97,7 @@ export default function GuardianshipPage() {
         {/* Adult fees — all figures from lib/pricing.ts */}
         <div className="mt-12 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">How adult guardianship is billed</h3>
+          <p>{GUARDIANSHIP_HOURLY_NOTE}</p>
           <p>An uncontested adult guardianship of the person and estate is a <strong>{usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing</strong>. Legal work is billed hourly against the retainer. <strong>All court filing fees are included</strong>. Representation covers: the petition, physician-report coordination, personal-service coordination, GAL coordination, inventory and surety-bond coordination, and hearing. <strong>Bond premiums and court-appointed guardian ad litem fees are not included</strong> because they are third-party charges.</p>
           <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer is applied to hourly work, not a fixed total fee. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, billed separately from hourly legal work.</p>
           <p>A guardianship becomes <strong>contested</strong> when the respondent objects, a competing petition is filed, or a sitting guardian is challenged. Contested representation starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur.</p>
@@ -158,6 +159,7 @@ export default function GuardianshipPage() {
 
         <div className="mt-12 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-bold text-[#33414E]">Minor guardianship with hourly billing</h3>
+          <p>{GUARDIANSHIP_HOURLY_NOTE}</p>
           <p>An uncontested minor guardianship requires a <strong>{usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer with hourly billing</strong>. The retainer is applied to legal work and is not a fixed total fee. Court filing fees are included; bond premiums and court-appointed GAL fees, if required, are separate.</p>
           <p className="border-l-4 border-[#4A708B] bg-[#f8f9fa] p-4 rounded-r-lg"><strong>What you pay after the case ends.</strong> The {usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer is applied to hourly work, not a fixed total fee. Being appointed guardian carries an ongoing court obligation: a guardian of the person must file an <strong>annual report on the ward</strong> every year the guardianship continues (755 ILCS 5/11a-17(b)). We prepare and file that report for <strong>{usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} per year</strong>. It is a separate recurring fee, billed separately from hourly legal work.</p>
         </div>

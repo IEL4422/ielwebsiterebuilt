@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { guardianshipServices, probatePackages, trustAdministrationServices } from '@/lib/services-data';
+import { GUARDIANSHIP_HOURLY_NOTE } from '@/lib/pricing';
 import { adultGuardianshipFAQs, minorGuardianshipFAQs } from '@/lib/practice-faqs';
 
 describe('requested service pricing', () => {
@@ -9,6 +10,7 @@ describe('requested service pricing', () => {
       const service = guardianshipServices.find(service => service.id === id)!;
       expect(service.fixedPrice).toBeUndefined();
       expect(service.requiresConsultation).toBe(true);
+      expect(service.note).toContain(GUARDIANSHIP_HOURLY_NOTE);
       expect(service.pricingLabel).toContain('$5,000 retainer; hourly billing');
     }
   });

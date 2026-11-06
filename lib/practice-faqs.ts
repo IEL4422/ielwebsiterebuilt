@@ -1,7 +1,7 @@
 import type { QA } from '@/lib/seo';
 import {
   PROBATE,
-  GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT,
+  GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   CONTESTED,
   CONTESTED_FEE_NOTE,
@@ -91,7 +91,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'How much does adult guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing for an uncontested adult guardianship of the person and estate. Legal work is billed hourly against the retainer; all court filing fees are included. Bond premiums and guardian ad litem (GAL) fees are not included because they are third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the initial retainer plus add-on (not a fixed total fee) ${usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`,
+      `Illinois Estate Law charges a ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing for an uncontested adult guardianship of the person and estate. ${GUARDIANSHIP_HOURLY_NOTE} Legal work is billed hourly against the retainer; all court filing fees are included. Bond premiums and guardian ad litem (GAL) fees are not included because they are third-party charges. If temporary emergency authority is also needed, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, making the initial retainer plus add-on (not a fixed total fee) ${usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`,
   },
   {
     question: 'How much does emergency adult guardianship cost in Illinois?',
@@ -139,7 +139,7 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'How much does minor guardianship cost in Illinois?',
     answer:
-      `Illinois Estate Law charges a ${usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer with hourly billing for an uncontested minor guardianship, with court filing fees included. The retainer is not a fixed total fee. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested, representation starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope. Additional flat fees apply only when listed litigation events actually occur.`,
+      `Illinois Estate Law charges a ${usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer with hourly billing for an uncontested minor guardianship. ${GUARDIANSHIP_HOURLY_NOTE} This engagement comes with court filing fees included. The retainer is not a fixed total fee. Illinois eliminated minor-guardianship filing and appearance fees on October 1, 2025, so there is no separate court fee to pass through to you. If the guardianship becomes contested, representation starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope. Additional flat fees apply only when listed litigation events actually occur.`,
   },
   {
     question: 'What if a parent objects to the guardianship?',

@@ -1,4 +1,4 @@
-import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
 
 export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Bond in Lieu of Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
@@ -677,7 +677,7 @@ export const guardianshipServices: Service[] = [
       'Physician-report and guardian ad litem coordination',
       'Guidance through the hearing and appointment process'
     ],
-    note: 'The retainer is applied to hourly legal work, not a fixed total fee. Rates and anticipated costs are explained before representation begins. Court approval of fees may be required. All court filing fees are included. Bond premiums and guardian ad litem fees are not included and are disclosed separately. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed.'
+    note: GUARDIANSHIP_HOURLY_NOTE + ' The retainer is applied to hourly legal work, not a fixed total fee. Rates and anticipated costs are explained before representation begins. Court approval of fees may be required. All court filing fees are included. Bond premiums and guardian ad litem fees are not included and are disclosed separately. After appointment, Illinois requires an annual report on the ward every year the guardianship continues — $750 each year it is filed.'
   },
   {
     id: 'emergency-temporary-adult-guardianship',
@@ -697,7 +697,7 @@ export const guardianshipServices: Service[] = [
       'All court filing fees for the temporary and full guardianship petitions',
       'Coordination of notice requirements and supporting documentation'
     ],
-    note: `The ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer is applied to hourly legal work and is not a fixed total fee. The existing emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}; confirm the scope and billing terms at consultation. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Bond premiums and guardian ad litem fees are not included. The court controls the hearing date and whether relief is granted. If the matter becomes contested, the contested-matter terms apply.`
+    note: `${GUARDIANSHIP_HOURLY_NOTE} The ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer is applied to hourly legal work and is not a fixed total fee. The existing emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}; confirm the scope and billing terms at consultation. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} Bond premiums and guardian ad litem fees are not included. The court controls the hearing date and whether relief is granted. If the matter becomes contested, the contested-matter terms apply.`
   },
   {
     id: 'minor-guardianship',
@@ -715,7 +715,7 @@ export const guardianshipServices: Service[] = [
       'Notice and hearing preparation',
       'Guidance through appointment and letters of office'
     ],
-    note: 'The retainer is applied to hourly legal work, not a fixed total fee. Rates and anticipated costs are explained before representation begins. Court approval of fees may be required. All court filing fees are included. Bond premiums and guardian ad litem fees, if required, are not included. This service is for uncontested matters. After appointment, the annual report on the ward is $750 each year it is filed.'
+    note: GUARDIANSHIP_HOURLY_NOTE + ' The retainer is applied to hourly legal work, not a fixed total fee. Rates and anticipated costs are explained before representation begins. Court approval of fees may be required. All court filing fees are included. Bond premiums and guardian ad litem fees, if required, are not included. This service is for uncontested matters. After appointment, the annual report on the ward is $750 each year it is filed.'
   },
   {
     id: 'annual-report-ward',

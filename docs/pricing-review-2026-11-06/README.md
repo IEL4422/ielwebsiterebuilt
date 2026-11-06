@@ -42,3 +42,7 @@ Repository: IEL4422/ielwebsiterebuilt. Base `1912ab9`; branch `codex/local-prici
 ## Draft publication follow-up
 
 Mary subsequently authorized PR creation and deployment after checks and release decisions. Rebased on main `73b250e`; corrected the new young-family article's repeated firm-wide flat-fee claim. Existing-client agreements, payment flows and pending fee amounts remain unchanged. Hosted validation is tracked on the draft PR. Deployment remains held for the policy decisions above.
+
+## Confirmed guardianship hourly rates
+
+Mary subsequently approved attorney 325/hour and paralegal 150/hour for new adult and minor guardianship matters. Dedicated GUARDIANSHIP_RATES constants and shared copy now show those rates on service/intake descriptions, primary guardianship pages, FAQs/schema, recommendations and the generated print sheet. Other RATES values and signed agreements remain unchanged. Rates are no longer a release blocker; the separate initial contested charge and annual reporting decisions remain pending.

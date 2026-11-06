@@ -116,6 +116,15 @@ export const GUARDIANSHIP_RETAINER = {
   minorUncontested: 5000,
 } as const;
 
+/** Approved rates for new hourly adult and minor guardianship engagements only. */
+export const GUARDIANSHIP_RATES = {
+  guardianshipAttorneyHourly: 325,
+  guardianshipParalegalHourly: 150,
+} as const;
+
+export const GUARDIANSHIP_HOURLY_NOTE =
+  `New hourly adult and minor guardianship engagements are billed at ${usd(GUARDIANSHIP_RATES.guardianshipAttorneyHourly)} per attorney hour and ${usd(GUARDIANSHIP_RATES.guardianshipParalegalHourly)} per paralegal hour. Existing signed engagements are honored.`;
+
 /** Existing discrete guardianship fees; emergency add-on policy needs review. */
 export const GUARDIANSHIP_FLAT = {
   /** Priority temporary-guardianship petition and hearing added to a full adult guardianship. */
@@ -291,6 +300,7 @@ export const PRICING = {
   CONTESTED,
   RETAINER_FLOORS,
   GUARDIANSHIP_RETAINER,
+  GUARDIANSHIP_RATES,
   GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   GUARDIANSHIP_COSTS,

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
 import {
@@ -448,7 +448,7 @@ export function ServicesPricingModern() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {[
               ['Powers of Attorney', `${usd(A_LA_CARTE.powersOfAttorneyIndividual)} individual / ${usd(A_LA_CARTE.powersOfAttorneyJoint)} joint`, 'Property and health care POAs prepared together.', '/chicago-powers-of-attorney-lawyer/'],
-              ['Uncontested Guardianship', `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer; hourly billing`, 'All filing fees included. Bond premiums and GAL fees are separate.', '/adult-guardianship-lawyer/'],
+              ['Uncontested Guardianship', `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer; hourly billing`, `${GUARDIANSHIP_HOURLY_NOTE} All filing fees included. Bond premiums and GAL fees are separate.`, '/adult-guardianship-lawyer/'],
               ['Emergency + Full Adult Case', `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer + ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} add-on`, `${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on; the full case is billed hourly against the retainer. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE}`, '/adult-guardianship-lawyer/#emergency'],
               ['Contested Guardianship', `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, 'Initial scope only. Additional flat fees apply when listed litigation events actually occur.', '/guardianship/#contested'],
             ].map(([title, price, body, href], index) => {
