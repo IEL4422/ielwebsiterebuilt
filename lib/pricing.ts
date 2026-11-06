@@ -8,7 +8,7 @@
  * or CSA may hardcode a dollar figure. They all import from this file.
  *
  * Current requested pricing: adult and minor guardianship use a $5,000 retainer
- * with hourly billing. Standard probate is $6,500; the large-estate base awaits confirmation.
+ * with hourly billing. Standard probate and the large-estate base are $6,500.
  * Trust Administration Consulting is $3,500 per year. Existing contested event
  * fees and discrete service prices are unchanged pending scope confirmation.
  * The retainer is not a fixed total fee. Rates and replenishment terms belong
@@ -180,7 +180,7 @@ export const PROBATE = {
   smallEstateAdministration: 1000,
   standard: 6500,
   /** Additional percentage charged during administration only when estate value exceeds $4,000,000 due to estate-tax complexity. */
-  largeEstateBase: 5000,
+  largeEstateBase: 6500,
   largeEstatePercent: 0.5,
   largeEstateThreshold: 4000000,
   reopening: 2500,
