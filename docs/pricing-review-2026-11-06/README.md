@@ -38,3 +38,7 @@ Repository: IEL4422/ielwebsiterebuilt. Base `1912ab9`; branch `codex/local-prici
 - Browser visual/mobile screenshots and real-device checks were not run. No live intake, checkout, email, charge, push, PR, merge or deployment occurred.
 
  Lint comparison: both original base and changed checkout report 777 errors / 50 warnings, primarily unescaped JSX entities plus a missing eslint rule in lib/mongodb.ts. Diagnostic message multisets match exactly after ignoring changed line numbers. Full lint is not green; no bulk lint cleanup included. Dependencies/lockfile unchanged. Test tools installed separately under /tmp, using the CI-pinned Vitest 1.6.1.
+
+## Draft publication follow-up
+
+Mary subsequently authorized PR creation and deployment after checks and release decisions. Rebased on main `73b250e`; corrected the new young-family article's repeated firm-wide flat-fee claim. Existing-client agreements, payment flows and pending fee amounts remain unchanged. Hosted validation is tracked on the draft PR. Deployment remains held for the policy decisions above.

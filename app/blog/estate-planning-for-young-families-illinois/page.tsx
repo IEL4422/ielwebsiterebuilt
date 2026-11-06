@@ -88,7 +88,7 @@ export default function Page() {
     {
       question: 'How much does estate planning cost for a young family in Illinois?',
       answer:
-        "The cost varies by attorney and the complexity of your plan. A basic estate plan for a young family in Illinois — typically including a will for each spouse, a healthcare power of attorney for each spouse, and a property power of attorney for each spouse — commonly ranges from $800 to $2,000 for a flat-fee package. Adding a revocable living trust (which is often recommended for families with real estate or minor children) adds to the cost but also provides significant probate-avoidance and asset-protection benefits. Illinois Estate Law uses a 100% flat-fee pricing model so you always know exactly what you will pay before the engagement begins. See our services and pricing page for current rates.",
+        "The cost varies by attorney and the complexity of your plan. A basic estate plan for a young family in Illinois — typically including a will for each spouse, a healthcare power of attorney for each spouse, and a property power of attorney for each spouse — commonly ranges from $800 to $2,000 for a flat-fee package. Adding a revocable living trust (which is often recommended for families with real estate or minor children) adds to the cost but also provides significant probate-avoidance and asset-protection benefits. Illinois Estate Law offers flat-fee estate planning so you always know exactly what you will pay before the engagement begins. See our services and pricing page for current rates.",
     },
   ];
 
@@ -734,7 +734,7 @@ export default function Page() {
                     Mary Liberty is a Chicago-based estate planning and probate attorney dedicated to making legal planning accessible, affordable, and stress-free. Through her modern virtual law practice, she helps families and individuals across Illinois create clear, effective plans that protect their assets and their loved ones.
                   </p>
                   <p className="mb-0 text-gray-700 font-['Plus_Jakarta_Sans']">
-                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a 100% flat-fee model so clients always know exactly what to expect.
+                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a transparent pricing model so clients always know exactly what to expect.
                   </p>
                 </div>
               </div>
