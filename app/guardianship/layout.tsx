@@ -40,7 +40,7 @@ const adultService = serviceSchema({
 const minorService = serviceSchema({
   name: 'Illinois Minor Guardianship',
   description:
-    'Representation of grandparents, relatives, and family friends seeking guardianship of a minor child in Illinois — uncontested (flat fee) and contested — including the petition, parental consent or the required showing, notice and service, and the appointment hearing.',
+    'Representation of grandparents, relatives, and family friends seeking guardianship of a minor child in Illinois — uncontested (retainer with hourly billing) and contested — including the petition, parental consent or the required showing, notice and service, and the appointment hearing.',
   path: PATH,
   serviceType: 'Minor guardianship',
 });

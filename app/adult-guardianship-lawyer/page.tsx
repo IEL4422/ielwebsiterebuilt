@@ -4,10 +4,10 @@ import { ArrowRight, BadgeCheck, Brain, Building2, CircleAlert, CircleCheck, Clo
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
+import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { adultGuardianshipFAQs } from '@/lib/practice-faqs';
 
-const standardFee = GUARDIANSHIP_FLAT.adultUncontested;
+const standardFee = GUARDIANSHIP_RETAINER.adultUncontested;
 const emergencyAddOn = GUARDIANSHIP_FLAT.emergencyTemporaryAddOn;
 const emergencyTotal = standardFee + emergencyAddOn;
 
@@ -76,7 +76,7 @@ export default function AdultGuardianshipLawyerPage() {
           <div className="max-w-3xl">
             <span className="text-sm font-bold uppercase tracking-wider text-[#547298]">Concrete pricing</span>
             <h2 className="mt-2 text-3xl font-extrabold text-[#33414E]">Choose the level of court intervention the facts require</h2>
-            <p className="mt-3 leading-relaxed text-slate-600">Every flat-fee guardianship package includes all court filing fees. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges and are not included.</p>
+            <p className="mt-3 leading-relaxed text-slate-600">Uncontested guardianship includes all court filing fees. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges and are not included.</p>
           </div>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -84,7 +84,7 @@ export default function AdultGuardianshipLawyerPage() {
               <span className="w-fit rounded-full bg-[#E8F1F8] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#547298]">Standard uncontested case</span>
               <h3 className="mt-4 text-2xl font-bold text-[#33414E]">Full Adult Guardianship</h3>
               <p className="mt-2 text-4xl font-extrabold text-[#33414E]">{usd(standardFee)}</p>
-              <p className="mt-2 text-sm text-slate-500">One flat attorney fee. All court filing fees included.</p>
+              <p className="mt-2 text-sm text-slate-500">Retainer with hourly billing; not a fixed total fee. All court filing fees included.</p>
               <ul className="mt-6 space-y-3">
                 {included.map((item) => <li key={item} className="flex gap-3 text-sm text-slate-700"><CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#547298]" />{item}</li>)}
               </ul>
@@ -96,7 +96,7 @@ export default function AdultGuardianshipLawyerPage() {
               <span className="w-fit rounded-full bg-[#FCE8E6] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#9A3E38]">Immediate protection requested</span>
               <h3 className="mt-4 text-2xl font-bold text-[#33414E]">Emergency + Full Adult Guardianship</h3>
               <p className="mt-2 text-4xl font-extrabold text-[#33414E]">{usd(emergencyTotal)}</p>
-              <p className="mt-2 text-sm text-slate-500">{usd(standardFee)} full case + {usd(emergencyAddOn)} emergency add-on. All court filing fees included.</p>
+              <p className="mt-2 text-sm text-slate-500">{usd(standardFee)} retainer (hourly billing) + {usd(emergencyAddOn)} emergency add-on. All court filing fees included.</p>
               <ul className="mt-6 space-y-3">
                 {[
                   'Everything included in the full adult-guardianship package',

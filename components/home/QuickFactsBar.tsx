@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Calendar, MapPin, Clock, DollarSign } from 'lucide-react';
-import { CONTESTED, usd } from '@/lib/pricing';
 
 const facts = [
   {
@@ -12,8 +11,8 @@ const facts = [
   {
     // Contested matters use a staged flat-fee scope. See lib/fee-structure.ts.
     icon: DollarSign,
-    label: '100% Flat-Fee*',
-    sub: `Contested matters start at ${usd(CONTESTED.probateInitialFlatFee)} flat`,
+    label: 'Transparent Pricing*',
+    sub: 'Guardianship uses hourly billing',
     href: '/services-pricing/',
   },
   {

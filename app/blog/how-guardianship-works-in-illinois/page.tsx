@@ -21,7 +21,7 @@ import BlogNavigation from '@/components/blog/BlogNavigation';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import BlogContactForm from '@/components/blog/BlogContactForm';
 import { getBlogPost, getAdjacentPosts, getRelatedPosts } from '@/lib/blog-posts-data';
-import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
+import { CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 
 const SLUG = 'how-guardianship-works-in-illinois';
 
@@ -64,7 +64,7 @@ export default function Page() {
     {
       question: 'How much does guardianship cost in Illinois?',
       answer:
-        `Illinois Estate Law charges ${usd(GUARDIANSHIP_FLAT.adultUncontested)} for an uncontested adult guardianship and ${usd(GUARDIANSHIP_FLAT.minorUncontested)} for an uncontested minor guardianship. All court filing fees are included. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges. If temporary emergency authority is needed in addition to the full adult case, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, for a ${usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} combined total. ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement agreement. For details, see our ` +
+        `Illinois Estate Law requires a ${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer with hourly billing for an uncontested adult guardianship and a ${usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer with hourly billing for an uncontested minor guardianship. All court filing fees are included. Bond premiums and court-appointed guardian ad litem fees are separate third-party charges. If temporary emergency authority is needed in addition to the full adult case, the emergency add-on is ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)}, for a ${usd(GUARDIANSHIP_RETAINER.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} initial retainer plus add-on (not a fixed total fee). ${EMERGENCY_GUARDIANSHIP_FILING_TIMELINE} A contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee; defined contested events may create additional expenses under the written engagement agreement. For details, see our ` +
         'guardianship page or book a consultation.',
     },
     {
@@ -748,7 +748,7 @@ export default function Page() {
                     Mary Liberty is a Chicago-based estate planning and probate attorney dedicated to making legal planning accessible, affordable, and stress-free. Through her modern virtual law practice, she helps families and individuals across Illinois create clear, effective plans that protect their assets and their loved ones.
                   </p>
                   <p className="mb-0 text-gray-700 font-['Plus_Jakarta_Sans']">
-                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a 100% flat-fee model so clients always know exactly what to expect.
+                    Mary focuses on estate planning, uncontested probate, and her signature partial probate service. Known for her precision, empathy, and plain-language guidance, she operates on a transparent pricing model so clients always know exactly what to expect.
                   </p>
                 </div>
               </div>

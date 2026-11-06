@@ -13,7 +13,7 @@ export default function WhichServiceSection() {
             Find the Right Service in 60 Seconds
           </h2>
           <p className="text-slate-500 text-base max-w-lg mx-auto mt-3">
-            Answer three quick questions and we'll point you to exactly the right service, and show you the flat fee upfront.
+            Answer three quick questions and we'll point you to exactly the right service, and show you the pricing upfront.
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export default function WhichServiceSection() {
               Which service do I need?
             </h3>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Take our 60-second quiz to find the right service and see your flat fee.
+              Take our 60-second quiz to find the right service and see your pricing.
             </p>
             <div className="mt-auto">
               <Link

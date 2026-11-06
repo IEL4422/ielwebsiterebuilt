@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { A_LA_CARTE, CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -162,7 +162,7 @@ export default function RecommendedServicePage() {
       const guardianshipRecommendations: Record<Exclude<QuizAnswers['guardianshipNeed'], ''>, ServiceRecommendation> = {
         adult: {
           name: 'Adult Guardianship',
-          price: usd(GUARDIANSHIP_FLAT.adultUncontested),
+          price: `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer; hourly billing`,
           description: 'For an adult who can no longer safely make personal, medical, or financial decisions. A consultation lets the firm confirm the facts and scope before engagement.',
           includes: ['Guardianship petition and all court filing fees', 'Physician-report and guardian ad litem coordination', 'Guidance through the hearing and appointment process', 'Bond premiums and GAL fees are separate', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],
@@ -173,7 +173,7 @@ export default function RecommendedServicePage() {
         },
         'emergency-adult': {
           name: 'Emergency + Full Adult Guardianship',
-          price: usd(GUARDIANSHIP_FLAT.adultUncontested + GUARDIANSHIP_FLAT.emergencyTemporaryAddOn),
+          price: `${usd(GUARDIANSHIP_RETAINER.adultUncontested)} retainer; hourly billing + ${usd(GUARDIANSHIP_FLAT.emergencyTemporaryAddOn)} emergency add-on`,
           description: 'For an uncontested adult guardianship requiring immediate temporary authority while the full guardianship case is pending. The court decides whether emergency relief is justified and when a hearing occurs.',
           includes: ['Full uncontested adult guardianship', EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, 'Priority proposed-order preparation', 'One temporary-guardianship hearing', 'All court filing fees', 'Bond premiums and GAL fees are separate'],
           addOns: [],
@@ -184,7 +184,7 @@ export default function RecommendedServicePage() {
         },
         minor: {
           name: 'Minor Guardianship',
-          price: usd(GUARDIANSHIP_FLAT.minorUncontested),
+          price: `${usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer; hourly billing`,
           description: 'For a relative or other adult who needs legal authority to care for a minor child when a parent cannot or where a parent consents.',
           includes: ['Guardianship petition and required court filings', 'Notice and hearing preparation', 'Guidance through appointment and letters of office', 'Annual report on the ward after appointment — $750 per year, billed separately each year it is filed'],
           addOns: [],

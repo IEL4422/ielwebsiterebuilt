@@ -109,7 +109,7 @@ export function HeroSection() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl">
             {[
               'Free Consultation',
-              '100% Flat-Fee*',
+              'Transparent Pricing*',
               'All of Illinois',
               'Same-Week Appointments',
             ].map((item) => (
