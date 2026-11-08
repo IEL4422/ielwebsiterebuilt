@@ -436,9 +436,9 @@ export default function Page() {
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-semibold mb-2">Real-world example:</p>
+                  <p className="font-semibold mb-2">Hypothetical fee comparison:</p>
                   <p className="text-gray-700">
-                    A $400,000 estate in Cook County with a house, two bank accounts, and three beneficiaries. An hourly firm billed 42 hours at $350/hr = <strong>$14,700 in attorney fees alone</strong>. With our flat fee, the same family would have paid <strong>{usd(PROBATE.standard)}</strong> &mdash; saving over $9,000. The legal work is identical; the billing model is what makes the difference.
+                    For illustration, assume an uncontested $400,000 estate in Cook County with a house, two bank accounts, and three beneficiaries. If an attorney charged 42 hours at $350 per hour, the attorney fee would be <strong>{usd(42 * 350)}</strong>. Compared with our Standard Probate package fee of <strong>{usd(PROBATE.standard)}</strong>, the arithmetic difference is <strong>{usd(42 * 350 - PROBATE.standard)}</strong>. This hypothetical example is not an actual client result or a prediction of savings. Compare the written scope and included costs in each quote; the work and total charges may differ.
                   </p>
                 </div>
               </div>
