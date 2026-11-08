@@ -1,4 +1,4 @@
-import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_PROBATE_FEE_NOTE, CONTESTED_GUARDIANSHIP_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
 
 export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Bond in Lieu of Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
 
@@ -422,7 +422,7 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Contested Probate',
     pricingLabel: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
-    description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_FEE_NOTE} The public event-fee list is available on the Services & Pricing page.`,
+    description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_PROBATE_FEE_NOTE} The public event-fee list is available on the Services & Pricing page.`,
     includes: [
       `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
       'Written scope for the initial contested work',
@@ -752,7 +752,7 @@ export const guardianshipServices: Service[] = [
       'Attorney review of the dispute and court posture',
       'Clear explanation of the initial flat-fee scope and anticipated next steps'
     ],
-    note: `${CONTESTED_FEE_NOTE} Court costs and guardian ad litem fees may be billed separately.`
+    note: `${CONTESTED_GUARDIANSHIP_FEE_NOTE} Court costs and guardian ad litem fees may be billed separately.`
   }
 ];
 
@@ -764,3 +764,4 @@ export const allServices = [
   ...realEstateServices,
   ...guardianshipServices
 ];
+

@@ -4,7 +4,7 @@ import {
   GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   CONTESTED,
-  CONTESTED_FEE_NOTE,
+  CONTESTED_PROBATE_FEE_NOTE,
   EMERGENCY_GUARDIANSHIP_FILING_TIMELINE,
   usd,
 } from '@/lib/pricing';
@@ -48,7 +48,7 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'Why can a contested probate have additional flat fees?',
     answer:
-      'The initial $5,000 flat fee covers a defined opening scope, not the entire contest. A separate additional flat fee applies only when a listed litigation event actually occurs, such as a deposition, contested motion, evidentiary hearing, full will-contest pretrial phase, or trial. Component fees are not charged again for work already included in an accepted broader phase.',
+      `The initial ${usd(CONTESTED.probateInitialFlatFee)} flat fee covers a defined opening scope, not the entire contest. A separate additional flat fee applies only when a listed litigation event actually occurs, such as a deposition, contested motion, evidentiary hearing, full will-contest pretrial phase, or trial. Component fees are not charged again for work already included in an accepted broader phase.`,
   },
   {
     question: 'Do attorney fees in a contested Illinois probate need court approval?',
@@ -73,7 +73,7 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'What happens if my uncontested probate suddenly becomes contested?',
     answer:
-      `If someone files an objection or a competing petition in a matter accepted as uncontested, the representation becomes contested. ${CONTESTED_FEE_NOTE} The firm explains in writing how the amount already paid applies before the contested engagement begins.`,
+      `If someone files an objection or a competing petition in a matter accepted as uncontested, the representation becomes contested. ${CONTESTED_PROBATE_FEE_NOTE} The firm explains in writing how the amount already paid applies before the contested engagement begins.`,
   },
   {
     question: 'Which Illinois counties do you handle contested probate in?',
@@ -220,3 +220,4 @@ export const probateFAQs: QA[] = [
       `An uncontested Illinois probate at this firm is a fixed fee — ${usd(PROBATE.standard)} for a standard estate — and the written scope identifies what is included. A qualifying personal estate of $150,000 or less with no individually owned real estate may use Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)}, covering the affidavit and Attorney Letter of Direction. Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors. Recording fees are also covered; a required surety-bond premium is paid directly to the provider. Where attorney fees are paid from the estate, Illinois law requires reasonable compensation under 755 ILCS 5/27-2.`,
   },
 ];
+

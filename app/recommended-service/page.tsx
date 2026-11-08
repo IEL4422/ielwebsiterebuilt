@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { A_LA_CARTE, CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, CONTESTED_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, CONTESTED_PROBATE_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -327,7 +327,7 @@ export default function RecommendedServicePage() {
         return {
           name: 'Contested Probate',
           price: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
-          description: `For probate matters that are or are anticipated to be contested. ${CONTESTED_FEE_NOTE}`,
+          description: `For probate matters that are or are anticipated to be contested. ${CONTESTED_PROBATE_FEE_NOTE}`,
           includes: [
             `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
             'Written scope for the initial contested work',
@@ -2253,3 +2253,4 @@ export default function RecommendedServicePage() {
     </main>
   );
 }
+

@@ -33,7 +33,7 @@ export const homeFAQs: QA[] = [
   },
   {
     question: "What makes Illinois Estate Law's pricing structure different?",
-    answer: `The firm uses fixed fees for estate planning and uncontested probate. Uncontested adult and minor guardianship use a $5,000 retainer with hourly billing; rates and anticipated costs are explained before representation begins. Contested probate and guardianship start with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur.`,
+    answer: `The firm uses fixed fees for estate planning and uncontested probate. Uncontested adult and minor guardianship use a $5,000 retainer with hourly billing; rates and anticipated costs are explained before representation begins. Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee and contested guardianship starts with a ${usd(CONTESTED.guardianshipInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur.`,
   },
   {
     question: 'What types of documents are typically included in an estate plan?',
@@ -64,3 +64,4 @@ export const homeFAQs: QA[] = [
     answer: 'We do not offer in-person consultations for new clients. However, in-person meetings are included and available for all current clients at any of our convenient locations throughout Illinois.',
   },
 ];;
+

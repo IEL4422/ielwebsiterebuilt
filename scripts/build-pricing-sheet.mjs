@@ -26,6 +26,7 @@ const usd = (n) => `$${n.toLocaleString('en-US')}`;
 
 const TOKENS = {
   CONTESTED_INITIAL_FLAT_FEE: usd(num('probateInitialFlatFee')),
+  CONTESTED_GUARDIANSHIP_FLAT_FEE: usd(num('guardianshipInitialFlatFee')),
   STANDARD_PROBATE: usd(num('standard')),
   TRUST_PACKAGE_JOINT: usd(num('trustPackageJoint')),
   LARGE_ESTATE_BASE: usd(num('largeEstateBase')),
@@ -72,3 +73,4 @@ const banner = [
 
 writeFileSync(join(root, 'public/pricing-sheet.html'), banner + out);
 console.log('pricing-sheet.html generated', TOKENS);
+
