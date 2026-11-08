@@ -1,4 +1,4 @@
-import { Check, Clock3, FileText, LockKeyhole, MessageSquare } from 'lucide-react';
+import { BookOpen, CalendarDays, Check, Clock3, FileText, LockKeyhole, MessageSquare } from 'lucide-react';
 
 const stages = [
   { label: 'Information received', status: 'complete' },
@@ -51,11 +51,19 @@ export function ClientPortalPreview({ compact = false }: { compact?: boolean }) 
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-xl border border-[#E0E8EF] bg-white p-3 text-center">
               <FileText className="mx-auto h-5 w-5 text-[#547298]" aria-hidden="true" />
-              <p className="mt-2 text-[10px] font-bold text-[#33414E]">Documents</p>
+              <p className="mt-2 text-[10px] font-bold text-[#33414E]">Review documents</p>
             </div>
             <div className="rounded-xl border border-[#E0E8EF] bg-white p-3 text-center">
               <MessageSquare className="mx-auto h-5 w-5 text-[#547298]" aria-hidden="true" />
               <p className="mt-2 text-[10px] font-bold text-[#33414E]">Messages</p>
+            </div>
+            <div className="rounded-xl border border-[#E0E8EF] bg-white p-3 text-center">
+              <CalendarDays className="mx-auto h-5 w-5 text-[#547298]" aria-hidden="true" />
+              <p className="mt-2 text-[10px] font-bold text-[#33414E]">Schedule calls</p>
+            </div>
+            <div className="rounded-xl border border-[#E0E8EF] bg-white p-3 text-center">
+              <BookOpen className="mx-auto h-5 w-5 text-[#547298]" aria-hidden="true" />
+              <p className="mt-2 text-[10px] font-bold text-[#33414E]">Matter resources</p>
             </div>
           </div>
         </div>
