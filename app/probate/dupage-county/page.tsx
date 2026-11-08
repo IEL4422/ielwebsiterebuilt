@@ -280,7 +280,7 @@ export default function DuPageCountyProbatePage() {
                       </p>
                       <div className="mt-4 p-4 bg-blue-50 border-l-4 border-[#7E9CC0] rounded">
                         <p className="text-sm text-slate-700">
-                          <strong>Note:</strong> Our probate packages include all attorney fees and court costs except for the surety bond, which is required to be paid directly to the surety bond provider.
+                          <strong>Note:</strong> Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors. A required surety-bond premium is paid directly to the bond provider. A separate written contested-matter scope applies if a dispute arises.
                         </p>
                       </div>
                     </div>
