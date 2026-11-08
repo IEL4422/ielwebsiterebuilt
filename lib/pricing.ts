@@ -8,7 +8,7 @@
  * or CSA may hardcode a dollar figure. They all import from this file.
  *
  * Current requested pricing: adult and minor guardianship use a $5,000 retainer
- * with hourly billing. Standard probate and the large-estate base are $6,500.
+ * with hourly billing. Standard probate is $5,500; the large-estate base remains $6,500.
  * Trust Administration Consulting is $3,500 per year. Existing contested event
  * fees and discrete service prices are unchanged pending scope confirmation.
  * The retainer is not a fixed total fee. Rates and replenishment terms belong
@@ -53,7 +53,7 @@ export const RETAINERS = {
 
 /** Public contested-matter pricing. Kept separate from legacy retainer constants. */
 export const CONTESTED = {
-  probateInitialFlatFee: 5000,
+  probateInitialFlatFee: 5500,
   guardianshipInitialFlatFee: 5000,
 } as const;
 
@@ -101,8 +101,16 @@ export const CONTESTED_CUSTOM_FEE = {
   trigger: 'A notice of appeal is filed or appellate representation is requested.',
 } as const;
 
-export const CONTESTED_FEE_NOTE =
+export const CONTESTED_GUARDIANSHIP_FEE_NOTE =
   'Starts with a $5,000 flat fee for the initial contested scope—not the entire contest. Contested cases may incur additional flat fees only when listed litigation events actually occur. Each additional scope and fee is explained in writing before it is incurred.';
+
+/** Prospective probate scope only; existing signed engagements are honored. */
+export const CONTESTED_PROBATE_FEE_NOTE =
+  `Starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for the initial contested probate scope, not the entire contest. Existing signed engagements are honored. Additional event fees are unchanged and apply only when the listed event occurs under a separate written scope. Work included in the initial scope is not charged again as an initial-contested-scope event fee.`;
+
+/** Mixed-practice surfaces must distinguish probate from guardianship. */
+export const CONTESTED_FEE_NOTE =
+  `Contested probate starts with ${usd(CONTESTED.probateInitialFlatFee)}; contested guardianship starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}. Each flat fee covers a defined initial scope, not the entire contest. Additional flat fees apply only when listed litigation events occur and are explained in writing before they are incurred.`;
 
 /** Legacy compatibility values. Not part of the public contested-package offer. */
 export const RETAINER_FLOORS = {
@@ -178,7 +186,7 @@ export const PROBATE = {
    *  direction. Replaces the retired $3,500 'Small Estate Probate' package and
    *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
   smallEstateAdministration: 1000,
-  standard: 6500,
+  standard: 5500,
   /** Additional percentage charged during administration only when estate value exceeds $4,000,000 due to estate-tax complexity. */
   largeEstateBase: 6500,
   largeEstatePercent: 0.5,
@@ -310,3 +318,4 @@ export const PRICING = {
   TRUST_ADMIN,
   REAL_ESTATE,
 } as const;
+

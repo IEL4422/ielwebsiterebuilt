@@ -56,7 +56,7 @@ describe('hourly rates live in exactly one place', () => {
     expect(RATES.paralegalHourly).toBe(175);
     expect(RETAINERS.contestedProbate).toBe(5000);
     expect(RETAINERS.contestedGuardianship).toBe(5000);
-    expect(PROBATE.standard).toBe(6500);
+    expect(PROBATE.standard).toBe(5500);
     expect(A_LA_CARTE.estateTaxPlanningAddOn).toBe(5000);
   });
 
@@ -82,3 +82,4 @@ describe('hourly rates live in exactly one place', () => {
     ).toEqual([]);
   });
 });
+

@@ -10,7 +10,7 @@ import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
-import { CONTESTED, CONTESTED_FEE_NOTE, PROBATE, usd } from '@/lib/pricing';
+import { CONTESTED, CONTESTED_PROBATE_FEE_NOTE, PROBATE, usd } from '@/lib/pricing';
 import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 import { BOOKING_UNCONTESTED_PROBATE, BOOKING_CONTESTED_PROBATE } from '@/lib/booking';
 import { ProbateServicePaths } from '@/components/probate/ProbateServicePaths';
@@ -619,7 +619,7 @@ export default function ChicagoProbateLawyerPage() {
 
               <div className="mt-8 max-w-4xl border-l-4 border-[#4A708B] bg-[#f8f9fa] p-6 rounded-r-lg">
                 <p className="font-bold text-[#33414E] mb-2">If a flat-fee probate of ours becomes contested</p>
-                <p className="text-slate-600 text-sm leading-relaxed">If someone files an objection or a competing petition in a matter we accepted as uncontested, the representation becomes contested. {CONTESTED_FEE_NOTE} The firm explains how the amount already paid applies before the contested engagement begins.</p>
+                <p className="text-slate-600 text-sm leading-relaxed">If someone files an objection or a competing petition in a matter we accepted as uncontested, the representation becomes contested. {CONTESTED_PROBATE_FEE_NOTE} The firm explains how the amount already paid applies before the contested engagement begins.</p>
               </div>
 
               <div className="mt-8 max-w-4xl text-sm text-slate-500 leading-relaxed border-t border-slate-200 pt-6"><p><strong className="text-slate-700">A note on court approval of fees.</strong> Where attorney fees are paid out of the decedent&rsquo;s estate, Illinois law requires that those fees be reasonable and approved by the court (755 ILCS 5/27-2). Where a fee is paid personally — for example, by an heir hiring us out of their own pocket — it is governed by our engagement agreement instead.</p></div>
@@ -694,3 +694,4 @@ export default function ChicagoProbateLawyerPage() {
     </>
   );
 }
+

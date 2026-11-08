@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_PROBATE_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
@@ -303,7 +303,7 @@ export const serviceCategories: ServiceCategory[] = [
           'Written scope for the initial contested work',
           'Additional expenses only if defined contested events occur'
         ],
-        note: CONTESTED_FEE_NOTE
+        note: CONTESTED_PROBATE_FEE_NOTE
       }
     ],
     aLaCarte: [],
@@ -575,3 +575,4 @@ export function CategorizedServicesDisplay() {
     </div>
   );
 }
+

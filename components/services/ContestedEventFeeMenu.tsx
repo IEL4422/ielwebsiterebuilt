@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, usd } from '@/lib/pricing';
+import { CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, usd } from '@/lib/pricing';
 
 export function ContestedEventFeeMenu() {
   return (
@@ -9,7 +9,7 @@ export function ContestedEventFeeMenu() {
         <h2 className="mt-2 text-3xl font-bold text-[#33414E] md:text-4xl">Additional contested-matter flat fees</h2>
         <p className="mt-4 max-w-4xl text-base leading-relaxed text-[#5f6b76]">
           Contested cases may incur additional flat fees, but a contested case does not automatically incur every fee
-          below. The initial $5,000 flat fee covers a defined
+          below. Contested probate starts with {usd(CONTESTED.probateInitialFlatFee)} and contested guardianship starts with {usd(CONTESTED.guardianshipInitialFlatFee)}. Each base fee covers a defined
           opening scope—not the entire contest. An additional flat fee applies only when the listed event actually
           occurs, after the work and fee are explained in writing. Fees are shown from least expensive to most expensive.
         </p>
@@ -48,7 +48,7 @@ export function ContestedEventFeeMenu() {
           <div className="rounded-xl border border-[#DCE5ED] bg-white p-5 text-sm leading-relaxed text-[#5f6b76]">
             <strong className="block text-[#33414E]">No automatic or duplicate charges</strong>
             Component fees are not charged again for work already included in an accepted broader litigation phase.
-            Each additional event requires a written scope before the work begins.
+            The initial-contested-scope event fee is not added again for work covered by the base fee. Existing signed engagements are honored. Each additional event requires a written scope before the work begins.
           </div>
           <div className="rounded-xl border border-[#DCE5ED] bg-white p-5 text-sm leading-relaxed text-[#5f6b76]">
             <strong className="block text-[#33414E]">Third-party costs</strong>
@@ -69,3 +69,4 @@ export function ContestedEventFeeMenu() {
     </section>
   );
 }
+

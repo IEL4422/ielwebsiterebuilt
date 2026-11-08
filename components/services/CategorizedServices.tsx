@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { A_LA_CARTE, CONTESTED, CONTESTED_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_PROBATE_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 interface DisplayService {
   id: string;
@@ -441,7 +441,7 @@ export function CategorizedServices({
           subtitle: 'Starts with a flat fee',
           category: 'probate',
           pricingLabel: `Starts with ${usd(CONTESTED.probateInitialFlatFee)}`,
-          description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_FEE_NOTE}`,
+          description: `Applies when any probate matter becomes or is anticipated to be contested. ${CONTESTED_PROBATE_FEE_NOTE}`,
           includes: [
             `${usd(CONTESTED.probateInitialFlatFee)} initial flat fee`,
             'Written scope for the initial contested work',
@@ -654,3 +654,4 @@ export function CategorizedServices({
     </div>
   );
 }
+

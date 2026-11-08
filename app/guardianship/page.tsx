@@ -16,7 +16,7 @@ import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
 import {
   CONTESTED,
-  CONTESTED_FEE_NOTE,
+  CONTESTED_GUARDIANSHIP_FEE_NOTE,
   GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT,
   GUARDIANSHIP_COMPLIANCE,
   usd,
@@ -181,7 +181,7 @@ export default function GuardianshipPage() {
         <div className="w-16 h-1 bg-[#4A708B] mb-8" />
         <div className="max-w-4xl space-y-4 text-slate-600 leading-relaxed">
           <p>A guardianship becomes <strong>contested</strong> the moment someone formally opposes it — the respondent objects to being found disabled, a family member files a competing petition to be the guardian instead, or an existing guardian is challenged and faces removal. At that point the matter is litigation: discovery, evidence, and, if it does not settle, a hearing before the judge.</p>
-          <p>A contested guardianship — adult or minor — <strong>starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee</strong>. {CONTESTED_FEE_NOTE} Third-party costs, including a guardian ad litem fee when applicable, remain separate.</p>
+          <p>A contested guardianship — adult or minor — <strong>starts with a {usd(CONTESTED.guardianshipInitialFlatFee)} flat fee</strong>. {CONTESTED_GUARDIANSHIP_FEE_NOTE} Third-party costs, including a guardian ad litem fee when applicable, remain separate.</p>
         </div>
         <div className="mt-8 max-w-4xl border-l-4 border-[#4A708B] bg-[#f8f9fa] p-6 rounded-r-lg">
           <p className="font-bold text-[#33414E] mb-2">If an uncontested guardianship becomes contested</p>
@@ -221,3 +221,4 @@ export default function GuardianshipPage() {
     </main>
   );
 }
+

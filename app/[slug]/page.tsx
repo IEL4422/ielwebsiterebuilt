@@ -10,7 +10,7 @@ import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CTABanner } from '@/components/geo/CTABanner';
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 import { CityLocalInsights } from '@/components/geo/CityLocalInsights';
-import { PROBATE, usd } from '@/lib/pricing';
+import { PROBATE, CONTESTED, usd } from '@/lib/pricing';
 
 export async function generateStaticParams() {
   return cityLocations.map((loc) => ({
@@ -82,7 +82,7 @@ function getCityFAQs(city: string) {
     },
     {
       question: `How much does estate planning cost in ${city}?`,
-      answer: `Illinois Estate Law uses transparent flat-fee pricing. Individual will packages are $1,250, joint will packages are $1,750, individual trust packages are $3,500, and joint trust packages are $5,000. Contested litigation starts with a $5,000 flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur.`,
+      answer: `Illinois Estate Law uses transparent flat-fee pricing. Individual will packages are $1,250, joint will packages are $1,750, individual trust packages are $3,500, and joint trust packages are $5,000. Contested probate starts with ${usd(CONTESTED.probateInitialFlatFee)} and contested guardianship starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}, each a flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur.`,
     },
     {
       question: 'How long does it take to complete an estate plan?',
@@ -216,7 +216,7 @@ export default function CityEstatePlanningPage({
                       Whether you need a simple will, a revocable living trust, powers of attorney, or healthcare directives, our firm offers a fully virtual process that allows you to complete your entire estate plan from the comfort of your home.
                     </p>
                     <p>
-                      Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested litigation starts with a $5,000 flat fee for a defined initial scope and may incur additional flat fees only when listed litigation events actually occur. {meetingText}
+                      Our attorneys work directly with clients, offering clear communication, transparent pricing, and defined scopes of work. Standard planning matters use concrete flat fees; contested probate starts with {usd(CONTESTED.probateInitialFlatFee)} and contested guardianship starts with {usd(CONTESTED.guardianshipInitialFlatFee)}, each a flat fee for a defined initial scope and may incur additional flat fees only when listed litigation events actually occur. {meetingText}
                     </p>
                     <p>
                       If you need probate assistance in {loc.county}, our firm also handles full probate administration, summary probate, and heir representation at the {loc.countyCourtName}. We serve all of Illinois and can help with estate matters in any county.
@@ -233,7 +233,7 @@ export default function CityEstatePlanningPage({
                     </h3>
                     <p className="text-sm text-slate-500 text-center mb-4">Estate Planning Attorney</p>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      Mary Liberty is a graduate of Loyola University Chicago School of Law and a SuperLawyers Rising Star in 2025 and 2026. She offers transparent fixed fees, including a $5,000 starting flat fee for contested litigation.
+                      Mary Liberty is a graduate of Loyola University Chicago School of Law and a SuperLawyers Rising Star in 2025 and 2026. She offers transparent fixed fees, including a {usd(CONTESTED.probateInitialFlatFee)} starting flat fee for contested probate and {usd(CONTESTED.guardianshipInitialFlatFee)} for contested guardianship.
                     </p>
                   </div>
                 </div>
@@ -371,3 +371,4 @@ export default function CityEstatePlanningPage({
     </>
   );
 }
+
