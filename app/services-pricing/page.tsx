@@ -63,7 +63,7 @@ const faqSchema = {
       "name": "Does Your Flat-Fee Include Costs for Court Filings or Third-Party Expenses, Beyond the Recording of the First Deed?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Each service card identifies what is included and any separate third-party costs. Probate packages include filing and creditor-publication charges; a required surety-bond premium is paid separately to the bond provider. Trust packages include the listed funding guidance, notarization, and one deed; additional deeds are $500 each."
+        "text": "Each service card identifies what is included and any separate third-party costs. Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors. A required surety-bond premium is paid separately to the bond provider. Trust packages include the listed funding guidance, notarization, and one deed; additional deeds are $500 each."
       }
     },
     {
@@ -313,7 +313,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p className="mb-4">Each service card identifies what is included and any separate third-party costs. Probate packages include filing and creditor-publication charges; a required surety-bond premium is paid separately to the bond provider.</p>
+              <p className="mb-4">Each service card identifies what is included and any separate third-party costs. Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors. A required surety-bond premium is paid separately to the bond provider.</p>
               <p>Trust packages include the listed funding guidance, notarization, and one deed. Additional deeds are $500 each. Any other excluded cost is disclosed in the applicable service description or engagement agreement.</p>
             </div>
           </details>

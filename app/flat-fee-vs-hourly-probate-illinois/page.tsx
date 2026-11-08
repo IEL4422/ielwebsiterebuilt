@@ -110,6 +110,7 @@ export default function FlatFeeVsHourlyProbatePage() {
             </div>
 
             <h2>What &ldquo;all-inclusive&rdquo; actually means here</h2>
+            <p>Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors.</p>
             <p>
               <strong>
                 The flat fee absorbs the court costs rather than passing them through.

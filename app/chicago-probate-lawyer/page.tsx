@@ -442,6 +442,8 @@ export default function ChicagoProbateLawyerPage() {
                   </div>
                 </div>
 
+                <p className="text-slate-700 my-6">Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors. These services and costs are included in our package fee rather than added to it. A required surety-bond premium is paid directly to the bond provider. A separate written contested-matter scope applies if a dispute arises.</p>
+
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">Probate Timeline Factors</h3>
 
                 <div className="bg-blue-50 rounded-lg p-6 my-6">

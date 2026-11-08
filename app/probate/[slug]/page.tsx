@@ -89,7 +89,7 @@ function getCountyFAQs(county: string) {
     },
     {
       question: `How much does a probate lawyer cost in ${county}?`,
-      answer: `Illinois Estate Law handles uncontested probate on a flat fee: ${usd(PROBATE.standard)} for standard probate. An estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)} — a Small Estate Affidavit and Attorney Letter of Direction, with no probate case opened. The flat fee is all-inclusive — court filing fees, creditor publication, and recording fees are covered by the fee rather than billed on top of it. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur. Payment plans are available for all services.`,
+      answer: `Illinois Estate Law handles uncontested probate on a flat fee: ${usd(PROBATE.standard)} for standard probate. An estate that qualifies to skip probate is handled as Small Estate Administration for ${usd(PROBATE.smallEstateAdministration)} — a Small Estate Affidavit and Attorney Letter of Direction, with no probate case opened. Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors. Recording fees are also covered rather than billed on top of the fee. The only exclusion is the surety bond premium, if the court requires a bond, which is paid directly to the bond provider. Contested probate starts with a ${usd(CONTESTED.probateInitialFlatFee)} flat fee for a defined initial scope—not the entire contest. Additional flat fees apply only when listed litigation events actually occur. Payment plans are available for all services.`,
     },
     {
       question: 'Can probate be avoided in Illinois?',
@@ -280,7 +280,7 @@ export default function CountyProbatePage({
                 ))}
               </div>
               <p className="text-center text-slate-500 text-sm mt-8 max-w-3xl mx-auto leading-relaxed">
-                These fixed fees cover the written administration scope, court filing fees, creditor publication, and recording. A required surety-bond premium is paid directly to the bond provider. Attorney consultations related to the included scope and payment plans are available.
+                Standard and Large Estate Probate packages include all filing fees, publication costs, asset search, required notices, estate accounting, court appearances, heir and attorney communications, and responses to creditors. Recording fees are also included. A required surety-bond premium is paid directly to the bond provider. Attorney consultations related to the included scope and payment plans are available.
               </p>
               <div className="text-center mt-6">
                 <Link

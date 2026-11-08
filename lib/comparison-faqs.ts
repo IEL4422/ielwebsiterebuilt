@@ -30,7 +30,7 @@ export const flatFeeVsHourlyFAQs: QA[] = [
   {
     question: 'What does a flat probate fee include in Illinois?',
     answer:
-      `At this firm the flat probate fee is all-inclusive of the firm's work and the court costs: opening the estate, letters of office, notice and creditor publication, the inventory, routine court appearances, distributions, and closing the estate — plus the filing fees, publication charges, and recording fees, which are covered by the fee rather than billed on top of it. The single carve-out is the surety bond premium, if the court requires the representative to post a bond; that is paid directly to the bond provider. "All-inclusive" is not the industry norm, so confirm with any firm whether their quoted flat fee also absorbs court costs or merely covers attorney time.`,
+      `At this firm the flat probate fee is all-inclusive of the firm's work and the court costs: opening the estate, letters of office, asset search, required notices and creditor publication, the inventory, estate accounting, court appearances, heir and attorney communications, responses to creditors, distributions, and closing the estate — plus the filing fees, publication charges, and recording fees, which are covered by the fee rather than billed on top of it. The single carve-out is the surety bond premium, if the court requires the representative to post a bond; that is paid directly to the bond provider. "All-inclusive" is not the industry norm, so confirm with any firm whether their quoted flat fee also absorbs court costs or merely covers attorney time.`,
   },
   {
     question: 'How is contested probate priced?',
