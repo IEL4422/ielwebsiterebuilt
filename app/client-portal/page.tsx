@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Shield, Clock, FileText, MessageCircle, Bell, Lock } from 'lucide-react';
+import { Shield, Clock, FileText, MessageCircle, CalendarDays, BookOpen } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { ClientPortalPreview } from '@/components/portal/ClientPortalPreview';
 
 export const metadata: Metadata = {
   title: 'Client Portal | Illinois Estate Law',
-  description: 'Preview the Illinois Estate Law client portal for secure matter updates, documents, attorney messages, and next steps from any device.',
+  description: 'See case updates, review estate planning documents and request changes, message your legal team, schedule calls, and find resources in the IEL client portal.',
   openGraph: {
     title: 'Client Portal | Illinois Estate Law',
-    description: 'Preview the Illinois Estate Law client portal for secure matter updates, documents, attorney messages, and next steps from any device.',
+    description: 'See case updates, review estate planning documents and request changes, message your legal team, schedule calls, and find resources in the IEL client portal.',
     url: 'https://www.illinoisestatelaw.com/client-portal/',
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'Client Portal | Illinois Estate Law',
-    description: 'Preview the Illinois Estate Law client portal for secure matter updates, documents, attorney messages, and next steps from any device.',
+    description: 'See case updates, review estate planning documents and request changes, message your legal team, schedule calls, and find resources in the IEL client portal.',
   },
   robots: {
     index: true,
@@ -38,10 +38,10 @@ export default function ClientPortalPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 text-center">
             <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[36px] text-[#2d3e50] mb-6 sm:text-[28px]">
-              Your Estate Planning Journey, Simplified
+              Your Legal Matter, All in One Place
             </h2>
             <p className="font-['Plus_Jakarta_Sans'] text-[18px] text-[#2d3e50] leading-relaxed sm:text-[16px]">
-              Our secure client portal puts you in control of your estate planning process. Track your case progress, communicate with your attorney, and access your important documents anytime, anywhere.
+              Our client portal gives you one place to see case updates, review and request changes to estate planning documents, message and schedule calls with your legal team, and access resources about your legal matter.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function ClientPortalPage() {
                   Secure &amp; Private
                 </h3>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-[#2d3e50] leading-relaxed sm:text-[14px]">
-                  Your information is protected with bank-level encryption. Only you and your attorney have access to your documents and case details.
+                  Sign in to your client portal to view information shared for your matter and communicate with your legal team. Keep your login details private.
                 </p>
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function ClientPortalPage() {
 
           <div className="mb-12">
             <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-[#2d3e50] mb-8 text-center sm:text-[26px]">
-              What's Inside Your Client Portal
+              What&apos;s Inside Your Client Portal
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -78,10 +78,10 @@ export default function ClientPortalPage() {
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
-                      Real-Time Case Status
+                      Case Updates
                     </h3>
                     <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#4a5568] leading-relaxed sm:text-[14px]">
-                      Track exactly where your estate plan is in the process. See completed steps, upcoming tasks, and know what to expect next.
+                      Follow case updates, completed steps, and next steps shared by your legal team.
                     </p>
                   </div>
                 </div>
@@ -94,10 +94,10 @@ export default function ClientPortalPage() {
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
-                      Document Access
+                      Review Documents & Request Changes
                     </h3>
                     <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#4a5568] leading-relaxed sm:text-[14px]">
-                      View, download, and securely store all your estate planning documents. Access your will, trust, powers of attorney, and more whenever you need them.
+                      Review estate planning documents shared with you and request changes from your legal team before they are finalized.
                     </p>
                   </div>
                 </div>
@@ -110,10 +110,10 @@ export default function ClientPortalPage() {
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
-                      Direct Attorney Communication
+                      Message Your Legal Team
                     </h3>
                     <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#4a5568] leading-relaxed sm:text-[14px]">
-                      Send secure messages directly to your attorney. Ask questions, share information, and get timely responses—all in one convenient place.
+                      Send messages to your legal team, ask questions, and share information about your matter in one place.
                     </p>
                   </div>
                 </div>
@@ -122,14 +122,14 @@ export default function ClientPortalPage() {
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
                   <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
-                    <Bell className="w-6 h-6 text-[#7E9CC0]" />
+                    <CalendarDays className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
-                      Automatic Updates
+                      Schedule Calls
                     </h3>
                     <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#4a5568] leading-relaxed sm:text-[14px]">
-                      Receive notifications when your attorney updates your case, uploads new documents, or needs information from you. Stay informed without the guesswork.
+                      Schedule available calls with your legal team through the portal to talk through your questions or next steps. Appointment options depend on your matter and team availability.
                     </p>
                   </div>
                 </div>
@@ -138,14 +138,14 @@ export default function ClientPortalPage() {
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
                   <div className="bg-[#7E9CC0]/10 rounded-lg p-3 flex-shrink-0">
-                    <Lock className="w-6 h-6 text-[#7E9CC0]" />
+                    <BookOpen className="w-6 h-6 text-[#7E9CC0]" />
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
-                      Secure File Sharing
+                      Resources for Your Legal Matter
                     </h3>
                     <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#4a5568] leading-relaxed sm:text-[14px]">
-                      Upload documents, forms, and information securely. No more worrying about email security or lost attachments.
+                      Access resources and guidance shared for your legal matter so you can better understand the process and prepare for next steps. Available resources depend on your service and stage.
                     </p>
                   </div>
                 </div>
@@ -158,10 +158,10 @@ export default function ClientPortalPage() {
                   </div>
                   <div>
                     <h3 className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-[#2d3e50] mb-2 sm:text-[18px]">
-                      24/7 Access
+                      Access on Your Schedule
                     </h3>
                     <p className="font-['Plus_Jakarta_Sans'] text-[15px] text-[#4a5568] leading-relaxed sm:text-[14px]">
-                      Your portal is available anytime, from any device. Review your documents or check your case status at your convenience.
+                      Use your phone or computer to review available updates, documents, and resources at your convenience.
                     </p>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function ClientPortalPage() {
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
-                  <strong>No More Phone Tag:</strong> Send messages and receive updates on your schedule, not during business hours only.
+                  <strong>Stay Connected:</strong> Message your legal team or schedule a call to discuss your questions.
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -187,7 +187,7 @@ export default function ClientPortalPage() {
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
-                  <strong>Complete Transparency:</strong> See exactly where your case stands at every step of the process.
+                  <strong>Follow Your Progress:</strong> See the latest updates and next steps shared for your case.
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -195,7 +195,7 @@ export default function ClientPortalPage() {
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
-                  <strong>Peace of Mind:</strong> Know your sensitive documents are stored safely and accessible only to you.
+                  <strong>Review Before Finalizing:</strong> Read your estate planning documents and request changes from your legal team.
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -203,7 +203,7 @@ export default function ClientPortalPage() {
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
-                  <strong>Faster Process:</strong> Quick file sharing and communication means your estate plan moves forward smoothly.
+                  <strong>Understand Your Matter:</strong> Find relevant resources and guidance alongside your case information.
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -211,7 +211,7 @@ export default function ClientPortalPage() {
                   <span className="text-white font-bold text-sm">✓</span>
                 </div>
                 <p className="font-['Plus_Jakarta_Sans'] text-[16px] text-white/90 leading-relaxed sm:text-[15px]">
-                  <strong>Always Available:</strong> Your important documents are never more than a login away.
+                  <strong>One Organized Place:</strong> Return to documents, messages, and updates shared through your portal.
                 </p>
               </div>
             </div>
