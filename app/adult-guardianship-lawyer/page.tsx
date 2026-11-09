@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, BadgeCheck, Brain, Building2, CircleAlert, CircleCheck, Clock3, FileCheck2, HeartPulse, Scale, ShieldCheck, UserRound } from 'lucide-react';
+import { ArrowRight, Brain, Building2, CircleAlert, CircleCheck, Clock3, HeartPulse, Scale, ShieldCheck, UserRound } from 'lucide-react';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
@@ -143,22 +142,7 @@ export default function AdultGuardianshipLawyerPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 lg:py-20">
-        <div className="mx-auto grid max-w-[1140px] gap-8 px-5 lg:grid-cols-[340px_1fr] lg:items-center">
-          <div className="overflow-hidden rounded-3xl bg-[#F6F9FC]">
-            <Image src="/attorneys/anna-rafanelli.jpg" alt="Illinois adult guardianship attorney Anna M. Rafanelli" width={680} height={760} className="h-auto w-full object-cover" />
-          </div>
-          <div>
-            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#547298]"><BadgeCheck className="h-5 w-5" />Your guardianship attorney</span>
-            <h2 className="mt-3 text-3xl font-extrabold text-[#33414E]">Meet Anna M. Rafanelli</h2>
-            <p className="mt-4 text-lg leading-relaxed text-slate-600">Anna focuses on probate and elder law, particularly adult guardianships. Her civil-litigation background helps families navigate evidentiary issues, court procedure, and the sensitive conflicts that can arise when a loved one&apos;s safety and autonomy are both at stake.</p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {['Licensed in Illinois and Indiana', 'Admitted in the Northern District of Illinois', 'Adult guardianship and elder-law focus', 'Civil-litigation experience'].map((item) => <div key={item} className="flex items-start gap-2 rounded-xl bg-[#F6F9FC] p-4 text-sm font-semibold text-[#33414E]"><FileCheck2 className="mt-0.5 h-5 w-5 shrink-0 text-[#547298]" />{item}</div>)}
-            </div>
-            <Link href="/about/" className="mt-6 inline-flex items-center gap-2 font-bold text-[#547298] hover:text-[#33414E]">Meet the legal team<ArrowRight className="h-4 w-4" /></Link>
-          </div>
-        </div>
-      </section>
+
 
       <section className="bg-[#F6F9FC] py-16">
         <div className="mx-auto grid max-w-[1140px] gap-8 px-5 lg:grid-cols-2">
