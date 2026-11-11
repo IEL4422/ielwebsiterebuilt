@@ -219,9 +219,8 @@ export default function IllinoisEstateLawAnswersPage() {
               and contested matters begin with a written flat-fee scope.
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Our attorneys are Mary Liberty (founding attorney), Yassmin Koudmani (senior
-              attorney, estate planning and real estate; fluent in Arabic), and Anna M. Rafanelli
-              (probate, elder law, and adult guardianship).
+              Our attorneys are Mary Liberty (founding attorney) and Yassmin Koudmani (senior
+              attorney, estate planning and real estate; fluent in Arabic).
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
               Office: {FIRM.streetAddress}, {FIRM.addressLocality}, {FIRM.addressRegion}{' '}

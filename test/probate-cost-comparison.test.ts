@@ -6,7 +6,7 @@ describe('Probate cost article illustrative comparison', () => {
   const source = readFileSync('app/blog/how-much-does-probate-cost-in-illinois/page.tsx', 'utf8');
   it('calculates the comparison using the current package price', () => {
     expect(42 * 350).toBe(14700);
-    expect(usd(42 * 350 - PROBATE.standard)).toBe('$9,200');
+    expect(usd(42 * 350 - PROBATE.standard)).toBe('$9,700');
     expect(source).toContain('{usd(42 * 350 - PROBATE.standard)}');
     expect(source).not.toContain('saving over $9,000.');
   });
@@ -19,4 +19,3 @@ describe('Probate cost article illustrative comparison', () => {
     expect(source).not.toContain('The legal work is identical;');
   });
 });
-

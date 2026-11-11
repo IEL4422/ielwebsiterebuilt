@@ -6,9 +6,9 @@ import { probatePackages, guardianshipServices } from '../lib/services-data';
 const source = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 
 describe('prospective probate base pricing', () => {
-  it('uses $5,500 for standard, large-estate, and contested probate bases', () => {
-    expect(PROBATE.standard).toBe(5500);
-    expect(probatePackages.find(service => service.id === 'standard-probate')?.fixedPrice).toBe(5500);
+  it('uses $5,000 for standard probate without changing the contested or large-estate base', () => {
+    expect(PROBATE.standard).toBe(5000);
+    expect(probatePackages.find(service => service.id === 'standard-probate')?.fixedPrice).toBe(5000);
     expect(CONTESTED.probateInitialFlatFee).toBe(5500);
     expect(probatePackages.find(service => service.id === 'contested-probate')?.pricingLabel).toBe('Starts with $5,500');
     expect(PROBATE.largeEstateBase).toBe(5500);
@@ -48,8 +48,9 @@ describe('prospective probate base pricing', () => {
     expect(source('public/llms.txt')).toContain('**$5,500 plus 0.5% of estate value**');
     expect(source('public/llms.txt')).not.toContain('$6,500 plus 0.5%');
     expect(sheet).not.toContain('$6,500 + 0.5%');
+    expect(sheet).toMatch(/Standard Probate<\/div>[\s\S]*?<td class="price">\$5,000<\/td>/);
     expect(sheet).toMatch(/Contested Probate<\/div>[\s\S]*?Starts with \$5,500/);
     expect(sheet).toMatch(/Contested Guardianship<\/div>[\s\S]*?Starts with \$5,000/);
-    expect(source('public/llms.txt')).toContain('**$5,500** Standard Probate');
+    expect(source('public/llms.txt')).toContain('**$5,000** Standard Probate');
   });
 });
