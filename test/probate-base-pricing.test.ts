@@ -11,7 +11,7 @@ describe('prospective probate base pricing', () => {
     expect(probatePackages.find(service => service.id === 'standard-probate')?.fixedPrice).toBe(5000);
     expect(CONTESTED.probateInitialFlatFee).toBe(5500);
     expect(probatePackages.find(service => service.id === 'contested-probate')?.pricingLabel).toBe('Starts with $5,500');
-    expect(PROBATE.largeEstateBase).toBe(5500);
+    expect(PROBATE.largeEstateBase).toBe(5000);
     expect(PROBATE.largeEstatePercent).toBe(0.5);
     expect(PROBATE.largeEstateThreshold).toBe(4000000);
     expect(CONTESTED.guardianshipInitialFlatFee).toBe(5000);
@@ -44,8 +44,8 @@ describe('prospective probate base pricing', () => {
 
   it('keeps the generated pricing sheet and AI summary aligned', () => {
     const sheet = source('public/pricing-sheet.html');
-    expect(sheet).toMatch(/Large Estate Probate<\/div>[\s\S]*?\$5,500 \+ 0\.5% of Estate Value/);
-    expect(source('public/llms.txt')).toContain('**$5,500 plus 0.5% of estate value**');
+    expect(sheet).toMatch(/Large Estate Probate<\/div>[\s\S]*?\$5,000 \+ 0\.5% of Estate Value/);
+    expect(source('public/llms.txt')).toContain('**$5,000 plus 0.5% of estate value**');
     expect(source('public/llms.txt')).not.toContain('$6,500 plus 0.5%');
     expect(sheet).not.toContain('$6,500 + 0.5%');
     expect(sheet).toMatch(/Standard Probate<\/div>[\s\S]*?<td class="price">\$5,000<\/td>/);
