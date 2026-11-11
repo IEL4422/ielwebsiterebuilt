@@ -15,10 +15,10 @@ describe('requested service pricing', () => {
     }
   });
   it('publishes the requested standard probate and annual consulting prices while retaining separate scope', () => {
-    expect(probatePackages.find(service => service.id === 'standard-probate')?.fixedPrice).toBe(5500);
+    expect(probatePackages.find(service => service.id === 'standard-probate')?.fixedPrice).toBe(5000);
     const largeEstate = probatePackages.find(service => service.id === 'large-estate-probate')!;
-    expect(largeEstate.fixedPrice).toBe(6500);
-    expect(largeEstate.pricingLabel).toBe('$6,500 + 0.5% of Estate Value');
+    expect(largeEstate.fixedPrice).toBe(5500);
+    expect(largeEstate.pricingLabel).toBe('$5,500 + 0.5% of Estate Value');
     expect(largeEstate.subtitle).toContain('$4,000,000');
     const consulting = trustAdministrationServices[0];
     expect(consulting.pricingLabel).toBe('$3,500 / Year');
@@ -36,4 +36,3 @@ describe('requested service pricing', () => {
     expect(sheet).not.toContain('Flat fee includes the firm');
   });
 });
-
