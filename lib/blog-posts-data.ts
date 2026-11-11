@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'illinois-advance-directive-living-will',
+    title: 'What Is an Advance Directive in Illinois? Living Will & Healthcare Power of Attorney Guide',
+    url: '/blog/illinois-advance-directive-living-will/',
+    date: 'Nov 11, 2026',
+    summary:
+      'Complete guide to Illinois advance directives — the Living Will Declaration under 755 ILCS 35, the Healthcare Power of Attorney under 755 ILCS 45, how to execute both documents, what happens without them, when they take effect, and how to integrate them into a complete estate plan.',
+    excerpt:
+      'Learn what an Illinois advance directive and living will do, how to execute them, who needs them, and how they work alongside your power of attorney for healthcare.',
+  },
+  {
     slug: 'estate-planning-for-young-families-illinois',
     title: 'Estate Planning for Young Families in Illinois: A Complete Guide for New Parents',
     url: '/blog/estate-planning-for-young-families-illinois/',
