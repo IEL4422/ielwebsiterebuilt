@@ -95,7 +95,8 @@ export function InlineChat({ inputId: providedInputId }: { inputId?: string }) {
       if (wsRef.current !== ws) return;
       ws.send(JSON.stringify({
         type: 'conversation_initiation_client_data',
-        conversation_config_override: { conversation: { text_only: true } },
+        // Skip the agent's phone greeting ("Thanks for calling...") in website chat.
+        conversation_config_override: { conversation: { text_only: true }, agent: { first_message: '' } },
       }));
     };
     ws.onmessage = event => {
