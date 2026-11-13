@@ -44,6 +44,23 @@ describe('organized homepage probate path', () => {
     expect(src).toContain("export const dynamic = 'force-dynamic'");
     expect(src).toContain('<Suspense fallback={null}>');
   });
+  it('keeps filled CTA text contrast and explicit keyboard focus visible', () => {
+    const luminance = (hex: string) => {
+      const c = hex.match(/../g)!.map(part => parseInt(part, 16) / 255)
+        .map(value => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
+      return c[0] * 0.2126 + c[1] * 0.7152 + c[2] * 0.0722;
+    };
+    for (const color of ['547298', '33414E']) {
+      expect((1.05) / (luminance(color) + 0.05)).toBeGreaterThanOrEqual(4.5);
+    }
+    for (const file of ['HeroSection', 'ContactSection']) {
+      const src = readFileSync(`components/home/${file}.tsx`, 'utf8');
+      expect(src).toContain('bg-[#547298]');
+      expect(src).toContain('hover:bg-[#33414E]');
+      expect(src).toContain('focus-visible:outline-offset-4');
+      expect(src).not.toContain('bg-[#7E9CC0] hover:bg-[#547298] text-white');
+    }
+  });
   it('keeps late contact relevant to both audiences and monitor intact', () => {
     const html = renderToStaticMarkup(<ContactSection />);
     expect(html).toContain('handling a loved one');

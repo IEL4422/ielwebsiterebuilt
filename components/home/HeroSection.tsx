@@ -52,14 +52,14 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
             <Link
               href="/get-started/"
-              className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-colors text-center"
+              className="inline-flex items-center justify-center bg-[#547298] hover:bg-[#33414E] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-colors text-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[#B6CCE5]"
             >
               See All Services
             </Link>
             <Link
               href="/book-consultation/"
               rel="nofollow"
-              className="inline-flex items-center justify-center bg-transparent border-2 border-white/80 hover:border-white text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-colors text-center"
+              className="inline-flex items-center justify-center bg-transparent border-2 border-white/80 hover:border-white text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-colors text-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[#B6CCE5]"
             >
               Book a Free Consultation
             </Link>
