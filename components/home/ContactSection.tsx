@@ -22,7 +22,7 @@ export function ContactSection() {
               Schedule a Consultation
             </h3>
             <p className="text-slate-300 text-lg mb-8 max-w-sm">
-              Ready to protect your family&apos;s future? Book a consultation with our estate planning attorneys.
+              Planning ahead or handling a loved one&apos;s estate? Talk with our team about the next step.
             </p>
             <Link
               href="/book-consultation/"

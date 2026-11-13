@@ -58,7 +58,7 @@ describe('homepage under total third-party failure', () => {
     const html = await renderHomepage();
 
     // Hero
-    expect(html).toContain('We Help Illinois Families');
+    expect(html).toContain('Find your way through probate.');
 
     // Practice areas - the substance a visitor came for
     expect(html).toContain('Practice Areas');
@@ -69,7 +69,7 @@ describe('homepage under total third-party failure', () => {
     expect(html).toContain('Real Estate');
 
     // Conversion paths
-    expect(html).toContain('Two ways to begin');
+    expect(html).toContain('Help after a loss');
     expect(html).toContain('Frequently Asked Questions');
 
     // Not a shell: a real page's worth of markup.
@@ -103,7 +103,7 @@ describe('homepage under total third-party failure', () => {
 
     const html = await renderHomepage();
 
-    expect(html).toContain('We Help Illinois Families');
+    expect(html).toContain('Find your way through probate.');
     expect(html).toContain('Practice Areas');
     expect(html).not.toContain('From the Learning Center');
   });

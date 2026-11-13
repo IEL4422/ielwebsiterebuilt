@@ -79,9 +79,18 @@ jobs:
             if curl -fsS http://127.0.0.1:3192/flat-fee-vs-hourly-probate-illinois/ > /dev/null; then break; fi
             sleep 1
           done
+          node scripts/verify-homepage-probate.cjs
           node scripts/verify-header-layout.cjs
           node scripts/verify-guardianship-routes.cjs
           node scripts/verify-inline-chat.cjs
           node scripts/verify-estate-tax-calculator.cjs
           node scripts/verify-real-estate-pricing.cjs
           node scripts/verify-advanced-trust-pricing.cjs
+
+      - name: Save homepage responsive screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-responsive
+          path: artifacts/homepage/
+          if-no-files-found: ignore

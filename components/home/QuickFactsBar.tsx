@@ -18,7 +18,7 @@ const facts = [
   {
     icon: MapPin,
     label: 'All of Illinois',
-    sub: 'Virtual & in-person available',
+    sub: 'Virtual consultations statewide',
     href: '/locations/',
   },
   {
@@ -47,7 +47,7 @@ export function QuickFactsBar() {
                 <p className="text-white font-semibold text-sm leading-none mb-1 font-['Plus_Jakarta_Sans']">
                   {label}
                 </p>
-                <p className="text-white/60 text-xs leading-none font-['Plus_Jakarta_Sans'] truncate">
+                <p className="text-white/60 text-xs leading-relaxed font-['Plus_Jakarta_Sans']">
                   {sub}
                 </p>
               </div>
