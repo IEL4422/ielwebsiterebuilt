@@ -9,7 +9,7 @@ assert(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname), 'Use a loc
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH, args: ['--no-sandbox'] } : {});
   try {
-    for (const width of [390, 1165, 1180, 1280, 1440]) {
+    for (const width of [320, 390, 768, 1165, 1180, 1280, 1440]) {
       const page = await browser.newPage({ viewport: { width, height: 1000 } });
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
@@ -17,6 +17,7 @@ assert(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname), 'Use a loc
         const url = new URL(route.request().url());
         if (url.origin === origin && route.request().method() === 'GET') return route.continue();
         // Preserve the declared logo aspect ratio without a third-party request.
+        if (url.hostname === 'i.imgur.com' && url.pathname === '/bSfExtA.png' && process.env.HEADER_LOGO_FILE) return route.fulfill({ contentType: 'image/png', body: fs.readFileSync(process.env.HEADER_LOGO_FILE) });
         if (url.hostname === 'i.imgur.com') return route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120"><rect width="240" height="120" fill="#547298"/></svg>' });
         return route.abort();
       });
@@ -26,6 +27,9 @@ assert(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname), 'Use a loc
         if (font) await page.addStyleTag({ content: `body { font-family: ${font} !important; }` });
         const header = page.locator('header:visible');
         assert.equal(await header.count(), 1, `one header at ${width}`);
+        const logo = header.getByRole('img', { name: 'Illinois Estate Law', exact: true });
+        const logoBox = await logo.boundingBox();
+        assert.equal(logoBox.height, width < 1280 ? 64 : 80, `larger logo at ${width}`);
         const start = header.getByRole('link', { name: width < 1280 ? 'Get Started' : 'Get Started Online', exact: true });
         assert(await start.isVisible(), `visible start link at ${width}`);
         const box = await start.boundingBox();
@@ -43,6 +47,8 @@ assert(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname), 'Use a loc
       if (width < 1280) {
         await page.getByRole('button', { name: 'Toggle menu' }).click();
         assert(await page.locator('header:visible').getByRole('link', { name: 'Get Started Online', exact: true }).isVisible());
+        await page.getByRole('button', { name: 'Toggle menu' }).click();
+        assert(!(await page.locator('header:visible').getByRole('link', { name: 'Get Started Online', exact: true }).isVisible()), 'menu closes');
       }
       if (process.env.HEADER_SCREENSHOT_DIR) {
         fs.mkdirSync(process.env.HEADER_SCREENSHOT_DIR, { recursive: true });
@@ -51,6 +57,6 @@ assert(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname), 'Use a loc
       assert.deepEqual(errors, [], `page errors at ${width}`);
       await page.close();
     }
-    console.log('Header passes 390/1165/1180/1280/1440: visible, unclipped, non-overlapping controls; no document overflow or external requests.');
+    console.log('Header passes 320/390/768/1165/1180/1280/1440: visible, unclipped, non-overlapping controls; no document overflow or external requests.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
