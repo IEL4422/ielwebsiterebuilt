@@ -25,6 +25,8 @@ describe('IEL logo presentation', () => {
     const html = renderToStaticMarkup(<Header />);
     expect(html).toContain('h-24 w-auto');
     expect(html).toContain('h-[112px]');
+    expect(html).toContain('max-w-[1280px] px-5');
+    expect(html).toContain('flex items-center gap-4');
     expect(html).toContain('Toggle menu');
   });
   it('only animates when allowed, settles once, and preserves a static fallback', () => {
