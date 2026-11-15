@@ -55,14 +55,14 @@ export function Header() {
       {/* ===== Desktop header (modernized, shared across all pages) ===== */}
       <header className="hidden xl:block sticky top-0 z-[999] bg-[#33414E] border-b border-white/10">
         <div className="mx-auto max-w-[1140px] px-5 xl:px-0">
-          <div className="flex items-center justify-between gap-6 h-[92px]">
+          <div className="flex items-center justify-between gap-6 h-[112px]">
             <Link href="/" aria-label="Illinois Estate Law home" className="flex items-center shrink-0">
               <Image
                 src="https://i.imgur.com/bSfExtA.png"
                 alt="Illinois Estate Law"
                 width={240}
                 height={120}
-                className="h-16 w-auto"
+                className="h-24 w-auto"
                 priority
               />
             </Link>

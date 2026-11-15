@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { HeroLogo } from './HeroLogo';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FEE_STRUCTURE_NOTE, FEE_STRUCTURE_HREF } from '@/lib/fee-structure';
@@ -41,7 +42,7 @@ function RotatingPracticeArea() {
   return (
     <span
       aria-hidden="true"
-      className={`block min-w-[20ch] text-[#9DB6D6] transition-opacity duration-300 sm:inline-block ${visible ? 'opacity-100' : 'opacity-0'}`}
+      className={`block min-w-0 text-[#9DB6D6] transition-opacity duration-300 sm:inline-block ${visible ? 'opacity-100' : 'opacity-0'}`}
     >
       {PRACTICE_AREAS[index]}
     </span>
@@ -135,6 +136,7 @@ export function HeroSection() {
             </Link>
           </p>
         </div>
+        <HeroLogo />
       </div>
     </section>
   );
