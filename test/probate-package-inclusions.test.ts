@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { probatePackages } from '../lib/services-data';
 
 const additions = [
-  'All filing fees and publication costs',
+  'ALL filing fees and publication fees are included in the price',
   'All required notices',
   'Estate accounting',
   'Heir and attorney communications',

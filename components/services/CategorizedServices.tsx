@@ -123,7 +123,7 @@ export function CategorizedServices({
     'Opening of Estate Bank Account',
     'Obtaining Estate EIN',
     'Asset & Debt Search',
-    'All filing fees and publication costs',
+    'ALL filing fees and publication fees are included in the price',
     'All required notices',
     'Estate accounting',
     'Heir and attorney communications',
