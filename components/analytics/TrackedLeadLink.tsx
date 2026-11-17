@@ -24,7 +24,7 @@ export function TrackedLeadLink({ href, source, children, className, target, rel
       target={target}
       rel={rel}
       onClick={() => {
-        trackLead(source, { params: { content_ids: [href] } });
+        trackLead(source, { params: { content_ids: [source === 'PORTAL_HANDOFF' ? 'secure-portal' : href] } });
         trackFunnelEvent('secure_intake_started', { source });
       }}
     >
