@@ -87,7 +87,7 @@ const faqSchema = {
       "name": "Do You Help Me Fund My Trust?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes -- trust funding guidance is included in all trust packages and trust services at no additional cost. We review your assets, tell you which ones belong in the trust, and give you the trust certification, letters of instruction, and step-by-step direction you need. You complete the transfers with your banks and financial institutions; we do not retitle your accounts for you. We do draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Trust funding guidance is also available as a standalone a la carte service for $1,500 for clients who already have a trust."
+        "text": "Yes -- trust funding guidance is included in all trust packages and trust services at no additional cost. We review your assets, tell you which ones belong in the trust, and give you the trust certification, letters of instruction, and step-by-step direction you need. You complete the transfers with your banks and financial institutions; we do not retitle your accounts for you. We do draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each."
       }
     },
     {
@@ -347,7 +347,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes -- trust funding guidance is included in all trust packages and trust services at no additional cost. We review your assets, tell you which ones belong in the trust, and give you the trust certification, letters of instruction, and step-by-step direction you need. You complete the transfers with your banks and financial institutions; we do not retitle your accounts for you. We do draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each. Trust funding guidance is also available as a standalone a la carte service for $1,500 for clients who already have a trust.</p>
+              <p>Yes -- trust funding guidance is included in all trust packages and trust services at no additional cost. We review your assets, tell you which ones belong in the trust, and give you the trust certification, letters of instruction, and step-by-step direction you need. You complete the transfers with your banks and financial institutions; we do not retitle your accounts for you. We do draft and record one (1) deed to transfer real estate into the trust as part of the service. Additional deeds beyond the first are $500 each.</p>
             </div>
           </details>
 
