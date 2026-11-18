@@ -193,7 +193,7 @@ export const PROBATE = {
   largeEstateThreshold: 4000000,
   reopening: 2500,
   heirRepresentation: 2500,
-  spousalRepresentation: 4500,
+  spousalRepresentation: 3500,
   partialProbate: 3500,
   documentReview: 500,
 } as const;
@@ -211,11 +211,11 @@ export const ESTATE_PLANNING = {
   estateTaxPackageIndividual: 15000,
   estateTaxPackageJoint: 20000,
   /** Standalone advanced-trust services. */
-  medicaidAssetProtectionTrust: 6500,
+  medicaidAssetProtectionTrust: 4500,
   irrevocableLifeInsuranceTrust: 5500,
   /** Legacy compatibility value for other advanced irrevocable-trust references. */
   irrevocableTrust: 5500,
-  annualReviewMembership: 599,
+  annualReviewMembership: 499,
 } as const;
 
 /** A la carte — unchanged. */
@@ -231,8 +231,7 @@ export const A_LA_CARTE = {
   trustRestatementJoint: 3000,
   willAmendmentIndividual: 500,
   willAmendmentJoint: 750,
-  trustFundingGuidance: 1500,
-  specialNeedsPlanning: 5500,
+  specialNeedsPlanning: 4500,
   estateTaxPlanningAddOn: 5000,
   deed: 500,
 } as const;

@@ -151,7 +151,7 @@ const faqSchema = {
       "name": "Do You Have an Ongoing Maintenance Program or Subscription Service for Clients Who Want Regular Document Reviews and Legal Updates?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Our $599 annual review membership includes an annual attorney review meeting and up to two simple amendments each year. Work outside that scope is quoted separately."
+        "text": "Yes. Our $499 annual review membership includes an annual attorney review meeting and up to two simple amendments each year. Work outside that scope is quoted separately."
       }
     },
     {
@@ -453,7 +453,7 @@ export default function ServicesPage() {
               </svg>
             </summary>
             <div className="pb-4 text-[#2d3e50]">
-              <p>Yes. Our $599 annual review membership includes an annual attorney review meeting and up to two simple amendments each year. Work outside that scope is quoted separately.</p>
+              <p>Yes. Our $499 annual review membership includes an annual attorney review meeting and up to two simple amendments each year. Work outside that scope is quoted separately.</p>
             </div>
           </details>
 

@@ -448,13 +448,6 @@ export default function RecommendedServicePage() {
       }
 
       addOns.push({
-        id: 'trust-funding',
-        name: 'Trust Funding Guidance',
-        price: 1500,
-        description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.'
-      });
-
-      addOns.push({
         id: 'additional-deed',
         name: 'Additional Deed Transfer to Trust',
         price: 500,
@@ -509,13 +502,6 @@ export default function RecommendedServicePage() {
           suggested: true
         });
       }
-
-      addOns.push({
-        id: 'trust-funding',
-        name: 'Trust Funding Guidance',
-        price: 1500,
-        description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.'
-      });
 
       return {
         name: `${isMarried ? 'Joint' : 'Individual'} Revocable Living Trust (A La Carte)`,

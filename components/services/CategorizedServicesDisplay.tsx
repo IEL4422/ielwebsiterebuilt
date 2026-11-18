@@ -173,12 +173,6 @@ export const serviceCategories: ServiceCategory[] = [
         includes: []
       },
       {
-        name: 'Trust Funding Guidance',
-        fixedPrice: 1500,
-        note: 'Guidance for retitling up to 15 financial assets into your trust. You complete the transfers with your institutions. Does not include real estate / deed transfers.',
-        includes: []
-      },
-      {
         name: 'Medicaid Asset Protection Trust',
         subtitle: 'Standalone long-term-care asset-protection planning',
         fixedPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,

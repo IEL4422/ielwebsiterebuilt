@@ -27,7 +27,6 @@ const SERVICE_IDS: Record<string, string> = {
   'Healthcare Directive (Living Will)': 'healthcare-directive',
   'Trust Restatement': 'trust-restatement',
   'Will Amendment': 'will-amendment',
-  'Trust Funding Guidance': 'trust-funding-service',
   'Medicaid Asset Protection Trust': 'medicaid-asset-protection-trust',
   'Irrevocable Life Insurance Trust (ILIT)': 'irrevocable-life-insurance-trust',
   'Special Needs Planning': 'special-needs-planning',

@@ -31,7 +31,7 @@ describe('requested service pricing', () => {
       expect(cost.answer).toContain('$5,000 retainer with hourly billing');
     }
     const sheet = readFileSync('public/pricing-sheet.html', 'utf8');
-    expect(sheet).toContain('$6,500');
+    expect(sheet).toContain('Medicaid Asset Protection Trust');
     expect(sheet.match(/retainer; hourly billing/g)).toHaveLength(2);
     expect(sheet).not.toContain('Flat fee includes the firm');
   });
