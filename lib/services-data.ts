@@ -568,16 +568,6 @@ export const aLaCarteServices: Service[] = [
     description: 'Can be added to an existing package or estate plan. Includes Federal and Illinois estate-tax planning and one advanced irrevocable trust selected for the approved strategy.',
     includes: [],
     addOns: estatePlanningAddOns
-  },
-  {
-    id: 'trust-funding-service',
-    name: 'Trust Funding Guidance',
-    category: 'a-la-carte',
-    standardizedCaseType: 'Estate Planning',
-    standardizedServiceName: 'Trust Funding - A La Carte',
-    fixedPrice: 1500,
-    description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.',
-    includes: []
   }
 ];
 

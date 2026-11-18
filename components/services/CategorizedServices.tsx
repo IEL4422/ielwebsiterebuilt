@@ -301,14 +301,6 @@ export function CategorizedServices({
           includes: []
         },
         {
-          id: 'trust-funding-service',
-          name: 'Trust Funding Guidance',
-          category: 'a-la-carte',
-          fixedPrice: 1500,
-          description: 'Guided funding support for up to 15 financial assets. We review your trust and walk you through retitling each account with your bank or brokerage; you complete the transfers with the institution. Does not include real estate / deed transfers.',
-          includes: []
-        },
-        {
           id: 'medicaid-asset-protection-trust',
           name: 'Medicaid Asset Protection Trust',
           category: 'a-la-carte',
@@ -487,7 +479,7 @@ export function CategorizedServices({
           name: 'Additional Deed Transfer to Trust',
           category: 'a-la-carte',
           fixedPrice: 500,
-          description: 'For transferring additional properties into an existing or newly created trust. We draft and record the deed. May be added to any package or trust funding guidance service.',
+          description: 'For transferring additional properties into an existing or newly created trust. We draft and record the deed. May be added to any package or trust service.',
           includes: []
         },
         {
