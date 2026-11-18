@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-avoid-probate-illinois',
+    title: 'How to Avoid Probate in Illinois: 5 Strategies That Work',
+    url: '/blog/how-to-avoid-probate-illinois/',
+    date: 'Nov 18, 2026',
+    summary:
+      'Complete guide to avoiding probate in Illinois — how a funded revocable living trust bypasses the courts, how payable-on-death and transfer-on-death designations work, how the Transfer on Death Instrument (TODI) keeps real estate out of probate, when joint tenancy helps, and how the Small Estate Affidavit applies to small estates.',
+    excerpt:
+      'Learn five proven strategies to keep your Illinois estate out of probate court — revocable trusts, beneficiary designations, Transfer on Death Instruments, joint tenancy, and the Small Estate Affidavit.',
+  },
+  {
     slug: 'illinois-advance-directive-living-will',
     title: 'What Is an Advance Directive in Illinois? Living Will & Healthcare Power of Attorney Guide',
     url: '/blog/illinois-advance-directive-living-will/',
