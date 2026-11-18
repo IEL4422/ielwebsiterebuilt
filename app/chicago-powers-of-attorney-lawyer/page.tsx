@@ -9,6 +9,7 @@ import { ChevronDown, ChevronUp, Phone, Mail, FileText, Shield, AlertCircle, Che
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { A_LA_CARTE, usd } from '@/lib/pricing';
+import { buyButtonLabel } from '@/lib/online-signup';
 
 export default function PowersOfAttorneyPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -183,7 +184,7 @@ export default function PowersOfAttorneyPage() {
                   <p className="mt-3 text-4xl font-extrabold text-[#33414E]">{usd(option.price)}</p>
                   <p className="mt-3 flex-1 leading-relaxed text-slate-600">{option.detail}</p>
                   <Link href={option.href} className="mt-6 inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3 font-bold text-white transition-colors hover:bg-[#33414E]">
-                    Get Started
+                    {buyButtonLabel('power-of-attorney', { clientType: option.label === 'Joint' ? 'joint' : 'individual', fallback: 'Get Started' })}
                   </Link>
                 </article>
               ))}

@@ -9,7 +9,9 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { createClient } from '@supabase/supabase-js';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
-import { A_LA_CARTE, CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, CONTESTED_PROBATE_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, TRUST_ADMIN, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, CONTESTED_CUSTOM_FEE, CONTESTED_EVENT_FEES, CONTESTED_PROBATE_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
+import { buyButtonLabel } from '@/lib/online-signup';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 
 const getSupabaseClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -152,7 +154,7 @@ export default function RecommendedServicePage() {
         ],
         addOns: [],
         serviceId: 'trust-admin-consulting',
-        requiresConsultation: true,
+        requiresConsultation: false,
         standardizedCaseType: 'Trust Administration',
         standardizedServiceName: 'Trust Administration Consulting'
       };
@@ -224,7 +226,7 @@ export default function RecommendedServicePage() {
       if (realEstateRole === 'fsbo') {
         return {
           name: 'For Sale By Owner (FSBO) Representation',
-          price: '$1,500',
+          price: usd(REAL_ESTATE.fsboRepresentation),
           description: 'Expanded attorney representation for an Illinois residential seller without a listing agent. It includes contract preparation or review and additional transaction coordination, but not brokerage, marketing, showings, buyer placement, or pricing advice. The fee is paid at closing from sale proceeds.',
           includes: [
             'Residential sale-contract preparation or review',
@@ -246,7 +248,7 @@ export default function RecommendedServicePage() {
       if (realEstateRole === 'bond') {
         return {
           name: 'Bond in Lieu of Probate',
-          price: '$1,500',
+          price: usd(REAL_ESTATE.bondInLieuOfProbate),
           description: 'A limited probate-alternative title-transfer service for an estate whose only asset requiring administration is Illinois real estate, when all heirs agree and the title company and surety approve the process. This is not a full probate case.',
           includes: [
             'Eligibility, ownership, and heir review',
@@ -265,7 +267,7 @@ export default function RecommendedServicePage() {
 
       return {
         name: 'Sale Representation',
-        price: '$750',
+        price: usd(REAL_ESTATE.saleRepresentation),
         description: 'Attorney representation for an Illinois residential seller who already has a licensed listing agent. The fee is paid at closing from sale proceeds. Buyer representation, brokerage services, and third-party closing costs are not included.',
         includes: [
           'Sale-contract review and attorney-review negotiation',
@@ -313,7 +315,7 @@ export default function RecommendedServicePage() {
           ],
           addOns: [],
           serviceId: 'partial-probate',
-          requiresConsultation: true,
+          requiresConsultation: false,
           standardizedCaseType: 'Probate',
           standardizedServiceName: 'Partial Probate'
         };
@@ -341,7 +343,7 @@ export default function RecommendedServicePage() {
       if (decedentEstateValue === 'under-150k' && decedentHasRealEstate === 'no' && allDebtsPaid === 'yes') {
         return {
           name: 'Small Estate Administration',
-          price: '$1,000',
+          price: usd(PROBATE.smallEstateAdministration),
           description: 'Illinois permits qualifying personal estates of $150,000 or less, with no individually owned real estate, to be settled with a sworn affidavit instead of opening probate. This service prepares the affidavit and attorney letter of direction.',
           includes: [
             'Small Estate Affidavit',
@@ -381,7 +383,7 @@ export default function RecommendedServicePage() {
           note: 'Surety bond premium, if required, is paid directly to the bond provider and is not included in the fee.',
           addOns: [],
           serviceId: 'large-estate-probate',
-          requiresConsultation: false,
+          requiresConsultation: true,
           standardizedCaseType: 'Probate',
           standardizedServiceName: 'Large Estate Probate'
         };
@@ -456,7 +458,7 @@ export default function RecommendedServicePage() {
 
       return {
         name: isMarried ? 'Joint Trust Package' : 'Individual Trust Package',
-        price: isMarried ? '$5,000' : '$3,500',
+        price: usd(isMarried ? ESTATE_PLANNING.trustPackageJoint : ESTATE_PLANNING.trustPackageIndividual),
         description: `For ${isMarried ? 'married couples' : 'individuals'} who own real estate or have estates over $150,000 and need comprehensive estate planning protection.`,
         includes: [
           'Revocable Living Trust',
@@ -505,7 +507,7 @@ export default function RecommendedServicePage() {
 
       return {
         name: `${isMarried ? 'Joint' : 'Individual'} Revocable Living Trust (A La Carte)`,
-        price: isMarried ? '$3,500' : '$2,500',
+        price: usd(isMarried ? A_LA_CARTE.revocableTrustJoint : A_LA_CARTE.revocableTrustIndividual),
         description: `For ${isMarried ? 'married couples' : 'individuals'} who need a trust but already have or don't need powers of attorney and healthcare directives.`,
         includes: [
           'Revocable Living Trust only',
@@ -522,7 +524,7 @@ export default function RecommendedServicePage() {
     if (ownsRealEstate === 'yes' && estateValue === 'under-150k' && needsAncillary === 'yes') {
       return {
         name: `${isMarried ? 'Joint' : 'Individual'} Probate Avoidance Package`,
-        price: isMarried ? '$2,250' : '$1,750',
+        price: usd(isMarried ? ESTATE_PLANNING.probateAvoidanceJoint : ESTATE_PLANNING.probateAvoidanceIndividual),
         description: `For ${isMarried ? 'married couples' : 'individuals'} who own real estate but have personal estates of $150,000 or less and want to avoid probate without a full trust.`,
         includes: [
           'Last Will & Testament',
@@ -548,7 +550,7 @@ export default function RecommendedServicePage() {
 
     return {
       name: `${isMarried ? 'Joint' : 'Individual'} Will Package`,
-      price: isMarried ? '$1,750' : '$1,250',
+      price: usd(isMarried ? ESTATE_PLANNING.willPackageJoint : ESTATE_PLANNING.willPackageIndividual),
       description: `For ${isMarried ? 'married couples' : 'individuals'} who need essential estate planning documents.`,
       includes: [
         'Last Will & Testament',
@@ -679,6 +681,25 @@ export default function RecommendedServicePage() {
 
   const recommendation = showResult ? getRecommendation() : null;
 
+  /**
+   * Only complex results lead with a consultation: guardianship, contested
+   * probate, large estates in probate (requiresConsultation on the result),
+   * and estate plans for estates over $3.5 million. Every other result leads
+   * straight to the package checkout.
+   */
+  const consultFirst = (rec: ServiceRecommendation) =>
+    Boolean(rec.requiresConsultation) ||
+    (rec.standardizedCaseType === 'Estate Planning' && answers.estateValue === 'over-3.5m');
+
+  const packageCheckoutHref = (rec: ServiceRecommendation) => {
+    const query = new URLSearchParams({
+      service: rec.serviceId,
+      clientType: rec.clientType || 'individual',
+      source: 'service-finder'
+    });
+    return `/start-online/?${query.toString()}`;
+  };
+
   const toggleAddOn = (addOnId: string) => {
     setSelectedAddOns(prev =>
       prev.includes(addOnId)
@@ -699,18 +720,6 @@ export default function RecommendedServicePage() {
     }, 0);
 
     return basePrice + addOnsTotal;
-  };
-
-  const handleProceedToPurchase = () => {
-    if (!recommendation) return;
-
-    const query = new URLSearchParams({
-      service: recommendation.serviceId,
-      clientType: recommendation.clientType || 'individual',
-      source: 'service-finder'
-    });
-
-    window.location.href = `/start-online/?${query.toString()}`;
   };
 
   const handleClientInfoSubmit = (e: React.FormEvent) => {
@@ -1847,33 +1856,58 @@ export default function RecommendedServicePage() {
                   </div>
                 )}
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  {recommendation.requiresConsultation ? (
-                    <Link
-                      href="/book-consultation/"
-                      className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100 text-center flex items-center justify-center"
-                    >
-                      Book a free consultation
-                    </Link>
-                  ) : (
-                    <Button
-                      onClick={handleProceedToPurchase}
-                      className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100"
-                    >
-                      Review & start online
-                    </Button>
-                  )}
-                  <Link
-                    href="/services-pricing/"
-                    className="flex-1 bg-white/10 text-white px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-semibold text-center hover:bg-white/20 transition-all border-2 border-white/30 flex items-center justify-center"
-                  >
-                    Compare services
-                  </Link>
-                </div>
-                {!recommendation.requiresConsultation && (
-                  <p className="mt-4 text-center font-['Plus_Jakarta_Sans'] text-xs text-white/70">
-                    No payment or appointment is required to review the online process.
-                  </p>
+                {consultFirst(recommendation) ? (
+                  <>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Link
+                        href="/book-consultation/"
+                        className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100 text-center flex items-center justify-center"
+                      >
+                        Book a free consultation
+                      </Link>
+                      <Link
+                        href="/services-pricing/"
+                        className="flex-1 bg-white/10 text-white px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-semibold text-center hover:bg-white/20 transition-all border-2 border-white/30 flex items-center justify-center"
+                      >
+                        Compare services
+                      </Link>
+                    </div>
+                    <p className="mt-4 text-center font-['Plus_Jakarta_Sans'] text-xs text-white/70">
+                      Your answers point to a situation that is best reviewed with an attorney first. The consultation is free.
+                    </p>
+                    {recommendation.standardizedCaseType !== 'Guardianship' && (
+                      <p className="mt-2 text-center font-['Plus_Jakarta_Sans'] text-sm text-white/85">
+                        Prefer to begin online?{' '}
+                        <Link href={packageCheckoutHref(recommendation)} className="font-semibold text-white underline underline-offset-4 hover:text-white/80">
+                          Start this package
+                        </Link>
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Link
+                        href={packageCheckoutHref(recommendation)}
+                        className="flex-1 bg-white text-[#2d3e50] px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-bold hover:bg-gray-100 text-center flex items-center justify-center"
+                      >
+                        {buyButtonLabel(recommendation.serviceId, { clientType: recommendation.clientType, verb: 'Start this package', fallback: 'Start this package' })}
+                      </Link>
+                      <Link
+                        href="/book-consultation/"
+                        className="flex-1 bg-white/10 text-white px-8 py-4 rounded-full font-['Plus_Jakarta_Sans'] font-semibold text-center hover:bg-white/20 transition-all border-2 border-white/30 flex items-center justify-center"
+                      >
+                        Book a free consultation
+                      </Link>
+                    </div>
+                    <BuyButtonNotes serviceId={recommendation.serviceId} tone="dark" />
+                    <p className="mt-3 text-center font-['Plus_Jakarta_Sans'] text-xs text-white/70">
+                      The next page shows the full scope and fee before you continue.{' '}
+                      <Link href="/services-pricing/" className="underline underline-offset-2 hover:text-white">
+                        Compare services
+                      </Link>
+                    </p>
+                  </>
                 )}
               </div>
 

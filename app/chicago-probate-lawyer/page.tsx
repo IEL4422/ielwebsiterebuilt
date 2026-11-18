@@ -11,6 +11,7 @@ import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CONTESTED, CONTESTED_PROBATE_FEE_NOTE, PROBATE, usd } from '@/lib/pricing';
+import { buyButtonLabel } from '@/lib/online-signup';
 import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 import { BOOKING_UNCONTESTED_PROBATE, BOOKING_CONTESTED_PROBATE } from '@/lib/booking';
 import { ProbateServicePaths } from '@/components/probate/ProbateServicePaths';
@@ -46,7 +47,7 @@ export default function ChicagoProbateLawyerPage() {
                   href="/start-online/?service=standard-probate&clientType=individual&source=probate-hero"
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
-                  Start Probate Online
+                  {buyButtonLabel('standard-probate')}
                 </Link>
                 <Link
                   href="/book-consultation/"
@@ -671,7 +672,7 @@ export default function ChicagoProbateLawyerPage() {
                   href="/start-online/?service=standard-probate&clientType=individual&source=probate-final-cta"
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
-                  Get Started Online
+                  {buyButtonLabel('standard-probate')}
                 </Link>
                 <Link
                   href="/book-consultation/"

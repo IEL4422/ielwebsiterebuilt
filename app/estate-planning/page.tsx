@@ -4,6 +4,8 @@ import { FileText, Shield, Heart, Scale, ScrollText } from 'lucide-react'
 import { InnerPageHero } from '@/components/layout/InnerPageHero'
 import { CTABand } from '@/components/ui/CTAButtons'
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide'
+import { ESTATE_PLANNING, usd } from '@/lib/pricing'
+import { ATTORNEY_PROMISE, ONLINE_DISCOUNT_LINE, ONLINE_DISCOUNT_SCOPE } from '@/lib/online-signup'
 
 export const metadata: Metadata = {
   title: 'Estate Planning Services',
@@ -168,6 +170,14 @@ export default function EstatePlanningPage() {
               View Pricing
             </Link>
           </div>
+          <p className="mt-5 text-sm font-semibold text-white/90">
+            Will packages from {usd(ESTATE_PLANNING.willPackageIndividual)} and trust packages from {usd(ESTATE_PLANNING.trustPackageIndividual)}. {ATTORNEY_PROMISE}.
+          </p>
+          {ONLINE_DISCOUNT_LINE && (
+            <p className="mt-1 text-sm font-semibold text-[#C6D7E7]">
+              {ONLINE_DISCOUNT_LINE} {ONLINE_DISCOUNT_SCOPE}
+            </p>
+          )}
         </div>
       </section>
     </main>

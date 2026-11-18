@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { HeroLogo } from './HeroLogo';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { ESTATE_PLANNING, usd } from '@/lib/pricing';
+import { ATTORNEY_PROMISE } from '@/lib/online-signup';
 
 const PRACTICE_AREAS = [
   'Estate Planning',
@@ -90,7 +93,7 @@ export function HeroSection() {
             Flat-fee, virtual, same week.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4">
             <Link
               href="/get-started/"
               className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-colors text-center"
@@ -103,6 +106,20 @@ export function HeroSection() {
               className="inline-flex items-center justify-center bg-transparent border-2 border-white/80 hover:border-white text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-colors text-center"
             >
               Book a Free Consultation
+            </Link>
+          </div>
+
+          <p className="text-white/80 text-sm leading-relaxed mb-3">
+            Will packages from {usd(ESTATE_PLANNING.willPackageIndividual)} and trust packages from {usd(ESTATE_PLANNING.trustPackageIndividual)}. {ATTORNEY_PROMISE}.
+          </p>
+
+          <div className="mb-10">
+            <Link
+              href="/recommended-service/"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#9DB6D6] hover:text-white underline underline-offset-4"
+            >
+              Not sure what you need? Take the 60-second quiz
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </div>
 

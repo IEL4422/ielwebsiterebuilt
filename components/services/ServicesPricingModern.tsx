@@ -5,6 +5,8 @@ import { Check } from 'lucide-react';
 import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
+import { ONLINE_DISCOUNT_LINE, ONLINE_DISCOUNT_SCOPE, buyButtonLabel } from '@/lib/online-signup';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import {
   serviceCategories,
   type Service,
@@ -98,17 +100,25 @@ const SERVICE_CTAS: Cta[] = [
   { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
 ];
 
-function ctasFor(serviceName: string): Cta[] {
+/**
+ * `priced` puts the price in the main button label (package cards). Small
+ * à la carte cards keep the short "Get Started" label so it fits on phones.
+ */
+function ctasFor(serviceName: string, { priced = false }: { priced?: boolean } = {}): Cta[] {
+  const id = SERVICE_IDS[serviceName];
+  const label = priced && id ? buyButtonLabel(id, { fallback: 'Get Started' }) : 'Get Started';
   return [
-    { label: 'Get Started', href: serviceStartHref(serviceName), variant: 'primary' },
+    { label, href: serviceStartHref(serviceName), variant: 'primary' },
     { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
   ];
 }
 
 function CardCtas({ ctas, serviceName }: { ctas: Cta[]; serviceName: string }) {
+  const serviceId = SERVICE_IDS[serviceName];
+  const stacked = ctas.some((c) => c.label.length > 'Get Started'.length);
   return (
     <div className="mt-auto pt-2">
-      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+      <div className={`grid grid-cols-1 gap-2.5 ${stacked ? '' : 'sm:grid-cols-2'}`}>
       {ctas.map((c) =>
         c.variant === 'primary' ? (
           <Link
@@ -131,6 +141,7 @@ function CardCtas({ ctas, serviceName }: { ctas: Cta[]; serviceName: string }) {
         )
       )}
       </div>
+      {serviceId && <BuyButtonNotes serviceId={serviceId} />}
       <p className="mt-2 text-center text-[11px] leading-relaxed text-[#6b7782]">
         Start online without a consultation, or talk with us first—free and no obligation.
       </p>
@@ -309,6 +320,11 @@ export function ServicesPricingModern() {
             package includes attorney consultations related to the written scope, notarization, a physical &amp; digital portfolio, and
             client portal access.
           </p>
+          {ONLINE_DISCOUNT_LINE && (
+            <p className="-mt-3 mb-7 max-w-[760px] rounded-xl border border-[#CFE3D4] bg-[#F3FAF5] px-4 py-3 text-[15px] text-[#2F6B3F]">
+              <strong>{ONLINE_DISCOUNT_LINE}</strong> {ONLINE_DISCOUNT_SCOPE}
+            </p>
+          )}
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {estatePlanning.packages.map((s, i) => {
               const isTrust = s.name === 'Trust Package';
@@ -316,7 +332,7 @@ export function ServicesPricingModern() {
                 <PackageCard
                   key={i}
                   service={s}
-                  ctas={ctasFor(s.name)}
+                  ctas={ctasFor(s.name, { priced: true })}
                   feature={isTrust}
                   badge={isTrust ? 'Most Complete' : undefined}
                 />
@@ -346,7 +362,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={ctasFor(s.name)}
+                ctas={ctasFor(s.name, { priced: true })}
               />
             ))}
           </div>
@@ -365,7 +381,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={ctasFor(s.name)}
+                ctas={ctasFor(s.name, { priced: true })}
               />
             ))}
           </div>
@@ -406,7 +422,7 @@ export function ServicesPricingModern() {
               <PackageCard
                 key={i}
                 service={s}
-                ctas={ctasFor(s.name)}
+                ctas={ctasFor(s.name, { priced: true })}
               />
             ))}
             <div className="flex flex-col rounded-2xl border border-[#E3EAF1] bg-white p-6">

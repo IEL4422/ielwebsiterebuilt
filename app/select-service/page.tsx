@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, CircleHelp as HelpCircle, Scale, ShieldCheck } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { allServices, type Service } from '@/lib/services-data';
+import { buyButtonLabel } from '@/lib/online-signup';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 
 export const metadata: Metadata = {
   title: 'Select a Service',
@@ -76,7 +78,10 @@ function serviceGroups(): ServiceGroup[] {
 
 function ServiceCard({ service }: { service: Service }) {
   const hasIndividualAndJointPricing = Boolean(service.individualPrice && service.jointPrice);
-  const actionLabel = service.requiresConsultation ? 'Review service' : 'Select service';
+  const actionLabel = service.requiresConsultation
+    ? 'Review service'
+    : buyButtonLabel(service.id, { clientType: hasIndividualAndJointPricing ? 'individual' : undefined, fallback: 'Select service' });
+  const coupleLabel = buyButtonLabel(service.id, { clientType: 'joint', verb: 'Start for a couple', fallback: 'Select for a couple' });
 
   return (
     <article className="flex h-full flex-col rounded-2xl border border-[#DCE5ED] bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
@@ -106,7 +111,7 @@ function ServiceCard({ service }: { service: Service }) {
 
       {service.note && <p className="mt-3 font-['Plus_Jakarta_Sans'] text-xs leading-relaxed text-slate-500">{service.note}</p>}
 
-      <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+      <div className="mt-5 flex flex-col gap-2">
         <Link
           href={serviceHref(service)}
           className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#33414E] px-4 py-2.5 font-['Plus_Jakarta_Sans'] text-sm font-bold text-white transition-colors hover:bg-[#4A708B]"
@@ -119,10 +124,11 @@ function ServiceCard({ service }: { service: Service }) {
             href={serviceHref(service, 'joint')}
             className="inline-flex flex-1 items-center justify-center rounded-full border border-[#7E9CC0] bg-white px-4 py-2.5 font-['Plus_Jakarta_Sans'] text-sm font-bold text-[#33414E] transition-colors hover:border-[#547298] hover:text-[#547298]"
           >
-            Select for a couple
+            {coupleLabel}
           </Link>
         )}
       </div>
+      {!service.requiresConsultation && <BuyButtonNotes serviceId={service.id} />}
     </article>
   );
 }
