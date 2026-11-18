@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { CircleCheck as CheckCircle2, ArrowRight, ArrowLeft, CircleAlert as AlertCircle } from 'lucide-react';
+import { CircleCheck as CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -72,7 +72,7 @@ const counties = [
   'McHenry County',
   'Kendall County',
   'DeKalb County',
-  'Other'
+  'Other Illinois County'
 ];
 
 export default function RecommendedServicePage() {
@@ -317,10 +317,6 @@ export default function RecommendedServicePage() {
           standardizedCaseType: 'Probate',
           standardizedServiceName: 'Partial Probate'
         };
-      }
-
-      if (decedentCounty === 'Other') {
-        return null;
       }
 
       if (issuesAmongHeirs === 'yes') {
@@ -599,7 +595,6 @@ export default function RecommendedServicePage() {
     if (answers.needType === 'probate') {
       if (answers.isRepresentative === 'no') return 2;
       if (answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'yes') return 3;
-      if (answers.decedentCounty === 'Other') return 4;
       if (answers.issuesAmongHeirs === 'yes') return 7;
       if (answers.decedentEstateValue === 'under-150k' && answers.decedentHasRealEstate === 'no') return 8;
       return 7;
@@ -1529,7 +1524,7 @@ export default function RecommendedServicePage() {
                     </div>
                   )}
 
-                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== 'Other' && answers.decedentCounty !== '' && step === 5 && (
+                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== '' && step === 5 && (
                     <div className="space-y-6">
                       <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
                         What is the estimated value of the estate?
@@ -1590,7 +1585,7 @@ export default function RecommendedServicePage() {
                     </div>
                   )}
 
-                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== 'Other' && answers.decedentCounty !== '' && step === 6 && (
+                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== '' && step === 6 && (
                     <div className="space-y-6">
                       <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
                         Does the estate include real estate?
@@ -1634,7 +1629,7 @@ export default function RecommendedServicePage() {
                     </div>
                   )}
 
-                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== 'Other' && answers.decedentCounty !== '' && step === 7 && (
+                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== '' && step === 7 && (
                     <div className="space-y-6">
                       <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
                         Are there any disputes or issues among the heirs?
@@ -1678,7 +1673,7 @@ export default function RecommendedServicePage() {
                     </div>
                   )}
 
-                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== 'Other' && answers.decedentCounty !== '' && answers.decedentEstateValue === 'under-150k' && answers.decedentHasRealEstate === 'no' && step === 8 && (
+                  {answers.isRepresentative === 'yes' && answers.needsNewAttorney === 'no' && answers.decedentCounty !== '' && answers.decedentEstateValue === 'under-150k' && answers.decedentHasRealEstate === 'no' && step === 8 && (
                     <div className="space-y-6">
                       <h2 className="font-['Plus_Jakarta_Sans'] text-[28px] lg:text-[32px] font-bold text-[#2d3e50] mb-6">
                         Have all of the decedent's debts been paid?
@@ -1724,35 +1719,9 @@ export default function RecommendedServicePage() {
                 </>
               )}
 
-              {answers.needType === 'probate' && answers.decedentCounty === 'Other' && step === 4 && (
-                <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-8 text-center">
-                  <AlertCircle className="w-12 h-12 text-yellow-600 mx-auto mb-4" />
-                  <h3 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#2d3e50] mb-4">
-                    Service Area Notice
-                  </h3>
-                  <p className="font-['Plus_Jakarta_Sans'] text-base text-gray-700 mb-6">
-                    We currently only practice in Cook, DuPage, Kane, Lake, Will, and McHenry Counties. Please contact us to discuss your specific situation.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button
-                      onClick={() => window.location.href = '/book-consultation/'}
-                      className="bg-[#4a708b] hover:bg-[#2d3e50] text-white px-8 py-3"
-                    >
-                      Book Consultation
-                    </Button>
-                    <Button
-                      onClick={resetQuiz}
-                      variant="outline"
-                      className="border-2 border-[#547298] text-[#4a708b] hover:bg-[#4a708b]/10 px-8 py-3"
-                    >
-                      Start Over
-                    </Button>
-                  </div>
-                </div>
-              )}
 
               {/* Navigation Buttons */}
-              {!(answers.needType === 'probate' && answers.decedentCounty === 'Other' && step === 4) && (
+              {(
                 <div className="flex gap-4 mt-8">
                   {step > 1 && (
                     <button

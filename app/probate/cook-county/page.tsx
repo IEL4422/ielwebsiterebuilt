@@ -611,7 +611,7 @@ export default function CookCountyProbatePage() {
                   Other Counties
                 </h3>
                 <p className="text-slate-600 group-hover:text-white/90 transition-colors text-sm">
-                  We also serve DuPage, Kane, Lake, Will, and other Illinois counties.
+                  We serve all Illinois counties, including DuPage, Kane, Lake, and Will.
                 </p>
               </Link>
 

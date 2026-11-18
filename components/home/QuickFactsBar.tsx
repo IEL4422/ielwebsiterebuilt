@@ -11,7 +11,7 @@ const facts = [
   {
     // Contested matters use a staged flat-fee scope. See lib/fee-structure.ts.
     icon: DollarSign,
-    label: 'Transparent Pricing*',
+    label: 'Transparent Pricing',
     sub: 'Guardianship uses hourly billing',
     href: '/services-pricing/',
   },

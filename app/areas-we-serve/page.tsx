@@ -10,7 +10,7 @@ const canonical = 'https://www.illinoisestatelaw.com/areas-we-serve/';
 
 export const metadata: Metadata = {
   title: 'Illinois Estate Planning Service Areas | Cities & Counties',
-  description: 'Explore Illinois Estate Law service areas for virtual estate planning and county-specific probate and guardianship representation across Illinois.',
+  description: 'Illinois Estate Law serves all Illinois counties, with virtual estate planning and county-specific probate and guardianship representation.',
   alternates: { canonical },
   robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   openGraph: {
@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
     title: 'Illinois Estate Planning Service Areas | Cities & Counties',
-    description: 'Find local estate-planning information and county-specific probate and guardianship resources from Illinois Estate Law.',
+    description: 'Illinois Estate Law serves all Illinois counties. Find local estate-planning information and county-specific probate and guardianship resources.',
   },
   twitter: {
     card: 'summary',
     title: 'Illinois Estate Planning Service Areas | Cities & Counties',
-    description: 'Local estate-planning information and county-specific probate and guardianship resources across Illinois.',
+    description: 'Illinois Estate Law serves all Illinois counties. Local estate-planning information and county-specific probate and guardianship resources.',
   },
 };
 
@@ -72,7 +72,7 @@ export default function AreasWeServePage() {
       <main>
         <InnerPageHero
           title="Estate Planning, Probate & Guardianship Across Illinois"
-          subtitle="Statewide virtual estate planning, plus county-specific court guidance for the communities we serve most often."
+          subtitle="We offer all of our services in all Illinois counties, plus county-specific court guidance for the counties we see most often."
         />
 
         <section className="bg-white py-14 lg:py-20">
@@ -124,7 +124,7 @@ export default function AreasWeServePage() {
             <div className="mx-auto max-w-3xl text-center">
               <div className="flex items-center justify-center gap-2 text-[#547298]"><Building2 className="h-5 w-5" aria-hidden="true" /><span className="text-sm font-bold uppercase tracking-[0.16em]">County court guides</span></div>
               <h2 id="county-guides-title" className="mt-3 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] md:text-3xl">Probate and Guardianship by County</h2>
-              <p className="mt-4 leading-7 text-slate-600">These county pages explain the relevant courthouse, local filing context, services, pricing, and what to expect next. We also serve clients elsewhere in Illinois after confirming that the matter is a fit.</p>
+              <p className="mt-4 leading-7 text-slate-600">These county pages explain the relevant courthouse, local filing context, services, pricing, and what to expect next. We serve all Illinois counties, so we can help even if your county is not listed here.</p>
             </div>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -145,7 +145,7 @@ export default function AreasWeServePage() {
         <section className="bg-[#33414E] py-14">
           <div className="container mx-auto max-w-4xl px-4 text-center">
             <h2 className="font-['Plus_Jakarta_Sans'] text-2xl font-bold text-white">Do Not See Your City or County?</h2>
-            <p className="mx-auto mt-4 max-w-3xl leading-7 text-white/80">You can still contact us. Estate planning is available statewide, and we will confirm whether we can accept a court matter in your county before you engage the firm.</p>
+            <p className="mx-auto mt-4 max-w-3xl leading-7 text-white/80">You can still contact us. We offer all of our services in all Illinois counties.</p>
             <Link href="/contact/" className="mt-6 inline-flex rounded-full border border-white/50 px-6 py-3 text-sm font-bold text-white hover:bg-white/10">Ask about your location</Link>
           </div>
         </section>

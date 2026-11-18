@@ -33,7 +33,7 @@ export default function ChicagoDeedsLawyerPage() {
     },
     {
       q: 'What areas of Illinois do you serve?',
-      a: 'We draft and record deeds for properties throughout Illinois, including Cook County, DuPage County, Lake County, Will County, Kane County, and all surrounding counties.',
+      a: 'We draft and record deeds for properties in all Illinois counties, including Cook County, DuPage County, Lake County, Will County, and Kane County.',
     },
   ];
 
