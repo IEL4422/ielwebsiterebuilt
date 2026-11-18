@@ -61,7 +61,7 @@ export default function RealEstateClosingsPage() {
     },
     {
       q: 'What areas of Illinois do you serve?',
-      a: 'We provide the listed seller-side and bond-in-lieu services throughout Illinois, including Cook, DuPage, Lake, Will, Kane, McHenry, and surrounding counties.',
+      a: 'We provide the listed seller-side and bond-in-lieu services in all Illinois counties, including Cook, DuPage, Lake, Will, Kane, and McHenry.',
     },
   ];
 

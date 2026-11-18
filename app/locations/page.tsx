@@ -47,7 +47,7 @@ export default function LocationsPage() {
               {/* Introduction Text */}
               <div className="text-base font-normal font-['Plus_Jakarta_Sans'] text-[#33414E]">
                 <p className="mb-[0.9rem]">
-                  Illinois Estate Law serves clients throughout Illinois with meeting locations available across the Chicago area and surrounding counties. Our practice operates virtually to provide maximum convenience, and current clients have access to in-person meetings at any of our locations. To schedule a consultation, please <a href="/contact/" className="text-[#011627] font-semibold underline hover:text-[#4A708B]">contact us</a>.
+                  Illinois Estate Law serves clients in all Illinois counties, with meeting locations available across the Chicago area and surrounding counties. Our practice operates virtually to provide maximum convenience, and current clients have access to in-person meetings at any of our locations. To schedule a consultation, please <a href="/contact/" className="text-[#011627] font-semibold underline hover:text-[#4A708B]">contact us</a>.
                 </p>
               </div>
 

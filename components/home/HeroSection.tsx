@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { HeroLogo } from './HeroLogo';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { FEE_STRUCTURE_NOTE, FEE_STRUCTURE_HREF } from '@/lib/fee-structure';
 
 const PRACTICE_AREAS = [
   'Estate Planning',
@@ -110,7 +109,7 @@ export function HeroSection() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl">
             {[
               'Free Consultation',
-              'Transparent Pricing*',
+              'Transparent Pricing',
               'All of Illinois',
               'Same-Week Appointments',
             ].map((item) => (
@@ -121,20 +120,6 @@ export function HeroSection() {
             ))}
           </div>
 
-          {/*
-            The asterisk. Previously this claim read "No hourly billing, ever" — which
-            was false, and which the firm's own services page already contradicted.
-            The flat-fee positioning stays (it is true for the overwhelming majority of
-            the work); the absolute claim goes. Wording lives in lib/fee-structure.ts.
-          */}
-          <p className="mt-5 max-w-xl text-white/50 text-[11px] leading-relaxed">
-            <Link
-              href={FEE_STRUCTURE_HREF}
-              className="hover:text-white/80 underline underline-offset-2 decoration-white/25 transition-colors"
-            >
-              * {FEE_STRUCTURE_NOTE}
-            </Link>
-          </p>
         </div>
         <HeroLogo />
       </div>

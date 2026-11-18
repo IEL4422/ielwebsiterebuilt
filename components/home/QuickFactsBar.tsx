@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Calendar, MapPin, Clock, DollarSign } from 'lucide-react';
 
-const facts = [
+const facts: { icon: typeof Calendar; label: string; sub?: string; href: string }[] = [
   {
     icon: Calendar,
     label: 'Free Consultation',
@@ -9,10 +9,8 @@ const facts = [
     href: '/book-consultation/',
   },
   {
-    // Contested matters use a staged flat-fee scope. See lib/fee-structure.ts.
     icon: DollarSign,
-    label: 'Transparent Pricing*',
-    sub: 'Guardianship uses hourly billing',
+    label: 'Transparent Pricing',
     href: '/services-pricing/',
   },
   {
@@ -47,9 +45,11 @@ export function QuickFactsBar() {
                 <p className="text-white font-semibold text-sm leading-none mb-1 font-['Plus_Jakarta_Sans']">
                   {label}
                 </p>
-                <p className="text-white/60 text-xs leading-none font-['Plus_Jakarta_Sans'] truncate">
-                  {sub}
-                </p>
+                {sub && (
+                  <p className="text-white/60 text-xs leading-none font-['Plus_Jakarta_Sans'] truncate">
+                    {sub}
+                  </p>
+                )}
               </div>
             </Link>
           ))}

@@ -78,7 +78,7 @@ export const contestedProbateFAQs: QA[] = [
   {
     question: 'Which Illinois counties do you handle contested probate in?',
     answer:
-      'We handle contested probate throughout Illinois, with a concentration in Cook County (Probate Division at the Daley Center), DuPage County, Lake County, Will County, Kane County, and McHenry County. Most work is handled virtually; court appearances are made in person wherever the case is filed.',
+      'We handle contested probate in all Illinois counties, most often in Cook County (Probate Division at the Daley Center), DuPage County, Lake County, Will County, Kane County, and McHenry County. Most work is handled virtually; court appearances are made in person wherever the case is filed.',
   },
 ];
 
@@ -126,7 +126,7 @@ export const adultGuardianshipFAQs: QA[] = [
   {
     question: 'Which Illinois counties do you handle adult guardianship in?',
     answer:
-      'We handle adult guardianship throughout Illinois, with a concentration in Cook, DuPage, Lake, Will, Kane, and McHenry counties. Most work is handled by remote video appearance.',
+      'We handle adult guardianship in all Illinois counties, most often in Cook, DuPage, Lake, Will, Kane, and McHenry counties. Most work is handled by remote video appearance.',
   },
 ];
 
@@ -164,7 +164,7 @@ export const minorGuardianshipFAQs: QA[] = [
   {
     question: 'Which Illinois counties do you handle minor guardianship in?',
     answer:
-      'We handle minor guardianship throughout Illinois, with a concentration in Cook, DuPage, Lake, Will, Kane, and McHenry counties. Most work is handled by remote video appearance.',
+      'We handle minor guardianship in all Illinois counties, most often in Cook, DuPage, Lake, Will, Kane, and McHenry counties. Most work is handled by remote video appearance.',
   },
 ];
 
