@@ -1,3 +1,4 @@
+import { portalHandoff } from '@/lib/portal-handoff';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BadgeCheck, CheckCircle2, FileText, LockKeyhole, MessageSquare, ShieldCheck, UserRoundCheck } from 'lucide-react';
@@ -60,8 +61,7 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
     ? allServices.find((service) => service.id === searchParams.service)
     : undefined;
   const selectedPrice = selectedService ? priceLabel(selectedService, clientType) : undefined;
-  const visibleIncludes = selectedService?.includes.slice(0, 6) ?? [];
-  const additionalIncludes = Math.max((selectedService?.includes.length ?? 0) - visibleIncludes.length, 0);
+  const visibleIncludes = selectedService?.includes ?? [];
   const needsConsultation = Boolean(selectedService?.requiresConsultation);
 
   return (
@@ -116,13 +116,13 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
                       {selectedService.individualPrice && selectedService.jointPrice && (
                         <div className="mt-3 inline-flex rounded-full border border-white/30 bg-white/10 p-1" aria-label="Choose individual or joint service">
                           <Link
-                            href={`/start-online/?service=${selectedService.id}&clientType=individual&source=${searchParams.source || 'direct'}`}
+                            href={`/start-online/?service=${selectedService.id}&clientType=individual&source=start-online`}
                             className={`rounded-full px-3 py-1.5 font-['Plus_Jakarta_Sans'] text-xs font-bold transition-colors ${clientType === 'individual' ? 'bg-white text-[#33414E]' : 'text-white hover:bg-white/10'}`}
                           >
                             Individual
                           </Link>
                           <Link
-                            href={`/start-online/?service=${selectedService.id}&clientType=joint&source=${searchParams.source || 'direct'}`}
+                            href={`/start-online/?service=${selectedService.id}&clientType=joint&source=start-online`}
                             className={`rounded-full px-3 py-1.5 font-['Plus_Jakarta_Sans'] text-xs font-bold transition-colors ${clientType === 'joint' ? 'bg-white text-[#33414E]' : 'text-white hover:bg-white/10'}`}
                           >
                             Joint
@@ -144,11 +144,7 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
                         </li>
                       ))}
                     </ul>
-                    {additionalIncludes > 0 && (
-                      <p className="mt-4 font-['Plus_Jakarta_Sans'] text-sm font-semibold text-[#4A708B]">
-                        Plus {additionalIncludes} additional included item{additionalIncludes === 1 ? '' : 's'}.
-                      </p>
-                    )}
+
                   </div>
 
                   <div className="rounded-xl border border-[#D6E1EC] bg-[#F6F9FC] p-5">
@@ -209,7 +205,7 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
                   <p className="mt-2 max-w-2xl font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-600">
                     {needsConsultation
                       ? 'A consultation lets the firm confirm the facts, scope, and next steps before engagement.'
-                      : 'Your information is collected through the Illinois Estate Law client portal. Review the client-services agreement before substantive work begins.'}
+                      : 'In the secure portal, review your details, optional add-ons, agreement, and payment options. Payment follows agreement review; the portal confirms the current fee and applicable payment timing before you commit.'}
                   </p>
                 </div>
                 {needsConsultation ? (
@@ -222,7 +218,7 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
                   </Link>
                 ) : (
                   <TrackedLeadLink
-                    href="https://portal.illinoisestatelaw.com/get-started"
+                    href={portalHandoff(selectedService?.id, clientType)}
                     source="PORTAL_HANDOFF"
                     className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#33414E] px-6 py-3.5 font-['Plus_Jakarta_Sans'] text-sm font-bold text-white transition-colors hover:bg-[#4A708B]"
                   >

@@ -154,7 +154,7 @@ export default function SelectServicePage() {
 
             <div className="mt-8 space-y-10">
               {groups.map((group, groupIndex) => (
-                <section key={group.id} aria-labelledby={`${group.id}-heading`} className={groupIndex === 0 ? '' : 'border-t border-slate-200 pt-10'}>
+                <section key={group.id} id={group.id} aria-labelledby={`${group.id}-heading`} className={groupIndex === 0 ? '' : 'border-t border-slate-200 pt-10'}>
                   <div className="max-w-3xl">
                     <p className="font-['Plus_Jakarta_Sans'] text-xs font-bold uppercase tracking-[0.14em] text-[#547298]">Practice area</p>
                     <h2 id={`${group.id}-heading`} className="mt-2 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E]">{group.title}</h2>

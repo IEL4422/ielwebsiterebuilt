@@ -43,7 +43,7 @@ export default function GetStartedPage() {
   return (
     <main>
       <InnerPageHero
-        title="Get started your way"
+        title="What do you need help with?"
         subtitle="Choose a service directly or use the service finder for guided help. No appointment is required to explore your options."
       />
 
@@ -56,11 +56,30 @@ export default function GetStartedPage() {
                 A clear next step
               </span>
               <h1 className="mt-4 font-['Plus_Jakarta_Sans'] text-2xl font-bold text-[#33414E] sm:text-3xl">
-                Begin the way you prefer.
+                Start with what brings you here.
               </h1>
               <p className="mx-auto mt-3 max-w-2xl font-['Plus_Jakarta_Sans'] text-base leading-relaxed text-slate-600">
                 If you know the service you need, select it directly. If you would like guidance, use the service finder to explore the firm&apos;s estate planning, trust administration, probate, real estate, and guardianship practice areas.
               </p>
+            </div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2" aria-label="Find help by need">
+              {[
+                ['Plan for my family and future', '/select-service/#estate-planning'],
+                ['Handle an estate after someone has died', '/select-service/#probate'],
+                ['Transfer or sell property', '/select-service/#real-estate'],
+                ['Help someone who needs a guardian', '/select-service/#guardianship'],
+              ].map(([label, href]) => (
+                <Link key={href} href={href} className="rounded-xl border border-slate-200 p-5 font-semibold text-[#33414E] hover:bg-slate-50">{label} <ArrowRight className="inline h-4 w-4" aria-hidden="true" /></Link>
+              ))}
+            </div>
+            <div className="mt-6 rounded-xl bg-[#F4F8FC] p-5">
+              <h2 className="font-bold text-[#33414E]">Already know your package?</h2>
+              <div className="mt-3 flex flex-wrap gap-4">
+                <Link href="/start-online/?service=trust-package" className="underline">Trust package</Link>
+                <Link href="/start-online/?service=will-package" className="underline">Will package</Link>
+                <Link href="/start-online/?service=probate-avoidance-package" className="underline">Probate avoidance package</Link>
+              </div>
             </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">

@@ -1,0 +1,9 @@
+# Need-first entry and public package handoff
+
+Companion portal repository: IEL4422/StaffPortal. Release the portal handoff support first; then release this website change. No deployment or merge is part of this task.
+
+`/get-started/` offers plain-English needs linked to existing practice-area sections and direct package shortcuts. `/start-online/` shows every existing inclusion (no scope or fee edits), preserves individual/joint choice, and describes agreement/payment review. Only the verified individual/joint Trust, Will, Probate Avoidance and DIY Review variants use the new allowlisted portal link. Other services keep existing routes. No private finder answers, prices, user-supplied source text or arbitrary query strings are copied to the portal. Portal-handoff analytics sends `secure-portal`, never the destination URL.
+
+The portal verifies the public identifiers against its catalog and retains server-side price/eligibility authority. A stale or conflicting link must not silently substitute another service. Existing client and saved draft precedence is handled by the portal companion change. Private-answer transfer and wider catalog mapping are follow-up work.
+
+Validation: all 119 website tests passed; typecheck and production build passed; changed-file lint passed; public fee-copy audit passed; generated pricing/LLM files unchanged. Full-repository lint reports pre-existing errors in unrelated files (including unescaped entities and the unavailable @typescript-eslint/no-var-requires rule in lib/mongodb.ts). Browser checks on local production builds at 390px and 1280px cover complete scope, joint selection, Back/Forward, handoff, portal reload, saved-draft conflict and stale links; no live forms submitted. Screenshots here show local review pages. Browser runner is in the portal companion PR at docs/qa/onboarding-handoff/browser-check.cjs.
