@@ -5,6 +5,7 @@ import {readFileSync} from 'node:fs';
 import {allServices} from '@/lib/services-data';
 import {GUARDIANSHIP_COMPLIANCE} from '@/lib/pricing';
 import {guardianshipFAQs} from '@/lib/practice-faqs';
+import {recommend} from '@/lib/service-quiz';
 import StartOnlinePage from '@/app/start-online/page';
 
 describe('prospective personal annual report scope', () => {
@@ -20,9 +21,11 @@ describe('prospective personal annual report scope', () => {
   expect(html).toContain('Estate accounting is not included');
   expect(html).toContain('requires an attorney review');
   expect(html).not.toContain('$3,000');
-  const recommendation = readFileSync('app/recommended-service/page.tsx', 'utf8');
-  expect(recommendation).toContain("serviceId: 'annual-report-ward'");
-  expect(recommendation).not.toContain("serviceId: 'annual-guardianship-compliance'");
+  // The service finder no longer sells guardianship services: a family member who
+  // cannot make decisions goes to a consultation. It must never point at the old bundle.
+  const recommendation = readFileSync('lib/service-quiz.ts', 'utf8') + readFileSync('app/recommended-service/page.tsx', 'utf8');
+  expect(recommendation).not.toContain('annual-guardianship-compliance');
+  expect(recommend({ situation: 'decisions' }).type).toBe('consult');
  });
  it('renders the public cards, summary and FAQ schema with the personal-only scope', async () => {
   const {ServicesPricingModern} = await import('@/components/services/ServicesPricingModern');
@@ -42,7 +45,7 @@ describe('prospective personal annual report scope', () => {
   expect(duties.acceptedAnswer.text).toContain('This fee does not include estate accounting');
  });
  it('removes bundle advertising from all public sources and the generated pricing sheet', () => {
-  const paths = ['app/guardianship/page.tsx', 'app/guardianship/[slug]/page.tsx', 'app/recommended-service/page.tsx', 'components/services/ServicesPricingModern.tsx', 'lib/services-data.ts', 'lib/practice-faqs.ts', 'scripts/pricing-sheet.template.html', 'scripts/build-pricing-sheet.mjs', 'public/pricing-sheet.html'];
+  const paths = ['app/guardianship/page.tsx', 'app/guardianship/[slug]/page.tsx', 'app/recommended-service/page.tsx', 'lib/service-quiz.ts', 'components/services/ServicesPricingModern.tsx', 'lib/services-data.ts', 'lib/practice-faqs.ts', 'scripts/pricing-sheet.template.html', 'scripts/build-pricing-sheet.mjs', 'public/pricing-sheet.html'];
   for (const path of paths) {
    const source = readFileSync(path, 'utf8');
    expect(source, path).not.toMatch(/compliancePlanBundled|annualAccountingEstate|Guardianship Compliance Plan|Annual estate accounting support|Annual report and estate-accounting support/);

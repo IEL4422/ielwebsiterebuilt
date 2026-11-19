@@ -10,6 +10,8 @@
  *   1. lib/services-data.ts                            -> /select-service, /start-online
  *   2. components/services/CategorizedServicesDisplay  -> /services-pricing
  *   3. app/recommended-service/page.tsx                -> the service finder result
+ *      (now reads the list straight from lib/services-data.ts, so it is checked
+ *      for that instead of for its own copy of the wording)
  *   4. scripts/pricing-sheet.template.html             -> generates public/pricing-sheet.html
  *
  * That is the same shape of defect that put five different attorney rates in
@@ -49,7 +51,9 @@ const canonical = probatePackages.find((s) => s.id === 'small-estate-administrat
  */
 const SURFACES: { path: string; needle: string }[] = [
   { path: 'components/services/CategorizedServicesDisplay.tsx', needle: "'Asset Search'" },
-  { path: 'app/recommended-service/page.tsx', needle: "'Asset Search'" },
+  // The service finder no longer restates inclusions: it renders service.includes
+  // from lib/services-data.ts, so it can only drift if that wiring is removed.
+  { path: 'app/recommended-service/page.tsx', needle: 'service.includes.map' },
   { path: 'scripts/pricing-sheet.template.html', needle: 'an asset search' },
   { path: 'public/pricing-sheet.html', needle: 'an asset search' },
 ];

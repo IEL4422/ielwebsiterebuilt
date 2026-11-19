@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Recommended Service | Illinois Estate Law',
-  description: 'View your recommended estate planning service from Illinois Estate Law. Tailored solutions based on your unique needs. Call (312) 373-0731.',
+  title: 'Find the Right Help | Illinois Estate Law',
+  description: 'Answer a few short questions about your situation and see which Illinois Estate Law package fits, with its flat fee. Call (312) 373-0731.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/recommended-service/',
   },

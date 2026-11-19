@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { CONTESTED, CONTESTED_EVENT_FEES, CONTESTED_PROBATE_FEE_NOTE, CONTESTED_GUARDIANSHIP_FEE_NOTE, PROBATE } from '../lib/pricing';
+import { CONTESTED, CONTESTED_EVENT_FEES, CONTESTED_PROBATE_FEE_NOTE, CONTESTED_GUARDIANSHIP_FEE_NOTE, PROBATE, usd } from '../lib/pricing';
+import { packagePriceText } from '../lib/online-signup';
+import { RESULT_RULES, recommend } from '../lib/service-quiz';
 import { probatePackages, guardianshipServices } from '../lib/services-data';
 
 const source = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -36,9 +38,13 @@ describe('prospective probate base pricing', () => {
   it('does not turn contested probate into a purchase or add a base plus event charge', () => {
     const contested = probatePackages.find(service => service.id === 'contested-probate');
     expect(contested?.fixedPrice).toBeUndefined();
-    const recommendation = source('app/recommended-service/page.tsx');
-    expect(recommendation).toMatch(/serviceId: 'contested-probate',\s*requiresConsultation: true/);
-    expect(recommendation).toContain('price: usd(PROBATE.standard)');
+    // The service finder sends any dispute to a consultation and never sells contested probate.
+    for (const dispute of ['yes', 'notSure']) {
+      expect(recommend({ situation: 'death', docs: 'will', dispute }).type).toBe('consult');
+    }
+    expect(RESULT_RULES.some(rule => rule.result.type === 'package' && rule.result.serviceId === 'contested-probate')).toBe(false);
+    // Its standard probate result is priced from lib/pricing.ts.
+    expect(packagePriceText('standard-probate')).toBe(usd(PROBATE.standard));
     expect(contested?.description).toContain('not charged again');
   });
 
