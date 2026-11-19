@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { ONLINE_DISCOUNT_BADGE } from '@/lib/online-signup';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -136,9 +135,6 @@ export function Header() {
                 className="inline-flex items-center justify-center rounded-full bg-[#547298] px-5 py-2.5 text-sm font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#4A708B] transition-colors whitespace-nowrap"
               >
                 Get Started Online
-                {ONLINE_DISCOUNT_BADGE && (
-                  <span className="ml-2 rounded-full bg-white px-2 py-0.5 text-[11px] font-extrabold text-[#2F6B3F]">{ONLINE_DISCOUNT_BADGE}</span>
-                )}
               </Link>
             </div>
           </div>
@@ -243,9 +239,6 @@ export function Header() {
                 className="w-full inline-flex items-center justify-center rounded-full bg-[#547298] px-5 py-3 text-sm font-bold text-white hover:bg-[#4A708B] transition-colors"
               >
                 Get Started Online
-                {ONLINE_DISCOUNT_BADGE && (
-                  <span className="ml-2 rounded-full bg-white px-2 py-0.5 text-[11px] font-extrabold text-[#2F6B3F]">{ONLINE_DISCOUNT_BADGE}</span>
-                )}
               </Link>
               <Link
                 href="/book-consultation/"

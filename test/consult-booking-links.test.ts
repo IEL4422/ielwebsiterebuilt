@@ -24,7 +24,6 @@ describe('consultation booking stays one click away', () => {
 
 describe('the 10% online savings is easy to see next to the consultation option', () => {
   it.each([
-    'components/layout/Header.tsx',
     'components/home/HeroSection.tsx',
     'components/home/TwoPathsSection.tsx',
     'app/select-service/page.tsx',
