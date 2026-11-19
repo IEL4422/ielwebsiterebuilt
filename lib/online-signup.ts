@@ -6,12 +6,12 @@
  *
  * To change or remove the online-purchase incentive, edit or empty
  * ONLINE_DISCOUNT_LINE (an empty string hides it everywhere). It shows with
- * every buy button that hands off to the portal (lib/portal-handoff.ts), because
- * the portal takes 10% off any catalog-priced purchase that arrives with
- * from=website and has no consultation on file.
+ * every buy button that hands off to the portal (lib/portal-handoff.ts), except
+ * deeds, because the portal takes 10% off any catalog-priced purchase other than
+ * a deed that arrives with from=website and has no consultation on file.
  */
 import { A_LA_CARTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
-import { portalHandoffUrl } from './portal-handoff';
+import { PORTAL_PACKAGES, portalHandoffUrl } from './portal-handoff';
 
 export type ClientType = 'individual' | 'joint';
 
@@ -116,5 +116,7 @@ export function hasAttorneyPromise(serviceId: string): boolean {
  * the 10% applies. /start-online/ fallbacks and consultation-only services are excluded.
  */
 export function hasOnlineDiscount(serviceId: string, clientType?: ClientType): boolean {
+  // No 10% off deeds (Mary, Nov 19 2026); the portal leaves deeds out too.
+  if (PORTAL_PACKAGES[serviceId]?.category === 'deeds') return false;
   return ONLINE_DISCOUNT_LINE !== '' && portalHandoffUrl(serviceId, { clientType }) !== null;
 }
