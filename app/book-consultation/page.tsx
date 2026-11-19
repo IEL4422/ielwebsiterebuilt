@@ -5,6 +5,8 @@ import Script from 'next/script';
 import { ArrowLeft, Building2, ScrollText, Scale, Briefcase, Gavel, HeartHandshake } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { trackFunnelEvent } from '@/lib/gtag';
+import Link from 'next/link';
+import { ONLINE_DISCOUNT_LINE } from '@/lib/online-signup';
 
 type CaseType =
   | 'estate-planning'
@@ -162,6 +164,13 @@ export default function BookConsultationPage() {
               <p className="text-lg text-gray-500">
                 Select your case type to be matched with the right attorney.
               </p>
+              {ONLINE_DISCOUNT_LINE && (
+                <p className="mt-5 inline-block rounded-2xl bg-[#E3F2E7] px-4 py-2.5 text-sm font-semibold text-[#2F6B3F]">
+                  Already know what you need?{' '}
+                  <Link href="/select-service/" className="font-bold underline underline-offset-4">Start online instead and save 10%</Link>
+                  {' '}(deeds excluded).
+                </p>
+              )}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

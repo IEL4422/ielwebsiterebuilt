@@ -21,3 +21,22 @@ describe('consultation booking stays one click away', () => {
     expect(source.match(/href="\/book-consultation\/"/g)?.length).toBeGreaterThanOrEqual(2);
   });
 });
+
+describe('the 10% online savings is easy to see next to the consultation option', () => {
+  it.each([
+    'components/layout/Header.tsx',
+    'components/home/HeroSection.tsx',
+    'components/home/TwoPathsSection.tsx',
+    'app/select-service/page.tsx',
+    'app/book-consultation/page.tsx',
+  ])('%s shows the 10% savings', (file) => {
+    expect(readFileSync(file, 'utf8')).toMatch(/ONLINE_DISCOUNT_BADGE|ONLINE_VS_CONSULT_LINE|ONLINE_DISCOUNT_LINE/);
+  });
+
+  it('the comparison line names the 10% and leaves deeds out', async () => {
+    const { ONLINE_VS_CONSULT_LINE, ONLINE_DISCOUNT_BADGE } = await import('../lib/online-signup');
+    expect(ONLINE_VS_CONSULT_LINE).toContain('save 10%');
+    expect(ONLINE_VS_CONSULT_LINE).toContain('deeds excluded');
+    expect(ONLINE_DISCOUNT_BADGE).toBe('Save 10%');
+  });
+});

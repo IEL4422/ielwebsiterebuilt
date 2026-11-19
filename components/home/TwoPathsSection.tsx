@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Clock, Monitor } from 'lucide-react';
+import { ONLINE_DISCOUNT_BADGE, ONLINE_VS_CONSULT_LINE } from '@/lib/online-signup';
 
 export function TwoPathsSection() {
   return (
@@ -20,14 +21,20 @@ Start online at your own pace, with the reassurance of clear pricing and a guide
             <div className="w-12 h-12 rounded-xl bg-[#7E9CC0]/15 flex items-center justify-center mb-5">
               <Monitor className="w-6 h-6 text-[#547298]" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#547298] mb-2">
-              No consultation needed
-            </span>
+            <div className="mb-2 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#547298]">
+                No consultation needed
+              </span>
+              {ONLINE_DISCOUNT_BADGE && (
+                <span className="rounded-full bg-[#E3F2E7] px-2.5 py-0.5 text-xs font-extrabold text-[#2F6B3F]">{ONLINE_DISCOUNT_BADGE}</span>
+              )}
+            </div>
             <h3 className="text-xl sm:text-2xl font-extrabold text-[#33414E] mb-3">
               Choose a Service Online
             </h3>
             <p className="text-slate-500 leading-relaxed mb-6 flex-1">
               Select the service you want directly, or use the service finder for guidance across every practice area before you continue.
+              {ONLINE_VS_CONSULT_LINE && <strong className="mt-3 block text-[#2F6B3F]">{ONLINE_VS_CONSULT_LINE}</strong>}
             </p>
             <Link
               href="/get-started/"

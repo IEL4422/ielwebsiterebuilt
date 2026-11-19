@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, CircleHelp as HelpCircle, Scale, ShieldCheck } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { allServices, type Service } from '@/lib/services-data';
-import { buyButtonLabel } from '@/lib/online-signup';
+import { ONLINE_VS_CONSULT_LINE, buyButtonLabel } from '@/lib/online-signup';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
 import { buyHref, startOnlineUrl } from '@/lib/portal-handoff';
@@ -160,6 +160,9 @@ export default function SelectServicePage() {
                   <p className="mt-2 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-600">
                     Select a service to review its fee, scope, and next step. Services that need an attorney review will clearly direct you to a consultation instead of sending you into an online intake.
                   </p>
+                  {ONLINE_VS_CONSULT_LINE && (
+                    <p className="mt-3 inline-flex rounded-full bg-[#E3F2E7] px-3 py-1 font-['Plus_Jakarta_Sans'] text-sm font-bold text-[#2F6B3F]">{ONLINE_VS_CONSULT_LINE}</p>
+                  )}
                   <p className="mt-3 font-['Plus_Jakarta_Sans'] text-sm font-semibold text-[#33414E]">
                     Rather talk with an attorney first?{' '}
                     <Link href="/book-consultation/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Book a free consultation</Link>.

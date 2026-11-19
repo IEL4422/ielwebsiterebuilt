@@ -23,12 +23,17 @@ export function BuyButtonNotes({
   if (!promise && !discount) return null;
 
   const promiseColor = tone === 'dark' ? 'text-white/85' : 'text-[#33414E]';
-  const discountColor = tone === 'dark' ? 'text-[#C6D7E7]' : 'text-[#2F6B3F]';
 
   return (
-    <div className={`mt-2 space-y-0.5 text-xs leading-relaxed ${align === 'center' ? 'text-center' : 'text-left'} ${className}`}>
+    <div className={`mt-2 space-y-1.5 text-xs leading-relaxed ${align === 'center' ? 'text-center' : 'text-left'} ${className}`}>
       {promise && <p className={`font-semibold ${promiseColor}`}>{ATTORNEY_PROMISE}</p>}
-      {discount && <p className={`font-semibold ${discountColor}`}>{ONLINE_DISCOUNT_LINE}</p>}
+      {discount && (
+        <p className={align === 'center' ? 'flex justify-center' : 'flex'}>
+          <span className={`inline-flex rounded-full px-2.5 py-1 text-[13px] font-bold ${tone === 'dark' ? 'bg-white/15 text-white' : 'bg-[#E3F2E7] text-[#2F6B3F]'}`}>
+            {ONLINE_DISCOUNT_LINE}
+          </span>
+        </p>
+      )}
     </div>
   );
 }
