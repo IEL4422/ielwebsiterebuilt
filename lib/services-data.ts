@@ -593,21 +593,21 @@ export const realEstateServices: Service[] = [
   {
     id: 'residential-closing',
     name: 'Sale Representation',
-    subtitle: 'Seller represented by a licensed real estate agent',
+    subtitle: 'Residential buyer or seller',
     category: 'real-estate',
     standardizedCaseType: 'Real Estate',
     standardizedServiceName: 'Sale Representation',
     fixedPrice: REAL_ESTATE.saleRepresentation,
-    description: 'Attorney representation for an Illinois residential seller who already has a licensed listing agent and a signed or proposed sale contract. The attorney fee is paid at closing from the seller’s proceeds. This service does not include buyer representation, brokerage services, marketing, or third-party closing costs.',
+    description: 'Attorney representation for an Illinois residential buyer, or for a seller who already has a licensed listing agent, with a signed or proposed sale contract. The attorney fee is paid at closing. This service does not include brokerage services, marketing, or third-party closing costs.',
     includes: [
       'Attorney review and negotiation of the sale contract',
       'Title review and ordinary title-clearance coordination',
-      'Preparation and review of customary seller closing documents',
-      'Review of the settlement statement and seller charges',
+      'Preparation and review of customary closing documents for the buyer or seller',
+      'Review of the settlement statement and closing charges',
       'Closing coordination and attorney representation through closing',
       'Attorney consultations related to the included sale scope'
     ],
-    note: 'The $750 fee does not include buyer representation, brokerage services, title-company charges, transfer taxes, recording charges, surveys, inspections, or other third-party closing costs.'
+    note: 'The $750 fee does not include brokerage services, title-company charges, transfer taxes, recording charges, surveys, inspections, or other third-party closing costs.'
   },
   {
     id: 'fsbo-representation',

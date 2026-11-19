@@ -13,7 +13,7 @@ const services = [
   },
   {
     name: 'Irrevocable Life Insurance Trust (ILIT)',
-    price: '$5,500',
+    price: '$4,000',
     id: 'irrevocable-life-insurance-trust',
     // No portal match, so it keeps the website review page.
     href: /service=irrevocable-life-insurance-trust/,

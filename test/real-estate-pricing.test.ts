@@ -24,7 +24,8 @@ describe('public real-estate pricing', () => {
   it('explains the scope and exclusions of every option', () => {
     const sale = realEstateServices.find(service => service.name === 'Sale Representation')!;
     expect(sale.description).toContain('licensed listing agent');
-    expect(sale.description).toContain('does not include buyer representation');
+    expect(sale.description).toContain('residential buyer');
+    expect(sale.description).not.toContain('does not include buyer representation');
     expect(sale.includes.join(' ')).toContain('closing');
     expect(sale.note).toContain('third-party closing costs');
 
@@ -42,7 +43,7 @@ describe('public real-estate pricing', () => {
 
   it('keeps the printable pricing sheet limited to the same three options', () => {
     const source = readFileSync('scripts/pricing-sheet.template.html', 'utf8');
-    const section = source.split('REAL ESTATE -->')[1].split('<div class="footer">')[0];
+    const section = source.split('REAL ESTATE -->')[1].split('BUSINESS -->')[0];
     const names = [...section.matchAll(/<div class="service-name">([^<]+)<\/div>/g)].map(match => match[1]);
     expect(names).toEqual(EXPECTED.map(([name]) => name));
     expect(section).not.toMatch(/Multi-Unit|Nonstandard Title|Buyer or Seller/);

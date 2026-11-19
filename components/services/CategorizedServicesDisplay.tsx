@@ -375,17 +375,17 @@ export const serviceCategories: ServiceCategory[] = [
       },
       {
         name: 'Sale Representation',
-        subtitle: 'Seller represented by a licensed real estate agent',
+        subtitle: 'Residential buyer or seller',
         fixedPrice: REAL_ESTATE.saleRepresentation,
         includes: [
           'Sale-contract review and attorney-review negotiation',
           'Title review and ordinary clearance coordination',
-          'Customary seller closing documents',
-          'Settlement-statement and seller-charge review',
+          'Customary closing documents for your side of the sale',
+          'Settlement-statement review',
           'Closing coordination and representation',
           'Attorney consultations for the included sale scope'
         ],
-        note: 'For an Illinois residential seller who already has a listing agent. The $750 attorney fee is paid at closing from sale proceeds. Buyer representation, brokerage services, and third-party closing costs are not included.'
+        note: 'For an Illinois residential buyer or seller. The $750 attorney fee is paid at closing. Brokerage services and third-party closing costs are not included. A seller without a listing agent uses For Sale By Owner representation.'
       },
       {
         name: 'For Sale By Owner (FSBO) Representation',
