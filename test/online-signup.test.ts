@@ -34,11 +34,13 @@ describe('buy-button labels and the online-purchase line', () => {
     }
   });
 
-  it('shows the 10% line with every button that hands off to the portal, and nowhere else', () => {
+  it('shows the 10% line with every button that hands off to the portal except deeds, and nowhere else', () => {
     expect(ONLINE_DISCOUNT_LINE).toBe('Buy online without a consultation and save 10%.');
-    // Every portal-mapped service, in every category, packages and a la carte.
-    for (const id of Object.keys(PORTAL_PACKAGES)) expect(hasOnlineDiscount(id), id).toBe(true);
-    for (const id of ['will-package', 'trust-package', 'standard-probate', 'small-estate-administration', 'trust-admin-consulting', 'quit-claim-deed', 'residential-closing', 'fsbo-representation', 'power-of-attorney', 'medicaid-asset-protection-trust']) {
+    // Every portal-mapped service except deeds, in every category, packages and a la carte.
+    for (const [id, pkg] of Object.entries(PORTAL_PACKAGES)) expect(hasOnlineDiscount(id), id).toBe(pkg.category !== 'deeds');
+    // No 10% off deeds.
+    for (const id of ['quit-claim-deed', 'transfer-on-death', 'life-estate-deed']) expect(hasOnlineDiscount(id), id).toBe(false);
+    for (const id of ['will-package', 'trust-package', 'standard-probate', 'small-estate-administration', 'trust-admin-consulting', 'residential-closing', 'fsbo-representation', 'power-of-attorney', 'medicaid-asset-protection-trust']) {
       expect(hasOnlineDiscount(id), id).toBe(true);
     }
     // /start-online/ fallbacks and consultation-only services do not carry from=website.
