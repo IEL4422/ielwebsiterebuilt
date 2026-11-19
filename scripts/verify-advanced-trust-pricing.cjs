@@ -7,12 +7,16 @@ const services = [
     name: 'Medicaid Asset Protection Trust',
     price: '$4,500',
     id: 'medicaid-asset-protection-trust',
+    // Hands off to the portal with the MAPT package chosen (lib/portal-handoff.ts).
+    href: /service=estate-planning&package=mapt-individual/,
     scope: /five-year look-back/i,
   },
   {
     name: 'Irrevocable Life Insurance Trust (ILIT)',
     price: '$5,500',
     id: 'irrevocable-life-insurance-trust',
+    // No portal match, so it keeps the website review page.
+    href: /service=irrevocable-life-insurance-trust/,
     scope: /Crummey withdrawal-notice/i,
   },
 ];
@@ -33,7 +37,7 @@ const services = [
         assert.match(text, service.scope, `${service.name} explains its standalone scope`);
         const start = card.getByRole('link', { name: 'Get Started' });
         assert.equal(await start.count(), 1, `${service.name} has one Get Started link`);
-        assert.match(await start.getAttribute('href'), new RegExp(`service=${service.id}`));
+        assert.match(await start.getAttribute('href'), service.href);
       }
 
       assert.equal(await page.getByText('Irrevocable Trust', { exact: true }).count(), 0, 'generic trust card is retired');

@@ -51,6 +51,10 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
   'trust-restatement': { category: 'estate-planning', individual: 'trust-restatement', joint: 'trust-restatement-joint', catalogId: 'trust-restatement-alc' },
   'will-amendment': { category: 'estate-planning', individual: 'will-amendment', joint: 'will-amendment-joint', catalogId: 'will-amendment-alc' },
   'estate-tax-planning': { category: 'estate-planning', individual: 'estate-tax-standalone', catalogId: 'estate-tax-planning-addon' },
+  // The website sells one MAPT price, so only the one-person tier is mapped (see UNMAPPED_TIERS).
+  'medicaid-asset-protection-trust': { category: 'estate-planning', individual: 'mapt-individual', catalogId: 'mapt-trust' },
+  'special-needs-planning': { category: 'estate-planning', individual: 'special-needs', catalogId: 'special-needs-planning' },
+  'annual-review-membership': { category: 'estate-planning', individual: 'annual-plan-review', catalogId: 'annual-plan-review' },
   // Probate
   'small-estate-administration': { category: 'probate', individual: 'small-estate-administration', catalogId: 'small-estate-administration' },
   'standard-probate': { category: 'probate', individual: 'standard-probate', catalogId: 'standard-probate' },
@@ -73,10 +77,7 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
 
 /** Website services deliberately NOT deep-linked, and why. They keep /start-online/. */
 export const UNMAPPED_REASONS: Record<string, string> = {
-  'medicaid-asset-protection-trust': 'Portal sells MAPT at different prices (mapt-trust $4,000 / $5,000); website is $4,500.',
   'irrevocable-life-insurance-trust': 'No ILIT in the portal catalog (only a generic irrevocable-trust option at $4,000).',
-  'special-needs-planning': 'Portal special-needs option is $4,000; website is $4,500.',
-  'annual-review-membership': 'Portal annual-plan-review is $350; website membership is $499.',
   'document-review': 'No matching portal option.',
   'contested-probate': 'Court matter; starts with a consultation, no fixed-price checkout.',
   'adult-guardianship': 'Consultation only.',
@@ -84,6 +85,16 @@ export const UNMAPPED_REASONS: Record<string, string> = {
   'minor-guardianship': 'Consultation only.',
   'annual-report-ward': 'Consultation only.',
   'contested-guardianship': 'Consultation only.',
+};
+
+/**
+ * Single tiers deliberately NOT deep-linked, keyed "<service id>:<tier>". A
+ * visitor choosing that tier keeps /start-online/ instead of landing on the
+ * wrong portal option.
+ */
+export const UNMAPPED_TIERS: Record<string, string> = {
+  'medicaid-asset-protection-trust:joint':
+    'Portal mapt-joint is $5,000; the website has no couple price for this trust (one price, $4,500).',
 };
 
 export type QuizAnswers = Record<string, string>;
@@ -129,6 +140,7 @@ export function portalHandoffUrl(
 ): string | null {
   const pkg = PORTAL_PACKAGES[serviceId];
   if (!pkg) return null;
+  if (options.clientType && UNMAPPED_TIERS[`${serviceId}:${options.clientType}`]) return null;
   const params = new URLSearchParams();
   params.set('service', pkg.category);
   params.set('package', options.clientType === 'joint' && pkg.joint ? pkg.joint : pkg.individual);

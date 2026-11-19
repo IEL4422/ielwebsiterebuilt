@@ -1,5 +1,5 @@
 {
- "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json at commit 1fde5ff (byId, trimmed to the fields the hand-off uses). Refresh this file when the portal catalog changes.",
+ "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes.",
  "byId": {
   "additional-deed": {
    "catalogId": "additional-deed",
@@ -29,7 +29,7 @@
    "catalogId": "annual-plan-review",
    "category": "estate-planning",
    "list": "aLaCarte",
-   "price": 350,
+   "price": 499,
    "active": true,
    "consult": false
   },
@@ -413,7 +413,7 @@
    "catalogId": "mapt-trust",
    "category": "estate-planning",
    "list": "aLaCarte",
-   "price": 4000,
+   "price": 4500,
    "active": true,
    "consult": false
   },
@@ -645,7 +645,7 @@
    "catalogId": "special-needs-planning",
    "category": "estate-planning",
    "list": "aLaCarte",
-   "price": 4000,
+   "price": 4500,
    "active": true,
    "consult": false
   },

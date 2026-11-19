@@ -7,6 +7,7 @@ import {
   PORTAL_GET_STARTED_URL,
   PORTAL_PACKAGES,
   UNMAPPED_REASONS,
+  UNMAPPED_TIERS,
   buyHref,
   encodeAnswers,
   portalHandoffUrl,
@@ -44,9 +45,11 @@ describe('website to portal package mapping', () => {
       for (const [tier, optionId] of tiers) {
         if (!optionId) continue;
         const portalPrice = portal[optionId].price as number;
+        const service = allServices.find((s) => s.id === serviceId);
         const websitePrice = serviceId === 'large-estate-probate'
           ? usd(PROBATE.largeEstateBase) // base fee; the percentage is added at administration
-          : packagePriceText(serviceId, tier)?.replace(/ a year$/, '');
+          : packagePriceText(serviceId, tier)?.replace(/ a year$/, '')
+            ?? (service?.fixedPrice != null ? usd(service.fixedPrice) : undefined);
         expect(usd(portalPrice), `${serviceId} (${tier}) price`).toBe(websitePrice);
       }
     }
@@ -59,6 +62,21 @@ describe('website to portal package mapping', () => {
       expect(mapped || explained, `${service.id} is neither mapped nor explained`).toBe(true);
       expect(mapped && explained, `${service.id} is both mapped and listed as unmapped`).toBe(false);
     }
+  });
+
+  it('keeps tiers whose prices differ on the website review page', () => {
+    for (const key of Object.keys(UNMAPPED_TIERS)) {
+      const [serviceId, tier] = key.split(':') as [string, 'individual' | 'joint'];
+      expect(serviceId in PORTAL_PACKAGES, key).toBe(true);
+      expect(portalHandoffUrl(serviceId, { clientType: tier }), key).toBeNull();
+      expect(buyHref(serviceId, { clientType: tier, source: 'test' })).toBe(`/start-online/?service=${serviceId}&clientType=${tier}&source=test`);
+    }
+    // The website has one MAPT price ($4,500), which matches the portal's one-person tier only.
+    const mapt = allServices.find((s) => s.id === 'medicaid-asset-protection-trust')!;
+    expect(mapt.jointPrice).toBeUndefined();
+    expect(usd(mapt.fixedPrice as number)).toBe(usd(portal['mapt-individual'].price as number));
+    expect(portal['mapt-joint'].price).not.toBe(mapt.fixedPrice);
+    expect(new URL(portalHandoffUrl('medicaid-asset-protection-trust') as string).searchParams.get('package')).toBe('mapt-individual');
   });
 
   it('never deep-links a consultation-only service', () => {
@@ -84,7 +102,7 @@ describe('hand-off URL', () => {
 
   it('falls back to the website review page for unmapped services', () => {
     expect(portalHandoffUrl('adult-guardianship')).toBeNull();
-    expect(buyHref('medicaid-asset-protection-trust', { source: 'test' })).toBe('/start-online/?service=medicaid-asset-protection-trust&clientType=individual&source=test');
+    expect(buyHref('irrevocable-life-insurance-trust', { source: 'test' })).toBe('/start-online/?service=irrevocable-life-insurance-trust&clientType=individual&source=test');
   });
 
   it('passes through utm_* values and nothing else', () => {
