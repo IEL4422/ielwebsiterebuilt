@@ -10,6 +10,8 @@ import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { buyButtonLabel } from '@/lib/online-signup';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
 
 export default function ChicagoWillsLawyerPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -105,12 +107,12 @@ export default function ChicagoWillsLawyerPage() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
               <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
-                <Link
-                  href="/start-online/?service=will-package&clientType=individual&source=wills-hero"
+                <PortalHandoffLink
+                  href={buyHref('will-package', { clientType: 'individual', source: 'wills-hero' })}
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
                   {buyButtonLabel('will-package')}
-                </Link>
+                </PortalHandoffLink>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
@@ -789,12 +791,12 @@ export default function ChicagoWillsLawyerPage() {
                 Don't leave your family's future to chance. Create a comprehensive will that ensures your wishes are honored and your loved ones are protected.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/start-online/?service=will-package&clientType=individual&source=wills-final-cta"
+                <PortalHandoffLink
+                  href={buyHref('will-package', { clientType: 'individual', source: 'wills-final-cta' })}
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
                   {buyButtonLabel('will-package')}
-                </Link>
+                </PortalHandoffLink>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"

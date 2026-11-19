@@ -9,6 +9,8 @@ import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { buyButtonLabel } from '@/lib/online-signup';
 import { A_LA_CARTE, ESTATE_PLANNING } from '@/lib/pricing';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
 
 type FeatureKey = 'Revocable Living Trust' | 'Last Will & Testament' | 'Pour-Over Will' |
   'Power of Attorney for Healthcare' | 'Power of Attorney for Property' |
@@ -236,12 +238,12 @@ export default function ComparePackagesPage() {
                 <td className="p-4"></td>
                 {packages.map((pkg) => (
                   <td key={pkg.id} className="p-4 text-center border-l border-slate-200">
-                    <Link
-                      href={`/start-online/?service=${pkg.id}&clientType=${clientType}&source=compare-packages`}
+                    <PortalHandoffLink
+                      href={buyHref(pkg.id, { clientType, source: 'compare-packages' })}
                       className={`inline-flex w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors ${pkg.recommended ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'bg-slate-600 hover:bg-slate-700'}`}
                     >
                       {buyButtonLabel(pkg.id, { clientType, fallback: 'Review & start online' })}
-                    </Link>
+                    </PortalHandoffLink>
                     <BuyButtonNotes serviceId={pkg.id} />
                   </td>
                 ))}
@@ -293,12 +295,12 @@ export default function ComparePackagesPage() {
                 ))}
               </div>
 
-              <Link
-                href={`/start-online/?service=${pkg.id}&clientType=${clientType}&source=compare-packages`}
+              <PortalHandoffLink
+                href={buyHref(pkg.id, { clientType, source: 'compare-packages' })}
                 className={`inline-flex w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors ${pkg.recommended ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'bg-slate-600 hover:bg-slate-700'}`}
               >
                 {buyButtonLabel(pkg.id, { clientType, fallback: 'Review & start online' })}
-              </Link>
+              </PortalHandoffLink>
               <BuyButtonNotes serviceId={pkg.id} />
             </Card>
           ))}

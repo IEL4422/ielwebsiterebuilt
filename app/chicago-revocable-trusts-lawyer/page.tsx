@@ -10,6 +10,8 @@ import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { buyButtonLabel } from '@/lib/online-signup';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
 
 export default function ChicagoRevocableTrustsLawyerPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -105,12 +107,12 @@ export default function ChicagoRevocableTrustsLawyerPage() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
               <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
-                <Link
-                  href="/start-online/?service=trust-package&clientType=individual&source=trusts-hero"
+                <PortalHandoffLink
+                  href={buyHref('trust-package', { clientType: 'individual', source: 'trusts-hero' })}
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
                   {buyButtonLabel('trust-package')}
-                </Link>
+                </PortalHandoffLink>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
@@ -820,12 +822,12 @@ export default function ChicagoRevocableTrustsLawyerPage() {
                 Protect your family from probate and ensure your wishes are honored. Schedule a consultation to discuss your trust-based estate plan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/start-online/?service=trust-package&clientType=individual&source=trusts-final-cta"
+                <PortalHandoffLink
+                  href={buyHref('trust-package', { clientType: 'individual', source: 'trusts-final-cta' })}
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
                   {buyButtonLabel('trust-package')}
-                </Link>
+                </PortalHandoffLink>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"

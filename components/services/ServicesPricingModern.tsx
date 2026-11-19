@@ -7,6 +7,8 @@ import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
 import { ONLINE_DISCOUNT_LINE, ONLINE_DISCOUNT_SCOPE, buyButtonLabel } from '@/lib/online-signup';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
 import {
   serviceCategories,
   type Service,
@@ -49,7 +51,7 @@ const SERVICE_IDS: Record<string, string> = {
 
 function serviceStartHref(serviceName: string) {
   const id = SERVICE_IDS[serviceName];
-  return id ? `/start-online/?service=${id}&source=services-pricing` : GET_STARTED;
+  return id ? buyHref(id, { source: 'services-pricing' }) : GET_STARTED;
 }
 
 function byId(id: string): ServiceCategory {
@@ -121,14 +123,14 @@ function CardCtas({ ctas, serviceName }: { ctas: Cta[]; serviceName: string }) {
       <div className={`grid grid-cols-1 gap-2.5 ${stacked ? '' : 'sm:grid-cols-2'}`}>
       {ctas.map((c) =>
         c.variant === 'primary' ? (
-          <Link
+          <PortalHandoffLink
             key={c.label}
             href={c.href}
             onClick={() => trackFunnelEvent('service_cta_click', { service_name: serviceName, action: 'get_started' })}
             className="inline-flex w-full items-center justify-center rounded-full bg-[#547298] px-4 py-2 text-center text-sm font-bold text-white shadow-[0_6px_16px_rgba(84,114,152,0.28)] hover:bg-[#33414E] transition-colors"
           >
             {c.label}
-          </Link>
+          </PortalHandoffLink>
         ) : (
           <Link
             key={c.label}
@@ -469,7 +471,7 @@ export function ServicesPricingModern() {
             ].map(([title, price, body, href], index) => {
               const serviceIds = ['power-of-attorney', 'adult-guardianship', 'emergency-temporary-adult-guardianship', 'contested-guardianship'];
               const ctas: Cta[] = [
-                { label: 'Get Started', href: `/start-online/?service=${serviceIds[index]}&source=services-pricing`, variant: 'primary' },
+                { label: 'Get Started', href: buyHref(serviceIds[index], { source: 'services-pricing' }), variant: 'primary' },
                 { label: 'Book a Consult', href: BOOK, variant: 'ghost' },
               ];
               return (

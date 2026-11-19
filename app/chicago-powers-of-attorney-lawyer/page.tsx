@@ -10,6 +10,8 @@ import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { A_LA_CARTE, usd } from '@/lib/pricing';
 import { buyButtonLabel } from '@/lib/online-signup';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
 
 export default function PowersOfAttorneyPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -170,22 +172,22 @@ export default function PowersOfAttorneyPage() {
                   label: 'Individual',
                   price: A_LA_CARTE.powersOfAttorneyIndividual,
                   detail: 'One property POA and one health care POA for one person.',
-                  href: '/start-online/?service=power-of-attorney&clientType=individual&source=poa-pricing',
+                  href: buyHref('power-of-attorney', { clientType: 'individual', source: 'poa-pricing' }),
                 },
                 {
                   label: 'Joint',
                   price: A_LA_CARTE.powersOfAttorneyJoint,
                   detail: 'Two property POAs and two health care POAs for two people.',
-                  href: '/start-online/?service=power-of-attorney&clientType=joint&source=poa-pricing',
+                  href: buyHref('power-of-attorney', { clientType: 'joint', source: 'poa-pricing' }),
                 },
               ].map((option) => (
                 <article key={option.label} className="flex flex-col rounded-2xl border-2 border-[#D7E2EC] bg-[#F6F9FC] p-7">
                   <h3 className="text-xl font-bold text-[#33414E]">{option.label} POA Package</h3>
                   <p className="mt-3 text-4xl font-extrabold text-[#33414E]">{usd(option.price)}</p>
                   <p className="mt-3 flex-1 leading-relaxed text-slate-600">{option.detail}</p>
-                  <Link href={option.href} className="mt-6 inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3 font-bold text-white transition-colors hover:bg-[#33414E]">
+                  <PortalHandoffLink href={option.href} className="mt-6 inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3 font-bold text-white transition-colors hover:bg-[#33414E]">
                     {buyButtonLabel('power-of-attorney', { clientType: option.label === 'Joint' ? 'joint' : 'individual', fallback: 'Get Started' })}
-                  </Link>
+                  </PortalHandoffLink>
                 </article>
               ))}
             </div>
