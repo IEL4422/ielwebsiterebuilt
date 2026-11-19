@@ -212,9 +212,9 @@ export const ESTATE_PLANNING = {
   estateTaxPackageJoint: 20000,
   /** Standalone advanced-trust services. */
   medicaidAssetProtectionTrust: 4500,
-  irrevocableLifeInsuranceTrust: 5500,
+  irrevocableLifeInsuranceTrust: 4000,
   /** Legacy compatibility value for other advanced irrevocable-trust references. */
-  irrevocableTrust: 5500,
+  irrevocableTrust: 4000,
   annualReviewMembership: 499,
 } as const;
 
@@ -239,11 +239,17 @@ export const A_LA_CARTE = {
 /** Annual consulting; existing ten-hour scope retained. */
 export const TRUST_ADMIN = { consultingAnnual: 3500 } as const;
 
-/** Real estate — three public flat-fee structures. */
+/** Real estate — three public flat-fee structures. Sale Representation covers a buyer or a seller (Mary 2026-11-19). */
 export const REAL_ESTATE = {
   saleRepresentation: 750,
   fsboRepresentation: 1500,
   bondInLieuOfProbate: 1500,
+} as const;
+
+/** Business formation and trademarks. State filing and USPTO registration fees are included (Mary 2026-11-19). */
+export const BUSINESS = {
+  llcFormation: 750,
+  trademarkRegistration: 1500,
 } as const;
 
 /**
@@ -316,4 +322,5 @@ export const PRICING = {
   A_LA_CARTE,
   TRUST_ADMIN,
   REAL_ESTATE,
+  BUSINESS,
 } as const;

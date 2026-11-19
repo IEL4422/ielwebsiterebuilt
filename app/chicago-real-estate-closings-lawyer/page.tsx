@@ -16,10 +16,10 @@ const closingPackages = [
   {
     id: 'residential-closing',
     name: 'Sale Representation',
-    audience: 'Residential seller represented by a licensed listing agent',
+    audience: 'Residential buyer, or a seller with a licensed listing agent',
     price: REAL_ESTATE.saleRepresentation,
-    description: 'Legal representation for an Illinois residential seller from attorney review through closing. Buyer representation and brokerage services are not included.',
-    includes: ['Sale-contract review and negotiation', 'Title review and ordinary clearance coordination', 'Customary seller closing documents', 'Settlement-statement review', 'Closing coordination and representation'],
+    description: 'Legal representation for an Illinois residential buyer or seller from attorney review through closing. Brokerage services are not included.',
+    includes: ['Sale-contract review and negotiation', 'Title review and ordinary clearance coordination', 'Customary closing documents for your side of the sale', 'Settlement-statement review', 'Closing coordination and representation'],
   },
   {
     id: 'fsbo-representation',
@@ -49,11 +49,11 @@ export default function RealEstateClosingsPage() {
     },
     {
       q: 'When is the real estate attorney fee due?',
-      a: 'The $750 Sale Representation fee and $1,500 FSBO fee are due at closing and generally deducted from the seller’s proceeds. The $1,500 Bond in Lieu of Probate fee follows the written engagement terms. Third-party closing costs and any required surety bond premium are separate.',
+      a: 'The $750 Sale Representation fee and $1,500 FSBO fee are due at closing. For a seller, they are generally deducted from the sale proceeds. The $1,500 Bond in Lieu of Probate fee follows the written engagement terms. Third-party closing costs and any required surety bond premium are separate.',
     },
     {
-      q: 'Do these prices include buyer representation?',
-      a: 'No. The three listed services are seller-side Sale Representation, seller-side For Sale By Owner representation, and Bond in Lieu of Probate. Buyer representation is not included in these packages.',
+      q: 'Do you represent buyers?',
+      a: 'Yes. Sale Representation is $750 for a residential buyer or a seller with a listing agent. A seller without a listing agent uses For Sale By Owner representation at $1,500, and Bond in Lieu of Probate is $1,500.',
     },
     {
       q: 'What is the attorney review period in Illinois?',
@@ -65,7 +65,7 @@ export default function RealEstateClosingsPage() {
     },
     {
       q: 'What areas of Illinois do you serve?',
-      a: 'We provide the listed seller-side and bond-in-lieu services in all Illinois counties, including Cook, DuPage, Lake, Will, Kane, and McHenry.',
+      a: 'We provide the listed buyer, seller, and bond-in-lieu services in all Illinois counties, including Cook, DuPage, Lake, Will, Kane, and McHenry.',
     },
   ];
 
@@ -79,7 +79,7 @@ export default function RealEstateClosingsPage() {
             '@type': 'LegalService',
             name: 'Illinois Estate Law — Real Estate Closing Representation',
             description:
-              'Three flat-fee Illinois real estate services: seller Sale Representation for $750, For Sale By Owner representation for $1,500, and Bond in Lieu of Probate for $1,500.',
+              'Three flat-fee Illinois real estate services: buyer or seller Sale Representation for $750, For Sale By Owner representation for $1,500, and Bond in Lieu of Probate for $1,500.',
             url: 'https://www.illinoisestatelaw.com/chicago-real-estate-closings-lawyer/',
             telephone: '+1-312-373-0731',
             address: {
@@ -98,7 +98,7 @@ export default function RealEstateClosingsPage() {
       <main>
         <InnerPageHero
           title="Real Estate Closing Representation"
-          subtitle="Three concrete flat-fee services for Illinois sellers and qualifying estate real estate: $750 Sale Representation, $1,500 FSBO, and $1,500 Bond in Lieu of Probate."
+          subtitle="Three concrete flat-fee services for Illinois buyers, sellers, and qualifying estate real estate: $750 Sale Representation, $1,500 FSBO, and $1,500 Bond in Lieu of Probate."
         />
 
         {/* Included services and primary actions */}
@@ -106,7 +106,7 @@ export default function RealEstateClosingsPage() {
           <div className="max-w-[1140px] mx-auto">
             <div className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch">
               <div className="rounded-2xl border border-white/15 bg-white/[0.07] p-6 sm:p-8">
-                <h2 className="text-2xl font-bold text-white mb-2">What Our Seller Representation Covers</h2>
+                <h2 className="text-2xl font-bold text-white mb-2">What Our Sale Representation Covers</h2>
                 <p className="mb-6 text-white/70">Sale Representation and FSBO both provide legal support from contract through closing. The FSBO package also includes contract preparation or review and added coordination because there is no listing agent.</p>
                 <ul className="grid gap-3 text-white/90 sm:grid-cols-2">
                   {[
@@ -195,13 +195,13 @@ export default function RealEstateClosingsPage() {
           <div className="max-w-[1140px] mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="font-extrabold text-[32px] lg:text-[36px] text-[#33414E] mb-6">
-                Clear Seller-Side Representation From Contract to Closing
+                Clear Buyer and Seller Representation From Contract to Closing
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Selling a home is one of the largest financial transactions of your life. Illinois residential contracts commonly include an attorney review period, and seller-side legal work continues through title clearance, document preparation, settlement-statement review, and closing.
+                Buying or selling a home is one of the largest financial transactions of your life. Illinois residential contracts commonly include an attorney review period, and the legal work continues through title clearance, document preparation, settlement-statement review, and closing.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                <strong className="text-[#33414E]">Sale Representation is {usd(REAL_ESTATE.saleRepresentation)}</strong> for a residential seller who already has a licensed listing agent. It covers the customary attorney work from contract review through closing. The fee is paid at closing from sale proceeds.
+                <strong className="text-[#33414E]">Sale Representation is {usd(REAL_ESTATE.saleRepresentation)}</strong> for a residential buyer, or a seller who already has a licensed listing agent. It covers the customary attorney work from contract review through closing. The fee is paid at closing.
               </p>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                 Selling <strong className="text-[#33414E]">For Sale By Owner</strong> is a different engagement. With no listing agent involved, we also handle the coordination an agent would normally carry, from drafting the contract through the closing table. FSBO representation is a flat <strong className="text-[#33414E]">{usd(REAL_ESTATE.fsboRepresentation)}</strong>, paid at closing out of the sale proceeds.

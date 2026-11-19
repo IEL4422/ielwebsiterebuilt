@@ -531,15 +531,15 @@ export function CategorizedServices({
         {
           id: 'residential-closing',
           name: 'Sale Representation',
-          subtitle: 'Seller represented by a licensed real estate agent',
+          subtitle: 'Residential buyer or seller',
           category: 'real-estate',
           fixedPrice: REAL_ESTATE.saleRepresentation,
-          description: 'Attorney representation for an Illinois residential seller who already has a listing agent. The fee is paid at closing from sale proceeds. Buyer representation, brokerage services, and third-party closing costs are not included.',
+          description: 'Attorney representation for an Illinois residential buyer or seller from contract through closing. The fee is paid at closing. Brokerage services and third-party closing costs are not included.',
           includes: [
             'Sale-contract review and attorney-review negotiation',
             'Title review and ordinary clearance coordination',
-            'Customary seller closing documents',
-            'Settlement-statement and seller-charge review',
+            'Customary closing documents for your side of the sale',
+            'Settlement-statement review',
             'Closing coordination and representation',
             'Attorney consultations for the included sale scope'
           ]
