@@ -5,7 +5,7 @@ import { InnerPageHero } from '@/components/layout/InnerPageHero'
 import { CTABand } from '@/components/ui/CTAButtons'
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide'
 import { ESTATE_PLANNING, usd } from '@/lib/pricing'
-import { ATTORNEY_PROMISE, ONLINE_DISCOUNT_LINE, ONLINE_DISCOUNT_SCOPE } from '@/lib/online-signup'
+import { ATTORNEY_PROMISE, ONLINE_DISCOUNT_LINE } from '@/lib/online-signup'
 
 export const metadata: Metadata = {
   title: 'Estate Planning Services',
@@ -175,7 +175,7 @@ export default function EstatePlanningPage() {
           </p>
           {ONLINE_DISCOUNT_LINE && (
             <p className="mt-1 text-sm font-semibold text-[#C6D7E7]">
-              {ONLINE_DISCOUNT_LINE} {ONLINE_DISCOUNT_SCOPE}
+              {ONLINE_DISCOUNT_LINE}
             </p>
           )}
         </div>

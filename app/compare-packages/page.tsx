@@ -244,7 +244,7 @@ export default function ComparePackagesPage() {
                     >
                       {buyButtonLabel(pkg.id, { clientType, fallback: 'Review & start online' })}
                     </PortalHandoffLink>
-                    <BuyButtonNotes serviceId={pkg.id} />
+                    <BuyButtonNotes serviceId={pkg.id} clientType={clientType} />
                   </td>
                 ))}
               </tr>
@@ -301,7 +301,7 @@ export default function ComparePackagesPage() {
               >
                 {buyButtonLabel(pkg.id, { clientType, fallback: 'Review & start online' })}
               </PortalHandoffLink>
-              <BuyButtonNotes serviceId={pkg.id} />
+              <BuyButtonNotes serviceId={pkg.id} clientType={clientType} />
             </Card>
           ))}
         </div>

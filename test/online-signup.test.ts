@@ -8,6 +8,7 @@ import {
   hasOnlineDiscount,
   packagePriceText,
 } from '../lib/online-signup';
+import { PORTAL_PACKAGES, UNMAPPED_REASONS, UNMAPPED_TIERS } from '../lib/portal-handoff';
 
 describe('buy-button labels and the online-purchase line', () => {
   it('reads prices from lib/pricing.ts', () => {
@@ -33,16 +34,31 @@ describe('buy-button labels and the online-purchase line', () => {
     }
   });
 
-  it('limits the 10% line and the attorney promise to estate planning packages', () => {
+  it('shows the 10% line with every button that hands off to the portal, and nowhere else', () => {
     expect(ONLINE_DISCOUNT_LINE).toBe('Buy online without a consultation and save 10%.');
-    for (const id of ['will-package', 'probate-avoidance-package', 'trust-package']) expect(hasOnlineDiscount(id)).toBe(true);
+    // Every portal-mapped service, in every category, packages and a la carte.
+    for (const id of Object.keys(PORTAL_PACKAGES)) expect(hasOnlineDiscount(id), id).toBe(true);
+    for (const id of ['will-package', 'trust-package', 'standard-probate', 'small-estate-administration', 'trust-admin-consulting', 'quit-claim-deed', 'residential-closing', 'fsbo-representation', 'power-of-attorney', 'medicaid-asset-protection-trust']) {
+      expect(hasOnlineDiscount(id), id).toBe(true);
+    }
+    // /start-online/ fallbacks and consultation-only services do not carry from=website.
+    for (const id of Object.keys(UNMAPPED_REASONS)) expect(hasOnlineDiscount(id), id).toBe(false);
+    for (const key of Object.keys(UNMAPPED_TIERS)) {
+      const [id, tier] = key.split(':') as [string, 'individual' | 'joint'];
+      expect(hasOnlineDiscount(id, tier), key).toBe(false);
+    }
+    for (const service of allServices.filter((s) => s.requiresConsultation)) expect(hasOnlineDiscount(service.id), service.id).toBe(false);
+    for (const id of ['irrevocable-life-insurance-trust', 'document-review', 'contested-probate', 'adult-guardianship', 'minor-guardianship']) {
+      expect(hasOnlineDiscount(id), id).toBe(false);
+    }
+  });
+
+  it('keeps the attorney promise on estate planning packages only', () => {
     const estatePlanningIds = new Set(allServices.filter((s) => s.standardizedCaseType === 'Estate Planning').map((s) => s.id));
     for (const service of allServices) {
-      if (hasOnlineDiscount(service.id)) expect(estatePlanningIds.has(service.id)).toBe(true);
       if (hasAttorneyPromise(service.id)) expect(estatePlanningIds.has(service.id)).toBe(true);
     }
     for (const id of ['standard-probate', 'adult-guardianship', 'minor-guardianship', 'quit-claim-deed', 'residential-closing', 'fsbo-representation']) {
-      expect(hasOnlineDiscount(id)).toBe(false);
       expect(hasAttorneyPromise(id)).toBe(false);
     }
   });

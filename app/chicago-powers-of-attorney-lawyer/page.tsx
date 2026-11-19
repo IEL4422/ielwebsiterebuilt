@@ -12,6 +12,7 @@ import { A_LA_CARTE, usd } from '@/lib/pricing';
 import { buyButtonLabel } from '@/lib/online-signup';
 import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
 import { buyHref } from '@/lib/portal-handoff';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 
 export default function PowersOfAttorneyPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -188,6 +189,7 @@ export default function PowersOfAttorneyPage() {
                   <PortalHandoffLink href={option.href} className="mt-6 inline-flex items-center justify-center rounded-full bg-[#547298] px-6 py-3 font-bold text-white transition-colors hover:bg-[#33414E]">
                     {buyButtonLabel('power-of-attorney', { clientType: option.label === 'Joint' ? 'joint' : 'individual', fallback: 'Get Started' })}
                   </PortalHandoffLink>
+                  <BuyButtonNotes serviceId="power-of-attorney" clientType={option.label === 'Joint' ? 'joint' : 'individual'} />
                 </article>
               ))}
             </div>

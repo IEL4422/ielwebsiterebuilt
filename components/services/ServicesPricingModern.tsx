@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
-import { ONLINE_DISCOUNT_LINE, ONLINE_DISCOUNT_SCOPE, buyButtonLabel } from '@/lib/online-signup';
+import { ONLINE_DISCOUNT_LINE, buyButtonLabel } from '@/lib/online-signup';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
 import { buyHref } from '@/lib/portal-handoff';
@@ -324,7 +324,7 @@ export function ServicesPricingModern() {
           </p>
           {ONLINE_DISCOUNT_LINE && (
             <p className="-mt-3 mb-7 max-w-[760px] rounded-xl border border-[#CFE3D4] bg-[#F3FAF5] px-4 py-3 text-[15px] text-[#2F6B3F]">
-              <strong>{ONLINE_DISCOUNT_LINE}</strong> {ONLINE_DISCOUNT_SCOPE}
+              <strong>{ONLINE_DISCOUNT_LINE}</strong>
             </p>
           )}
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">

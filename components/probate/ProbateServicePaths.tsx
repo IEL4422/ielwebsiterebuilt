@@ -3,6 +3,7 @@ import { ArrowRight, BadgeDollarSign, Building2, CircleCheck, FileSearch, Scale,
 import { CONTESTED, PROBATE, usd } from '@/lib/pricing';
 import { buyHref } from '@/lib/portal-handoff';
 import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 
 const paths = [
   {
@@ -12,6 +13,7 @@ const paths = [
     price: usd(PROBATE.smallEstateAdministration),
     description: 'For a qualifying personal estate of $150,000 or less when no individually owned real estate must be transferred.',
     details: 'Includes the Small Estate Affidavit, Attorney Letter of Direction, and asset search.',
+    serviceId: 'small-estate-administration',
     href: buyHref('small-estate-administration', { source: 'probate-paths' }),
     cta: 'Review small-estate service',
   },
@@ -22,6 +24,7 @@ const paths = [
     price: usd(PROBATE.standard),
     description: 'For an uncontested Illinois probate estate valued at $4,000,000 or less, from opening through closing.',
     details: 'Court filing fees, creditor publication, and applicable recording fees are included. A required surety-bond premium is separate.',
+    serviceId: 'standard-probate',
     href: buyHref('standard-probate', { source: 'probate-paths' }),
     cta: 'Start standard probate',
     featured: true,
@@ -33,16 +36,21 @@ const paths = [
     price: `${usd(PROBATE.largeEstateBase)} + ${PROBATE.largeEstatePercent}%`,
     description: 'For a full uncontested probate when the estate value exceeds $4,000,000.',
     details: `The ${PROBATE.largeEstatePercent}% estate-value charge applies at administration only when the estate exceeds $4,000,000.`,
+    serviceId: 'large-estate-probate',
     href: buyHref('large-estate-probate', { source: 'probate-paths' }),
     cta: 'Review large-estate service',
   },
 ];
 
 const roleServices = [
-  { title: 'Only real estate, and all heirs agree', detail: `Bond in Lieu of Probate — ${usd(PROBATE.bondInLieu)}`, href: buyHref('bond-in-lieu-of-probate', { source: 'probate-role' }) },
-  { title: 'The estate is already open', detail: `Partial Probate — ${usd(PROBATE.partialProbate)}`, href: buyHref('partial-probate', { source: 'probate-role' }) },
-  { title: 'I am an heir, not the executor', detail: `Heir Representation — ${usd(PROBATE.heirRepresentation)} per heir`, href: buyHref('heir-representation', { source: 'probate-role' }) },
-  { title: 'I am the surviving spouse', detail: `Spousal Representation — ${usd(PROBATE.spousalRepresentation)}`, href: buyHref('spousal-representation', { source: 'probate-role' }) },
+  { title: 'Only real estate, and all heirs agree', detail: `Bond in Lieu of Probate — ${usd(PROBATE.bondInLieu)}`, serviceId: 'bond-in-lieu-of-probate',
+    href: buyHref('bond-in-lieu-of-probate', { source: 'probate-role' }) },
+  { title: 'The estate is already open', detail: `Partial Probate — ${usd(PROBATE.partialProbate)}`, serviceId: 'partial-probate',
+    href: buyHref('partial-probate', { source: 'probate-role' }) },
+  { title: 'I am an heir, not the executor', detail: `Heir Representation — ${usd(PROBATE.heirRepresentation)} per heir`, serviceId: 'heir-representation',
+    href: buyHref('heir-representation', { source: 'probate-role' }) },
+  { title: 'I am the surviving spouse', detail: `Spousal Representation — ${usd(PROBATE.spousalRepresentation)}`, serviceId: 'spousal-representation',
+    href: buyHref('spousal-representation', { source: 'probate-role' }) },
 ];
 
 export function ProbateServicePaths() {
@@ -67,6 +75,7 @@ export function ProbateServicePaths() {
                 <p className="mt-4 leading-relaxed text-slate-600">{path.description}</p>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-500">{path.details}</p>
                 <PortalHandoffLink href={path.href} className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold ${path.featured ? 'bg-[#547298] text-white hover:bg-[#33414E]' : 'border-2 border-[#7E9CC0] text-[#33414E] hover:bg-[#F6F9FC]'}`}>{path.cta}<ArrowRight className="h-4 w-4" /></PortalHandoffLink>
+                <BuyButtonNotes serviceId={path.serviceId} />
               </article>
             );
           })}
@@ -80,6 +89,7 @@ export function ProbateServicePaths() {
                 <PortalHandoffLink key={service.title} href={service.href} className="rounded-xl border border-[#DCE5ED] p-4 hover:border-[#7E9CC0] hover:bg-[#F6F9FC]">
                   <p className="font-bold text-[#33414E]">{service.title}</p>
                   <p className="mt-2 text-sm text-slate-600">{service.detail}</p>
+                  <BuyButtonNotes serviceId={service.serviceId} align="left" className="mt-1" />
                 </PortalHandoffLink>
               ))}
             </div>

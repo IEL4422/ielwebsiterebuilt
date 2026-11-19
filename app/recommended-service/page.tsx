@@ -205,7 +205,7 @@ function QuizResult({ answers }: { answers: Answers }) {
           {price ? `Start this package, ${price}` : 'Start this package'}
           <ArrowRight className="h-5 w-5" aria-hidden="true" />
         </PortalHandoffLink>
-        <BuyButtonNotes serviceId={service.id} />
+        <BuyButtonNotes serviceId={service.id} clientType={clientType} />
         <div className="mt-4 text-center">
           <Link href="/book-consultation/" className="inline-flex min-h-[44px] items-center font-['Plus_Jakarta_Sans'] text-base font-bold text-[#4a708b] underline underline-offset-4 hover:text-[#33414E]">
             Talk to an attorney first

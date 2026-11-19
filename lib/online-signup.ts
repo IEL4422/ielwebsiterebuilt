@@ -5,25 +5,18 @@
  * Prices come from lib/pricing.ts only. Nothing here changes a price.
  *
  * To change or remove the online-purchase incentive, edit or empty
- * ONLINE_DISCOUNT_LINE (an empty string hides it everywhere) or edit
- * ONLINE_DISCOUNT_SERVICE_IDS.
+ * ONLINE_DISCOUNT_LINE (an empty string hides it everywhere). It shows with
+ * every buy button that hands off to the portal (lib/portal-handoff.ts), because
+ * the portal takes 10% off any catalog-priced purchase that arrives with
+ * from=website and has no consultation on file.
  */
 import { A_LA_CARTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
+import { portalHandoffUrl } from './portal-handoff';
 
 export type ClientType = 'individual' | 'joint';
 
-/** Shown near estate planning buy buttons. Website wording only. */
+/** Shown with every buy button that hands off to the portal. */
 export const ONLINE_DISCOUNT_LINE: string = 'Buy online without a consultation and save 10%.';
-
-/** Says which packages the line above covers, where several packages share a page. */
-export const ONLINE_DISCOUNT_SCOPE = 'Applies to the Will, Probate Avoidance, and Trust packages.';
-
-/** Estate planning packages the incentive covers. Never probate, deeds, real estate or court matters. */
-export const ONLINE_DISCOUNT_SERVICE_IDS: readonly string[] = [
-  'will-package',
-  'probate-avoidance-package',
-  'trust-package',
-];
 
 /** The attorney promise shown with estate planning buy buttons. */
 export const ATTORNEY_PROMISE = 'Attorney planning session included';
@@ -118,6 +111,10 @@ export function hasAttorneyPromise(serviceId: string): boolean {
   return ATTORNEY_PROMISE_SERVICE_IDS.includes(serviceId);
 }
 
-export function hasOnlineDiscount(serviceId: string): boolean {
-  return ONLINE_DISCOUNT_LINE !== '' && ONLINE_DISCOUNT_SERVICE_IDS.includes(serviceId);
+/**
+ * True when the button for this service (and tier) hands off to the portal, where
+ * the 10% applies. /start-online/ fallbacks and consultation-only services are excluded.
+ */
+export function hasOnlineDiscount(serviceId: string, clientType?: ClientType): boolean {
+  return ONLINE_DISCOUNT_LINE !== '' && portalHandoffUrl(serviceId, { clientType }) !== null;
 }
