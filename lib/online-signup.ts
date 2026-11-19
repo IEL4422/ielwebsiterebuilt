@@ -18,6 +18,14 @@ export type ClientType = 'individual' | 'joint';
 /** Shown with every buy button that hands off to the portal. */
 export const ONLINE_DISCOUNT_LINE: string = 'Buy online without a consultation and save 10%.';
 
+/** Short badge for "start online" buttons; hidden whenever ONLINE_DISCOUNT_LINE is empty. */
+export const ONLINE_DISCOUNT_BADGE: string = ONLINE_DISCOUNT_LINE ? 'Save 10%' : '';
+
+/** Where a visitor picks between starting online and a consultation; deeds are left out of the 10%. */
+export const ONLINE_VS_CONSULT_LINE: string = ONLINE_DISCOUNT_LINE
+  ? 'Start online instead of booking a consultation and save 10% (deeds excluded).'
+  : '';
+
 /** The attorney promise shown with estate planning buy buttons. */
 export const ATTORNEY_PROMISE = 'Attorney planning session included';
 
