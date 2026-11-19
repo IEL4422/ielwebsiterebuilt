@@ -6,6 +6,10 @@ import { Phone, CheckCircle, Shield, FileText, DollarSign, Home, Users } from 'l
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { REAL_ESTATE, usd } from '@/lib/pricing';
+import { buyButtonLabel } from '@/lib/online-signup';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { LegalServiceDepthGuide } from '@/components/seo/LegalServiceDepthGuide';
 
 const closingPackages = [
@@ -176,9 +180,10 @@ export default function RealEstateClosingsPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href={`/start-online/?service=${pkg.id}&clientType=individual&source=closing-pricing`} className="mt-7 inline-flex items-center justify-center rounded-full bg-[#33414E] px-6 py-3 font-bold text-white transition-colors hover:bg-[#547298]">
-                    Start This Service
-                  </Link>
+                  <PortalHandoffLink href={buyHref(pkg.id, { clientType: 'individual', source: 'closing-pricing' })} className="mt-7 inline-flex items-center justify-center rounded-full bg-[#33414E] px-6 py-3 font-bold text-white transition-colors hover:bg-[#547298]">
+                    {buyButtonLabel(pkg.id, { fallback: 'Start This Service' })}
+                  </PortalHandoffLink>
+                  <BuyButtonNotes serviceId={pkg.id} />
                 </article>
               ))}
             </div>

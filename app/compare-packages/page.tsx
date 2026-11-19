@@ -6,6 +6,11 @@ import { Check, X, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { buyButtonLabel } from '@/lib/online-signup';
+import { A_LA_CARTE, ESTATE_PLANNING } from '@/lib/pricing';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
 
 type FeatureKey = 'Revocable Living Trust' | 'Last Will & Testament' | 'Pour-Over Will' |
   'Power of Attorney for Healthcare' | 'Power of Attorney for Property' |
@@ -33,8 +38,8 @@ export default function ComparePackagesPage() {
     {
       id: 'trust-package',
       name: 'Trust Package',
-      individualPrice: 3500,
-      jointPrice: 5000,
+      individualPrice: ESTATE_PLANNING.trustPackageIndividual,
+      jointPrice: ESTATE_PLANNING.trustPackageJoint,
       description: 'Comprehensive trust-based estate plan',
       recommended: true,
       features: {
@@ -58,8 +63,8 @@ export default function ComparePackagesPage() {
     {
       id: 'probate-avoidance-package',
       name: 'Probate Avoidance Package',
-      individualPrice: 1750,
-      jointPrice: 2250,
+      individualPrice: ESTATE_PLANNING.probateAvoidanceIndividual,
+      jointPrice: ESTATE_PLANNING.probateAvoidanceJoint,
       description: 'Essential documents to avoid probate',
       features: {
         'Revocable Living Trust': false,
@@ -82,8 +87,8 @@ export default function ComparePackagesPage() {
     {
       id: 'will-package',
       name: 'Will Package',
-      individualPrice: 1250,
-      jointPrice: 1750,
+      individualPrice: ESTATE_PLANNING.willPackageIndividual,
+      jointPrice: ESTATE_PLANNING.willPackageJoint,
       description: 'Complete will-based estate plan',
       features: {
         'Revocable Living Trust': false,
@@ -106,8 +111,8 @@ export default function ComparePackagesPage() {
     {
       id: 'revocable-living-trust',
       name: 'À La Carte Trust',
-      individualPrice: 2500,
-      jointPrice: 3500,
+      individualPrice: A_LA_CARTE.revocableTrustIndividual,
+      jointPrice: A_LA_CARTE.revocableTrustJoint,
       description: 'Trust with essential support services',
       features: {
         'Revocable Living Trust': true,
@@ -233,12 +238,13 @@ export default function ComparePackagesPage() {
                 <td className="p-4"></td>
                 {packages.map((pkg) => (
                   <td key={pkg.id} className="p-4 text-center border-l border-slate-200">
-                    <Link
-                      href={`/start-online/?service=${pkg.id}&clientType=${clientType}&source=compare-packages`}
+                    <PortalHandoffLink
+                      href={buyHref(pkg.id, { clientType, source: 'compare-packages' })}
                       className={`inline-flex w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors ${pkg.recommended ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'bg-slate-600 hover:bg-slate-700'}`}
                     >
-                      Review & start online
-                    </Link>
+                      {buyButtonLabel(pkg.id, { clientType, fallback: 'Review & start online' })}
+                    </PortalHandoffLink>
+                    <BuyButtonNotes serviceId={pkg.id} clientType={clientType} />
                   </td>
                 ))}
               </tr>
@@ -289,12 +295,13 @@ export default function ComparePackagesPage() {
                 ))}
               </div>
 
-              <Link
-                href={`/start-online/?service=${pkg.id}&clientType=${clientType}&source=compare-packages`}
+              <PortalHandoffLink
+                href={buyHref(pkg.id, { clientType, source: 'compare-packages' })}
                 className={`inline-flex w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors ${pkg.recommended ? 'bg-[#2d3e50] hover:bg-[#4a708b]' : 'bg-slate-600 hover:bg-slate-700'}`}
               >
-                Review & start online
-              </Link>
+                {buyButtonLabel(pkg.id, { clientType, fallback: 'Review & start online' })}
+              </PortalHandoffLink>
+              <BuyButtonNotes serviceId={pkg.id} clientType={clientType} />
             </Card>
           ))}
         </div>

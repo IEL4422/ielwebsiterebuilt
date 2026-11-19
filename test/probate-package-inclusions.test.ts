@@ -22,8 +22,11 @@ describe('Probate package inclusions', () => {
   }
 
   it('keeps recommendation and legacy card inclusions in step', () => {
+    // The service finder renders includes straight from lib/services-data.ts.
+    const finder = readFileSync('app/recommended-service/page.tsx', 'utf8');
+    expect(finder).toContain("from '@/lib/services-data'");
+    expect(finder).toContain('service.includes.map');
     for (const path of [
-      'app/recommended-service/page.tsx',
       'components/services/CategorizedServices.tsx',
       'components/services/CategorizedServicesDisplay.tsx',
     ]) {

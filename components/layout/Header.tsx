@@ -234,18 +234,18 @@ export function Header() {
             </nav>
             <div className="p-4 flex flex-col gap-3 border-t border-[#E3EAF1]">
               <Link
-                href="/book-consultation/"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-5 py-3 text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] transition-colors"
-              >
-                Free Consultation
-              </Link>
-              <Link
                 href="/get-started/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full inline-flex items-center justify-center rounded-full bg-[#547298] px-5 py-3 text-sm font-bold text-white hover:bg-[#4A708B] transition-colors"
               >
                 Get Started Online
+              </Link>
+              <Link
+                href="/book-consultation/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full inline-flex items-center justify-center rounded-full border-2 border-[#7E9CC0] bg-white px-5 py-3 text-sm font-bold text-[#33414E] hover:border-[#547298] hover:text-[#547298] transition-colors"
+              >
+                Free Consultation
               </Link>
             </div>
           </div>

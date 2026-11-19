@@ -30,7 +30,8 @@ const retired = [
         assert(sectionText.includes(name), `${name} appears in the services-pricing real-estate section`);
         const card = section.locator('div.rounded-2xl').filter({ hasText: name }).first();
         assert.match(await card.textContent(), new RegExp(price.replace('$', '\\$').replace(',', ',')));
-        assert.equal(await card.getByRole('link', { name: 'Get Started' }).count(), 1, `${name} has a Get Started link`);
+        // The buy button carries the price (lib/online-signup.ts buyButtonLabel).
+        assert.equal(await card.getByRole('link', { name: `Start online, ${price}`, exact: true }).count(), 1, `${name} has a priced start link`);
       }
       for (const name of retired) assert(!sectionText.includes(name), `${name} is retired`);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `services-pricing overflow at ${width}px`);

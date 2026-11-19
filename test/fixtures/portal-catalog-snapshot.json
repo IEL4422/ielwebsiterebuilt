@@ -1,0 +1,837 @@
+{
+ "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes.",
+ "byId": {
+  "additional-deed": {
+   "catalogId": "additional-deed",
+   "category": "deeds",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "adult-guardianship": {
+   "catalogId": "adult-guardianship",
+   "category": "probate",
+   "list": "packages",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "annual-estate-accounting": {
+   "catalogId": "annual-estate-accounting",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "annual-plan-review": {
+   "catalogId": "annual-plan-review",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 499,
+   "active": true,
+   "consult": false
+  },
+  "annual-report-ward": {
+   "catalogId": "annual-report-ward",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "asset-search": {
+   "catalogId": "asset-search",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "bond-in-lieu": {
+   "catalogId": "bond-in-lieu",
+   "category": "real-estate",
+   "list": "aLaCarte",
+   "price": 1500,
+   "active": true,
+   "consult": false
+  },
+  "business-essentials": {
+   "catalogId": "business-essentials",
+   "category": null,
+   "list": null,
+   "price": 1000,
+   "active": false,
+   "consult": true
+  },
+  "contested-guardianship": {
+   "catalogId": "contested-guardianship",
+   "category": "probate",
+   "list": "packages",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "deed-to-trust": {
+   "catalogId": "deed-to-trust",
+   "category": "deeds",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "diy-review-individual": {
+   "catalogId": "diy-estate-plan-review",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 750,
+   "active": true,
+   "consult": false
+  },
+  "diy-review-joint": {
+   "catalogId": "diy-estate-plan-review",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 1000,
+   "active": true,
+   "consult": false
+  },
+  "emergency-full-adult-guardianship": {
+   "catalogId": "emergency-full-adult-guardianship",
+   "category": "probate",
+   "list": "packages",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "estate-tax": {
+   "catalogId": "estate-tax-planning-addon",
+   "category": null,
+   "list": null,
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "estate-tax-individual": {
+   "catalogId": "estate-tax-planning-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 15000,
+   "active": true,
+   "consult": false
+  },
+  "estate-tax-joint": {
+   "catalogId": "estate-tax-planning-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 20000,
+   "active": true,
+   "consult": false
+  },
+  "estate-tax-standalone": {
+   "catalogId": "estate-tax-planning-addon",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "fee-accounting-contested": {
+   "catalogId": "fee-accounting-contested",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-additional-will-trial-day": {
+   "catalogId": "fee-additional-will-trial-day",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-asset-recovery-title": {
+   "catalogId": "fee-asset-recovery-title",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-citation-discover": {
+   "catalogId": "fee-citation-discover",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-copy-will-uncontested": {
+   "catalogId": "fee-copy-will-uncontested",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-creditor-claim-contested": {
+   "catalogId": "fee-creditor-claim-contested",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-deposition": {
+   "catalogId": "fee-deposition",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-emergency-preservation": {
+   "catalogId": "fee-emergency-preservation",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-evidentiary-hearing": {
+   "catalogId": "fee-evidentiary-hearing",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-extended-deposition": {
+   "catalogId": "fee-extended-deposition",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-fiduciary-removal-surcharge": {
+   "catalogId": "fee-fiduciary-removal-surcharge",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-formal-proof": {
+   "catalogId": "fee-formal-proof",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-heirship-contested": {
+   "catalogId": "fee-heirship-contested",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-individually-quoted-litigation": {
+   "catalogId": "fee-individually-quoted-litigation",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-mediation-standalone": {
+   "catalogId": "fee-mediation-standalone",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-motion-dismiss": {
+   "catalogId": "fee-motion-dismiss",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-nonroutine-motion-contested": {
+   "catalogId": "fee-nonroutine-motion-contested",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-nonroutine-motion-unopposed": {
+   "catalogId": "fee-nonroutine-motion-unopposed",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-subpoena": {
+   "catalogId": "fee-subpoena",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-supervised-administration": {
+   "catalogId": "fee-supervised-administration",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-will-contest-pretrial": {
+   "catalogId": "fee-will-contest-pretrial",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-will-contest-trial": {
+   "catalogId": "fee-will-contest-trial",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-will-trust-construction": {
+   "catalogId": "fee-will-trust-construction",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "fee-written-discovery": {
+   "catalogId": "fee-written-discovery",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "guardianship-compliance-plan": {
+   "catalogId": "guardianship-compliance-plan",
+   "category": "probate",
+   "list": "packages",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "guardianship-interim-petition": {
+   "catalogId": "guardianship-interim-petition",
+   "category": null,
+   "list": null,
+   "price": 1500,
+   "active": false,
+   "consult": true
+  },
+  "guardianship-termination-restoration": {
+   "catalogId": "guardianship-termination-restoration",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "healthcare-directive": {
+   "catalogId": "healthcare-directive-alc",
+   "category": null,
+   "list": null,
+   "price": 350,
+   "active": true,
+   "consult": false
+  },
+  "healthcare-directive-individual": {
+   "catalogId": "healthcare-directive-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 350,
+   "active": true,
+   "consult": false
+  },
+  "healthcare-directive-joint": {
+   "catalogId": "healthcare-directive-alc",
+   "category": null,
+   "list": null,
+   "price": 350,
+   "active": true,
+   "consult": false
+  },
+  "heir-representation": {
+   "catalogId": "heir-representation",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 2500,
+   "active": true,
+   "consult": false
+  },
+  "irrevocable-trust": {
+   "catalogId": "irrevocable-trust-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 4000,
+   "active": true,
+   "consult": false
+  },
+  "large-estate-probate": {
+   "catalogId": "large-estate-probate",
+   "category": "probate",
+   "list": "packages",
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "life-estate": {
+   "catalogId": "life-estate-deed",
+   "category": "deeds",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "mapt-individual": {
+   "catalogId": "mapt-trust",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 4500,
+   "active": true,
+   "consult": false
+  },
+  "mapt-joint": {
+   "catalogId": "mapt-trust",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "mapt-package-individual": {
+   "catalogId": "mapt-package",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 6000,
+   "active": true,
+   "consult": false
+  },
+  "mapt-package-joint": {
+   "catalogId": "mapt-package",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 7500,
+   "active": true,
+   "consult": false
+  },
+  "minor-guardianship": {
+   "catalogId": "minor-guardianship",
+   "category": "probate",
+   "list": "packages",
+   "price": 5000.0,
+   "active": true,
+   "consult": true
+  },
+  "multi-unit-closing": {
+   "catalogId": "multi-unit-closing",
+   "category": null,
+   "list": null,
+   "price": 950,
+   "active": false,
+   "consult": false
+  },
+  "nonstandard-title-closing": {
+   "catalogId": "nonstandard-title-closing",
+   "category": null,
+   "list": null,
+   "price": 1250,
+   "active": false,
+   "consult": false
+  },
+  "out-of-state-deed": {
+   "catalogId": "out-of-state-deed",
+   "category": "deeds",
+   "list": "aLaCarte",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "partial-probate": {
+   "catalogId": "partial-probate",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 3500,
+   "active": true,
+   "consult": false
+  },
+  "poa": {
+   "catalogId": "poa-alc",
+   "category": null,
+   "list": null,
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "poa-individual": {
+   "catalogId": "poa-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "poa-joint": {
+   "catalogId": "poa-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 750,
+   "active": true,
+   "consult": false
+  },
+  "prenup-drafting": {
+   "catalogId": "prenup-drafting",
+   "category": null,
+   "list": null,
+   "price": 2500,
+   "active": false,
+   "consult": false
+  },
+  "prenup-full": {
+   "catalogId": "prenup-drafting-negotiation",
+   "category": null,
+   "list": null,
+   "price": 5000,
+   "active": false,
+   "consult": false
+  },
+  "prenup-review": {
+   "catalogId": "prenup-review",
+   "category": null,
+   "list": null,
+   "price": 1500,
+   "active": false,
+   "consult": false
+  },
+  "prenup-review-negotiate": {
+   "catalogId": "prenup-review-negotiation",
+   "category": null,
+   "list": null,
+   "price": 3500,
+   "active": false,
+   "consult": false
+  },
+  "probate-avoidance-individual": {
+   "catalogId": "probate-avoidance-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 1750,
+   "active": true,
+   "consult": false
+  },
+  "probate-avoidance-joint": {
+   "catalogId": "probate-avoidance-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 2250,
+   "active": true,
+   "consult": false
+  },
+  "probate-high-value": {
+   "catalogId": "large-estate-probate",
+   "category": null,
+   "list": null,
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "probate-no-real-estate": {
+   "catalogId": "standard-probate",
+   "category": null,
+   "list": null,
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "probate-reopening": {
+   "catalogId": "probate-reopening",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 2500,
+   "active": true,
+   "consult": false
+  },
+  "probate-with-real-estate": {
+   "catalogId": "standard-probate",
+   "category": null,
+   "list": null,
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "quit-claim": {
+   "catalogId": "quitclaim-deed",
+   "category": "deeds",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "real-estate-fsbo": {
+   "catalogId": "real-estate-fsbo",
+   "category": "real-estate",
+   "list": "packages",
+   "price": 1500,
+   "active": true,
+   "consult": false
+  },
+  "real-estate-representation": {
+   "catalogId": "residential-closing",
+   "category": "real-estate",
+   "list": "packages",
+   "price": 750,
+   "active": true,
+   "consult": false
+  },
+  "small-business-full": {
+   "catalogId": "small-business-package",
+   "category": null,
+   "list": null,
+   "price": 2000,
+   "active": false,
+   "consult": true
+  },
+  "small-estate-administration": {
+   "catalogId": "small-estate-administration",
+   "category": "probate",
+   "list": "packages",
+   "price": 1000,
+   "active": true,
+   "consult": false
+  },
+  "small-estate-affidavit": {
+   "catalogId": "small-estate-administration",
+   "category": null,
+   "list": null,
+   "price": 1000,
+   "active": true,
+   "consult": false
+  },
+  "small-estate-affidavit-prep": {
+   "catalogId": "small-estate-administration",
+   "category": null,
+   "list": null,
+   "price": 1000,
+   "active": true,
+   "consult": false
+  },
+  "special-needs": {
+   "catalogId": "special-needs-planning",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 4500,
+   "active": true,
+   "consult": false
+  },
+  "spousal-representation": {
+   "catalogId": "spousal-representation",
+   "category": "probate",
+   "list": "aLaCarte",
+   "price": 3500,
+   "active": true,
+   "consult": false
+  },
+  "standard-probate": {
+   "catalogId": "standard-probate",
+   "category": "probate",
+   "list": "packages",
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "summary-probate": {
+   "catalogId": "small-estate-administration",
+   "category": null,
+   "list": null,
+   "price": 1000,
+   "active": true,
+   "consult": false
+  },
+  "surviving-spouse-representation": {
+   "catalogId": "spousal-representation",
+   "category": null,
+   "list": null,
+   "price": 3500,
+   "active": true,
+   "consult": false
+  },
+  "tod-deed": {
+   "catalogId": "todi",
+   "category": "deeds",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "trust-admin-consulting": {
+   "catalogId": "trust-admin-consulting",
+   "category": "trust-administration",
+   "list": "packages",
+   "price": 3500,
+   "active": true,
+   "consult": false
+  },
+  "trust-admin-support": {
+   "catalogId": "trust-admin-support",
+   "category": "trust-administration",
+   "list": "packages",
+   "price": 5500,
+   "active": true,
+   "consult": false
+  },
+  "trust-amendment-simple": {
+   "catalogId": "trust-amendment-simple",
+   "category": null,
+   "list": null,
+   "price": 750,
+   "active": true,
+   "consult": false
+  },
+  "trust-funding": {
+   "catalogId": "trust-funding-alc",
+   "category": null,
+   "list": null,
+   "price": 1500,
+   "active": false,
+   "consult": false
+  },
+  "trust-individual": {
+   "catalogId": "trust-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 3500,
+   "active": true,
+   "consult": false
+  },
+  "trust-individual-alc": {
+   "catalogId": "revocable-living-trust-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 2500,
+   "active": true,
+   "consult": false
+  },
+  "trust-joint": {
+   "catalogId": "trust-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "trust-joint-alc": {
+   "catalogId": "revocable-living-trust-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 3500,
+   "active": true,
+   "consult": false
+  },
+  "trust-restatement": {
+   "catalogId": "trust-restatement-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 2000,
+   "active": true,
+   "consult": false
+  },
+  "trust-restatement-joint": {
+   "catalogId": "trust-restatement-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 3000,
+   "active": true,
+   "consult": false
+  },
+  "trustee-services": {
+   "catalogId": "trustee-services",
+   "category": null,
+   "list": null,
+   "price": 3500,
+   "active": false,
+   "consult": true
+  },
+  "will-amendment": {
+   "catalogId": "will-amendment-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "will-amendment-joint": {
+   "catalogId": "will-amendment-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 750,
+   "active": true,
+   "consult": false
+  },
+  "will-contest": {
+   "catalogId": "will-contest",
+   "category": "probate",
+   "list": "packages",
+   "price": null,
+   "active": true,
+   "consult": true
+  },
+  "will-individual": {
+   "catalogId": "will-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 1250,
+   "active": true,
+   "consult": false
+  },
+  "will-individual-alc": {
+   "catalogId": "last-will-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 750,
+   "active": true,
+   "consult": false
+  },
+  "will-joint": {
+   "catalogId": "will-package",
+   "category": "estate-planning",
+   "list": "packages",
+   "price": 1750,
+   "active": true,
+   "consult": false
+  },
+  "will-joint-alc": {
+   "catalogId": "last-will-alc",
+   "category": "estate-planning",
+   "list": "aLaCarte",
+   "price": 1250,
+   "active": true,
+   "consult": false
+  }
+ }
+}

@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/components/StructuredData';
 import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { ElevenLabsChatbot } from '@/components/integrations/ElevenLabsChatbot';
+import { UtmCapture } from '@/components/analytics/UtmCapture';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.illinoisestatelaw.com'),
@@ -52,6 +53,7 @@ export default function RootLayout({
       </head>
       <body className="font-['Plus_Jakarta_Sans'] antialiased">
         <MetaPixel />
+        <UtmCapture />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DDLGV7ZF0Z"
           strategy="afterInteractive"

@@ -11,6 +11,10 @@ import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { ServiceCard } from '@/components/geo/ServiceCard';
 import { FAQAccordion } from '@/components/geo/FAQAccordion';
 import { CONTESTED, CONTESTED_PROBATE_FEE_NOTE, PROBATE, usd } from '@/lib/pricing';
+import { buyButtonLabel } from '@/lib/online-signup';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { probateFAQs, contestedProbateFAQs } from '@/lib/practice-faqs';
 import { BOOKING_UNCONTESTED_PROBATE, BOOKING_CONTESTED_PROBATE } from '@/lib/booking';
 import { ProbateServicePaths } from '@/components/probate/ProbateServicePaths';
@@ -42,12 +46,15 @@ export default function ChicagoProbateLawyerPage() {
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/start-online/?service=standard-probate&clientType=individual&source=probate-hero"
-                  className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
+                <div className="flex flex-col">
+                <PortalHandoffLink
+                  href={buyHref('standard-probate', { clientType: 'individual', source: 'probate-hero' })}
+                  className="inline-flex w-full items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
-                  Start Probate Online
-                </Link>
+                  {buyButtonLabel('standard-probate')}
+                </PortalHandoffLink>
+                  <BuyButtonNotes serviceId="standard-probate" tone="dark" align="left" />
+                </div>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
@@ -667,12 +674,15 @@ export default function ChicagoProbateLawyerPage() {
                 Let us guide you through the probate process with compassion and expertise. Contact Illinois Estate Law today for experienced probate representation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/start-online/?service=standard-probate&clientType=individual&source=probate-final-cta"
-                  className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
+                <div className="flex flex-col">
+                <PortalHandoffLink
+                  href={buyHref('standard-probate', { clientType: 'individual', source: 'probate-final-cta' })}
+                  className="inline-flex w-full items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
-                  Get Started Online
-                </Link>
+                  {buyButtonLabel('standard-probate')}
+                </PortalHandoffLink>
+                  <BuyButtonNotes serviceId="standard-probate" tone="dark" align="center" />
+                </div>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"

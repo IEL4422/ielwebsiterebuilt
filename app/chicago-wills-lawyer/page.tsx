@@ -8,6 +8,10 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp, Phone, Mail, FileText, Users, AlertCircle, CheckCircle, Heart, Shield } from 'lucide-react';
 import RelatedServices from '@/components/services/RelatedServices';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
+import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
+import { buyButtonLabel } from '@/lib/online-signup';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { buyHref } from '@/lib/portal-handoff';
 
 export default function ChicagoWillsLawyerPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -101,13 +105,14 @@ export default function ChicagoWillsLawyerPage() {
         <div className="bg-[#33414E] py-8 px-4">
           <div className="max-w-[1140px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/get-started/"
+              <div>
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
+                <PortalHandoffLink
+                  href={buyHref('will-package', { clientType: 'individual', source: 'wills-hero' })}
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
-                  Get Started Online
-                </Link>
+                  {buyButtonLabel('will-package')}
+                </PortalHandoffLink>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
@@ -121,6 +126,8 @@ export default function ChicagoWillsLawyerPage() {
                   <Phone className="w-5 h-5 mr-2" />
                   (312) 373-0731
                 </Link>
+              </div>
+              <BuyButtonNotes serviceId="will-package" tone="dark" align="left" />
               </div>
               <div className="hidden lg:block">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
@@ -784,12 +791,12 @@ export default function ChicagoWillsLawyerPage() {
                 Don't leave your family's future to chance. Create a comprehensive will that ensures your wishes are honored and your loved ones are protected.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/get-started/"
+                <PortalHandoffLink
+                  href={buyHref('will-package', { clientType: 'individual', source: 'wills-final-cta' })}
                   className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white px-8 py-4 rounded-full font-bold transition-colors"
                 >
-                  Get Started Online
-                </Link>
+                  {buyButtonLabel('will-package')}
+                </PortalHandoffLink>
                 <Link
                   href="/book-consultation/"
                   className="inline-flex items-center justify-center bg-white text-[#33414E] px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors"
@@ -804,6 +811,7 @@ export default function ChicagoWillsLawyerPage() {
                   (312) 373-0731
                 </Link>
               </div>
+              <BuyButtonNotes serviceId="will-package" tone="dark" align="center" />
             </div>
           </div>
         </section>

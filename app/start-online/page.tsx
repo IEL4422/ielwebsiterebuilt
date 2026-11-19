@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BadgeCheck, CheckCircle2, FileText, LockKeyhole, MessageSquare, ShieldCheck, UserRoundCheck } from 'lucide-react';
-import { TrackedLeadLink } from '@/components/analytics/TrackedLeadLink';
+import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
+import { PORTAL_GET_STARTED_URL, portalHandoffUrl } from '@/lib/portal-handoff';
+import { ONLINE_DISCOUNT_LINE, hasOnlineDiscount } from '@/lib/online-signup';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { allServices, type Service } from '@/lib/services-data';
 
@@ -63,6 +65,9 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
   const visibleIncludes = selectedService?.includes.slice(0, 6) ?? [];
   const additionalIncludes = Math.max((selectedService?.includes.length ?? 0) - visibleIncludes.length, 0);
   const needsConsultation = Boolean(selectedService?.requiresConsultation);
+  // Hand the chosen package to the portal so the visitor does not pick it again.
+  const portalHref =
+    (selectedService && portalHandoffUrl(selectedService.id, { clientType })) || `${PORTAL_GET_STARTED_URL}?from=website`;
 
   return (
     <main>
@@ -221,14 +226,18 @@ export default function StartOnlinePage({ searchParams }: { searchParams: Search
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 ) : (
-                  <TrackedLeadLink
-                    href="https://portal.illinoisestatelaw.com/get-started"
-                    source="PORTAL_HANDOFF"
-                    className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#33414E] px-6 py-3.5 font-['Plus_Jakarta_Sans'] text-sm font-bold text-white transition-colors hover:bg-[#4A708B]"
-                  >
-                    Continue to secure portal
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </TrackedLeadLink>
+                  <div className="flex shrink-0 flex-col items-center gap-2">
+                    <PortalHandoffLink
+                      href={portalHref}
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#33414E] px-6 py-3.5 font-['Plus_Jakarta_Sans'] text-sm font-bold text-white transition-colors hover:bg-[#4A708B]"
+                    >
+                      Continue to secure portal
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </PortalHandoffLink>
+                    {selectedService && hasOnlineDiscount(selectedService.id, clientType) && (
+                      <p className="max-w-[240px] text-center font-['Plus_Jakarta_Sans'] text-xs font-semibold text-[#2F6B3F]">{ONLINE_DISCOUNT_LINE}</p>
+                    )}
+                  </div>
                 )}
               </div>
 
