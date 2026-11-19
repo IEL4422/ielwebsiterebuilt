@@ -160,6 +160,10 @@ export default function SelectServicePage() {
                   <p className="mt-2 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-600">
                     Select a service to review its fee, scope, and next step. Services that need an attorney review will clearly direct you to a consultation instead of sending you into an online intake.
                   </p>
+                  <p className="mt-3 font-['Plus_Jakarta_Sans'] text-sm font-semibold text-[#33414E]">
+                    Rather talk with an attorney first?{' '}
+                    <Link href="/book-consultation/" className="text-[#4A708B] underline underline-offset-4 hover:text-[#33414E]">Book a free consultation</Link>.
+                  </p>
                 </div>
               </div>
             </div>
@@ -186,10 +190,15 @@ export default function SelectServicePage() {
                   <h2 className="mt-3 font-['Plus_Jakarta_Sans'] text-xl font-bold">Use the service finder for guided help.</h2>
                   <p className="mt-2 max-w-2xl font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-white/75">The finder covers estate planning, trust administration, probate, real estate, and guardianship. It gives guidance only; you can still review and change services before proceeding.</p>
                 </div>
-                <Link href="/recommended-service/" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-['Plus_Jakarta_Sans'] text-sm font-bold text-[#33414E] transition-colors hover:bg-[#E8F1F8]">
-                  Use the service finder
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
+                <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+                  <Link href="/recommended-service/" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-['Plus_Jakarta_Sans'] text-sm font-bold text-[#33414E] transition-colors hover:bg-[#E8F1F8]">
+                    Use the service finder
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                  <Link href="/book-consultation/" className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/70 px-5 py-3 font-['Plus_Jakarta_Sans'] text-sm font-bold text-white transition-colors hover:bg-white/10">
+                    Book a free consultation
+                  </Link>
+                </div>
               </div>
             </div>
 
