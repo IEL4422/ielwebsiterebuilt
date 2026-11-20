@@ -7,10 +7,11 @@ import { MapPin, Phone, Mail, Clock, Star, Facebook, Instagram, Linkedin, Youtub
 const footerNavItems = [
   { label: 'ABOUT', href: '/about/' },
   { label: 'SERVICES', href: '/services-pricing/' },
-  { label: 'POA & GUARDIANSHIP', href: '/power-of-attorney-and-guardianship/' },
   { label: 'RESOURCES', href: '/learning-center/' },
   { label: 'ILLINOIS ANSWERS', href: '/illinois-estate-law-answers/' },
   { label: 'CONTACT', href: '/contact/' },
+  { label: 'TERMS OF SERVICE', href: '/terms-of-service/' },
+  { label: 'PRIVACY POLICY', href: '/privacy-policy/' },
 ];
 
 const socialLinks = [
