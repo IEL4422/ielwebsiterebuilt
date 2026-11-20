@@ -155,7 +155,7 @@ export function Footer() {
             />
           </div>
 
-          {/* ââ Trust badges ââââââââââââââââââââââââââââââââââââ */}
+          {/* ── Trust badges ──────────────────────────────────── */}
           <div className="mt-6 sm:mt-7 py-4 sm:py-5 border-t border-b border-[#FAFAFA22]">
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:gap-x-10">
 
@@ -213,7 +213,7 @@ export function Footer() {
 
           <div className="mt-6 sm:mt-5 pt-4 sm:pt-5 border-t border-[#FAFAFA99]">
             <p className="text-[#BDBDBD] text-xs sm:text-sm md:text-base font-normal uppercase leading-relaxed">
-              <strong>Disclaimer:</strong> Illinois Estate Law is not associated with any governmental organizations in the State of Illinois or any legal aid organizations therein. THE INFORMATION CONTAINED IN THIS WEBSITE IS PROVIDED FOR INFORMATIONAL AND ENTERTAINMENT PURPOSES ONLY, AND SHOULD NOT BE CONSTRUED AS OFFERING LEGAL ADVICE, OR CREATING AN ATTORNEY-CLIENT RELATIONSHIP BETWEEN THE READER AND THE ATTORNEY. YOU SHOULD NOT ACT OR REFRAIN FROM ACTING ON THE BASIS OF ANY CONTENT INCLUDED IN THIS WEBSITE WITHOUT SEEKING APPROPRIATE LEGAL ADVICE ABOUT YOUR INDIVIDUAL FACTS AND CIRCUMSTANCES FROM AN ATTORNEY LICENSED IN YOUR STATE.â By contacting us you consent to receiving SMS messages. Messages and Data rates may apply. Message frequency will vary. Reply to text &quot;Help&quot; to get more assistance. Reply &quot;Stop&quot; to Opt-out of messaging.
+              <strong>Disclaimer:</strong> Illinois Estate Law is not associated with any governmental organizations in the State of Illinois or any legal aid organizations therein. THE INFORMATION CONTAINED IN THIS WEBSITE IS PROVIDED FOR INFORMATIONAL AND ENTERTAINMENT PURPOSES ONLY, AND SHOULD NOT BE CONSTRUED AS OFFERING LEGAL ADVICE, OR CREATING AN ATTORNEY-CLIENT RELATIONSHIP BETWEEN THE READER AND THE ATTORNEY. YOU SHOULD NOT ACT OR REFRAIN FROM ACTING ON THE BASIS OF ANY CONTENT INCLUDED IN THIS WEBSITE WITHOUT SEEKING APPROPRIATE LEGAL ADVICE ABOUT YOUR INDIVIDUAL FACTS AND CIRCUMSTANCES FROM AN ATTORNEY LICENSED IN YOUR STATE. By contacting us you consent to receiving SMS messages. Messages and Data rates may apply. Message frequency will vary. Reply to text &quot;Help&quot; to get more assistance. Reply &quot;Stop&quot; to Opt-out of messaging.
               <br />
               <Link href="/privacy-policy/" rel="nofollow" className="text-[#A0A0A0] hover:text-[#FEFEFE] transition-colors">
                 Privacy Policy
@@ -231,7 +231,7 @@ export function Footer() {
         <div className="mx-auto max-w-[1140px]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0 min-h-[22px]">
             <p className="text-[#33414E] text-xs sm:text-sm font-normal text-center md:text-left">
-              Copyright Â© {currentYear} Illinois Estate Law Firm. All rights reserved.
+              Copyright &copy; {currentYear} Illinois Estate Law Firm. All rights reserved.
             </p>
             <div className="flex items-center justify-center gap-2 text-xs sm:text-sm">
               <Link href="/privacy-policy/" className="text-[#33414E] hover:text-[#4A708B] transition-colors">
