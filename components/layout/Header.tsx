@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
-const navItems = [
+export const navItems = [
   { label: 'Home', href: '/' },
   {
     label: 'About',
@@ -35,6 +35,8 @@ const navItems = [
     href: '/learning-center/',
     children: [
       { label: 'Client Portal', href: 'https://portal.illinoisestatelaw.com', external: true },
+      { label: 'Attorneys: Sign Up a Client', href: 'https://portal.illinoisestatelaw.com/wrongful-death-probate', external: true },
+      { label: 'Attorney Dashboard', href: 'https://portal.illinoisestatelaw.com/attorney-dashboard/login', external: true },
       { label: 'Learning Center', href: '/learning-center/' },
       { label: 'Estate Tax Calculator', href: '/illinois-estate-tax-calculator/' },
       { label: 'Blog', href: '/blog/' },
