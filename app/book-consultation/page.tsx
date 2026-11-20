@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Script from 'next/script';
 import { ArrowLeft, Building2, ScrollText, Scale, Briefcase, Gavel, HeartHandshake } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { trackFunnelEvent } from '@/lib/gtag';
 import Link from 'next/link';
 import { ONLINE_DISCOUNT_LINE } from '@/lib/online-signup';
+import { ConsultTimePicker } from '@/components/booking/ConsultTimePicker';
 
 type CaseType =
   | 'estate-planning'
@@ -127,6 +128,18 @@ const LUNACAL_UI_THEME = `{"theme":"light","styles":{"branding":{}},"hideEventTy
 
 export default function BookConsultationPage() {
   const [selectedType, setSelectedType] = useState<CaseType | null>(null);
+  // The site's own time picker (Lunacal API), when switched on for the site.
+  // Until we hear back, and whenever it can't load, Lunacal's calendar is used.
+  const [ownPicker, setOwnPicker] = useState(false);
+  useEffect(() => {
+    let live = true;
+    fetch('/api/booking/config', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => { if (live && j?.enabled === true) setOwnPicker(true); })
+      .catch(() => {});
+    return () => { live = false; };
+  }, []);
+  const useEmbed = useCallback(() => setOwnPicker(false), []);
 
   const selectedOption = CASE_OPTIONS.find((o) => o.id === selectedType);
   const activeEmbedId = selectedType ? TYPE_TO_EMBED[selectedType] : null;
@@ -260,8 +273,21 @@ export default function BookConsultationPage() {
           </div>
         </section>
 
+        {ownPicker && selectedType && selectedOption && (
+          <div className="bg-white pb-16">
+            <div className="container mx-auto px-4 max-w-6xl">
+              <ConsultTimePicker
+                caseType={selectedType}
+                consultLabel={`${selectedOption.label} Consultation`}
+                askHeardAbout={selectedType === 'estate-planning'}
+                onUnavailable={useEmbed}
+              />
+            </div>
+          </div>
+        )}
+
         {/* Calendar embeds — always in DOM so Lunacal preloads in background */}
-        <div className="bg-white pb-16">
+        <div className={`bg-white pb-16 ${ownPicker ? 'hidden' : ''}`}>
           <div className="container mx-auto px-4 max-w-6xl">
             <div
               id="my-lunacal-inline-initial-consultation"
