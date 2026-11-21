@@ -35,8 +35,7 @@ export const navItems = [
     href: '/learning-center/',
     children: [
       { label: 'Client Portal', href: 'https://portal.illinoisestatelaw.com', external: true },
-      { label: 'Attorneys: Sign Up a Client', href: 'https://portal.illinoisestatelaw.com/wrongful-death-probate', external: true },
-      { label: 'Attorney Dashboard', href: 'https://portal.illinoisestatelaw.com/attorney-dashboard/login', external: true },
+      { label: 'For Attorneys', href: '/for-attorneys/' },
       { label: 'Learning Center', href: '/learning-center/' },
       { label: 'Estate Tax Calculator', href: '/illinois-estate-tax-calculator/' },
       { label: 'Blog', href: '/blog/' },
