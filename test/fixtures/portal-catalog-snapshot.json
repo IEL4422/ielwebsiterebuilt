@@ -413,7 +413,7 @@
    "catalogId": "mapt-trust",
    "category": "estate-planning",
    "list": "aLaCarte",
-   "price": 4500,
+   "price": 4000,
    "active": true,
    "consult": false
   },
@@ -669,7 +669,7 @@
    "catalogId": "special-needs-planning",
    "category": "estate-planning",
    "list": "aLaCarte",
-   "price": 4500,
+   "price": 4000,
    "active": true,
    "consult": false
   },

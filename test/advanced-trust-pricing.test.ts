@@ -5,7 +5,7 @@ import { allServices } from '../lib/services-data';
 
 describe('standalone advanced-trust pricing', () => {
   it('uses the approved concrete prices from the canonical pricing source', () => {
-    expect(ESTATE_PLANNING.medicaidAssetProtectionTrust).toBe(4500);
+    expect(ESTATE_PLANNING.medicaidAssetProtectionTrust).toBe(4000);
     expect(ESTATE_PLANNING.irrevocableLifeInsuranceTrust).toBe(4000);
     expect(ESTATE_PLANNING.irrevocableTrust).toBe(4000);
   });
@@ -16,7 +16,7 @@ describe('standalone advanced-trust pricing', () => {
 
     expect(mapTrust).toMatchObject({
       name: 'Medicaid Asset Protection Trust',
-      fixedPrice: 4500,
+      fixedPrice: 4000,
       standardizedServiceName: 'Medicaid Asset Protection Trust',
     });
     expect(mapTrust?.description).toContain('standalone');
@@ -41,7 +41,7 @@ describe('standalone advanced-trust pricing', () => {
     );
 
     expect(standalone).toHaveLength(2);
-    expect(standalone?.map(service => service.fixedPrice).sort()).toEqual([4000, 4500]);
+    expect(standalone?.map(service => service.fixedPrice).sort()).toEqual([4000, 4000]);
     expect(estatePlanning?.aLaCarte.some(service => service.name === 'Irrevocable Trust')).toBe(false);
   });
 });
