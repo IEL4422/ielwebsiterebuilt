@@ -40,7 +40,7 @@ describe('buy-button labels and the online-purchase line', () => {
     for (const [id, pkg] of Object.entries(PORTAL_PACKAGES)) expect(hasOnlineDiscount(id), id).toBe(pkg.category !== 'deeds');
     // No 10% off deeds.
     for (const id of ['quit-claim-deed', 'transfer-on-death', 'life-estate-deed']) expect(hasOnlineDiscount(id), id).toBe(false);
-    for (const id of ['will-package', 'trust-package', 'standard-probate', 'small-estate-administration', 'trust-admin-consulting', 'residential-closing', 'fsbo-representation', 'power-of-attorney', 'medicaid-asset-protection-trust']) {
+    for (const id of ['will-package', 'trust-package', 'standard-probate', 'small-estate-administration', 'trust-admin-consulting', 'residential-closing', 'fsbo-representation', 'power-of-attorney', 'medicaid-asset-protection-trust', 'irrevocable-life-insurance-trust', 'document-review']) {
       expect(hasOnlineDiscount(id), id).toBe(true);
     }
     // /start-online/ fallbacks and consultation-only services do not carry from=website.
@@ -50,7 +50,7 @@ describe('buy-button labels and the online-purchase line', () => {
       expect(hasOnlineDiscount(id, tier), key).toBe(false);
     }
     for (const service of allServices.filter((s) => s.requiresConsultation)) expect(hasOnlineDiscount(service.id), service.id).toBe(false);
-    for (const id of ['irrevocable-life-insurance-trust', 'document-review', 'contested-probate', 'adult-guardianship', 'minor-guardianship']) {
+    for (const id of ['contested-probate', 'adult-guardianship', 'minor-guardianship']) {
       expect(hasOnlineDiscount(id), id).toBe(false);
     }
   });

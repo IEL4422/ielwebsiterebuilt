@@ -3,8 +3,6 @@ import { PROBATE, usd } from '../lib/pricing';
 import { allServices } from '../lib/services-data';
 import { buyButtonLabel, packagePriceText } from '../lib/online-signup';
 import {
-  BOOK_CONSULTATION_URL,
-  CONSULTATION_ONLY_IDS,
   MAX_ANSWERS_BYTES,
   PORTAL_GET_STARTED_URL,
   PORTAL_PACKAGES,
@@ -12,7 +10,6 @@ import {
   UNMAPPED_TIERS,
   buyHref,
   encodeAnswers,
-  isConsultationOnly,
   portalHandoffUrl,
   withUtm,
 } from '../lib/portal-handoff';
@@ -121,18 +118,32 @@ describe('hand-off URL', () => {
     expect(buyHref('contested-probate', { source: 'test' })).toBe('/start-online/?service=contested-probate&clientType=individual&source=test');
   });
 
-  it('sends Document Review and the ILIT straight to a free consultation, never to the portal', () => {
+  it('sends the ILIT and Document Review to the portal to start online', () => {
+    const ilit = new URL(buyHref('irrevocable-life-insurance-trust', { source: 'test' }));
+    expect(`${ilit.origin}${ilit.pathname}`).toBe(PORTAL_GET_STARTED_URL);
+    expect(ilit.searchParams.get('service')).toBe('estate-planning');
+    expect(ilit.searchParams.get('package')).toBe('irrevocable-trust');
+    expect(ilit.searchParams.get('from')).toBe('website');
+    // Staff see that the client asked for an ILIT, not just any irrevocable trust.
+    expect(decodeAnswers(ilit.searchParams.get('answers') as string)).toEqual({ website_service: 'Irrevocable Life Insurance Trust (ILIT)' });
+    expect(buyButtonLabel('irrevocable-life-insurance-trust')).toBe('Start my trust, $4,000');
+
+    const review = new URL(buyHref('document-review', { source: 'test' }));
+    expect(`${review.origin}${review.pathname}`).toBe(PORTAL_GET_STARTED_URL);
+    expect(review.searchParams.get('service')).toBe('probate');
+    expect(review.searchParams.get('package')).toBe('document-review');
+    expect(review.searchParams.has('answers')).toBe(false);
+    expect(buyButtonLabel('document-review')).toBe('Start my review, $500');
+
     for (const id of ['irrevocable-life-insurance-trust', 'document-review']) {
-      expect(isConsultationOnly(id), id).toBe(true);
-      expect(buyHref(id, { source: 'test' }), id).toBe(BOOK_CONSULTATION_URL);
-      expect(buyHref(id, { clientType: 'joint' }), id).toBe(BOOK_CONSULTATION_URL);
-      expect(portalHandoffUrl(id), id).toBeNull();
-      expect(allServices.find((s) => s.id === id)?.requiresConsultation, id).toBe(true);
-      expect(buyButtonLabel(id, { fallback: 'Get Started' }), id).toBe('Get Started');
+      expect(allServices.find((s) => s.id === id)?.requiresConsultation, id).toBeFalsy();
+      expect(UNMAPPED_REASONS[id], id).toBeUndefined();
     }
-    expect(BOOK_CONSULTATION_URL).toBe('/book-consultation/');
-    // Every consultation-only id is also on the unmapped list, so nothing deep-links it.
-    for (const id of CONSULTATION_ONLY_IDS) expect(UNMAPPED_REASONS[id], id).toMatch(/^Consultation only/);
+  });
+
+  it('keeps quiz answers alongside the ILIT note', () => {
+    const url = new URL(portalHandoffUrl('irrevocable-life-insurance-trust', { answers: { goal: 'insurance' } }) as string);
+    expect(decodeAnswers(url.searchParams.get('answers') as string)).toEqual({ goal: 'insurance', website_service: 'Irrevocable Life Insurance Trust (ILIT)' });
   });
 
   it('passes through utm_* values and nothing else', () => {
