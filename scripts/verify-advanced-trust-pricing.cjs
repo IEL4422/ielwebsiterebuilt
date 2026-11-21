@@ -5,7 +5,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:3192';
 const services = [
   {
     name: 'Medicaid Asset Protection Trust',
-    price: '$4,500',
+    price: '$4,000',
     id: 'medicaid-asset-protection-trust',
     // Hands off to the portal with the MAPT package chosen (lib/portal-handoff.ts).
     href: /service=estate-planning&package=mapt-individual/,
