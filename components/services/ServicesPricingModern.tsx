@@ -8,7 +8,7 @@ import { trackFunnelEvent } from '@/lib/gtag';
 import { ONLINE_DISCOUNT_LINE, buyButtonLabel } from '@/lib/online-signup';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
-import { buyHref } from '@/lib/portal-handoff';
+import { buyHref, isConsultationOnly } from '@/lib/portal-handoff';
 import {
   serviceCategories,
   type Service,
@@ -109,6 +109,8 @@ const SERVICE_CTAS: Cta[] = [
  */
 function ctasFor(serviceName: string, { priced = false }: { priced?: boolean } = {}): Cta[] {
   const id = SERVICE_IDS[serviceName];
+  // Services the portal cannot sell start with a free consultation instead.
+  if (id && isConsultationOnly(id)) return [{ label: 'Book a free consultation', href: BOOK, variant: 'ghost' }];
   const label = priced && id ? buyButtonLabel(id, { fallback: 'Get Started' }) : 'Get Started';
   return [
     { label, href: serviceStartHref(serviceName), variant: 'primary' },
@@ -144,9 +146,11 @@ function CardCtas({ ctas, serviceName }: { ctas: Cta[]; serviceName: string }) {
         )
       )}
       </div>
-      {serviceId && <BuyButtonNotes serviceId={serviceId} />}
+      {serviceId && !isConsultationOnly(serviceId) && <BuyButtonNotes serviceId={serviceId} />}
       <p className="mt-2 text-center text-[11px] leading-relaxed text-[#6b7782]">
-        Start online without a consultation, or talk with us first—free and no obligation.
+        {serviceId && isConsultationOnly(serviceId)
+          ? 'This service starts with a free, no-obligation consultation.'
+          : 'Start online without a consultation, or talk with us first—free and no obligation.'}
       </p>
     </div>
   );
