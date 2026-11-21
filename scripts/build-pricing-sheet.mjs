@@ -28,6 +28,7 @@ const TOKENS = {
   CONTESTED_INITIAL_FLAT_FEE: usd(num('probateInitialFlatFee')),
   CONTESTED_GUARDIANSHIP_FLAT_FEE: usd(num('guardianshipInitialFlatFee')),
   STANDARD_PROBATE: usd(num('standard')),
+  PROBATE_GUARDIANSHIP: usd(num('probateGuardianship')),
   TRUST_PACKAGE_JOINT: usd(num('trustPackageJoint')),
   LARGE_ESTATE_BASE: usd(num('largeEstateBase')),
   LARGE_ESTATE_PERCENT: num('largeEstatePercent'),

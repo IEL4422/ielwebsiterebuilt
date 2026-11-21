@@ -100,6 +100,19 @@ describe('hand-off URL', () => {
     expect(new URL(portalHandoffUrl('standard-probate', { clientType: 'joint' }) as string).searchParams.get('package')).toBe('standard-probate');
   });
 
+  it('sends Probate + Guardianship to the portal group option, where the client picks minor or adult', () => {
+    const url = new URL(buyHref('probate-guardianship', { source: 'test' }));
+    expect(`${url.origin}${url.pathname}`).toBe(PORTAL_GET_STARTED_URL);
+    expect(url.searchParams.get('service')).toBe('probate');
+    expect(url.searchParams.get('package')).toBe('probate-guardianship');
+    expect(url.searchParams.get('from')).toBe('website');
+    expect(packagePriceText('probate-guardianship')).toBe(usd(PROBATE.probateGuardianship));
+    // The two real portal catalog entries the group resolves to, both at the same flat fee.
+    for (const id of ['probate-minor-guardianship', 'probate-adult-guardianship']) {
+      expect(portal[id], id).toMatchObject({ catalogId: id, category: 'probate', price: PROBATE.probateGuardianship, active: true, consult: false });
+    }
+  });
+
   it('falls back to the website review page for unmapped services', () => {
     expect(portalHandoffUrl('adult-guardianship')).toBeNull();
     expect(buyHref('irrevocable-life-insurance-trust', { source: 'test' })).toBe('/start-online/?service=irrevocable-life-insurance-trust&clientType=individual&source=test');

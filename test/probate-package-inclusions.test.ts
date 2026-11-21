@@ -21,6 +21,21 @@ describe('Probate package inclusions', () => {
     });
   }
 
+  it('probate-guardianship is a flat fee that includes everything in Standard Probate plus the guardianship', () => {
+    const standard = probatePackages.find((item) => item.id === 'standard-probate')!;
+    const combined = probatePackages.find((item) => item.id === 'probate-guardianship')!;
+    expect(combined.fixedPrice).toBe(7500);
+    expect(combined.pricingLabel).toBeUndefined();
+    expect(combined.requiresConsultation).toBeFalsy();
+    for (const inclusion of standard.includes) expect(combined.includes).toContain(inclusion);
+    const text = combined.includes.join(' ');
+    expect(text).toContain('minor guardianship');
+    expect(text).toContain('adult guardianship');
+    expect(text).toContain('Guardianship court filing fees');
+    expect(combined.note).toContain('Surety bond premiums');
+    expect(combined.note).toContain('guardian ad litem');
+  });
+
   it('keeps recommendation and legacy card inclusions in step', () => {
     // The service finder renders includes straight from lib/services-data.ts.
     const finder = readFileSync('app/recommended-service/page.tsx', 'utf8');

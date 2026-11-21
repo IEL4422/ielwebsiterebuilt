@@ -38,6 +38,7 @@ export type StandardizedServiceName =
   | 'Small Estate Administration'
   | 'Bond in Lieu of Probate'
   | 'Standard Probate'
+  | 'Probate + Guardianship'
   | 'Large Estate Probate'
   | 'Probate Reopening'
   | 'Contested Probate'
@@ -303,6 +304,24 @@ const probateIncludes = [
 
 const probateNote = 'Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.';
 
+/**
+ * Probate + Guardianship: everything in Standard Probate plus an uncontested
+ * minor OR adult guardianship for one heir. A flat fee, unlike the standalone
+ * guardianship retainers below.
+ */
+const probateGuardianshipIncludes = [
+  ...probateIncludes.filter((item) => item !== 'Attorney consultations related to the included scope'),
+  'Guardianship petition for the heir: minor guardianship (heir under 18) or adult guardianship (adult heir with a disability)',
+  'Physician-report and guardian ad litem coordination for an adult guardianship',
+  'Preparation for and appearance at the guardianship court hearing',
+  'Order appointing the guardian and letters of office',
+  'Guidance on the guardian\'s duties after appointment',
+  'Guardianship court filing fees',
+  'Attorney consultations related to the included scope'
+];
+
+const probateGuardianshipNote = `Uncontested matters only. Surety bond premiums, if required for the estate or the guardianship, are paid directly to the bond provider and are NOT included in the flat fee. Also not included: guardian ad litem fees, annual guardianship reports and accountings after appointment (the annual report on the ward is ${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} each year it is filed), contested matters, and tax returns.`;
+
 export const probatePackages: Service[] = [
   {
     id: 'small-estate-administration',
@@ -332,6 +351,19 @@ export const probatePackages: Service[] = [
     description: 'Full uncontested probate administration from opening through closing for estates valued at $4,000,000 or less. If the matter becomes contested, a separate written contested-matter scope applies.',
     includes: probateIncludes,
     note: probateNote,
+    addOns: []
+  },
+  {
+    id: 'probate-guardianship',
+    name: 'Probate + Guardianship',
+    subtitle: 'Uncontested probate plus a guardianship for an heir who is a minor or has a disability',
+    category: 'probate',
+    standardizedCaseType: 'Probate',
+    standardizedServiceName: 'Probate + Guardianship',
+    fixedPrice: PROBATE.probateGuardianship,
+    description: 'For opening probate when an heir is a minor or an adult with a disability, so a guardian has to be appointed for that heir. One flat fee covers the full uncontested probate, from opening through closing, and an uncontested guardianship for the heir: a minor guardianship for an heir under 18, or an adult guardianship for an adult heir with a disability. You choose minor or adult guardianship when you check out. If either case becomes contested, a separate written contested-matter scope applies.',
+    includes: probateGuardianshipIncludes,
+    note: probateGuardianshipNote,
     addOns: []
   },
   {

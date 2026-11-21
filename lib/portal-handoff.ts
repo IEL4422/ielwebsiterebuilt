@@ -58,6 +58,10 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
   // Probate
   'small-estate-administration': { category: 'probate', individual: 'small-estate-administration', catalogId: 'small-estate-administration' },
   'standard-probate': { category: 'probate', individual: 'standard-probate', catalogId: 'standard-probate' },
+  // Group option: the portal resolves it to Probate + Guardianship ($7,500) and then
+  // has the client choose minor or adult guardianship, which selects the real catalog
+  // entry (probate-minor-guardianship or probate-adult-guardianship, both $7,500).
+  'probate-guardianship': { category: 'probate', individual: 'probate-guardianship', catalogId: 'probate-guardianship' },
   'large-estate-probate': { category: 'probate', individual: 'large-estate-probate', catalogId: 'large-estate-probate' },
   'probate-reopening': { category: 'probate', individual: 'probate-reopening', catalogId: 'probate-reopening' },
   'heir-representation': { category: 'probate', individual: 'heir-representation', catalogId: 'heir-representation' },
