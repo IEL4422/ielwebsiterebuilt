@@ -356,12 +356,12 @@ export const probatePackages: Service[] = [
   {
     id: 'probate-guardianship',
     name: 'Probate + Guardianship',
-    subtitle: 'Uncontested probate plus a guardianship for an heir who is a minor or has a disability',
+    subtitle: 'For the estate administrator who will also be guardian of a minor or disabled heir',
     category: 'probate',
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Probate + Guardianship',
     fixedPrice: PROBATE.probateGuardianship,
-    description: 'For opening probate when an heir is a minor or an adult with a disability, so a guardian has to be appointed for that heir. One flat fee covers the full uncontested probate, from opening through closing, and an uncontested guardianship for the heir: a minor guardianship for an heir under 18, or an adult guardianship for an adult heir with a disability. You choose minor or adult guardianship when you check out. If either case becomes contested, a separate written contested-matter scope applies.',
+    description: 'Only for someone who will serve as the estate\'s administrator and also be appointed guardian of an heir who is a minor or an adult with a disability, most often a parent whose minor child is inheriting. If someone else will be the guardian, this package does not apply: choose Standard Probate and a separate guardianship, or book a free consultation. One flat fee covers the full uncontested probate, from opening through closing, and an uncontested guardianship for the heir: a minor guardianship for an heir under 18, or an adult guardianship for an adult heir with a disability. You choose minor or adult guardianship when you check out. If either case becomes contested, a separate written contested-matter scope applies.',
     includes: probateGuardianshipIncludes,
     note: probateGuardianshipNote,
     addOns: []
