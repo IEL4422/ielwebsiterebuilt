@@ -68,6 +68,7 @@ const PACKAGE_PRICES: Record<string, PackagePrice> = {
   'life-estate-deed': { individual: A_LA_CARTE.deed },
   'small-estate-administration': { individual: PROBATE.smallEstateAdministration },
   'standard-probate': { individual: PROBATE.standard },
+  'probate-guardianship': { individual: PROBATE.probateGuardianship },
   'probate-reopening': { individual: PROBATE.reopening },
   'heir-representation': { individual: PROBATE.heirRepresentation },
   'partial-probate': { individual: PROBATE.partialProbate },
@@ -90,6 +91,7 @@ const BUTTON_VERBS: Record<string, string> = {
   'estate-tax-planning-package': 'Start my plan',
   'diy-estate-plan-review': 'Start my review',
   'standard-probate': 'Start probate',
+  'probate-guardianship': 'Start probate + guardianship',
 };
 
 /** "$3,500", "$5,000" (joint), "from $3,500" (when no client type is chosen), "$3,500 a year". */

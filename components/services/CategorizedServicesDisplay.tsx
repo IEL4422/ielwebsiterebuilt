@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { A_LA_CARTE, CONTESTED, CONTESTED_PROBATE_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { probatePackages } from '@/lib/services-data';
 
 export interface Service {
   name: string;
@@ -23,6 +24,10 @@ export interface ServiceCategory {
   aLaCarte: Service[];
   addOns: Service[];
 }
+
+// Probate + Guardianship reads its card straight from lib/services-data.ts so the
+// two copies cannot drift apart.
+const probateGuardianship = probatePackages.find((s) => s.id === 'probate-guardianship')!;
 
 const probateIncludes = [
   'All required filings with the Probate Court from opening through closing',
@@ -235,6 +240,13 @@ export const serviceCategories: ServiceCategory[] = [
         fixedPrice: PROBATE.standard,
         includes: probateIncludes,
         note: 'Uncontested matters only. Surety bond premium, if required, is paid directly to the bond provider and is NOT included in the flat fee.'
+      },
+      {
+        name: probateGuardianship.name,
+        subtitle: probateGuardianship.subtitle,
+        fixedPrice: probateGuardianship.fixedPrice,
+        includes: probateGuardianship.includes,
+        note: probateGuardianship.note
       },
       {
         name: 'Large Estate Probate',

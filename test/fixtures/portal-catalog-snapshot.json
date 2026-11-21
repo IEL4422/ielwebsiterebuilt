@@ -1,5 +1,5 @@
 {
- "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes.",
+ "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes. Probate + Guardianship entries (probate-guardianship group option and the probate-minor-guardianship / probate-adult-guardianship catalog entries, all $7,500) were added by hand on 2026-11-20 to match the portal change being built alongside this one; replace them with the portal's own projection once it lands.",
  "byId": {
   "additional-deed": {
    "catalogId": "additional-deed",
@@ -537,6 +537,14 @@
    "active": false,
    "consult": false
   },
+  "probate-adult-guardianship": {
+   "catalogId": "probate-adult-guardianship",
+   "category": "probate",
+   "list": null,
+   "price": 7500,
+   "active": true,
+   "consult": false
+  },
   "probate-avoidance-individual": {
    "catalogId": "probate-avoidance-package",
    "category": "estate-planning",
@@ -553,11 +561,27 @@
    "active": true,
    "consult": false
   },
+  "probate-guardianship": {
+   "catalogId": "probate-guardianship",
+   "category": "probate",
+   "list": "packages",
+   "price": 7500,
+   "active": true,
+   "consult": false
+  },
   "probate-high-value": {
    "catalogId": "large-estate-probate",
    "category": null,
    "list": null,
    "price": 5000,
+   "active": true,
+   "consult": false
+  },
+  "probate-minor-guardianship": {
+   "catalogId": "probate-minor-guardianship",
+   "category": "probate",
+   "list": null,
+   "price": 7500,
    "active": true,
    "consult": false
   },

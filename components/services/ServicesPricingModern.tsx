@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, usd } from '@/lib/pricing';
+import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
 import { ONLINE_DISCOUNT_LINE, buyButtonLabel } from '@/lib/online-signup';
@@ -38,6 +38,7 @@ const SERVICE_IDS: Record<string, string> = {
   'Bond in Lieu of Probate': 'bond-in-lieu-of-probate',
   'Small Estate Administration': 'small-estate-administration',
   'Standard Probate': 'standard-probate',
+  'Probate + Guardianship': 'probate-guardianship',
   'Large Estate Probate': 'large-estate-probate',
   'Probate Reopening': 'probate-reopening',
   'Heir Representation': 'heir-representation',
@@ -461,6 +462,11 @@ export function ServicesPricingModern() {
             These services solve different versions of the same problem: who can legally act for another person. A power of
             attorney is voluntarily signed while the person can appoint an agent; guardianship is a court process used when
             that authority is unavailable or inadequate.
+          </p>
+          <p className="mb-7 -mt-4 max-w-[820px] text-[15px] text-[#5f6b76]">
+            Opening probate for an heir who is a minor or an adult with a disability?{' '}
+            <Link href="#probate" className="font-bold text-[#547298] underline hover:text-[#33414E]">Probate + Guardianship</Link>{' '}
+            covers the uncontested probate and the heir&apos;s uncontested minor or adult guardianship for one flat fee of {usd(PROBATE.probateGuardianship)}.
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {[

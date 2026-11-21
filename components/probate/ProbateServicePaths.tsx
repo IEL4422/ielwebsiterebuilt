@@ -51,6 +51,8 @@ const roleServices = [
     href: buyHref('heir-representation', { source: 'probate-role' }) },
   { title: 'I am the surviving spouse', detail: `Spousal Representation — ${usd(PROBATE.spousalRepresentation)}`, serviceId: 'spousal-representation',
     href: buyHref('spousal-representation', { source: 'probate-role' }) },
+  { title: 'An heir is a minor or has a disability', detail: `Probate + Guardianship — ${usd(PROBATE.probateGuardianship)} flat fee for the probate and the heir's minor or adult guardianship`, serviceId: 'probate-guardianship',
+    href: buyHref('probate-guardianship', { source: 'probate-role' }) },
 ];
 
 export function ProbateServicePaths() {

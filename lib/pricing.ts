@@ -9,6 +9,8 @@
  *
  * Current requested pricing: adult and minor guardianship use a $5,000 retainer
  * with hourly billing. Standard probate is $5,000; the large-estate base remains $5,000.
+ * Probate + Guardianship (uncontested probate plus an uncontested minor or adult
+ * guardianship for an heir) is a $7,500 flat fee.
  * Trust Administration Consulting is $3,500 per year. Existing contested event
  * fees and discrete service prices are unchanged pending scope confirmation.
  * The retainer is not a fixed total fee. Rates and replenishment terms belong
@@ -187,6 +189,11 @@ export const PROBATE = {
    *  the retired standalone Small Estate Affidavit. Mary 2026-09-08. */
   smallEstateAdministration: 1000,
   standard: 5000,
+  /** Probate + Guardianship: uncontested probate plus an uncontested minor OR adult
+   *  guardianship for an heir who is a minor or an adult with a disability. One flat
+   *  fee, unlike the standalone guardianship retainers. Client picks minor or adult
+   *  at checkout in the portal. Mary 2026-11-20. */
+  probateGuardianship: 7500,
   /** Additional percentage charged during administration only when estate value exceeds $4,000,000 due to estate-tax complexity. */
   largeEstateBase: 5000,
   largeEstatePercent: 0.5,
