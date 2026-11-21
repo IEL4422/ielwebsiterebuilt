@@ -81,8 +81,8 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
 
 /** Website services deliberately NOT deep-linked, and why. They keep /start-online/. */
 export const UNMAPPED_REASONS: Record<string, string> = {
-  'irrevocable-life-insurance-trust': 'No ILIT in the portal catalog (only a generic irrevocable-trust option at $4,000).',
-  'document-review': 'No matching portal option.',
+  'irrevocable-life-insurance-trust': 'Consultation only: no ILIT in the portal catalog (only a generic irrevocable-trust option at $4,000).',
+  'document-review': 'Consultation only: no matching portal option.',
   'contested-probate': 'Court matter; starts with a consultation, no fixed-price checkout.',
   'adult-guardianship': 'Consultation only.',
   'emergency-temporary-adult-guardianship': 'Consultation only.',
@@ -162,8 +162,26 @@ export function startOnlineUrl(serviceId: string, clientType: ClientType = 'indi
   return `/start-online/?service=${encodeURIComponent(serviceId)}&clientType=${clientType}&source=${encodeURIComponent(source)}`;
 }
 
-/** Portal deep link when mapped, otherwise the website's /start-online/ page. */
+/** Free consultation booking page, for services that cannot be bought online. */
+export const BOOK_CONSULTATION_URL = '/book-consultation/';
+
+/**
+ * Services that start with a free consultation instead of an online purchase.
+ * Their buy buttons go straight to booking, never to a portal page that has no
+ * matching option.
+ */
+export const CONSULTATION_ONLY_IDS: readonly string[] = ['irrevocable-life-insurance-trust', 'document-review'];
+
+export function isConsultationOnly(serviceId: string): boolean {
+  return CONSULTATION_ONLY_IDS.includes(serviceId);
+}
+
+/**
+ * Portal deep link when mapped, the consultation booking page for
+ * consultation-only services, otherwise the website's /start-online/ page.
+ */
 export function buyHref(serviceId: string, options: { clientType?: ClientType; source?: string; answers?: QuizAnswers } = {}): string {
+  if (isConsultationOnly(serviceId)) return BOOK_CONSULTATION_URL;
   return portalHandoffUrl(serviceId, options) ?? startOnlineUrl(serviceId, options.clientType ?? 'individual', options.source);
 }
 

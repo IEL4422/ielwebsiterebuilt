@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { PROBATE, usd } from '../lib/pricing';
 import { allServices } from '../lib/services-data';
-import { packagePriceText } from '../lib/online-signup';
+import { buyButtonLabel, packagePriceText } from '../lib/online-signup';
 import {
+  BOOK_CONSULTATION_URL,
+  CONSULTATION_ONLY_IDS,
   MAX_ANSWERS_BYTES,
   PORTAL_GET_STARTED_URL,
   PORTAL_PACKAGES,
@@ -10,6 +12,7 @@ import {
   UNMAPPED_TIERS,
   buyHref,
   encodeAnswers,
+  isConsultationOnly,
   portalHandoffUrl,
   withUtm,
 } from '../lib/portal-handoff';
@@ -115,7 +118,21 @@ describe('hand-off URL', () => {
 
   it('falls back to the website review page for unmapped services', () => {
     expect(portalHandoffUrl('adult-guardianship')).toBeNull();
-    expect(buyHref('irrevocable-life-insurance-trust', { source: 'test' })).toBe('/start-online/?service=irrevocable-life-insurance-trust&clientType=individual&source=test');
+    expect(buyHref('contested-probate', { source: 'test' })).toBe('/start-online/?service=contested-probate&clientType=individual&source=test');
+  });
+
+  it('sends Document Review and the ILIT straight to a free consultation, never to the portal', () => {
+    for (const id of ['irrevocable-life-insurance-trust', 'document-review']) {
+      expect(isConsultationOnly(id), id).toBe(true);
+      expect(buyHref(id, { source: 'test' }), id).toBe(BOOK_CONSULTATION_URL);
+      expect(buyHref(id, { clientType: 'joint' }), id).toBe(BOOK_CONSULTATION_URL);
+      expect(portalHandoffUrl(id), id).toBeNull();
+      expect(allServices.find((s) => s.id === id)?.requiresConsultation, id).toBe(true);
+      expect(buyButtonLabel(id, { fallback: 'Get Started' }), id).toBe('Get Started');
+    }
+    expect(BOOK_CONSULTATION_URL).toBe('/book-consultation/');
+    // Every consultation-only id is also on the unmapped list, so nothing deep-links it.
+    for (const id of CONSULTATION_ONLY_IDS) expect(UNMAPPED_REASONS[id], id).toMatch(/^Consultation only/);
   });
 
   it('passes through utm_* values and nothing else', () => {

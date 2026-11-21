@@ -252,6 +252,8 @@ export const estatePlanningPackages: Service[] = [
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Irrevocable Life Insurance Trust',
     fixedPrice: ESTATE_PLANNING.irrevocableLifeInsuranceTrust,
+    // The portal has no ILIT option, so this starts with a free consultation.
+    requiresConsultation: true,
     description: 'A standalone Irrevocable Life Insurance Trust engagement for clients who want a properly structured trust to own life insurance and coordinate death-benefit administration with their estate plan. No base estate-planning package is required.',
     includes: [
       'Estate-tax, policy, ownership, beneficiary, and family-goal review',
@@ -470,6 +472,8 @@ export const probatePackages: Service[] = [
     standardizedCaseType: 'Probate',
     standardizedServiceName: 'Document Review',
     fixedPrice: 500,
+    // The portal has no document-review option, so this starts with a free consultation.
+    requiresConsultation: true,
     description: 'Professional review of probate or legal documents to identify potential issues, ensure legal compliance, and provide recommendations for improvements. For review of estate planning documents, please select DIY Estate Plan Review.',
     includes: [],
     addOns: []
