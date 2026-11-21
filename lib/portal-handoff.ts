@@ -98,7 +98,7 @@ export const UNMAPPED_REASONS: Record<string, string> = {
  */
 export const UNMAPPED_TIERS: Record<string, string> = {
   'medicaid-asset-protection-trust:joint':
-    'Portal mapt-joint is $5,000; the website has no couple price for this trust (one price, $4,500).',
+    'Portal mapt-joint is $5,000; the website has no couple price for this trust (one price, $4,000).',
 };
 
 export type QuizAnswers = Record<string, string>;

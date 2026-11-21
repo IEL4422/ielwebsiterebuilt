@@ -71,7 +71,7 @@ describe('website to portal package mapping', () => {
       expect(portalHandoffUrl(serviceId, { clientType: tier }), key).toBeNull();
       expect(buyHref(serviceId, { clientType: tier, source: 'test' })).toBe(`/start-online/?service=${serviceId}&clientType=${tier}&source=test`);
     }
-    // The website has one MAPT price ($4,500), which matches the portal's one-person tier only.
+    // The website has one MAPT price ($4,000), which matches the portal's one-person tier only.
     const mapt = allServices.find((s) => s.id === 'medicaid-asset-protection-trust')!;
     expect(mapt.jointPrice).toBeUndefined();
     expect(usd(mapt.fixedPrice as number)).toBe(usd(portal['mapt-individual'].price as number));
