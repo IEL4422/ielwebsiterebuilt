@@ -28,6 +28,7 @@ const corePaths = [
   '/contact/',
   '/diy-vs-attorney-estate-planning-illinois/',
   '/estate-planning/',
+  '/for-attorneys/',
   '/flat-fee-vs-hourly-probate-illinois/',
   '/frequently-asked-questions/',
   '/get-started/',
