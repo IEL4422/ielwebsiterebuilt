@@ -464,7 +464,7 @@ export function ServicesPricingModern() {
             that authority is unavailable or inadequate.
           </p>
           <p className="mb-7 -mt-4 max-w-[820px] text-[15px] text-[#5f6b76]">
-            Opening probate for an heir who is a minor or an adult with a disability?{' '}
+            Opening probate and also becoming guardian of an heir who is a minor or an adult with a disability (for example, a parent whose child is inheriting)?{' '}
             <Link href="#probate" className="font-bold text-[#547298] underline hover:text-[#33414E]">Probate + Guardianship</Link>{' '}
             covers the uncontested probate and the heir&apos;s uncontested minor or adult guardianship for one flat fee of {usd(PROBATE.probateGuardianship)}.
           </p>
