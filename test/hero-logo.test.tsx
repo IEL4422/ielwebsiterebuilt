@@ -21,6 +21,13 @@ describe('IEL logo presentation', () => {
     expect(html).toContain('Book a Free Consultation');
     expect(html).toContain('Flat-fee, virtual, same week.');
   });
+  it('keeps the 10% online savings and package prices out of the homepage hero (Mary, Nov 21)', () => {
+    const html = renderToStaticMarkup(<HeroSection />);
+    expect(html).not.toMatch(/10%/);
+    expect(html).not.toContain('Will packages from');
+    expect(html).not.toContain('trust packages from');
+    expect(html).not.toMatch(/\$\d/);
+  });
   it('enlarges only the desktop header image', () => {
     const html = renderToStaticMarkup(<Header />);
     expect(html).toContain('h-24 w-auto');

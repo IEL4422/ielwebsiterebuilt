@@ -5,8 +5,6 @@ import { HeroLogo } from './HeroLogo';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { ESTATE_PLANNING, usd } from '@/lib/pricing';
-import { ATTORNEY_PROMISE, ONLINE_DISCOUNT_BADGE, ONLINE_VS_CONSULT_LINE } from '@/lib/online-signup';
 
 const PRACTICE_AREAS = [
   'Estate Planning',
@@ -93,15 +91,12 @@ export function HeroSection() {
             Flat-fee, virtual, same week.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6">
             <Link
               href="/get-started/"
               className="inline-flex items-center justify-center bg-[#7E9CC0] hover:bg-[#547298] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-colors text-center"
             >
               Get Started Online
-              {ONLINE_DISCOUNT_BADGE && (
-                <span className="ml-2 rounded-full bg-white px-2 py-0.5 text-xs font-extrabold text-[#2F6B3F]">{ONLINE_DISCOUNT_BADGE}</span>
-              )}
             </Link>
             <Link
               href="/book-consultation/"
@@ -111,14 +106,6 @@ export function HeroSection() {
               Book a Free Consultation
             </Link>
           </div>
-
-          {ONLINE_VS_CONSULT_LINE && (
-            <p className="mb-3 text-sm font-bold leading-relaxed text-[#C9E7D2]">{ONLINE_VS_CONSULT_LINE}</p>
-          )}
-
-          <p className="text-white/80 text-sm leading-relaxed mb-3">
-            Will packages from {usd(ESTATE_PLANNING.willPackageIndividual)} and trust packages from {usd(ESTATE_PLANNING.trustPackageIndividual)}. {ATTORNEY_PROMISE}.
-          </p>
 
           <div className="mb-10">
             <Link
