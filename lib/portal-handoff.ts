@@ -54,6 +54,9 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
   // The website sells one MAPT price, so only the one-person tier is mapped (see UNMAPPED_TIERS).
   'medicaid-asset-protection-trust': { category: 'estate-planning', individual: 'mapt-individual', catalogId: 'mapt-trust' },
   'special-needs-planning': { category: 'estate-planning', individual: 'special-needs', catalogId: 'special-needs-planning' },
+  // The portal sells one Irrevocable Trust option at the same $4,000; the hand-off
+  // tells staff the client asked for an ILIT (see HANDOFF_NOTES).
+  'irrevocable-life-insurance-trust': { category: 'estate-planning', individual: 'irrevocable-trust', catalogId: 'irrevocable-trust-alc' },
   'annual-review-membership': { category: 'estate-planning', individual: 'annual-plan-review', catalogId: 'annual-plan-review' },
   // Probate
   'small-estate-administration': { category: 'probate', individual: 'small-estate-administration', catalogId: 'small-estate-administration' },
@@ -67,6 +70,7 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
   'heir-representation': { category: 'probate', individual: 'heir-representation', catalogId: 'heir-representation' },
   'partial-probate': { category: 'probate', individual: 'partial-probate', catalogId: 'partial-probate' },
   'spousal-representation': { category: 'probate', individual: 'spousal-representation', catalogId: 'spousal-representation' },
+  'document-review': { category: 'probate', individual: 'document-review', catalogId: 'document-review' },
   // Trust administration
   'trust-admin-consulting': { category: 'trust-administration', individual: 'trust-admin-consulting', catalogId: 'trust-admin-consulting' },
   // Real estate (the portal files Bond in Lieu under real estate)
@@ -81,8 +85,6 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
 
 /** Website services deliberately NOT deep-linked, and why. They keep /start-online/. */
 export const UNMAPPED_REASONS: Record<string, string> = {
-  'irrevocable-life-insurance-trust': 'Consultation only: no ILIT in the portal catalog (only a generic irrevocable-trust option at $4,000).',
-  'document-review': 'Consultation only: no matching portal option.',
   'contested-probate': 'Court matter; starts with a consultation, no fixed-price checkout.',
   'adult-guardianship': 'Consultation only.',
   'emergency-temporary-adult-guardianship': 'Consultation only.',
@@ -102,6 +104,14 @@ export const UNMAPPED_TIERS: Record<string, string> = {
 };
 
 export type QuizAnswers = Record<string, string>;
+
+/**
+ * Fixed notes sent with a hand-off (as `answers`) when the portal option is broader
+ * than the website service, so staff see exactly what the client chose.
+ */
+export const HANDOFF_NOTES: Record<string, QuizAnswers> = {
+  'irrevocable-life-insurance-trust': { website_service: 'Irrevocable Life Insurance Trust (ILIT)' },
+};
 
 /** Largest encoded `answers` value we send. */
 export const MAX_ANSWERS_BYTES = 1500;
@@ -149,7 +159,7 @@ export function portalHandoffUrl(
   params.set('service', pkg.category);
   params.set('package', options.clientType === 'joint' && pkg.joint ? pkg.joint : pkg.individual);
   params.set('from', 'website');
-  const answers = encodeAnswers(options.answers);
+  const answers = encodeAnswers(HANDOFF_NOTES[serviceId] ? { ...options.answers, ...HANDOFF_NOTES[serviceId] } : options.answers);
   if (answers) params.set('answers', answers);
   for (const [key, value] of Object.entries(options.utm ?? {})) {
     if (/^utm_[a-z_]{1,30}$/.test(key) && value) params.set(key, value.slice(0, 200));
@@ -162,26 +172,8 @@ export function startOnlineUrl(serviceId: string, clientType: ClientType = 'indi
   return `/start-online/?service=${encodeURIComponent(serviceId)}&clientType=${clientType}&source=${encodeURIComponent(source)}`;
 }
 
-/** Free consultation booking page, for services that cannot be bought online. */
-export const BOOK_CONSULTATION_URL = '/book-consultation/';
-
-/**
- * Services that start with a free consultation instead of an online purchase.
- * Their buy buttons go straight to booking, never to a portal page that has no
- * matching option.
- */
-export const CONSULTATION_ONLY_IDS: readonly string[] = ['irrevocable-life-insurance-trust', 'document-review'];
-
-export function isConsultationOnly(serviceId: string): boolean {
-  return CONSULTATION_ONLY_IDS.includes(serviceId);
-}
-
-/**
- * Portal deep link when mapped, the consultation booking page for
- * consultation-only services, otherwise the website's /start-online/ page.
- */
+/** Portal deep link when mapped, otherwise the website's /start-online/ page. */
 export function buyHref(serviceId: string, options: { clientType?: ClientType; source?: string; answers?: QuizAnswers } = {}): string {
-  if (isConsultationOnly(serviceId)) return BOOK_CONSULTATION_URL;
   return portalHandoffUrl(serviceId, options) ?? startOnlineUrl(serviceId, options.clientType ?? 'individual', options.source);
 }
 

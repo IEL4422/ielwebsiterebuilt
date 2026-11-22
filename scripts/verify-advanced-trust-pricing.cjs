@@ -8,7 +8,6 @@ const services = [
     price: '$4,000',
     id: 'medicaid-asset-protection-trust',
     // Hands off to the portal with the MAPT package chosen (lib/portal-handoff.ts).
-    cta: 'Get Started',
     href: /service=estate-planning&package=mapt-individual/,
     scope: /five-year look-back/i,
   },
@@ -16,9 +15,8 @@ const services = [
     name: 'Irrevocable Life Insurance Trust (ILIT)',
     price: '$4,000',
     id: 'irrevocable-life-insurance-trust',
-    // No portal match, so it starts with a free consultation (CONSULTATION_ONLY_IDS).
-    cta: 'Book a free consultation',
-    href: /^\/book-consultation\/$/,
+    // Hands off to the portal's Irrevocable Trust option, noting the ILIT (lib/portal-handoff.ts).
+    href: /service=estate-planning&package=irrevocable-trust&from=website/,
     scope: /Crummey withdrawal-notice/i,
   },
 ];
@@ -37,12 +35,9 @@ const services = [
         const text = await card.textContent();
         assert(text.includes(service.price), `${service.name} shows ${service.price}`);
         assert.match(text, service.scope, `${service.name} explains its standalone scope`);
-        const start = card.getByRole('link', { name: service.cta, exact: true });
-        assert.equal(await start.count(), 1, `${service.name} has one ${service.cta} link`);
+        const start = card.getByRole('link', { name: 'Get Started' });
+        assert.equal(await start.count(), 1, `${service.name} has one Get Started link`);
         assert.match(await start.getAttribute('href'), service.href);
-        if (service.cta !== 'Get Started') {
-          assert.equal(await card.getByRole('link', { name: 'Get Started' }).count(), 0, `${service.name} has no Get Started link`);
-        }
       }
 
       assert.equal(await page.getByText('Irrevocable Trust', { exact: true }).count(), 0, 'generic trust card is retired');
