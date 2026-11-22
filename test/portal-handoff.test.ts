@@ -71,12 +71,15 @@ describe('website to portal package mapping', () => {
       expect(portalHandoffUrl(serviceId, { clientType: tier }), key).toBeNull();
       expect(buyHref(serviceId, { clientType: tier, source: 'test' })).toBe(`/start-online/?service=${serviceId}&clientType=${tier}&source=test`);
     }
-    // The website has one MAPT price ($4,000), which matches the portal's one-person tier only.
-    const mapt = allServices.find((s) => s.id === 'medicaid-asset-protection-trust')!;
-    expect(mapt.jointPrice).toBeUndefined();
-    expect(usd(mapt.fixedPrice as number)).toBe(usd(portal['mapt-individual'].price as number));
-    expect(portal['mapt-joint'].price).not.toBe(mapt.fixedPrice);
-    expect(new URL(portalHandoffUrl('medicaid-asset-protection-trust') as string).searchParams.get('package')).toBe('mapt-individual');
+  });
+
+  it('sends MAPT and the MAPT Package to the portal tier the client picked', () => {
+    const tier = (id: string, clientType: 'individual' | 'joint') =>
+      new URL(portalHandoffUrl(id, { clientType }) as string).searchParams.get('package');
+    expect(tier('medicaid-asset-protection-trust', 'individual')).toBe('mapt-individual');
+    expect(tier('medicaid-asset-protection-trust', 'joint')).toBe('mapt-joint');
+    expect(tier('medicaid-asset-protection-trust-package', 'individual')).toBe('mapt-package-individual');
+    expect(tier('medicaid-asset-protection-trust-package', 'joint')).toBe('mapt-package-joint');
   });
 
   it('never deep-links a consultation-only service', () => {

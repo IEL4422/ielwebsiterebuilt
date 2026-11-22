@@ -130,6 +130,23 @@ export const serviceCategories: ServiceCategory[] = [
         note: `Fixed fee includes one advanced irrevocable trust. Each additional advanced trust is ${usd(ESTATE_PLANNING.irrevocableTrust)}.`
       },
       {
+        name: 'Medicaid Asset Protection Trust Package',
+        subtitle: 'A complete estate plan built around a Medicaid Asset Protection Trust',
+        individualPrice: ESTATE_PLANNING.maptPackageIndividual,
+        jointPrice: ESTATE_PLANNING.maptPackageJoint,
+        includes: [
+          'Custom Illinois Medicaid Asset Protection Trust in place of the revocable trust',
+          'Will, financial and healthcare powers of attorney, living will, HIPAA authorization, and personal property memorandum',
+          'One Illinois deed to the trust, including recording fees (one property total for a couple)',
+          'Customized Trust Funding Guide and Trustee Guide',
+          'Online or Mobile Notarization',
+          'Physical & Digital Estate Planning Portfolio',
+          'Client Portal Access',
+          'Attorney consultations related to the included scope'
+        ],
+        note: 'Advance Medicaid planning only. Couples may choose one joint MAPT or two individual MAPTs. Medicaid applications, crisis planning, additional deeds, tax returns, and appraisals are separate.'
+      },
+      {
         name: 'Annual Review Membership',
         fixedPrice: ESTATE_PLANNING.annualReviewMembership,
         includes: [
@@ -180,7 +197,8 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: 'Medicaid Asset Protection Trust',
         subtitle: 'Standalone long-term-care asset-protection planning',
-        fixedPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+        individualPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+        jointPrice: ESTATE_PLANNING.medicaidAssetProtectionTrustJoint,
         includes: [
           'Five-year look-back, asset, family, and long-term-care planning review',
           'Custom Illinois Medicaid Asset Protection Trust',

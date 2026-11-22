@@ -24,6 +24,14 @@ function num(name) {
 }
 const usd = (n) => `$${n.toLocaleString('en-US')}`;
 
+/** The wrongful death referral rate lives in lib/for-attorneys.ts, beside the attorney pages. */
+function wrongfulDeathFee() {
+  const src = readFileSync(join(root, 'lib/for-attorneys.ts'), 'utf8');
+  const m = src.match(/WRONGFUL_DEATH_PROBATE_FEE\s*=\s*(\d+)/);
+  if (!m) throw new Error('build-pricing-sheet: WRONGFUL_DEATH_PROBATE_FEE not found in lib/for-attorneys.ts');
+  return Number(m[1]);
+}
+
 const TOKENS = {
   CONTESTED_INITIAL_FLAT_FEE: usd(num('probateInitialFlatFee')),
   CONTESTED_GUARDIANSHIP_FLAT_FEE: usd(num('guardianshipInitialFlatFee')),
@@ -42,6 +50,11 @@ const TOKENS = {
   SPECIAL_NEEDS: usd(num('specialNeedsPlanning')),
   ESTATE_TAX_ADD_ON: usd(num('estateTaxPlanningAddOn')),
   MEDICAID_ASSET_PROTECTION_TRUST: usd(num('medicaidAssetProtectionTrust')),
+  MEDICAID_ASSET_PROTECTION_TRUST_JOINT: usd(num('medicaidAssetProtectionTrustJoint')),
+  MAPT_PACKAGE_INDIVIDUAL: usd(num('maptPackageIndividual')),
+  MAPT_PACKAGE_JOINT: usd(num('maptPackageJoint')),
+  WRONGFUL_DEATH_PROBATE: usd(wrongfulDeathFee()),
+  DOCUMENT_REVIEW: usd(num('documentReview')),
   IRREVOCABLE_LIFE_INSURANCE_TRUST: usd(num('irrevocableLifeInsuranceTrust')),
   IRREVOCABLE_TRUST: usd(num('irrevocableTrust')),
   ANNUAL_REVIEW_MEMBERSHIP: usd(num('annualReviewMembership')),

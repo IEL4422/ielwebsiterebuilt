@@ -304,7 +304,8 @@ export function CategorizedServices({
           id: 'medicaid-asset-protection-trust',
           name: 'Medicaid Asset Protection Trust',
           category: 'a-la-carte',
-          fixedPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+          individualPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+          jointPrice: ESTATE_PLANNING.medicaidAssetProtectionTrustJoint,
           description: 'Standalone advance long-term-care planning with a custom Illinois Medicaid Asset Protection Trust, five-year look-back analysis, a written funding plan, and one recorded Illinois deed.',
           includes: [
             'Custom Illinois Medicaid Asset Protection Trust',
