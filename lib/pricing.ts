@@ -219,6 +219,11 @@ export const ESTATE_PLANNING = {
   estateTaxPackageJoint: 20000,
   /** Standalone advanced-trust services. */
   medicaidAssetProtectionTrust: 4000,
+  /** Couple (one joint MAPT or two individual MAPTs). Mary 2026-11-20: joint stays $5,000. */
+  medicaidAssetProtectionTrustJoint: 5000,
+  /** Complete plan built around a MAPT in place of the revocable trust (portal mapt-package). */
+  maptPackageIndividual: 6000,
+  maptPackageJoint: 7500,
   irrevocableLifeInsuranceTrust: 4000,
   /** Legacy compatibility value for other advanced irrevocable-trust references. */
   irrevocableTrust: 4000,

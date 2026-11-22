@@ -29,6 +29,7 @@ export type StandardizedServiceName =
   | 'Joint Will Amendment - A La Carte'
   | 'Special Needs Planning - Add-On'
   | 'Medicaid Asset Protection Trust'
+  | 'Medicaid Asset Protection Trust Package'
   | 'Irrevocable Life Insurance Trust'
   | 'Estate Tax Planning - Add-On'
   | 'Probate (Tier 1)'
@@ -228,7 +229,8 @@ export const estatePlanningPackages: Service[] = [
     category: 'estate-planning',
     standardizedCaseType: 'Estate Planning',
     standardizedServiceName: 'Medicaid Asset Protection Trust',
-    fixedPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+    individualPrice: ESTATE_PLANNING.medicaidAssetProtectionTrust,
+    jointPrice: ESTATE_PLANNING.medicaidAssetProtectionTrustJoint,
     description: 'A standalone Illinois Medicaid Asset Protection Trust (MAPT) engagement for advance long-term-care planning. The strategy is designed around Medicaid transfer rules and the five-year look-back period; it is not a crisis Medicaid application or a promise of eligibility.',
     includes: [
       'Long-term-care goals, asset, family, and five-year look-back review',
@@ -242,6 +244,30 @@ export const estatePlanningPackages: Service[] = [
       'Attorney consultations related to the included scope'
     ],
     note: 'Standalone service; no other estate-planning package is required. Medicaid applications, crisis planning for care expected within five years, tax returns, appraisals, financial advice, and additional deeds are separate. Medicaid eligibility depends on timing, transfers, assets, income, and then-current law.',
+    addOns: []
+  },
+  {
+    id: 'medicaid-asset-protection-trust-package',
+    name: 'Medicaid Asset Protection Trust Package',
+    subtitle: 'A complete estate plan built around a Medicaid Asset Protection Trust',
+    category: 'estate-planning',
+    standardizedCaseType: 'Estate Planning',
+    standardizedServiceName: 'Medicaid Asset Protection Trust Package',
+    individualPrice: ESTATE_PLANNING.maptPackageIndividual,
+    jointPrice: ESTATE_PLANNING.maptPackageJoint,
+    description: 'A full estate plan for advance long-term-care planning. A Medicaid Asset Protection Trust takes the place of the revocable trust, and the package adds your will, powers of attorney, and the rest of the documents in the Trust Package. Couples may choose one joint MAPT or two individual MAPTs.',
+    includes: [
+      'Review of advance-planning goals and assets',
+      'Custom Illinois Medicaid Asset Protection Trust and support documents',
+      'Will, financial and healthcare powers of attorney, living will, HIPAA authorization, and personal property memorandum',
+      'One Illinois deed transferring real estate to the trust, including recording fees (one property total for a couple)',
+      'Customized Trust Funding Guide and Trustee Guide',
+      'Online or Mobile Notarization',
+      'Physical & Digital Estate Planning Portfolio',
+      'Client Portal Access',
+      'Attorney consultations related to the included scope'
+    ],
+    note: 'Advance Medicaid planning only. The package price is the total; it replaces, rather than adds to, the revocable trust. Medicaid applications, denials, appeals, crisis representation, additional deeds, tax returns, appraisals, and ongoing administration are separate.',
     addOns: []
   },
   {

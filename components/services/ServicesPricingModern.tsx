@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { A_LA_CARTE, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, usd } from '@/lib/pricing';
+import { A_LA_CARTE, BUSINESS, CONTESTED, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, usd } from '@/lib/pricing';
 import { FEE_STRUCTURE_NOTE } from '@/lib/fee-structure';
 import { trackFunnelEvent } from '@/lib/gtag';
 import { ONLINE_DISCOUNT_LINE, buyButtonLabel } from '@/lib/online-signup';
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes';
 import { PortalHandoffLink } from '@/components/ui/PortalHandoffLink';
 import { buyHref } from '@/lib/portal-handoff';
+import { FOR_ATTORNEYS_PATH, WRONGFUL_DEATH_PROBATE_FEE } from '@/lib/for-attorneys';
 import {
   serviceCategories,
   type Service,
@@ -32,6 +33,7 @@ const SERVICE_IDS: Record<string, string> = {
   'Trust Restatement': 'trust-restatement',
   'Will Amendment': 'will-amendment',
   'Medicaid Asset Protection Trust': 'medicaid-asset-protection-trust',
+  'Medicaid Asset Protection Trust Package': 'medicaid-asset-protection-trust-package',
   'Irrevocable Life Insurance Trust (ILIT)': 'irrevocable-life-insurance-trust',
   'Special Needs Planning': 'special-needs-planning',
   'Estate Tax Planning (Add-On)': 'estate-tax-planning',
@@ -257,7 +259,14 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
     label: 'Estate Planning — À La Carte & Add-Ons',
     rows: [...estatePlanning.aLaCarte, ...estatePlanning.addOns].map(toRow),
   },
-  { label: 'Probate & Administration', rows: probate.packages.map(toRow) },
+  {
+    label: 'Probate & Administration',
+    rows: [
+      ...probate.packages.map(toRow),
+      { name: 'Wrongful Death Probate', individual: usd(WRONGFUL_DEATH_PROBATE_FEE), joint: '', notes: 'Special rate for a wrongful death estate referred by a personal injury attorney. Filing and publication fees included.' },
+      { name: 'Document Review', individual: usd(PROBATE.documentReview), joint: '', notes: 'Attorney review of probate or other legal documents, with written recommendations.' },
+    ],
+  },
   { label: 'Trust Administration', rows: trustAdmin.packages.map(toRow) },
   { label: 'Real Estate & Deeds', rows: [...realEstate.packages, ...deeds.aLaCarte].map(toRow) },
   {
@@ -269,6 +278,13 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
       { name: 'Minor Guardianship — Uncontested', individual: `${usd(GUARDIANSHIP_RETAINER.minorUncontested)} retainer; hourly billing`, joint: '', notes: 'Rates and anticipated costs are explained before representation begins.' },
       { name: 'Contested Guardianship', individual: `Starts with ${usd(CONTESTED.guardianshipInitialFlatFee)}`, joint: '', notes: 'Initial scope only. Contested cases may incur additional flat fees when listed litigation events actually occur.' },
       { name: 'Annual Report on the Ward', individual: `${usd(GUARDIANSHIP_COMPLIANCE.annualReportPerson)} / year`, joint: '', notes: 'Personal annual report preparation and filing. Estate accounting is not included in this fee.' },
+    ],
+  },
+  {
+    label: 'Small Business',
+    rows: [
+      { name: 'LLC Formation', individual: usd(BUSINESS.llcFormation), joint: '', notes: 'Illinois LLC formation. The state filing fee is included.' },
+      { name: 'Trademark Registration', individual: usd(BUSINESS.trademarkRegistration), joint: '', notes: 'Federal trademark application. The USPTO registration fee is included.' },
     ],
   },
 ];
@@ -397,10 +413,15 @@ export function ServicesPricingModern() {
           </p>
           <div className="mt-6 rounded-xl border border-[#E3EAF1] bg-[#F6F9FC] p-5">
             <p className="text-[15px] text-[#33414E]">
-              <strong>Wrongful Death Cases:</strong> Ask us about our special wrongful death attorney referral pricing.{' '}
+              <strong>Wrongful Death Cases:</strong> Wrongful death probate is a {usd(WRONGFUL_DEATH_PROBATE_FEE)} flat fee, including filing and publication fees, when a personal injury attorney refers the case.{' '}
+              <Link href={FOR_ATTORNEYS_PATH} className="text-[#547298] underline hover:text-[#33414E]">
+                Attorney referral details
+              </Link>
+              ,{' '}
               <Link href={BOOK} className="text-[#547298] underline hover:text-[#33414E]">
-                Schedule a consultation
-              </Link>{' '}
+                schedule a consultation
+              </Link>
+              ,{' '}
               or call{' '}
               <a href="tel:3123730731" className="text-[#547298] underline hover:text-[#33414E]">
                 (312) 373-0731

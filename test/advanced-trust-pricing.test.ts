@@ -8,6 +8,9 @@ describe('standalone advanced-trust pricing', () => {
     expect(ESTATE_PLANNING.medicaidAssetProtectionTrust).toBe(4000);
     expect(ESTATE_PLANNING.irrevocableLifeInsuranceTrust).toBe(4000);
     expect(ESTATE_PLANNING.irrevocableTrust).toBe(4000);
+    expect(ESTATE_PLANNING.medicaidAssetProtectionTrustJoint).toBe(5000);
+    expect(ESTATE_PLANNING.maptPackageIndividual).toBe(6000);
+    expect(ESTATE_PLANNING.maptPackageJoint).toBe(7500);
   });
 
   it('offers MAPT and ILIT as independent selectable services', () => {
@@ -16,7 +19,8 @@ describe('standalone advanced-trust pricing', () => {
 
     expect(mapTrust).toMatchObject({
       name: 'Medicaid Asset Protection Trust',
-      fixedPrice: 4000,
+      individualPrice: 4000,
+      jointPrice: 5000,
       standardizedServiceName: 'Medicaid Asset Protection Trust',
     });
     expect(mapTrust?.description).toContain('standalone');
@@ -41,7 +45,18 @@ describe('standalone advanced-trust pricing', () => {
     );
 
     expect(standalone).toHaveLength(2);
-    expect(standalone?.map(service => service.fixedPrice).sort()).toEqual([4000, 4000]);
+    const mapt = standalone?.find(service => service.name === 'Medicaid Asset Protection Trust');
+    const ilit = standalone?.find(service => service.name !== 'Medicaid Asset Protection Trust');
+    expect(mapt).toMatchObject({ individualPrice: 4000, jointPrice: 5000 });
+    expect(ilit?.fixedPrice).toBe(4000);
     expect(estatePlanning?.aLaCarte.some(service => service.name === 'Irrevocable Trust')).toBe(false);
+  });
+
+  it('offers the MAPT Package at $6,000 individual and $7,500 joint', () => {
+    const pkg = allServices.find(service => service.id === 'medicaid-asset-protection-trust-package');
+    expect(pkg).toMatchObject({ individualPrice: 6000, jointPrice: 7500 });
+    const estatePlanning = serviceCategories.find(category => category.id === 'estate-planning');
+    const card = estatePlanning?.packages.find(p => p.name.includes('Medicaid Asset Protection Trust Package'));
+    expect(card).toMatchObject({ individualPrice: 6000, jointPrice: 7500 });
   });
 });

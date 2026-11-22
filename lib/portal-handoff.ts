@@ -51,8 +51,8 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
   'trust-restatement': { category: 'estate-planning', individual: 'trust-restatement', joint: 'trust-restatement-joint', catalogId: 'trust-restatement-alc' },
   'will-amendment': { category: 'estate-planning', individual: 'will-amendment', joint: 'will-amendment-joint', catalogId: 'will-amendment-alc' },
   'estate-tax-planning': { category: 'estate-planning', individual: 'estate-tax-standalone', catalogId: 'estate-tax-planning-addon' },
-  // The website sells one MAPT price, so only the one-person tier is mapped (see UNMAPPED_TIERS).
-  'medicaid-asset-protection-trust': { category: 'estate-planning', individual: 'mapt-individual', catalogId: 'mapt-trust' },
+  'medicaid-asset-protection-trust': { category: 'estate-planning', individual: 'mapt-individual', joint: 'mapt-joint', catalogId: 'mapt-trust' },
+  'medicaid-asset-protection-trust-package': { category: 'estate-planning', individual: 'mapt-package-individual', joint: 'mapt-package-joint', catalogId: 'mapt-package' },
   'special-needs-planning': { category: 'estate-planning', individual: 'special-needs', catalogId: 'special-needs-planning' },
   // The portal sells one Irrevocable Trust option at the same $4,000; the hand-off
   // tells staff the client asked for an ILIT (see HANDOFF_NOTES).
@@ -98,10 +98,7 @@ export const UNMAPPED_REASONS: Record<string, string> = {
  * visitor choosing that tier keeps /start-online/ instead of landing on the
  * wrong portal option.
  */
-export const UNMAPPED_TIERS: Record<string, string> = {
-  'medicaid-asset-protection-trust:joint':
-    'Portal mapt-joint is $5,000; the website has no couple price for this trust (one price, $4,000).',
-};
+export const UNMAPPED_TIERS: Record<string, string> = {};
 
 export type QuizAnswers = Record<string, string>;
 

@@ -36,6 +36,7 @@ export const ATTORNEY_PROMISE_SERVICE_IDS: readonly string[] = [
   'trust-package',
   'estate-tax-planning-package',
   'medicaid-asset-protection-trust',
+  'medicaid-asset-protection-trust-package',
   'irrevocable-life-insurance-trust',
 ];
 
@@ -53,7 +54,8 @@ const PACKAGE_PRICES: Record<string, PackagePrice> = {
   'will-package': { individual: ESTATE_PLANNING.willPackageIndividual, joint: ESTATE_PLANNING.willPackageJoint },
   'diy-estate-plan-review': { individual: ESTATE_PLANNING.diyReviewIndividual, joint: ESTATE_PLANNING.diyReviewJoint },
   'estate-tax-planning-package': { individual: ESTATE_PLANNING.estateTaxPackageIndividual, joint: ESTATE_PLANNING.estateTaxPackageJoint },
-  'medicaid-asset-protection-trust': { individual: ESTATE_PLANNING.medicaidAssetProtectionTrust },
+  'medicaid-asset-protection-trust': { individual: ESTATE_PLANNING.medicaidAssetProtectionTrust, joint: ESTATE_PLANNING.medicaidAssetProtectionTrustJoint },
+  'medicaid-asset-protection-trust-package': { individual: ESTATE_PLANNING.maptPackageIndividual, joint: ESTATE_PLANNING.maptPackageJoint },
   'irrevocable-life-insurance-trust': { individual: ESTATE_PLANNING.irrevocableLifeInsuranceTrust },
   'revocable-living-trust': { individual: A_LA_CARTE.revocableTrustIndividual, joint: A_LA_CARTE.revocableTrustJoint },
   'last-will-testament': { individual: A_LA_CARTE.willIndividual, joint: A_LA_CARTE.willJoint },
@@ -84,6 +86,7 @@ const BUTTON_VERBS: Record<string, string> = {
   'trust-package': 'Start my trust',
   'revocable-living-trust': 'Start my trust',
   'medicaid-asset-protection-trust': 'Start my trust',
+  'medicaid-asset-protection-trust-package': 'Start my plan',
   'irrevocable-life-insurance-trust': 'Start my trust',
   'will-package': 'Start my will',
   'last-will-testament': 'Start my will',
