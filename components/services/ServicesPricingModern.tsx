@@ -50,6 +50,8 @@ const SERVICE_IDS: Record<string, string> = {
   'Trust Administration Consulting': 'trust-admin-consulting',
   'Sale Representation': 'residential-closing',
   'For Sale By Owner (FSBO) Representation': 'fsbo-representation',
+  'LLC Formation': 'llc-formation',
+  'Trademark Registration': 'trademark-registration',
 };
 
 function serviceStartHref(serviceName: string) {
@@ -66,6 +68,7 @@ const probate = byId('probate');
 const trustAdmin = byId('trust-administration');
 const deeds = byId('deeds');
 const realEstate = byId('real-estate');
+const smallBusiness = byId('small-business');
 
 /* ---------- shared bits ---------- */
 
@@ -284,7 +287,7 @@ const priceGroups: Array<{ label: string; rows: Row[] }> = [
     label: 'Small Business',
     rows: [
       { name: 'LLC Formation', individual: usd(BUSINESS.llcFormation), joint: '', notes: 'Illinois LLC formation. The state filing fee is included.' },
-      { name: 'Trademark Registration', individual: usd(BUSINESS.trademarkRegistration), joint: '', notes: 'Federal trademark application. The USPTO registration fee is included.' },
+      { name: 'Trademark Registration', individual: usd(BUSINESS.trademarkRegistration), joint: '', notes: 'Federal trademark application. The USPTO filing fee is included.' },
     ],
   },
 ];
@@ -317,6 +320,7 @@ export function ServicesPricingModern() {
             ['Contested Fees', '#contested-event-fees'],
             ['Real Estate & Deeds', '#realestate'],
             ['POA & Guardianship', '#guardianship'],
+            ['Small Business', '#small-business'],
             ['Full Price List', '#table'],
           ].map(([label, href]) => (
             <a
@@ -521,6 +525,29 @@ export function ServicesPricingModern() {
             Unsure which service applies?{' '}
             <Link href="/power-of-attorney-and-guardianship/" className="text-[#547298] underline hover:text-[#33414E]">Compare power of attorney and guardianship</Link>
             {' '}or <Link href={BOOK} className="text-[#547298] underline hover:text-[#33414E]">book a free consultation</Link>.
+          </p>
+        </section>
+
+        {/* 06 Small Business */}
+        <section id="small-business" className="scroll-mt-[150px] border-t border-[#E3EAF1] py-12">
+          <CatHead kick="06" title="Small Business" />
+          <p className="mb-7 max-w-[760px] text-[16px] text-[#5f6b76]">
+            Flat-fee LLC formation and federal trademark registration for Illinois business owners. Government filing fees
+            are included in both prices.
+          </p>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {smallBusiness.packages.map((s, i) => (
+              <PackageCard
+                key={i}
+                service={s}
+                ctas={ctasFor(s.name, { priced: true })}
+              />
+            ))}
+          </div>
+          <p className="mt-6 text-[15px] text-[#5f6b76]">
+            <Link href="/small-business/" className="font-bold text-[#547298] underline hover:text-[#33414E]">
+              More about our small business services
+            </Link>
           </p>
         </section>
       </div>

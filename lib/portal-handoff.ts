@@ -23,7 +23,7 @@ import type { ClientType } from './online-signup';
 
 export const PORTAL_GET_STARTED_URL = 'https://portal.illinoisestatelaw.com/get-started';
 
-export type PortalCategory = 'estate-planning' | 'probate' | 'trust-administration' | 'real-estate' | 'deeds';
+export type PortalCategory = 'estate-planning' | 'probate' | 'trust-administration' | 'real-estate' | 'deeds' | 'small-business';
 
 export type PortalPackage = {
   /** Portal category key, sent as `service`. */
@@ -81,6 +81,9 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
   'quit-claim-deed': { category: 'deeds', individual: 'quit-claim', catalogId: 'quitclaim-deed' },
   'transfer-on-death': { category: 'deeds', individual: 'tod-deed', catalogId: 'todi' },
   'life-estate-deed': { category: 'deeds', individual: 'life-estate', catalogId: 'life-estate-deed' },
+  // Small business (portal get-started "Small Business" a la carte items)
+  'llc-formation': { category: 'small-business', individual: 'business-llc-formation', catalogId: 'business-llc-formation' },
+  'trademark-registration': { category: 'small-business', individual: 'trademark', catalogId: 'trademark' },
 };
 
 /** Website services deliberately NOT deep-linked, and why. They keep /start-online/. */

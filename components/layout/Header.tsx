@@ -27,6 +27,7 @@ export const navItems = [
       { label: 'POA & Guardianship', href: '/power-of-attorney-and-guardianship/' },
       { label: 'Real Estate', href: '/chicago-real-estate-closings-lawyer/' },
       { label: 'Deeds', href: '/chicago-deeds-lawyer/' },
+      { label: 'Small Business', href: '/small-business/' },
     ],
   },
   { label: 'Services & Pricing', href: '/services-pricing/' },

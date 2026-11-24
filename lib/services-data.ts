@@ -1,6 +1,6 @@
-import { A_LA_CARTE, CONTESTED, CONTESTED_PROBATE_FEE_NOTE, CONTESTED_GUARDIANSHIP_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
+import { A_LA_CARTE, BUSINESS, CONTESTED, CONTESTED_PROBATE_FEE_NOTE, CONTESTED_GUARDIANSHIP_FEE_NOTE, EMERGENCY_GUARDIANSHIP_FILING_TIMELINE, ESTATE_PLANNING, GUARDIANSHIP_COMPLIANCE, GUARDIANSHIP_RETAINER, GUARDIANSHIP_HOURLY_NOTE, GUARDIANSHIP_FLAT, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
 
-export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Bond in Lieu of Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship';
+export type StandardizedCaseType = 'Estate Planning' | 'Probate' | 'Bond in Lieu of Probate' | 'Trust Administration' | 'Real Estate' | 'Guardianship' | 'Small Business';
 
 export type StandardizedServiceName =
   | 'Individual Trust Package'
@@ -56,13 +56,15 @@ export type StandardizedServiceName =
   | 'Emergency Temporary Adult Guardianship'
   | 'Minor Guardianship'
   | 'Annual Report on the Ward'
-  | 'Contested Guardianship';
+  | 'Contested Guardianship'
+  | 'LLC Formation'
+  | 'Trademark Registration';
 
 export interface Service {
   id: string;
   name: string;
   subtitle?: string;
-  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'real-estate' | 'guardianship';
+  category: 'estate-planning' | 'probate' | 'a-la-carte' | 'real-estate' | 'guardianship' | 'small-business';
   standardizedCaseType: StandardizedCaseType;
   standardizedServiceName: {
     individual: StandardizedServiceName;
@@ -804,12 +806,56 @@ export const guardianshipServices: Service[] = [
   }
 ];
 
+/**
+ * Small business services (offered again Nov 2026). Prices from lib/pricing.ts
+ * BUSINESS: government filing fees included (Mary 2026-11-19). Scope wording
+ * follows the portal's service scopes (business-llc-formation, trademark).
+ */
+export const smallBusinessServices: Service[] = [
+  {
+    id: 'llc-formation',
+    name: 'LLC Formation',
+    subtitle: 'Illinois LLC, state filing fee included',
+    category: 'small-business',
+    standardizedCaseType: 'Small Business',
+    standardizedServiceName: 'LLC Formation',
+    fixedPrice: BUSINESS.llcFormation,
+    description: 'Formation of a new Illinois limited liability company for your business, rental property, or investment. The Illinois Secretary of State filing fee is included in the flat fee.',
+    includes: [
+      'Review of your proposed LLC name, business address, owners, management structure, and registered agent',
+      'Preparation and filing of your LLC formation documents with the Illinois Secretary of State',
+      'The state filing fee, included in the flat fee',
+      'Delivery of your filed formation records',
+      'Attorney consultations related to your LLC formation'
+    ],
+    note: 'An EIN, operating agreement, registered-agent service, annual reports, business licenses, and tax or accounting advice are not included.'
+  },
+  {
+    id: 'trademark-registration',
+    name: 'Trademark Registration',
+    subtitle: 'Federal application, USPTO filing fee included',
+    category: 'small-business',
+    standardizedCaseType: 'Small Business',
+    standardizedServiceName: 'Trademark Registration',
+    fixedPrice: BUSINESS.trademarkRegistration,
+    description: 'Federal trademark protection for your business name, logo, or slogan, from the search for conflicting marks through registration with the U.S. Patent and Trademark Office (USPTO).',
+    includes: [
+      'A search for conflicting marks before we file',
+      'Preparation and filing of your federal trademark application with the USPTO',
+      'The USPTO filing fee, included in the flat fee',
+      'Following your application through review, publication, and registration',
+      'Attorney consultations related to your application'
+    ]
+  }
+];
+
 export const allServices = [
   ...estatePlanningPackages,
   ...probatePackages,
   ...trustAdministrationServices,
   ...aLaCarteServices,
   ...realEstateServices,
-  ...guardianshipServices
+  ...guardianshipServices,
+  ...smallBusinessServices
 ];
 

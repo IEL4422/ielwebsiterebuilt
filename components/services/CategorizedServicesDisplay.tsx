@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { A_LA_CARTE, CONTESTED, CONTESTED_PROBATE_FEE_NOTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from '@/lib/pricing';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import { probatePackages } from '@/lib/services-data';
+import { probatePackages, smallBusinessServices } from '@/lib/services-data';
 
 export interface Service {
   name: string;
@@ -434,6 +434,14 @@ export const serviceCategories: ServiceCategory[] = [
         note: 'The $1,500 attorney fee is paid at closing from sale proceeds. We do not act as a broker, market or show the property, find a buyer, or set the sale price. Third-party closing costs are not included.'
       }
     ],
+    aLaCarte: [],
+    addOns: []
+  },
+  {
+    id: 'small-business',
+    name: 'Small Business',
+    // Read straight from lib/services-data.ts so the two copies cannot drift apart.
+    packages: smallBusinessServices.map(({ name, subtitle, fixedPrice, includes, note }) => ({ name, subtitle, fixedPrice, includes, note })),
     aLaCarte: [],
     addOns: []
   },
