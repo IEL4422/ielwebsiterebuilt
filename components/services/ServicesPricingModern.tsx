@@ -50,6 +50,8 @@ const SERVICE_IDS: Record<string, string> = {
   'Trust Administration Consulting': 'trust-admin-consulting',
   'Sale Representation': 'residential-closing',
   'For Sale By Owner (FSBO) Representation': 'fsbo-representation',
+  'Small Business Package': 'small-business-package',
+  'Business Essentials Package': 'business-essentials',
   'LLC Formation': 'llc-formation',
   'Trademark Registration': 'trademark-registration',
 };

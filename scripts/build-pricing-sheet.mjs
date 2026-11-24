@@ -61,6 +61,8 @@ const TOKENS = {
   POA_INDIVIDUAL: usd(num('powersOfAttorneyIndividual')),
   POA_JOINT: usd(num('powersOfAttorneyJoint')),
   TRUST_ADMIN_ANNUAL: usd(num('consultingAnnual')),
+  SMALL_BUSINESS_PACKAGE: usd(num('smallBusinessPackage')),
+  BUSINESS_ESSENTIALS: usd(num('businessEssentials')),
   LLC_FORMATION: usd(num('llcFormation')),
   TRADEMARK_REGISTRATION: usd(num('trademarkRegistration')),
   GUARDIANSHIP_PERSONAL_REPORT: usd(num('annualReportPerson')),

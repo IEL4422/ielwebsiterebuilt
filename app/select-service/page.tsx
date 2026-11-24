@@ -82,7 +82,7 @@ function serviceGroups(): ServiceGroup[] {
     {
       id: 'small-business',
       title: 'Small Business',
-      description: 'Flat-fee Illinois LLC formation and federal trademark registration. Government filing fees are included.',
+      description: 'Flat-fee business packages, Illinois LLC formation and federal trademark registration. Government filing fees are included.',
       services: allServices.filter((service) => service.category === 'small-business'),
     },
   ].filter((group) => group.services.length > 0);

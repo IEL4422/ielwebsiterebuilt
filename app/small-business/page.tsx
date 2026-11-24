@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Building2, BadgeCheck, Check } from 'lucide-react'
+import { Building2, BadgeCheck, Briefcase, Check, Package } from 'lucide-react'
 import { InnerPageHero } from '@/components/layout/InnerPageHero'
 import { CTABand } from '@/components/ui/CTAButtons'
 import { BuyButtonNotes } from '@/components/ui/BuyButtonNotes'
@@ -11,11 +11,11 @@ import { usd } from '@/lib/pricing'
 import { smallBusinessServices } from '@/lib/services-data'
 
 export const metadata: Metadata = {
-  title: 'Small Business Services: LLC Formation and Trademark Registration',
-  description: 'Flat-fee Illinois LLC formation and federal trademark registration from Illinois Estate Law. Government filing fees are included in both prices.',
+  title: 'Small Business Services: Business Packages, LLC Formation and Trademarks',
+  description: 'Flat-fee business packages, Illinois LLC formation and federal trademark registration from Illinois Estate Law. Government filing fees are included.',
   openGraph: {
     title: 'Small Business Services | Illinois Estate Law',
-    description: 'Flat-fee Illinois LLC formation and federal trademark registration, with government filing fees included.',
+    description: 'Flat-fee business packages, Illinois LLC formation and federal trademark registration, with government filing fees included.',
     url: 'https://www.illinoisestatelaw.com/small-business/',
     siteName: 'Illinois Estate Law',
     locale: 'en_US',
@@ -27,6 +27,8 @@ export const metadata: Metadata = {
 }
 
 const ICONS: Record<string, typeof Building2> = {
+  'small-business-package': Package,
+  'business-essentials': Briefcase,
   'llc-formation': Building2,
   'trademark-registration': BadgeCheck,
 }
@@ -36,7 +38,7 @@ export default function SmallBusinessPage() {
     <main>
       <InnerPageHero
         title="Small Business Legal Services"
-        subtitle="Form your Illinois LLC and protect your brand with a federal trademark, each for one flat fee that includes the government filing fee."
+        subtitle="Start your business with one complete package, or choose just the LLC or trademark you need. Every flat fee includes the government filing fees."
       />
 
       <section className="bg-white py-16 lg:py-24">

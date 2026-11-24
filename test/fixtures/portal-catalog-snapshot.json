@@ -1,5 +1,5 @@
 {
- "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes. Probate + Guardianship entries (probate-guardianship group option and the probate-minor-guardianship / probate-adult-guardianship catalog entries, all $7,500) were added by hand on 2026-11-20 to match the portal change being built alongside this one; replace them with the portal's own projection once it lands. Document Review (document-review, $500, probate) was added by hand on 2026-11-21 for the same reason. LLC Formation (business-llc-formation, $750) and Trademark Registration (trademark, $1,500), both small-business, were copied from the portal projection on main (a86cd04) on 2026-11-24.",
+ "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes. Probate + Guardianship entries (probate-guardianship group option and the probate-minor-guardianship / probate-adult-guardianship catalog entries, all $7,500) were added by hand on 2026-11-20 to match the portal change being built alongside this one; replace them with the portal's own projection once it lands. Document Review (document-review, $500, probate) was added by hand on 2026-11-21 for the same reason. LLC Formation (business-llc-formation, $750) and Trademark Registration (trademark, $1,500), both small-business, were copied from the portal projection on main (a86cd04) on 2026-11-24. Small Business Package (small-business-full, $2,000) and Business Essentials (business-essentials, $1,000) were set active by hand on 2026-11-24 to match StaffPortal PR #1524, which turns them back on for online purchase.",
  "byId": {
   "additional-deed": {
    "catalogId": "additional-deed",
@@ -59,11 +59,11 @@
   },
   "business-essentials": {
    "catalogId": "business-essentials",
-   "category": null,
-   "list": null,
+   "category": "small-business",
+   "list": "packages",
    "price": 1000,
-   "active": false,
-   "consult": true
+   "active": true,
+   "consult": false
   },
   "business-llc-formation": {
    "catalogId": "business-llc-formation",
@@ -651,11 +651,11 @@
   },
   "small-business-full": {
    "catalogId": "small-business-package",
-   "category": null,
-   "list": null,
+   "category": "small-business",
+   "list": "packages",
    "price": 2000,
-   "active": false,
-   "consult": true
+   "active": true,
+   "consult": false
   },
   "small-estate-administration": {
    "catalogId": "small-estate-administration",
