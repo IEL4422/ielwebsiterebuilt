@@ -262,6 +262,10 @@ export const REAL_ESTATE = {
 export const BUSINESS = {
   llcFormation: 750,
   trademarkRegistration: 1500,
+  /** LLC, trademark, operating agreement and EIN, filing fees included (portal small-business-full). */
+  smallBusinessPackage: 2000,
+  /** LLC, operating agreement and EIN, state filing fee included (portal business-essentials). */
+  businessEssentials: 1000,
 } as const;
 
 /**

@@ -58,7 +58,9 @@ export type StandardizedServiceName =
   | 'Annual Report on the Ward'
   | 'Contested Guardianship'
   | 'LLC Formation'
-  | 'Trademark Registration';
+  | 'Trademark Registration'
+  | 'Small Business Package'
+  | 'Business Essentials Package';
 
 export interface Service {
   id: string;
@@ -812,6 +814,41 @@ export const guardianshipServices: Service[] = [
  * follows the portal's service scopes (business-llc-formation, trademark).
  */
 export const smallBusinessServices: Service[] = [
+  {
+    id: 'small-business-package',
+    name: 'Small Business Package',
+    subtitle: 'LLC, trademark, operating agreement, and EIN',
+    category: 'small-business',
+    standardizedCaseType: 'Small Business',
+    standardizedServiceName: 'Small Business Package',
+    fixedPrice: BUSINESS.smallBusinessPackage,
+    description: 'Everything to launch a new business for one flat fee: your Illinois LLC, a federal trademark for your business name or logo, an operating agreement, and your EIN (federal tax ID number). The state and USPTO filing fees are included, and it costs less than buying LLC Formation and Trademark Registration separately.',
+    includes: [
+      'Formation of your Illinois LLC, with the state filing fee included',
+      'Federal trademark registration with the USPTO, with the USPTO filing fee included',
+      'An operating agreement for your LLC',
+      'Your EIN (federal tax ID number) from the IRS',
+      'Attorney consultations related to your package'
+    ],
+    note: 'Registered-agent service, annual reports, business licenses, and tax or accounting advice are not included.'
+  },
+  {
+    id: 'business-essentials',
+    name: 'Business Essentials Package',
+    subtitle: 'LLC, operating agreement, and EIN',
+    category: 'small-business',
+    standardizedCaseType: 'Small Business',
+    standardizedServiceName: 'Business Essentials Package',
+    fixedPrice: BUSINESS.businessEssentials,
+    description: 'The basics to set up a new Illinois LLC the right way: formation, an operating agreement, and your EIN (federal tax ID number), for one flat fee with the state filing fee included.',
+    includes: [
+      'Formation of your Illinois LLC, with the state filing fee included',
+      'An operating agreement for your LLC',
+      'Your EIN (federal tax ID number) from the IRS',
+      'Attorney consultations related to your package'
+    ],
+    note: 'Trademark registration, registered-agent service, annual reports, business licenses, and tax or accounting advice are not included.'
+  },
   {
     id: 'llc-formation',
     name: 'LLC Formation',
