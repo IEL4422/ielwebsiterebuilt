@@ -10,7 +10,7 @@ import { buyHref, startOnlineUrl } from '@/lib/portal-handoff';
 
 export const metadata: Metadata = {
   title: 'Select a Service',
-  description: 'Choose an Illinois Estate Law service directly. Browse estate planning, probate, trust administration, real estate, deed, and guardianship services without taking a quiz.',
+  description: 'Choose an Illinois Estate Law service directly. Browse estate planning, probate, trust administration, real estate, deed, guardianship, and small business services without taking a quiz.',
   alternates: {
     canonical: 'https://www.illinoisestatelaw.com/select-service/',
   },
@@ -78,6 +78,12 @@ function serviceGroups(): ServiceGroup[] {
       title: 'Guardianship',
       description: 'Adult and minor guardianship, annual compliance, and contested guardianship matters.',
       services: allServices.filter((service) => service.category === 'guardianship'),
+    },
+    {
+      id: 'small-business',
+      title: 'Small Business',
+      description: 'Flat-fee Illinois LLC formation and federal trademark registration. Government filing fees are included.',
+      services: allServices.filter((service) => service.category === 'small-business'),
     },
   ].filter((group) => group.services.length > 0);
 }

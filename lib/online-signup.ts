@@ -10,7 +10,7 @@
  * deeds, because the portal takes 10% off any catalog-priced purchase other than
  * a deed that arrives with from=website and has no consultation on file.
  */
-import { A_LA_CARTE, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
+import { A_LA_CARTE, BUSINESS, ESTATE_PLANNING, PROBATE, REAL_ESTATE, TRUST_ADMIN, usd } from './pricing';
 import { PORTAL_PACKAGES, portalHandoffUrl } from './portal-handoff';
 
 export type ClientType = 'individual' | 'joint';
@@ -80,6 +80,8 @@ const PACKAGE_PRICES: Record<string, PackagePrice> = {
   'residential-closing': { individual: REAL_ESTATE.saleRepresentation },
   'fsbo-representation': { individual: REAL_ESTATE.fsboRepresentation },
   'trust-admin-consulting': { individual: TRUST_ADMIN.consultingAnnual, per: 'a year' },
+  'llc-formation': { individual: BUSINESS.llcFormation },
+  'trademark-registration': { individual: BUSINESS.trademarkRegistration },
 };
 
 const BUTTON_VERBS: Record<string, string> = {
@@ -96,6 +98,8 @@ const BUTTON_VERBS: Record<string, string> = {
   'document-review': 'Start my review',
   'standard-probate': 'Start probate',
   'probate-guardianship': 'Start probate + guardianship',
+  'llc-formation': 'Start my LLC',
+  'trademark-registration': 'Start my trademark',
 };
 
 /** "$3,500", "$5,000" (joint), "from $3,500" (when no client type is chosen), "$3,500 a year". */

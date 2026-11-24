@@ -1,5 +1,5 @@
 {
- "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes. Probate + Guardianship entries (probate-guardianship group option and the probate-minor-guardianship / probate-adult-guardianship catalog entries, all $7,500) were added by hand on 2026-11-20 to match the portal change being built alongside this one; replace them with the portal's own projection once it lands. Document Review (document-review, $500, probate) was added by hand on 2026-11-21 for the same reason.",
+ "_source": "IEL4422/StaffPortal frontend/src/config/servicePricingProjection.json on main (file last changed in c94390a3, PR #1351), byId trimmed to the fields the hand-off uses. Refresh this file when the portal catalog changes. Probate + Guardianship entries (probate-guardianship group option and the probate-minor-guardianship / probate-adult-guardianship catalog entries, all $7,500) were added by hand on 2026-11-20 to match the portal change being built alongside this one; replace them with the portal's own projection once it lands. Document Review (document-review, $500, probate) was added by hand on 2026-11-21 for the same reason. LLC Formation (business-llc-formation, $750) and Trademark Registration (trademark, $1,500), both small-business, were copied from the portal projection on main (a86cd04) on 2026-11-24.",
  "byId": {
   "additional-deed": {
    "catalogId": "additional-deed",
@@ -64,6 +64,14 @@
    "price": 1000,
    "active": false,
    "consult": true
+  },
+  "business-llc-formation": {
+   "catalogId": "business-llc-formation",
+   "category": "small-business",
+   "list": "aLaCarte",
+   "price": 750,
+   "active": true,
+   "consult": false
   },
   "contested-guardianship": {
    "catalogId": "contested-guardianship",
@@ -718,6 +726,14 @@
    "category": "deeds",
    "list": "aLaCarte",
    "price": 500,
+   "active": true,
+   "consult": false
+  },
+  "trademark": {
+   "catalogId": "trademark",
+   "category": "small-business",
+   "list": "aLaCarte",
+   "price": 1500,
    "active": true,
    "consult": false
   },
