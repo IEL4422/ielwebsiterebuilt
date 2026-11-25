@@ -32,5 +32,8 @@ export const BOOKING_CONTESTED_PROBATE = `${BASE}/initial-consultation-contested
 /** Guardianship — adult + minor, contested + uncontested — team event. */
 export const BOOKING_GUARDIANSHIP = `${BASE}/initial-consultation-guardianship`;
 
+/** Small business — LLCs, trademarks, business packages — team event (Nov 2026). */
+export const BOOKING_SMALL_BUSINESS = `${BASE}/initial-consultation-small-business`;
+
 /** The firm's default consultation flow (the on-site selector page). */
 export const BOOKING_DEFAULT = 'https://www.illinoisestatelaw.com/book-consultation/';

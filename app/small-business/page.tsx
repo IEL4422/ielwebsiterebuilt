@@ -93,7 +93,7 @@ export default function SmallBusinessPage() {
                         {buyButtonLabel(service.id, { fallback: 'Get Started' })}
                       </PortalHandoffLink>
                       <Link
-                        href="/book-consultation/"
+                        href="/book-consultation/?type=small-business"
                         className="inline-flex flex-1 items-center justify-center border-2 border-[#33414E] text-[#33414E] px-6 py-3 rounded-full font-bold hover:bg-slate-50 transition-colors"
                       >
                         Free Consultation
