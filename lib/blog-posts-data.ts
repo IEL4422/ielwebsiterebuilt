@@ -9,6 +9,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'estate-planning-checklist-illinois',
+    title: 'Illinois Estate Planning Checklist: Everything You Need in 2026',
+    url: '/blog/estate-planning-checklist-illinois/',
+    date: 'Nov 25, 2026',
+    summary:
+      'Complete Illinois estate planning checklist covering the four core documents (will, revocable trust, financial POA, healthcare POA), beneficiary designations, asset titling, guardian nominations, and when to update your plan after major life events.',
+    excerpt:
+      'Step-by-step Illinois estate planning checklist covering wills, trusts, powers of attorney, beneficiary updates, and more. Know exactly what you need.',
+  },
+  {
     slug: 'how-to-avoid-probate-illinois',
     title: 'How to Avoid Probate in Illinois: 5 Strategies That Work',
     url: '/blog/how-to-avoid-probate-illinois/',
