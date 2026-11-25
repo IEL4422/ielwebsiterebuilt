@@ -80,6 +80,8 @@ const PACKAGE_PRICES: Record<string, PackagePrice> = {
   'residential-closing': { individual: REAL_ESTATE.saleRepresentation },
   'fsbo-representation': { individual: REAL_ESTATE.fsboRepresentation },
   'trust-admin-consulting': { individual: TRUST_ADMIN.consultingAnnual, per: 'a year' },
+  'small-business-package': { individual: BUSINESS.smallBusinessPackage },
+  'business-essentials': { individual: BUSINESS.businessEssentials },
   'llc-formation': { individual: BUSINESS.llcFormation },
   'trademark-registration': { individual: BUSINESS.trademarkRegistration },
 };
@@ -98,6 +100,8 @@ const BUTTON_VERBS: Record<string, string> = {
   'document-review': 'Start my review',
   'standard-probate': 'Start probate',
   'probate-guardianship': 'Start probate + guardianship',
+  'small-business-package': 'Start my package',
+  'business-essentials': 'Start my package',
   'llc-formation': 'Start my LLC',
   'trademark-registration': 'Start my trademark',
 };

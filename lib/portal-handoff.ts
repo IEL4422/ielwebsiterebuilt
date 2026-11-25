@@ -81,7 +81,9 @@ export const PORTAL_PACKAGES: Record<string, PortalPackage> = {
   'quit-claim-deed': { category: 'deeds', individual: 'quit-claim', catalogId: 'quitclaim-deed' },
   'transfer-on-death': { category: 'deeds', individual: 'tod-deed', catalogId: 'todi' },
   'life-estate-deed': { category: 'deeds', individual: 'life-estate', catalogId: 'life-estate-deed' },
-  // Small business (portal get-started "Small Business" a la carte items)
+  // Small business (portal get-started "Small Business" packages and a la carte items)
+  'small-business-package': { category: 'small-business', individual: 'small-business-full', catalogId: 'small-business-package' },
+  'business-essentials': { category: 'small-business', individual: 'business-essentials', catalogId: 'business-essentials' },
   'llc-formation': { category: 'small-business', individual: 'business-llc-formation', catalogId: 'business-llc-formation' },
   'trademark-registration': { category: 'small-business', individual: 'trademark', catalogId: 'trademark' },
 };
