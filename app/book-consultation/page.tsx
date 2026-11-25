@@ -25,7 +25,7 @@ const TYPE_TO_EMBED: Record<CaseType, string> = {
   'uncontested-probate': 'my-lunacal-inline-initial-consultation-probate',
   'contested-probate': 'my-lunacal-inline-initial-consultation-contested-probate',
   'guardianship': 'my-lunacal-inline-initial-consultation-guardianship',
-  'small-business': 'my-lunacal-inline-initial-consultation-small-business',
+  'small-business': 'my-lunacal-inline-initial-consult-smallbusiness',
 };
 
 const isCaseType = (value: string | null): value is CaseType =>
@@ -364,11 +364,11 @@ export default function BookConsultationPage() {
               }}
             />
             <div
-              id="my-lunacal-inline-initial-consultation-small-business"
+              id="my-lunacal-inline-initial-consult-smallbusiness"
               style={{
                 width: '100%',
-                height: embedHeight('my-lunacal-inline-initial-consultation-small-business'),
-                overflow: embedOverflow('my-lunacal-inline-initial-consultation-small-business'),
+                height: embedHeight('my-lunacal-inline-initial-consult-smallbusiness'),
+                overflow: embedOverflow('my-lunacal-inline-initial-consult-smallbusiness'),
               }}
             />
           </div>
@@ -444,14 +444,14 @@ export default function BookConsultationPage() {
           Lunacal.ns["initial-consultation-guardianship"]("ui", ${LUNACAL_UI_THEME});
 
           // ── Small Business (team event: Initial Consultation - Small Business) ──
-          Lunacal("init","initial-consultation-small-business",{origin:"https://app.lunacal.ai"});
-          Lunacal.ns["initial-consultation-small-business"]("inline", {
-            elementOrSelector:"#my-lunacal-inline-initial-consultation-small-business",
+          Lunacal("init","initial-consult-smallbusiness",{origin:"https://app.lunacal.ai"});
+          Lunacal.ns["initial-consult-smallbusiness"]("inline", {
+            elementOrSelector:"#my-lunacal-inline-initial-consult-smallbusiness",
             config: {"layout":""},
-            calLink: "team/illinois-estate-law/initial-consultation-small-business",
+            calLink: "team/illinois-estate-law/initial-consult-smallbusiness",
           });
-          Lunacal.ns["initial-consultation-small-business"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-small-business", type: "inline", options: { prerenderIframe: true } });
-          Lunacal.ns["initial-consultation-small-business"]("ui", ${LUNACAL_UI_THEME});
+          Lunacal.ns["initial-consult-smallbusiness"]("preload", { calLink: "team/illinois-estate-law/initial-consult-smallbusiness", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consult-smallbusiness"]("ui", ${LUNACAL_UI_THEME});
         `}
       </Script>
     </>
