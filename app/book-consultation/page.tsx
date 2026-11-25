@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Script from 'next/script';
-import { ArrowLeft, Building2, ScrollText, Scale, Briefcase, Gavel, HeartHandshake } from 'lucide-react';
+import { ArrowLeft, Building2, ScrollText, Scale, Briefcase, Gavel, HeartHandshake, Store } from 'lucide-react';
 import { InnerPageHero } from '@/components/layout/InnerPageHero';
 import { trackFunnelEvent } from '@/lib/gtag';
 import Link from 'next/link';
@@ -15,7 +15,8 @@ type CaseType =
   | 'real-estate'
   | 'uncontested-probate'
   | 'contested-probate'
-  | 'guardianship';
+  | 'guardianship'
+  | 'small-business';
 
 const TYPE_TO_EMBED: Record<CaseType, string> = {
   'estate-planning': 'my-lunacal-inline-initial-consultation',
@@ -24,7 +25,11 @@ const TYPE_TO_EMBED: Record<CaseType, string> = {
   'uncontested-probate': 'my-lunacal-inline-initial-consultation-probate',
   'contested-probate': 'my-lunacal-inline-initial-consultation-contested-probate',
   'guardianship': 'my-lunacal-inline-initial-consultation-guardianship',
+  'small-business': 'my-lunacal-inline-initial-consult-smallbusiness',
 };
+
+const isCaseType = (value: string | null): value is CaseType =>
+  !!value && Object.prototype.hasOwnProperty.call(TYPE_TO_EMBED, value);
 
 interface CaseOption {
   id: CaseType;
@@ -122,6 +127,21 @@ const CASE_OPTIONS: CaseOption[] = [
     bookWith: 'Our Guardianship Team',
     bookWithRole: 'Guardianship Attorneys',
   },
+  {
+    // Mary, Nov 24 2026: small business gets its own consultation.
+    id: 'small-business',
+    icon: Store,
+    label: 'Small Business',
+    subtitle: 'Start and protect your Illinois business',
+    examples: [
+      'Illinois LLC Formation',
+      'Federal Trademark Registration',
+      'Operating Agreements',
+      'EIN Applications',
+    ],
+    bookWith: 'Our Small Business Team',
+    bookWithRole: 'Small Business Attorneys',
+  },
 ];
 
 const LUNACAL_UI_THEME = `{"theme":"light","styles":{"branding":{}},"hideEventTypeDetails":false,"layout":"","cssVarsPerTheme":{"light":{"theme-border":"#E7E7EE","theme-background-primary":"#7033FF","theme-background-secondary":"#E2EBFF","theme-background-card":"#FFFFFF","theme-background-base":"#FFFFFF","theme-text-primary":"#FFFFFF","theme-text-secondary":"#1E69DC","theme-text-card":"#000000","theme-text-base":"#0B0D0E","theme-rounded-base":"20px","theme-rounded-calendar":" 24px","theme-rounded-timeslot":"100px","theme-rounded-day":"100px","theme-rounded-button":"100px","theme-shadow-calendar":"2px 2px 4px 0px #0000001A","theme-shadow-button":"1px 2px 2px 0px #0000001A","theme-shadow-timeslot":"0px 0px 0px 0px #000000","theme-font-family":"Inter"},"dark":{"theme-border":"#33353A","theme-background-primary":"#7033FF","theme-background-secondary":"#1E293B","theme-background-card":"#222327","theme-background-base":"#1A1B1E","theme-text-primary":"#FFFFFF","theme-text-secondary":"#1E69DC","theme-text-card":"#FFFFFF","theme-text-base":"#FFFFFF","theme-rounded-base":"20px","theme-rounded-calendar":" 24px","theme-rounded-timeslot":"100px","theme-rounded-day":"100px","theme-rounded-button":"100px","theme-shadow-calendar":"2px 2px 4px 0px #0000001A","theme-shadow-button":"1px 2px 2px 0px #0000001A","theme-shadow-timeslot":"0px 0px 0px 0px #000000","theme-font-family":"Inter"}},"displayedContent":{"image":true,"name":true,"designation":true,"description":true,"eventName":true,"highlightBar":false},"background":null,"stylePreset":null}`;
@@ -140,6 +160,12 @@ export default function BookConsultationPage() {
     return () => { live = false; };
   }, []);
   const useEmbed = useCallback(() => setOwnPicker(false), []);
+
+  // A page can open the booking page on one consultation: /book-consultation/?type=small-business
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get('type');
+    if (isCaseType(type)) setSelectedType(type);
+  }, []);
 
   const selectedOption = CASE_OPTIONS.find((o) => o.id === selectedType);
   const activeEmbedId = selectedType ? TYPE_TO_EMBED[selectedType] : null;
@@ -337,6 +363,14 @@ export default function BookConsultationPage() {
                 overflow: embedOverflow('my-lunacal-inline-initial-consultation-guardianship'),
               }}
             />
+            <div
+              id="my-lunacal-inline-initial-consult-smallbusiness"
+              style={{
+                width: '100%',
+                height: embedHeight('my-lunacal-inline-initial-consult-smallbusiness'),
+                overflow: embedOverflow('my-lunacal-inline-initial-consult-smallbusiness'),
+              }}
+            />
           </div>
         </div>
       </main>
@@ -408,6 +442,16 @@ export default function BookConsultationPage() {
           });
           Lunacal.ns["initial-consultation-guardianship"]("preload", { calLink: "team/illinois-estate-law/initial-consultation-guardianship", type: "inline", options: { prerenderIframe: true } });
           Lunacal.ns["initial-consultation-guardianship"]("ui", ${LUNACAL_UI_THEME});
+
+          // ── Small Business (team event: Initial Consultation - Small Business) ──
+          Lunacal("init","initial-consult-smallbusiness",{origin:"https://app.lunacal.ai"});
+          Lunacal.ns["initial-consult-smallbusiness"]("inline", {
+            elementOrSelector:"#my-lunacal-inline-initial-consult-smallbusiness",
+            config: {"layout":""},
+            calLink: "team/illinois-estate-law/initial-consult-smallbusiness",
+          });
+          Lunacal.ns["initial-consult-smallbusiness"]("preload", { calLink: "team/illinois-estate-law/initial-consult-smallbusiness", type: "inline", options: { prerenderIframe: true } });
+          Lunacal.ns["initial-consult-smallbusiness"]("ui", ${LUNACAL_UI_THEME});
         `}
       </Script>
     </>

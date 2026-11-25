@@ -21,7 +21,8 @@ export type CaseType =
   | 'real-estate'
   | 'uncontested-probate'
   | 'contested-probate'
-  | 'guardianship';
+  | 'guardianship'
+  | 'small-business';
 
 export const HEARD_OPTIONS = ['Internet Search', 'AI Search', 'Referral', 'Yelp', 'Facebook', 'Other'] as const;
 
@@ -33,6 +34,8 @@ export const CONSULTS: Record<CaseType, { eventTypeId: number; slug: string; tit
   'uncontested-probate': { eventTypeId: 22049, slug: 'initial-consultation-probate', title: 'Probate Consultation' },
   'contested-probate': { eventTypeId: 23000, slug: 'initial-consultation-contested-probate', title: 'Contested Probate Consultation' },
   guardianship: { eventTypeId: 22997, slug: 'initial-consultation-guardianship', title: 'Guardianship Consultation' },
+  // Mary made this team event on Nov 25 2026 (hosts: Mary Liberty, Yassmin Koudmani).
+  'small-business': { eventTypeId: 22293, slug: 'initial-consult-smallbusiness', title: 'Small Business Consultation' },
 };
 
 /** The general Initial Consultation's two required questions (matter type, how they heard). */
